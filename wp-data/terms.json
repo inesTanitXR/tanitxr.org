@@ -1,0 +1,75 @@
+{
+ "country": {
+  "783824845": "Africa",
+  "783824890": "Canada",
+  "783824863": "France",
+  "783824900": "Germany",
+  "783824840": "Global",
+  "783824893": "Italy",
+  "783824901": "Japan",
+  "783824887": "South Korea",
+  "783824837": "Switzerland",
+  "783824858": "UAE",
+  "783824842": "UK",
+  "783824889": "United Kingdom",
+  "783824888": "United States",
+  "783824831": "USA"
+ },
+ "region": {},
+ "opportunity_type": {
+  "783824808": "Art",
+  "783824841": "Award",
+  "783824884": "Challenge",
+  "783824844": "Competition",
+  "783824830": "Conference",
+  "783824829": "Fellowship",
+  "783824865": "Festival",
+  "783824811": "Grant",
+  "783824846": "Hackathon",
+  "783824843": "Network",
+  "783824867": "Open Call",
+  "783824873": "Program",
+  "783824812": "Residency",
+  "783824810": "Social Impact",
+  "783824839": "Summit",
+  "783824809": "XR"
+ },
+ "deadline_type": {
+  "783824826": "Closed",
+  "783824823": "Fixed",
+  "783824825": "Open",
+  "783824824": "Rolling",
+  "783824827": "TBA"
+ },
+ "eligibility": {
+  "783824881": "Artists",
+  "783824891": "Educators",
+  "783824885": "Non-profits",
+  "783824886": "Open to all",
+  "783824879": "Researchers",
+  "783824883": "Students",
+  "783824882": "XR Creators",
+  "783824894": "Youth"
+ },
+ "participation-mode": {
+  "783824851": "Hybrid",
+  "783824880": "In-person",
+  "783824849": "Remote"
+ },
+ "team_group": {
+  "783824805": "Community_contributors",
+  "783824804": "Core_team"
+ },
+ "categories": {
+  "783824725": "Baths of Antoninus",
+  "86606173": "Byrsa Hill",
+  "300921": "Carthage",
+  "783824769": "Kairouan",
+  "12227": "Models",
+  "783824768": "News",
+  "783824721": "The Roman Villas District",
+  "484868393": "Tophet of Salammb\u00f4",
+  "1": "Uncategorized",
+  "783824770": "Zawiya of Sidi Sahib"
+ }
+}

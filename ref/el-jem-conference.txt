@@ -1,0 +1,45 @@
+[h1] El Jem Conference 
+ Home 
+[p] 
+ El Jem Conference 
+[h2] ENGLISH 
+[p] This paper was presented at the El Jem Conference in April 2026 and explores how digital documentation, extended reality (XR), and citizen science can support scalable, community-driven heritage preservation in Tunisia and beyond. 
+[p] Using Tanit XR as a case study, the paper highlights how accessible technologies and volunteer training can expand documentation efforts, reach underrepresented sites, and connect global audiences to Tunisian heritage. 
+[p] Click the buttons below to download the full paper in English, French, or Tunisian Arabic. 
+ English 
+ FRANÇAIS 
+ دارجة تونسية 
+[h2] FRANÇAIS 
+[p] Cet article a été présenté à la conférence d’El Jem en avril 2026. Il explore comment la documentation numérique, la réalité étendue (XR) et la science participative peuvent soutenir une préservation du patrimoine évolutive et portée par les communautés, en Tunisie et au-delà. 
+[p] À travers l’exemple de Tanit XR, l’article montre comment des technologies accessibles et la formation de bénévoles permettent d’élargir les efforts de documentation, d’inclure des sites sous-représentés et de connecter un public international au patrimoine tunisien. 
+[p] Cliquez sur les boutons ci-dessous pour télécharger l’article en anglais, français ou arabe tunisien. 
+ English 
+ FRANÇAIS 
+ دارجة تونسية 
+[h2] دارجة تونسية 
+[p] الورقة هاذي تقدّمت في مؤتمر الجم في أفريل 2026، وتحكي كيفاش التكنولوجيا (XR) ومشاركة الناس تنجم تعاون في حماية التراث التونسي بطريقة موسّعة ومستدامة في تونس وحتى خارجها. 
+[p] من خلال مثال Tanit XR، تبيّن كيفاش الأدوات البسيطة والتكوين ينجموا يوسّعوا التوثيق، يوصلوا للمواقع المهمّشة، ويقرّبوا التراث التونسي للناس في العالم الكل. 
+[p] اضغط على الأزرار لتحت باش تحمّل الورقة بالإنقليزي، الفرونسي، ولا الدارجة التونسية. 
+ English 
+ FRANÇAIS 
+ دارجة تونسية 
+[h3] 
+ Trending now 
+[p] 
+[p] 
+[p] 
+ Punic Stela ‚Äì Tophet of Salammbo, Carthage Corinthian Capital ‚ Byrsa Hill, Carthage A Beginning: Why Tanit XR Exists Storm Harry, Neapolis, and a Digital Moment of Preservation.
+
+==IMAGES==
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/04/d557910a-29d0-4e95-aeae-45d76cd652b3.jpg?fit=1536%2C2048&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/0e9a31c1b02c4824a2efc3c9d6c4f7aa.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ac789b797d4e4528aab59e898676a6f3.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196-copy-2-edited.jpg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/02/Screenshot-2026-01-23-at-3.09.40-PM.png?resize=150%2C150&amp;ssl=1
+
+==LINKS==
+Home -> https://tanitxr.org/
+Punic Stela ‚Äì Tophet of Salammbo, Carthage -> https://tanitxr.org/2025/09/14/punic-stela-ai-tophet-of-salammbo-carthage/
+Corinthian Capital ‚ Byrsa Hill, Carthage -> https://tanitxr.org/2025/09/14/corinthian-capital-ai-byrsa-hill-carthage/
+A Beginning: Why Tanit XR Exists -> https://tanitxr.org/2025/09/14/a-beginning-why-tanit-xr-exists/
+Storm Harry, Neapolis, and a Digital Moment of Preservation. -> https://tanitxr.org/2026/02/05/storm-harry-neapolis-and-a-digital-moment-of-preservation/

@@ -1,0 +1,62 @@
+[h1] Volunteer 
+ Home 
+[p] 
+ Volunteer 
+[h3] Want to join our team of volunteers? 
+[p] Fill out our volunteer interest form and we will connect with you about available opportunities. 
+ Volunteer 
+[h2] Frequently Asked Questions 
+[h5] How can I become a volunteer? 
+[li] 
+[p] 
+[p] We’re so excited that you’re interested in volunteering! Please fill out this Volunteer form and we’ll get back to you via email. 
+[h5] What should I know before applying? 
+[li] 
+[p] 
+[p] Our volunteer positions are currently unpaid and remote. We work with volunteers digitally all over the globe. We have some mentorship and networking opportunities available to our volunteers based on your chosen area of focus. Areas of focus we’re currently seeking are: grant writing, XR/VR development, business development, social media management, graphic design, and general interest. All levels of experience and expertise are welcome to volunteer. 
+[h5] How does your team work together? 
+[li] 
+[p] 
+[p] As a global, virtual team, it’s important for us to communicate asynchronously. The majority of our communication is done via Slack. Once a week, we meet virtually and discuss ongoing, upcoming, and blocked tasks to keep our mission moving forward. 
+[h5] Are there different ways to volunteer? 
+[li] 
+[p] 
+[p] As one of our goals is to engage the public in preservation work, the ability to volunteer will eventually expand and become tiered. While we build our foundation, we hold only one tier. Keep checking back to see how you can get involved! 
+[h5] Do you work with organizations and external partners? 
+[li] 
+[p] 
+[p] Preservation, cultural conservation, and climate work is done best in community. We are open to all forms of partnership that help move our mission forward. If you are an archaeologist, non-profit, government agency, or any other organization aligned in the mission of conservation or preservation, please reach out to us at info@tanitxr.org. 
+[h5] How much time do I need to dedicate if I become a volunteer? 
+[li] 
+[p] 
+[p] Volunteer tasks are project and task based. After expressing your interests via the volunteer form a member of our leadership team will reach out to you with questions about your capacity for available work that aligns with your interests and expertise. 
+[p] You set the expectation on how much you can commit to and what time you have. 
+[p] Become a volunteer 
+[h2] Join us in preserving Tunisia’s cultural heritage 
+[p] We rely on our international volunteer support to bring TanitXR to life. We greatly appreciate any time you are willing to share with us as we work toward the digital preservation of Tunisia’s historically and culturally rich heritage sites. 
+ Volunteer 
+[p] 
+[h3] 
+ Trending now 
+[p] 
+[p] 
+[p] 
+ Punic Stela ‚Äì Tophet of Salammbo, Carthage Corinthian Capital ‚ Byrsa Hill, Carthage A Beginning: Why Tanit XR Exists Storm Harry, Neapolis, and a Digital Moment of Preservation.
+
+==IMAGES==
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/04/IMG_0535-rotated.jpg?fit=3024%2C4032&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/04/Volunteer-Page-English-2.png?resize=1290%2C1669&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/0e9a31c1b02c4824a2efc3c9d6c4f7aa.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ac789b797d4e4528aab59e898676a6f3.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196-copy-2-edited.jpg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/02/Screenshot-2026-01-23-at-3.09.40-PM.png?resize=150%2C150&amp;ssl=1
+
+==LINKS==
+Home -> https://tanitxr.org/
+Volunteer -> https://docs.google.com/forms/d/e/1FAIpQLSegO7smO5VyQSpSSaamKni4RPD4q_yDytd5TCK3jOH6LTML6w/viewform
+Volunteer form -> https://docs.google.com/forms/d/e/1FAIpQLSegO7smO5VyQSpSSaamKni4RPD4q_yDytd5TCK3jOH6LTML6w/viewform?usp=preview
+Volunteer -> https://lnkd.in/etGsty5G
+Punic Stela ‚Äì Tophet of Salammbo, Carthage -> https://tanitxr.org/2025/09/14/punic-stela-ai-tophet-of-salammbo-carthage/
+Corinthian Capital ‚ Byrsa Hill, Carthage -> https://tanitxr.org/2025/09/14/corinthian-capital-ai-byrsa-hill-carthage/
+A Beginning: Why Tanit XR Exists -> https://tanitxr.org/2025/09/14/a-beginning-why-tanit-xr-exists/
+Storm Harry, Neapolis, and a Digital Moment of Preservation. -> https://tanitxr.org/2026/02/05/storm-harry-neapolis-and-a-digital-moment-of-preservation/

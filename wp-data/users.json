@@ -1,0 +1,475 @@
+[
+ {
+  "id": 269217960,
+  "name": "briannelehan",
+  "url": "",
+  "description": "",
+  "link": "https://tanitxr.org/author/briannelehan/",
+  "slug": "briannelehan",
+  "avatar_urls": {
+   "24": "https://secure.gravatar.com/avatar/c0742c7a6775f9e28119486c3b0261afabbf23885d895e08d9d7357434a1eb5d?s=24&d=identicon&r=g",
+   "48": "https://secure.gravatar.com/avatar/c0742c7a6775f9e28119486c3b0261afabbf23885d895e08d9d7357434a1eb5d?s=48&d=identicon&r=g",
+   "96": "https://secure.gravatar.com/avatar/c0742c7a6775f9e28119486c3b0261afabbf23885d895e08d9d7357434a1eb5d?s=96&d=identicon&r=g"
+  },
+  "meta": {
+   "jetpack_donation_warning_dismissed": false,
+   "wpcom_plan_expiry_notice_dismiss_wp_admin": 0,
+   "wpcom_plan_expiry_modal_dismiss": 0,
+   "wpcom_plan_expiry_modal_dismiss_grace": 0
+  },
+  "yoast_head": null,
+  "yoast_head_json": null,
+  "elementor_introduction": "",
+  "_links": {
+   "self": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users/269217960",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users"
+    }
+   ]
+  }
+ },
+ {
+  "id": 129786905,
+  "name": "Caroline Nickerson",
+  "url": "http://gainesvillemennonites.wordpress.com",
+  "description": "",
+  "link": "https://tanitxr.org/author/carolinehewittnickerson/",
+  "slug": "carolinehewittnickerson",
+  "avatar_urls": {
+   "24": "https://secure.gravatar.com/avatar/103e832bd598d8603d2f3a4574b7c17c29106764db494994f8496b7fb589825c?s=24&d=identicon&r=g",
+   "48": "https://secure.gravatar.com/avatar/103e832bd598d8603d2f3a4574b7c17c29106764db494994f8496b7fb589825c?s=48&d=identicon&r=g",
+   "96": "https://secure.gravatar.com/avatar/103e832bd598d8603d2f3a4574b7c17c29106764db494994f8496b7fb589825c?s=96&d=identicon&r=g"
+  },
+  "meta": {
+   "jetpack_donation_warning_dismissed": false,
+   "wpcom_plan_expiry_notice_dismiss_wp_admin": 0,
+   "wpcom_plan_expiry_modal_dismiss": 0,
+   "wpcom_plan_expiry_modal_dismiss_grace": 0
+  },
+  "yoast_head": null,
+  "yoast_head_json": null,
+  "elementor_introduction": {
+   "e-editor-one-notice-pointer": true
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users/129786905",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users"
+    }
+   ]
+  }
+ },
+ {
+  "id": 268769174,
+  "name": "inessaid88",
+  "url": "",
+  "description": "",
+  "link": "https://tanitxr.org/author/inessaid88/",
+  "slug": "inessaid88",
+  "avatar_urls": {
+   "24": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=24&d=identicon&r=g",
+   "48": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=48&d=identicon&r=g",
+   "96": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g"
+  },
+  "meta": {
+   "jetpack_donation_warning_dismissed": false,
+   "wpcom_plan_expiry_notice_dismiss_wp_admin": 0,
+   "wpcom_plan_expiry_modal_dismiss": 0,
+   "wpcom_plan_expiry_modal_dismiss_grace": 0
+  },
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.4 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>inessaid88, Author at TANIT XR</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://tanitxr.org/author/inessaid88/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"profile\" />\n<meta property=\"og:title\" content=\"inessaid88, Author at TANIT XR\" />\n<meta property=\"og:url\" content=\"https://tanitxr.org/author/inessaid88/\" />\n<meta property=\"og:site_name\" content=\"TANIT XR\" />\n<meta property=\"og:image\" content=\"https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=500&d=identicon&r=g\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"ProfilePage\",\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/\",\"url\":\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/\",\"name\":\"inessaid88, Author at TANIT XR\",\"isPartOf\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/tanitxr.org\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives for inessaid88\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/tanitxr.org\\/#website\",\"url\":\"https:\\/\\/tanitxr.org\\/\",\"name\":\"TANIT XR\",\"description\":\"\",\"publisher\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#organization\"},\"alternateName\":\"TanitXR\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/tanitxr.org\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/tanitxr.org\\/#organization\",\"name\":\"Tanit XR\",\"alternateName\":\"TanitXR\",\"url\":\"https:\\/\\/tanitxr.org\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/i0.wp.com\\/tanitxr.org\\/wp-content\\/uploads\\/2025\\/09\\/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1\",\"contentUrl\":\"https:\\/\\/i0.wp.com\\/tanitxr.org\\/wp-content\\/uploads\\/2025\\/09\\/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1\",\"width\":3500,\"height\":4000,\"caption\":\"Tanit XR\"},\"image\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/logo\\/image\\/\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/profile.php?id=61580920450463\",\"https:\\/\\/www.instagram.com\\/tanitxr\\/\"]},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/person\\/6612a752b33499cac73767794b324bfd\",\"name\":\"inessaid88\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g\",\"caption\":\"inessaid88\"},\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/inessaid88\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "inessaid88, Author at TANIT XR",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://tanitxr.org/author/inessaid88/",
+   "og_locale": "en_US",
+   "og_type": "profile",
+   "og_title": "inessaid88, Author at TANIT XR",
+   "og_url": "https://tanitxr.org/author/inessaid88/",
+   "og_site_name": "TANIT XR",
+   "og_image": [
+    {
+     "url": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=500&d=identicon&r=g",
+     "type": "",
+     "width": "",
+     "height": ""
+    }
+   ],
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "ProfilePage",
+      "@id": "https://tanitxr.org/author/inessaid88/",
+      "url": "https://tanitxr.org/author/inessaid88/",
+      "name": "inessaid88, Author at TANIT XR",
+      "isPartOf": {
+       "@id": "https://tanitxr.org/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://tanitxr.org/author/inessaid88/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://tanitxr.org/author/inessaid88/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://tanitxr.org/author/inessaid88/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://tanitxr.org/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Archives for inessaid88"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://tanitxr.org/#website",
+      "url": "https://tanitxr.org/",
+      "name": "TANIT XR",
+      "description": "",
+      "publisher": {
+       "@id": "https://tanitxr.org/#organization"
+      },
+      "alternateName": "TanitXR",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://tanitxr.org/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://tanitxr.org/#organization",
+      "name": "Tanit XR",
+      "alternateName": "TanitXR",
+      "url": "https://tanitxr.org/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://tanitxr.org/#/schema/logo/image/",
+       "url": "https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1",
+       "contentUrl": "https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1",
+       "width": 3500,
+       "height": 4000,
+       "caption": "Tanit XR"
+      },
+      "image": {
+       "@id": "https://tanitxr.org/#/schema/logo/image/"
+      },
+      "sameAs": [
+       "https://www.facebook.com/profile.php?id=61580920450463",
+       "https://www.instagram.com/tanitxr/"
+      ]
+     },
+     {
+      "@type": "Person",
+      "@id": "https://tanitxr.org/#/schema/person/6612a752b33499cac73767794b324bfd",
+      "name": "inessaid88",
+      "image": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g",
+       "url": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g",
+       "contentUrl": "https://secure.gravatar.com/avatar/c2fd0cdfd77f2193dee482874a29b20e80147742f14b1de5edc05023fa03feaa?s=96&d=identicon&r=g",
+       "caption": "inessaid88"
+      },
+      "mainEntityOfPage": {
+       "@id": "https://tanitxr.org/author/inessaid88/"
+      }
+     }
+    ]
+   }
+  },
+  "elementor_introduction": {
+   "ai-get-started-announcement": true,
+   "yoast-introduction-editor-v2": true,
+   "globals_introduction": true,
+   "ai_get_started": true,
+   "e-editor-one-notice-pointer": true
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users/268769174",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users"
+    }
+   ]
+  }
+ },
+ {
+  "id": 270852455,
+  "name": "Julia Moreno",
+  "url": "",
+  "description": "",
+  "link": "https://tanitxr.org/author/juliamorenomolen/",
+  "slug": "juliamorenomolen",
+  "avatar_urls": {
+   "24": "https://secure.gravatar.com/avatar/8d125a803046aca3fa96f94d0b774396deeb603d1b5e36a2927bd16dcca6ab2b?s=24&d=identicon&r=g",
+   "48": "https://secure.gravatar.com/avatar/8d125a803046aca3fa96f94d0b774396deeb603d1b5e36a2927bd16dcca6ab2b?s=48&d=identicon&r=g",
+   "96": "https://secure.gravatar.com/avatar/8d125a803046aca3fa96f94d0b774396deeb603d1b5e36a2927bd16dcca6ab2b?s=96&d=identicon&r=g"
+  },
+  "meta": {
+   "jetpack_donation_warning_dismissed": false,
+   "wpcom_plan_expiry_notice_dismiss_wp_admin": 0,
+   "wpcom_plan_expiry_modal_dismiss": 0,
+   "wpcom_plan_expiry_modal_dismiss_grace": 0
+  },
+  "yoast_head": null,
+  "yoast_head_json": null,
+  "elementor_introduction": {
+   "yoast-introduction-editor-v2": true
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users/270852455",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users"
+    }
+   ]
+  }
+ },
+ {
+  "id": 270852456,
+  "name": "Margarita Johnson",
+  "url": "",
+  "description": "",
+  "link": "https://tanitxr.org/author/margarita/",
+  "slug": "margarita",
+  "avatar_urls": {
+   "24": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=24&d=identicon&r=g",
+   "48": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=48&d=identicon&r=g",
+   "96": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g"
+  },
+  "meta": {
+   "jetpack_donation_warning_dismissed": false,
+   "wpcom_plan_expiry_notice_dismiss_wp_admin": 0,
+   "wpcom_plan_expiry_modal_dismiss": 0,
+   "wpcom_plan_expiry_modal_dismiss_grace": 0
+  },
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v28.4 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>Margarita Johnson, Author at TANIT XR</title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://tanitxr.org/author/margarita/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"profile\" />\n<meta property=\"og:title\" content=\"Margarita Johnson, Author at TANIT XR\" />\n<meta property=\"og:url\" content=\"https://tanitxr.org/author/margarita/\" />\n<meta property=\"og:site_name\" content=\"TANIT XR\" />\n<meta property=\"og:image\" content=\"https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=500&d=identicon&r=g\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"ProfilePage\",\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/\",\"url\":\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/\",\"name\":\"Margarita Johnson, Author at TANIT XR\",\"isPartOf\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/tanitxr.org\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives for Margarita Johnson\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/tanitxr.org\\/#website\",\"url\":\"https:\\/\\/tanitxr.org\\/\",\"name\":\"TANIT XR\",\"description\":\"\",\"publisher\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#organization\"},\"alternateName\":\"TanitXR\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/tanitxr.org\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/tanitxr.org\\/#organization\",\"name\":\"Tanit XR\",\"alternateName\":\"TanitXR\",\"url\":\"https:\\/\\/tanitxr.org\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/i0.wp.com\\/tanitxr.org\\/wp-content\\/uploads\\/2025\\/09\\/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1\",\"contentUrl\":\"https:\\/\\/i0.wp.com\\/tanitxr.org\\/wp-content\\/uploads\\/2025\\/09\\/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1\",\"width\":3500,\"height\":4000,\"caption\":\"Tanit XR\"},\"image\":{\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/logo\\/image\\/\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/profile.php?id=61580920450463\",\"https:\\/\\/www.instagram.com\\/tanitxr\\/\"]},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/tanitxr.org\\/#\\/schema\\/person\\/e32f25d0cc8f75bdac233c8d18cda27e\",\"name\":\"Margarita Johnson\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g\",\"caption\":\"Margarita Johnson\"},\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/tanitxr.org\\/author\\/margarita\\/\"}}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "yoast_head_json": {
+   "title": "Margarita Johnson, Author at TANIT XR",
+   "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+   },
+   "canonical": "https://tanitxr.org/author/margarita/",
+   "og_locale": "en_US",
+   "og_type": "profile",
+   "og_title": "Margarita Johnson, Author at TANIT XR",
+   "og_url": "https://tanitxr.org/author/margarita/",
+   "og_site_name": "TANIT XR",
+   "og_image": [
+    {
+     "url": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=500&d=identicon&r=g",
+     "type": "",
+     "width": "",
+     "height": ""
+    }
+   ],
+   "twitter_card": "summary_large_image",
+   "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "ProfilePage",
+      "@id": "https://tanitxr.org/author/margarita/",
+      "url": "https://tanitxr.org/author/margarita/",
+      "name": "Margarita Johnson, Author at TANIT XR",
+      "isPartOf": {
+       "@id": "https://tanitxr.org/#website"
+      },
+      "breadcrumb": {
+       "@id": "https://tanitxr.org/author/margarita/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [
+       {
+        "@type": "ReadAction",
+        "target": [
+         "https://tanitxr.org/author/margarita/"
+        ]
+       }
+      ]
+     },
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://tanitxr.org/author/margarita/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://tanitxr.org/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Archives for Margarita Johnson"
+       }
+      ]
+     },
+     {
+      "@type": "WebSite",
+      "@id": "https://tanitxr.org/#website",
+      "url": "https://tanitxr.org/",
+      "name": "TANIT XR",
+      "description": "",
+      "publisher": {
+       "@id": "https://tanitxr.org/#organization"
+      },
+      "alternateName": "TanitXR",
+      "potentialAction": [
+       {
+        "@type": "SearchAction",
+        "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://tanitxr.org/?s={search_term_string}"
+        },
+        "query-input": {
+         "@type": "PropertyValueSpecification",
+         "valueRequired": true,
+         "valueName": "search_term_string"
+        }
+       }
+      ],
+      "inLanguage": "en-US"
+     },
+     {
+      "@type": "Organization",
+      "@id": "https://tanitxr.org/#organization",
+      "name": "Tanit XR",
+      "alternateName": "TanitXR",
+      "url": "https://tanitxr.org/",
+      "logo": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://tanitxr.org/#/schema/logo/image/",
+       "url": "https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1",
+       "contentUrl": "https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/TanitXR-Logo_red_vertical.png?fit=3500%2C4000&ssl=1",
+       "width": 3500,
+       "height": 4000,
+       "caption": "Tanit XR"
+      },
+      "image": {
+       "@id": "https://tanitxr.org/#/schema/logo/image/"
+      },
+      "sameAs": [
+       "https://www.facebook.com/profile.php?id=61580920450463",
+       "https://www.instagram.com/tanitxr/"
+      ]
+     },
+     {
+      "@type": "Person",
+      "@id": "https://tanitxr.org/#/schema/person/e32f25d0cc8f75bdac233c8d18cda27e",
+      "name": "Margarita Johnson",
+      "image": {
+       "@type": "ImageObject",
+       "inLanguage": "en-US",
+       "@id": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g",
+       "url": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g",
+       "contentUrl": "https://secure.gravatar.com/avatar/343ef4e7112eb75855f7b351f63a2d1f5d5a98434860bfcd4e8ff76a2632b1de?s=96&d=identicon&r=g",
+       "caption": "Margarita Johnson"
+      },
+      "mainEntityOfPage": {
+       "@id": "https://tanitxr.org/author/margarita/"
+      }
+     }
+    ]
+   }
+  },
+  "elementor_introduction": {
+   "e-editor-one-notice-pointer": true
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users/270852456",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://tanitxr.org/wp-json/wp/v2/users"
+    }
+   ]
+  }
+ }
+]

@@ -1,0 +1,64 @@
+[h1] ImmerseGT 2026 
+ Home 
+[p] 
+ ImmerseGT 2026 
+[p] TanitXR is a project, fiscally sponsored by Florida Community Innovation, that empowers volunteers and students to scan at-risk heritage sites. The goal is not only to digitally preserve these places, but also to increase appreciation for them by bringing them into XR environments and experiences. 
+[p] The pilot country for scanning is Tunisia, and contributors from around the world help turn these scans into immersive experiences. 
+[p] The one-pager below summarizes our mission. 
+ TanitXR_One-Pager Download 
+[p] TanitXR sponsored a track at Immerse GT from April 10–12! Immerse GT was a 36-hour XR hackathon at Georgia Tech that brought together designers, developers, and storytellers to build immersive experiences. We gave a $300 prize to the winning team for our track. 
+[p] For our track, we invited participants to work with real TanitXR 3D models ( sketchfab.com/TanitXR & the models that we have optimized so far: https://skfb.ly/pIxPR ). We wanted them to create creative experiences that deepen appreciation for Tunisian heritage, which has been overlooked and misrepresented on the global stage. 
+[p] We are interested in projects that help people explore, understand, or care about heritage in new ways. That might mean immersion, storytelling, education, interaction, public contribution, or something none of us has thought of yet 
+[h2] Background 
+[p] Named for Tanit, the goddess of protection in ancient Carthage (where modern-day Tunisia now is), TanitXR was founded in 2025 by Ines Said, a Tunisian XR developer, to preserve the historic ruins she grew up loving. 
+[p] The project focuses on places that are slowly deteriorating due to climate exposure, rising seas, extreme weather, development, and lack of preservation resources. After local volunteers scan objects and landscapes with photogrammetry and publish them as interactive models, the global community helps create a permanent digital record that can be explored online and increase appreciation of shared human heritage in Tunisia. 
+[p] Fundamentally, this work involves teaching people how to document heritage themselves. Tunisian and other students, artists, and volunteers learn to use accessible tools such as smartphone scanning to capture objects and spaces in their communities. The result is both a growing archive of Tunisian heritage and a participatory process that connects people – both locally in Tunisia and on the global stage – with historical sites. 
+[h2] Dr. Caroline Nickerson’s Workshop at Immerse GT 
+[p] As part of the event, Caroline Nickerson, PhD, led a workshop connected to the TanitXR track on Saturday, April 11, at 2 PM ET in ISyE Main 228. 
+[p] Learn more about Caroline here . 
+[p] The workshop focused on citizen science, public participation, and XR. TanitXR’s model focuses on community empowerment, and Caroline shared best practices and lessons learned from all her involvements. 
+[p] For participants who want to build something interactive, educational, or community-facing, this workshop was especially useful. 
+[h2] ImmerseGT 2026 Results 
+[p] We were thrilled to see so many creative submissions for the TanitXR track at ImmerseGT 2026. All participants had a chance to explore powerful ways to use immersive technology to preserve, interpret, and share Tunisian heritage with global audiences. 
+[p] Track Winner: From Mystery to History 
+[p] From Mystery to History was selected as the winner of the TanitXR track for its innovative use of XR, generative AI, and photogrammetry to reimagine cultural heritage preservation. 
+[p] The project stood out for its creativity, strong execution, and meaningful alignment with TanitXR’s mission to preserve and share Tunisia’s historical legacy through immersive experiences. We are incredibly proud of the team and excited to see how this project continues to evolve! 
+[p] Other projects from the TanitXR Track also demonstrated XR’s incredible potential to bring heritage preservation to life. We are deeply grateful to every participant who contributed ideas, creativity, and passion to this challenge. Review submissions here: ImmerseGT 
+[h2] Stay Involved After the Hackathon 
+[p] TanitXR is not just a hackathon prompt. It is an active and growing project, and we would love to stay connected with participants who want to keep building with us after ImmerseGT. 
+[p] There are many ways to contribute. Some volunteers help with photogrammetry and scanning. Others help with research, writing, interpretation, outreach, or immersive development. Some people are interested in the technical side. Others are more interested in heritage storytelling, education, or community engagement. 
+[p] Explore the PDFs below to learn more about what it looks like to be a TanitXR volunteer. 
+ TanitXR Download 
+[p] If you are interested in staying involved after the event, you can sign up through our volunteer page. 
+[p] We are always excited to work with people who care about heritage, storytelling, participation, and the future of immersive technology. 
+[h2] Questions? Comments? 
+[p] We’re here to help! Caroline is on-site to help hackathon participants. Give her a call (407-562-7793) to quickly get in touch. 
+[h3] 
+ Trending now 
+[p] 
+[p] 
+[p] 
+ Punic Stela ‚Äì Tophet of Salammbo, Carthage Corinthian Capital ‚ Byrsa Hill, Carthage A Beginning: Why Tanit XR Exists Storm Harry, Neapolis, and a Digital Moment of Preservation.
+
+==IMAGES==
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/04/IMG_9631.jpg?fit=5712%2C4284&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/06/IMG_6884.jpg?resize=1024%2C768&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/06/IMG_6912.jpg?resize=1024%2C743&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/0e9a31c1b02c4824a2efc3c9d6c4f7aa.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ac789b797d4e4528aab59e898676a6f3.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196-copy-2-edited.jpg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/02/Screenshot-2026-01-23-at-3.09.40-PM.png?resize=150%2C150&amp;ssl=1
+
+==LINKS==
+Home -> https://tanitxr.org/
+Immerse GT -> https://www.immersegt.org/
+sketchfab.com/TanitXR ->  https://sketchfab.com/TanitXR
+https://skfb.ly/pIxPR -> https://skfb.ly/pIxPR
+here -> https://tanitxr.org/person/dr-caroline-nickerson/
+From Mystery to History -> https://devpost.com/software/iamnotia-from-ruin-to-memory?_gl=1*1lavcbq*_gcl_au*NTgzMjIyMTMuMTc3OTM3OTY1Ng..*_ga*ODM2MTIzNDU3LjE3NzkzNzk2NTY.*_ga_0YHJK3Y10M*czE3ODE5MDAyODEkbzIkZzEkdDE3ODE5MDAzNjIkajYwJGwwJGgw
+ImmerseGT -> https://immersegt-2026.devpost.com/submissions/search?utf8=%E2%9C%93&amp;prize_filter%5Bprizes%5D%5B%5D=100446
+volunteer page. -> https://docs.google.com/forms/d/e/1FAIpQLSegO7smO5VyQSpSSaamKni4RPD4q_yDytd5TCK3jOH6LTML6w/viewform
+Punic Stela ‚Äì Tophet of Salammbo, Carthage -> https://tanitxr.org/2025/09/14/punic-stela-ai-tophet-of-salammbo-carthage/
+Corinthian Capital ‚ Byrsa Hill, Carthage -> https://tanitxr.org/2025/09/14/corinthian-capital-ai-byrsa-hill-carthage/
+A Beginning: Why Tanit XR Exists -> https://tanitxr.org/2025/09/14/a-beginning-why-tanit-xr-exists/
+Storm Harry, Neapolis, and a Digital Moment of Preservation. -> https://tanitxr.org/2026/02/05/storm-harry-neapolis-and-a-digital-moment-of-preservation/

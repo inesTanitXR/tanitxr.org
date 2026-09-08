@@ -1,0 +1,54 @@
+[h1] About 
+ Home 
+[p] 
+ About 
+[h2] Our Impact So Far 
+[p] Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion, and neglect. Together, we’re building a digital archive to protect it for generations. 
+ 60+ 
+[h4] Artifacts Scanned 
+ 15+ 
+[h4] Sites Documented 
+ 25+ 
+[h4] Volunteers 
+ 100k+ 
+[h4] Global Reach 
+[h2] We Are A Non-Profit Organization 
+[p] Tanit XR operates under fiscal sponsorship with Florida Community Innovation (FCI), a U.S. 501(c)(3) nonprofit. This partnership allows us to accept tax-deductible donations while we grow toward becoming a fully independent nonprofit organization. 
+[p] Our mission is to preserve Tunisia’s endangered heritage through digital scans, immersive technology, and education. With every artifact we scan and every volunteer we train, we are proving that heritage can be safeguarded for future generations — no matter the threats of climate change and neglect. 
+[p] Tanit XR advances Sustainable Development Goal 11.4 , which focuses on safeguarding cultural and natural heritage. We view the Sustainable Development Goals as an important shared framework for linking local action to global impact. 
+[h2] Why I Started Tanit XR 
+[p] I grew up walking past the ruins of Carthage every day. To me, they were just there – a backdrop of my childhood. But slowly I began to notice how pieces were missing, how mosaics cracked and crumbled, how nothing was truly protected. Tunisia’s history is not kept in vaults or guarded museums. It is left in the open air, vulnerable to time, weather, and neglect. And every year, more of it disappears. 
+[p] Tanit XR was born from the fear of losing this history forever and the belief that technology can change the story. With 3D scanning, digital archiving, and immersive storytelling, we can preserve what remains and share it with the world. Each scan is more than just data; it is a memory, a voice from the past, a way of saying: we were here, and we matter. 
+[p] – Ines Said 
+[p] Become a volunteer 
+[h2] Join us to protect Tunisia’s Heritage 
+[p] You don’t need to be an archaeologist or a technologist to make an impact. Our first scans were made with a phone. Whether on the ground in Tunisia or helping remotely, every volunteer contributes to preserving history. 
+ Volunteer 
+[h3] 
+ Trending now 
+[p] 
+[p] 
+[p] 
+ Punic Stela ‚Äì Tophet of Salammbo, Carthage Corinthian Capital ‚ Byrsa Hill, Carthage A Beginning: Why Tanit XR Exists Storm Harry, Neapolis, and a Digital Moment of Preservation.
+
+==IMAGES==
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ChatGPT-Image-Sep-13-2025-at-09_09_34-PM.png?fit=1536%2C1024&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/artifacts.png?resize=633%2C748&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/sites.png?resize=644%2C710&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/volunteer-1.png?resize=497%2C566&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/global.png?resize=634%2C803&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196.jpg?resize=1290%2C1725&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4615-copy.jpg?resize=1290%2C968&#038;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/0e9a31c1b02c4824a2efc3c9d6c4f7aa.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ac789b797d4e4528aab59e898676a6f3.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196-copy-2-edited.jpg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/02/Screenshot-2026-01-23-at-3.09.40-PM.png?resize=150%2C150&amp;ssl=1
+
+==LINKS==
+Home -> https://tanitxr.org/
+Ines Said -> https://www.inessaid.com
+Volunteer -> https://tanitxr.org/volunteer/
+Punic Stela ‚Äì Tophet of Salammbo, Carthage -> https://tanitxr.org/2025/09/14/punic-stela-ai-tophet-of-salammbo-carthage/
+Corinthian Capital ‚ Byrsa Hill, Carthage -> https://tanitxr.org/2025/09/14/corinthian-capital-ai-byrsa-hill-carthage/
+A Beginning: Why Tanit XR Exists -> https://tanitxr.org/2025/09/14/a-beginning-why-tanit-xr-exists/
+Storm Harry, Neapolis, and a Digital Moment of Preservation. -> https://tanitxr.org/2026/02/05/storm-harry-neapolis-and-a-digital-moment-of-preservation/

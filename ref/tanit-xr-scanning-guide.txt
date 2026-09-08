@@ -1,0 +1,125 @@
+[h1] Tanit XR Scanning Guide 
+ Home 
+[p] 
+ Tanit XR Scanning Guide 
+[h2] Using Scaniverse to Preserve Heritage 
+[h3] 📲 Getting Started 
+[li] App : Download Scaniverse from the iOS App Store (iPhone 12 Pro or newer recommended for LiDAR support). 
+[li] Goal : Create detailed 3D scans of historical landmarks, ruins, pottery, architecture, and cultural artifacts for a global digital heritage archive. 
+[h2] 🧭 Choosing What to Scan 
+[p] Not sure where to start? Look for objects, places, and details that carry cultural, historical, artistic, or community meaning. 
+[p] Good things to scan include: 
+[li] Architecture and ruins — doors, arches, columns, facades, walls, courtyards, tombs, monuments, and historic homes 
+[li] Objects and artifacts — pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items 
+[li] Small details — patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements 
+[li] Everyday heritage — bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces 
+[li] At-risk heritage — places or objects threatened by weather, neglect, development, conflict, theft, or loss of memory 
+[p] Before scanning, ask: 
+[li] What story does this object or place tell? 
+[li] Who uses it, remembers it, or cares about it? 
+[li] Is it connected to a tradition, craft, family, neighborhood, or historic event? 
+[li] Is it changing, disappearing, or at risk? 
+[p] Please do not scan sacred, private, restricted, or sensitive objects without permission. When in doubt, ask a local caretaker, community member, owner, or cultural authority first. 
+[h2] 🕯️ Scanning Intangible Heritage 
+[p] Some heritage is not just a building or object. It lives in stories, songs, rituals, recipes, crafts, dances, languages, memories, and everyday practices. This is called intangible heritage . 
+[p] You cannot always 3D scan intangible heritage directly, but you can document the objects, spaces, and people connected to it. 
+[p] Examples: 
+[li] A traditional bread recipe → scan the oven, tools, table, or bakery space 
+[li] A weaving practice → scan the loom, textile patterns, tools, or finished pieces 
+[li] A family story → scan the home, courtyard, photograph, object, or place connected to the memory 
+[li] A festival or ritual → scan decorations, costumes, instruments, gathering spaces, or symbolic objects 
+[li] A disappearing craft → scan the tools, workshop, materials, and finished work 
+[p] When documenting intangible heritage, include context with your upload: 
+[li] What is this tradition, story, or practice called? 
+[li] Who practices it? 
+[li] Where does it happen? 
+[li] How did you learn about it? 
+[li] Why does it matter? 
+[li] Is there a story, memory, or quote that should go with the scan? 
+[p] Always get permission before recording people, private spaces, ceremonies, sacred practices, or personal stories. Tanit XR is not just preserving objects — we are preserving the worlds, memories, and meanings around them. 
+[h3] 🧱 Step-by-Step Scanning Instructions 
+[h4] 1. Open Scaniverse 
+[li] Tap the “+” button to start a new scan. 
+[li] Choose “Mesh” (not “Splat”) — this is what we need for Tanit XR. 
+[li] Select the size of your object:
+[li] Small Object – pottery, carvings, statues 
+[li] Medium Object – doors, columns, mosaics 
+[li] Large Area – facades, walls, monuments 
+[h4] 2. Begin the Scan 
+[li] Move slowly around the object while recording a video . 
+[li] Get multiple angles : walk around, crouch down, raise your phone, etc. 
+[li] Avoid fast movements and make sure to capture all sides . 
+[li] In bright sun , try to scan in partial shade or overcast light. 
+[h4] 3. Save Without Processing (Important!) 
+[li] If you’re outside and don’t have strong Wi-Fi or data, tap “Save to process later.” 
+[li] Processing uses a lot of data — it’s best to wait until you’re home with Wi-Fi . 
+[h3] 🗂️ Processing and Exporting 
+[h4] 4. Back at Home: Process Your Scan 
+[li] Open the Scaniverse Library (bottom menu). 
+[li] Tap your saved scan. 
+[li] Tap the name and give it a clear title (e.g., “Ksar Ouled Soltane – Main Door”). 
+[li] Tap “Process” and wait for the app to complete the 3D model. 
+[h4] 5. Export the Model 
+[li] Once processed, tap “Share” > “Export Model.” 
+[li] Select FBX format. 
+[li] Keep textures enabled . 
+[li] Name it “ Scan Title_Location “ 
+[h4] 6. Share Your Model (upload your file, below, and then email description and other details to info@tanitxr.org) 
+[p] ← Back 
+[h4] Thank you for your response. ✨ 
+[p] 
+ Upload a file 
+[p] Drag and drop or click to select a file. 
+ · 
+ Uploading… 
+ Uploaded 
+[p] 
+[p] 
+[p] 
+[p] 
+ Share a short description of the model (e.g. what it is, any historical info you know) 
+[p] 
+[p] 
+[p] 
+ Email 
+[p] 
+[p] 
+[p] 
+ Your Name 
+[p] 
+[p] 
+[p] 
+[li] 
+ Previous 
+ Next 
+ Submit 
+[p] Δ 
+[h3] ✅ Tips for Great Scans 
+[li] Scan slowly and steadily 
+[li] Avoid people or shadows in your scan 
+[li] Focus on texture and angles — walk around the object fully 
+[li] Natural daylight is good, but harsh sun causes glare – avoid scanning at noon 
+[h3] 
+[h3] 
+ Trending now 
+[p] 
+[p] 
+[p] 
+ Punic Stela ‚Äì Tophet of Salammbo, Carthage Corinthian Capital ‚ Byrsa Hill, Carthage A Beginning: Why Tanit XR Exists Storm Harry, Neapolis, and a Digital Moment of Preservation.
+
+==IMAGES==
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/image.png?resize=1024%2C768&#038;ssl=1
+context.image.src
+data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/0e9a31c1b02c4824a2efc3c9d6c4f7aa.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/09/ac789b797d4e4528aab59e898676a6f3.jpeg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2025/08/img_4196-copy-2-edited.jpg?resize=150%2C150&amp;ssl=1
+https://i0.wp.com/tanitxr.org/wp-content/uploads/2026/02/Screenshot-2026-01-23-at-3.09.40-PM.png?resize=150%2C150&amp;ssl=1
+
+==LINKS==
+Home -> https://tanitxr.org/
+← Back -> /tanit-xr-scanning-guide/
+Punic Stela ‚Äì Tophet of Salammbo, Carthage -> https://tanitxr.org/2025/09/14/punic-stela-ai-tophet-of-salammbo-carthage/
+Corinthian Capital ‚ Byrsa Hill, Carthage -> https://tanitxr.org/2025/09/14/corinthian-capital-ai-byrsa-hill-carthage/
+A Beginning: Why Tanit XR Exists -> https://tanitxr.org/2025/09/14/a-beginning-why-tanit-xr-exists/
+Storm Harry, Neapolis, and a Digital Moment of Preservation. -> https://tanitxr.org/2026/02/05/storm-harry-neapolis-and-a-digital-moment-of-preservation/
