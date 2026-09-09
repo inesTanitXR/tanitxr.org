@@ -499,6 +499,15 @@ FR = {
     ">Your name or email (optional, so we can credit or thank you)</label>":
         ">Votre nom ou e-mail (facultatif, pour vous créditer ou vous remercier)</label>",
     ">Submit Opportunity</button>": ">Envoyer l’opportunité</button>",
+
+    # ---- newsletter subscribe band ----
+    "<div class=\"eyebrow\">Newsletter</div>": "<div class=\"eyebrow\">Newsletter</div>",
+    "Never miss a deadline": "Ne manquez plus aucune date limite",
+    "Get new grants, residencies, and open calls for art, XR &amp; impact in your inbox — free, from the Tanit XR team. You’ll also be first to hear how our heritage-preservation work is going.":
+        "Recevez les nouvelles bourses, résidences et appels à projets art, XR &amp; impact dans votre boîte mail — gratuitement, de la part de l’équipe Tanit XR. Vous serez aussi les premiers informés de l’avancée de notre travail de préservation du patrimoine.",
+    'placeholder="you@example.com"': 'placeholder="vous@exemple.com"',
+    ">Subscribe Free</button>": ">S’abonner gratuitement</button>",
+    "No spam — opportunities and Tanit XR news only. Also published on": "Pas de spam — uniquement des opportunités et des nouvelles de Tanit XR. Également publié sur",
 }
 
 
@@ -997,5 +1006,13 @@ AR = {
     ">Your name or email (optional, so we can credit or thank you)</label>":
         ">اسمك أو بريدك الإلكتروني (اختياري، لنشكرك أو ننسب الفضل إليك)</label>",
     ">Submit Opportunity</button>": ">إرسال الفرصة</button>",
+
+    # ---- newsletter subscribe band ----
+    "Never miss a deadline": "لا تفوّت أي موعد نهائي",
+    "Get new grants, residencies, and open calls for art, XR &amp; impact in your inbox — free, from the Tanit XR team. You’ll also be first to hear how our heritage-preservation work is going.":
+        "احصل على أحدث المنح والإقامات الفنية والدعوات المفتوحة في الفن والواقع الممتد والأثر في بريدك — مجانًا من فريق تانيت XR. وستكون أيضًا أول من يعرف مستجدات عملنا في صون التراث.",
+    'placeholder="you@example.com"': 'placeholder="you@example.com"',
+    ">Subscribe Free</button>": ">اشترك مجانًا</button>",
+    "No spam — opportunities and Tanit XR news only. Also published on": "لا رسائل مزعجة — فرص وأخبار تانيت XR فقط. تُنشر أيضًا على",
 }
 

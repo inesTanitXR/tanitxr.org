@@ -1190,7 +1190,29 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 </div>
 <div id="board"></div>
 
-<div style="margin-top:64px;background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:36px 34px">
+<div class="band" style="margin-top:64px;border-radius:14px;padding:44px 38px">
+<div style="max-width:640px">
+<div class="eyebrow">Newsletter</div>
+<h2 class="sec-title" style="font-size:30px">Never miss a deadline</h2>
+<p style="margin-bottom:22px">Get new grants, residencies, and open calls for art, XR &amp; impact in your
+inbox — free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is
+going.</p>
+<form class="nice" action="{FORM_ENDPOINT}" method="POST" style="display:flex;gap:12px;flex-wrap:wrap;max-width:none">
+<input type="hidden" name="_subject" value="Newsletter subscription — tanitxr.org">
+<input type="hidden" name="_captcha" value="true">
+<input type="text" name="_honey" style="display:none">
+<input name="email" type="email" placeholder="you@example.com" required
+  style="flex:1;min-width:220px;padding:13px 16px;border:none;border-radius:6px;font-size:15.5px">
+<button class="btn btn-gold" type="submit" style="margin-top:0">Subscribe Free</button>
+</form>
+<p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">No spam — opportunities and Tanit XR
+news only. Also published on
+<a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
+target="_blank" rel="noopener" style="color:var(--gold)">LinkedIn</a>.</p>
+</div>
+</div>
+
+<div style="margin-top:26px;background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:36px 34px">
 <h2 class="sec-title" style="font-size:28px">Know an opportunity we should feature?</h2>
 <p style="color:var(--gray);margin-bottom:6px">Send it our way — if it's a fit, it will appear on this board
 and in the newsletter.</p>
