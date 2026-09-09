@@ -1,6 +1,7 @@
-# 🌐 Art, XR & Impact Opportunities — Edition 18 (DRAFT)
+# 🌐 Art, XR & Impact Opportunities — Edition 18 (DRAFT v2)
 
-*Drafted 2026-09-09 from Ines's raw list — every deadline below was verified on the source page today.*
+*Drafted 2026-09-09 from Ines's raw list — every deadline verified at the source today.*
+*Format: highlights carry no links and repeat as full blocks inside the sectioned body.*
 
 ---
 
@@ -10,12 +11,39 @@ It's been a minute! Here's the latest roundup of global grants, awards, open cal
 
 ## 🔥 HIGHLIGHTS — Don't Miss These!
 
-- 🧪 **ACM CHI 2027 — Call for Papers** — Deadline: **September 10, 2026** 🚨 — chi2027.acm.org
-- 🖼 **Art Worker Artist Grant — $5,000 AUD** — Deadline: **September 14, 2026** 🚨 (or first 500 entries!) — artistengineering.co/pages/awa
-- 🎨 **IEEE VR 2027 "XR Gallery" — Call for Immersive Art** — Deadline: November 3, 2026 — ieeevr.org/2027/contribute/xrgallery/
-- 🌲 **NAAEE 2026 — Conference Financial Aid** — Rolling (next review September 11) — conference.naaee.org/scholarships
+- 🧪 ACM CHI 2027 — Call for Papers — Deadline: September 10, 2026 🚨
+- 🖼 Art Worker Artist Grant — $5,000 AUD — Deadline: September 14, 2026 🚨
+- 🎨 IEEE VR 2027 "XR Gallery" — Call for Immersive Art — Deadline: November 3, 2026
+- 🌲 NAAEE 2026 Conference — Financial Aid — Rolling (next review September 11)
+- 🎮 Games for Change Türkiye — Calls for Speakers & Arcade — Open now
 
----
+───────────────────────────────────────
+
+## 💰 GRANTS & PRIZES
+
+### 🖼 Art Worker Artist Grant 2026 — ARTIST ENGINEERING 🚨
+
+📅 Deadline: September 14, 2026 — or as soon as the first 500 applications arrive, so don't wait
+📍 Global / Online
+👥 Artists whose livelihood is connected to art-industry work — museums, galleries, artist studios, fabrication, framing, conservation, art logistics, storage, and more
+✏️ A biennial $5,000 AUD grant supporting the artistic practice of the people who keep the art world running. The application is intentionally minimal — a brief statement and a link to your work. No required outcomes and no grant acquittal.
+👉 Apply: https://artistengineering.co/pages/awa
+
+───────────────────────────────────────
+
+## 🎨 CALLS FOR IMMERSIVE ART
+
+### 👓 IEEE VR 2027 — XR Gallery: "Sharing Realities"
+
+📅 Deadline: November 3, 2026 (23:59 AoE)
+📍 Melbourne, Australia — exhibition at IEEE VR, February 27 – March 3, 2027
+👥 Artists, researchers, and designers — anyone creating immersive art; submissions from underrepresented communities and Indigenous artists especially encouraged
+✏️ IEEE VR's art exhibition, themed "Sharing Realities: Immersive Experiences Across Boundaries" — how we share immersive experiences, and our realities, with others, exploring the boundary between the developer and the storyteller. Previously unexhibited works only. Accepted artists receive a free full conference registration, and select works receive $500 USD awards.
+👉 Info & submit: https://ieeevr.org/2027/contribute/xrgallery/
+
+───────────────────────────────────────
+
+## 🔬 CONFERENCES & RESEARCH
 
 ### 🧪 ACM CHI 2027 — Call for Papers 🚨
 
@@ -25,22 +53,6 @@ It's been a minute! Here's the latest roundup of global grants, awards, open cal
 ✏️ The flagship human–computer interaction conference. Full papers are due September 10 — and if that's too soon, the Late-Breaking Work track usually opens later with a January deadline, a friendlier route for early-stage or in-progress research.
 👉 Info & submit: https://chi2027.acm.org/authors/papers/
 
-### 🖼 Art Worker Artist Grant 2026 — ARTIST ENGINEERING 🚨
-
-📅 Deadline: September 14, 2026 — or as soon as the first 500 applications arrive, so don't wait
-📍 Global / Online
-👥 Artists whose livelihood is connected to art-industry work — museums, galleries, artist studios, fabrication, framing, conservation, art logistics, storage, and more
-✏️ A biennial $5,000 AUD grant supporting the artistic practice of the people who keep the art world running. No required outcomes and no grant acquittal — just support for your work, in whatever form it takes.
-👉 Apply: https://artistengineering.co/pages/awa
-
-### 🎨 IEEE VR 2027 — XR Gallery: "Sharing Realities"
-
-📅 Deadline: November 3, 2026 (23:59 AoE)
-📍 Melbourne, Australia — exhibition at IEEE VR, February 27 – March 3, 2027
-👥 Artists, researchers, and designers — anyone creating immersive art; submissions from underrepresented communities and Indigenous artists especially encouraged
-✏️ IEEE VR's art exhibition, themed "Sharing Realities: Immersive Experiences Across Boundaries" — how we share immersive experiences, and our realities, with others, exploring the boundary between the developer and the storyteller. Previously unexhibited works only. Accepted artists receive a free full conference registration, and select works receive $500 USD awards.
-👉 Info & submit: https://ieeevr.org/2027/contribute/xrgallery/
-
 ### 🌲 NAAEE 2026 Conference — Financial Aid
 
 📅 Rolling — next review September 11, 2026
@@ -49,7 +61,11 @@ It's been a minute! Here's the latest roundup of global grants, awards, open cal
 ✏️ Reduced registration rates for the 55th NAAEE Annual Conference and Research Symposium. You can also volunteer 8 hours during the conference for a $200 registration discount.
 👉 Apply: https://conference.naaee.org/scholarships
 
-### 🎮 Games for Change Türkiye Festival 2026
+───────────────────────────────────────
+
+## 🎮 GAMES & FESTIVALS
+
+### 🕹 Games for Change Türkiye Festival 2026
 
 📅 Deadline: TBA — both calls just opened
 📍 Türkiye
@@ -57,14 +73,14 @@ It's been a minute! Here's the latest roundup of global grants, awards, open cal
 ✏️ G4C Türkiye's 2026 festival theme is "PLAY BEYOND — play to recover, reconnect, reimagine," exploring resilience through games. The Call for Speakers and the Call for Arcade are both open now.
 👉 Info: https://turkiye.gamesforchange.org/
 
----
+───────────────────────────────────────
 
-## ⏰ Still open from past editions
+## ⏰ STILL OPEN FROM PAST EDITIONS
 
-- 🏆 **WomenTech Global Awards 2026** — nominations close October 1, 2026 — womentech.net
-- 🕶 **AWE USA 2027** — call for speakers & showcase tracks already open — awexr.com
+- 🏆 WomenTech Global Awards — nominations close October 1, 2026 — womentech.net
+- 🕶 AWE USA 2027 — call for speakers & showcase tracks open — awexr.com
 
----
+───────────────────────────────────────
 
 ✨ **That's it for this edition!**
 
@@ -75,16 +91,16 @@ If you apply to any of these, let me know so I can celebrate your wins 🎉. And
 ---
 ---
 
-# 📣 LinkedIn post draft (to announce the edition)
+# 📣 LinkedIn post draft (announce on your profile)
 
 🌐 Edition 18 of Art, XR & Impact Opportunities is out!
 
 This week:
-🚨 CHI 2027 papers close TOMORROW (Sept 10)
-🖼 a $5,000 grant for art workers — closing Sept 14 or at 500 entries
-🎨 IEEE VR 2027's call for immersive art ("Sharing Realities" — Melbourne!)
-🌲 financial aid to attend the NAAEE conference in Portland
-🎮 Games for Change Türkiye's new calls for speakers + arcade
+🚨 @ACM SIGCHI CHI 2027 papers close TOMORROW (Sept 10)
+🖼 a $5,000 AUD grant for art workers from ARTIST ENGINEERING — closing Sept 14 or at 500 entries
+🎨 @IEEE VR - Conference On Virtual Reality And 3D User Interfaces call for immersive art — "Sharing Realities," in Melbourne
+🌲 financial aid to attend the @North American Association for Environmental Education (NAAEE) conference in Portland
+🎮 @Games for Change Türkiye new calls for speakers + arcade
 
 If you make immersive art, the XR Gallery theme this year is a beautiful prompt: sharing realities, across boundaries — between developer and storyteller.
 
@@ -93,21 +109,33 @@ Read + subscribe 👇
 
 #XR #ImmersiveArt #Grants #ArtOpportunities #VR #CreativeTech #SocialImpact
 
+## 🏷 Pages to tag (type @ in the composer and pick these)
+
+| Mention | LinkedIn page |
+|---|---|
+| ACM SIGCHI | linkedin.com/company/acm-sigchi |
+| IEEE VR – Conference On Virtual Reality And 3D User Interfaces | linkedin.com/company/ieee-vr-conference-on-virtual-reality-and-3d-user-interfaces |
+| NAAEE | linkedin.com/company/naaee |
+| Games for Change Türkiye | linkedin.com/company/games-for-change-turkiye |
+| WomenTech Network (if you mention the awards) | linkedin.com/company/womentech-network |
+| AWE (if you mention AWE 2027) | linkedin.com/company/augmented-world-expo |
+| ARTIST ENGINEERING | no LinkedIn page found — link artistengineering.co instead |
+
 ---
 ---
 
 # ⚠️ Notes for Ines (not newsletter content)
 
-These items from your raw list did **not** make the draft — verified today (Sept 9):
+Items from your raw list that did **not** make the draft — verified Sept 9:
 
 | Item | Status |
 |---|---|
 | Yale Emerging Climate Leaders 2027 | Closed July 30, 2026 (next cohort likely opens spring 2027 — the weekly board check will catch it) |
 | Splat Your World (Niantic) | Closed July 31; winners announced Aug 11 |
-| Rockefeller Foundation grants | They do **not** accept unsolicited proposals — no way for readers to apply |
+| Rockefeller Foundation grants | They do **not** accept unsolicited proposals — nothing for readers to apply to |
 | IGNITE Broward 2027 | Applications closed; 2027 artists announced in October; event Feb 12–21, 2027 |
 | Circle Expanded Orbit | Closed July 9 (extended deadline); program runs Nov 20–26 in Athens |
 | Moonshot Awards 2026 | Closed July 12; ceremony Nov 12 in NYC |
 | VRST 2026 posters & demos | Closed September 4 (conference Nov 16–18, Sendai) |
-| IEEE Metaverse Grand Challenge (your "simulation-driven ideas" link) | Closed August 30 |
-| NAAEE scholarships (Stapp / Rising Leader) | Closed Aug 7 — but the rolling **financial aid** made the draft instead |
+| IEEE Metaverse Grand Challenge (the "simulation-driven ideas" link) | Closed August 30 |
+| NAAEE scholarships (Stapp / Rising Leader) | Closed Aug 7 — the rolling **financial aid** made the draft instead |

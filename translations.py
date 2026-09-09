@@ -487,7 +487,20 @@ FR = {
     "This site is hosted on GitHub Pages, forms are delivered by FormSubmit, 3D models are embedded from Sketchfab, and donations are processed by Tuesday (on behalf of our fiscal sponsor, Florida Community Innovation). Each of these services has its own privacy policy.":
         "Ce site est hébergé sur GitHub Pages, les formulaires sont acheminés par FormSubmit, les modèles 3D sont intégrés depuis Sketchfab et les dons sont traités par Tuesday (pour le compte de notre parrain fiscal, Florida Community Innovation). Chacun de ces services a sa propre politique de confidentialité.",
     "Questions? Contact": "Des questions ? Contactez",
+
+    # ---- opportunity submission form ----
+    "Know an opportunity we should feature?": "Vous connaissez une opportunité à partager ?",
+    "Send it our way — if it’s a fit, it will appear on this board and in the newsletter.":
+        "Envoyez-la-nous — si elle correspond, elle apparaîtra sur ce tableau et dans la newsletter.",
+    ">Opportunity name</label>": ">Nom de l’opportunité</label>",
+    ">Link</label>": ">Lien</label>",
+    ">Deadline (if you know it)</label>": ">Date limite (si vous la connaissez)</label>",
+    ">Who is it for / anything we should know</label>": ">Pour qui / ce qu’il faut savoir</label>",
+    ">Your name or email (optional, so we can credit or thank you)</label>":
+        ">Votre nom ou e-mail (facultatif, pour vous créditer ou vous remercier)</label>",
+    ">Submit Opportunity</button>": ">Envoyer l’opportunité</button>",
 }
+
 
 AR = {
     # ---- navigation / header ----
@@ -972,4 +985,17 @@ AR = {
     "This site is hosted on GitHub Pages, forms are delivered by FormSubmit, 3D models are embedded from Sketchfab, and donations are processed by Tuesday (on behalf of our fiscal sponsor, Florida Community Innovation). Each of these services has its own privacy policy.":
         "يُستضاف هذا الموقع على GitHub Pages، وتُرسل النماذج عبر FormSubmit، وتُضمَّن النماذج ثلاثية الأبعاد من Sketchfab، وتُعالج التبرعات عبر Tuesday (نيابة عن راعينا المالي Florida Community Innovation). ولكل من هذه الخدمات سياسة خصوصية خاصة بها.",
     "Questions? Contact": "لديك أسئلة؟ تواصل مع",
+
+    # ---- opportunity submission form ----
+    "Know an opportunity we should feature?": "هل تعرف فرصة تستحق النشر؟",
+    "Send it our way — if it’s a fit, it will appear on this board and in the newsletter.":
+        "أرسلها إلينا — وإذا كانت مناسبة، ستظهر على هذه اللوحة وفي النشرة.",
+    ">Opportunity name</label>": ">اسم الفرصة</label>",
+    ">Link</label>": ">الرابط</label>",
+    ">Deadline (if you know it)</label>": ">الموعد النهائي (إن كنت تعرفه)</label>",
+    ">Who is it for / anything we should know</label>": ">لمن هي / ما ينبغي أن نعرفه</label>",
+    ">Your name or email (optional, so we can credit or thank you)</label>":
+        ">اسمك أو بريدك الإلكتروني (اختياري، لنشكرك أو ننسب الفضل إليك)</label>",
+    ">Submit Opportunity</button>": ">إرسال الفرصة</button>",
 }
+

@@ -328,15 +328,23 @@ section.pad-sm{padding:56px 0}
 .board-tools{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;align-items:center}
 .board-tools select,.board-tools input[type=search]{padding:10px 14px;border:1px solid var(--mist);
   border-radius:6px;font-family:var(--sans);font-size:14.5px;background:#fff;color:var(--ink)}
-.opp{border:1px solid var(--mist);border-radius:10px;padding:24px 26px;margin-bottom:18px;background:#fff}
+#board{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
+.opp{border:1px solid var(--mist);border-radius:12px;padding:24px 26px;background:#fff;
+  display:flex;flex-direction:column}
 .opp:hover{box-shadow:0 8px 26px rgba(17,21,24,.08)}
 .opp .top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
-.opp h3{font-size:21px;margin:4px 0 8px}
-.opp .desc{color:#3c454c;font-size:15.5px}
+.opp h3{font-size:20px;margin:4px 0 8px}
+.opp .desc{color:#3c454c;font-size:15px;display:-webkit-box;-webkit-line-clamp:5;
+  -webkit-box-orient:vertical;overflow:hidden}
+.opp.x .desc{-webkit-line-clamp:unset}
+.opp .more{background:none;border:none;color:var(--gold-dark);font-weight:700;font-size:13.5px;
+  cursor:pointer;padding:6px 0 0;text-align:left;font-family:var(--sans);width:max-content}
 .opp .dl{font-weight:700;font-size:13.5px;color:var(--ink)}
 .opp .dl.soon{color:#c0392b}
 .opp .dl.closed{color:var(--gray)}
+.opp .btn{margin-top:auto;align-self:flex-start}
 .opp.closed{opacity:.55}
+@media(max-width:760px){#board{grid-template-columns:1fr}}
 
 /* prose pages */
 .prose{max-width:820px;margin:0 auto}
@@ -1139,14 +1147,14 @@ def build_opportunities():
     LBL = {
         "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
                "none": "No opportunities match those filters.", "det": "See details",
-               "apply": "Apply / Info →", "terms": {}},
+               "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
-               "apply": "Postuler / Infos →",
+               "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
-               "apply": "قدّم / التفاصيل ←",
+               "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
@@ -1164,8 +1172,8 @@ def build_opportunities():
         return "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in vals)
     body = f"""
 {page_hero("Art, XR &amp; Impact Opportunities", "Art, XR &amp; Impact Opportunities")}
-<section class="pad"><div class="wrap" style="max-width:920px">
-<p class="sec-sub" style="margin:0 0 26px">A curated board of grants, residencies, fellowships, open calls,
+<section class="pad"><div class="wrap">
+<p class="sec-sub" style="margin:0 0 26px;max-width:860px">A curated board of grants, residencies, fellowships, open calls,
 and events for artists, XR creators, educators, students, and changemakers — updated regularly by the
 Tanit XR team. Also published as our
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
@@ -1181,6 +1189,28 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 </select>
 </div>
 <div id="board"></div>
+
+<div style="margin-top:64px;background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:36px 34px">
+<h2 class="sec-title" style="font-size:28px">Know an opportunity we should feature?</h2>
+<p style="color:var(--gray);margin-bottom:6px">Send it our way — if it's a fit, it will appear on this board
+and in the newsletter.</p>
+<form class="nice" action="{FORM_ENDPOINT}" method="POST">
+<input type="hidden" name="_subject" value="Opportunity submission — tanitxr.org">
+<input type="hidden" name="_captcha" value="true">
+<input type="text" name="_honey" style="display:none">
+<label class="req" for="oname">Opportunity name</label>
+<input id="oname" name="opportunity" required>
+<label class="req" for="olink">Link</label>
+<input id="olink" name="link" type="url" placeholder="https://…" required>
+<label for="odl">Deadline (if you know it)</label>
+<input id="odl" name="deadline">
+<label for="odesc">Who is it for / anything we should know</label>
+<textarea id="odesc" name="details" style="min-height:90px"></textarea>
+<label for="osub">Your name or email (optional, so we can credit or thank you)</label>
+<input id="osub" name="submitted_by">
+<button class="btn btn-gold" type="submit">Submit Opportunity</button>
+</form>
+</div>
 </div></section>
 <script>
 const OPPS={json.dumps(data)};
@@ -1222,11 +1252,16 @@ function render(){{
     else dl=LBL.dl+LBL.det;
     const chips=[o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('');
     const el=o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
-    const btn=o.u&&!o._closed?'<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:12px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
+    const btn=o.u&&!o._closed?'<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
+    const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
     return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chips+el+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+btn+'</div>';
+      '<p class="desc">'+o.d+'</p>'+more+btn+'</div>';
   }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
+  board.querySelectorAll('.more').forEach(b=>b.addEventListener('click',()=>{{
+    const card=b.closest('.opp');card.classList.toggle('x');
+    b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
+  }}));
 }}
 ['q','f-type','f-elig','f-mode','sort'].forEach(id=>{{
   document.getElementById(id).addEventListener('input',render);
