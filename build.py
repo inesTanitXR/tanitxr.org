@@ -789,16 +789,6 @@ for o in OPP_RAW:
 _upd_path = os.path.join(HERE, "ref", "opportunity_updates.json")
 if os.path.exists(_upd_path):
     _upd = json.load(open(_upd_path))
-    for key, patch in _upd.get("matches", {}).items():
-        for o in OPPS:
-            if o["slug"] == key or o["slug"].startswith(key) or key.startswith(o["slug"]):
-                if patch.get("deadline_date"):
-                    o["deadline_date"] = patch["deadline_date"]
-                if patch.get("url"):
-                    o["url"] = patch["url"]
-                break
-        else:
-            print(f"  !! opportunity update matched nothing: {key}")
     for n in _upd.get("new", []):
         OPPS.append({
             "slug": slugify(n["title"]),
@@ -814,6 +804,15 @@ if os.path.exists(_upd_path):
             "url": n.get("url"),
             "published": n.get("published", "2026-06-29"),
         })
+    for key, patch in _upd.get("matches", {}).items():
+        for o in OPPS:
+            if o["slug"] == key or o["slug"].startswith(key) or key.startswith(o["slug"]):
+                for field in ("deadline_date", "url", "deadline_type", "desc"):
+                    if patch.get(field):
+                        o[field] = patch[field]
+                break
+        else:
+            print(f"  !! opportunity update matched nothing: {key}")
 
 # a "Fixed" deadline with no recoverable date on a months-old posting is long past —
 # mark it closed rather than showing a dateless "Deadline: Fixed"
