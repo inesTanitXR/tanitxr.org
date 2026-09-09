@@ -205,7 +205,8 @@ header.site .bar{display:flex;align-items:center;justify-content:space-between;g
 header.site .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 header.site .logo img{height:44px;width:auto}
 header.site .logo span{font-family:var(--serif);font-size:19px;letter-spacing:.14em;color:#fff}
-header.site nav{display:flex;align-items:center;gap:26px}
+header.site nav{display:flex;align-items:center;gap:22px}
+@media(max-width:1290px){header.site .socials{display:none}}
 header.site nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500}
 header.site nav a:hover,header.site nav a.on{color:var(--gold)}
 header.site .socials{display:flex;gap:12px}
@@ -461,18 +462,20 @@ ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4
 NAV = [
     ("Home", "index.html"),
     ("Archive", "archive.html"),
+    ("Opportunities", "opportunities.html"),
+    ("News", "news.html"),
+    ("Get Involved", "volunteer.html", [
+        ("Volunteer", "volunteer.html"),
+        ("Create Your Profile", "create-profile.html"),
+        ("Scanning Guide", "scanning-guide.html"),
+        ("Splats With Phones", "splats-with-phones.html"),
+    ]),
     ("About", "about.html", [
         ("About", "about.html"),
         ("Our People", "people.html"),
-        ("Art, XR &amp; Impact Opportunities", "opportunities.html"),
-        ("News", "news.html"),
-        ("El Jem Conference", "el-jem-conference.html"),
-        ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
-    ]),
-    ("Volunteer", "volunteer.html"),
-    ("Events", "immersegt-2026.html", [
         ("El Jem Conference", "el-jem-conference.html"),
         ("ImmerseGT 2026", "immersegt-2026.html"),
+        ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
     ]),
     ("Contact", "contact.html"),
 ]
@@ -1436,7 +1439,7 @@ if(RX){{
   fetch(RX+'/stats').then(r=>r.json()).then(s=>{{STATS=s&&typeof s==='object'?s:{{}};render();}}).catch(()=>{{}});
 }}
 </script>"""
-    page("opportunities.html", "Art, XR & Impact Opportunities", body, active="about.html")
+    page("opportunities.html", "Art, XR & Impact Opportunities", body, active="opportunities.html")
 
 
 def build_volunteer():

@@ -515,6 +515,11 @@ FR = {
     ">Join us →</a>": ">Rejoignez-nous →</a>",
     ">Volunteer →</a>": ">Bénévolat →</a>",
     "Every scan here was made by a volunteer": "Chaque numérisation ici a été réalisée par un bénévole",
+
+    # ---- reorganized nav ----
+    ">Get Involved</a>": ">Participer</a>",
+    ">Create Your Profile</a>": ">Créer votre profil</a>",
+    ">Scanning Guide</a>": ">Guide de numérisation</a>",
 }
 
 
@@ -1028,5 +1033,10 @@ AR = {
     ">Join us →</a>": ">انضم إلينا ←</a>",
     ">Volunteer →</a>": ">التطوع ←</a>",
     "Every scan here was made by a volunteer": "كل نموذج هنا صنعه متطوع",
+
+    # ---- reorganized nav ----
+    ">Get Involved</a>": ">شارك معنا</a>",
+    ">Create Your Profile</a>": ">أنشئ ملفك الشخصي</a>",
+    ">Scanning Guide</a>": ">دليل المسح</a>",
 }
 

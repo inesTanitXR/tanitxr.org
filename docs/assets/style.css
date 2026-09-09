@@ -31,7 +31,8 @@ header.site .bar{display:flex;align-items:center;justify-content:space-between;g
 header.site .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 header.site .logo img{height:44px;width:auto}
 header.site .logo span{font-family:var(--serif);font-size:19px;letter-spacing:.14em;color:#fff}
-header.site nav{display:flex;align-items:center;gap:26px}
+header.site nav{display:flex;align-items:center;gap:22px}
+@media(max-width:1290px){header.site .socials{display:none}}
 header.site nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500}
 header.site nav a:hover,header.site nav a.on{color:var(--gold)}
 header.site .socials{display:flex;gap:12px}
