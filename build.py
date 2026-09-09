@@ -815,6 +815,14 @@ if os.path.exists(_upd_path):
             "published": n.get("published", "2026-06-29"),
         })
 
+# a "Fixed" deadline with no recoverable date on a months-old posting is long past —
+# mark it closed rather than showing a dateless "Deadline: Fixed"
+import datetime as _dt
+_stale = (_dt.date.today() - _dt.timedelta(days=60)).isoformat()
+for o in OPPS:
+    if not o["deadline_date"] and o["deadline_type"] in ("Fixed", "TBA", "") and o["published"] < _stale:
+        o["deadline_type"] = "Closed"
+
 FEATURED_BASENAMES = ["e55b902d5e35430eb6bc4b1d4d477134.jpeg",
                       "ac789b797d4e4528aab59e898676a6f3.jpeg",
                       "acd421bb938b40a798640f0895cb290d.jpeg"]
@@ -1211,7 +1219,8 @@ function render(){{
       dl=LBL.dl+o.dd+(days<=14?' · '+days+(days===1?LBL.day:LBL.days):'');
       if(days<=14)cls='soon';
     }}
-    else dl=LBL.dl+(LBL.terms[o.dt]||o.dt||LBL.det);
+    else if(o.dt&&o.dt!=='Fixed') dl=LBL.dl+(LBL.terms[o.dt]||o.dt);
+    else dl=LBL.dl+LBL.det;
     const chips=[o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('');
     const el=o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
     const btn=o.u&&!o._closed?'<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:12px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
