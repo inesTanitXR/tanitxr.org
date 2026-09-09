@@ -1,5 +1,14 @@
 /**
- * Cloudflare Worker: volunteer profile submissions for tanitxr.org
+ * Cloudflare Worker: tanitxr.org dynamic bits — volunteer profiles, reaction counts,
+ * and view/click tracking for the opportunities board.
+ *
+ * Routes:
+ *   POST /          or /profile  -> volunteer profile submission (GitHub commit)
+ *   POST /track     {type, id}   -> increment a counter (view|click|thumbs|applied)
+ *   GET  /stats                  -> all counters as {id: {type: count}}
+ *
+ * Extra setup vs. the profile-only version: add a KV namespace binding named STATS
+ * (Worker -> Settings -> Bindings -> KV namespace).
  *
  * Replaces the old JetEngine "form creates a page" flow on the static site:
  *   1. create-profile.html POSTs here.
@@ -62,8 +71,45 @@ export default {
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: cors(origin) });
     }
+    const path = new URL(request.url).pathname;
+
+    if (path === "/stats" && request.method === "GET") {
+      const out = {};
+      if (env.STATS) {
+        let cursor;
+        do {
+          const page = await env.STATS.list({ prefix: "cnt:", cursor });
+          for (const k of page.keys) {
+            const [, type, ...idParts] = k.name.split(":");
+            const id = idParts.join(":");
+            out[id] = out[id] || {};
+            out[id][type] = parseInt((await env.STATS.get(k.name)) || "0", 10);
+          }
+          cursor = page.list_complete ? null : page.cursor;
+        } while (cursor);
+      }
+      return new Response(JSON.stringify(out), {
+        headers: { "Content-Type": "application/json", "Cache-Control": "max-age=60", ...cors(origin) },
+      });
+    }
+
     if (request.method !== "POST") {
       return new Response("POST only", { status: 405, headers: cors(origin) });
+    }
+
+    if (path === "/track") {
+      if (!env.STATS) return new Response("no STATS binding", { status: 500, headers: cors(origin) });
+      let body = {};
+      try { body = await request.json(); } catch {}
+      const type = String(body.type || "");
+      const id = String(body.id || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 80);
+      if (!["view", "click", "thumbs", "applied"].includes(type) || !id) {
+        return new Response("bad request", { status: 400, headers: cors(origin) });
+      }
+      const key = `cnt:${type}:${id}`;
+      const cur = parseInt((await env.STATS.get(key)) || "0", 10);
+      await env.STATS.put(key, String(cur + 1));
+      return new Response("ok", { headers: cors(origin) });
     }
 
     let data;

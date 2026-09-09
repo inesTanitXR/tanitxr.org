@@ -40,6 +40,21 @@ FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
 # worker (see worker/README.md), set this to the worker URL for instant publishing.
 PROFILE_ENDPOINT = FORM_ENDPOINT
 
+# Opportunities board extras
+# The featured listing is configured in ref/opportunity_updates.json ("featured": {slug: photo});
+# the weekly board-check task curates it. If the configured item has closed, the build
+# auto-picks the best open one. Photos fall back by type to these images:
+FEATURED_DEFAULT_PHOTOS = {
+    "Open Call": "e55b902d5e35430eb6bc4b1d4d477134.jpeg",
+    "Award": "e55b902d5e35430eb6bc4b1d4d477134.jpeg",
+    "Grant": "acd421bb938b40a798640f0895cb290d.jpeg",
+    "Residency": "ac789b797d4e4528aab59e898676a6f3.jpeg",
+    "_default": "el-jem.jpg",
+}
+# Cloudflare worker URL for reactions/click/view counting (see worker/README.md).
+# Empty = reactions and counters stay hidden.
+REACTIONS_ENDPOINT = ""
+
 # languages: English at the root, French under fr/, Arabic (RTL) under ar/
 LANG = "en"
 LANG_DIRS = {"en": "", "fr": "fr/", "ar": "ar/"}
@@ -328,6 +343,19 @@ section.pad-sm{padding:56px 0}
 .board-tools{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;align-items:center}
 .board-tools select,.board-tools input[type=search]{padding:10px 14px;border:1px solid var(--mist);
   border-radius:6px;font-family:var(--sans);font-size:14.5px;background:#fff;color:var(--ink)}
+#featured .opp{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:0;padding:0;
+  border:2px solid var(--gold);overflow:hidden;margin-bottom:22px;background:#fffdf4}
+#featured .opp .fx{padding:30px 34px;display:flex;flex-direction:column}
+#featured .opp .fp{min-height:260px;background-size:cover;background-position:center}
+#featured .opp h3{font-size:26px}
+#featured .opp .desc{-webkit-line-clamp:unset}
+.chip.feat{background:var(--ink);color:var(--gold);font-weight:700}
+@media(max-width:760px){#featured .opp{grid-template-columns:1fr}#featured .opp .fp{min-height:180px}}
+.reacts{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.reacts button{background:var(--mist);border:none;border-radius:20px;padding:6px 14px;font-size:13px;
+  cursor:pointer;font-family:var(--sans);transition:.15s}
+.reacts button:hover{background:#dfe3e8}
+.reacts button.on{background:var(--gold);font-weight:700}
 #board{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
 .opp{border:1px solid var(--mist);border-radius:12px;padding:24px 26px;background:#fff;
   display:flex;flex-direction:column}
@@ -830,6 +858,39 @@ for o in OPPS:
     if not o["deadline_date"] and o["deadline_type"] in ("Fixed", "TBA", "") and o["published"] < _stale:
         o["deadline_type"] = "Closed"
 
+
+def _dl_date(o):
+    try:
+        return _dt.datetime.strptime(o["deadline_date"], "%B %d, %Y").date()
+    except (TypeError, ValueError):
+        return None
+
+
+def _is_open(o):
+    if o["deadline_type"] == "Closed":
+        return False
+    d = _dl_date(o)
+    return d is None or d >= _dt.date.today()
+
+
+# featured listing: configured slug if still open, else the best open fallback
+FEATURED_ACTIVE = {}
+_feat_cfg = _upd.get("featured", {}) if os.path.exists(_upd_path) else {}
+for slug, photo in _feat_cfg.items():
+    o = next((x for x in OPPS if x["slug"] == slug), None)
+    if o and _is_open(o):
+        FEATURED_ACTIVE[slug] = photo or FEATURED_DEFAULT_PHOTOS.get(
+            o["type"], FEATURED_DEFAULT_PHOTOS["_default"])
+if not FEATURED_ACTIVE:
+    candidates = [o for o in OPPS if _is_open(o) and o.get("url")]
+    dated = sorted([o for o in candidates if _dl_date(o) and (_dl_date(o) - _dt.date.today()).days >= 5],
+                   key=_dl_date)
+    pick = (dated or sorted(candidates, key=lambda o: o["published"], reverse=True) or [None])[0]
+    if pick:
+        FEATURED_ACTIVE[pick["slug"]] = FEATURED_DEFAULT_PHOTOS.get(
+            pick["type"], FEATURED_DEFAULT_PHOTOS["_default"])
+        print(f"  featured (auto-picked): {pick['title']}")
+
 FEATURED_BASENAMES = ["e55b902d5e35430eb6bc4b1d4d477134.jpeg",
                       "ac789b797d4e4528aab59e898676a6f3.jpeg",
                       "acd421bb938b40a798640f0895cb290d.jpeg"]
@@ -1147,24 +1208,32 @@ def build_opportunities():
     LBL = {
         "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
                "none": "No opportunities match those filters.", "det": "See details",
-               "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less", "terms": {}},
+               "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
+               "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
+               "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
+               "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
     for o in OPPS:
-        data.append({
+        rec = {
+            "id": o["slug"],
             "t": o["title"], "d": o["desc"], "ty": o["type"], "el": o["eligibility"],
             "rg": o["region"], "co": o["country"], "md": o["mode"],
             "dt": o["deadline_type"], "dd": o["deadline_date"], "pub": o["published"],
             "u": o.get("url"),
-        })
+        }
+        if o["slug"] in FEATURED_ACTIVE:
+            rec["f"] = 1
+            rec["ph"] = img(FEATURED_ACTIVE[o["slug"]], 1000)
+        data.append(rec)
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
@@ -1188,6 +1257,7 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 <option value="new">Newest</option>
 </select>
 </div>
+<div id="featured"></div>
 <div id="board"></div>
 
 <div class="band" style="margin-top:64px;border-radius:14px;padding:44px 38px">
@@ -1237,7 +1307,26 @@ and in the newsletter.</p>
 <script>
 const OPPS={json.dumps(data)};
 const LBL={json.dumps(LBL, ensure_ascii=False)};
+const RX={json.dumps(REACTIONS_ENDPOINT)};
+let STATS={{}};
 const board=document.getElementById('board');
+const featBox=document.getElementById('featured');
+const lsGet=k=>{{try{{return localStorage.getItem(k)}}catch(e){{return null}}}};
+const lsSet=(k,v)=>{{try{{localStorage.setItem(k,v)}}catch(e){{}}}};
+function track(type,id){{
+  if(!RX)return;
+  try{{navigator.sendBeacon(RX+'/track',new Blob([JSON.stringify({{type,id}})],{{type:'application/json'}}))}}catch(e){{}}
+}}
+function reactsHtml(o){{
+  if(!RX||o._closed)return '';
+  const s=STATS[o.id]||{{}};
+  const mk=(type,label)=>{{
+    const n=(s[type]||0)+(lsGet('rx:'+type+':'+o.id)?0:0);
+    const on=lsGet('rx:'+type+':'+o.id)?' class="on"':'';
+    return '<button'+on+' data-rx="'+type+'" data-id="'+o.id+'">'+label+(n?' · '+n:'')+'</button>';
+  }};
+  return '<div class="reacts">'+mk('thumbs',LBL.helpful)+mk('applied',LBL.applied)+'</div>';
+}}
 function parseDate(s){{return s?new Date(s):null}}
 function render(){{
   const q=document.getElementById('q').value.toLowerCase();
@@ -1262,33 +1351,62 @@ function render(){{
       return b.pub.localeCompare(a.pub);
     }});
   }}
-  board.innerHTML=list.map(o=>{{
-    let dl, cls='';
-    if(o._closed){{dl=LBL.closed;cls='closed'}}
-    else if(o._d){{
+  function dlOf(o){{
+    if(o._closed)return [LBL.closed,'closed'];
+    if(o._d){{
       const days=Math.ceil((o._d-now)/864e5);
-      dl=LBL.dl+o.dd+(days<=14?' · '+days+(days===1?LBL.day:LBL.days):'');
-      if(days<=14)cls='soon';
+      return [LBL.dl+o.dd+(days<=14?' · '+days+(days===1?LBL.day:LBL.days):''), days<=14?'soon':''];
     }}
-    else if(o.dt&&o.dt!=='Fixed') dl=LBL.dl+(LBL.terms[o.dt]||o.dt);
-    else dl=LBL.dl+LBL.det;
-    const chips=[o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('');
-    const el=o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
-    const btn=o.u&&!o._closed?'<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
-    const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
-    return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chips+el+'</div>'+
+    if(o.dt&&o.dt!=='Fixed')return [LBL.dl+(LBL.terms[o.dt]||o.dt),''];
+    return [LBL.dl+LBL.det,''];
+  }}
+  function chipsOf(o){{
+    return [o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('')
+      + o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
+  }}
+  function btnOf(o){{
+    return o.u&&!o._closed?'<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
+  }}
+  const feats=list.filter(o=>o.f&&!o._closed);
+  const rest=list.filter(o=>!feats.includes(o));
+  featBox.innerHTML=feats.map(o=>{{
+    const [dl,cls]=dlOf(o);
+    return '<div class="opp"><div class="fx">'+
+      '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+more+btn+'</div>';
+      '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
+      '<div class="fp" style="background-image:url('+o.ph+')"></div></div>';
+  }}).join('');
+  board.innerHTML=rest.map(o=>{{
+    const [dl,cls]=dlOf(o);
+    const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
+    return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chipsOf(o)+'</div>'+
+      '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
+      '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+'</div>';
   }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
-  board.querySelectorAll('.more').forEach(b=>b.addEventListener('click',()=>{{
+  document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{{
     const card=b.closest('.opp');card.classList.toggle('x');
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
+  }}));
+  document.querySelectorAll('.apply').forEach(a=>a.addEventListener('click',()=>track('click',a.dataset.id)));
+  document.querySelectorAll('.reacts button').forEach(b=>b.addEventListener('click',()=>{{
+    const type=b.dataset.rx,id=b.dataset.id;
+    if(lsGet('rx:'+type+':'+id))return;
+    lsSet('rx:'+type+':'+id,'1');
+    track(type,id);
+    b.classList.add('on');
+    const s=STATS[id]=STATS[id]||{{}};s[type]=(s[type]||0)+1;
+    b.textContent=(type==='thumbs'?LBL.helpful:LBL.applied)+' · '+s[type];
   }}));
 }}
 ['q','f-type','f-elig','f-mode','sort'].forEach(id=>{{
   document.getElementById(id).addEventListener('input',render);
 }});
 render();
+if(RX){{
+  track('view','board');
+  fetch(RX+'/stats').then(r=>r.json()).then(s=>{{STATS=s&&typeof s==='object'?s:{{}};render();}}).catch(()=>{{}});
+}}
 </script>"""
     page("opportunities.html", "Art, XR & Impact Opportunities", body, active="about.html")
 

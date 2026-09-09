@@ -21,7 +21,7 @@ and rebuilding — nothing is broken without the worker, it's an upgrade.
 ## Setup (one time, ~10 minutes)
 
 1. Create a free Cloudflare account (or log in) → Workers & Pages → Create Worker.
-2. Paste `profile-worker.js` as the worker code.
+2. Paste `tanitxr-worker.js` as the worker code.
 3. In GitHub (the inesTanitXR account): Settings → Developer settings →
    Fine-grained tokens → new token, repository access = `inesTanitXR/tanitxr.org` only,
    permission = **Contents: Read and write**. Copy it.
@@ -39,3 +39,18 @@ and rebuilding — nothing is broken without the worker, it's an upgrade.
 The form has a honeypot field and the worker strips HTML from every field.
 If spam ever gets through, set `AUTO_APPROVE` to `false` — submissions then wait
 in `profiles/` until approved.
+
+## Reactions & counters (same worker)
+
+The worker also powers the board's 👍 Helpful / ✅ I applied buttons and counts
+views and Apply-clicks per opportunity:
+
+1. In the worker: Settings → Bindings → add a **KV namespace** binding named `STATS`
+   (create a new namespace, e.g. `tanitxr-stats`).
+2. In `build.py`, set `REACTIONS_ENDPOINT = "<worker URL>"`, rebuild, push.
+3. Stats are public JSON at `<worker URL>/stats` — per opportunity: views, clicks,
+   thumbs, applied. That's the evidence for selling featured listings later
+   ("featured spots get N views and N applications").
+
+No accounts, no cookies for visitors — one anonymous counter per action, with a
+localStorage flag preventing double-votes per browser.
