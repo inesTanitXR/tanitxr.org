@@ -40,6 +40,11 @@ FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
 # worker (see worker/README.md), set this to the worker URL for instant publishing.
 PROFILE_ENDPOINT = FORM_ENDPOINT
 
+# languages: English at the root, French under fr/, Arabic (RTL) under ar/
+LANG = "en"
+LANG_DIRS = {"en": "", "fr": "fr/", "ar": "ar/"}
+LANG_NAMES = {"en": "EN", "fr": "FR", "ar": "ع"}
+
 # ---------------------------------------------------------------- utilities
 
 def fix_mojibake(s):
@@ -88,9 +93,21 @@ if os.path.isdir(MEDIA_EXTRA):
 
 _img_cache = {}
 
+# basenames that exist more than once in the old media library (flat downloads clobbered
+# each other) — for these, a dated copy is fetched from the exact URL instead
+_dupe_names = set()
+_seen_names = set()
+for _m in json.load(open(os.path.join(HERE, "wp-data", "media.json"))):
+    _b = os.path.basename(_m.get("source_url", "")).lower()
+    (_dupe_names if _b in _seen_names else _seen_names).add(_b)
+
+
 def _source_for(url):
     """Local file for a wp-content URL (downloads once into media/extra if missing)."""
     base = os.path.basename(url.split("?")[0])
+    dated = re.search(r"/uploads/(\d{4})/(\d{2})/([^/?]+)$", url.split("?")[0])
+    if dated and dated.group(3).lower() in _dupe_names:
+        base = f"{dated.group(1)}-{dated.group(2)}-{dated.group(3)}"
     if base.lower() in _media_files:
         return _media_files[base.lower()]
     os.makedirs(MEDIA_EXTRA, exist_ok=True)
@@ -194,6 +211,15 @@ header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
 .drop:hover .menu,.drop:focus-within .menu{display:block}
 .drop .menu a{display:block;padding:9px 20px;color:var(--ink)!important;font-size:14.5px}
 .drop .menu a:hover{background:var(--cloud);color:var(--gold-dark)!important}
+.langs{display:flex;gap:4px;font-size:12.5px;font-weight:700;align-items:center}
+.langs a{color:inherit;text-decoration:none;opacity:.75;padding:3px 7px;border-radius:4px}
+.langs a:hover{opacity:1}
+.langs a.on{background:var(--gold);color:var(--ink)!important;opacity:1}
+header.site.solid .langs a,header.site.scrolled .langs a{color:var(--ink)}
+[dir=rtl] .quote{border-left:none;border-right:4px solid var(--gold)}
+[dir=rtl] .drop .menu{left:auto;right:-14px}
+[dir=rtl] .faq summary::after{right:auto;left:22px}
+[dir=rtl] .page-hero .crumb a{margin-left:0}
 #nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
 #nav-toggle span{display:block;width:24px;height:2px;margin:5px 0;background:#fff;transition:.2s}
 header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{background:var(--ink)}
@@ -201,6 +227,11 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
   header.site nav{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--ink);
     flex-direction:column;align-items:flex-start;padding:80px 30px 30px;gap:4px;transition:right .25s;overflow-y:auto}
   header.site nav.open{right:0}
+  [dir=rtl] header.site nav{right:auto;left:-320px;transition:left .25s}
+  [dir=rtl] header.site nav.open{left:0}
+  .langs{margin-top:10px}
+  .langs a{color:#fff!important}
+  .langs a.on{color:var(--ink)!important}
   header.site nav a{color:#fff!important;padding:9px 0;font-size:17px}
   .drop .menu{position:static;display:block;background:none;box-shadow:none;padding:0 0 0 16px;min-width:0}
   .drop .menu a{color:rgba(255,255,255,.75)!important;padding:7px 0}
@@ -411,7 +442,20 @@ NAV = [
 ]
 
 
-def header_html(active, transparent):
+def lang_switcher(fname):
+    """EN / FR / ع links pointing at this page's siblings in the other languages."""
+    out = []
+    for code, d in LANG_DIRS.items():
+        if code == LANG:
+            href, cls = "#", ' class="on"'
+        else:
+            up = "../" if LANG != "en" else ""
+            href, cls = f"{up}{d}{fname}", ""
+        out.append(f'<a href="{href}"{cls} lang="{code}">{LANG_NAMES[code]}</a>')
+    return f'<div class="langs">{"".join(out)}</div>'
+
+
+def header_html(active, transparent, fname="index.html"):
     logo = img("tanitxr-logo_red_vertical.png", 120, as_jpeg=False)
     items = []
     for entry in NAV:
@@ -428,6 +472,7 @@ def header_html(active, transparent):
 <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 <nav>{''.join(items)}
 <a class="donate" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+{lang_switcher(fname)}
 <div class="socials">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
@@ -475,9 +520,54 @@ public everywhere.</p>
 </div></div></footer>"""
 
 
+_tr_cache = {}
+
+def _tr_patterns(lang):
+    """Compiled (pattern, replacement) pairs, longest key first, whitespace-tolerant."""
+    if lang not in _tr_cache:
+        import translations
+        table = translations.FR if lang == "fr" else translations.AR
+        pats = []
+        for k in sorted(table, key=len, reverse=True):
+            pat = re.compile(r"\s+".join(re.escape(w) for w in k.split()))
+            pats.append((pat, table[k]))
+        _tr_cache[lang] = pats
+    return _tr_cache[lang]
+
+
+def _translate(doc):
+    """Apply the current language's string table to everything outside <script> blocks."""
+    if LANG == "en":
+        return doc
+    parts = re.split(r"(<script.*?</script>)", doc, flags=re.S)
+    for i, part in enumerate(parts):
+        if part.startswith("<script"):
+            continue
+        for pat, repl in _tr_patterns(LANG):
+            part = pat.sub(lambda m, v=repl: v, part)
+        parts[i] = part
+    return "".join(parts)
+
+
+FONTS_LATIN = ("https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;"
+               "0,700;1,400&family=Roboto+Slab:wght@400;500&display=swap")
+FONTS_ARABIC = ("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600&family=Tajawal:wght@400;"
+                "500;700&display=swap")
+
+
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True):
+    if LANG == "ar":
+        html_attrs = 'lang="ar" dir="rtl"'
+        fonts = FONTS_ARABIC
+        font_fix = ("<style>:root{--serif:'El Messiri',serif;--sans:'Tajawal',-apple-system,sans-serif;"
+                    "--slab:'Tajawal',sans-serif}body{font-size:17.5px}"
+                    "header.site .logo span{letter-spacing:.05em}</style>")
+    else:
+        html_attrs = f'lang="{LANG}"'
+        fonts = FONTS_LATIN
+        font_fix = ""
     doc = f"""<!DOCTYPE html>
-<html lang="en">
+<html {html_attrs}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -486,18 +576,26 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <link rel="icon" href="{img('tanitxr-logo_red_vertical.png', 120, as_jpeg=False)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link href="{fonts}" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">{font_fix}
 </head>
 <body>
-{header_html(active or fname, transparent)}
+{header_html(active or fname, transparent, fname)}
 {body}
 {trending_html() if trending else ''}
 {footer_html()}
 <script src="assets/site.js"></script>
 </body>
 </html>"""
-    with open(os.path.join(DOCS, fname), "w") as f:
+    doc = _translate(doc)
+    if LANG != "en":  # pages live one level down — repoint shared assets
+        doc = (doc.replace('href="assets/', 'href="../assets/')
+                  .replace('src="assets/', 'src="../assets/')
+                  .replace("url(assets/", "url(../assets/")
+                  .replace("fetch('profiles-live.json')", "fetch('../profiles-live.json')"))
+    out_dir = os.path.join(DOCS, LANG_DIRS[LANG])
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, fname), "w") as f:
         f.write(doc)
 
 
@@ -998,6 +1096,16 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 
 
 def build_opportunities():
+    LBL = {
+        "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
+               "none": "No opportunities match those filters.", "det": "See details", "terms": {}},
+        "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
+               "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
+               "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
+        "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
+               "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
+               "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
+    }[LANG]
     data = []
     for o in OPPS:
         data.append({
@@ -1032,6 +1140,7 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 </div></section>
 <script>
 const OPPS={json.dumps(data)};
+const LBL={json.dumps(LBL, ensure_ascii=False)};
 const board=document.getElementById('board');
 function parseDate(s){{return s?new Date(s):null}}
 function render(){{
@@ -1059,19 +1168,19 @@ function render(){{
   }}
   board.innerHTML=list.map(o=>{{
     let dl, cls='';
-    if(o._closed){{dl='Closed';cls='closed'}}
+    if(o._closed){{dl=LBL.closed;cls='closed'}}
     else if(o._d){{
       const days=Math.ceil((o._d-now)/864e5);
-      dl='Deadline: '+o.dd+(days<=14?' · '+days+' day'+(days===1?'':'s')+' left':'');
+      dl=LBL.dl+o.dd+(days<=14?' · '+days+(days===1?LBL.day:LBL.days):'');
       if(days<=14)cls='soon';
     }}
-    else dl='Deadline: '+(o.dt||'See details');
+    else dl=LBL.dl+(LBL.terms[o.dt]||o.dt||LBL.det);
     const chips=[o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('');
     const el=o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
     return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chips+el+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p></div>';
-  }}).join('')||'<p style="color:var(--gray)">No opportunities match those filters.</p>';
+  }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
 }}
 ['q','f-type','f-elig','f-mode','sort'].forEach(id=>{{
   document.getElementById(id).addEventListener('input',render);
@@ -1186,7 +1295,7 @@ def build_scanning_guide():
 <li><b>Goal:</b> Create detailed 3D scans of historical landmarks, ruins, pottery, architecture, and cultural
 artifacts for a global digital heritage archive.</li>
 </ul>
-<img src="{img('image.png', 1200)}" alt="Scaniverse scanning example">
+<img src="{img('https://tanitxr.org/wp-content/uploads/2025/09/image.png', 1200)}" alt="Scaniverse scanning example">
 <h2>🧭 Choosing What to Scan</h2>
 <p>Not sure where to start? Look for objects, places, and details that carry cultural, historical, artistic,
 or community meaning.</p>
@@ -1620,7 +1729,9 @@ Innovation). Each of these services has its own privacy policy.</p>
 </div></div></section>"""
     page("privacy.html", "Privacy Policy", body, trending=False)
 
-    # 404 with redirects from old WordPress URLs
+    # 404 with redirects from old WordPress URLs (root/English only)
+    if LANG != "en":
+        return
     redirects = {"/archive": "archive.html", "/about": "about.html", "/our-people": "people.html",
                  "/art-xr-impact-opportunities": "opportunities.html", "/news": "news.html",
                  "/volunteer": "volunteer.html", "/volunteer-with-us": "volunteer.html",
@@ -1675,27 +1786,33 @@ def main():
     with open(os.path.join(DOCS, "robots.txt"), "w") as f:
         f.write("User-agent: *\nAllow: /\n")
 
-    build_home()
-    build_archive()
-    build_model_pages()
-    build_news()
-    build_people()
-    build_opportunities()
-    build_volunteer()
-    build_create_profile()
-    build_scanning_guide()
-    build_splats()
-    build_el_jem()
-    build_unique_mappers()
-    build_immersegt()
-    build_about()
-    build_contact()
-    build_support()
-    build_misc()
+    global LANG
+    for LANG in LANG_DIRS:
+        build_home()
+        build_archive()
+        build_model_pages()
+        build_news()
+        build_people()
+        build_opportunities()
+        build_volunteer()
+        build_create_profile()
+        build_scanning_guide()
+        build_splats()
+        build_el_jem()
+        build_unique_mappers()
+        build_immersegt()
+        build_about()
+        build_contact()
+        build_support()
+        build_misc()
+        print(f"  {LANG}: done")
+    LANG = "en"
 
     n_pages = len([f for f in os.listdir(DOCS) if f.endswith(".html")])
+    n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])
+    n_ar = len([f for f in os.listdir(os.path.join(DOCS, "ar")) if f.endswith(".html")])
     size = subprocess.run(["du", "-sh", DOCS], capture_output=True, text=True).stdout.split()[0]
-    print(f"\nBuilt {n_pages} pages -> docs/ ({size})")
+    print(f"\nBuilt {n_pages} en + {n_fr} fr + {n_ar} ar pages -> docs/ ({size})")
 
 
 if __name__ == "__main__":

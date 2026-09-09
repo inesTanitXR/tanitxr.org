@@ -52,6 +52,15 @@ header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
 .drop:hover .menu,.drop:focus-within .menu{display:block}
 .drop .menu a{display:block;padding:9px 20px;color:var(--ink)!important;font-size:14.5px}
 .drop .menu a:hover{background:var(--cloud);color:var(--gold-dark)!important}
+.langs{display:flex;gap:4px;font-size:12.5px;font-weight:700;align-items:center}
+.langs a{color:inherit;text-decoration:none;opacity:.75;padding:3px 7px;border-radius:4px}
+.langs a:hover{opacity:1}
+.langs a.on{background:var(--gold);color:var(--ink)!important;opacity:1}
+header.site.solid .langs a,header.site.scrolled .langs a{color:var(--ink)}
+[dir=rtl] .quote{border-left:none;border-right:4px solid var(--gold)}
+[dir=rtl] .drop .menu{left:auto;right:-14px}
+[dir=rtl] .faq summary::after{right:auto;left:22px}
+[dir=rtl] .page-hero .crumb a{margin-left:0}
 #nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
 #nav-toggle span{display:block;width:24px;height:2px;margin:5px 0;background:#fff;transition:.2s}
 header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{background:var(--ink)}
@@ -59,6 +68,11 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
   header.site nav{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--ink);
     flex-direction:column;align-items:flex-start;padding:80px 30px 30px;gap:4px;transition:right .25s;overflow-y:auto}
   header.site nav.open{right:0}
+  [dir=rtl] header.site nav{right:auto;left:-320px;transition:left .25s}
+  [dir=rtl] header.site nav.open{left:0}
+  .langs{margin-top:10px}
+  .langs a{color:#fff!important}
+  .langs a.on{color:var(--ink)!important}
   header.site nav a{color:#fff!important;padding:9px 0;font-size:17px}
   .drop .menu{position:static;display:block;background:none;box-shadow:none;padding:0 0 0 16px;min-width:0}
   .drop .menu a{color:rgba(255,255,255,.75)!important;padding:7px 0}
