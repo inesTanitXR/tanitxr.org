@@ -508,6 +508,13 @@ FR = {
     'placeholder="you@example.com"': 'placeholder="vous@exemple.com"',
     ">Subscribe Free</button>": ">S’abonner gratuitement</button>",
     "No spam — opportunities and Tanit XR news only. Also published on": "Pas de spam — uniquement des opportunités et des nouvelles de Tanit XR. Également publié sur",
+
+    # ---- volunteer reminders ----
+    "🤝 This scan exists because of volunteers — from scanning on site to cleanup and research.":
+        "🤝 Cette numérisation existe grâce aux bénévoles — du scan sur site au nettoyage et à la recherche.",
+    ">Join us →</a>": ">Rejoignez-nous →</a>",
+    ">Volunteer →</a>": ">Bénévolat →</a>",
+    "Every scan here was made by a volunteer": "Chaque numérisation ici a été réalisée par un bénévole",
 }
 
 
@@ -1014,5 +1021,12 @@ AR = {
     'placeholder="you@example.com"': 'placeholder="you@example.com"',
     ">Subscribe Free</button>": ">اشترك مجانًا</button>",
     "No spam — opportunities and Tanit XR news only. Also published on": "لا رسائل مزعجة — فرص وأخبار تانيت XR فقط. تُنشر أيضًا على",
+
+    # ---- volunteer reminders ----
+    "🤝 This scan exists because of volunteers — from scanning on site to cleanup and research.":
+        "🤝 هذا النموذج موجود بفضل المتطوعين — من المسح في الموقع إلى التنقيح والبحث.",
+    ">Join us →</a>": ">انضم إلينا ←</a>",
+    ">Volunteer →</a>": ">التطوع ←</a>",
+    "Every scan here was made by a volunteer": "كل نموذج هنا صنعه متطوع",
 }
 

@@ -542,7 +542,7 @@ public everywhere.</p>
 <a href="news.html">News</a>
 <a href="opportunities.html">Opportunities</a></div>
 <div><h4>Get Involved</h4>
-<a href="volunteer.html">Volunteer</a>
+<a href="volunteer.html" style="color:var(--gold);font-weight:700">Volunteer →</a>
 <a href="splats-with-phones.html">Workshops</a>
 <a href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a href="contact.html">Contact</a></div>
@@ -1072,7 +1072,15 @@ document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{{
   document.querySelectorAll('.card.arch').forEach(c=>{{c.style.display=(f==='*'||c.dataset.site===f)?'':'none'}});
 }}));
 }});
-</script>"""
+</script>
+<section class="band pad"><div class="wrap center">
+<div class="eyebrow">Become a volunteer</div>
+<h2 class="sec-title">Every scan here was made by a volunteer</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.85)">You don’t need to be an archaeologist or a
+technologist to make an impact. Our first scans were made with a phone. Whether on the ground in Tunisia or
+helping remotely, every volunteer contributes to preserving history.</p>
+<a class="btn btn-gold" href="volunteer.html">Volunteer</a>
+</div></section>"""
     page("archive.html", "Archive", body)
 
 
@@ -1101,6 +1109,9 @@ def build_model_pages():
 {sk_link}
 <a class="btn btn-gold" href="archive.html">← Back to Archive</a>
 </div>
+<p style="margin-top:26px;padding:16px 20px;background:var(--cloud);border-radius:10px;font-size:14.5px;color:var(--gray)">
+🤝 This scan exists because of volunteers — from scanning on site to cleanup and research.
+<a href="volunteer.html" style="color:var(--gold-dark);font-weight:700">Join us →</a></p>
 <div style="display:flex;justify-content:space-between;margin-top:44px;padding-top:22px;border-top:1px solid var(--mist);font-size:14.5px">
 <a href="{prev_m['href']}" style="text-decoration:none;color:var(--gray)">← {esc(prev_m['title'][:40])}</a>
 <a href="{next_m['href']}" style="text-decoration:none;color:var(--gray);text-align:right">{esc(next_m['title'][:40])} →</a>
@@ -1209,16 +1220,19 @@ def build_opportunities():
         "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
-               "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied", "terms": {}},
+               "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
+               "vol": "Volunteer with us →", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
+               "vol": "Devenez bénévole →",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
+               "vol": "تطوّع معنا ←",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
@@ -1234,6 +1248,16 @@ def build_opportunities():
             rec["f"] = 1
             rec["ph"] = img(FEATURED_ACTIVE[o["slug"]], 1000)
         data.append(rec)
+    # permanent house listing: volunteering with Tanit XR is always open
+    data.insert(0, {
+        "id": "volunteer-with-tanit-xr", "tx": 1,
+        "t": "Volunteer with Tanit XR — Preserve Heritage in 3D & XR",
+        "d": "Tanit XR is powered by volunteers: 3D scanning, model cleanup, XR development, "
+             "historical research, writing, translation, and storytelling. Join from Tunisia or "
+             "anywhere in the world — all experience levels welcome, fully remote friendly.",
+        "ty": "Volunteer", "el": ["Open to all"], "rg": "Global", "co": "", "md": "Remote",
+        "dt": "Rolling", "dd": None, "pub": _dt.date.today().isoformat(), "u": "volunteer.html",
+    })
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
@@ -1361,14 +1385,18 @@ function render(){{
     return [LBL.dl+LBL.det,''];
   }}
   function chipsOf(o){{
-    return [o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('')
+    return (o.tx?'<span class="chip feat">🏺 Tanit XR</span>':'')
+      + [o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('')
       + o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
   }}
   function btnOf(o){{
-    return o.u&&!o._closed?'<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
+    if(!o.u||o._closed)return '';
+    if(o.tx)return '<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'">'+LBL.vol+'</a>';
+    return '<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>';
   }}
   const feats=list.filter(o=>o.f&&!o._closed);
-  const rest=list.filter(o=>!feats.includes(o));
+  let rest=list.filter(o=>!feats.includes(o));
+  rest=[...rest.filter(o=>o.tx),...rest.filter(o=>!o.tx)];
   featBox.innerHTML=feats.map(o=>{{
     const [dl,cls]=dlOf(o);
     return '<div class="opp"><div class="fx">'+
