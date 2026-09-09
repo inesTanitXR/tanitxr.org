@@ -770,6 +770,7 @@ for o in OPP_RAW:
     if mdl:
         dl = mdl.group(1)
     OPPS.append({
+        "slug": o["slug"],
         "title": fix_mojibake(htmod.unescape(o["title"]["rendered"])),
         "desc": txt,
         "type": (terms.get("opportunity_type") or [""])[0],
@@ -779,8 +780,40 @@ for o in OPP_RAW:
         "mode": (terms.get("participation-mode") or [""])[0],
         "deadline_type": (terms.get("deadline_type") or [""])[0],
         "deadline_date": dl,
+        "url": None,
         "published": o["date"][:10],
     })
+
+# merge deadline dates / apply links / new entries harvested from the LinkedIn
+# newsletter (ref/opportunity_updates.json)
+_upd_path = os.path.join(HERE, "ref", "opportunity_updates.json")
+if os.path.exists(_upd_path):
+    _upd = json.load(open(_upd_path))
+    for key, patch in _upd.get("matches", {}).items():
+        for o in OPPS:
+            if o["slug"] == key or o["slug"].startswith(key) or key.startswith(o["slug"]):
+                if patch.get("deadline_date"):
+                    o["deadline_date"] = patch["deadline_date"]
+                if patch.get("url"):
+                    o["url"] = patch["url"]
+                break
+        else:
+            print(f"  !! opportunity update matched nothing: {key}")
+    for n in _upd.get("new", []):
+        OPPS.append({
+            "slug": slugify(n["title"]),
+            "title": n["title"],
+            "desc": n["desc"],
+            "type": n.get("type", ""),
+            "eligibility": n.get("eligibility", []),
+            "region": n.get("region", ""),
+            "country": "",
+            "mode": n.get("mode", ""),
+            "deadline_type": n.get("deadline_type", "Fixed" if n.get("deadline_date") else "Rolling"),
+            "deadline_date": n.get("deadline_date"),
+            "url": n.get("url"),
+            "published": n.get("published", "2026-06-29"),
+        })
 
 FEATURED_BASENAMES = ["e55b902d5e35430eb6bc4b1d4d477134.jpeg",
                       "ac789b797d4e4528aab59e898676a6f3.jpeg",
@@ -1098,12 +1131,15 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 def build_opportunities():
     LBL = {
         "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
-               "none": "No opportunities match those filters.", "det": "See details", "terms": {}},
+               "none": "No opportunities match those filters.", "det": "See details",
+               "apply": "Apply / Info →", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
+               "apply": "Postuler / Infos →",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
+               "apply": "قدّم / التفاصيل ←",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
@@ -1112,6 +1148,7 @@ def build_opportunities():
             "t": o["title"], "d": o["desc"], "ty": o["type"], "el": o["eligibility"],
             "rg": o["region"], "co": o["country"], "md": o["mode"],
             "dt": o["deadline_type"], "dd": o["deadline_date"], "pub": o["published"],
+            "u": o.get("url"),
         })
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
@@ -1155,7 +1192,7 @@ function render(){{
     (!ft||o.ty===ft) && (!fe||o.el.includes(fe)) && (!fm||o.md===fm));
   list.forEach(o=>{{
     o._d=parseDate(o.dd);
-    o._closed = o.dt==='Closed' || (o._d && o._d < now);
+    o._closed = !!(o.dt==='Closed' || (o._d && o._d < now));
   }});
   if(sort==='new'){{ list.sort((a,b)=>b.pub.localeCompare(a.pub)); }}
   else {{
@@ -1177,9 +1214,10 @@ function render(){{
     else dl=LBL.dl+(LBL.terms[o.dt]||o.dt||LBL.det);
     const chips=[o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('');
     const el=o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
+    const btn=o.u&&!o._closed?'<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:12px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>':'';
     return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chips+el+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p></div>';
+      '<p class="desc">'+o.d+'</p>'+btn+'</div>';
   }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
 }}
 ['q','f-type','f-elig','f-mode','sort'].forEach(id=>{{
