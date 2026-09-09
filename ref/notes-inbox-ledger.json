@@ -1,0 +1,70 @@
+{
+ "_what": "Items from the 'Newsletter' Apple Note (and screenshots in iCloud Drive/Opportunities Inbox) already processed into the tanitxr.org board. The daily inbox sweep compares normalized note bullets against 'key' values here.",
+ "processed": [
+  {
+   "key": "applications are now open for the 2027 cohort of the yale emerging climate leaders fellowship",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "splat your world challenge",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "the rockefeller foundation grant",
+   "date": "2026-09-09",
+   "status": "skipped (no open application path)"
+  },
+  {
+   "key": "ignite broward 2027",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "circle expanded orbit",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "moonshot award",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "vrst posters and demos",
+   "date": "2026-09-09",
+   "status": "closed"
+  },
+  {
+   "key": "financial aid to attend conference",
+   "date": "2026-09-09",
+   "status": "added (financial aid, rolling)"
+  },
+  {
+   "key": "call for immersive art for exhibition at the ieee vr",
+   "date": "2026-09-09",
+   "status": "added (deadline Nov 3, 2026)"
+  },
+  {
+   "key": "games for change turkiye festival call for speakers and call for arcade are now open",
+   "date": "2026-09-09",
+   "status": "added (deadlines TBA)"
+  },
+  {
+   "key": "artist engineering's art worker artist grant",
+   "date": "2026-09-09",
+   "status": "added (deadline Sep 14, 2026)"
+  },
+  {
+   "key": "acm chi call for submissions",
+   "date": "2026-09-09",
+   "status": "added (papers Sep 10, 2026)"
+  },
+  {
+   "key": "showcase your immersive, simulation-driven ideas on a global stage",
+   "date": "2026-09-09",
+   "status": "closed (IEEE Metaverse Grand Challenge)"
+  }
+ ]
+}
