@@ -1,0 +1,8 @@
+{
+  "_what": "Impact numbers shown on the home and About stats bands. The weekly board-check task refreshes these: artifacts from the Sketchfab org model count, volunteers from the site's people pages, reach from LinkedIn (followers + newsletter subscribers + recent post impressions, conservative). Displayed rounded DOWN to a friendly floor with a '+'.",
+  "artifacts": 60,
+  "sites": 15,
+  "volunteers": 25,
+  "reach": 100000,
+  "updated": "2026-09-10"
+}

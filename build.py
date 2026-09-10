@@ -45,6 +45,19 @@ PROFILE_ENDPOINT = FORM_ENDPOINT
 # The featured listing is configured in ref/opportunity_updates.json ("featured": {slug: photo});
 # the weekly board-check task curates it. If the configured item has closed, the build
 # auto-picks the best open one. Photos fall back by type to these images:
+# impact numbers (ref/stats.json, refreshed by the weekly task)
+_stats = json.load(open(os.path.join(HERE, "ref", "stats.json")))
+
+def stat(key):
+    """Render a stat as an animated count-up target, floored to a friendly number."""
+    n = _stats[key]
+    if n >= 1000:
+        disp, suffix = n // 1000, "k+"
+    else:
+        disp, suffix = (n // 5) * 5 if n >= 20 else n, "+"
+    return f'<span class="cnt" data-n="{disp}" data-s="{suffix}">{disp}{suffix}</span>'
+
+
 FEATURED_DEFAULT_PHOTOS = {
     "Open Call": "e55b902d5e35430eb6bc4b1d4d477134.jpeg",
     "Award": "e55b902d5e35430eb6bc4b1d4d477134.jpeg",
@@ -463,6 +476,26 @@ const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
 const nt=document.getElementById('nav-toggle');
 if(nt){nt.addEventListener('click',()=>{document.getElementById('mobnav').classList.toggle('open')})}
+// count-up animation on impact numbers
+(function(){
+  const els=document.querySelectorAll('.cnt');
+  if(!els.length)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting)return;
+      io.unobserve(en.target);
+      const el=en.target,n=+el.dataset.n,s=el.dataset.s||'+',t0=performance.now(),dur=1400;
+      function tick(t){
+        const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+        el.textContent=Math.round(n*e)+s;
+        if(p<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.4});
+  els.forEach(e=>io.observe(e));
+})();
 """
 
 # ---------------------------------------------------------------- svg icons
@@ -1091,10 +1124,10 @@ across Tunisia and the world.</p>
 
 <section class="band pad"><div class="wrap">
 <div class="stats">
-<div><b>60+</b><span>Artifacts Scanned</span></div>
-<div><b>12+</b><span>Sites Documented</span></div>
-<div><b>25+</b><span>Volunteers</span></div>
-<div><b>50,000+</b><span>Global Reach</span></div>
+<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
+<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
+<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
+<div><b>{stat('reach')}</b><span>Global Reach</span></div>
 </div></div></section>
 
 <section class="pad-sm"><div class="wrap center">
@@ -1879,10 +1912,10 @@ def build_about():
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
 and neglect. Together, we’re building a digital archive to protect it for generations.</p>
 <div class="stats" style="margin-top:14px">
-<div><b style="color:var(--gold-dark)">60+</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
-<div><b style="color:var(--gold-dark)">15+</b><span style="color:var(--gray)">Sites Documented</span></div>
-<div><b style="color:var(--gold-dark)">25+</b><span style="color:var(--gray)">Volunteers</span></div>
-<div><b style="color:var(--gold-dark)">100k+</b><span style="color:var(--gray)">Global Reach</span></div>
+<div><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
+<div><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
+<div><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
+<div><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
 </div>
 </div></section>
 <section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
