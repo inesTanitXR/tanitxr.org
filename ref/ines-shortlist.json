@@ -1,0 +1,16 @@
+{
+ "_what": "Opportunities Ines should personally consider applying to. Curated by the weekly board check; the daily sweep reminds her when deadlines approach. status: new | reminded | applied | skipped",
+ "profile": "Tunisian immersive artist & XR developer; founder of Tanit XR (heritage-preservation nonprofit, fiscally sponsored 501c3); seeks paid speaking, XR-art exhibitions, fellowships/awards for XR creators and women in tech, and funding for the nonprofit; based US/Tunisia.",
+ "items": [
+  {"slug": "ieee-vr-2027-xr-gallery-sharing-realities", "deadline": "November 3, 2026", "status": "new",
+   "reason": "Immersive-art call, previously unexhibited work, free registration + $500 awards — perfect fit for her XR art + a heritage piece would shine."},
+  {"slug": "womentech-global-awards-2026", "deadline": "October 1, 2026", "status": "new",
+   "reason": "Self-nomination welcome; visibility for women in XR — costs nothing, aligns with her profile."},
+  {"slug": "awe-2027-call-for-speakers-early-opportunities", "deadline": null, "status": "new",
+   "reason": "She spoke at AWE 2026; early speaker submission for 2027 directly serves her paid-speaking goal."},
+  {"slug": "games-for-change-turkiye-festival-2026-calls-for-speakers-arcade", "deadline": null, "status": "new",
+   "reason": "Speaker call at a values-aligned festival; heritage games angle fits Tanit XR."},
+  {"slug": "art-worker-artist-grant-2026-artist-engineering", "deadline": "September 14, 2026", "status": "new",
+   "reason": "URGENT (Sept 14 or first 500 entries): $5,000 AUD, minimal application; she plausibly qualifies as an artist whose livelihood is art-industry work — worth 15 minutes."}
+ ]
+}
