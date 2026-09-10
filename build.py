@@ -289,6 +289,15 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
   text-align:center;color:#fff;background:var(--ink)}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55}
 .hero .in{position:relative;max-width:880px;padding:140px 24px 90px}
+/* homepage hero: side-lit on wide screens, evenly darkened + centered when narrower */
+.hero .bg.hero-photo{opacity:1;background-position:right center;
+  background-image:linear-gradient(97deg,#0b0e11 0%,#0b0e11 32%,rgba(11,14,17,.82) 52%,rgba(11,14,17,.22) 82%,rgba(11,14,17,.55) 100%),
+    linear-gradient(180deg,rgba(11,14,17,.55),rgba(11,14,17,0) 30%,rgba(11,14,17,0) 55%,rgba(11,14,17,.85)),
+    var(--hero-img)}
+@media(max-width:1450px){
+  .hero .bg.hero-photo{background-position:center;
+    background-image:linear-gradient(rgba(11,14,17,.8),rgba(11,14,17,.62) 55%,rgba(11,14,17,.86)),var(--hero-img)}
+}
 .hero h1{font-size:clamp(44px,7.5vw,84px);margin-bottom:26px}
 .hero p{font-size:17px;color:rgba(255,255,255,.88);max-width:720px;margin:0 auto 34px}
 .hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
@@ -1118,7 +1127,7 @@ def build_home():
                         ("Logon-logo.jpg", "Logon")])
 
     body = f"""
-<div class="hero"><div class="bg" style="opacity:1;background-position:right center;background-image:linear-gradient(97deg,#0b0e11 0%,#0b0e11 32%,rgba(11,14,17,.82) 50%,rgba(11,14,17,.18) 82%,rgba(11,14,17,.5) 100%),linear-gradient(180deg,rgba(11,14,17,.55),rgba(11,14,17,0) 30%,rgba(11,14,17,0) 55%,rgba(11,14,17,.85)),url({img('hero-baths-flipped.jpg', 1920)})"></div>
+<div class="hero"><div class="bg hero-photo" style="--hero-img:url({img('hero-baths-flipped.jpg', 1920)})"></div>
 <div class="in">
 <h1>Preserving Heritage</h1>
 <p>Preserving Tunisia’s endangered heritage. Climate change, erosion, and neglect threaten our ruins.
