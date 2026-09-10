@@ -41,11 +41,14 @@ def site_of(path):
 
 
 groups = {}
+decor = []
 for m in models:
     top = m["path"].split(">")[0].strip()
-    if top.startswith("Decorative"):
-        continue
     if "bad upload" in m["name"].lower():
+        continue
+    if top.startswith("Decorative"):
+        if m["visibility"] == "public":
+            decor.append(m)
         continue
     kind = "raw" if top.startswith("Photogrammetry") else "opt"
     site, place = site_of(m["path"])
@@ -131,6 +134,8 @@ for (site, _), g in sorted(groups.items(), key=lambda kv: (kv[0][0], kv[1]["plac
         "preservation": raw and raw["uid"],
         "gameready": opt and opt["uid"],
         "gameready_locked": (org_opt["name"] if (org_opt and not opt) else None),
+        "scanned_by": (raw or {}).get("creator") or "",
+        "optimized_by": (opt or {}).get("creator") or "",
         "desc": desc[:2400],
         "thumb": thumb,
         "date": primary["created"],
@@ -140,8 +145,35 @@ for (site, _), g in sorted(groups.items(), key=lambda kv: (kv[0][0], kv[1]["plac
         locked.append({"names": [org_opt["name"]], "site": site, "why": "optimized version is org-only"})
     time.sleep(0.15)
 
-json.dump({"artifacts": artifacts, "locked": locked},
+# "Made by our volunteers" — decorative/museum props modeled by the community
+volunteer_made = []
+seen_decor = set()
+for m in sorted(decor, key=lambda x: x["created"], reverse=True):
+    key = re.sub(r"\s*[–—-]\s*(copy|opt|otp)\s*$", "", m["name"], flags=re.I).strip().lower()
+    if key in seen_decor:
+        continue
+    seen_decor.add(key)
+    meta = api(m["uid"])
+    thumbs = (meta.get("thumbnails") or {}).get("images", [])
+    thumb = ""
+    for t in sorted(thumbs, key=lambda x: x.get("width", 0), reverse=True):
+        if t.get("width", 0) <= 1100:
+            thumb = t.get("url", ""); break
+    if not thumb and thumbs:
+        thumb = thumbs[-1].get("url", "")
+    volunteer_made.append({
+        "title": clean_title(m["name"]),
+        "uid": m["uid"],
+        "by": m.get("creator") or "",
+        "desc": (meta.get("description") or "").strip()[:600],
+        "thumb": thumb,
+        "date": m["created"],
+    })
+    time.sleep(0.15)
+
+json.dump({"artifacts": artifacts, "locked": locked, "volunteer_made": volunteer_made},
           open(f"{HERE}/ref/archive-data.json", "w"), indent=1, ensure_ascii=False)
+print(f"{len(volunteer_made)} volunteer-made decorative models")
 paired = sum(1 for a in artifacts if a["preservation"] and a["gameready"])
 print(f"{len(artifacts)} artifacts ({paired} with public game-ready twin), {len(locked)} locked/org-only notes")
 for a in artifacts:

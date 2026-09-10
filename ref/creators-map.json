@@ -1,0 +1,19 @@
+{
+  "_what": "Maps Sketchfab usernames + article-author names to team-member profile slugs, so contributions show on volunteer profiles. Confirm the ⚠ guesses with Ines.",
+  "sketchfab": {
+    "rachel_west": "rachel-west",
+    "nickkauf": "nick-kaufmann",
+    "BetyVega03": "ana-beatriz-vega-gonzalez",
+    "TanitXROrg": null,
+    "clairee123": null,
+    "danielgo257": null,
+    "EunjeongYu": null,
+    "georgealyssa85": null
+  },
+  "sketchfab_unmapped_note": "clairee123 (Claire Natanek), danielgo257, EunjeongYu (Eunjeong Yu), georgealyssa85 are not on the current team list — add them as volunteers or map to existing members.",
+  "authors": {
+    "Margarita Johnson": "margarita-johnson",
+    "inessaid88": "ines-said",
+    "Ines Said": "ines-said"
+  }
+}
