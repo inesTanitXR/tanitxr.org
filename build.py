@@ -519,7 +519,7 @@ NAV = [
     ]),
     ("About", "about.html", [
         ("About", "about.html"),
-        ("Our People", "people.html"),
+        ("Our People", "team.html"),
         ("El Jem Conference", "el-jem-conference.html"),
         ("ImmerseGT 2026", "immersegt-2026.html"),
         ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
@@ -706,7 +706,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         href = P + _pretty_root(old) + anchor
         return f'{attr}="{href or "./"}"'
 
-    doc = re.sub(r'(href|src)="((?:\.\./)*)((?:fr/|ar/)?)([A-Za-z0-9_-]+)\.html(#[^"]*)?"', _link_repl, doc)
+    doc = re.sub(r'(href|src)="((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(#[^"]*)?"', _link_repl, doc)
     doc = re.sub(r'(href|src)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
     doc = re.sub(r'url\((?:\.\./)*(assets/[^)]*)\)', lambda m: f"url({P}{m.group(1)})", doc)
     doc = re.sub(r"fetch\('(?:\.\./)*profiles-live\.json'\)", f"fetch('{P}profiles-live.json')", doc)
@@ -720,12 +720,15 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     if not (is_index or is_404):
         # flat alias (archive.html -> archive/) so links shared before the rename keep working
         stem = fname[:-5]
-        with open(os.path.join(DOCS, LANG_DIRS[LANG], fname), "w") as f:
+        alias_path = os.path.join(DOCS, LANG_DIRS[LANG], fname)
+        os.makedirs(os.path.dirname(alias_path), exist_ok=True)
+        rel_target = posixpath.basename(stem) + "/"
+        with open(alias_path, "w") as f:
             f.write(f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
                     f'<link rel="canonical" href="https://tanitxr.org/{LANG_DIRS[LANG]}{stem}/">'
-                    f'<meta http-equiv="refresh" content="0;url={stem}/">'
-                    f'<script>location.replace("{stem}/"+location.hash);</script></head>'
-                    f'<body><a href="{stem}/">Continue</a></body></html>')
+                    f'<meta http-equiv="refresh" content="0;url={rel_target}">'
+                    f'<script>location.replace("{rel_target}"+location.hash);</script></head>'
+                    f'<body><a href="{rel_target}">Continue</a></body></html>')
 
 
 def page_hero(title, crumb=None, bg=None, pos="center"):
@@ -803,7 +806,7 @@ def _site_of(m):
     return "Carthage"
 
 for m in MODELS:
-    m["href"] = f"model-{m['clean_slug']}.html"
+    m["href"] = f"archive/{m['clean_slug']}.html"
     m["site"] = _site_of(m)
     tail = re.search(r"[–—-]\s*([^–—]+)$", m["title"])
     m["place"] = tail.group(1).strip() if tail else m["site"]
@@ -812,7 +815,7 @@ for m in MODELS:
                        "", m["text"])
     m["text"] = re.sub(r"[�]+\S*", "", m["text"]).strip()
 for n in NEWS:
-    n["href"] = f"post-{n['clean_slug']}.html"
+    n["href"] = f"news/{n['clean_slug']}.html"
 
 PEOPLE_EXTRA = load("person_extra.json")
 PEOPLE_PHOTOS = load("people_photos.json")
@@ -859,7 +862,7 @@ def person_record(name, role):
     return {
         "name": name, "role": role, "slug": slug, "bio": bio,
         "photo": photo, "links": extra.get("links", []),
-        "href": f"person-{slug}.html",
+        "href": f"team/{slug}.html",
     }
 
 
@@ -880,7 +883,7 @@ if os.path.isdir(PROFILE_DIR):
                 "name": d["name"], "role": d.get("role", "Volunteer"), "slug": slug,
                 "bio": d.get("bio", ""), "photo": d.get("photo"),
                 "links": [d[k] for k in ("linkedin", "instagram", "website") if d.get(k)],
-                "href": f"person-{slug}.html",
+                "href": f"team/{slug}.html",
             })
 
 # opportunities
@@ -1114,7 +1117,7 @@ memory survives – for schools, museums, and future generations.</p></div>
 <p class="sec-sub">Tanit XR is led by a dedicated core team and powered by a growing network of volunteers
 across Tunisia and the world.</p>
 <div class="team">{team}</div>
-<p style="margin-top:36px"><a class="btn btn-line" href="people.html">Meet Everyone</a></p>
+<p style="margin-top:36px"><a class="btn btn-line" href="team.html">Meet Everyone</a></p>
 </div></section>
 
 <section class="pad" style="background:var(--cloud)"><div class="wrap center">
@@ -1283,7 +1286,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
   }});
 }}).catch(()=>{{}});
 </script>"""
-    page("people.html", "Our People", body)
+    page("team.html", "Our People", body)
 
     def link_label(u):
         return re.sub(r"^https?://(www\.)?", "", u).split("/")[0]
@@ -1297,7 +1300,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
                  f'style="border-radius:14px;max-width:340px;width:100%">') if p["photo"] else ""
         bio = esc(p["bio"]) if p["bio"] else "Part of the Tanit XR volunteer network."
         body = f"""
-{page_hero(esc(p["name"]), f'<a href="people.html">Our People</a> &nbsp;›&nbsp; {esc(p["name"])}')}
+{page_hero(esc(p["name"]), f'<a href="team.html">Our People</a> &nbsp;›&nbsp; {esc(p["name"])}')}
 <section class="pad"><div class="wrap" style="max-width:960px">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:44px;align-items:start">
 <div>{photo}</div>
@@ -1305,9 +1308,9 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 <div class="eyebrow">{esc(p["role"])}</div>
 <p style="font-size:17px;color:#2c343b">{bio}</p>
 <div style="margin-top:26px">{links}</div>
-<p style="margin-top:34px"><a class="btn btn-gold" href="people.html">← Back to Our People</a></p>
+<p style="margin-top:34px"><a class="btn btn-gold" href="team.html">← Back to Our People</a></p>
 </div></div></div></section>"""
-        page(p["href"], p["name"], body, active="people.html", desc=p["bio"][:150])
+        page(p["href"], p["name"], body, active="team.html", desc=p["bio"][:150])
 
 
 def build_opportunities():
@@ -1602,7 +1605,7 @@ def build_create_profile():
 {page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile')}
 <section class="pad"><div class="wrap" style="max-width:760px">
 <p class="sec-sub" style="margin:0 0 8px">Already volunteering with Tanit XR? Submit your profile and, once
-approved by the team, it will appear on our <a href="people.html" style="color:var(--gold-dark)">Our People</a>
+approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-dark)">Our People</a>
 page.</p>
 <form class="nice" action="{PROFILE_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="New volunteer profile submission — tanitxr.org">
@@ -1859,7 +1862,7 @@ That might mean immersion, storytelling, education, interaction, public contribu
 us has thought of yet.</p>
 <h2>Background</h2>
 <p>Named for Tanit, the goddess of protection in ancient Carthage (where modern-day Tunisia now is), TanitXR
-was founded in 2025 by <a href="person-ines-said.html">Ines Said</a>, a Tunisian XR developer, to preserve
+was founded in 2025 by <a href="team/ines-said.html">Ines Said</a>, a Tunisian XR developer, to preserve
 the historic ruins she grew up loving.</p>
 <p>The project focuses on places that are slowly deteriorating due to climate exposure, rising seas, extreme
 weather, development, and lack of preservation resources. After local volunteers scan objects and landscapes
@@ -1871,7 +1874,7 @@ objects and spaces in their communities. The result is both a growing archive of
 participatory process that connects people – both locally in Tunisia and on the global stage – with
 historical sites.</p>
 <h2>Dr. Caroline Nickerson’s Workshop at Immerse GT</h2>
-<p>As part of the event, <a href="person-dr-caroline-nickerson.html">Caroline Nickerson, PhD</a>, led a
+<p>As part of the event, <a href="team/dr-caroline-nickerson.html">Caroline Nickerson, PhD</a>, led a
 workshop connected to the TanitXR track on Saturday, April 11, at 2 PM ET in ISyE Main 228.</p>
 <p>The workshop focused on citizen science, public participation, and XR. TanitXR’s model focuses on
 community empowerment, and Caroline shared best practices and lessons learned from all her involvements.</p>
@@ -2123,7 +2126,7 @@ def build_redirects():
 
     page_map = {
         "home": "index.html", "home-2": "index.html", "archive": "archive.html",
-        "about": "about.html", "news": "news.html", "our-people": "people.html",
+        "about": "about.html", "news": "news.html", "our-people": "team.html",
         "art-xr-impact-opportunities": "opportunities.html",
         "volunteer": "volunteer.html", "volunteer-with-us": "volunteer.html",
         "submit-volunteer-profile": "create-profile.html",
@@ -2134,7 +2137,7 @@ def build_redirects():
         "contact": "contact.html", "contact-2": "contact.html",
         "donate": "support.html", "support": "support.html",
         "privacy-policy-2": "privacy.html", "coming-soon": "coming-soon.html",
-        "opportunity": "opportunities.html", "person": "people.html",
+        "opportunity": "opportunities.html", "person": "team.html",
     }
 
     def path_of(link):
@@ -2157,8 +2160,8 @@ def build_redirects():
 
     people_files = {p["href"] for p in TEAM + COMMUNITY}
     for p in load("person.json"):
-        href = f"person-{slugify(htmod.unescape(p['title']['rendered']))}.html"
-        targets[path_of(p["link"])] = href if href in people_files else "people.html"
+        href = f"team/{slugify(htmod.unescape(p['title']['rendered']))}.html"
+        targets[path_of(p["link"])] = href if href in people_files else "team.html"
 
     for o in load("opportunity.json"):
         targets[path_of(o["link"])] = f"opportunities.html#opp-{o['slug']}"
@@ -2166,6 +2169,15 @@ def build_redirects():
     for c in load("categories.json"):
         if "link" in c:
             targets[path_of(c["link"])] = "news.html" if c["name"] == "News" else "archive.html"
+
+    # interim flat names used briefly during the rebuild — keep any shared links alive
+    targets["people"] = "team.html"
+    for m in MODELS:
+        targets[f"model-{m['clean_slug']}"] = m["href"]
+    for n in NEWS:
+        targets[f"post-{n['clean_slug']}"] = n["href"]
+    for p in TEAM + COMMUNITY:
+        targets[f"person-{p['slug']}"] = p["href"]
 
     def pv(t):
         f, _, anchor = t.partition("#")
@@ -2209,6 +2221,12 @@ def build_redirects():
 def main():
     os.makedirs(IMG_OUT, exist_ok=True)
     os.makedirs(PDF_OUT, exist_ok=True)
+    # clear artifacts of the retired flat naming so stale full pages can't linger
+    import glob as _glob
+    for pat in ("model-*.html", "person-*.html", "post-*.html", "people.html"):
+        for d in ("", "fr/", "ar/"):
+            for f in _glob.glob(os.path.join(DOCS, d, pat)):
+                os.remove(f)
     # static assets
     with open(os.path.join(DOCS, "assets", "style.css"), "w") as f:
         f.write(CSS)
