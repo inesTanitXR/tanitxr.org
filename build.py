@@ -223,11 +223,12 @@ header.site .bar{position:relative;display:grid;grid-template-columns:1fr auto 1
 header.site .logo{display:flex;justify-content:center;text-decoration:none}
 header.site .logo img{height:64px;width:auto;transition:height .25s}
 header.site.scrolled .logo img,header.site.solid .logo img{height:52px}
-.hside{display:flex;align-items:center;gap:20px}
-.hl{justify-content:flex-start}
-.hr{justify-content:flex-end}
-.hlinks{display:flex;align-items:center;gap:20px}
-.hlinks a{color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap}
+.hside{display:flex;align-items:center;gap:26px;width:100%}
+.hl{justify-content:space-between}
+.hr{justify-content:space-between}
+.hcta{display:flex;align-items:center;gap:16px}
+.hlinks{display:flex;align-items:center;gap:34px}
+.hlinks a{color:rgba(255,255,255,.92);text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap}
 .hlinks a:hover,.hlinks a.on{color:var(--gold)}
 header.site .socials{display:flex;gap:12px}
 header.site .socials a{color:rgba(255,255,255,.8)}
@@ -568,7 +569,7 @@ def header_html(active, transparent, fname="index.html"):
     return f"""<header class="{cls}"><div class="bar">
 <div class="hside hl">{socials}<div class="hlinks">{left}</div></div>
 <a class="logo" href="index.html"><img src="{logo}" alt="Tanit XR"></a>
-<div class="hside hr"><div class="hlinks">{right}</div>{donate}{lang_switcher(fname)}</div>
+<div class="hside hr"><div class="hlinks">{right}</div><div class="hcta">{donate}{lang_switcher(fname)}</div></div>
 <button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 <nav id="mobnav">{_nav_items(NAV, active)}
@@ -1071,7 +1072,7 @@ def build_home():
                         ("Logon-logo.jpg", "Logon")])
 
     body = f"""
-<div class="hero"><div class="bg" style="opacity:1;background-image:linear-gradient(rgba(13,16,19,.8),rgba(13,16,19,.6) 55%,rgba(13,16,19,.84)),url({img('aug-PXL_0811_150241.jpg', 1920)})"></div>
+<div class="hero"><div class="bg" style="opacity:1;background-position:right center;background-image:linear-gradient(97deg,#0b0e11 0%,#0b0e11 32%,rgba(11,14,17,.82) 50%,rgba(11,14,17,.18) 82%,rgba(11,14,17,.5) 100%),linear-gradient(180deg,rgba(11,14,17,.55),rgba(11,14,17,0) 30%,rgba(11,14,17,0) 55%,rgba(11,14,17,.85)),url({img('hero-baths-flipped.jpg', 1920)})"></div>
 <div class="in">
 <h1>Preserving Heritage</h1>
 <p>Preserving Tunisia’s endangered heritage. Climate change, erosion, and neglect threaten our ruins.
