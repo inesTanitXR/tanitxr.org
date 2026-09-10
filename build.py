@@ -102,9 +102,11 @@ def load(name):
 _media_files = {}
 for fn in os.listdir(MEDIA):
     _media_files[fn.lower()] = os.path.join(MEDIA, fn)
-if os.path.isdir(MEDIA_EXTRA):
-    for fn in os.listdir(MEDIA_EXTRA):
-        _media_files.setdefault(fn.lower(), os.path.join(MEDIA_EXTRA, fn))
+for _sub in ("extra", "drive"):
+    _d = os.path.join(MEDIA, _sub)
+    if os.path.isdir(_d):
+        for fn in os.listdir(_d):
+            _media_files.setdefault(fn.lower(), os.path.join(_d, fn))
 
 _img_cache = {}
 
@@ -658,8 +660,9 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         f.write(doc)
 
 
-def page_hero(title, crumb=None, bg=None):
-    bgd = f'<div class="bg" style="background-image:url({img(bg, 1800)})"></div>' if bg else ""
+def page_hero(title, crumb=None, bg=None, pos="center"):
+    bgd = (f'<div class="bg" style="background-image:url({img(bg, 1800)});'
+           f'background-position:{pos}"></div>') if bg else ""
     return f"""<div class="page-hero">{bgd}<div class="wrap">
 <h1>{title}</h1>
 <div class="crumb"><a href="index.html">Home</a> &nbsp;›&nbsp; {crumb or title}</div>
@@ -1001,7 +1004,7 @@ def build_home():
                         ("Logon-logo.jpg", "Logon")])
 
     body = f"""
-<div class="hero"><div class="bg" style="background-image:url({img('DEsert-ruins.png', 1920, as_jpeg=True)})"></div>
+<div class="hero"><div class="bg" style="opacity:1;background-image:linear-gradient(rgba(13,16,19,.8),rgba(13,16,19,.6) 55%,rgba(13,16,19,.84)),url({img('aug-PXL_0811_150241.jpg', 1920)})"></div>
 <div class="in">
 <h1>Preserving Heritage</h1>
 <p>Preserving Tunisia’s endangered heritage. Climate change, erosion, and neglect threaten our ruins.
@@ -1096,7 +1099,8 @@ document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{{
 }}));
 }});
 </script>
-<section class="band pad"><div class="wrap center">
+<section class="band pad"><div class="bg" style="background-image:url({img('aug-20260813_124249.jpg', 1800)})"></div>
+<div class="wrap center">
 <div class="eyebrow">Become a volunteer</div>
 <h2 class="sec-title">Every scan here was made by a volunteer</h2>
 <p class="sec-sub" style="color:rgba(255,255,255,.85)">You don’t need to be an archaeologist or a
@@ -1496,7 +1500,7 @@ def build_volunteer():
     faq_html = "".join(
         f"<details><summary>{q}</summary><div class='a'>{a}</div></details>" for q, a in faqs)
     body = f"""
-{page_hero("Volunteer", "Volunteer", bg="IMG_0535-rotated.jpg")}
+{page_hero("Volunteer", "Volunteer", bg="sv-IMG_8547.jpg", pos="center 22%")}
 <section class="pad"><div class="wrap" style="max-width:880px">
 <div class="center">
 <h2 class="sec-title">Want to join our team of volunteers?</h2>
@@ -1558,7 +1562,7 @@ page.</p>
 
 def build_scanning_guide():
     body = f"""
-{page_hero("Tanit XR Scanning Guide", "Scanning Guide")}
+{page_hero("Tanit XR Scanning Guide", "Scanning Guide", bg="sv-IMG_4213.jpg")}
 <section class="pad"><div class="wrap"><div class="prose">
 <h2>Using Scaniverse to Preserve Heritage</h2>
 <h3>📲 Getting Started</h3>
@@ -1830,7 +1834,7 @@ future of immersive technology.</p>
 
 def build_about():
     body = f"""
-{page_hero("About", "About", bg="ChatGPT-Image-Sep-13-2025-at-09_09_34-PM.png")}
+{page_hero("About", "About", bg="sv-IMG_0511.jpg")}
 <section class="pad"><div class="wrap center">
 <h2 class="sec-title">Our Impact So Far</h2>
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
@@ -1908,7 +1912,7 @@ def build_contact():
 </form>
 </div>
 <div>
-<img src="{img('ChatGPT-Image-Sep-13-2025-at-11_38_58-PM.png', 900, as_jpeg=True)}" alt=""
+<img src="{img('aug-PXL_0811_174938.jpg', 900)}" alt="Sidi Bou Said, Tunisia"
 style="border-radius:14px" loading="lazy">
 <p style="margin-top:26px"><b>Email:</b> <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a><br>
 <b>Phone:</b> {PHONE}</p>
@@ -2021,8 +2025,10 @@ Innovation). Each of these services has its own privacy policy.</p>
     body = f"""
 {page_hero("Page Not Found", "404")}
 <section class="pad"><div class="wrap center" style="max-width:640px">
+<img src="{img('sv-IMG_9612.jpg', 900)}" alt="A cat resting on a Roman column at Carthage"
+style="border-radius:14px;margin:0 auto 30px">
 <h2 class="sec-title">We couldn’t find that page.</h2>
-<p class="sec-sub">It may have moved when we rebuilt the site.</p>
+<p class="sec-sub">Even our archive cat couldn’t dig it up. It may have moved when we rebuilt the site.</p>
 <a class="btn btn-gold" href="index.html">Back Home</a> &nbsp;
 <a class="btn btn-line" href="archive.html">Explore the Archive</a>
 </div></section>
