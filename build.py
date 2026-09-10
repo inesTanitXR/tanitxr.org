@@ -2172,9 +2172,10 @@ def build_redirects():
         stem = f[:-5]
         return ("" if stem == "index" else stem + "/") + (("#" + anchor) if anchor else "")
 
+    built_pages = set(SITEMAP)  # real pages own their paths — never overwrite with a stub
     n = 0
     for path, target in targets.items():
-        if not path:
+        if not path or f"{path}/" in built_pages:
             continue
         target = pv(target)
         depth = len(path.split("/"))
