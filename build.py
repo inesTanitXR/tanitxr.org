@@ -295,13 +295,14 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55}
 .hero .in{position:relative;max-width:880px;padding:140px 24px 90px}
 /* homepage hero: side-lit on wide screens, evenly darkened + centered when narrower */
+/* the photo url() must stay in the page's inline style: a url() inside a custom property resolves
+   relative to this stylesheet (assets/), so only the scrim gradients live here */
 .hero .bg.hero-photo{opacity:1;background-position:right center;
-  background-image:linear-gradient(97deg,#0b0e11 0%,#0b0e11 32%,rgba(11,14,17,.82) 52%,rgba(11,14,17,.22) 82%,rgba(11,14,17,.55) 100%),
-    linear-gradient(180deg,rgba(11,14,17,.55),rgba(11,14,17,0) 30%,rgba(11,14,17,0) 55%,rgba(11,14,17,.85)),
-    var(--hero-img)}
+  --scrim:linear-gradient(97deg,#0b0e11 0%,#0b0e11 32%,rgba(11,14,17,.82) 52%,rgba(11,14,17,.22) 82%,rgba(11,14,17,.55) 100%),
+    linear-gradient(180deg,rgba(11,14,17,.55),rgba(11,14,17,0) 30%,rgba(11,14,17,0) 55%,rgba(11,14,17,.85))}
 @media(max-width:1450px){
   .hero .bg.hero-photo{background-position:center;
-    background-image:linear-gradient(rgba(11,14,17,.8),rgba(11,14,17,.62) 55%,rgba(11,14,17,.86)),var(--hero-img)}
+    --scrim:linear-gradient(rgba(11,14,17,.8),rgba(11,14,17,.62) 55%,rgba(11,14,17,.86))}
 }
 .hero h1{font-size:clamp(44px,7.5vw,84px);margin-bottom:26px}
 .hero p{font-size:17px;color:rgba(255,255,255,.88);max-width:720px;margin:0 auto 34px}
@@ -341,7 +342,43 @@ section.pad-sm{padding:56px 0}
 .card:hover .ph img{transform:scale(1.05)}
 .card .tx{padding:20px 22px 22px}
 .card h3{font-size:19px;margin-bottom:8px}
+.card h3 a{color:inherit;text-decoration:none}
+.card h3 a:hover{color:var(--gold-dark)}
 .card .meta{font-size:13px;color:var(--gray)}
+/* in-place 3D viewer: the ▶ button swaps the thumbnail for the Sketchfab iframe (site.js) */
+.card .ph{position:relative}
+.card .ph a{display:block;height:100%}
+.card .ph.blank{display:flex;align-items:center;justify-content:center;background:var(--ink)}
+.card .play{position:absolute;right:12px;bottom:12px;background:var(--gold);color:var(--ink);border:0;border-radius:4px;
+  padding:8px 13px;font:700 13px var(--sans);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.card .play:hover{background:var(--gold-dark)}
+.card .ph.live{aspect-ratio:4/3;background:#000}
+.card .ph.live iframe{width:100%;height:100%;border:0;display:block}
+.card:hover .ph.live{transform:none}
+.prose .btn-gold,.prose .btn-gold:hover{color:var(--ink)}
+/* split section (photo | cream panel), like the original "Why It Matters" */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.split .simg{background-size:cover;background-position:center;min-height:360px}
+.split .stx{background:#fbf6ed;padding:96px 8vw 96px 64px}
+.split .stx h3{font-size:26px;margin:34px 0 12px}
+.split .stx p{color:var(--gray);font-size:16.5px;max-width:620px}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split .stx{padding:60px 24px}}
+.infographic{margin:60px auto 0;max-width:1000px;border-radius:14px;overflow:hidden;box-shadow:0 14px 44px rgba(17,21,24,.12);background:#fff}
+.infographic img{display:block;width:100%}
+.stats.icons img{height:54px;width:auto;display:block;margin:0 auto 12px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:36px 0}
+.shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}
+/* archive index tiles */
+.arch-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:0 0 34px}
+.ix{display:flex;gap:20px;align-items:center;padding:22px 26px;border-radius:12px;background:#fff;
+  border:1px solid var(--mist);text-decoration:none;color:var(--ink);transition:.2s}
+.ix:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(17,21,24,.12)}
+.ix b{font-family:var(--serif);font-size:44px;line-height:1;color:var(--gold-dark);min-width:74px}
+.ix span{font-size:14px;color:var(--gray);line-height:1.45}
+.ix span strong{display:block;color:var(--ink);font-size:17px;margin-bottom:3px}
+.ix.gold{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ix.gold span{color:rgba(255,255,255,.72)}.ix.gold span strong{color:#fff}.ix.gold b{color:var(--gold)}
+.filters a.fbtn{text-decoration:none;display:inline-block}
 .chip{display:inline-block;background:var(--mist);border-radius:20px;padding:3px 12px;font-size:12.5px;
   color:var(--ink);margin:0 6px 6px 0}
 .chip.gold{background:var(--gold);font-weight:700}
@@ -492,6 +529,16 @@ const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
 const nt=document.getElementById('nav-toggle');
 if(nt){nt.addEventListener('click',()=>{document.getElementById('mobnav').classList.toggle('open')})}
+// "View in 3D": swap a card thumbnail for the live Sketchfab viewer
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-embed]');if(!b)return;
+  e.preventDefault();
+  const ph=b.closest('.ph');if(!ph)return;
+  const f=document.createElement('iframe');
+  f.src='https://sketchfab.com/models/'+b.dataset.embed+'/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0';
+  f.allow='autoplay; fullscreen; xr-spatial-tracking';f.allowFullscreen=true;f.title='3D model';
+  ph.innerHTML='';ph.classList.add('live');ph.appendChild(f);
+});
 // count-up animation on impact numbers
 (function(){
   const els=document.querySelectorAll('.cnt');
@@ -750,7 +797,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 
 def page_hero(title, crumb=None, bg=None, pos="center"):
     bg = bg or "aug-PXL_0811_151718.jpg"
-    bgd = (f'<div class="bg" style="background-image:url({img(bg, 1800)});'
+    bgd = (f'<div class="bg" style="background-image:url({img(bg, 1800, as_jpeg=True)});'
            f'background-position:{pos}"></div>')
     return f"""<div class="page-hero">{bgd}<div class="wrap">
 <h1>{title}</h1>
@@ -868,11 +915,25 @@ def credit_link(name, href):
 # contributions accumulated per member slug, rendered on their profile
 CONTRIB = {}
 
-def _add_contrib(slug, kind, label, href):
+def _add_contrib(slug, kind, label, href, uid=None, thumb=None):
     if not slug:
         return
     CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "wrote": []})
-    CONTRIB[slug][kind].append((label, href))
+    CONTRIB[slug][kind].append({"label": label, "href": href, "uid": uid, "thumb": thumb})
+
+
+def model_card(title, thumb, href, meta="", uid=None, external=False, cls=""):
+    """Card with a thumbnail that swaps to the live Sketchfab viewer on click (data-embed → site.js).
+    Uses a <div>, not <a>, so the credit inside can be its own link."""
+    tgt = ' target="_blank" rel="noopener"' if external else ""
+    play = (f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>' if uid else "")
+    if thumb:
+        ph = (f'<div class="ph"><a href="{href}"{tgt}><img src="{img(thumb, 800)}" alt="{esc(title)}" loading="lazy"></a>'
+              f'{play}</div>')
+    else:
+        ph = f'<div class="ph blank">{play}</div>'
+    return (f'<div class="card {cls}">{ph}<div class="tx"><h3><a href="{href}"{tgt}>{esc(title)}</a></h3>'
+            f'{f"<div class=meta>{meta}</div>" if meta else ""}</div></div>')
 _wp_by_slug = {w["slug"]: w for w in _WP_MODELS}
 MODELS = []
 _matched_wp = set()
@@ -1177,7 +1238,7 @@ def build_home():
                         ("Logon-logo.jpg", "Logon")])
 
     body = f"""
-<div class="hero"><div class="bg hero-photo" style="--hero-img:url({img('hero-baths-flipped.jpg', 1920)})"></div>
+<div class="hero"><div class="bg hero-photo" style="background-image:var(--scrim),url({img('hero-baths-flipped.jpg', 1920)})"></div>
 <div class="in">
 <h1>Preserving Heritage</h1>
 <p>Preserving Tunisia’s endangered heritage. Climate change, erosion, and neglect threaten our ruins.
@@ -1197,20 +1258,29 @@ We capture them in 3D and bring them to life in AR and VR so they are never forg
 <p style="margin-top:34px"><a class="btn btn-line" href="archive.html">Open the Full Archive</a></p>
 </div></section>
 
-<section class="band pad"><div class="bg" style="background-image:url({img('el-jem.jpg', 1800)})"></div>
-<div class="wrap">
-<div class="eyebrow">Why It Matters</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px">
-<div><h2 class="sec-title">Heritage on the Brink</h2>
+<section class="pad"><div class="wrap center">
+<div class="eyebrow">🏺 Made by our volunteers</div>
+<h2 class="sec-title">Recreated by hand, for VR &amp; learning</h2>
+<p class="sec-sub">Beyond scanning, our volunteers model Tunisian lamps, pottery and plants from scratch for our
+virtual museum. Press <b>View in 3D</b> to spin one around right here.</p>
+<div class="cards" style="text-align:left">{volunteer_made_cards(4)}</div>
+<p style="margin-top:34px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a>
+&nbsp; <a class="btn btn-gold" href="volunteer.html">Make one with us</a></p>
+</div></section>
+
+<section class="split">
+<div class="simg" style="background-image:url({img('el-jem.jpg', 1400)})" role="img" aria-label="The amphitheatre of El Jem"></div>
+<div class="stx">
+<h2 class="sec-title">Why It Matters</h2>
+<h3>Heritage on the Brink</h3>
 <p>Tunisia’s ruins are vanishing faster than they can be protected. Climate change brings floods, storms,
-and heat that accelerate erosion. Without urgent action, pieces of world history could disappear.</p></div>
-<div><h2 class="sec-title">A Lasting Record</h2>
+and heat that accelerate erosion. Without urgent action, pieces of world history could disappear.</p>
+<h3>A Lasting Record</h3>
 <p>With every scan, Tanit XR creates a permanent archive. Even if the physical site is lost, the digital
-memory survives – for schools, museums, and future generations.</p></div>
-</div>
+memory survives – for schools, museums, and future generations.</p>
 <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate Now</a>
-<a class="btn btn-line-light" href="about.html">Learn More</a></div>
+<a class="btn btn-line" href="about.html">Learn More</a></div>
 </div></section>
 
 <section class="pad"><div class="wrap center">
@@ -1262,7 +1332,13 @@ def build_archive():
 <p class="sec-sub" style="margin:0 0 30px">A free, growing library of 3D scans of Tunisia’s endangered
 heritage — mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored
 interactively, and viewed in augmented reality on your phone.</p>
-<div class="filters">{fbtns}</div>
+<div class="arch-index">
+<a class="ix" href="#grid"><b>{len(MODELS)}</b><span><strong>heritage scans</strong>
+Photogrammetry records of statues, mosaics, stelae and ruins — preservation quality, with game-ready twins.</span></a>
+<a class="ix gold" href="#volunteer-made"><b>{len(VOLUNTEER_MADE)}</b><span><strong>models made by our volunteers</strong>
+Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum. Click to explore in 3D.</span></a>
+</div>
+<div class="filters">{fbtns}<a class="fbtn" href="#volunteer-made">🏺 Made by volunteers ({len(VOLUNTEER_MADE)})</a></div>
 <div class="cards" id="grid">{cards}</div>
 </div></section>
 <script>
@@ -1287,18 +1363,21 @@ helping remotely, every volunteer contributes to preserving history.</p>
     page("archive.html", "Archive", body)
 
 
+def volunteer_made_cards(limit=None):
+    cards = ""
+    for vm in VOLUNTEER_MADE[:limit]:
+        byname, byhref = creator_credit(vm.get("by"))
+        credit = ("by " + (f'<a href="{byhref}" style="color:var(--gold-dark);font-weight:700">{esc(byname)}</a>'
+                  if byhref else esc(byname))) if byname else ""
+        cards += model_card(vm["title"], vm.get("thumb"), f"https://sketchfab.com/models/{vm['uid']}",
+                            meta=credit, uid=vm["uid"], external=True)
+    return cards
+
+
 def _volunteer_made_section():
     if not VOLUNTEER_MADE:
         return ""
-    cards = ""
-    for vm in VOLUNTEER_MADE:
-        byname, byhref = creator_credit(vm.get("by"))
-        credit = (f'<div class="meta">by ' + (f'<a href="{byhref}" style="color:var(--gold-dark)">{esc(byname)}</a>'
-                  if byhref else esc(byname)) + '</div>') if byname else ""
-        thumb = img(vm["thumb"], 700) if vm.get("thumb") else ""
-        ph = f'<div class="ph"><img src="{thumb}" alt="{esc(vm["title"])}" loading="lazy"></div>' if thumb else ""
-        cards += (f'<a class="card" href="https://sketchfab.com/models/{vm["uid"]}" target="_blank" rel="noopener">'
-                  f'{ph}<div class="tx"><h3>{esc(vm["title"])}</h3>{credit}</div></a>')
+    cards = volunteer_made_cards()
     return f"""
 <section class="pad" style="background:var(--cloud)" id="volunteer-made"><div class="wrap">
 <div class="center"><div class="eyebrow">🏺 Made by our volunteers</div>
@@ -1311,7 +1390,8 @@ tilework, everyday heritage — from scratch, for our virtual museum and communi
 def build_model_pages():
     CONTRIB.clear()  # rebuilt each language pass
     for vm in VOLUNTEER_MADE:  # decorative props → "made" contribution
-        _add_contrib(member_slug(vm.get("by")), "made", vm["title"], "archive.html#volunteer-made")
+        _add_contrib(member_slug(vm.get("by")), "made", vm["title"],
+                     f"https://sketchfab.com/models/{vm['uid']}", uid=vm["uid"], thumb=vm.get("thumb"))
     for i, m in enumerate(MODELS):
         prev_m = MODELS[i - 1] if i > 0 else MODELS[-1]
         next_m = MODELS[(i + 1) % len(MODELS)]
@@ -1342,12 +1422,19 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
         o_slug = member_slug(m.get("optimized_by"))
         s_name, s_href = creator_credit(m.get("scanned_by"))
         o_name, o_href = creator_credit(m.get("optimized_by"))
+        # Sketchfab only records the uploader; Ines can reassign credit per model in creators-map.json
+        ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
+                   if k.lower() in m["title"].lower()), {})
+        if ov.get("scanned") in TEAM_BY_SLUG:
+            s_slug = ov["scanned"]; s_name, s_href = TEAM_BY_SLUG[s_slug]["name"], TEAM_BY_SLUG[s_slug]["href"]
+        if ov.get("optimized") in TEAM_BY_SLUG:
+            o_slug = ov["optimized"]; o_name, o_href = TEAM_BY_SLUG[o_slug]["name"], TEAM_BY_SLUG[o_slug]["href"]
         if s_slug:
-            _add_contrib(s_slug, "scanned", m["title"], m["href"])
+            _add_contrib(s_slug, "scanned", m["title"], m["href"], uid=sk_id, thumb=m["img"])
         if s_name:
             credits.append(f'3D scan by {credit_link(s_name, s_href)}')
         if o_slug and o_slug != s_slug:
-            _add_contrib(o_slug, "optimized", m["title"], m["href"])
+            _add_contrib(o_slug, "optimized", m["title"], m["href"], uid=gr, thumb=m["img"])
         if o_name:
             credits.append(f'game-ready optimization by {credit_link(o_name, o_href)}')
         credit_html = (f'<p style="color:var(--gray);font-size:14.5px;margin-top:6px">👐 ' +
@@ -1403,7 +1490,7 @@ def build_news():
         author = NEWS_AUTHOR.get(n["clean_slug"])
         a_slug = author_slug(author) if author else None
         if a_slug:
-            _add_contrib(a_slug, "wrote", n["title"], n["href"])
+            _add_contrib(a_slug, "wrote", n["title"], n["href"], thumb=n.get("img"))
             byline = (f'By <a href="{TEAM_BY_SLUG[a_slug]["href"]}" '
                       f'style="color:var(--gold-dark);font-weight:700">{esc(author)}</a> · ') \
                 if a_slug in TEAM_BY_SLUG else f"By {esc(author)} · "
@@ -1473,23 +1560,29 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
         bio = esc(p["bio"]) if p["bio"] else "Part of the Tanit XR volunteer network."
         # contributions this person made (scans, optimizations, models, articles)
         c = CONTRIB.get(p["slug"], {})
-        def _clist(items):
-            seen, out = set(), []
-            for label, href in items:
-                if label in seen:
-                    continue
-                seen.add(label)
-                out.append(f'<li><a href="{href}" style="color:var(--gold-dark)">{esc(label)}</a></li>')
-            return out
         blocks = []
-        for kind, heading in (("scanned", "🏛 3D scans captured"), ("optimized", "🎮 Models optimized for game/VR"),
-                              ("made", "🏺 Models made"), ("wrote", "✍️ Articles written")):
-            lst = _clist(c.get(kind, []))
-            if lst:
-                blocks.append(f'<div style="margin-bottom:22px"><b>{heading} ({len(lst)})</b>'
-                              f'<ul style="margin:8px 0 0 20px">{"".join(lst)}</ul></div>')
-        contrib_html = (f'<div style="margin-top:40px;padding-top:28px;border-top:2px solid var(--gold)">'
-                        f'<div class="eyebrow">Contributions to Tanit XR</div>{"".join(blocks)}</div>') if blocks else ""
+        total = 0
+        for kind, heading, meta in (("scanned", "🏛 3D scans captured", "Photogrammetry scan"),
+                                    ("optimized", "🎮 Models optimized for game/VR", "Game-ready optimization"),
+                                    ("made", "🏺 Models made by hand", "Modeled for the virtual museum"),
+                                    ("wrote", "✍️ Articles written", "Article")):
+            seen, cards = set(), ""
+            for it in c.get(kind, []):
+                if it["label"] in seen:
+                    continue
+                seen.add(it["label"])
+                cards += model_card(it["label"], it["thumb"], it["href"], meta=meta, uid=it["uid"],
+                                    external=it["href"].startswith("http"))
+            if cards:
+                total += len(seen)
+                blocks.append(f'<h3 style="margin:38px 0 18px;font-size:22px">{heading} <span style="color:var(--gray);'
+                              f'font-family:var(--sans);font-size:15px;font-weight:400">({len(seen)})</span></h3>'
+                              f'<div class="cards">{cards}</div>')
+        contrib_html = (f'<section class="pad" style="background:var(--cloud);padding-top:56px"><div class="wrap">'
+                        f'<div class="eyebrow">Contributions to Tanit XR</div>'
+                        f'<h2 class="sec-title" style="font-size:32px">{total} contribution{"s" if total != 1 else ""} '
+                        f'to the archive</h2><p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to '
+                        f'explore it right here.</p>{"".join(blocks)}</div></section>') if blocks else ""
         body = f"""
 {page_hero(esc(p["name"]), f'<a href="team.html">Our People</a> &nbsp;›&nbsp; {esc(p["name"])}')}
 <section class="pad"><div class="wrap" style="max-width:960px">
@@ -1500,8 +1593,10 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 <p style="font-size:17px;color:#2c343b">{bio}</p>
 <div style="margin-top:26px">{links}</div>
 </div></div>
+</div></section>
 {contrib_html}
-<p style="margin-top:34px"><a class="btn btn-gold" href="team.html">← Back to Our People</a></p>
+<section class="pad-sm"><div class="wrap" style="max-width:960px">
+<p><a class="btn btn-gold" href="team.html">← Back to Our People</a></p>
 </div></section>"""
         page(p["href"], p["name"], body, active="team.html", desc=p["bio"][:150])
 
@@ -1778,6 +1873,14 @@ opportunities.</p>
 <a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer Interest Form</a>
 &nbsp; <a class="btn btn-line" href="scanning-guide.html">Read the Scanning Guide</a>
 </div>
+<figure class="infographic"><img src="{img('Volunteer-Page-English-2.png', 1600, as_jpeg=False)}"
+alt="Tanit XR — Volunteer to help protect global heritage. Cultural memory powered by volunteers and digital technology." loading="lazy"></figure>
+<div class="center" style="margin-top:80px"><div class="eyebrow">🏺 What our volunteers create</div>
+<h2 class="sec-title">From a phone scan to a museum-ready model</h2>
+<p class="sec-sub">Volunteers scan sites on the ground, optimize models for VR, write articles, and model heritage
+objects by hand — like these.</p></div>
+<div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">{volunteer_made_cards(3)}</div>
+<p class="center" style="margin-top:26px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a></p>
 <h2 class="sec-title" style="margin-top:70px">Frequently Asked Questions</h2>
 <div class="faq" style="margin-top:28px">{faq_html}</div>
 </div></section>
@@ -1938,10 +2041,36 @@ Gaussian splats, and review scans together in an immersive learning environment.
 experience is required. Attendance and engagement matter more than technical background.</p>
 <p>Due to limited spots, we review applications holistically based on availability, background, and
 motivation. More details are shared with accepted participants.</p>
-<div class="notice"><b>Want to join the next cohort?</b> Email
-<a href="mailto:{EMAIL}?subject=Splats%20With%20Phones%20application" style="color:var(--gold-dark)">{EMAIL}</a>
-with your name, time zone, a short bio, why you want to join, and whether you can attend at least 5 of the
-6 live sessions.</div>
+</div>
+<div class="shots">
+<img src="{img('Screenshot-2025-12-10-at-8.18.55-PM.png', 900)}" alt="Gaussian splat captured with a phone" loading="lazy">
+<img src="{img('Screenshot-2025-12-10-at-8.21.21-PM.png', 900)}" alt="Reviewing scans together in an immersive space" loading="lazy">
+<img src="{img('Screenshot-2025-12-23-at-8.36.36-PM.png', 900)}" alt="Splats With Phones cohort session" loading="lazy">
+</div>
+<div class="prose" id="apply">
+<h2>Apply for the next cohort</h2>
+<form class="nice" action="{FORM_ENDPOINT}" method="POST">
+<input type="hidden" name="_subject" value="Splats With Phones application — tanitxr.org">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none">
+<label class="req" for="sp-name">Full Name</label><input id="sp-name" type="text" name="name" required>
+<label class="req" for="sp-email">Email</label><input id="sp-email" type="email" name="email" required>
+<label class="req" for="sp-tz">Time Zone</label><input id="sp-tz" type="text" name="time_zone" placeholder="Example: EST, GMT+1, Tunisia time" required>
+<label class="req" for="sp-why">Why do you want to join?</label>
+<textarea id="sp-why" name="why" rows="4" placeholder="Tell us what draws you to this cohort and what you hope to gain from it. We are interested in your motivation and curiosity, not perfection." required></textarea>
+<label class="req" for="sp-bio">Short Bio</label>
+<textarea id="sp-bio" name="bio" rows="4" placeholder="What you do, what you are studying, or any communities or projects you are involved in." required></textarea>
+<label class="req" for="sp-exp">Experience Level</label>
+<select id="sp-exp" name="experience" required><option value="">Any level is welcome — pick one</option>
+<option>None yet</option><option>Beginner</option><option>Some experience</option><option>Advanced</option></select>
+<label class="req" for="sp-att">Attendance Commitment</label>
+<select id="sp-att" name="attendance" required><option value="">This course is live and interactive — pick one</option>
+<option>Yes, I can attend at least 5 of 6 sessions</option><option>Not sure yet</option></select>
+<label for="sp-more">Anything else you want us to know?</label>
+<textarea id="sp-more" name="more" rows="3" placeholder="Anything that might help us better understand you or your availability."></textarea>
+<button class="btn btn-gold" type="submit">Apply</button>
+</form>
 </div></div></section>"""
     page("splats-with-phones.html", "Splats With Phones", body, active="volunteer.html")
 
@@ -2108,11 +2237,11 @@ def build_about():
 <h2 class="sec-title">Our Impact So Far</h2>
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
 and neglect. Together, we’re building a digital archive to protect it for generations.</p>
-<div class="stats" style="margin-top:14px">
-<div><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
-<div><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
-<div><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
-<div><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
+<div class="stats icons" style="margin-top:14px">
+<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
+<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
+<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
+<div><img src="{img('global.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
 </div>
 </div></section>
 <section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
@@ -2237,7 +2366,7 @@ through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3) nonpr
 def build_misc():
     # coming soon
     body = f"""
-{page_hero("Coming Soon", "Coming Soon")}
+{page_hero("Coming Soon", "Coming Soon", bg="img_4606-copy.jpg", pos="center 40%")}
 <section class="pad"><div class="wrap center" style="max-width:640px">
 <h2 class="sec-title">👀 Something exciting is on the way.</h2>
 <p class="sec-sub">This page will be live soon! In the meantime, explore our archive of 3D scans or join the
