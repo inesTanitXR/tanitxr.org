@@ -112,7 +112,7 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
 
 /* page hero */
 .page-hero{background:var(--ink);color:#fff;padding:150px 0 56px;position:relative}
-.page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28}
+.page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.34}
 .page-hero .wrap{position:relative}
 .page-hero h1{font-size:clamp(34px,5vw,54px)}
 .page-hero .crumb{margin-top:12px;font-size:14px;color:rgba(255,255,255,.65)}

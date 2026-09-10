@@ -304,7 +304,7 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
 
 /* page hero */
 .page-hero{background:var(--ink);color:#fff;padding:150px 0 56px;position:relative}
-.page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28}
+.page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.34}
 .page-hero .wrap{position:relative}
 .page-hero h1{font-size:clamp(34px,5vw,54px)}
 .page-hero .crumb{margin-top:12px;font-size:14px;color:rgba(255,255,255,.65)}
@@ -742,8 +742,9 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 
 
 def page_hero(title, crumb=None, bg=None, pos="center"):
+    bg = bg or "aug-PXL_0811_151718.jpg"
     bgd = (f'<div class="bg" style="background-image:url({img(bg, 1800)});'
-           f'background-position:{pos}"></div>') if bg else ""
+           f'background-position:{pos}"></div>')
     return f"""<div class="page-hero">{bgd}<div class="wrap">
 <h1>{title}</h1>
 <div class="crumb"><a href="index.html">Home</a> &nbsp;›&nbsp; {crumb or title}</div>
@@ -1207,7 +1208,7 @@ def build_archive():
         + '</div></div></a>'
         for m in MODELS)
     body = f"""
-{page_hero("Explore the Tanit XR Archive", "Archive")}
+{page_hero("Explore the Tanit XR Archive", "Archive", bg="aug-20260813_124249.jpg")}
 <section class="pad"><div class="wrap">
 <p class="sec-sub" style="margin:0 0 30px">A free, growing library of 3D scans of Tunisia’s endangered
 heritage — mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored
@@ -1295,7 +1296,7 @@ def build_news():
 <div class="tx"><div class="meta">{date}</div><h3>{esc(n['title'])}</h3>
 <p style="color:var(--gray);font-size:14.5px;margin-top:8px">{excerpt}</p></div></a>"""
     body = f"""
-{page_hero("News", "News")}
+{page_hero("News", "News", bg="aug-PXL_0811_150055.jpg")}
 <section class="pad"><div class="wrap">
 <div class="cards">{cards}</div>
 </div></section>"""
@@ -1323,7 +1324,7 @@ def build_people():
               f'<div class="more">Read More →</div></a>'
             for p in people)
     body = f"""
-{page_hero("Our People", "Our People")}
+{page_hero("Our People", "Our People", bg="sv-IMG_1315.jpg", pos="center 30%")}
 <section class="pad"><div class="wrap center">
 <div class="eyebrow">Meet the team</div>
 <h2 class="sec-title">Core Team</h2>
@@ -1428,7 +1429,7 @@ def build_opportunities():
     def opts(vals):
         return "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in vals)
     body = f"""
-{page_hero("Art, XR &amp; Impact Opportunities", "Art, XR &amp; Impact Opportunities")}
+{page_hero("Art, XR &amp; Impact Opportunities", "Art, XR &amp; Impact Opportunities", bg="aug-PXL_0811_150245.jpg")}
 <section class="pad"><div class="wrap">
 <p class="sec-sub" style="margin:0 0 26px;max-width:860px">A curated board of grants, residencies, fellowships, open calls,
 and events for artists, XR creators, educators, students, and changemakers — updated regularly by the
@@ -1668,7 +1669,7 @@ preservation of Tunisia’s historically and culturally rich heritage sites.</p>
 
 def build_create_profile():
     body = f"""
-{page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile')}
+{page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile', bg="sv-IMG_8034.jpg")}
 <section class="pad"><div class="wrap" style="max-width:760px">
 <p class="sec-sub" style="margin:0 0 8px">Already volunteering with Tanit XR? Submit your profile and, once
 approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-dark)">Our People</a>
@@ -2032,7 +2033,7 @@ helping remotely, every volunteer contributes to preserving history.</p>
 
 def build_contact():
     body = f"""
-{page_hero("Contact", "Contact")}
+{page_hero("Contact", "Contact", bg="sv-IMG_7959.jpg", pos="center 35%")}
 <section class="pad"><div class="wrap">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px">
 <div>
