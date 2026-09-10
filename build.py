@@ -11,6 +11,7 @@ Data sources (scraped from the old WordPress site 2026-09-08):
 """
 import json
 import os
+import posixpath
 import re
 import shutil
 import subprocess
@@ -59,6 +60,7 @@ REACTIONS_ENDPOINT = ""
 LANG = "en"
 LANG_DIRS = {"en": "", "fr": "fr/", "ar": "ar/"}
 LANG_NAMES = {"en": "EN", "fr": "FR", "ar": "ع"}
+SITEMAP = []  # pretty page paths collected while building
 
 # ---------------------------------------------------------------- utilities
 
@@ -494,6 +496,8 @@ NAV = [
 
 def lang_switcher(fname):
     """EN / FR / ع links pointing at this page's siblings in the other languages."""
+    if fname == "404.html":  # no localized 404 pages — send to the homepages
+        fname = "index.html"
     out = []
     for code, d in LANG_DIRS.items():
         if code == LANG:
@@ -649,15 +653,45 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 </body>
 </html>"""
     doc = _translate(doc)
-    if LANG != "en":  # pages live one level down — repoint shared assets
-        doc = (doc.replace('href="assets/', 'href="../assets/')
-                  .replace('src="assets/', 'src="../assets/')
-                  .replace("url(assets/", "url(../assets/")
-                  .replace("fetch('profiles-live.json')", "fetch('../profiles-live.json')"))
-    out_dir = os.path.join(DOCS, LANG_DIRS[LANG])
+
+    # ---- pretty URLs: every page (except the homepage and 404) lives in its own
+    # directory, so links are tanitxr.org/archive/ instead of /archive.html
+    is_index = fname == "index.html"
+    is_404 = fname == "404.html"
+    out_dir_rel = LANG_DIRS[LANG] + ("" if (is_index or is_404) else fname[:-5] + "/")
+    P = "../" * out_dir_rel.count("/")
+
+    def _pretty_root(root_html):
+        d, b = posixpath.split(root_html)
+        stem = b[:-5]
+        return (d + "/" if d else "") + ("" if stem == "index" else stem + "/")
+
+    def _link_repl(m):
+        attr, ups, sub, stem, anchor = m.group(1), m.group(2), m.group(3), m.group(4), m.group(5) or ""
+        old = posixpath.normpath(posixpath.join(LANG_DIRS[LANG], ups + sub + stem + ".html"))
+        href = P + _pretty_root(old) + anchor
+        return f'{attr}="{href or "./"}"'
+
+    doc = re.sub(r'(href|src)="((?:\.\./)*)((?:fr/|ar/)?)([A-Za-z0-9_-]+)\.html(#[^"]*)?"', _link_repl, doc)
+    doc = re.sub(r'(href|src)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
+    doc = re.sub(r'url\((?:\.\./)*(assets/[^)]*)\)', lambda m: f"url({P}{m.group(1)})", doc)
+    doc = re.sub(r"fetch\('(?:\.\./)*profiles-live\.json'\)", f"fetch('{P}profiles-live.json')", doc)
+
+    out_dir = os.path.join(DOCS, out_dir_rel)
     os.makedirs(out_dir, exist_ok=True)
-    with open(os.path.join(out_dir, fname), "w") as f:
+    with open(os.path.join(out_dir, "index.html" if not (is_index or is_404) else fname), "w") as f:
         f.write(doc)
+    if not is_404:
+        SITEMAP.append(out_dir_rel)
+    if not (is_index or is_404):
+        # flat alias (archive.html -> archive/) so links shared before the rename keep working
+        stem = fname[:-5]
+        with open(os.path.join(DOCS, LANG_DIRS[LANG], fname), "w") as f:
+            f.write(f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+                    f'<link rel="canonical" href="https://tanitxr.org/{LANG_DIRS[LANG]}{stem}/">'
+                    f'<meta http-equiv="refresh" content="0;url={stem}/">'
+                    f'<script>location.replace("{stem}/"+location.hash);</script></head>'
+                    f'<body><a href="{stem}/">Continue</a></body></html>')
 
 
 def page_hero(title, crumb=None, bg=None, pos="center"):
@@ -1283,7 +1317,7 @@ def build_opportunities():
              "historical research, writing, translation, and storytelling. Join from Tunisia or "
              "anywhere in the world — all experience levels welcome, fully remote friendly.",
         "ty": "Volunteer", "el": ["Open to all"], "rg": "Global", "co": "", "md": "Remote",
-        "dt": "Rolling", "dd": None, "pub": _dt.date.today().isoformat(), "u": "volunteer.html",
+        "dt": "Rolling", "dd": None, "pub": _dt.date.today().isoformat(), "u": "../volunteer/",
     })
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
@@ -2027,6 +2061,7 @@ Innovation). Each of these services has its own privacy policy.</p>
     for n in NEWS:
         d = n["date"].replace("-", "/")
         redirects[f"/{d[:4]}/{d[5:7]}/{d[8:10]}/{n['slug']}"] = n["href"]
+    redirects = {k: (v[:-5] + "/" if v.endswith(".html") else v) for k, v in redirects.items()}
     body = f"""
 {page_hero("Page Not Found", "404")}
 <section class="pad"><div class="wrap center" style="max-width:640px">
@@ -2098,10 +2133,16 @@ def build_redirects():
         if "link" in c:
             targets[path_of(c["link"])] = "news.html" if c["name"] == "News" else "archive.html"
 
+    def pv(t):
+        f, _, anchor = t.partition("#")
+        stem = f[:-5]
+        return ("" if stem == "index" else stem + "/") + (("#" + anchor) if anchor else "")
+
     n = 0
     for path, target in targets.items():
         if not path:
             continue
+        target = pv(target)
         depth = len(path.split("/"))
         rel = "../" * depth + target
         canon_file = target.split("#")[0]
@@ -2118,12 +2159,7 @@ def build_redirects():
     print(f"  {n} legacy-URL redirects written")
 
     # sitemap of canonical pages (all three languages)
-    urls = []
-    for d in ("", "fr/", "ar/"):
-        base = os.path.join(DOCS, d)
-        for fn in sorted(os.listdir(base)):
-            if fn.endswith(".html") and fn != "404.html":
-                urls.append(f"{CANON}/{d}{fn}")
+    urls = [f"{CANON}/{p}" for p in sorted(set(SITEMAP))]
     with open(os.path.join(DOCS, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
