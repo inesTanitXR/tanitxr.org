@@ -691,5 +691,26 @@
   "created": "2025-10-01",
   "name": "Test Scan – Interior with Tilework and Fountain…",
   "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan"
+ },
+ {
+  "visibility": "org",
+  "uid": "0c963101b55d4c3697d03967508e837e",
+  "created": "2026-08-06",
+  "name": "Punic Stelae Row – Tophet of Salammbo, Carthage",
+  "path": "VR & Game Ready Models>Carthage>Tophet of Salammbo, Carthage"
+ },
+ {
+  "visibility": "org",
+  "uid": "00bebf452aa44310b79b0c9e92cd44ee",
+  "created": "2026-08-06",
+  "name": "Murex Shell - Murex Brandaris",
+  "path": "Decorative Models (VR Museum)"
+ },
+ {
+  "visibility": "public",
+  "uid": "30fadf1e18714bb0914ac2b778fee992",
+  "created": "2025-09-23",
+  "name": "Decorated Bust Fragment – Roman Villas of - copy",
+  "path": "Photogrammetry Models>Carthage>Roman villas of Carthage - Carthage"
  }
 ]
