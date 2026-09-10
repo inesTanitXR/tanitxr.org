@@ -219,16 +219,18 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
 
 /* header — nav split around a centered logo, like the original site */
 header.site{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .25s,box-shadow .25s;padding:0}
-header.site .bar{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  gap:26px;padding:10px 28px}
+header.site .bar{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
+  gap:54px;padding:12px 32px}
 header.site .logo{display:flex;justify-content:center;text-decoration:none}
-header.site .logo img{height:64px;width:auto;transition:height .25s}
-header.site.scrolled .logo img,header.site.solid .logo img{height:52px}
-.hside{display:flex;align-items:center;gap:26px;width:100%}
-.hl{justify-content:space-between}
-.hr{justify-content:space-between}
-.hcta{display:flex;align-items:center;gap:16px}
-.hlinks{display:flex;align-items:center;gap:34px}
+header.site .logo img{height:92px;width:auto;transition:height .25s}
+header.site.scrolled .logo img,header.site.solid .logo img{height:68px}
+.hside{display:flex;align-items:center;gap:26px;width:100%;min-width:0}
+/* both link groups sit the same distance from the logo; socials pin to the far left, donate/langs to the far right */
+.hl{justify-content:flex-end}
+.hl .socials{margin-inline-end:auto}
+.hr{justify-content:flex-start}
+.hcta{display:flex;align-items:center;gap:16px;margin-inline-start:auto}
+.hlinks{display:flex;align-items:center;gap:44px}
 .hlinks a{color:rgba(255,255,255,.92);text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap}
 .hlinks a:hover,.hlinks a.on{color:var(--gold)}
 header.site .socials{display:flex;gap:12px}
@@ -243,6 +245,9 @@ header.site.solid .hlinks a:hover,header.site.scrolled .hlinks a:hover,
 header.site.solid .hlinks a.on,header.site.scrolled .hlinks a.on{color:var(--gold-dark)}
 header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
 @media(max-width:1470px){header.site .socials{display:none}}
+@media(max-width:1320px){.hlinks{gap:24px}.hlinks a{font-size:15px}.hcta{gap:10px}header.site .bar{gap:34px}
+  header.site .donate{padding:8px 16px}header.site .logo img{height:80px}
+  header.site.scrolled .logo img,header.site.solid .logo img{height:62px}}
 #mobnav{display:none}
 .drop{position:relative}
 .drop>a::after{content:" ▾";font-size:11px}
@@ -263,7 +268,7 @@ header.site.solid .langs a,header.site.scrolled .langs a{color:var(--ink)}
 #nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
 #nav-toggle span{display:block;width:24px;height:2px;margin:5px 0;background:#fff;transition:.2s}
 header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{background:var(--ink)}
-@media(max-width:1120px){
+@media(max-width:1240px){
   .hside{display:none}
   header.site .bar{grid-template-columns:auto 1fr auto;padding:10px 18px}
   header.site .logo{justify-content:flex-start}
@@ -303,7 +308,7 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
 .hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
 /* page hero */
-.page-hero{background:var(--ink);color:#fff;padding:150px 0 56px;position:relative}
+.page-hero{background:var(--ink);color:#fff;padding:190px 0 66px;position:relative}
 .page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.34}
 .page-hero .wrap{position:relative}
 .page-hero h1{font-size:clamp(34px,5vw,54px)}
@@ -567,7 +572,7 @@ def _nav_items(entries, active):
 
 
 def header_html(active, transparent, fname="index.html"):
-    logo = img("tanitxr-logo_red_vertical.png", 160, as_jpeg=False)
+    logo = img("tanitxr-logo_red_vertical.png", 300, as_jpeg=False)
     left = _nav_items(NAV[:4], active)     # Home, Archive, Opportunities, News
     right = _nav_items(NAV[4:], active)    # Get Involved, About, Contact
     socials = f"""<div class="socials">
@@ -665,6 +670,8 @@ FONTS_ARABIC = ("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;60
 
 
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True):
+    # like the original site, the menu floats over the page hero photo wherever there is one
+    transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
         html_attrs = 'lang="ar" dir="rtl"'
         fonts = FONTS_ARABIC
@@ -843,6 +850,21 @@ def author_slug(name):
     return CREATORS.get("authors", {}).get(name)
 
 
+def creator_credit(sketchfab_user):
+    """(display name, profile href or None) for a Sketchfab creator — None if unknown/org account.
+    Volunteers without a profile yet are credited by name from CREATORS['pending']."""
+    slug = member_slug(sketchfab_user)
+    if slug and slug in TEAM_BY_SLUG:
+        return TEAM_BY_SLUG[slug]["name"], TEAM_BY_SLUG[slug]["href"]
+    name = CREATORS.get("pending", {}).get(sketchfab_user)
+    return (name, None) if name else (None, None)
+
+
+def credit_link(name, href):
+    return (f'<a href="{href}" style="color:var(--gold-dark);font-weight:700">{esc(name)}</a>' if href
+            else f'<b>{esc(name)}</b>')
+
+
 # contributions accumulated per member slug, rendered on their profile
 CONTRIB = {}
 
@@ -895,6 +917,9 @@ for n in NEWS:
 
 PEOPLE_EXTRA = load("person_extra.json")
 PEOPLE_PHOTOS = load("people_photos.json")
+# WP had two uploads named headshot.png / Headshot.png (Rachel's + "Charity Headshot"); on a
+# case-insensitive disk they collided, so Rachel's is stored under its own name.
+PHOTO_OVERRIDES = {"Rachel West": "rachel-west-headshot.png"}
 
 CORE_TEAM = [
     ("Ines Said", "Founder"),
@@ -934,7 +959,7 @@ def person_record(name, role):
     bio = bio.replace("Awardpresented", "Award presented")
     if bio and bio[0].islower():
         bio = f"{name} {bio}"
-    photo = PEOPLE_PHOTOS.get(name)
+    photo = PHOTO_OVERRIDES.get(name) or PEOPLE_PHOTOS.get(name)
     return {
         "name": name, "role": role, "slug": slug, "bio": bio,
         "photo": photo, "links": extra.get("links", []),
@@ -1267,10 +1292,9 @@ def _volunteer_made_section():
         return ""
     cards = ""
     for vm in VOLUNTEER_MADE:
-        by = member_slug(vm.get("by"))
-        byname = TEAM_BY_SLUG[by]["name"] if by in TEAM_BY_SLUG else None
-        credit = (f'<div class="meta">by <a href="{TEAM_BY_SLUG[by]["href"]}" '
-                  f'style="color:var(--gold-dark)">{esc(byname)}</a></div>') if byname else ""
+        byname, byhref = creator_credit(vm.get("by"))
+        credit = (f'<div class="meta">by ' + (f'<a href="{byhref}" style="color:var(--gold-dark)">{esc(byname)}</a>'
+                  if byhref else esc(byname)) + '</div>') if byname else ""
         thumb = img(vm["thumb"], 700) if vm.get("thumb") else ""
         ph = f'<div class="ph"><img src="{thumb}" alt="{esc(vm["title"])}" loading="lazy"></div>' if thumb else ""
         cards += (f'<a class="card" href="https://sketchfab.com/models/{vm["uid"]}" target="_blank" rel="noopener">'
@@ -1316,15 +1340,16 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
         credits = []
         s_slug = member_slug(m.get("scanned_by"))
         o_slug = member_slug(m.get("optimized_by"))
+        s_name, s_href = creator_credit(m.get("scanned_by"))
+        o_name, o_href = creator_credit(m.get("optimized_by"))
         if s_slug:
             _add_contrib(s_slug, "scanned", m["title"], m["href"])
-            credits.append(f'3D scan by <a href="{TEAM_BY_SLUG[s_slug]["href"]}" '
-                           f'style="color:var(--gold-dark);font-weight:700">{esc(TEAM_BY_SLUG[s_slug]["name"])}</a>')
+        if s_name:
+            credits.append(f'3D scan by {credit_link(s_name, s_href)}')
         if o_slug and o_slug != s_slug:
             _add_contrib(o_slug, "optimized", m["title"], m["href"])
-        if o_slug:
-            credits.append(f'game-ready optimization by <a href="{TEAM_BY_SLUG[o_slug]["href"]}" '
-                           f'style="color:var(--gold-dark);font-weight:700">{esc(TEAM_BY_SLUG[o_slug]["name"])}</a>')
+        if o_name:
+            credits.append(f'game-ready optimization by {credit_link(o_name, o_href)}')
         credit_html = (f'<p style="color:var(--gray);font-size:14.5px;margin-top:6px">👐 ' +
                        " · ".join(credits) + "</p>") if credits else ""
         text = esc(m["text"])[:4000]
