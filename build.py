@@ -199,27 +199,32 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
 .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);font-weight:700;margin-bottom:14px}
 .center{text-align:center}
 
-/* header */
+/* header — nav split around a centered logo, like the original site */
 header.site{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .25s,box-shadow .25s;padding:0}
-header.site .bar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 28px}
-header.site .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-header.site .logo img{height:44px;width:auto}
-header.site .logo span{font-family:var(--serif);font-size:19px;letter-spacing:.14em;color:#fff}
-header.site nav{display:flex;align-items:center;gap:22px}
-@media(max-width:1290px){header.site .socials{display:none}}
-header.site nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500}
-header.site nav a:hover,header.site nav a.on{color:var(--gold)}
+header.site .bar{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:26px;padding:10px 28px}
+header.site .logo{display:flex;justify-content:center;text-decoration:none}
+header.site .logo img{height:64px;width:auto;transition:height .25s}
+header.site.scrolled .logo img,header.site.solid .logo img{height:52px}
+.hside{display:flex;align-items:center;gap:20px}
+.hl{justify-content:flex-start}
+.hr{justify-content:flex-end}
+.hlinks{display:flex;align-items:center;gap:20px}
+.hlinks a{color:rgba(255,255,255,.85);text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap}
+.hlinks a:hover,.hlinks a.on{color:var(--gold)}
 header.site .socials{display:flex;gap:12px}
 header.site .socials a{color:rgba(255,255,255,.8)}
 header.site .socials svg{width:17px;height:17px;fill:currentColor}
-header.site .donate{background:var(--gold);color:var(--ink)!important;padding:9px 20px;border-radius:4px;font-weight:700}
+header.site .donate{background:var(--gold);color:var(--ink)!important;padding:9px 20px;border-radius:4px;
+  font-weight:700;text-decoration:none;font-size:15px;white-space:nowrap}
 header.site .donate:hover{background:var(--gold-dark);color:var(--ink)}
 header.site.solid,header.site.scrolled{background:#fff;box-shadow:0 1px 14px rgba(17,21,24,.09)}
-header.site.solid nav a,header.site.scrolled nav a{color:var(--ink)}
-header.site.solid nav a:hover,header.site.scrolled nav a:hover,
-header.site.solid nav a.on,header.site.scrolled nav a.on{color:var(--gold-dark)}
-header.site.solid .logo span,header.site.scrolled .logo span{color:var(--ink)}
+header.site.solid .hlinks a,header.site.scrolled .hlinks a{color:var(--ink)}
+header.site.solid .hlinks a:hover,header.site.scrolled .hlinks a:hover,
+header.site.solid .hlinks a.on,header.site.scrolled .hlinks a.on{color:var(--gold-dark)}
 header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
+@media(max-width:1470px){header.site .socials{display:none}}
+#mobnav{display:none}
 .drop{position:relative}
 .drop>a::after{content:" ▾";font-size:11px}
 .drop .menu{position:absolute;top:100%;left:-14px;background:#fff;min-width:250px;border-radius:6px;
@@ -239,21 +244,25 @@ header.site.solid .langs a,header.site.scrolled .langs a{color:var(--ink)}
 #nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
 #nav-toggle span{display:block;width:24px;height:2px;margin:5px 0;background:#fff;transition:.2s}
 header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{background:var(--ink)}
-@media(max-width:1020px){
-  header.site nav{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--ink);
+@media(max-width:1120px){
+  .hside{display:none}
+  header.site .bar{grid-template-columns:auto 1fr auto;padding:10px 18px}
+  header.site .logo{justify-content:flex-start}
+  header.site .logo img{height:50px}
+  #mobnav{display:flex;position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--ink);
     flex-direction:column;align-items:flex-start;padding:80px 30px 30px;gap:4px;transition:right .25s;overflow-y:auto}
-  header.site nav.open{right:0}
-  [dir=rtl] header.site nav{right:auto;left:-320px;transition:left .25s}
-  [dir=rtl] header.site nav.open{left:0}
-  .langs{margin-top:10px}
-  .langs a{color:#fff!important}
-  .langs a.on{color:var(--ink)!important}
-  header.site nav a{color:#fff!important;padding:9px 0;font-size:17px}
-  .drop .menu{position:static;display:block;background:none;box-shadow:none;padding:0 0 0 16px;min-width:0}
-  .drop .menu a{color:rgba(255,255,255,.75)!important;padding:7px 0}
-  .drop>a::after{content:""}
-  #nav-toggle{display:block;z-index:70;position:relative}
-  header.site .socials{display:none}
+  #mobnav.open{right:0}
+  [dir=rtl] #mobnav{right:auto;left:-320px;transition:left .25s}
+  [dir=rtl] #mobnav.open{left:0}
+  #mobnav .langs{margin-top:10px}
+  #mobnav .langs a{color:#fff!important}
+  #mobnav .langs a.on{color:var(--ink)!important}
+  #mobnav a{color:#fff!important;padding:9px 0;font-size:17px;text-decoration:none}
+  #mobnav .donate{padding:10px 22px;margin-top:12px}
+  #mobnav .drop .menu{position:static;display:block;background:none;box-shadow:none;padding:0 0 0 16px;min-width:0}
+  #mobnav .drop .menu a{color:rgba(255,255,255,.75)!important;padding:7px 0}
+  #mobnav .drop>a::after{content:""}
+  #nav-toggle{display:block;z-index:70;position:relative;grid-column:3;justify-self:end}
 }
 
 /* hero */
@@ -449,7 +458,7 @@ JS = """
 const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
 const nt=document.getElementById('nav-toggle');
-if(nt){nt.addEventListener('click',()=>{document.querySelector('header.site nav').classList.toggle('open')})}
+if(nt){nt.addEventListener('click',()=>{document.getElementById('mobnav').classList.toggle('open')})}
 """
 
 # ---------------------------------------------------------------- svg icons
@@ -494,10 +503,9 @@ def lang_switcher(fname):
     return f'<div class="langs">{"".join(out)}</div>'
 
 
-def header_html(active, transparent, fname="index.html"):
-    logo = img("tanitxr-logo_red_vertical.png", 120, as_jpeg=False)
+def _nav_items(entries, active):
     items = []
-    for entry in NAV:
+    for entry in entries:
         name, href, sub = entry[0], entry[1], (entry[2] if len(entry) > 2 else None)
         on = ' class="on"' if href == active else ""
         if sub:
@@ -505,17 +513,29 @@ def header_html(active, transparent, fname="index.html"):
             items.append(f'<div class="drop"><a href="{href}"{on}>{name}</a><div class="menu">{menu}</div></div>')
         else:
             items.append(f'<a href="{href}"{on}>{name}</a>')
-    cls = "site" if transparent else "site solid"
-    return f"""<header class="{cls}"><div class="bar">
-<a class="logo" href="index.html"><img src="{logo}" alt="Tanit XR logo"><span>TANIT&nbsp;XR</span></a>
-<button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav>{''.join(items)}
-<a class="donate" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
-{lang_switcher(fname)}
-<div class="socials">
+    return "".join(items)
+
+
+def header_html(active, transparent, fname="index.html"):
+    logo = img("tanitxr-logo_red_vertical.png", 160, as_jpeg=False)
+    left = _nav_items(NAV[:4], active)     # Home, Archive, Opportunities, News
+    right = _nav_items(NAV[4:], active)    # Get Involved, About, Contact
+    socials = f"""<div class="socials">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
-</div></nav></div></header>"""
+</div>"""
+    donate = f'<a class="donate" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>'
+    cls = "site" if transparent else "site solid"
+    return f"""<header class="{cls}"><div class="bar">
+<div class="hside hl">{socials}<div class="hlinks">{left}</div></div>
+<a class="logo" href="index.html"><img src="{logo}" alt="Tanit XR"></a>
+<div class="hside hr"><div class="hlinks">{right}</div>{donate}{lang_switcher(fname)}</div>
+<button id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<nav id="mobnav">{_nav_items(NAV, active)}
+{donate}
+{lang_switcher(fname)}
+</nav></header>"""
 
 
 def trending_html():
