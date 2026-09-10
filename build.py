@@ -1426,7 +1426,7 @@ function render(){{
   rest=[...rest.filter(o=>o.tx),...rest.filter(o=>!o.tx)];
   featBox.innerHTML=feats.map(o=>{{
     const [dl,cls]=dlOf(o);
-    return '<div class="opp"><div class="fx">'+
+    return '<div class="opp" id="opp-'+o.id+'"><div class="fx">'+
       '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
@@ -1435,7 +1435,7 @@ function render(){{
   board.innerHTML=rest.map(o=>{{
     const [dl,cls]=dlOf(o);
     const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
-    return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chipsOf(o)+'</div>'+
+    return '<div class="opp'+(o._closed?' closed':'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+'</div>';
   }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
@@ -1458,6 +1458,11 @@ function render(){{
   document.getElementById(id).addEventListener('input',render);
 }});
 render();
+if(location.hash&&location.hash.startsWith('#opp-')){{
+  try{{const el=document.querySelector(location.hash);
+    if(el){{el.scrollIntoView({{block:'center'}});el.style.boxShadow='0 0 0 3px var(--gold)';}}
+  }}catch(e){{}}
+}}
 if(RX){{
   track('view','board');
   fetch(RX+'/stats').then(r=>r.json()).then(s=>{{STATS=s&&typeof s==='object'?s:{{}};render();}}).catch(()=>{{}});
@@ -2041,6 +2046,93 @@ for(const k in R){{ if(p===k||p.endsWith(k)){{location.replace(base+R[k]);break}
     page("404.html", "Page Not Found", body, trending=False)
 
 
+def build_redirects():
+    """Emit a stub at every URL path of the old WordPress site so no shared link
+    ever breaks after the domain cutover. Paths come from the scraped WP data."""
+    CANON = "https://tanitxr.org"
+    targets = {}  # old path (no leading/trailing slash) -> new target (root-relative file)
+
+    page_map = {
+        "home": "index.html", "home-2": "index.html", "archive": "archive.html",
+        "about": "about.html", "news": "news.html", "our-people": "people.html",
+        "art-xr-impact-opportunities": "opportunities.html",
+        "volunteer": "volunteer.html", "volunteer-with-us": "volunteer.html",
+        "submit-volunteer-profile": "create-profile.html",
+        "tanit-xr-scanning-guide": "scanning-guide.html",
+        "photogrammetry-with-phones-by-mark-jeffcock": "splats-with-phones.html",
+        "el-jem-conference": "el-jem-conference.html",
+        "uniquemappers": "unique-mappers.html", "immersegt-2026": "immersegt-2026.html",
+        "contact": "contact.html", "contact-2": "contact.html",
+        "donate": "support.html", "support": "support.html",
+        "privacy-policy-2": "privacy.html", "coming-soon": "coming-soon.html",
+        "opportunity": "opportunities.html", "person": "people.html",
+    }
+
+    def path_of(link):
+        p = re.sub(r"^https?://[^/]+", "", link).strip("/")
+        return p
+
+    for p in load("pages.json"):
+        slug = p["slug"]
+        if slug in page_map:
+            targets[path_of(p["link"])] = page_map[slug]
+    for extra in ("home", "coming-soon", "donate", "support", "opportunity", "person"):
+        targets.setdefault(extra if extra != "coming-soon" else "home/coming-soon",
+                           page_map.get(extra, "index.html"))
+
+    by_slug = {m["slug"]: m["href"] for m in MODELS}
+    by_slug.update({n["slug"]: n["href"] for n in NEWS})
+    for p in load("posts.json"):
+        if p["slug"] in by_slug:
+            targets[path_of(p["link"])] = by_slug[p["slug"]]
+
+    people_files = {p["href"] for p in TEAM + COMMUNITY}
+    for p in load("person.json"):
+        href = f"person-{slugify(htmod.unescape(p['title']['rendered']))}.html"
+        targets[path_of(p["link"])] = href if href in people_files else "people.html"
+
+    for o in load("opportunity.json"):
+        targets[path_of(o["link"])] = f"opportunities.html#opp-{o['slug']}"
+
+    for c in load("categories.json"):
+        if "link" in c:
+            targets[path_of(c["link"])] = "news.html" if c["name"] == "News" else "archive.html"
+
+    n = 0
+    for path, target in targets.items():
+        if not path:
+            continue
+        depth = len(path.split("/"))
+        rel = "../" * depth + target
+        canon_file = target.split("#")[0]
+        out_dir = os.path.join(DOCS, path)
+        os.makedirs(out_dir, exist_ok=True)
+        with open(os.path.join(out_dir, "index.html"), "w") as f:
+            f.write(f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>Tanit XR</title>
+<link rel="canonical" href="{CANON}/{canon_file}">
+<meta http-equiv="refresh" content="0;url={rel}">
+<script>location.replace("{rel}");</script>
+</head><body><p><a href="{rel}">Continue to Tanit XR</a></p></body></html>""")
+        n += 1
+    print(f"  {n} legacy-URL redirects written")
+
+    # sitemap of canonical pages (all three languages)
+    urls = []
+    for d in ("", "fr/", "ar/"):
+        base = os.path.join(DOCS, d)
+        for fn in sorted(os.listdir(base)):
+            if fn.endswith(".html") and fn != "404.html":
+                urls.append(f"{CANON}/{d}{fn}")
+    with open(os.path.join(DOCS, "sitemap.xml"), "w") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                + "".join(f"<url><loc>{esc(u)}</loc></url>\n" for u in urls)
+                + "</urlset>\n")
+    with open(os.path.join(DOCS, "robots.txt"), "w") as f:
+        f.write(f"User-agent: *\nAllow: /\nSitemap: {CANON}/sitemap.xml\n")
+
+
 # ---------------------------------------------------------------- main
 
 def main():
@@ -2085,6 +2177,7 @@ def main():
         build_misc()
         print(f"  {LANG}: done")
     LANG = "en"
+    build_redirects()
 
     n_pages = len([f for f in os.listdir(DOCS) if f.endswith(".html")])
     n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])

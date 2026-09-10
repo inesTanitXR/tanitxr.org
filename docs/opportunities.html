@@ -164,7 +164,7 @@ function render(){
   rest=[...rest.filter(o=>o.tx),...rest.filter(o=>!o.tx)];
   featBox.innerHTML=feats.map(o=>{
     const [dl,cls]=dlOf(o);
-    return '<div class="opp"><div class="fx">'+
+    return '<div class="opp" id="opp-'+o.id+'"><div class="fx">'+
       '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
@@ -173,7 +173,7 @@ function render(){
   board.innerHTML=rest.map(o=>{
     const [dl,cls]=dlOf(o);
     const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
-    return '<div class="opp'+(o._closed?' closed':'')+'"><div class="top">'+chipsOf(o)+'</div>'+
+    return '<div class="opp'+(o._closed?' closed':'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+'</div>';
   }).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
@@ -196,6 +196,11 @@ function render(){
   document.getElementById(id).addEventListener('input',render);
 });
 render();
+if(location.hash&&location.hash.startsWith('#opp-')){
+  try{const el=document.querySelector(location.hash);
+    if(el){el.scrollIntoView({block:'center'});el.style.boxShadow='0 0 0 3px var(--gold)';}
+  }catch(e){}
+}
 if(RX){
   track('view','board');
   fetch(RX+'/stats').then(r=>r.json()).then(s=>{STATS=s&&typeof s==='object'?s:{};render();}).catch(()=>{});
