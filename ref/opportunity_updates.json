@@ -536,6 +536,186 @@
    "url": "https://unitedxr.eu/booster-programs",
    "published": "2026-09-11",
    "desc": "Four acceleration tracks ahead of UnitedXR Europe (Brussels, 7–9 Dec 2026): Narratives (early-stage immersive narrative, artistic or documentary XR), Games (indie AR/VR studios with a prototype), Builders (developers with an MVP, pre-revenue) and Startups (XR+AI ventures with traction). Selected projects get online masterclasses in mid-November, a live stage pitch, 3 guaranteed 1:1 meetings with decision-makers, mentorship and a full pass. Free to apply; participation fees only if selected (€300 / €200 / €100 for team members 1–3, excl. VAT). Acceptance confirmed 15 October."
+  },
+  {
+   "title": "Fast Forward Accelerator 2027 — $25K+ for Tech Nonprofits",
+   "type": "Program",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "Non-profits"
+   ],
+   "deadline_date": "2026-09-18",
+   "url": "https://www.ffwd.org/accelerator",
+   "desc": "The only accelerator dedicated to tech and AI-powered nonprofits: a $25K+ unrestricted grant, a mid-February to early-June 2027 program (virtual Tue/Thu sessions plus in-person kickoff and Demo Day in San Francisco), mentors and a funder network. Two hard requirements: a nonprofit model and a working MVP. Fiscally sponsored teams and nonprofits registered outside the US are eligible. Interviews October–December; decisions by year end.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Ars Biologica ArtXScience Residency 2027–2028 (Ars Electronica × ECoC 2028)",
+   "type": "Residency",
+   "mode": "Hybrid",
+   "region": "Europe",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-09-28",
+   "url": "https://ars.electronica.art/export/en/ecoc2028-ars-biologica-art-science-residency/",
+   "desc": "Two fully funded art-science positions worth €24,000 each — €6,000 artist fee, up to €15,000 production, up to €3,000 travel plus accommodation — running January 2027 to April 2028 with three stays in České Budějovice (European Capital of Culture 2028). Open to artists, designers and collectives of any nationality with 5+ years of practice who can travel in the EU; the call explicitly wants spatial, installation and immersive work rather than screen-based pieces. Deadline midnight CET.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "World Summit Awards 2026 — Culture & Heritage, Learning, Inclusion",
+   "type": "Award",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Open to all",
+    "Non-profits",
+    "Youth"
+   ],
+   "deadline_date": "2026-09-30",
+   "url": "https://wsa-global.org/contest-global-award/",
+   "desc": "The UN-affiliated World Summit Awards recognise launched digital solutions with measurable social impact in eight categories including Culture & Heritage, Learning & Education and Inclusion & Empowerment, from all UN member states (Tunisia included). Free to enter; 40 global winners get the WSA Global Congress (spring 2027), mentoring, pitching and international media exposure. Under-26 founders can also enter the Young Innovators track (reported deadline October 15).",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "IEEE VR 2027 — Call for Workshop Proposals",
+   "type": "Conference",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Researchers",
+    "XR Creators",
+    "Educators"
+   ],
+   "deadline_date": "2026-09-28",
+   "url": "https://ieeevr.org/2027/contribute/workshops/",
+   "desc": "Propose a half-day workshop for IEEE VR 2027 in Melbourne (workshops February 27–28, 2027) with a 3-page proposal and a public call — no submission fee, and workshop papers can optionally be published in IEEE Xplore. A realistic route to a program-committee credential for practitioners: themes like XR for cultural heritage, community-driven documentation or XR in the Global South would fit. Notification October 12; camera-ready papers January 12, 2027.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "SXSW 2027 — XR Experience",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-10-01",
+   "url": "https://sxsw.com/film-submissions/",
+   "desc": "Submit VR, MR and AR work, immersive performance, projection installations, immersive audio or AI installations to the XR Experience exhibition at SXSW Film & TV (Austin, March 15–21, 2027). Second deadline September 15 ($70), final deadline October 1 ($90, 11:59 pm PT); you need a streamable 360 or 2D playthrough link. Selections are notified by February 9, 2027.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Sundance Film Festival 2027 — Feature Films (late deadline)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists"
+   ],
+   "deadline_date": "2026-09-21",
+   "url": "https://www.sundance.org/festivals/sundance-film-festival/submit/",
+   "desc": "Sundance moves to Boulder, Colorado for January 21–31, 2027. Feature films (50+ minutes, world or international premiere) can still be submitted until the late deadline of September 21 ($125); shorts and episodic deadlines have passed. Experimental and documentary features are also considered for the New Frontier section — note there is no longer a separate XR/immersive submission category.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "FIVARS 2027 — Festival of International Virtual & Augmented Reality Stories",
+   "type": "Open Call",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-01-24",
+   "url": "https://fivars.net/",
+   "desc": "A long-running, artist-friendly festival for VR and MR stories, 360° cinema, live and spatial performance, WebXR and installation work, held in Los Angeles and online February 22 – March 9, 2027. Rolling deadlines: earlybird September 24, regular November 24, late December 24, extended January 24, 2027 (fees on FilmFreeway). Notifications February 7.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Awesome Foundation — Conservation & Climate $1,000 Micro-Grants",
+   "type": "Grant",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Open to all",
+    "Artists",
+    "Non-profits"
+   ],
+   "deadline_date": "2026-11-27",
+   "url": "https://www.awesomefoundation.org/en/chapters/conservationandclimate",
+   "desc": "No-strings $1,000 grants for projects about climate change, habitat, ecotourism or environmental communication — anyone worldwide can apply with a short form, no nonprofit status needed. Six rounds a year; the next cut-offs are September 25 and November 27, 2026. Heritage-and-climate storytelling counts if framed as environmental communication.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Immerse the Bay 2026 — Stanford XR Hackathon",
+   "type": "Challenge",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Students",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-10-16",
+   "url": "https://portal.immersethebay.org/",
+   "desc": "A 36-hour XR hackathon at Stanford, November 13–15, 2026, with around 400 hackers, $300k+ of loaned headsets and hardware, industry workshops and a prize pool that topped $30k last year. Open to all skill levels and non-Stanford participants; the application takes under 10 minutes. Priority deadline October 2 (decisions October 9), final deadline October 16 (decisions October 23).",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Chevening Scholarships 2027/28 — Tunisia",
+   "type": "Fellowship",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "Students",
+    "Youth"
+   ],
+   "deadline_date": "2026-10-06",
+   "url": "https://www.chevening.org/scholarship/tunisia/",
+   "desc": "The UK government's fully funded one-year master's for Tunisian citizens with a degree and at least two years of work experience — tuition, living stipend, flights and visa covered, no upper age limit. UK programmes in digital heritage, HCI, game design and immersive media are all eligible. Deadline October 6, 2026 at 11:00 UTC.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "Culture Resource (Al Mawred) Production Awards 2027 — Arab Artists Under 35",
+   "type": "Grant",
+   "mode": "Remote",
+   "region": "MENA",
+   "eligibility": [
+    "Artists",
+    "Youth"
+   ],
+   "deadline_date": "2026-10-19",
+   "url": "https://mawred.org/artistic-creativity/production-awards/?lang=en",
+   "desc": "Twenty-five production grants a year for artists and writers under 35 who originate from an Arab country, living in the region or in the diaspora: up to €8,500 for visual arts, music and sound art, performing arts and literature, up to €13,000 for cinema. XR and new-media projects fit under visual arts or cinema; the work must take place in or benefit the Arab region. Deadline October 19, 2026, 16:00 Beirut time; results end of March 2027.",
+   "deadline_type": null,
+   "published": "2026-09-11"
+  },
+  {
+   "title": "UnitedXR Europe 2026 — Startup Pitch Competition",
+   "type": "Challenge",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "deadline_date": "2026-09-15",
+   "url": "https://unitedxr.eu/startup-pitch-competition",
+   "desc": "Free to enter: AR/VR startups pitch to a panel of XR investors on stage at UnitedXR Europe in Brussels (pitch December 8, winner announced December 9, 2026) in front of 2,500+ attendees; the winner takes the 'Startup to Watch' award. Same September 15 deadline as the Booster Programs.",
+   "deadline_type": null,
+   "published": "2026-09-11"
   }
  ],
  "featured": {
