@@ -2595,6 +2595,10 @@ def main():
     n_ar = len([f for f in os.listdir(os.path.join(DOCS, "ar")) if f.endswith(".html")])
     size = subprocess.run(["du", "-sh", DOCS], capture_output=True, text=True).stdout.split()[0]
     print(f"\nBuilt {n_pages} en + {n_fr} fr + {n_ar} ar pages -> docs/ ({size})")
+    # newsletter ⇄ board consistency (Ines: "everything needs to be reflected on the website")
+    r = subprocess.run(["python3", os.path.join(HERE, "sync_check.py"), "--quiet"], capture_output=True, text=True)
+    if r.returncode != 0:
+        print("\n⚠ newsletter/website out of sync:\n" + r.stdout.strip())
 
 
 if __name__ == "__main__":

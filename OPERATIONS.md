@@ -45,3 +45,9 @@ Everything is plain files in the GitHub repo — any web developer could take ov
 
 ## Money funnel (when you're ready)
 Featured listings on the board are built and auto-curated; when a sponsor pays, their listing takes the gold spot with their image, and the reaction/analytics numbers are your rate card. Invoicing runs through your fiscal sponsor.
+
+## Newsletter ⇄ website sync (added 2026-09-11)
+
+Rule from Ines: every opportunity in the newsletter must be on the website board, and everything new on the board must reach a newsletter edition. `python3 sync_check.py` enforces it (exit 1 when out of sync) — it compares the 👉 links in `ref/newsletter-edition-*.md` + `ref/next-edition-draft.md` against `ref/opportunity_updates.json` + `wp-data/opportunity.json`. It runs automatically at the end of `build.py`, in the weekly board check and in the daily inbox sweep; a failure means: add the missing item to the board (`opportunity_updates.json` → rebuild) or to `ref/next-edition-draft.md`.
+
+Editions are planned in `ref/newsletter-plan.md` (send dates + which items go where, so no edition becomes a wall of text). Voice rule: short, direct, no marketing adjectives — see `ref/newsletter-edition-18.md`.
