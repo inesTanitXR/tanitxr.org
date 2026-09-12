@@ -1110,9 +1110,29 @@ if os.path.exists(_upd_path):
         else:
             print(f"  !! opportunity update matched nothing: {key}")
 
+# ref/opportunity_updates.json records deadlines as "YYYY-MM-DD"; the older scraped
+# entries carry "September 14, 2026". Normalise to the display form so _dl_date below
+# can read every entry — an unparseable date reads as "no deadline", which would keep
+# a closed call on the board forever and print the raw ISO string on its card.
+import datetime as _dt
+
+
+def _parse_any_date(s):
+    for fmt in ("%Y-%m-%d", "%B %d, %Y", "%b %d, %Y"):
+        try:
+            return _dt.datetime.strptime(s, fmt).date()
+        except (TypeError, ValueError):
+            continue
+    return None
+
+
+for o in OPPS:
+    _d = _parse_any_date(o["deadline_date"])
+    if _d:
+        o["deadline_date"] = _d.strftime("%B %-d, %Y")
+
 # a "Fixed" deadline with no recoverable date on a months-old posting is long past —
 # mark it closed rather than showing a dateless "Deadline: Fixed"
-import datetime as _dt
 _stale = (_dt.date.today() - _dt.timedelta(days=60)).isoformat()
 for o in OPPS:
     if not o["deadline_date"] and o["deadline_type"] in ("Fixed", "TBA", "") and o["published"] < _stale:
