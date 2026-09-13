@@ -396,6 +396,13 @@ section.pad-sm{padding:56px 0}
 .press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);font-weight:700}
 .press h3{font-size:18px;margin:8px 0 6px}
 .press p{color:var(--gray);font-size:14.5px}
+.vid{width:100%;border-radius:12px;background:#000;display:block;aspect-ratio:16/9}
+.shots.museum img{aspect-ratio:16/9}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
+.timeline div{background:#fff;border:1px solid var(--mist);border-radius:10px;overflow:hidden}
+.timeline img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.timeline b{display:block;padding:14px 16px 4px;font-family:var(--serif);font-weight:400;font-size:17px}
+.timeline p{padding:0 16px 16px;color:var(--gray);font-size:14px}
 .embed16{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
 .embed16 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .money{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
@@ -635,6 +642,7 @@ NAV = [
         ("El Jem Conference", "el-jem-conference.html"),
         ("ImmerseGT 2026", "immersegt-2026.html"),
         ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
+        ("Virtual Museum", "museum.html"),
         ("Press &amp; Recognition", "press.html"),
     ]),
     ("Contact", "contact.html"),
@@ -715,7 +723,7 @@ public everywhere.</p>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
 <a href="community.html">Community</a>
-<a href="coming-soon.html">AR/VR Experiences</a>
+<a href="museum.html">Virtual Museum</a>
 <a href="news.html">News</a>
 <a href="opportunities.html">Opportunities</a></div>
 <div><h4>Get Involved</h4>
@@ -823,7 +831,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         return f'{attr}="{href or "./"}"'
 
     doc = re.sub(r'(href|src)="((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(#[^"]*)?"', _link_repl, doc)
-    doc = re.sub(r'(href|src)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
+    doc = re.sub(r'(href|src|poster)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
     doc = re.sub(r'url\((?:\.\./)*(assets/[^)]*)\)', lambda m: f"url({P}{m.group(1)})", doc)
     doc = re.sub(r"fetch\('(?:\.\./)*profiles-live\.json'\)", f"fetch('{P}profiles-live.json')", doc)
 
@@ -1369,8 +1377,8 @@ def build_home():
          "Volunteers capture statues, mosaics and ruins with their phones. Every scan becomes a permanent, open record.",
          "Explore the Archive", "archive.html"),
         ("ARVR.png", "Optimize &amp; Build",
-         "Remote volunteers turn raw scans into game-ready models, AR lessons and our VR museum.",
-         "See volunteer-made models", "archive.html#volunteer-made"),
+         "Remote volunteers turn raw scans into game-ready models, AR lessons and our virtual museum.",
+         "Visit the virtual museum", "museum.html"),
         ("education.png", "Learn Together",
          "Weekly community calls, history lessons on the sites we scan, and the Splats With Phones workshop.",
          "Join the community", "community.html"),
@@ -1607,6 +1615,89 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 </div></section>"""
     page("community.html", "Community", body, active="volunteer.html",
          desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria — scanning, learning history, mentoring and building a free 3D archive.")
+
+
+def vid(name):
+    """Copy a pre-encoded web video from media/video/web into docs/assets/video and return its site path."""
+    src = os.path.join(HERE, "media", "video", "web", name)
+    out_dir = os.path.join(DOCS, "assets", "video")
+    os.makedirs(out_dir, exist_ok=True)
+    out = os.path.join(out_dir, name)
+    if not os.path.exists(out) and os.path.exists(src):
+        shutil.copy(src, out)
+    return f"assets/video/{name}"
+
+
+def build_museum():
+    body = f"""
+{page_hero("Virtual Museum", '<a href="archive.html">Archive</a> &nbsp;›&nbsp; Virtual Museum', bg="museum-courtyard-pool.jpg", pos="center 45%")}
+<section class="pad"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 40px">
+<div class="eyebrow">In progress</div>
+<h2 class="sec-title">A museum built by volunteers, from real scans</h2>
+<p class="sec-sub" style="margin:0">The first community-led virtual museum of Tunisian heritage. Every artifact inside was
+scanned in Tunisia by our volunteers and optimized by volunteers around the world; the rooms are modeled by hand so
+anyone in the community can build a new one. Built in Unity with photogrammetry and Gaussian splats. Still in
+progress — this is what it looks like today.</p></div>
+<video class="vid" controls preload="none" playsinline poster="{img('museum-domed-hall-fountain.jpg', 1400)}"
+src="{vid('museum-walkthrough-06.mp4')}"></video>
+<p class="center" style="color:var(--gray);font-size:14px;margin-top:10px">Walkthrough recorded in the Unity editor, March 2026.</p>
+<div class="shots museum" style="margin-top:34px">
+<img src="{img('museum-hall-arches.jpg', 900)}" alt="Domed hall with striped arches" loading="lazy">
+<img src="{img('museum-statue-niche.jpg', 900)}" alt="Scanned Roman statue in a niche" loading="lazy">
+<img src="{img('museum-tiled-corridor.jpg', 900)}" alt="Tiled corridor with a scanned artifact" loading="lazy">
+</div>
+</div></section>
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap">
+<div class="center"><div class="eyebrow">How it works</div>
+<h2 class="sec-title">Rooms you can walk through, objects you can get close to</h2></div>
+<div class="acts">
+<div class="act"><div class="ic">🏛</div><b>Real artifacts</b><p>Punic stelae, Roman statues and mosaics, doors and tilework from the medina — the same scans you find in our open archive, placed life-size.</p></div>
+<div class="act"><div class="ic">🧩</div><b>Modular rooms</b><p>Walls, arches and courtyards are built from pre-made pieces, so volunteers can add a new gallery without starting from scratch.</p></div>
+<div class="act"><div class="ic">🎧</div><b>Sound from the sites</b><p>Ambient sound recorded at the real places — wind, footsteps, echoes — so each gallery feels different.</p></div>
+<div class="act"><div class="ic">🧭</div><b>A guide</b><p>Nura, a guide character modeled in Blender, walks with you and tells the story behind each object. Her narrated tour, “Before It’s Gone,” is being written now.</p></div>
+<div class="act"><div class="ic">🕶</div><b>Headset, browser, phone</b><p>Planned for Viverse so it runs cross-platform — in VR, and as a scroll-to-walk version in any browser for classrooms.</p></div>
+<div class="act"><div class="ic">🏺</div><b>Made by the community</b><p>Lamps, pottery and plants modeled by volunteers furnish the rooms. Optimized scans keep it light enough for phones.</p></div>
+</div>
+</div></section>
+
+<section class="pad"><div class="wrap">
+<div class="center"><div class="eyebrow">Progress</div>
+<h2 class="sec-title">From greybox to galleries</h2></div>
+<div class="timeline">
+<div><img src="{img('museum-progress-jan-2026.jpg', 800)}" alt="" loading="lazy"><b>January 2026</b><p>First courtyard and corridor blocked out; scanned statues placed.</p></div>
+<div><img src="{img('museum-hall-arches.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Domed hall with striped arches, tiled floors, fountain and lighting.</p></div>
+<div><img src="{img('museum-courtyard-pool.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Courtyard with pool, terraces and the sculpted canopy.</p></div>
+<div><img src="{img('museum-second-room-greybox.jpg', 800)}" alt="" loading="lazy"><b>August 2026</b><p>Second wing under construction — colonnade and galleries in greybox.</p></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:34px">
+<div><video class="vid" controls preload="none" playsinline poster="{img('museum-hall-arches.jpg', 1000)}" src="{vid('museum-walkthrough-03.mp4')}"></video>
+<p style="color:var(--gray);font-size:14px;margin-top:8px">The domed hall, March 2026.</p></div>
+<div><video class="vid" controls preload="none" playsinline muted poster="{img('museum-second-room-greybox.jpg', 1000)}" src="{vid('museum-second-room.mp4')}"></video>
+<p style="color:var(--gray);font-size:14px;margin-top:8px">The second wing in greybox, August 2026.</p></div>
+</div>
+</div></section>
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap center">
+<div class="eyebrow">🏺 Inside the museum</div>
+<h2 class="sec-title">Objects made by our volunteers</h2>
+<div class="cards" style="text-align:left">{volunteer_made_cards(3)}</div>
+<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a>
+&nbsp; <a class="btn btn-line" href="archive.html">Browse the scans on display</a></p>
+</div></section>
+
+<section class="band pad"><div class="bg" style="background-image:url({img('museum-tiled-corridor.jpg', 1800)})"></div>
+<div class="wrap center">
+<div class="eyebrow">Help finish it</div>
+<h2 class="sec-title">Build a room. Fund a room.</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.85)">Unity developers, 3D artists, sound designers and writers are
+building this on Thursday calls. Donations pay for the tools and hosting that get it onto headsets and into classrooms.</p>
+<a class="btn btn-gold" href="volunteer.html">Volunteer</a>
+&nbsp; <a class="btn btn-line-light" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+</div></section>"""
+    page("museum.html", "Virtual Museum", body, active="archive.html",
+         desc="The first community-led virtual museum of Tunisian heritage — real scans placed in rooms built by volunteers in Unity. Walkthroughs, progress and how to help.")
 
 
 def build_press():
@@ -2911,6 +3002,7 @@ def main():
         build_home()
         build_community()
         build_press()
+        build_museum()
         build_archive()
         build_model_pages()
         build_news()
