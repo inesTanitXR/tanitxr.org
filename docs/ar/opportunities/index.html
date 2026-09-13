@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/style.css?v=591c8248"><style>:root{--serif:'El Messiri',serif;--sans:'Tajawal',-apple-system,sans-serif;--slab:'Tajawal',sans-serif}body{font-size:17.5px}header.site .logo span{letter-spacing:.05em}</style>
+<link rel="stylesheet" href="../../assets/style.css?v=3a37ebd3"><style>:root{--serif:'El Messiri',serif;--sans:'Tajawal',-apple-system,sans-serif;--slab:'Tajawal',sans-serif}body{font-size:17.5px}header.site .logo span{letter-spacing:.05em}</style>
 </head>
 <body>
 <header class="site"><div class="bar">
@@ -44,11 +44,16 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">نشرتنا عل�
 <div class="tb2">
 <div class="tb-left"><span class="count" id="count"></span>
 <details class="fdrop" data-key="ty"><summary>النوع <span class="car">▾</span></summary><div class="panel"><label><input type="checkbox" data-key="ty" value="Award"> Award <span class="n" data-n="Award"></span></label><label><input type="checkbox" data-key="ty" value="Challenge"> Challenge <span class="n" data-n="Challenge"></span></label><label><input type="checkbox" data-key="ty" value="Conference"> Conference <span class="n" data-n="Conference"></span></label><label><input type="checkbox" data-key="ty" value="Fellowship"> Fellowship <span class="n" data-n="Fellowship"></span></label><label><input type="checkbox" data-key="ty" value="Grant"> Grant <span class="n" data-n="Grant"></span></label><label><input type="checkbox" data-key="ty" value="Open Call"> Open Call <span class="n" data-n="Open Call"></span></label><label><input type="checkbox" data-key="ty" value="Program"> Program <span class="n" data-n="Program"></span></label><label><input type="checkbox" data-key="ty" value="Residency"> Residency <span class="n" data-n="Residency"></span></label></div></details><details class="fdrop" data-key="el"><summary>الأهلية <span class="car">▾</span></summary><div class="panel"><label><input type="checkbox" data-key="el" value="Artists"> Artists <span class="n" data-n="Artists"></span></label><label><input type="checkbox" data-key="el" value="Educators"> Educators <span class="n" data-n="Educators"></span></label><label><input type="checkbox" data-key="el" value="Non-profits"> Non-profits <span class="n" data-n="Non-profits"></span></label><label><input type="checkbox" data-key="el" value="Open to all"> Open to all <span class="n" data-n="Open to all"></span></label><label><input type="checkbox" data-key="el" value="Researchers"> Researchers <span class="n" data-n="Researchers"></span></label><label><input type="checkbox" data-key="el" value="Students"> Students <span class="n" data-n="Students"></span></label><label><input type="checkbox" data-key="el" value="XR Creators"> XR Creators <span class="n" data-n="XR Creators"></span></label><label><input type="checkbox" data-key="el" value="Youth"> Youth <span class="n" data-n="Youth"></span></label></div></details><details class="fdrop" data-key="md"><summary>الصيغة <span class="car">▾</span></summary><div class="panel"><label><input type="checkbox" data-key="md" value="Hybrid"> Hybrid <span class="n" data-n="Hybrid"></span></label><label><input type="checkbox" data-key="md" value="In-person"> In-person <span class="n" data-n="In-person"></span></label><label><input type="checkbox" data-key="md" value="Remote"> Remote <span class="n" data-n="Remote"></span></label></div></details>
+<button type="button" id="soon" class="soonbtn">⏰ تنتهي هذا الأسبوع</button>
 </div>
 <div class="tb-right">
 <label class="search"><span class="ico"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9"/></svg></span><input type="search" id="q" placeholder="ابحث…"></label>
 <label class="sortsel"><span>ترتيب:</span><select id="sort"><option value="soon">الأقرب موعدًا</option><option value="new">الأحدث</option></select></label>
 </div>
+</div>
+<div class="quick"><span class="qlabel">اختصارات</span>
+<button type="button" class="qbtn" data-q="Artists">للفنانين</button><button type="button" class="qbtn" data-q="XR Creators">لصنّاع XR</button>
+<button type="button" class="qbtn" data-q="Students">للطلبة</button><button type="button" class="qbtn" data-q="Non-profits">للجمعيات</button>
 </div>
 <div id="active" class="active"></div>
 <div id="featured"></div>
@@ -140,6 +145,13 @@ function fillCounts(){
   });
 }
 fillCounts();
+let soonOnly=false;
+document.getElementById('soon').addEventListener('click',e=>{ soonOnly=!soonOnly; e.currentTarget.classList.toggle('on',soonOnly); render(); });
+document.querySelectorAll('.qbtn').forEach(b=>b.addEventListener('click',()=>{
+  const v=b.dataset.q; F.el.has(v)?F.el.delete(v):F.el.add(v);
+  const cb=document.querySelector('.fdrop input[data-key="el"][value="'+v+'"]'); if(cb)cb.checked=F.el.has(v);
+  render();
+}));
 let showAllClosed=false;
 document.getElementById('moreclosed').addEventListener('click',()=>{showAllClosed=!showAllClosed;render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({behavior:'smooth',block:'start'});});
 function render(){
@@ -150,6 +162,7 @@ function render(){
   let list=OPPS.filter(o=>
     (!q||(o.t+' '+o.d).toLowerCase().includes(q)) &&
     (!ft.size||ft.has(o.ty)) && (!fe.size||o.el.some(x=>fe.has(x))) && (!fm.size||fm.has(o.md)));
+  if(soonOnly){ const wk=now.getTime()+7*864e5; list=list.filter(o=>{const d=parseDate(o.dd);return d&&d>=now&&d.getTime()<=wk;}); }
   list.forEach(o=>{
     o._d=parseDate(o.dd);
     o._closed = !!(o.dt==='Closed' || (o._d && o._d < now));
@@ -212,6 +225,7 @@ function render(){
   } else { cw.hidden=true; }
   document.getElementById('count').textContent=openList.length+' '+LBL.open+' · '+closedList.length+' '+LBL.closedl;
   drawActive();
+  document.querySelectorAll('.qbtn').forEach(b=>b.classList.toggle('on',F.el.has(b.dataset.q)));
   document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{
     const card=b.closest('.opp');card.classList.toggle('x');
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
@@ -270,6 +284,6 @@ if(RX){
 <span>© 2026 تانيت XR. جميع الحقوق محفوظة.</span>
 <span><a href="../../ar/privacy/">سياسة الخصوصية</a></span>
 </div></div></footer>
-<script src="../../assets/site.js?v=591c8248"></script>
+<script src="../../assets/site.js?v=3a37ebd3"></script>
 </body>
 </html>

@@ -508,6 +508,12 @@ section.pad-sm{padding:56px 0}
 .search input:focus{outline:2px solid var(--gold)}
 .sortsel{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray);margin:0;font-weight:400}
 .sortsel select{padding:9px 32px 9px 12px;border:1px solid var(--ink);border-radius:4px;background:#fff;font:600 14.5px var(--sans);color:var(--ink)}
+.soonbtn{border:1.5px solid var(--gold-dark);background:#fff;color:var(--ink);border-radius:4px;padding:8px 14px;font:600 14px var(--sans);cursor:pointer;white-space:nowrap}
+.soonbtn.on{background:var(--gold);border-color:var(--gold)}
+.quick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.qlabel{font-size:13px;color:var(--gray);margin-right:4px}
+.qbtn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:3px;padding:7px 13px;font:500 13.5px var(--sans);cursor:pointer}
+.qbtn.on{background:var(--ink);color:#fff}
 .active{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:-4px 0 18px}
 .achip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--mist);border-radius:4px;padding:5px 8px 5px 10px;font-size:13.5px;background:#fff}
 .achip button{border:0;background:none;cursor:pointer;color:var(--gray);font-size:16px;line-height:1;padding:0 2px}
@@ -2323,11 +2329,16 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 <div class="tb2">
 <div class="tb-left"><span class="count" id="count"></span>
 {fdrop("ty", "Type", types)}{fdrop("el", "Eligibility", eligs)}{fdrop("md", "Mode", modes)}
+<button type="button" id="soon" class="soonbtn">⏰ Closing this week</button>
 </div>
 <div class="tb-right">
 <label class="search"><span class="ico">{ICO_SEARCH}</span><input type="search" id="q" placeholder="Search…"></label>
 <label class="sortsel"><span>Sort:</span><select id="sort"><option value="soon">Deadline soonest</option><option value="new">Newest</option></select></label>
 </div>
+</div>
+<div class="quick"><span class="qlabel">Quick picks</span>
+<button type="button" class="qbtn" data-q="Artists">For artists</button><button type="button" class="qbtn" data-q="XR Creators">For XR creators</button>
+<button type="button" class="qbtn" data-q="Students">For students</button><button type="button" class="qbtn" data-q="Non-profits">For nonprofits</button>
 </div>
 <div id="active" class="active"></div>
 <div id="featured"></div>
@@ -2420,6 +2431,13 @@ function fillCounts(){{
   }});
 }}
 fillCounts();
+let soonOnly=false;
+document.getElementById('soon').addEventListener('click',e=>{{ soonOnly=!soonOnly; e.currentTarget.classList.toggle('on',soonOnly); render(); }});
+document.querySelectorAll('.qbtn').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.q; F.el.has(v)?F.el.delete(v):F.el.add(v);
+  const cb=document.querySelector('.fdrop input[data-key="el"][value="'+v+'"]'); if(cb)cb.checked=F.el.has(v);
+  render();
+}}));
 let showAllClosed=false;
 document.getElementById('moreclosed').addEventListener('click',()=>{{showAllClosed=!showAllClosed;render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({{behavior:'smooth',block:'start'}});}});
 function render(){{
@@ -2430,6 +2448,7 @@ function render(){{
   let list=OPPS.filter(o=>
     (!q||(o.t+' '+o.d).toLowerCase().includes(q)) &&
     (!ft.size||ft.has(o.ty)) && (!fe.size||o.el.some(x=>fe.has(x))) && (!fm.size||fm.has(o.md)));
+  if(soonOnly){{ const wk=now.getTime()+7*864e5; list=list.filter(o=>{{const d=parseDate(o.dd);return d&&d>=now&&d.getTime()<=wk;}}); }}
   list.forEach(o=>{{
     o._d=parseDate(o.dd);
     o._closed = !!(o.dt==='Closed' || (o._d && o._d < now));
@@ -2492,6 +2511,7 @@ function render(){{
   }} else {{ cw.hidden=true; }}
   document.getElementById('count').textContent=openList.length+' '+LBL.open+' · '+closedList.length+' '+LBL.closedl;
   drawActive();
+  document.querySelectorAll('.qbtn').forEach(b=>b.classList.toggle('on',F.el.has(b.dataset.q)));
   document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{{
     const card=b.closest('.opp');card.classList.toggle('x');
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
