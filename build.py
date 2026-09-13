@@ -1517,6 +1517,11 @@ life in AR and VR, and learning from each other along the way.</p>
 <a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
 </div></div>
 
+<section class="pad-sm cream"><div class="wrap center">
+<div class="eyebrow">Recognized by</div>
+{recognition_strip()}
+</div></section>
+
 <section class="pad"><div class="wrap center" style="max-width:860px">
 <div class="eyebrow">More than an archive</div>
 <h2 class="sec-title">One phone, the ruins of Carthage, and now a community</h2>
@@ -1534,11 +1539,6 @@ under-represented regions.</p>
 <div><b>{stat('volunteers')}</b><span>Volunteers on four continents</span></div>
 <div><b>{stat('reach')}</b><span>People reached online</span></div>
 </div></div></section>
-
-<section class="pad-sm cream"><div class="wrap center">
-<div class="eyebrow">Recognized by</div>
-{recognition_strip()}
-</div></section>
 
 <section class="pad"><div class="wrap">
 <div class="center" style="max-width:820px;margin:0 auto 40px">
