@@ -363,6 +363,15 @@ section.pad-sm{padding:56px 0}
   border:1px solid var(--mist);border-radius:30px;padding:9px 16px;background:#fff;transition:.2s}
 .strip .badge:hover{border-color:var(--gold);box-shadow:0 6px 18px rgba(17,21,24,.08)}
 .strip .badge span{color:var(--gray);font-weight:400}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 22px;align-items:flex-start;margin-top:26px}
+.logos a{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--gray);font-size:12.5px;width:148px;text-align:center}
+.logos img,.logos .wordmark{height:44px;display:flex;align-items:center;justify-content:center}
+.logos img{width:auto;max-width:148px;object-fit:contain;filter:grayscale(1) brightness(.25);opacity:.8;transition:.25s}
+.logos .wordmark{font-family:var(--serif);font-size:17px;line-height:1.15;color:#2c343b;opacity:.85;text-align:center;max-width:148px}
+.logos a:hover img{filter:none;opacity:1}
+.logos a:hover .cap{color:var(--ink)}
+.cream{background:#fbf6ed}
+.stats.light b{color:var(--gold-dark)}.stats.light span{color:var(--gray)}
 .mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:170px;gap:12px}
 .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
 .mosaic img:first-child{grid-column:span 2;grid-row:span 2}
@@ -1241,12 +1250,18 @@ PRESS = [
     {"k": "Talk", "t": "AWE USA 2026 — Speaker",
      "d": "Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.",
      "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe"},
-    {"k": "Video", "t": "Featured by Niantic Spatial",
-     "d": "Niantic Spatial featured Tanit XR's Scaniverse capture of the amphitheatre of El Jem in a video on their channels.",
+    {"k": "Video", "t": "Niantic Spatial — video interview with Nathan Bowser",
+     "d": "Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and the Scaniverse capture of the amphitheatre of El Jem; Niantic published the video on its channels.",
      "u": "press.html#niantic", "date": "2026", "anchor": "niantic"},
     {"k": "Paper", "t": "El Jem Conference 2026 — Paper in English, French and Tunisian Arabic",
      "d": "Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.",
      "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem"},
+    {"k": "Press", "t": "Al Jazeera — \"Tanit XR\": a non-profit platform documenting Tunisian heritage digitally (Arabic)",
+     "d": "Al Jazeera's culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia's sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.",
+     "u": "https://www.aljazeera.net/culture/2025/10/12/%D8%AA%D8%A7%D9%86%D9%8A%D8%AA-%D8%A5%D9%83%D8%B3-%D8%A2%D8%B1-%D9%85%D9%86%D8%B5%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%B1%D8%A8%D8%AD%D9%8A%D8%A9-%D8%AA%D9%88%D8%AB%D9%82", "date": "October 12, 2025", "anchor": "aljazeera"},
+    {"k": "Exhibition", "t": "XR Women Museum — two exhibitions in FrameVR, curated by Paige Dansinger",
+     "d": "Tanit XR's work was shown in the XR Women Museum, including its \"Garden: In Full Bloom\" exhibition — an immersive museum of 30+ gallery worlds directed by Paige Dansinger.",
+     "u": "https://framevr.io/xrwomenmuseum", "date": "2026", "anchor": "xrwomen"},
     {"k": "Article", "t": "Carthage Magazine — Preserving Tunisia's Heritage Through Immersive Technology",
      "d": "Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.",
      "u": "https://carthagemagazine.com/tanit-xr-preserving-tunisias-heritage-through-immersive-technology/", "date": "2026", "anchor": "carthage"},
@@ -1263,7 +1278,7 @@ PRESS = [
 NIANTIC_EMBED = "https://www.linkedin.com/embed/feed/update/urn:li:activity:7488488682652495873"
 
 COMMUNITY_ACTS = [
-    ("📅", "Weekly community call", "Volunteers from Tunisia, the US, Europe and Nigeria meet every week across time zones to review scans, plan trips and help each other."),
+    ("📅", "Weekly community call — Thursdays, 12 pm Eastern", "Volunteers from Tunisia, the US, Europe and Nigeria meet every Thursday at 12 pm Eastern (5 pm Tunisia) to review scans, plan trips and help each other."),
     ("🏛", "History lessons", "Short sessions on the sites and objects we scan — Carthage, the Tophet, the medina of Tunis — so every model comes with its story."),
     ("📱", "Splats With Phones workshop", "A 6-week course with Mark Jeffcock on capturing 3D models and Gaussian splats with a phone."),
     ("🤝", "Mentoring & interview prep", "Portfolio reviews, mock interviews and career advice for students and early-career volunteers."),
@@ -1275,19 +1290,23 @@ COMMUNITY_PHOTOS = ["sv-IMG_1315.jpg", "aug-PXL_0814_112926.jpg", "sv-IMG_4213.j
 
 
 def recognition_strip():
+    """Press/recognition logo row (grayscale, colour on hover) — like the original site's partner strip."""
     items = [
-        ("🏆", "Auggie Awards 2026", "Finalist — Best Societal Impact", PRESS[0]["u"]),
-        ("🎙", "Voices of VR", "Episode #1728", PRESS[1]["u"]),
-        ("🎤", "AWE USA 2026", "Speaker", PRESS[2]["u"]),
-        ("🎥", "Niantic Spatial", "Featured video", "press.html#niantic"),
-        ("📄", "El Jem Conference", "Paper, 3 languages", "el-jem-conference.html"),
-        ("💻", "ImmerseGT 2026", "Track sponsor", "immersegt-2026.html"),
+        ("awe.svg", "AWE · Auggie Awards 2026", "Finalist, Best Societal Impact", PRESS[0]["u"]),
+        ("voicesofvr.png", "Voices of VR", "Episode #1728", PRESS[1]["u"]),
+        (None, "Niantic Spatial", "Video interview", "press.html#niantic"),
+        ("aljazeera.svg", "Al Jazeera", "Al Jazeera · Culture feature", next(x["u"] for x in PRESS if x["anchor"] == "aljazeera")),
+        (None, "XR Women Museum", "Two exhibitions", "https://framevr.io/xrwomenmuseum"),
+        ("georgiatech.svg", "Georgia Tech · ImmerseGT", "Track sponsor 2026", "immersegt-2026.html"),
+        ("carthagemagazine.png", "Carthage Magazine", "Feature article", next(x["u"] for x in PRESS if x["anchor"] == "carthage")),
     ]
     out = ""
-    for ic, name, sub, u in items:
+    for fn, name, sub, u in items:
         ext = ' target="_blank" rel="noopener"' if u.startswith("http") else ""
-        out += f'<a class="badge" href="{u}"{ext}>{ic} {name} <span>· {sub}</span></a>'
-    return f'<div class="strip">{out}</div>'
+        mark = (f'<img src="{img(fn, 400, as_jpeg=False)}" alt="{esc(name)}" loading="lazy">' if fn
+                else f'<span class="wordmark">{esc(name)}</span>')
+        out += f'<a href="{u}"{ext} title="{esc(name)} — {esc(sub)}">{mark}<span class="cap">{sub}</span></a>'
+    return f'<div class="logos">{out}</div>'
 
 
 def community_mosaic():
@@ -1319,12 +1338,14 @@ def funding_band():
 <p class="sec-sub" style="margin:0;max-width:760px">Tanit XR is run entirely by volunteers. So far most costs — travel to
 sites, tools, hosting, hackathon prizes — have been paid out of pocket by our founders, plus a few individual donations
 through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).
-We are applying for grants and building partnerships to change that. Here is what a donation does:</p>
+We are applying for grants and building partnerships to change that. Donations keep the community running: hosting,
+volunteer hours, optimizing and publishing models, the virtual museum, scanning and site clean-up days, our free course
+and workshops, and better equipment. Here is what a donation does:</p>
 <div class="money">
-<div><b>$25</b><span>A scanning day: transport, mobile data for uploads, backup storage.</span></div>
-<div><b>$50</b><span>Full documentation of one site with several captures and research.</span></div>
-<div><b>$500</b><span>A field day with collaborators — and the first time we can pay local contributors.</span></div>
-<div><b>$1,000</b><span>A complete digital storytelling package for one site, plus better scanning tools.</span></div>
+<div><b>$25</b><span>A scanning day for a volunteer: transport, mobile data for uploads, backups.</span></div>
+<div><b>$50</b><span>A month of hosting and tools for the archive and the volunteers who optimize models.</span></div>
+<div><b>$250</b><span>A free workshop or course session for the community — Splats With Phones, history lessons, mentoring.</span></div>
+<div><b>$1,000</b><span>Toward the virtual museum and, one day, a professional scanner like the XGRIDS PortalCam.</span></div>
 </div>
 <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
@@ -1405,17 +1426,19 @@ life in AR and VR — and learning from each other along the way.</p>
 <a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
 </div></div>
 
-<section class="pad-sm" style="background:var(--cloud)"><div class="wrap center">
+<section class="pad-sm cream"><div class="wrap center">
 <div class="eyebrow">Recognized by</div>
 {recognition_strip()}
 </div></section>
 
-<section class="band pad"><div class="wrap">
-<div class="stats">
-<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
-<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
-<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
-<div><b>{stat('reach')}</b><span>Global Reach</span></div>
+<section class="pad"><div class="wrap center">
+<div class="eyebrow">Our impact so far</div>
+<h2 class="sec-title">Small team, growing archive</h2>
+<div class="stats icons light" style="margin-top:34px">
+<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt=""><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
+<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt=""><b>{stat('sites')}</b><span>Sites Documented</span></div>
+<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt=""><b>{stat('volunteers')}</b><span>Volunteers</span></div>
+<div><img src="{img('global.png', 200, as_jpeg=False)}" alt=""><b>{stat('reach')}</b><span>Global Reach</span></div>
 </div></div></section>
 
 <section class="pad"><div class="wrap">
@@ -1439,7 +1462,7 @@ to take this model to other under-represented regions.</p></div>
 review each other’s scans, learn the history behind them, run workshops, prepare students for interviews, share
 Tunisian culture, and celebrate wins together.</p>
 <ul style="color:var(--gray);line-height:1.9;padding-left:20px;margin-bottom:26px">
-<li>Weekly community call</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
+<li>Weekly community call — Thursdays, 12 pm Eastern</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
 <li>Mentoring &amp; interview prep</li><li>Events, talks &amp; hackathons</li><li>Cultural exchange</li></ul>
 <a class="btn btn-gold" href="community.html">See how the community works</a>
 &nbsp; <a class="btn btn-line" href="volunteer.html">Volunteer</a>
@@ -1525,7 +1548,7 @@ across Tunisia and the world.</p>
 def build_community():
     steps = [
         ("Fill the volunteer form", "Tell us what you like doing — scanning, 3D, writing, design, research, teaching."),
-        ("Join Slack and the weekly call", "A member of the team welcomes you, and you meet everyone on the next call."),
+        ("Join Slack and the Thursday call", "A member of the team welcomes you, and you meet everyone on the next call — Thursdays at 12 pm Eastern."),
         ("Pick a first task", "Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip."),
         ("Create your profile", "Your work — scans, models, articles — shows up on your own page on this site."),
     ]
@@ -1581,8 +1604,8 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 
 
 def build_press():
-    groups = [("Awards", ["auggie"]), ("Talks & events", ["awe", "eljem", "immersegt"]),
-              ("Podcasts & video", ["voices", "niantic"]), ("Articles", ["carthage", "medium"]),
+    groups = [("Awards", ["auggie"]), ("Exhibitions", ["xrwomen"]), ("Talks & events", ["awe", "eljem", "immersegt"]),
+              ("Podcasts & video", ["voices", "niantic"]), ("Articles", ["aljazeera", "carthage", "medium"]),
               ("Partnerships", ["nigeria"])]
     by = {x["anchor"]: x for x in PRESS}
     sections = ""
@@ -1595,7 +1618,7 @@ def build_press():
 interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a>.</p>
 {sections}
 <h2 class="sec-title" id="niantic" style="font-size:30px;margin:46px 0 18px">Featured by Niantic Spatial</h2>
-<p class="sec-sub" style="margin:0 0 18px;max-width:800px">Niantic Spatial featured our Scaniverse capture of the amphitheatre of El Jem.</p>
+<p class="sec-sub" style="margin:0 0 18px;max-width:800px">Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and our Scaniverse capture of the amphitheatre of El Jem.</p>
 <div class="embed16" style="max-width:820px"><iframe src="{NIANTIC_EMBED}" title="Niantic Spatial feature on Tanit XR" allowfullscreen loading="lazy"></iframe></div>
 <p style="margin-top:12px"><a class="btn btn-line" href="https://www.linkedin.com/feed/update/urn:li:activity:7488488682652495873" target="_blank" rel="noopener">Watch the post on LinkedIn</a></p>
 <h2 class="sec-title" style="font-size:30px;margin:46px 0 18px">Publications</h2>
@@ -2640,14 +2663,14 @@ def build_support():
     tiers = [
         ("$25", "Help cover basic costs for scanning a site: like transportation, mobile data for uploads, "
                 "and backup storage."),
-        ("$50", "Support detailed documentation of a site, enabling multiple 3D captures, archival research, "
-                "and creating educational content to go with it."),
-        ("$500", "Sponsor a field day with collaborators, covering travel, meals, and shared equipment to scan "
-                 "and document endangered ruins. It also helps us start compensating local contributors for "
-                 "their time and expertise."),
-        ("$1,000", "Fund a full digital storytelling package for one site, including high-quality 3D scans, "
-                   "animated walk-throughs, historical research, and immersive media production. This tier also "
-                   "supports the purchase of better scanning tools so we can scale beyond just a phone."),
+        ("$50", "Cover a month of hosting and software for the open archive and the volunteers who optimize "
+                "and publish models."),
+        ("$250", "Run a free workshop or course session for the community — Splats With Phones, history lessons, "
+                 "mentoring and interview prep for students."),
+        ("$500", "Sponsor a community scanning and site clean-up day with local volunteers, covering travel, meals "
+                 "and shared equipment — and start compensating local contributors for their time."),
+        ("$1,000", "Build out the virtual museum and save toward professional scanning gear such as the XGRIDS "
+                   "PortalCam, so the community can capture more than a phone allows."),
     ]
     tier_html = "".join(f'<div class="tier"><b class="amt">{a}</b><p>{d}</p></div>' for a, d in tiers)
     body = f"""
