@@ -40,7 +40,7 @@ FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
 # Kit (newsletter) — account tanit-xr.kit.com, form "tanitxr.org sign-up" (uid f2587d8800). Tag IDs: fill in once
 # Ines creates the tags in Kit (Subscribers → Tags; the id is in the tag's URL). Empty = checkbox hidden.
 KIT_FORM_ID = "9912073"
-KIT_TAGS = {"opportunities": "23332230", "news": ""}
+KIT_TAGS = {"opportunities": "23332230", "news": "23332232"}
 # Profile submissions: FormSubmit (email) by default. After deploying the Cloudflare
 # worker (see worker/README.md), set this to the worker URL for instant publishing.
 PROFILE_ENDPOINT = FORM_ENDPOINT
