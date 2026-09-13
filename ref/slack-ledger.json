@@ -1,0 +1,66 @@
+{
+ "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
+ "last_run": "2026-09-12",
+ "last_ts": {
+  "C0983LHM7K8": "1789138246.612869",
+  "C0983L047V4": "1789266670.767275",
+  "C09CZV4B0SW": "1789266670.767275",
+  "C0AD71FAT7Y": "1789266670.767275",
+  "C09F84HV8J1": "1789187278.487179",
+  "C09JATYDLF7": "1789266670.767275",
+  "C0B89BWR5S9": "1788036022.618919",
+  "C09FKJWCVKJ": "1789266670.767275"
+ },
+ "_channels": {
+  "C0983LHM7K8": "#volunteer-updates",
+  "C0983L047V4": "#announcements",
+  "C09CZV4B0SW": "#tanit-updates",
+  "C0AD71FAT7Y": "#presentations-and-conference-spotlights",
+  "C09F84HV8J1": "#vr-app",
+  "C09JATYDLF7": "#website",
+  "C0B89BWR5S9": "#website-organization",
+  "C09FKJWCVKJ": "#grants-and-applications"
+ },
+ "filed": [
+  {
+   "id": "17c_yuPxB21YmbaFSx_Zl9VdShuT0_NfW",
+   "what": "Kerkouane article (docx)",
+   "action": "already in Tanit tree (05 Comms > Tunisia Trip August 2026 > Kerkouane article Aug/Sept 2026); published as a news post 2026-09-12"
+  },
+  {
+   "id": "1F4g9uNHSaKOrl881_7q5BzVdsafODNhE",
+   "what": "Tampa Trip Sept 5 Social Media (folder)",
+   "action": "already in Tanit tree (05 Comms) — left in place"
+  },
+  {
+   "id": "16EXEq5nYJU7li8-HMp1aT-Gi0pqK54Zi",
+   "what": "Kerkouane article folder",
+   "action": "already in Tanit tree (05 Comms) — left in place"
+  },
+  {
+   "id": "123RVc9SZ63TVLv8luNArRAP_-23ox8k0",
+   "what": "Tanit_XR_Client_Approvals.xlsx (Cam K., live copy)",
+   "action": "copied to 03 Team Management as 1xRNxdMi_-la11wnRz4Cw9cJOtMvziwRe"
+  },
+  {
+   "id": "1oFC4I-uYQr95zyn27sKgxg9phgiOelgo",
+   "what": "Fig 2 main street of Kerkouane",
+   "action": "downloaded to media/extra/kerkouane-main-street.jpg for the news post"
+  },
+  {
+   "id": "1TOAr36nDQOSXk24Mr7aUlaLJeKhBA_My",
+   "what": "Fig 3 plastered walls",
+   "action": "downloaded to media/extra/kerkouane-plastered-walls.jpg"
+  },
+  {
+   "id": "1mtpvWbknS8_ujwLTBcH6iA22eMLwFuRf",
+   "what": "Fig 4 bathtub and drain",
+   "action": "downloaded to media/extra/kerkouane-bathtub-drain.jpg"
+  },
+  {
+   "id": "1DnM5VHnlNqgvxvyDHbjWX877Cg8sEKpJ",
+   "what": "Fig 5 Tanit floor mosaic",
+   "action": "downloaded to media/extra/kerkouane-tanit-mosaic.jpg (news card image)"
+  }
+ ]
+}

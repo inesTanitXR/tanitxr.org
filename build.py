@@ -381,6 +381,10 @@ section.pad-sm{padding:56px 0}
 .stats.big b{font-size:clamp(56px,6.5vw,96px);line-height:1;margin-bottom:14px}
 .stats.big>div>span{font-family:var(--serif);font-size:clamp(20px,2vw,28px);text-transform:none;letter-spacing:0;color:#fff}
 @media(max-width:700px){.statsband{padding:70px 0}}
+.plinks{display:flex;flex-wrap:wrap;gap:12px}
+.plinks a{width:44px;height:44px;border:1px solid var(--mist);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:.2s}
+.plinks a:hover{background:var(--gold);border-color:var(--gold)}
+.plinks svg{width:19px;height:19px;fill:currentColor}
 .mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:170px;gap:12px}
 .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
 .mosaic img:first-child{grid-column:span 2;grid-row:span 2}
@@ -620,6 +624,26 @@ document.addEventListener('click',e=>{
 # ---------------------------------------------------------------- svg icons
 
 ICO_IG = '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4m0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.4-10.4a1.4 1.4 0 1 1-2.9 0 1.4 1.4 0 0 1 2.9 0"/></svg>'
+ICO_WEB = '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m6.9 6h-3a15.6 15.6 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8M12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4M4.3 14a8 8 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4zm.8 2h3a15.6 15.6 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16m3-8h-3a8 8 0 0 1 4.4-3.6A15.6 15.6 0 0 0 8.1 8M12 20a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20m2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4m.3 5.6a15.6 15.6 0 0 0 1.4-3.6h3a8 8 0 0 1-4.4 3.6m1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8 8 0 0 1 0 4z"/></svg>'
+ICO_MAIL = '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg>'
+ICO_GH = '<svg viewBox="0 0 24 24"><path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5"/></svg>'
+ICO_SF = '<svg viewBox="0 0 24 24"><path d="M12 2 2 7v10l10 5 10-5V7zm0 2.2 7.5 3.8L12 11.8 4.5 8zM4 9.6l7 3.5v6.7l-7-3.5zm9 10.2v-6.7l7-3.5v6.7z"/></svg>'
+ICO_YT = '<svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8M9.6 15.6V8.4l6.2 3.6z"/></svg>'
+
+
+def link_icon(u):
+    """(icon svg, label) for a profile link — only the platforms a volunteer actually provided are shown."""
+    if u.startswith("mailto:"):
+        return ICO_MAIL, "Email"
+    h = re.sub(r"^https?://(www\.)?", "", u).split("/")[0].lower()
+    for k, ico, lab in (("linkedin.com", ICO_LI, "LinkedIn"), ("instagram.com", ICO_IG, "Instagram"),
+                        ("github.com", ICO_GH, "GitHub"), ("sketchfab.com", ICO_SF, "Sketchfab"),
+                        ("youtube.com", ICO_YT, "YouTube")):
+        if k in h:
+            return ico, lab
+    return ICO_WEB, h
+
+
 ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5M.2 8h4.6v14.8H.2zm7.6 0h4.4v2h.1c.6-1.2 2.1-2.4 4.4-2.4 4.7 0 5.5 3.1 5.5 7.1v8.1h-4.6v-7.2c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8v7.3H7.8z"/></svg>'
 
 # ---------------------------------------------------------------- shell
@@ -1108,7 +1132,7 @@ if os.path.isdir(PROFILE_DIR):
             COMMUNITY.append({
                 "name": d["name"], "role": d.get("role", "Volunteer"), "slug": slug,
                 "bio": d.get("bio", ""), "photo": d.get("photo"),
-                "links": [d[k] for k in ("linkedin", "instagram", "website") if d.get(k)],
+                "links": [d[k] for k in ("linkedin", "instagram", "website", "github", "sketchfab", "other_link") if d.get(k)] + ([f"mailto:{d['public_email']}"] if d.get("public_email") else []),
                 "href": f"team/{slug}.html",
             })
 
@@ -2126,10 +2150,9 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
         return host
 
     for p in TEAM + COMMUNITY:
-        links = "".join(
-            f'<a class="btn btn-line" style="margin:0 10px 10px 0" href="{esc(u)}" target="_blank" rel="noopener">'
-            f'{esc(link_label(u))}</a>'
-            for u in p["links"])
+        links = ('<div class="plinks">' + "".join(
+            f'<a href="{esc(u)}" target="_blank" rel="noopener" title="{esc(link_icon(u)[1])}" aria-label="{esc(link_icon(u)[1])}">'
+            f'{link_icon(u)[0]}</a>' for u in p["links"]) + '</div>') if p["links"] else ""
         photo = (f'<img src="{img(p["photo"], 700)}" alt="{esc(p["name"])}" '
                  f'style="border-radius:14px;max-width:340px;width:100%">') if p["photo"] else ""
         bio = esc(p["bio"]) if p["bio"] else "Part of the Tanit XR volunteer network."
@@ -2493,12 +2516,21 @@ page.</p>
 <label for="pphoto">Photo (link)</label>
 <input id="pphoto" name="photo_url" type="url" placeholder="Link to a headshot (Google Drive, Dropbox, LinkedIn photo…)">
 <div class="hint">Or simply reply with a photo attached when we email you back.</div>
+<div class="hint" style="margin-top:22px"><b>Links — all optional.</b> Only the ones you add appear on your profile, as icons.</div>
 <label for="plink1">LinkedIn</label>
 <input id="plink1" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/…">
 <label for="plink2">Instagram</label>
 <input id="plink2" name="instagram" type="url" placeholder="https://www.instagram.com/…">
 <label for="plink3">Website / Portfolio</label>
 <input id="plink3" name="website" type="url">
+<label for="plink4">GitHub</label>
+<input id="plink4" name="github" type="url" placeholder="https://github.com/…">
+<label for="plink5">Sketchfab</label>
+<input id="plink5" name="sketchfab" type="url" placeholder="https://sketchfab.com/…">
+<label for="plink6">Other (YouTube, X, Behance…)</label>
+<input id="plink6" name="other_link" type="url">
+<label for="pshowmail">Show a public email icon on your profile? (optional)</label>
+<input id="pshowmail" name="public_email" type="email" placeholder="Leave empty to keep your email private">
 <label class="req" for="pemail">Email</label>
 <input id="pemail" name="email" type="email" required>
 <div class="hint">Used only to contact you about your profile — it is not published.</div>
