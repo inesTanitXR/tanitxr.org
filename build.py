@@ -1298,7 +1298,6 @@ def recognition_strip():
         ("aljazeera.svg", "Al Jazeera", "Al Jazeera · Culture feature", next(x["u"] for x in PRESS if x["anchor"] == "aljazeera")),
         (None, "XR Women Museum", "Two exhibitions", "https://framevr.io/xrwomenmuseum"),
         ("georgiatech.svg", "Georgia Tech · ImmerseGT", "Track sponsor 2026", "immersegt-2026.html"),
-        ("carthagemagazine.png", "Carthage Magazine", "Feature article", next(x["u"] for x in PRESS if x["anchor"] == "carthage")),
     ]
     out = ""
     for fn, name, sub, u in items:
