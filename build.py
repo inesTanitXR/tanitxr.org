@@ -1590,6 +1590,11 @@ Everything we make is free and open.</p></div>
 <div class="center"><div class="eyebrow">What we do together</div>
 <h2 class="sec-title">A week at Tanit XR</h2></div>
 {community_acts()}
+<div style="max-width:820px;margin:40px auto 0;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:24px 28px">
+<b style="font-family:var(--serif);font-size:19px;font-weight:400">Recorded history lessons</b>
+<p style="color:var(--gray);font-size:14.5px;margin:6px 0 12px">Julia records a short lesson each week so volunteers in any time zone can follow along and pick a task.</p>
+<ul style="padding-left:20px;line-height:1.9;color:var(--ink)">{"".join(f'<li><a href="{u}" target="_blank" rel="noopener" style="color:var(--gold-dark)">{esc(t)}</a> <span style="color:var(--gray);font-size:13px">· {d}</span></li>' for t, d, u in HISTORY_LESSONS)}</ul>
+</div>
 </div></section>
 
 <section class="pad"><div class="wrap">
@@ -1622,6 +1627,15 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
          desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria — scanning, learning history, mentoring and building a free 3D archive.")
 
 
+# volunteers building the virtual museum (from Slack #vr-app / #volunteer-updates, Sept 2026) and Julia's recorded lessons
+MUSEUM_BUILDERS = "Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam K. (narrative and thematic brief), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
+HISTORY_LESSONS = [
+    ("First Phoenicians and Tyrian Purple Origins", "July 31, 2026", "https://www.loom.com/share/e4717da8892544bca7b7aff597e27407"),
+    ("Mini history lesson 2 — Carthage's craft quarters", "August 6, 2026", "https://www.loom.com/share/53d0a3afb9b14734a9c4b643d4f15b6e"),
+    ("Mini history lesson 3", "August 18, 2026", "https://www.loom.com/share/27ad26874ff84c1d95be7a2a2f42bedd"),
+]
+
+
 def vid(name):
     """Copy a pre-encoded web video from media/video/web into docs/assets/video and return its site path."""
     src = os.path.join(HERE, "media", "video", "web", name)
@@ -1643,7 +1657,8 @@ def build_museum():
 <p class="sec-sub" style="margin:0">The first community-led virtual museum of Tunisian heritage. Every artifact inside was
 scanned in Tunisia by our volunteers and optimized by volunteers around the world; the rooms are modeled by hand so
 anyone in the community can build a new one. Built in Unity with photogrammetry and Gaussian splats. Still in
-progress — this is what it looks like today.</p></div>
+progress — this is what it looks like today.</p>
+<p style="color:var(--gray);font-size:14.5px;margin-top:14px">Built so far by {MUSEUM_BUILDERS} — coordinated on the Thursday call.</p></div>
 <video class="vid" controls preload="none" playsinline poster="{img('museum-domed-hall-fountain.jpg', 1400)}"
 src="{vid('museum-walkthrough-06.mp4')}"></video>
 <p class="center" style="color:var(--gray);font-size:14px;margin-top:10px">Walkthrough recorded in the Unity editor, March 2026.</p>
