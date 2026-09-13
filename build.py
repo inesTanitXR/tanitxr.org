@@ -356,6 +356,37 @@ section.pad-sm{padding:56px 0}
 .card .ph.live iframe{width:100%;height:100%;border:0;display:block}
 .card:hover .ph.live{transform:none}
 .prose .btn-gold,.prose .btn-gold:hover{color:var(--ink)}
+
+/* homepage v2: recognition strip, community mosaic, press cards, funding transparency */
+.strip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;align-items:center}
+.strip .badge{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;
+  border:1px solid var(--mist);border-radius:30px;padding:9px 16px;background:#fff;transition:.2s}
+.strip .badge:hover{border-color:var(--gold);box-shadow:0 6px 18px rgba(17,21,24,.08)}
+.strip .badge span{color:var(--gray);font-weight:400}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:170px;gap:12px}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.mosaic img:first-child{grid-column:span 2;grid-row:span 2}
+@media(max-width:700px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px}}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:30px}
+.act{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px 22px 20px}
+.act .ic{font-size:26px;margin-bottom:10px}
+.act b{display:block;font-size:17px;margin-bottom:6px;font-family:var(--serif);font-weight:400}
+.act p{color:var(--gray);font-size:14.5px}
+.press{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.press a,.press div.item{display:block;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px;text-decoration:none;color:var(--ink);transition:.2s}
+.press a:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(17,21,24,.1)}
+.press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);font-weight:700}
+.press h3{font-size:18px;margin:8px 0 6px}
+.press p{color:var(--gray);font-size:14.5px}
+.embed16{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.embed16 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.money{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.money div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:18px 20px}
+.money b{display:block;font-family:var(--serif);font-size:30px;color:var(--gold);font-weight:400;margin-bottom:4px}
+.money span{font-size:14.5px;color:rgba(255,255,255,.8)}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
+.steps div{background:var(--cloud);border-radius:10px;padding:22px;position:relative}
+.steps div::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:34px;color:var(--gold-dark);display:block;margin-bottom:6px}
 /* split section (photo | cream panel), like the original "Why It Matters" */
 .split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
 .split .simg{background-size:cover;background-position:center;min-height:360px}
@@ -574,6 +605,7 @@ NAV = [
     ("Opportunities", "opportunities.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
+        ("Community", "community.html"),
         ("Volunteer", "volunteer.html"),
         ("Create Your Profile", "create-profile.html"),
         ("Scanning Guide", "scanning-guide.html"),
@@ -585,6 +617,7 @@ NAV = [
         ("El Jem Conference", "el-jem-conference.html"),
         ("ImmerseGT 2026", "immersegt-2026.html"),
         ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
+        ("Press &amp; Recognition", "press.html"),
     ]),
     ("Contact", "contact.html"),
 ]
@@ -663,6 +696,7 @@ public everywhere.</p>
 </div></div>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
+<a href="community.html">Community</a>
 <a href="coming-soon.html">AR/VR Experiences</a>
 <a href="news.html">News</a>
 <a href="opportunities.html">Opportunities</a></div>
@@ -1196,26 +1230,130 @@ TRENDING = TRENDING[:4]
 
 # ---------------------------------------------------------------- pages
 
+# ---- recognition & press facts (verified 2026-09-12) ------------------------
+PRESS = [
+    {"k": "Award", "t": "Auggie Awards 2026 — Finalist, Best Societal Impact",
+     "d": "Tanit XR was a finalist in the Best Societal Impact category at Augmented World Expo USA 2026, the XR industry's main awards, selected by public vote and expert review.",
+     "u": "https://www.awexr.com/blog/1382-2026-auggie-awards-finalists-announced", "date": "June 2026", "anchor": "auggie"},
+    {"k": "Podcast", "t": "Voices of VR #1728 — Preserving Tunisian Cultural Heritage with Tanit XR",
+     "d": "Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.",
+     "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices"},
+    {"k": "Talk", "t": "AWE USA 2026 — Speaker",
+     "d": "Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.",
+     "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe"},
+    {"k": "Video", "t": "Featured by Niantic Spatial",
+     "d": "Niantic Spatial featured Tanit XR's Scaniverse capture of the amphitheatre of El Jem in a video on their channels.",
+     "u": "press.html#niantic", "date": "2026", "anchor": "niantic"},
+    {"k": "Paper", "t": "El Jem Conference 2026 — Paper in English, French and Tunisian Arabic",
+     "d": "Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.",
+     "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem"},
+    {"k": "Article", "t": "Carthage Magazine — Preserving Tunisia's Heritage Through Immersive Technology",
+     "d": "Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.",
+     "u": "https://carthagemagazine.com/tanit-xr-preserving-tunisias-heritage-through-immersive-technology/", "date": "2026", "anchor": "carthage"},
+    {"k": "Article", "t": "Medium / Women Write — Tanit XR: Preserving Tunisia's Heritage Through Immersive Technology",
+     "d": "Ines Said on why Tanit XR exists and where it is going, published in the Women Write collection.",
+     "u": "https://medium.com/women-write/tanit-xr-preserving-tunisias-heritage-through-immersive-technology-c9238dab7675", "date": "2026", "anchor": "medium"},
+    {"k": "Event", "t": "ImmerseGT 2026 — Sponsored track at Georgia Tech's XR hackathon",
+     "d": "We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.",
+     "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt"},
+    {"k": "Partnership", "t": "TanitXR & the Unique Mappers — expanding to Nigeria",
+     "d": "The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.",
+     "u": "unique-mappers.html", "date": "2026", "anchor": "nigeria"},
+]
+NIANTIC_EMBED = "https://www.linkedin.com/embed/feed/update/urn:li:activity:7488488682652495873"
+
+COMMUNITY_ACTS = [
+    ("📅", "Weekly community call", "Volunteers from Tunisia, the US, Europe and Nigeria meet every week across time zones to review scans, plan trips and help each other."),
+    ("🏛", "History lessons", "Short sessions on the sites and objects we scan — Carthage, the Tophet, the medina of Tunis — so every model comes with its story."),
+    ("📱", "Splats With Phones workshop", "A 6-week course with Mark Jeffcock on capturing 3D models and Gaussian splats with a phone."),
+    ("🤝", "Mentoring & interview prep", "Portfolio reviews, mock interviews and career advice for students and early-career volunteers."),
+    ("🎤", "Events & conferences", "We speak, exhibit and sponsor: AWE, the El Jem conference, ImmerseGT at Georgia Tech, and more."),
+    ("🌍", "Cultural exchange", "Volunteers who have never been to Tunisia learn its history while modeling lamps, pottery and plants for our virtual museum — and we learn about theirs."),
+]
+COMMUNITY_PHOTOS = ["sv-IMG_1315.jpg", "aug-PXL_0814_112926.jpg", "sv-IMG_4213.jpg",
+                    "aug-PXL_0809_170720.jpg", "sv-IMG_8547.jpg"]
+
+
+def recognition_strip():
+    items = [
+        ("🏆", "Auggie Awards 2026", "Finalist — Best Societal Impact", PRESS[0]["u"]),
+        ("🎙", "Voices of VR", "Episode #1728", PRESS[1]["u"]),
+        ("🎤", "AWE USA 2026", "Speaker", PRESS[2]["u"]),
+        ("🎥", "Niantic Spatial", "Featured video", "press.html#niantic"),
+        ("📄", "El Jem Conference", "Paper, 3 languages", "el-jem-conference.html"),
+        ("💻", "ImmerseGT 2026", "Track sponsor", "immersegt-2026.html"),
+    ]
+    out = ""
+    for ic, name, sub, u in items:
+        ext = ' target="_blank" rel="noopener"' if u.startswith("http") else ""
+        out += f'<a class="badge" href="{u}"{ext}>{ic} {name} <span>· {sub}</span></a>'
+    return f'<div class="strip">{out}</div>'
+
+
+def community_mosaic():
+    return '<div class="mosaic">' + "".join(
+        f'<img src="{img(f, 1200 if i == 0 else 700)}" alt="Tanit XR volunteers" loading="lazy">'
+        for i, f in enumerate(COMMUNITY_PHOTOS)) + '</div>'
+
+
+def community_acts(limit=None):
+    return '<div class="acts">' + "".join(
+        f'<div class="act"><div class="ic">{ic}</div><b>{t}</b><p>{d}</p></div>'
+        for ic, t, d in COMMUNITY_ACTS[:limit]) + '</div>'
+
+
+def press_cards(items):
+    out = ""
+    for x in items:
+        ext = ' target="_blank" rel="noopener"' if x["u"].startswith("http") else ""
+        out += (f'<a href="{x["u"]}"{ext}><div class="k">{x["k"]} · {x["date"]}</div><h3>{esc(x["t"])}</h3>'
+                f'<p>{esc(x["d"])}</p></a>')
+    return f'<div class="press">{out}</div>'
+
+
+def funding_band():
+    return f"""
+<section class="band pad" id="funding"><div class="wrap">
+<div class="eyebrow">How we're funded</div>
+<h2 class="sec-title">Honest numbers</h2>
+<p class="sec-sub" style="margin:0;max-width:760px">Tanit XR is run entirely by volunteers. So far most costs — travel to
+sites, tools, hosting, hackathon prizes — have been paid out of pocket by our founders, plus a few individual donations
+through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).
+We are applying for grants and building partnerships to change that. Here is what a donation does:</p>
+<div class="money">
+<div><b>$25</b><span>A scanning day: transport, mobile data for uploads, backup storage.</span></div>
+<div><b>$50</b><span>Full documentation of one site with several captures and research.</span></div>
+<div><b>$500</b><span>A field day with collaborators — and the first time we can pay local contributors.</span></div>
+<div><b>$1,000</b><span>A complete digital storytelling package for one site, plus better scanning tools.</span></div>
+</div>
+<div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+<a class="btn btn-line-light" href="contact.html">Partner with us</a>
+<a class="btn btn-line-light" href="support.html">See the full breakdown</a></div>
+</div></section>"""
+
+
+
 def build_home():
     pillars = [
-        ("research-1.png", "Digital Scanning",
-         "Recording mosaics, statues, and ruins at risk before time, weather, and climate erase them.",
-         "See how we scan", "scanning-guide.html"),
-        ("archive.png", "Open Archive",
-         "A free, growing online library where anyone can explore Tunisia’s heritage. Perfect for teachers, students, and the public.",
+        ("archive.png", "Scan &amp; Preserve",
+         "Volunteers capture statues, mosaics and ruins with their phones. Every scan becomes a permanent, open record.",
          "Explore the Archive", "archive.html"),
-        ("education.png", "Education &amp; Workshops",
-         "Hands-on training for students and volunteers in scanning, model cleanup, and storytelling. Programs in Tunisia and online.",
-         "Attend a workshop", "splats-with-phones.html"),
-        ("ARVR.png", "AR/VR Experiences",
-         "Immersive learning: place mosaics in your space with AR or walk inside a Roman villa in VR. Designed for schools and museums.",
-         "Try a demo", "coming-soon.html"),
-        ("research.png", "Partnerships &amp; Research",
-         "Working with institutions and experts to document sites, enhance accuracy, and share context so history is preserved and understood.",
-         "Learn &amp; participate", "el-jem-conference.html"),
-        ("volunteer.png", "Global Volunteer Network",
-         "Join from Tunisia or abroad. Scan on site, help classify models, write context, or build apps that bring heritage to life.",
+        ("ARVR.png", "Optimize &amp; Build",
+         "Remote volunteers turn raw scans into game-ready models, AR lessons and our VR museum.",
+         "See volunteer-made models", "archive.html#volunteer-made"),
+        ("education.png", "Learn Together",
+         "Weekly community calls, history lessons on the sites we scan, and the Splats With Phones workshop.",
+         "Join the community", "community.html"),
+        ("volunteer.png", "Mentor &amp; Grow",
+         "Interview prep, portfolio reviews and mentoring for students and early-career volunteers — across four continents.",
          "Volunteer with us", "volunteer.html"),
+        ("research.png", "Research &amp; Share",
+         "Papers, conference talks, podcasts and hackathon tracks. We publish what we learn.",
+         "Press &amp; recognition", "press.html"),
+        ("research-1.png", "Extend Beyond Tunisia",
+         "With the Unique Mappers in Nigeria we are testing the model in a second country. Under-represented heritage everywhere is the goal.",
+         "TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
     ]
     pillar_html = "".join(
         f'<div class="pillar"><img src="{img(p[0], 400, as_jpeg=False)}" alt="">'
@@ -1261,24 +1399,60 @@ def build_home():
 <div class="hero"><div class="bg hero-photo" style="background-image:var(--scrim),url({img('hero-baths-flipped.jpg', 1920)})"></div>
 <div class="in">
 <h1>Preserving Heritage</h1>
-<p>Preserving Tunisia’s endangered heritage. Climate change, erosion, and neglect threaten our ruins.
-We capture them in 3D and bring them to life in AR and VR so they are never forgotten.</p>
-<div class="ctas"><a class="btn btn-gold" href="volunteer.html">Join the Mission</a>
+<p>A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to
+life in AR and VR — and learning from each other along the way.</p>
+<div class="ctas"><a class="btn btn-gold" href="community.html">Join the Community</a>
 <a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
 </div></div>
 
+<section class="pad-sm" style="background:var(--cloud)"><div class="wrap center">
+<div class="eyebrow">Recognized by</div>
+{recognition_strip()}
+</div></section>
+
+<section class="band pad"><div class="wrap">
+<div class="stats">
+<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
+<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
+<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
+<div><b>{stat('reach')}</b><span>Global Reach</span></div>
+</div></div></section>
+
 <section class="pad"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 44px">
+<div class="eyebrow">More than an archive</div>
+<h2 class="sec-title">One phone, the ruins of Carthage — and now a community</h2>
+<p class="sec-sub" style="margin:0">Tanit XR started with a phone and the ruins Ines grew up next to. Today it is a
+network of volunteers in Tunisia, the US, Europe and Nigeria who meet every week, scan and optimize together, teach
+each other history, mentor students, publish research and build a free 3D archive of Tunisia’s heritage. The goal is
+to take this model to other under-represented regions.</p></div>
 <div class="pillars">{pillar_html}</div>
 </div></section>
 
-<section class="pad" style="background:var(--cloud)"><div class="wrap center">
+<section class="pad" style="background:var(--cloud)"><div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;align-items:center">
+{community_mosaic()}
+<div>
+<div class="eyebrow">Community</div>
+<h2 class="sec-title">We meet every week</h2>
+<p class="sec-sub" style="margin:0 0 18px">Tanit XR is a weekly call across time zones as much as it is an archive. We
+review each other’s scans, learn the history behind them, run workshops, prepare students for interviews, share
+Tunisian culture, and celebrate wins together.</p>
+<ul style="color:var(--gray);line-height:1.9;padding-left:20px;margin-bottom:26px">
+<li>Weekly community call</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
+<li>Mentoring &amp; interview prep</li><li>Events, talks &amp; hackathons</li><li>Cultural exchange</li></ul>
+<a class="btn btn-gold" href="community.html">See how the community works</a>
+&nbsp; <a class="btn btn-line" href="volunteer.html">Volunteer</a>
+</div></div></div></section>
+
+<section class="pad"><div class="wrap center">
 <div class="eyebrow">Featured Scans</div>
 <h2 class="sec-title">Highlights from the Tanit XR Archive</h2>
 <div class="cards" style="text-align:left">{feat}</div>
 <p style="margin-top:34px"><a class="btn btn-line" href="archive.html">Open the Full Archive</a></p>
 </div></section>
 
-<section class="pad"><div class="wrap center">
+<section class="pad" style="background:var(--cloud)"><div class="wrap center">
 <div class="eyebrow">🏺 Made by our volunteers</div>
 <h2 class="sec-title">Recreated by hand, for VR &amp; learning</h2>
 <p class="sec-sub">Beyond scanning, our volunteers model Tunisian lamps, pottery and plants from scratch for our
@@ -1289,18 +1463,38 @@ virtual museum. Press <b>View in 3D</b> to spin one around right here.</p>
 </div></section>
 
 <section class="split">
-<div class="simg" style="background-image:url({img('el-jem.jpg', 1400)})" role="img" aria-label="The amphitheatre of El Jem"></div>
+<div class="simg" style="background-image:url({img('aug-20260813_124249.jpg', 1400)})" role="img" aria-label="Ruins on the Tunisian coast"></div>
 <div class="stx">
-<h2 class="sec-title">Why It Matters</h2>
-<h3>Heritage on the Brink</h3>
-<p>Tunisia’s ruins are vanishing faster than they can be protected. Climate change brings floods, storms,
-and heat that accelerate erosion. Without urgent action, pieces of world history could disappear.</p>
-<h3>A Lasting Record</h3>
-<p>With every scan, Tanit XR creates a permanent archive. Even if the physical site is lost, the digital
-memory survives – for schools, museums, and future generations.</p>
+<h2 class="sec-title">Climate is rewriting the coastline</h2>
+<h3>Storm Harry, January 2026</h3>
+<p>The storm stripped sediment off the coast at Nabeul and exposed parts of Neapolis, an ancient city lost to a
+tsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D — a record that
+exists no matter what the sea does next.</p>
+<h3>A lasting record</h3>
+<p>Floods, storms and heat are accelerating erosion across Tunisia’s sites. Every scan is a permanent, open record:
+even if the physical site is lost, the digital memory survives — for schools, museums and future generations.</p>
 <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
-<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate Now</a>
-<a class="btn btn-line" href="about.html">Learn More</a></div>
+<a class="btn btn-gold" href="news/storm-harry-neapolis-and-a-digital-moment-of-preservation.html">Read the Neapolis story</a>
+<a class="btn btn-line" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a></div>
+</div></section>
+
+<section class="pad"><div class="wrap center">
+<div class="eyebrow">Press &amp; Recognition</div>
+<h2 class="sec-title">What people are saying</h2>
+<div style="text-align:left;margin-top:36px">{press_cards(PRESS[:6])}</div>
+<p style="margin-top:34px"><a class="btn btn-line" href="press.html">All press, talks &amp; papers</a></p>
+</div></section>
+
+<section class="band pad"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
+<div class="wrap">
+<div class="eyebrow">Where we’re going</div>
+<h2 class="sec-title">Tunisia is the pilot</h2>
+<p class="sec-sub" style="margin:0;max-width:760px">The method — phones, volunteers, open data — works anywhere heritage is
+under-documented. In 2026 the Unique Mappers Network began scanning in Nigeria with a mini-grant from our fiscal
+sponsor. If you want to bring this to your region, talk to us.</p>
+<div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+<a class="btn btn-gold" href="contact.html">Bring Tanit XR to your region</a>
+<a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a></div>
 </div></section>
 
 <section class="pad"><div class="wrap center">
@@ -1318,13 +1512,7 @@ across Tunisia and the world.</p>
 <div class="quotes" style="text-align:left;margin-top:40px">{quote_html}</div>
 </div></section>
 
-<section class="band pad"><div class="wrap">
-<div class="stats">
-<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
-<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
-<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
-<div><b>{stat('reach')}</b><span>Global Reach</span></div>
-</div></div></section>
+{funding_band()}
 
 <section class="pad-sm"><div class="wrap center">
 <div class="eyebrow">Partners &amp; Supporters</div>
@@ -1332,6 +1520,107 @@ across Tunisia and the world.</p>
 </div></section>
 """
     page("index.html", "Home", body, transparent=True)
+
+
+def build_community():
+    steps = [
+        ("Fill the volunteer form", "Tell us what you like doing — scanning, 3D, writing, design, research, teaching."),
+        ("Join Slack and the weekly call", "A member of the team welcomes you, and you meet everyone on the next call."),
+        ("Pick a first task", "Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip."),
+        ("Create your profile", "Your work — scans, models, articles — shows up on your own page on this site."),
+    ]
+    steps_html = "".join(f'<div><b>{t}</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">{d}</p></div>' for t, d in steps)
+    body = f"""
+{page_hero("Community", '<a href="volunteer.html">Get Involved</a> &nbsp;›&nbsp; Community', bg="sv-IMG_1315.jpg", pos="center 35%")}
+<section class="pad"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 40px">
+<div class="eyebrow">More than an archive</div>
+<h2 class="sec-title">We started as an archive. We became a community.</h2>
+<p class="sec-sub" style="margin:0">Tanit XR is volunteers in Tunisia, the United States, Europe and Nigeria who meet
+every week. We scan on the ground and optimize remotely, learn the history behind every object, run workshops,
+mentor students, attend events together, and share Tunisian culture with people who had never heard of Carthage.
+Everything we make is free and open.</p></div>
+{community_mosaic()}
+</div></section>
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap">
+<div class="center"><div class="eyebrow">What we do together</div>
+<h2 class="sec-title">A week at Tanit XR</h2></div>
+{community_acts()}
+</div></section>
+
+<section class="pad"><div class="wrap">
+<div class="center"><div class="eyebrow">Join</div>
+<h2 class="sec-title">How to get in</h2>
+<p class="sec-sub">No archaeology or 3D background needed. Our first scans were made with a phone.</p></div>
+<div class="steps">{steps_html}</div>
+<p class="center" style="margin-top:34px">
+<a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer Interest Form</a>
+&nbsp; <a class="btn btn-line" href="create-profile.html">Create Your Profile</a>
+&nbsp; <a class="btn btn-line" href="team.html">Meet the community</a></p>
+</div></section>
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap center">
+<div class="eyebrow">🏺 Made by our volunteers</div>
+<h2 class="sec-title">What comes out of the weekly calls</h2>
+<div class="cards" style="text-align:left">{volunteer_made_cards(3)}</div>
+<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a></p>
+</div></section>
+
+<section class="band pad"><div class="bg" style="background-image:url({img('sv-IMG_1232.jpg', 1800)})"></div>
+<div class="wrap center">
+<div class="eyebrow">Where we’re going</div>
+<h2 class="sec-title">Bring the model to your region</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.85)">Tunisia is the pilot. The Unique Mappers are replicating it in
+Nigeria. If your community’s heritage is under-documented, we want to hear from you.</p>
+<a class="btn btn-gold" href="contact.html">Contact us</a>
+&nbsp; <a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a>
+</div></section>"""
+    page("community.html", "Community", body, active="volunteer.html",
+         desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria — scanning, learning history, mentoring and building a free 3D archive.")
+
+
+def build_press():
+    groups = [("Awards", ["auggie"]), ("Talks & events", ["awe", "eljem", "immersegt"]),
+              ("Podcasts & video", ["voices", "niantic"]), ("Articles", ["carthage", "medium"]),
+              ("Partnerships", ["nigeria"])]
+    by = {x["anchor"]: x for x in PRESS}
+    sections = ""
+    for title, keys in groups:
+        sections += f'<h2 class="sec-title" style="font-size:30px;margin:46px 0 18px">{title}</h2>' + press_cards([by[k] for k in keys])
+    body = f"""
+{page_hero("Press &amp; Recognition", '<a href="about.html">About</a> &nbsp;›&nbsp; Press &amp; Recognition', bg="sv-IMG_1232.jpg", pos="center 30%")}
+<section class="pad"><div class="wrap">
+<p class="sec-sub" style="margin:0 0 10px;max-width:800px">Where Tanit XR has been recognized, featured and heard. For
+interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a>.</p>
+{sections}
+<h2 class="sec-title" id="niantic" style="font-size:30px;margin:46px 0 18px">Featured by Niantic Spatial</h2>
+<p class="sec-sub" style="margin:0 0 18px;max-width:800px">Niantic Spatial featured our Scaniverse capture of the amphitheatre of El Jem.</p>
+<div class="embed16" style="max-width:820px"><iframe src="{NIANTIC_EMBED}" title="Niantic Spatial feature on Tanit XR" allowfullscreen loading="lazy"></iframe></div>
+<p style="margin-top:12px"><a class="btn btn-line" href="https://www.linkedin.com/feed/update/urn:li:activity:7488488682652495873" target="_blank" rel="noopener">Watch the post on LinkedIn</a></p>
+<h2 class="sec-title" style="font-size:30px;margin:46px 0 18px">Publications</h2>
+<div class="press">
+<a href="assets/pdf/El-Jem-2026-Paper_English.pdf" target="_blank" rel="noopener"><div class="k">Paper · English</div><h3>El Jem Conference 2026 paper</h3><p>Digital documentation, XR and citizen science for community-driven heritage preservation.</p></a>
+<a href="assets/pdf/El-Jem-2026-Paper_French.pdf" target="_blank" rel="noopener"><div class="k">Paper · Français</div><h3>Article de la conférence d’El Jem 2026</h3><p>Documentation numérique, XR et science participative.</p></a>
+<a href="assets/pdf/El-Jem-2026-Paper_Arabic.pdf" target="_blank" rel="noopener"><div class="k">Paper · دارجة تونسية</div><h3>ورقة مؤتمر الجم 2026</h3><p>التوثيق الرقمي والواقع الممتد والعلوم التشاركية.</p></a>
+</div>
+<h2 class="sec-title" style="font-size:30px;margin:46px 0 18px">Media kit</h2>
+<div class="press">
+<a href="assets/pdf/TanitXR_One-Pager_English-French-Arabic.pdf" target="_blank" rel="noopener"><div class="k">PDF</div><h3>One-pager (EN / FR / AR)</h3><p>Who we are, what we do, how to help — one page in three languages.</p></a>
+<a href="{img('tanitxr-logo_red_vertical.png', 1200, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo — vertical</h3><p>Transparent background, red mark.</p></a>
+<a href="{img('tanitxr-logo_red_horizontal.png', 1600, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo — horizontal</h3><p>Transparent background, red mark.</p></a>
+</div>
+</div></section>
+<section class="band pad"><div class="wrap center">
+<div class="eyebrow">Support the work</div>
+<h2 class="sec-title">Volunteer-run, founder-funded — so far</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.85)">Our recognition came before our funding. Help us change that.</p>
+<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+&nbsp; <a class="btn btn-line-light" href="index.html#funding">How we’re funded</a>
+</div></section>"""
+    page("press.html", "Press & Recognition", body, active="about.html",
+         desc="Awards, talks, podcasts, articles and papers about Tanit XR — including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.")
+
 
 
 def build_archive():
@@ -2590,6 +2879,8 @@ def main():
     global LANG
     for LANG in LANG_DIRS:
         build_home()
+        build_community()
+        build_press()
         build_archive()
         build_model_pages()
         build_news()

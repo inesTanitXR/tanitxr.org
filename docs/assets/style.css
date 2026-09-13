@@ -164,6 +164,37 @@ section.pad-sm{padding:56px 0}
 .card .ph.live iframe{width:100%;height:100%;border:0;display:block}
 .card:hover .ph.live{transform:none}
 .prose .btn-gold,.prose .btn-gold:hover{color:var(--ink)}
+
+/* homepage v2: recognition strip, community mosaic, press cards, funding transparency */
+.strip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;align-items:center}
+.strip .badge{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;
+  border:1px solid var(--mist);border-radius:30px;padding:9px 16px;background:#fff;transition:.2s}
+.strip .badge:hover{border-color:var(--gold);box-shadow:0 6px 18px rgba(17,21,24,.08)}
+.strip .badge span{color:var(--gray);font-weight:400}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:170px;gap:12px}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.mosaic img:first-child{grid-column:span 2;grid-row:span 2}
+@media(max-width:700px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px}}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:30px}
+.act{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px 22px 20px}
+.act .ic{font-size:26px;margin-bottom:10px}
+.act b{display:block;font-size:17px;margin-bottom:6px;font-family:var(--serif);font-weight:400}
+.act p{color:var(--gray);font-size:14.5px}
+.press{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.press a,.press div.item{display:block;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px;text-decoration:none;color:var(--ink);transition:.2s}
+.press a:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(17,21,24,.1)}
+.press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);font-weight:700}
+.press h3{font-size:18px;margin:8px 0 6px}
+.press p{color:var(--gray);font-size:14.5px}
+.embed16{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.embed16 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.money{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.money div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:18px 20px}
+.money b{display:block;font-family:var(--serif);font-size:30px;color:var(--gold);font-weight:400;margin-bottom:4px}
+.money span{font-size:14.5px;color:rgba(255,255,255,.8)}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
+.steps div{background:var(--cloud);border-radius:10px;padding:22px;position:relative}
+.steps div::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:34px;color:var(--gold-dark);display:block;margin-bottom:6px}
 /* split section (photo | cream panel), like the original "Why It Matters" */
 .split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
 .split .simg{background-size:cover;background-position:center;min-height:360px}
