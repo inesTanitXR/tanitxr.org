@@ -1748,43 +1748,32 @@ building this on Thursday calls. Donations pay for the tools and hosting that ge
 
 
 def build_services():
+    # Principle (Ines, 2026-09-12): volunteer work is NEVER sold. Only what the leadership team delivers itself.
     services = [
-        ("📱", "Scanning & 3D optimization",
-         "We capture objects and collections with phone photogrammetry and Gaussian splatting, then turn them into "
-         "archive-quality and game-ready 3D models — the same pipeline behind our open archive.",
-         "For museums, cultural centres, universities, galleries and artists who hold the rights to the objects. "
-         "Remote optimization of your existing scans is available worldwide.",
-         "Free for grassroots heritage and community groups · low rates for institutions and companies"),
         ("🎓", "Workshops & training",
-         "Phone scanning workshops, the six-week Splats With Phones course, and sessions on XR for heritage and "
-         "community-driven documentation — in person in Tunisia and the US, or online.",
-         "For schools, universities, museums, NGOs and companies; from a two-hour intro to a multi-week cohort. We "
-         "have run them for volunteers on three continents and been asked to train groups of 200.",
+         "Phone-scanning workshops and sessions on XR for heritage and community-driven documentation, delivered by "
+         "our leadership team — in person in Tunisia and the US, or online.",
+         "For schools, universities, museums, NGOs and companies; from a two-hour intro to a multi-day program. We "
+         "have been asked to train groups of 200.",
          "Free for student groups and grassroots organizations · contracted delivery for institutions"),
-        ("📣", "Sharing opportunities",
-         "Reach artists, XR developers and changemakers through the Art, XR & Impact Opportunities newsletter, the "
-         "opportunities board on this site and our 85+ volunteers on four continents.",
-         "For funders, festivals, residencies and programs looking for strong applicants from under-represented "
-         "regions. Featured placement on the board and in the newsletter; we only share calls that fit our readers.",
-         "Free for grassroots calls · sponsored placement for institutions"),
         ("🎤", "Talks & consulting",
          "Keynotes, panels and workshops on XR for heritage, phone-based reality capture and building a volunteer "
          "community — and help for organizations that want to replicate the Tanit XR model in their region.",
          "For conferences, universities, companies and heritage organizations. Our founder has spoken at AWE USA "
          "2026 and the El Jem conference; our method is being replicated in Nigeria.",
          "Speaking fees and consulting rates on request"),
-        ("🕶", "Custom XR experiences",
-         "AR lessons, virtual galleries and VR museum rooms built from real scans — for classrooms, exhibitions and "
-         "campaigns.",
-         "For museums, schools, festivals and brands that want heritage told immersively. Built by the same "
-         "volunteers making our virtual museum.",
-         "Project-based; every project funds the community"),
+        ("📣", "Sharing opportunities",
+         "Reach artists, XR developers and changemakers through the Art, XR & Impact Opportunities newsletter and the "
+         "opportunities board on this site.",
+         "For funders, festivals, residencies and programs looking for strong applicants from under-represented "
+         "regions. Featured placement on the board and in the newsletter; we only share calls that fit our readers.",
+         "Free for grassroots calls · sponsored placement for institutions"),
         ("💻", "Hackathon & challenge tracks",
-         "We design and judge heritage tracks for hackathons and student challenges, bringing real 3D models and a "
-         "real problem to your participants.",
+         "We design and judge heritage tracks for hackathons and student challenges, bringing our open 3D archive and "
+         "a real problem to your participants.",
          "For universities, hackathon organizers and companies. We sponsored a track at ImmerseGT 2026 at Georgia "
          "Tech and are planning one for CityCamp Gainesville.",
-         "Co-sponsored; we bring the models and the mentors"),
+         "Co-sponsored"),
     ]
     cards = "".join(
         f'<div class="act" style="display:flex;flex-direction:column"><div class="ic">{ic}</div><b>{t}</b><p>{d}</p>'
@@ -1796,11 +1785,11 @@ def build_services():
 <section class="pad"><div class="wrap">
 <div class="center" style="max-width:820px;margin:0 auto 40px">
 <div class="eyebrow">Work with us</div>
-<h2 class="sec-title">What we do for volunteers, we can do for you</h2>
-<p class="sec-sub" style="margin:0">Tanit XR is volunteer-run, so we do not charge market rates. Grassroots heritage
-and community groups get our help for free; institutions, companies and funders pay a low rate that goes straight
-back into the community — hosting, tools, training and scanning days. Every service below is something we already
-do every week.</p></div>
+<h2 class="sec-title">Work with the Tanit XR team</h2>
+<p class="sec-sub" style="margin:0">A few things our leadership team can do for organizations — never our
+volunteers’ work, which is not for sale. Grassroots heritage and community groups get our help for free; institutions,
+companies and funders pay a low rate that goes straight back into the community — hosting, tools, training and
+scanning days.</p></div>
 <div class="acts" style="margin-top:0">{cards}</div>
 </div></section>
 
@@ -1828,8 +1817,8 @@ do every week.</p></div>
 <label class="req" for="sv-email">Email</label><input id="sv-email" type="email" name="email" required>
 <label class="req" for="sv-type">What are you interested in?</label>
 <select id="sv-type" name="service" required><option value="">Pick one</option>
-<option>Scanning &amp; 3D optimization</option><option>Workshops &amp; training</option><option>Sharing opportunities</option>
-<option>Talks &amp; consulting</option><option>Custom XR experiences</option><option>Hackathon &amp; challenge tracks</option><option>Something else</option></select>
+<option>Workshops &amp; training</option><option>Talks &amp; consulting</option><option>Sharing opportunities</option>
+<option>Hackathon &amp; challenge tracks</option><option>Something else</option></select>
 <label for="sv-msg">Tell us more</label><textarea id="sv-msg" name="message" rows="4" placeholder="Objects, audience, dates, location, budget if you have one."></textarea>
 <button class="btn btn-gold" type="submit">Send</button>
 </form>
@@ -1843,7 +1832,7 @@ do every week.</p></div>
 &nbsp; <a class="btn btn-line-light" href="index.html#funding">How we’re funded</a>
 </div></section>"""
     page("services.html", "Services", body, active="about.html",
-         desc="Work with Tanit XR: 3D scanning and optimization, workshops and training, sharing opportunities, talks and consulting, custom XR experiences and hackathon tracks — free for grassroots groups, low rates for institutions.")
+         desc="Work with the Tanit XR team: workshops and training, talks and consulting, sharing opportunities and hackathon tracks — free for grassroots groups, low rates for institutions. Our volunteers’ work is never for sale.")
 
 
 def build_press():
