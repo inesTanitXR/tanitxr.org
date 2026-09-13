@@ -13,6 +13,7 @@ import json
 import os
 import posixpath
 import re
+import hashlib
 import shutil
 import subprocess
 import unicodedata
@@ -651,6 +652,9 @@ document.addEventListener('click',e=>{
 })();
 """
 
+# cache-buster: browsers keep the old stylesheet after a deploy unless the URL changes
+ASSET_V = hashlib.md5((CSS + JS).encode()).hexdigest()[:8]
+
 # ---------------------------------------------------------------- svg icons
 
 ICO_IG = '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4m0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.4-10.4a1.4 1.4 0 1 1-2.9 0 1.4 1.4 0 0 1 2.9 0"/></svg>'
@@ -857,14 +861,14 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{fonts}" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">{font_fix}
+<link rel="stylesheet" href="assets/style.css?v={ASSET_V}">{font_fix}
 </head>
 <body>
 {header_html(active or fname, transparent, fname)}
 {body}
 {trending_html() if trending else ''}
 {footer_html()}
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v={ASSET_V}"></script>
 </body>
 </html>"""
     doc = _translate(doc)
