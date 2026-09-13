@@ -372,6 +372,15 @@ section.pad-sm{padding:56px 0}
 .logos a:hover .cap{color:var(--ink)}
 .cream{background:#fbf6ed}
 .stats.light b{color:var(--gold-dark)}.stats.light span{color:var(--gray)}
+/* the original site's impact band: big gold serif numbers over a site photo */
+.band.photo .bg{opacity:.55;background-position:center 35%}
+.band.photo::after{content:"";position:absolute;inset:0;background:rgba(11,14,17,.42)}
+.band.photo .wrap{z-index:1}
+.statsband{padding:110px 0}
+.stats.big{gap:30px 20px}
+.stats.big b{font-size:clamp(56px,6.5vw,96px);line-height:1;margin-bottom:14px}
+.stats.big span{font-family:var(--serif);font-size:clamp(20px,2vw,28px);text-transform:none;letter-spacing:0;color:#fff}
+@media(max-width:700px){.statsband{padding:70px 0}}
 .mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:170px;gap:12px}
 .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
 .mosaic img:first-child{grid-column:span 2;grid-row:span 2}
@@ -434,6 +443,7 @@ section.pad-sm{padding:56px 0}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;text-align:center}
 .stats b{display:block;font-family:var(--serif);font-size:52px;color:var(--gold);font-weight:400}
 .stats span{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.stats b span{font:inherit;color:inherit;letter-spacing:0;text-transform:none}
 
 /* team */
 .team{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:28px}
@@ -1430,14 +1440,13 @@ life in AR and VR — and learning from each other along the way.</p>
 {recognition_strip()}
 </div></section>
 
-<section class="pad"><div class="wrap center">
-<div class="eyebrow">Our impact so far</div>
-<h2 class="sec-title">Small team, growing archive</h2>
-<div class="stats icons light" style="margin-top:34px">
-<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt=""><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
-<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt=""><b>{stat('sites')}</b><span>Sites Documented</span></div>
-<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt=""><b>{stat('volunteers')}</b><span>Volunteers</span></div>
-<div><img src="{img('global.png', 200, as_jpeg=False)}" alt=""><b>{stat('reach')}</b><span>Global Reach</span></div>
+<section class="band photo statsband"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
+<div class="wrap">
+<div class="stats big">
+<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
+<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
+<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
+<div><b>{stat('reach')}</b><span>Global Reach</span></div>
 </div></div></section>
 
 <section class="pad"><div class="wrap">
