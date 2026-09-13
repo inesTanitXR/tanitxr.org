@@ -1442,28 +1442,33 @@ life in AR and VR — and learning from each other along the way.</p>
 <a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
 </div></div>
 
-<section class="pad-sm cream"><div class="wrap center">
-<div class="eyebrow">Recognized by</div>
-{recognition_strip()}
+<section class="pad"><div class="wrap center" style="max-width:860px">
+<div class="eyebrow">More than an archive</div>
+<h2 class="sec-title">One phone, the ruins of Carthage — and now a community</h2>
+<p class="sec-sub" style="margin:0;font-size:18px">Tanit XR started with a phone and the ruins Ines grew up next to.
+Today, volunteers in Tunisia, the US, Europe and Nigeria meet every week to scan, optimize, teach each other history,
+mentor students and publish research — building a free 3D archive of Tunisia’s heritage, and a model for other
+under-represented regions.</p>
 </div></section>
 
 <section class="band photo statsband"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
 <div class="wrap">
 <div class="stats big">
-<div><b>{stat('artifacts')}</b><span>Artifacts Scanned</span></div>
-<div><b>{stat('sites')}</b><span>Sites Documented</span></div>
-<div><b>{stat('volunteers')}</b><span>Volunteers</span></div>
-<div><b>{stat('reach')}</b><span>Global Reach</span></div>
+<div><b>{stat('artifacts')}</b><span>Artifacts scanned by volunteers</span></div>
+<div><b>{stat('sites')}</b><span>Heritage sites documented</span></div>
+<div><b>{stat('volunteers')}</b><span>Volunteers on four continents</span></div>
+<div><b>{stat('reach')}</b><span>People reached online</span></div>
 </div></div></section>
 
+<section class="pad-sm cream"><div class="wrap center">
+<div class="eyebrow">Recognized by</div>
+{recognition_strip()}
+</div></section>
+
 <section class="pad"><div class="wrap">
-<div class="center" style="max-width:820px;margin:0 auto 44px">
-<div class="eyebrow">More than an archive</div>
-<h2 class="sec-title">One phone, the ruins of Carthage — and now a community</h2>
-<p class="sec-sub" style="margin:0">Tanit XR started with a phone and the ruins Ines grew up next to. Today it is a
-network of volunteers in Tunisia, the US, Europe and Nigeria who meet every week, scan and optimize together, teach
-each other history, mentor students, publish research and build a free 3D archive of Tunisia’s heritage. The goal is
-to take this model to other under-represented regions.</p></div>
+<div class="center" style="max-width:820px;margin:0 auto 40px">
+<div class="eyebrow">What we do</div>
+<h2 class="sec-title">Six ways the community works</h2></div>
 <div class="pillars">{pillar_html}</div>
 </div></section>
 
