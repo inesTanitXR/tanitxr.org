@@ -487,25 +487,32 @@ section.pad-sm{padding:56px 0}
 .fbtn.on{background:var(--ink);color:var(--gold);font-weight:700}
 .board-tools{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;align-items:center}
 .board-tools[hidden]{display:none}
-/* modern toolbar: search + segmented sort, then pill filters */
-.toolbar{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;margin-bottom:14px}
-.search{position:relative;flex:1;min-width:260px;display:block}
-.search .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--gray)}
-.search .ico svg{width:18px;height:18px;fill:currentColor}
-.search input{width:100%;padding:13px 16px 13px 42px;border:1px solid var(--mist);border-radius:30px;font-size:15px;background:#fff}
+/* calm filter row: count · dropdown filters | search · sort */
+.tb2{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px 24px;padding:12px 0;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);margin-bottom:18px}
+.tb-left,.tb-right{display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap}
+.count{font-size:14px;color:var(--gray);margin-right:8px;white-space:nowrap}
+.fdrop{position:relative}
+.fdrop summary{list-style:none;cursor:pointer;font-weight:600;font-size:15px;padding:8px 2px;display:flex;gap:6px;align-items:center;color:var(--ink)}
+.fdrop summary::-webkit-details-marker{display:none}
+.fdrop .car{font-size:11px;color:var(--gray);transition:.15s}
+.fdrop[open] .car{transform:rotate(180deg)}
+.fdrop .panel{position:absolute;top:100%;left:-12px;z-index:30;background:#fff;border:1px solid var(--mist);box-shadow:0 14px 34px rgba(17,21,24,.12);padding:14px 18px;min-width:230px;display:grid;gap:10px;border-radius:6px}
+[dir=rtl] .fdrop .panel{left:auto;right:-12px}
+.fdrop .panel label{display:flex;gap:10px;align-items:center;font-size:14.5px;font-weight:400;margin:0;white-space:nowrap;cursor:pointer}
+.fdrop .panel input{width:16px;height:16px;accent-color:var(--ink);margin:0}
+.fdrop .panel .n{color:var(--gray);font-size:13px}
+.search{position:relative;display:block;width:240px}
+.search .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--gray)}
+.search .ico svg{width:16px;height:16px;fill:currentColor}
+.search input{width:100%;padding:9px 12px 9px 36px;border:1px solid var(--mist);border-radius:4px;font-size:14.5px;background:#fff}
 .search input:focus{outline:2px solid var(--gold)}
-.sortwrap{display:flex;align-items:center;gap:10px}
-.seg{display:inline-flex;border:1px solid var(--mist);border-radius:30px;padding:4px;background:#fff}
-.seg button{border:0;background:none;padding:8px 16px;border-radius:24px;font:600 13.5px var(--sans);color:var(--gray);cursor:pointer}
-.seg button.on{background:var(--ink);color:#fff}
-.fgroups{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin:0 0 26px}
-.fgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.flabel{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-right:2px}
-.pills{display:flex;flex-wrap:wrap;gap:6px}
-.pill{border:1px solid var(--mist);background:#fff;border-radius:30px;padding:6px 13px;font:500 13px var(--sans);color:var(--ink);cursor:pointer;transition:.15s}
-.pill:hover{border-color:var(--gold)}
-.pill.on{background:var(--gold);border-color:var(--gold);font-weight:700}
+.sortsel{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray);margin:0;font-weight:400}
+.sortsel select{padding:9px 32px 9px 12px;border:1px solid var(--ink);border-radius:4px;background:#fff;font:600 14.5px var(--sans);color:var(--ink)}
+.active{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:-4px 0 18px}
+.achip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--mist);border-radius:4px;padding:5px 8px 5px 10px;font-size:13.5px;background:#fff}
+.achip button{border:0;background:none;cursor:pointer;color:var(--gray);font-size:16px;line-height:1;padding:0 2px}
 .clearf{border:0;background:none;color:var(--gold-dark);font:700 13px var(--sans);cursor:pointer;text-decoration:underline}
+@media(max-width:760px){.search{width:100%}.tb-right{width:100%}}
 .board-tools select,.board-tools input[type=search]{padding:10px 14px;border:1px solid var(--mist);
   border-radius:6px;font-family:var(--sans);font-size:14.5px;background:#fff;color:var(--ink)}
 #featured .opp{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:0;padding:0;
@@ -2254,18 +2261,18 @@ def build_opportunities():
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
                "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
-               "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "terms": {}},
+               "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "open": "open", "closedl": "closed", "clear": "Clear all", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
-               "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins",
+               "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins", "open": "ouvertes", "closedl": "clôturées", "clear": "Tout effacer",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
-               "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل",
+               "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل", "open": "مفتوحة", "closedl": "منتهية", "clear": "مسح الكل",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
@@ -2294,9 +2301,10 @@ def build_opportunities():
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
-    def pills(sel, values):
-        return ('<div class="pills" data-for="' + sel + '"><button type="button" class="pill on" data-v="">All</button>'
-                + "".join(f'<button type="button" class="pill" data-v="{esc(v)}">{esc(v)}</button>' for v in values) + '</div>')
+    def fdrop(key, label, values):
+        boxes = "".join(f'<label><input type="checkbox" data-key="{key}" value="{esc(v)}"> {esc(v)} <span class="n" data-n="{esc(v)}"></span></label>' for v in values)
+        return (f'<details class="fdrop" data-key="{key}"><summary>{label} <span class="car">▾</span></summary>'
+                f'<div class="panel">{boxes}</div></details>')
     def opts(vals):
         return "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in vals)
     body = f"""
@@ -2312,24 +2320,16 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 <span style="color:var(--gray);font-size:14px">New opportunities every one to two weeks. Free.</span></div>
 {subscribe_form(dark=False)}
 </div>
-<div class="toolbar">
-<label class="search"><span class="ico">{ICO_SEARCH}</span><input type="search" id="q" placeholder="Search opportunities…"></label>
-<div class="sortwrap"><span class="flabel">Sort</span>
-<div class="seg" role="group" aria-label="Sort">
-<button type="button" class="on" data-sort="soon">Deadline soonest</button><button type="button" data-sort="new">Newest</button></div></div>
+<div class="tb2">
+<div class="tb-left"><span class="count" id="count"></span>
+{fdrop("ty", "Type", types)}{fdrop("el", "Eligibility", eligs)}{fdrop("md", "Mode", modes)}
 </div>
-<div class="fgroups">
-<div class="fgroup"><span class="flabel">Type</span>{pills("f-type", types)}</div>
-<div class="fgroup"><span class="flabel">Eligibility</span>{pills("f-elig", eligs)}</div>
-<div class="fgroup"><span class="flabel">Mode</span>{pills("f-mode", modes)}</div>
-<button type="button" id="clearf" class="clearf" hidden>Clear filters</button>
+<div class="tb-right">
+<label class="search"><span class="ico">{ICO_SEARCH}</span><input type="search" id="q" placeholder="Search…"></label>
+<label class="sortsel"><span>Sort:</span><select id="sort"><option value="soon">Deadline soonest</option><option value="new">Newest</option></select></label>
 </div>
-<div class="board-tools" hidden>
-<select id="f-type"><option value="">Type</option>{opts(types)}</select>
-<select id="f-elig"><option value="">Eligibility</option>{opts(eligs)}</select>
-<select id="f-mode"><option value="">Mode</option>{opts(modes)}</select>
-<select id="sort"><option value="soon">Deadline soonest</option><option value="new">Newest</option></select>
 </div>
+<div id="active" class="active"></div>
 <div id="featured"></div>
 <div id="board"></div>
 <div id="closedwrap" hidden><h3 class="closed-h"></h3><div id="closed"></div>
@@ -2396,34 +2396,40 @@ function reactsHtml(o){{
   return '<div class="reacts">'+mk('thumbs',LBL.helpful)+mk('applied',LBL.applied)+'</div>';
 }}
 function parseDate(s){{return s?new Date(s):null}}
-document.querySelectorAll('.pills').forEach(g=>g.addEventListener('click',e=>{{
-  const b=e.target.closest('.pill');if(!b)return;
-  g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  document.getElementById(g.dataset.for).value=b.dataset.v;
-  document.getElementById('clearf').hidden=![...document.querySelectorAll('.pills .pill.on')].some(x=>x.dataset.v);
-  render();
+const F={{ty:new Set(),el:new Set(),md:new Set()}};
+const ACT=document.getElementById('active');
+document.querySelectorAll('.fdrop input[type=checkbox]').forEach(cb=>cb.addEventListener('change',()=>{{
+  const set=F[cb.dataset.key]; cb.checked?set.add(cb.value):set.delete(cb.value); render();
 }}));
-document.querySelector('.seg').addEventListener('click',e=>{{
-  const b=e.target.closest('button');if(!b)return;
-  document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  document.getElementById('sort').value=b.dataset.sort;render();
-}});
-document.getElementById('clearf').addEventListener('click',()=>{{
-  document.querySelectorAll('.pills').forEach(g=>{{g.querySelectorAll('.pill').forEach((x,i)=>x.classList.toggle('on',i===0));document.getElementById(g.dataset.for).value='';}});
-  document.getElementById('q').value='';document.getElementById('clearf').hidden=true;render();
-}});
+document.addEventListener('click',e=>{{ document.querySelectorAll('.fdrop[open]').forEach(d=>{{ if(!d.contains(e.target)) d.removeAttribute('open'); }}); }});
+document.querySelectorAll('.fdrop').forEach(d=>d.addEventListener('toggle',()=>{{ if(d.open) document.querySelectorAll('.fdrop[open]').forEach(o=>{{ if(o!==d) o.removeAttribute('open'); }}); }}));
+function drawActive(){{
+  const chips=[];
+  for(const k of Object.keys(F)) for(const v of F[k]) chips.push('<span class="achip">'+v+'<button type="button" data-k="'+k+'" data-v="'+v+'" aria-label="Remove">×</button></span>');
+  ACT.innerHTML=chips.join('')+(chips.length?'<button type="button" class="clearf" id="clearf">'+LBL.clear+'</button>':'');
+    ACT.querySelectorAll('.achip button').forEach(b=>b.addEventListener('click',()=>{{
+    F[b.dataset.k].delete(b.dataset.v); const cb=document.querySelector('.fdrop input[data-key="'+b.dataset.k+'"][value="'+b.dataset.v.replace(/"/g,'\\"')+'"]'); if(cb)cb.checked=false; render();
+  }}));
+  const c=document.getElementById('clearf'); if(c)c.addEventListener('click',()=>{{ Object.values(F).forEach(x=>x.clear()); document.querySelectorAll('.fdrop input').forEach(x=>x.checked=false); render(); }});
+}}
+function fillCounts(){{
+  const now=new Date(); const open=OPPS.filter(o=>!(o.dt==='Closed'||(parseDate(o.dd)&&parseDate(o.dd)<now)));
+  document.querySelectorAll('.fdrop .n').forEach(n=>{{
+    const key=n.closest('.fdrop').dataset.key, v=n.dataset.n;
+    const c=open.filter(o=>key==='el'?o.el.includes(v):o[key]===v).length; n.textContent='('+c+')';
+  }});
+}}
+fillCounts();
 let showAllClosed=false;
 document.getElementById('moreclosed').addEventListener('click',()=>{{showAllClosed=!showAllClosed;render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({{behavior:'smooth',block:'start'}});}});
 function render(){{
   const q=document.getElementById('q').value.toLowerCase();
-  const ft=document.getElementById('f-type').value;
-  const fe=document.getElementById('f-elig').value;
-  const fm=document.getElementById('f-mode').value;
+  const ft=F.ty, fe=F.el, fm=F.md;
   const sort=document.getElementById('sort').value;
   const now=new Date();
   let list=OPPS.filter(o=>
     (!q||(o.t+' '+o.d).toLowerCase().includes(q)) &&
-    (!ft||o.ty===ft) && (!fe||o.el.includes(fe)) && (!fm||o.md===fm));
+    (!ft.size||ft.has(o.ty)) && (!fe.size||o.el.some(x=>fe.has(x))) && (!fm.size||fm.has(o.md)));
   list.forEach(o=>{{
     o._d=parseDate(o.dd);
     o._closed = !!(o.dt==='Closed' || (o._d && o._d < now));
@@ -2484,6 +2490,8 @@ function render(){{
     mb.hidden=closedList.length<=3;
     mb.textContent=showAllClosed?LBL.showless:LBL.showall.replace('{{n}}',closedList.length);
   }} else {{ cw.hidden=true; }}
+  document.getElementById('count').textContent=openList.length+' '+LBL.open+' · '+closedList.length+' '+LBL.closedl;
+  drawActive();
   document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{{
     const card=b.closest('.opp');card.classList.toggle('x');
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
