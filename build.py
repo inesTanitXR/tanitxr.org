@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Static site generator for tanitxr.org — replaces the WordPress/Elementor/JetEngine site.
+"""Static site generator for tanitxr.org, replaces the WordPress/Elementor/JetEngine site.
 
 Edit content in this file, then run:  python3 build.py
 Output goes to docs/ (GitHub Pages serves main:/docs).
 
 Data sources (scraped from the old WordPress site 2026-09-08):
-  wp-data/*.json  — posts, pages, people, opportunities, media, terms
-  media/          — downloaded media library (web-sized)
-  profiles/       — volunteer profile submissions (JSON), merged into Our People
+  wp-data/*.json , posts, pages, people, opportunities, media, terms
+  media/         , downloaded media library (web-sized)
+  profiles/      , volunteer profile submissions (JSON), merged into Our People
 """
 import json
 import os
@@ -37,7 +37,7 @@ INSTAGRAM = "https://www.instagram.com/tanitxr/"
 LINKEDIN = "https://www.linkedin.com/company/tanit-xr/"
 SKETCHFAB = "https://sketchfab.com/TanitXR"
 FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
-# Kit (newsletter) — account tanit-xr.kit.com, form "tanitxr.org sign-up" (uid f2587d8800). Tag IDs: fill in once
+# Kit (newsletter), account tanit-xr.kit.com, form "tanitxr.org sign-up" (uid f2587d8800). Tag IDs: fill in once
 # Ines creates the tags in Kit (Subscribers → Tags; the id is in the tag's URL). Empty = checkbox hidden.
 KIT_FORM_ID = "9912073"
 KIT_TAGS = {"opportunities": "23332230", "news": "23332232"}
@@ -131,7 +131,7 @@ for _sub in ("extra", "drive"):
 _img_cache = {}
 
 # basenames that exist more than once in the old media library (flat downloads clobbered
-# each other) — for these, a dated copy is fetched from the exact URL instead
+# each other), for these, a dated copy is fetched from the exact URL instead
 _dupe_names = set()
 _seen_names = set()
 for _m in json.load(open(os.path.join(HERE, "wp-data", "media.json"))):
@@ -221,7 +221,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
 .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);font-weight:700;margin-bottom:14px}
 .center{text-align:center}
 
-/* header — nav split around a centered logo, like the original site */
+/* header, nav split around a centered logo, like the original site */
 header.site{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .25s,box-shadow .25s;padding:0}
 header.site .bar{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
   gap:54px;padding:12px 32px}
@@ -540,6 +540,7 @@ form.nice label{display:block;font-weight:700;font-size:14.5px;margin:20px 0 7px
 form.nice input,form.nice textarea,form.nice select{width:100%;padding:12px 14px;border:1px solid #d5dade;
   border-radius:6px;font-family:var(--sans);font-size:15.5px;background:#fff;color:var(--ink)}
 form.nice input:focus,form.nice textarea:focus{outline:2px solid var(--gold)}
+form.nice input[type=checkbox]{width:auto;padding:0;margin:0;accent-color:var(--gold-dark);transform:scale(1.15)}
 form.nice textarea{min-height:130px;resize:vertical}
 form.nice .req::after{content:" *";color:#c0392b}
 form.nice button{margin-top:26px}
@@ -636,7 +637,7 @@ ICO_YT = '<svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6
 
 
 def link_icon(u):
-    """(icon svg, label) for a profile link — only the platforms a volunteer actually provided are shown."""
+    """(icon svg, label) for a profile link, only the platforms a volunteer actually provided are shown."""
     if u.startswith("mailto:"):
         return ICO_MAIL, "Email"
     h = re.sub(r"^https?://(www\.)?", "", u).split("/")[0].lower()
@@ -680,7 +681,7 @@ NAV = [
 
 def lang_switcher(fname):
     """EN / FR / ع links pointing at this page's siblings in the other languages."""
-    if fname == "404.html":  # no localized 404 pages — send to the homepages
+    if fname == "404.html":  # no localized 404 pages, send to the homepages
         fname = "index.html"
     out = []
     for code, d in LANG_DIRS.items():
@@ -936,7 +937,7 @@ def _clean_wp_content(c):
 NEWS = json.load(open(os.path.join(HERE, "ref", "news.json")))
 _WP_MODELS = json.load(open(os.path.join(HERE, "ref", "models.json")))
 
-# known full location strings — used to complete titles that Sketchfab stored truncated
+# known full location strings, used to complete titles that Sketchfab stored truncated
 _PLACES = ["Byrsa Hill, Carthage", "Roman Villas of Carthage", "Tophet of Salammbo, Carthage",
            "Tophet of Salammbo (Carthage)", "Baths of Antoninus", "Water Temple of Zaghouan",
            "Water Temple, Zaghouan", "Medina of Tunis", "Zawiya of Sidi Sahbi",
@@ -989,7 +990,7 @@ def author_slug(name):
 
 
 def creator_credit(sketchfab_user):
-    """(display name, profile href or None) for a Sketchfab creator — None if unknown/org account.
+    """(display name, profile href or None) for a Sketchfab creator, None if unknown/org account.
     Volunteers without a profile yet are credited by name from CREATORS['pending']."""
     slug = member_slug(sketchfab_user)
     if slug and slug in TEAM_BY_SLUG:
@@ -1101,7 +1102,7 @@ def person_record(name, role):
     extra = PEOPLE_EXTRA.get(slug) or next(
         (v for k, v in PEOPLE_EXTRA.items() if v["name"] == name), None) or {}
     body = extra.get("body", "")
-    # body starts with "Name Role bio..." — strip name/role prefix and icon junk
+    # body starts with "Name Role bio...", strip name/role prefix and icon junk
     bio = body
     for pre in (name, role, extra.get("name", "")):
         if pre and bio.lower().startswith(pre.lower()):
@@ -1203,7 +1204,7 @@ if os.path.exists(_upd_path):
 
 # ref/opportunity_updates.json records deadlines as "YYYY-MM-DD"; the older scraped
 # entries carry "September 14, 2026". Normalise to the display form so _dl_date below
-# can read every entry — an unparseable date reads as "no deadline", which would keep
+# can read every entry, an unparseable date reads as "no deadline", which would keep
 # a closed call on the board forever and print the raw ISO string on its card.
 import datetime as _dt
 
@@ -1276,7 +1277,7 @@ def _find_featured():
     return out or MODELS[:3]
 
 FEATURED = _find_featured()
-TRENDING = []  # (title, href, thumb-url) — filled after models/news known
+TRENDING = []  # (title, href, thumb-url), filled after models/news known
 _tr_models = [m for m in MODELS if "Punic Stela" in m["title"] or "Corinthian Capital" in m["title"]][:2]
 for m in _tr_models:
     TRENDING.append((m["title"], m["href"], m["img"]))
@@ -1289,49 +1290,49 @@ TRENDING = TRENDING[:4]
 
 # ---- recognition & press facts (verified 2026-09-12) ------------------------
 PRESS = [
-    {"k": "Award", "t": "Auggie Awards 2026 — Finalist, Best Societal Impact",
+    {"k": "Award", "t": "Auggie Awards 2026, Finalist, Best Societal Impact",
      "d": "Tanit XR was a finalist in the Best Societal Impact category at Augmented World Expo USA 2026, the XR industry's main awards, selected by public vote and expert review.",
      "u": "https://www.awexr.com/blog/1382-2026-auggie-awards-finalists-announced", "date": "June 2026", "anchor": "auggie"},
-    {"k": "Podcast", "t": "Voices of VR #1728 — Preserving Tunisian Cultural Heritage with Tanit XR",
+    {"k": "Podcast", "t": "Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR",
      "d": "Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.",
      "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices"},
-    {"k": "Talk", "t": "AWE USA 2026 — Speaker",
+    {"k": "Talk", "t": "AWE USA 2026, Speaker",
      "d": "Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.",
      "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe"},
-    {"k": "Video", "t": "Niantic Spatial — video interview with Nathan Bowser",
+    {"k": "Video", "t": "Niantic Spatial, video interview with Nathan Bowser",
      "d": "Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and the Scaniverse capture of the amphitheatre of El Jem; Niantic published the video on its channels.",
      "u": "press.html#niantic", "date": "2026", "anchor": "niantic"},
-    {"k": "Paper", "t": "El Jem Conference 2026 — Paper in English, French and Tunisian Arabic",
+    {"k": "Paper", "t": "El Jem Conference 2026, Paper in English, French and Tunisian Arabic",
      "d": "Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.",
      "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem"},
-    {"k": "Press", "t": "Al Jazeera — \"Tanit XR\": a non-profit platform documenting Tunisian heritage digitally (Arabic)",
+    {"k": "Press", "t": "Al Jazeera, \"Tanit XR\": a non-profit platform documenting Tunisian heritage digitally (Arabic)",
      "d": "Al Jazeera's culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia's sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.",
      "u": "https://www.aljazeera.net/culture/2025/10/12/%D8%AA%D8%A7%D9%86%D9%8A%D8%AA-%D8%A5%D9%83%D8%B3-%D8%A2%D8%B1-%D9%85%D9%86%D8%B5%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%B1%D8%A8%D8%AD%D9%8A%D8%A9-%D8%AA%D9%88%D8%AB%D9%82", "date": "October 12, 2025", "anchor": "aljazeera"},
-    {"k": "Exhibition", "t": "XR Women Museum — two exhibitions in FrameVR, curated by Paige Dansinger",
-     "d": "Tanit XR's work was shown in the XR Women Museum, including its \"Garden: In Full Bloom\" exhibition — an immersive museum of 30+ gallery worlds directed by Paige Dansinger.",
+    {"k": "Exhibition", "t": "XR Women Museum, two exhibitions in FrameVR, curated by Paige Dansinger",
+     "d": "Tanit XR's work was shown in the XR Women Museum, including its \"Garden: In Full Bloom\" exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.",
      "u": "https://framevr.io/xrwomenmuseum", "date": "2026", "anchor": "xrwomen"},
-    {"k": "Article", "t": "Carthage Magazine — Preserving Tunisia's Heritage Through Immersive Technology",
+    {"k": "Article", "t": "Carthage Magazine, Preserving Tunisia's Heritage Through Immersive Technology",
      "d": "Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.",
      "u": "https://carthagemagazine.com/tanit-xr-preserving-tunisias-heritage-through-immersive-technology/", "date": "2026", "anchor": "carthage"},
-    {"k": "Article", "t": "Medium / Women Write — Tanit XR: Preserving Tunisia's Heritage Through Immersive Technology",
+    {"k": "Article", "t": "Medium / Women Write, Tanit XR: Preserving Tunisia's Heritage Through Immersive Technology",
      "d": "Ines Said on why Tanit XR exists and where it is going, published in the Women Write collection.",
      "u": "https://medium.com/women-write/tanit-xr-preserving-tunisias-heritage-through-immersive-technology-c9238dab7675", "date": "2026", "anchor": "medium"},
-    {"k": "Event", "t": "ImmerseGT 2026 — Sponsored track at Georgia Tech's XR hackathon",
+    {"k": "Event", "t": "ImmerseGT 2026, Sponsored track at Georgia Tech's XR hackathon",
      "d": "We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.",
      "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt"},
-    {"k": "Partnership", "t": "TanitXR & the Unique Mappers — expanding to Nigeria",
+    {"k": "Partnership", "t": "TanitXR & the Unique Mappers, expanding to Nigeria",
      "d": "The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.",
      "u": "unique-mappers.html", "date": "2026", "anchor": "nigeria"},
 ]
 NIANTIC_EMBED = "https://www.linkedin.com/embed/feed/update/urn:li:activity:7488488682652495873"
 
 COMMUNITY_ACTS = [
-    ("📅", "Weekly community call — Thursdays, 12 pm Eastern", "Volunteers from Tunisia, the US, Europe and Nigeria meet every Thursday at 12 pm Eastern (5 pm Tunisia) to review scans, plan trips and help each other."),
-    ("🏛", "History lessons", "Short sessions on the sites and objects we scan — Carthage, the Tophet, the medina of Tunis — so every model comes with its story."),
+    ("📅", "Weekly community call, Thursdays, 12 pm Eastern", "Volunteers from Tunisia, the US, Europe and Nigeria meet every Thursday at 12 pm Eastern (5 pm Tunisia) to review scans, plan trips and help each other."),
+    ("🏛", "History lessons", "Short sessions on the sites and objects we scan, Carthage, the Tophet, the medina of Tunis, so every model comes with its story."),
     ("📱", "Splats With Phones workshop", "A 6-week course with Mark Jeffcock on capturing 3D models and Gaussian splats with a phone."),
     ("🤝", "Mentoring & interview prep", "Portfolio reviews, mock interviews and career advice for students and early-career volunteers."),
     ("🎤", "Events & conferences", "We speak, exhibit and sponsor: AWE, the El Jem conference, ImmerseGT at Georgia Tech, and more."),
-    ("🌍", "Cultural exchange", "Volunteers who have never been to Tunisia learn its history while modeling lamps, pottery and plants for our virtual museum — and we learn about theirs."),
+    ("🌍", "Cultural exchange", "Volunteers who have never been to Tunisia learn its history while modeling lamps, pottery and plants for our virtual museum, and we learn about theirs."),
 ]
 COMMUNITY_PHOTOS = ["sv-IMG_1315.jpg", "aug-PXL_0814_112926.jpg", "sv-IMG_4213.jpg",
                     "aug-PXL_0809_170720.jpg", "sv-IMG_8547.jpg"]
@@ -1355,7 +1356,7 @@ def subscribe_form(dark=True):
             f'<button class="btn btn-gold" type="submit" style="margin-top:0">Subscribe Free</button></div>{boxes}</form>')
 
 def recognition_strip():
-    """Press/recognition logo row (grayscale, colour on hover) — like the original site's partner strip."""
+    """Press/recognition logo row (grayscale, colour on hover), like the original site's partner strip."""
     items = [
         ("awe.svg", "AWE · Auggie Awards 2026", "Finalist, Best Societal Impact", PRESS[0]["u"]),
         ("voicesofvr.png", "Voices of VR", "Episode #1728", PRESS[1]["u"]),
@@ -1369,7 +1370,7 @@ def recognition_strip():
         ext = ' target="_blank" rel="noopener"' if u.startswith("http") else ""
         mark = (f'<img src="{img(fn, 400, as_jpeg=False)}" alt="{esc(name)}" loading="lazy">' if fn
                 else f'<span class="wordmark">{esc(name)}</span>')
-        out += f'<a href="{u}"{ext} title="{esc(name)} — {esc(sub)}">{mark}<span class="cap">{sub}</span></a>'
+        out += f'<a href="{u}"{ext} title="{esc(name)}, {esc(sub)}">{mark}<span class="cap">{sub}</span></a>'
     return f'<div class="logos">{out}</div>'
 
 
@@ -1399,8 +1400,8 @@ def funding_band():
 <section class="band pad" id="funding"><div class="wrap">
 <div class="eyebrow">How we're funded</div>
 <h2 class="sec-title">Honest numbers</h2>
-<p class="sec-sub" style="margin:0;max-width:760px">Tanit XR is run entirely by volunteers. So far most costs — travel to
-sites, tools, hosting, hackathon prizes — have been paid out of pocket by our founders, plus a few individual donations
+<p class="sec-sub" style="margin:0;max-width:760px">Tanit XR is run entirely by volunteers. So far most costs, travel to
+sites, tools, hosting, hackathon prizes, have been paid out of pocket by our founders, plus a few individual donations
 through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).
 We are applying for grants and building partnerships to change that. Donations keep the community running: hosting,
 volunteer hours, optimizing and publishing models, the virtual museum, scanning and site clean-up days, our free course
@@ -1408,7 +1409,7 @@ and workshops, and better equipment. Here is what a donation does:</p>
 <div class="money">
 <div><b>$25</b><span>A scanning day for a volunteer: transport, mobile data for uploads, backups.</span></div>
 <div><b>$50</b><span>A month of hosting and tools for the archive and the volunteers who optimize models.</span></div>
-<div><b>$250</b><span>A free workshop or course session for the community — Splats With Phones, history lessons, mentoring.</span></div>
+<div><b>$250</b><span>A free workshop or course session for the community, Splats With Phones, history lessons, mentoring.</span></div>
 <div><b>$1,000</b><span>Toward the virtual museum and, one day, a professional scanner like the XGRIDS PortalCam.</span></div>
 </div>
 <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
@@ -1431,7 +1432,7 @@ def build_home():
          "Weekly community calls, history lessons on the sites we scan, and the Splats With Phones workshop.",
          "Join the community", "community.html"),
         ("volunteer.png", "Mentor &amp; Grow",
-         "Interview prep, portfolio reviews and mentoring for students and early-career volunteers — across four continents.",
+         "Interview prep, portfolio reviews and mentoring for students and early-career volunteers, across four continents.",
          "Volunteer with us", "volunteer.html"),
         ("research.png", "Research &amp; Share",
          "Papers, conference talks, podcasts and hackathon tracks. We publish what we learn.",
@@ -1485,17 +1486,17 @@ def build_home():
 <div class="in">
 <h1>Preserving Heritage</h1>
 <p>A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to
-life in AR and VR — and learning from each other along the way.</p>
+life in AR and VR, and learning from each other along the way.</p>
 <div class="ctas"><a class="btn btn-gold" href="community.html">Join the Community</a>
 <a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
 </div></div>
 
 <section class="pad"><div class="wrap center" style="max-width:860px">
 <div class="eyebrow">More than an archive</div>
-<h2 class="sec-title">One phone, the ruins of Carthage — and now a community</h2>
+<h2 class="sec-title">One phone, the ruins of Carthage, and now a community</h2>
 <p class="sec-sub" style="margin:0;font-size:18px">Tanit XR started with a phone and the ruins Ines grew up next to.
 Today, volunteers in Tunisia, the US, Europe and Nigeria meet every week to scan, optimize, teach each other history,
-mentor students and publish research — building a free 3D archive of Tunisia’s heritage, and a model for other
+mentor students and publish research, building a free 3D archive of Tunisia’s heritage, and a model for other
 under-represented regions.</p>
 </div></section>
 
@@ -1530,7 +1531,7 @@ under-represented regions.</p>
 review each other’s scans, learn the history behind them, run workshops, prepare students for interviews, share
 Tunisian culture, and celebrate wins together.</p>
 <ul style="color:var(--gray);line-height:1.9;padding-left:20px;margin-bottom:26px">
-<li>Weekly community call — Thursdays, 12 pm Eastern</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
+<li>Weekly community call, Thursdays, 12 pm Eastern</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
 <li>Mentoring &amp; interview prep</li><li>Events, talks &amp; hackathons</li><li>Cultural exchange</li></ul>
 <a class="btn btn-gold" href="community.html">See how the community works</a>
 &nbsp; <a class="btn btn-line" href="volunteer.html">Volunteer</a>
@@ -1559,11 +1560,11 @@ virtual museum. Press <b>View in 3D</b> to spin one around right here.</p>
 <h2 class="sec-title">Climate is rewriting the coastline</h2>
 <h3>Storm Harry, January 2026</h3>
 <p>The storm stripped sediment off the coast at Nabeul and exposed parts of Neapolis, an ancient city lost to a
-tsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D — a record that
+tsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D, a record that
 exists no matter what the sea does next.</p>
 <h3>A lasting record</h3>
 <p>Floods, storms and heat are accelerating erosion across Tunisia’s sites. Every scan is a permanent, open record:
-even if the physical site is lost, the digital memory survives — for schools, museums and future generations.</p>
+even if the physical site is lost, the digital memory survives, for schools, museums and future generations.</p>
 <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
 <a class="btn btn-gold" href="news/storm-harry-neapolis-and-a-digital-moment-of-preservation.html">Read the Neapolis story</a>
 <a class="btn btn-line" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a></div>
@@ -1580,7 +1581,7 @@ even if the physical site is lost, the digital memory survives — for schools, 
 <div class="wrap">
 <div class="eyebrow">Where we’re going</div>
 <h2 class="sec-title">Tunisia is the pilot</h2>
-<p class="sec-sub" style="margin:0;max-width:760px">The method — phones, volunteers, open data — works anywhere heritage is
+<p class="sec-sub" style="margin:0;max-width:760px">The method, phones, volunteers, open data, works anywhere heritage is
 under-documented. In 2026 the Unique Mappers Network began scanning in Nigeria with a mini-grant from our fiscal
 sponsor. If you want to bring this to your region, talk to us.</p>
 <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
@@ -1609,7 +1610,7 @@ across Tunisia and the world.</p>
 <div class="eyebrow">Newsletter</div>
 <h2 class="sec-title" style="font-size:30px">Opportunities and news, in your inbox</h2>
 <p class="sec-sub" style="margin:0 0 20px">Grants, residencies and open calls for artists and XR creators every one to two
-weeks — only things we’d apply to ourselves — plus occasional Tanit XR news. Free, unsubscribe any time.</p>
+weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Free, unsubscribe any time.</p>
 {subscribe_form(dark=False)}
 </div></section>
 
@@ -1623,8 +1624,8 @@ weeks — only things we’d apply to ourselves — plus occasional Tanit XR new
 
 def build_community():
     steps = [
-        ("Fill the volunteer form", "Tell us what you like doing — scanning, 3D, writing, design, research, teaching."),
-        ("Join Slack and the Thursday call", "A member of the team welcomes you, and you meet everyone on the next call — Thursdays at 12 pm Eastern."),
+        ("Fill the volunteer form", "Tell us what you like doing, scanning, 3D, writing, design, research, teaching."),
+        ("Join Slack and the Thursday call", "A member of the team welcomes you, and you meet everyone on the next call, Thursdays at 12 pm Eastern."),
         ("Pick a first task", "Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip."),
         ("Once accepted, create your profile", "Accepted volunteers get their own page here: your scans, models and articles are credited to you."),
     ]
@@ -1680,14 +1681,14 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 &nbsp; <a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a>
 </div></section>"""
     page("community.html", "Community", body, active="volunteer.html",
-         desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria — scanning, learning history, mentoring and building a free 3D archive.")
+         desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria, scanning, learning history, mentoring and building a free 3D archive.")
 
 
 # volunteers building the virtual museum (from Slack #vr-app / #volunteer-updates, Sept 2026) and Julia's recorded lessons
 MUSEUM_BUILDERS = "Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam K. (narrative and thematic brief), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
 HISTORY_LESSONS = [
     ("First Phoenicians and Tyrian Purple Origins", "July 31, 2026", "https://www.loom.com/share/e4717da8892544bca7b7aff597e27407"),
-    ("Mini history lesson 2 — Carthage's craft quarters", "August 6, 2026", "https://www.loom.com/share/53d0a3afb9b14734a9c4b643d4f15b6e"),
+    ("Mini history lesson 2, Carthage's craft quarters", "August 6, 2026", "https://www.loom.com/share/53d0a3afb9b14734a9c4b643d4f15b6e"),
     ("Mini history lesson 3", "August 18, 2026", "https://www.loom.com/share/27ad26874ff84c1d95be7a2a2f42bedd"),
 ]
 
@@ -1713,8 +1714,8 @@ def build_museum():
 <p class="sec-sub" style="margin:0">The first community-led virtual museum of Tunisian heritage. Every artifact inside was
 scanned in Tunisia by our volunteers and optimized by volunteers around the world; the rooms are modeled by hand so
 anyone in the community can build a new one. Built in Unity with photogrammetry and Gaussian splats. Still in
-progress — this is what it looks like today.</p>
-<p style="color:var(--gray);font-size:14.5px;margin-top:14px">Built so far by {MUSEUM_BUILDERS} — coordinated on the Thursday call.</p></div>
+progress, this is what it looks like today.</p>
+<p style="color:var(--gray);font-size:14.5px;margin-top:14px">Built so far by {MUSEUM_BUILDERS}, coordinated on the Thursday call.</p></div>
 <video class="vid" controls preload="none" playsinline poster="{img('museum-domed-hall-fountain.jpg', 1400)}"
 src="{vid('museum-walkthrough-06.mp4')}"></video>
 <p class="center" style="color:var(--gray);font-size:14px;margin-top:10px">Walkthrough recorded in the Unity editor, March 2026.</p>
@@ -1729,11 +1730,11 @@ src="{vid('museum-walkthrough-06.mp4')}"></video>
 <div class="center"><div class="eyebrow">How it works</div>
 <h2 class="sec-title">Rooms you can walk through, objects you can get close to</h2></div>
 <div class="acts">
-<div class="act"><div class="ic">🏛</div><b>Real artifacts</b><p>Punic stelae, Roman statues and mosaics, doors and tilework from the medina — the same scans you find in our open archive, placed life-size.</p></div>
+<div class="act"><div class="ic">🏛</div><b>Real artifacts</b><p>Punic stelae, Roman statues and mosaics, doors and tilework from the medina, the same scans you find in our open archive, placed life-size.</p></div>
 <div class="act"><div class="ic">🧩</div><b>Modular rooms</b><p>Walls, arches and courtyards are built from a kit of pre-made pieces designed by Patrick Molen, so volunteers can puzzle together a new gallery without starting from scratch.</p></div>
-<div class="act"><div class="ic">🎧</div><b>Sound from the sites</b><p>Ambient sound recorded at the real places — wind, footsteps, echoes — so each gallery feels different.</p></div>
+<div class="act"><div class="ic">🎧</div><b>Sound from the sites</b><p>Ambient sound recorded at the real places, wind, footsteps, echoes, so each gallery feels different.</p></div>
 <div class="act"><div class="ic">🧭</div><b>A guide</b><p>Nura, a guide character modeled in Blender, walks with you and tells the story behind each object. Her narrated tour, “Before It’s Gone,” is being written now.</p></div>
-<div class="act"><div class="ic">🕶</div><b>Headset, browser, phone</b><p>Planned for Viverse so it runs cross-platform — in VR, and as a scroll-to-walk version in any browser for classrooms.</p></div>
+<div class="act"><div class="ic">🕶</div><b>Headset, browser, phone</b><p>Planned for Viverse so it runs cross-platform, in VR, and as a scroll-to-walk version in any browser for classrooms.</p></div>
 <div class="act"><div class="ic">🏺</div><b>Made by the community</b><p>Lamps, pottery and plants modeled by volunteers furnish the rooms. Optimized scans keep it light enough for phones.</p></div>
 </div>
 </div></section>
@@ -1745,7 +1746,7 @@ src="{vid('museum-walkthrough-06.mp4')}"></video>
 <div><img src="{img('museum-progress-jan-2026.jpg', 800)}" alt="" loading="lazy"><b>January 2026</b><p>First courtyard and corridor blocked out; scanned statues placed.</p></div>
 <div><img src="{img('museum-hall-arches.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Domed hall with striped arches, tiled floors, fountain and lighting.</p></div>
 <div><img src="{img('museum-courtyard-pool.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Courtyard with pool, terraces and the sculpted canopy.</p></div>
-<div><img src="{img('museum-second-room-greybox.jpg', 800)}" alt="" loading="lazy"><b>August 2026</b><p>Second wing under construction — colonnade and galleries in greybox.</p></div>
+<div><img src="{img('museum-second-room-greybox.jpg', 800)}" alt="" loading="lazy"><b>August 2026</b><p>Second wing under construction, colonnade and galleries in greybox.</p></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:34px">
 <div><video class="vid" controls preload="none" playsinline poster="{img('museum-hall-arches.jpg', 1000)}" src="{vid('museum-walkthrough-03.mp4')}"></video>
@@ -1773,7 +1774,7 @@ building this on Thursday calls. Donations pay for the tools and hosting that ge
 &nbsp; <a class="btn btn-line-light" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 </div></section>"""
     page("museum.html", "Virtual Museum", body, active="archive.html",
-         desc="The first community-led virtual museum of Tunisian heritage — real scans placed in rooms built by volunteers in Unity. Walkthroughs, progress and how to help.")
+         desc="The first community-led virtual museum of Tunisian heritage, real scans placed in rooms built by volunteers in Unity. Walkthroughs, progress and how to help.")
 
 
 def build_services():
@@ -1781,13 +1782,13 @@ def build_services():
     services = [
         ("🎓", "Workshops & training",
          "Phone-scanning workshops and sessions on XR for heritage and community-driven documentation, delivered by "
-         "our leadership team — in person in Tunisia and the US, or online.",
+         "our leadership team, in person in Tunisia and the US, or online.",
          "For schools, universities, museums, NGOs and companies; from a two-hour intro to a multi-day program. We "
          "have been asked to train groups of 200.",
          "Free for student groups and grassroots organizations · contracted delivery for institutions"),
         ("🎤", "Talks & consulting",
          "Keynotes, panels and workshops on XR for heritage, phone-based reality capture and building a volunteer "
-         "community — and help for organizations that want to replicate the Tanit XR model in their region.",
+         "community, and help for organizations that want to replicate the Tanit XR model in their region.",
          "For conferences, universities, companies and heritage organizations. Our founder has spoken at AWE USA "
          "2026 and the El Jem conference; our method is being replicated in Nigeria.",
          "Speaking fees and consulting rates on request"),
@@ -1815,9 +1816,9 @@ def build_services():
 <div class="center" style="max-width:820px;margin:0 auto 40px">
 <div class="eyebrow">Work with us</div>
 <h2 class="sec-title">Work with the Tanit XR team</h2>
-<p class="sec-sub" style="margin:0">A few things our leadership team can do for organizations — never our
+<p class="sec-sub" style="margin:0">A few things our leadership team can do for organizations, never our
 volunteers’ work, which is not for sale. Grassroots heritage and community groups get our help for free; institutions,
-companies and funders pay a low rate that goes straight back into the community — hosting, tools, training and
+companies and funders pay a low rate that goes straight back into the community, hosting, tools, training and
 scanning days.</p></div>
 <div class="acts" style="margin-top:0">{cards}</div>
 </div></section>
@@ -1830,14 +1831,14 @@ scanning days.</p></div>
 <div class="steps" style="grid-template-columns:1fr">
 <div><b>Tell us what you need</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">A few lines about your objects, audience or event, your timeline and where you are.</p></div>
 <div><b>We scope it together</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">A short call with our team. We tell you what is free, what has a rate, and what our volunteers can realistically deliver.</p></div>
-<div><b>You get the work — and the community gets funded</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">Invoices go through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3)).</p></div>
+<div><b>You get the work, and the community gets funded</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">Invoices go through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3)).</p></div>
 </div>
 </div>
 <div>
 <div class="eyebrow">Get in touch</div>
 <h2 class="sec-title">Partner with us</h2>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
-<input type="hidden" name="_subject" value="Services inquiry — tanitxr.org">
+<input type="hidden" name="_subject" value="Services inquiry, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
@@ -1856,12 +1857,12 @@ scanning days.</p></div>
 
 <section class="band pad"><div class="wrap center">
 <div class="eyebrow">Prefer to give?</div>
-<h2 class="sec-title">Every service funds the community — so does every donation</h2>
+<h2 class="sec-title">Every service funds the community, so does every donation</h2>
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 &nbsp; <a class="btn btn-line-light" href="index.html#funding">How we’re funded</a>
 </div></section>"""
     page("services.html", "Services", body, active="about.html",
-         desc="Work with the Tanit XR team: workshops and training, talks and consulting, sharing opportunities and hackathon tracks — free for grassroots groups, low rates for institutions. Our volunteers’ work is never for sale.")
+         desc="Work with the Tanit XR team: workshops and training, talks and consulting, sharing opportunities and hackathon tracks, free for grassroots groups, low rates for institutions. Our volunteers’ work is never for sale.")
 
 
 def build_press():
@@ -1890,20 +1891,20 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
 </div>
 <h2 class="sec-title" style="font-size:30px;margin:46px 0 18px">Media kit</h2>
 <div class="press">
-<a href="assets/pdf/TanitXR_One-Pager_English-French-Arabic.pdf" target="_blank" rel="noopener"><div class="k">PDF</div><h3>One-pager (EN / FR / AR)</h3><p>Who we are, what we do, how to help — one page in three languages.</p></a>
-<a href="{img('tanitxr-logo_red_vertical.png', 1200, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo — vertical</h3><p>Transparent background, red mark.</p></a>
-<a href="{img('tanitxr-logo_red_horizontal.png', 1600, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo — horizontal</h3><p>Transparent background, red mark.</p></a>
+<a href="assets/pdf/TanitXR_One-Pager_English-French-Arabic.pdf" target="_blank" rel="noopener"><div class="k">PDF</div><h3>One-pager (EN / FR / AR)</h3><p>Who we are, what we do, how to help, one page in three languages.</p></a>
+<a href="{img('tanitxr-logo_red_vertical.png', 1200, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo, vertical</h3><p>Transparent background, red mark.</p></a>
+<a href="{img('tanitxr-logo_red_horizontal.png', 1600, as_jpeg=False)}" target="_blank" rel="noopener"><div class="k">PNG</div><h3>Logo, horizontal</h3><p>Transparent background, red mark.</p></a>
 </div>
 </div></section>
 <section class="band pad"><div class="wrap center">
 <div class="eyebrow">Support the work</div>
-<h2 class="sec-title">Volunteer-run, founder-funded — so far</h2>
+<h2 class="sec-title">Volunteer-run, founder-funded, so far</h2>
 <p class="sec-sub" style="color:rgba(255,255,255,.85)">Our recognition came before our funding. Help us change that.</p>
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 &nbsp; <a class="btn btn-line-light" href="index.html#funding">How we’re funded</a>
 </div></section>"""
     page("press.html", "Press & Recognition", body, active="about.html",
-         desc="Awards, talks, podcasts, articles and papers about Tanit XR — including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.")
+         desc="Awards, talks, podcasts, articles and papers about Tanit XR, including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.")
 
 
 
@@ -1923,11 +1924,11 @@ def build_archive():
 {page_hero("Explore the Tanit XR Archive", "Archive", bg="aug-20260813_124249.jpg")}
 <section class="pad"><div class="wrap">
 <p class="sec-sub" style="margin:0 0 30px">A free, growing library of 3D scans of Tunisia’s endangered
-heritage — mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored
+heritage, mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored
 interactively, and viewed in augmented reality on your phone.</p>
 <div class="arch-index">
 <a class="ix" href="#grid"><b>{len(MODELS)}</b><span><strong>heritage scans</strong>
-Photogrammetry records of statues, mosaics, stelae and ruins — preservation quality, with game-ready twins.</span></a>
+Photogrammetry records of statues, mosaics, stelae and ruins, preservation quality, with game-ready twins.</span></a>
 <a class="ix gold" href="#volunteer-made"><b>{len(VOLUNTEER_MADE)}</b><span><strong>models made by our volunteers</strong>
 Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum. Click to explore in 3D.</span></a>
 </div>
@@ -1975,18 +1976,18 @@ def _volunteer_made_section():
 <section class="pad" style="background:var(--cloud)" id="volunteer-made"><div class="wrap">
 <div class="center"><div class="eyebrow">🏺 Made by our volunteers</div>
 <h2 class="sec-title">Recreated by hand, for VR &amp; learning</h2>
-<p class="sec-sub">Beyond photogrammetry scans, our volunteers model Tunisian objects — pottery, lamps,
-tilework, everyday heritage — from scratch, for our virtual museum and community projects.</p></div>
+<p class="sec-sub">Beyond photogrammetry scans, our volunteers model Tunisian objects, pottery, lamps,
+tilework, everyday heritage, from scratch, for our virtual museum and community projects.</p></div>
 <div class="cards">{cards}</div></div></section>"""
 
 
-MANUAL_CONTRIB = {  # work Sketchfab can't record — confirmed by Ines
+MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
     "ana-beatriz-vega-gonzalez": [  # "Bety" on Slack
         ("built", "Scanning & optimization guide for volunteers (with Rachel West and Nick Kaufmann)", "scanning-guide.html", None, "sv-IMG_4213.jpg"),
         ("built", "Social media videos for Tanit XR", "community.html", None, "aug-PXL_0814_112926.jpg"),
     ],
     "patrick-molen": [
-        ("built", "Virtual museum — the original room and the modular building kit", "museum.html", None, "museum-progress-jan-2026.jpg"),
+        ("built", "Virtual museum, the original room and the modular building kit", "museum.html", None, "museum-progress-jan-2026.jpg"),
         ("built", "Tutorial videos for volunteers", "community.html", None, "museum-hall-arches.jpg"),
         ("built", "Mentoring students", "community.html", None, "sv-IMG_1315.jpg"),
     ],
@@ -2017,10 +2018,10 @@ def build_model_pages():
 <div style="margin-top:56px;padding-top:34px;border-top:2px solid var(--gold)">
 <div class="eyebrow">🎮 Game-ready version</div>
 <p style="color:#3c454c;max-width:760px">The scan above is our full-detail <b>preservation record</b>.
-This optimized version is light enough for real-time use — game engines, WebXR, VR, and community
+This optimized version is light enough for real-time use, game engines, WebXR, VR, and community
 projects. Build something with it.</p>
 <iframe class="embed" src="https://sketchfab.com/models/{gr}/embed?ui_theme=dark"
-title="{esc(m["title"])} — game-ready 3D model" allow="autoplay; fullscreen; xr-spatial-tracking"
+title="{esc(m["title"])}, game-ready 3D model" allow="autoplay; fullscreen; xr-spatial-tracking"
 allowfullscreen loading="lazy"></iframe>
 <p style="margin-top:16px"><a class="btn btn-gold" href="https://sketchfab.com/3d-models/{gr}"
 target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
@@ -2062,7 +2063,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 </div>
 {gr_html}
 <p style="margin-top:26px;padding:16px 20px;background:var(--cloud);border-radius:10px;font-size:14.5px;color:var(--gray)">
-🤝 This scan exists because of volunteers — from scanning on site to cleanup and research.
+🤝 This scan exists because of volunteers, from scanning on site to cleanup and research.
 <a href="volunteer.html" style="color:var(--gold-dark);font-weight:700">Join us →</a></p>
 <div style="display:flex;justify-content:space-between;margin-top:44px;padding-top:22px;border-top:1px solid var(--mist);font-size:14.5px">
 <a href="{prev_m['href']}" style="text-decoration:none;color:var(--gray)">← {esc(prev_m['title'][:40])}</a>
@@ -2253,10 +2254,10 @@ def build_opportunities():
     # permanent house listing: volunteering with Tanit XR is always open
     data.insert(0, {
         "id": "volunteer-with-tanit-xr", "tx": 1,
-        "t": "Volunteer with Tanit XR — Preserve Heritage in 3D & XR",
+        "t": "Volunteer with Tanit XR, Preserve Heritage in 3D & XR",
         "d": "Tanit XR is powered by volunteers: 3D scanning, model cleanup, XR development, "
              "historical research, writing, translation, and storytelling. Join from Tunisia or "
-             "anywhere in the world — all experience levels welcome, fully remote friendly.",
+             "anywhere in the world, all experience levels welcome, fully remote friendly.",
         "ty": "Volunteer", "el": ["Open to all"], "rg": "Global", "co": "", "md": "Remote",
         "dt": "Rolling", "dd": None, "pub": _dt.date.today().isoformat(), "u": "../volunteer/",
     })
@@ -2269,7 +2270,7 @@ def build_opportunities():
 {page_hero("Art, XR &amp; Impact Opportunities", "Art, XR &amp; Impact Opportunities", bg="aug-PXL_0811_150245.jpg")}
 <section class="pad"><div class="wrap">
 <p class="sec-sub" style="margin:0 0 26px;max-width:860px">A curated board of grants, residencies, fellowships, open calls,
-and events for artists, XR creators, educators, students, and changemakers — updated regularly by the
+and events for artists, XR creators, educators, students, and changemakers, updated regularly by the
 Tanit XR team. Also published as our
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
 target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newsletter</a>.</p>
@@ -2291,10 +2292,10 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 <div class="eyebrow">Newsletter</div>
 <h2 class="sec-title" style="font-size:30px">Never miss a deadline</h2>
 <p style="margin-bottom:22px">Get new grants, residencies, and open calls for art, XR &amp; impact in your
-inbox — free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is
+inbox, free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is
 going.</p>
 {subscribe_form()}
-<p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">No spam — opportunities and Tanit XR
+<p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">No spam, opportunities and Tanit XR
 news only. Also published on
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
 target="_blank" rel="noopener" style="color:var(--gold)">LinkedIn</a>.</p>
@@ -2303,10 +2304,10 @@ target="_blank" rel="noopener" style="color:var(--gold)">LinkedIn</a>.</p>
 
 <div style="margin-top:26px;background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:36px 34px">
 <h2 class="sec-title" style="font-size:28px">Know an opportunity we should feature?</h2>
-<p style="color:var(--gray);margin-bottom:6px">Send it our way — if it's a fit, it will appear on this board
+<p style="color:var(--gray);margin-bottom:6px">Send it our way, if it's a fit, it will appear on this board
 and in the newsletter.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
-<input type="hidden" name="_subject" value="Opportunity submission — tanitxr.org">
+<input type="hidden" name="_subject" value="Opportunity submission, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="oname">Opportunity name</label>
@@ -2483,11 +2484,11 @@ opportunities.</p>
 &nbsp; <a class="btn btn-line" href="scanning-guide.html">Read the Scanning Guide</a>
 </div>
 <figure class="infographic"><img src="{img('Volunteer-Page-English-2.png', 1600, as_jpeg=False)}"
-alt="Tanit XR — Volunteer to help protect global heritage. Cultural memory powered by volunteers and digital technology." loading="lazy"></figure>
+alt="Tanit XR, Volunteer to help protect global heritage. Cultural memory powered by volunteers and digital technology." loading="lazy"></figure>
 <div class="center" style="margin-top:80px"><div class="eyebrow">🏺 What our volunteers create</div>
 <h2 class="sec-title">From a phone scan to a museum-ready model</h2>
 <p class="sec-sub">Volunteers scan sites on the ground, optimize models for VR, write articles, and model heritage
-objects by hand — like these.</p></div>
+objects by hand, like these.</p></div>
 <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">{volunteer_made_cards(3)}</div>
 <p class="center" style="margin-top:26px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a></p>
 <h2 class="sec-title" style="margin-top:70px">Frequently Asked Questions</h2>
@@ -2509,12 +2510,12 @@ def build_create_profile():
 {page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile', bg="sv-IMG_8034.jpg")}
 <section class="pad"><div class="wrap" style="max-width:760px">
 <div class="notice" style="margin:0 0 22px"><b>For accepted Tanit XR volunteers only.</b> Not a volunteer yet? Start with the
-<a href="volunteer.html" style="color:var(--gold-dark)">volunteer interest form</a> — profiles are created after you join.</div>
+<a href="volunteer.html" style="color:var(--gold-dark)">volunteer interest form</a>, profiles are created after you join.</div>
 <p class="sec-sub" style="margin:0 0 8px">Already volunteering with Tanit XR? Submit your profile and, once
 approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-dark)">Our People</a>
 page.</p>
 <form class="nice" action="{PROFILE_ENDPOINT}" method="POST">
-<input type="hidden" name="_subject" value="New volunteer profile submission — tanitxr.org">
+<input type="hidden" name="_subject" value="New volunteer profile submission, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
@@ -2527,7 +2528,7 @@ page.</p>
 <label for="pphoto">Photo (link)</label>
 <input id="pphoto" name="photo_url" type="url" placeholder="Link to a headshot (Google Drive, Dropbox, LinkedIn photo…)">
 <div class="hint">Or simply reply with a photo attached when we email you back.</div>
-<div class="hint" style="margin-top:22px"><b>Links — all optional.</b> Only the ones you add appear on your profile, as icons.</div>
+<div class="hint" style="margin-top:22px"><b>Links, all optional.</b> Only the ones you add appear on your profile, as icons.</div>
 <label for="plink1">LinkedIn</label>
 <input id="plink1" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/…">
 <label for="plink2">Instagram</label>
@@ -2544,7 +2545,7 @@ page.</p>
 <input id="pshowmail" name="public_email" type="email" placeholder="Leave empty to keep your email private">
 <label class="req" for="pemail">Email</label>
 <input id="pemail" name="email" type="email" required>
-<div class="hint">Used only to contact you about your profile — it is not published.</div>
+<div class="hint">Used only to contact you about your profile, it is not published.</div>
 <button class="btn btn-gold" type="submit">Submit Profile</button>
 </form>
 </div></section>"""
@@ -2568,11 +2569,11 @@ artifacts for a global digital heritage archive.</li>
 or community meaning.</p>
 <p><b>Good things to scan include:</b></p>
 <ul>
-<li><b>Architecture and ruins</b> — doors, arches, columns, facades, walls, courtyards, tombs, monuments, and historic homes</li>
-<li><b>Objects and artifacts</b> — pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items</li>
-<li><b>Small details</b> — patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements</li>
-<li><b>Everyday heritage</b> — bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces</li>
-<li><b>At-risk heritage</b> — places or objects threatened by weather, neglect, development, conflict, theft, or loss of memory</li>
+<li><b>Architecture and ruins</b>, doors, arches, columns, facades, walls, courtyards, tombs, monuments, and historic homes</li>
+<li><b>Objects and artifacts</b>, pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items</li>
+<li><b>Small details</b>, patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements</li>
+<li><b>Everyday heritage</b>, bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces</li>
+<li><b>At-risk heritage</b>, places or objects threatened by weather, neglect, development, conflict, theft, or loss of memory</li>
 </ul>
 <p><b>Before scanning, ask:</b></p>
 <ul>
@@ -2599,13 +2600,13 @@ people connected to it. Examples:</p>
 practices it, where it happens, how you learned about it, why it matters, and any story, memory, or quote
 that should go with the scan.</p>
 <p><b>Always get permission</b> before recording people, private spaces, ceremonies, sacred practices, or
-personal stories. Tanit XR is not just preserving objects — we are preserving the worlds, memories, and
+personal stories. Tanit XR is not just preserving objects, we are preserving the worlds, memories, and
 meanings around them.</p>
 <h3>🧱 Step-by-Step Scanning Instructions</h3>
 <h4>1. Open Scaniverse</h4>
 <ul>
 <li>Tap the “+” button to start a new scan.</li>
-<li>Choose <b>“Mesh”</b> (not “Splat”) — this is what we need for Tanit XR.</li>
+<li>Choose <b>“Mesh”</b> (not “Splat”), this is what we need for Tanit XR.</li>
 <li>Select the size of your object: <b>Small Object</b> (pottery, carvings, statues), <b>Medium Object</b>
 (doors, columns, mosaics), or <b>Large Area</b> (facades, walls, monuments).</li>
 </ul>
@@ -2619,7 +2620,7 @@ meanings around them.</p>
 <h4>3. Save Without Processing (Important!)</h4>
 <ul>
 <li>If you’re outside and don’t have strong Wi-Fi or data, tap <b>“Save to process later.”</b></li>
-<li>Processing uses a lot of data — it’s best to wait until you’re home with Wi-Fi.</li>
+<li>Processing uses a lot of data, it’s best to wait until you’re home with Wi-Fi.</li>
 </ul>
 <h3>🗂️ Processing and Exporting</h3>
 <h4>4. Back at Home: Process Your Scan</h4>
@@ -2642,8 +2643,8 @@ For large files, share a Google Drive, Dropbox, or WeTransfer link.</p>
 <ul>
 <li>Scan slowly and steadily</li>
 <li>Avoid people or shadows in your scan</li>
-<li>Focus on texture and angles — walk around the object fully</li>
-<li>Natural daylight is good, but harsh sun causes glare — avoid scanning at noon</li>
+<li>Focus on texture and angles, walk around the object fully</li>
+<li>Natural daylight is good, but harsh sun causes glare, avoid scanning at noon</li>
 </ul>
 </div></div></section>"""
     page("scanning-guide.html", "Tanit XR Scanning Guide", body, active="volunteer.html")
@@ -2669,7 +2670,7 @@ motivation. More details are shared with accepted participants.</p>
 <div class="prose" id="apply">
 <h2>Apply for the next cohort</h2>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
-<input type="hidden" name="_subject" value="Splats With Phones application — tanitxr.org">
+<input type="hidden" name="_subject" value="Splats With Phones application, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
@@ -2681,10 +2682,10 @@ motivation. More details are shared with accepted participants.</p>
 <label class="req" for="sp-bio">Short Bio</label>
 <textarea id="sp-bio" name="bio" rows="4" placeholder="What you do, what you are studying, or any communities or projects you are involved in." required></textarea>
 <label class="req" for="sp-exp">Experience Level</label>
-<select id="sp-exp" name="experience" required><option value="">Any level is welcome — pick one</option>
+<select id="sp-exp" name="experience" required><option value="">Any level is welcome, pick one</option>
 <option>None yet</option><option>Beginner</option><option>Some experience</option><option>Advanced</option></select>
 <label class="req" for="sp-att">Attendance Commitment</label>
-<select id="sp-att" name="attendance" required><option value="">This course is live and interactive — pick one</option>
+<select id="sp-att" name="attendance" required><option value="">This course is live and interactive, pick one</option>
 <option>Yes, I can attend at least 5 of 6 sessions</option><option>Not sure yet</option></select>
 <label for="sp-more">Anything else you want us to know?</label>
 <textarea id="sp-more" name="more" rows="3" placeholder="Anything that might help us better understand you or your availability."></textarea>
@@ -2870,7 +2871,7 @@ nonprofit. This partnership allows us to accept tax-deductible donations while w
 fully independent nonprofit organization.</p>
 <p>Our mission is to preserve Tunisia’s endangered heritage through digital scans, immersive technology, and
 education. With every artifact we scan and every volunteer we train, we are proving that heritage can be
-safeguarded for future generations — no matter the threats of climate change and neglect.</p>
+safeguarded for future generations, no matter the threats of climate change and neglect.</p>
 <p>Tanit XR advances <b>Sustainable Development Goal 11.4</b>, which focuses on safeguarding cultural and
 natural heritage. We view the Sustainable Development Goals as an important shared framework for linking
 local action to global impact.</p>
@@ -2914,7 +2915,7 @@ def build_contact():
 <h2 class="sec-title">Send us your Questions/Feedback</h2>
 <p style="color:var(--gray)">We’ll get back to you as soon as we can.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
-<input type="hidden" name="_subject" value="Contact form — tanitxr.org">
+<input type="hidden" name="_subject" value="Contact form, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="cname">Full Name</label>
@@ -2952,10 +2953,10 @@ def build_support():
                 "and backup storage."),
         ("$50", "Cover a month of hosting and software for the open archive and the volunteers who optimize "
                 "and publish models."),
-        ("$250", "Run a free workshop or course session for the community — Splats With Phones, history lessons, "
+        ("$250", "Run a free workshop or course session for the community, Splats With Phones, history lessons, "
                  "mentoring and interview prep for students."),
         ("$500", "Sponsor a community scanning and site clean-up day with local volunteers, covering travel, meals "
-                 "and shared equipment — and start compensating local contributors for their time."),
+                 "and shared equipment, and start compensating local contributors for their time."),
         ("$1,000", "Build out the virtual museum and save toward professional scanning gear such as the XGRIDS "
                    "PortalCam, so the community can capture more than a phone allows."),
     ]
@@ -2995,7 +2996,7 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
 </div></section>"""
     page("coming-soon.html", "Coming Soon", body, trending=False)
 
-    # privacy (the old site's page was placeholder text — this is a real minimal policy)
+    # privacy (the old site's page was placeholder text, this is a real minimal policy)
     body = f"""
 {page_hero("Privacy Policy", "Privacy Policy")}
 <section class="pad"><div class="wrap"><div class="prose">
@@ -3111,7 +3112,7 @@ def build_redirects():
         if "link" in c:
             targets[path_of(c["link"])] = "news.html" if c["name"] == "News" else "archive.html"
 
-    # interim flat names used briefly during the rebuild — keep any shared links alive
+    # interim flat names used briefly during the rebuild, keep any shared links alive
     targets["people"] = "team.html"
     for m in MODELS:
         targets[f"model-{m['clean_slug']}"] = m["href"]
@@ -3125,7 +3126,7 @@ def build_redirects():
         stem = f[:-5]
         return ("" if stem == "index" else stem + "/") + (("#" + anchor) if anchor else "")
 
-    built_pages = set(SITEMAP)  # real pages own their paths — never overwrite with a stub
+    built_pages = set(SITEMAP)  # real pages own their paths, never overwrite with a stub
     n = 0
     for path, target in targets.items():
         if not path or f"{path}/" in built_pages:
