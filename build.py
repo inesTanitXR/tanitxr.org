@@ -37,6 +37,10 @@ INSTAGRAM = "https://www.instagram.com/tanitxr/"
 LINKEDIN = "https://www.linkedin.com/company/tanit-xr/"
 SKETCHFAB = "https://sketchfab.com/TanitXR"
 FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
+# Kit (newsletter) — account tanit-xr.kit.com, form "tanitxr.org sign-up" (uid f2587d8800). Tag IDs: fill in once
+# Ines creates the tags in Kit (Subscribers → Tags; the id is in the tag's URL). Empty = checkbox hidden.
+KIT_FORM_ID = "9912073"
+KIT_TAGS = {"opportunities": "", "news": ""}
 # Profile submissions: FormSubmit (email) by default. After deploying the Cloudflare
 # worker (see worker/README.md), set this to the worker URL for instant publishing.
 PROFILE_ENDPOINT = FORM_ENDPOINT
@@ -1333,6 +1337,23 @@ COMMUNITY_PHOTOS = ["sv-IMG_1315.jpg", "aug-PXL_0814_112926.jpg", "sv-IMG_4213.j
                     "aug-PXL_0809_170720.jpg", "sv-IMG_8547.jpg"]
 
 
+
+def subscribe_form(dark=True):
+    """Kit sign-up form. Two interest checkboxes appear once KIT_TAGS has the tag ids."""
+    inp = ("flex:1;min-width:220px;padding:13px 16px;border:none;border-radius:6px;font-size:15.5px" if dark
+           else "flex:1;min-width:220px;padding:13px 16px;border:1px solid var(--mist);border-radius:6px;font-size:15.5px")
+    lab = "rgba(255,255,255,.85)" if dark else "var(--ink)"
+    boxes = ""
+    if KIT_TAGS.get("opportunities") and KIT_TAGS.get("news"):
+        boxes = (f'<div style="display:flex;gap:22px;flex-wrap:wrap;margin:12px 0 0;font-size:14.5px;color:{lab}">'
+                 f'<label style="display:flex;gap:8px;align-items:center;font-weight:400;margin:0"><input type="checkbox" name="tags[]" value="{KIT_TAGS["opportunities"]}" checked> Opportunities (every 1–2 weeks)</label>'
+                 f'<label style="display:flex;gap:8px;align-items:center;font-weight:400;margin:0"><input type="checkbox" name="tags[]" value="{KIT_TAGS["news"]}" checked> Tanit XR news (occasional)</label></div>')
+    return (f'<form class="nice" action="https://app.kit.com/forms/{KIT_FORM_ID}/subscriptions" method="post" '
+            f'data-sv-form="{KIT_FORM_ID}" style="max-width:none">'
+            f'<div style="display:flex;gap:12px;flex-wrap:wrap">'
+            f'<input name="email_address" type="email" placeholder="you@example.com" required aria-label="Email" style="{inp}">'
+            f'<button class="btn btn-gold" type="submit" style="margin-top:0">Subscribe Free</button></div>{boxes}</form>')
+
 def recognition_strip():
     """Press/recognition logo row (grayscale, colour on hover) — like the original site's partner strip."""
     items = [
@@ -1583,6 +1604,14 @@ across Tunisia and the world.</p>
 </div></section>
 
 {funding_band()}
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:760px">
+<div class="eyebrow">Newsletter</div>
+<h2 class="sec-title" style="font-size:30px">Opportunities and news, in your inbox</h2>
+<p class="sec-sub" style="margin:0 0 20px">Grants, residencies and open calls for artists and XR creators every one to two
+weeks — only things we’d apply to ourselves — plus occasional Tanit XR news. Free, unsubscribe any time.</p>
+{subscribe_form(dark=False)}
+</div></section>
 
 <section class="pad-sm"><div class="wrap center">
 <div class="eyebrow">Partners &amp; Supporters</div>
@@ -2264,14 +2293,7 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 <p style="margin-bottom:22px">Get new grants, residencies, and open calls for art, XR &amp; impact in your
 inbox — free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is
 going.</p>
-<form class="nice" action="{FORM_ENDPOINT}" method="POST" style="display:flex;gap:12px;flex-wrap:wrap;max-width:none">
-<input type="hidden" name="_subject" value="Newsletter subscription — tanitxr.org">
-<input type="hidden" name="_captcha" value="true">
-<input type="text" name="_honey" style="display:none">
-<input name="email" type="email" placeholder="you@example.com" required
-  style="flex:1;min-width:220px;padding:13px 16px;border:none;border-radius:6px;font-size:15.5px">
-<button class="btn btn-gold" type="submit" style="margin-top:0">Subscribe Free</button>
-</form>
+{subscribe_form()}
 <p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">No spam — opportunities and Tanit XR
 news only. Also published on
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
