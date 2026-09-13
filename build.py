@@ -616,7 +616,7 @@ NAV = [
     ("Get Involved", "volunteer.html", [
         ("Community", "community.html"),
         ("Volunteer", "volunteer.html"),
-        ("Create Your Profile", "create-profile.html"),
+        ("Volunteer Profile (members)", "create-profile.html"),
         ("Scanning Guide", "scanning-guide.html"),
         ("Splats With Phones", "splats-with-phones.html"),
     ]),
@@ -1549,7 +1549,7 @@ def build_community():
         ("Fill the volunteer form", "Tell us what you like doing — scanning, 3D, writing, design, research, teaching."),
         ("Join Slack and the Thursday call", "A member of the team welcomes you, and you meet everyone on the next call — Thursdays at 12 pm Eastern."),
         ("Pick a first task", "Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip."),
-        ("Create your profile", "Your work — scans, models, articles — shows up on your own page on this site."),
+        ("Once accepted, create your profile", "Accepted volunteers get their own page here: your scans, models and articles are credited to you."),
     ]
     steps_html = "".join(f'<div><b>{t}</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">{d}</p></div>' for t, d in steps)
     body = f"""
@@ -1578,7 +1578,6 @@ Everything we make is free and open.</p></div>
 <div class="steps">{steps_html}</div>
 <p class="center" style="margin-top:34px">
 <a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer Interest Form</a>
-&nbsp; <a class="btn btn-line" href="create-profile.html">Create Your Profile</a>
 &nbsp; <a class="btn btn-line" href="team.html">Meet the community</a></p>
 </div></section>
 
@@ -2222,7 +2221,6 @@ objects by hand — like these.</p></div>
 TanitXR to life. We greatly appreciate any time you are willing to share with us as we work toward the digital
 preservation of Tunisia’s historically and culturally rich heritage sites.</p>
 <a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer</a>
-&nbsp; <a class="btn btn-line-light" href="create-profile.html">Create Your Volunteer Profile</a>
 </div></section>"""
     page("volunteer.html", "Volunteer", body)
 
@@ -2231,6 +2229,8 @@ def build_create_profile():
     body = f"""
 {page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile', bg="sv-IMG_8034.jpg")}
 <section class="pad"><div class="wrap" style="max-width:760px">
+<div class="notice" style="margin:0 0 22px"><b>For accepted Tanit XR volunteers only.</b> Not a volunteer yet? Start with the
+<a href="volunteer.html" style="color:var(--gold-dark)">volunteer interest form</a> — profiles are created after you join.</div>
 <p class="sec-sub" style="margin:0 0 8px">Already volunteering with Tanit XR? Submit your profile and, once
 approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-dark)">Our People</a>
 page.</p>
