@@ -881,7 +881,8 @@ def _clean_wp_content(c):
         if not src:
             return ""
         u = src.group(1)
-        if "wp-content" not in u:
+        # wp-content URLs are localized; a bare filename is a file we already keep in media/
+        if "wp-content" not in u and "/" in u:
             return ""
         try:
             local = img(u, 1400)
@@ -2046,6 +2047,7 @@ def build_news():
         "storm-harry-neapolis-and-a-digital-moment-of-preservation": "Margarita Johnson",
         "material-and-meaning-marble-identity-and-cultural-exchange-in-ancient-carthage": "Margarita Johnson",
         "a-beginning-why-tanit-xr-exists": "Ines Said",
+        "a-2-000-year-old-ghost-town-on-cape-bon": "Laura Harrison",
     }
     for n in NEWS:
         content = _clean_wp_content(n["content"])
@@ -2110,7 +2112,14 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
     page("team.html", "Our People", body)
 
     def link_label(u):
-        return re.sub(r"^https?://(www\.)?", "", u).split("/")[0]
+        if u.startswith("mailto:"):
+            return "Email"
+        host = re.sub(r"^https?://(www\.)?", "", u).split("/")[0]
+        for k, lab in (("linkedin.com", "LinkedIn"), ("instagram.com", "Instagram"), ("github.com", "GitHub"),
+                       ("x.com", "X"), ("twitter.com", "X"), ("youtube.com", "YouTube"), ("sketchfab.com", "Sketchfab")):
+            if k in host:
+                return lab
+        return host
 
     for p in TEAM + COMMUNITY:
         links = "".join(

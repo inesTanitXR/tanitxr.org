@@ -1,24 +1,25 @@
 {
-  "_what": "Maps Sketchfab usernames + article-author names to team-member profile slugs, so contributions show on volunteer profiles. 'pending' = volunteers confirmed by Ines (2026-09-10) who have not made their volunteer profile yet: they are credited by name (no link). When one of them submits a profile (profiles/ or create-profile form), move them into 'sketchfab' with their new slug and rebuild.",
-  "sketchfab": {
-    "rachel_west": "rachel-west",
-    "nickkauf": "nick-kaufmann",
-    "BetyVega03": "ana-beatriz-vega-gonzalez",
-    "TanitXROrg": null
-  },
-  "pending": {
-    "clairee123": "Claire Natanek",
-    "EunjeongYu": "Eunjeong Yu",
-    "danielgo257": "danielgo257",
-    "georgealyssa85": "georgealyssa85"
-  },
-  "model_overrides": {
-    "_how": "Reassign credit per model when the Sketchfab uploader is not the person who did the work. Key = any unique part of the model title (case-insensitive); value = {\"scanned\": slug} and/or {\"optimized\": slug}. Example: \"Corinthian Capital\": {\"optimized\": \"nick-kaufmann\"}"
-  },
-  "pending_note": "danielgo257 and georgealyssa85 have no public display name on Sketchfab — ask Ines for their real names, or they will appear as their usernames.",
-  "authors": {
-    "Margarita Johnson": "margarita-johnson",
-    "inessaid88": "ines-said",
-    "Ines Said": "ines-said"
-  }
+ "_what": "Maps Sketchfab usernames + article-author names to team-member profile slugs, so contributions show on volunteer profiles. 'pending' = volunteers confirmed by Ines (2026-09-10) who have not made their volunteer profile yet: they are credited by name (no link). When one of them submits a profile (profiles/ or create-profile form), move them into 'sketchfab' with their new slug and rebuild.",
+ "sketchfab": {
+  "rachel_west": "rachel-west",
+  "nickkauf": "nick-kaufmann",
+  "BetyVega03": "ana-beatriz-vega-gonzalez",
+  "TanitXROrg": null
+ },
+ "pending": {
+  "clairee123": "Claire Natanek",
+  "EunjeongYu": "Eunjeong Yu",
+  "danielgo257": "danielgo257",
+  "georgealyssa85": "georgealyssa85"
+ },
+ "model_overrides": {
+  "_how": "Reassign credit per model when the Sketchfab uploader is not the person who did the work. Key = any unique part of the model title (case-insensitive); value = {\"scanned\": slug} and/or {\"optimized\": slug}. Example: \"Corinthian Capital\": {\"optimized\": \"nick-kaufmann\"}"
+ },
+ "pending_note": "danielgo257 and georgealyssa85 have no public display name on Sketchfab — ask Ines for their real names, or they will appear as their usernames.",
+ "authors": {
+  "Margarita Johnson": "margarita-johnson",
+  "inessaid88": "ines-said",
+  "Ines Said": "ines-said",
+  "Laura Harrison": "dr-laura-harrison"
+ }
 }
