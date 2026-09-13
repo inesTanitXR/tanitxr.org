@@ -643,6 +643,7 @@ NAV = [
         ("ImmerseGT 2026", "immersegt-2026.html"),
         ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
         ("Virtual Museum", "museum.html"),
+        ("Services", "services.html"),
         ("Press &amp; Recognition", "press.html"),
     ]),
     ("Contact", "contact.html"),
@@ -728,6 +729,7 @@ public everywhere.</p>
 <a href="opportunities.html">Opportunities</a></div>
 <div><h4>Get Involved</h4>
 <a href="volunteer.html" style="color:var(--gold);font-weight:700">Volunteer →</a>
+<a href="services.html">Services</a>
 <a href="splats-with-phones.html">Workshops</a>
 <a href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a href="contact.html">Contact</a></div>
@@ -1365,7 +1367,7 @@ and workshops, and better equipment. Here is what a donation does:</p>
 </div>
 <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
-<a class="btn btn-line-light" href="contact.html">Partner with us</a>
+<a class="btn btn-line-light" href="services.html">Work with us</a>
 <a class="btn btn-line-light" href="support.html">See the full breakdown</a></div>
 </div></section>"""
 
@@ -1718,6 +1720,105 @@ building this on Thursday calls. Donations pay for the tools and hosting that ge
 </div></section>"""
     page("museum.html", "Virtual Museum", body, active="archive.html",
          desc="The first community-led virtual museum of Tunisian heritage — real scans placed in rooms built by volunteers in Unity. Walkthroughs, progress and how to help.")
+
+
+def build_services():
+    services = [
+        ("📱", "Scanning & 3D optimization",
+         "We capture objects and collections with phone photogrammetry and Gaussian splatting, then turn them into "
+         "archive-quality and game-ready 3D models — the same pipeline behind our open archive.",
+         "For museums, cultural centres, universities, galleries and artists who hold the rights to the objects. "
+         "Remote optimization of your existing scans is available worldwide.",
+         "Free for grassroots heritage and community groups · low rates for institutions and companies"),
+        ("🎓", "Workshops & training",
+         "Phone scanning workshops, the six-week Splats With Phones course, and sessions on XR for heritage and "
+         "community-driven documentation — in person in Tunisia and the US, or online.",
+         "For schools, universities, museums, NGOs and companies; from a two-hour intro to a multi-week cohort. We "
+         "have run them for volunteers on three continents and been asked to train groups of 200.",
+         "Free for student groups and grassroots organizations · contracted delivery for institutions"),
+        ("📣", "Sharing opportunities",
+         "Reach artists, XR developers and changemakers through the Art, XR & Impact Opportunities newsletter, the "
+         "opportunities board on this site and our 85+ volunteers on four continents.",
+         "For funders, festivals, residencies and programs looking for strong applicants from under-represented "
+         "regions. Featured placement on the board and in the newsletter; we only share calls that fit our readers.",
+         "Free for grassroots calls · sponsored placement for institutions"),
+        ("🎤", "Talks & consulting",
+         "Keynotes, panels and workshops on XR for heritage, phone-based reality capture and building a volunteer "
+         "community — and help for organizations that want to replicate the Tanit XR model in their region.",
+         "For conferences, universities, companies and heritage organizations. Our founder has spoken at AWE USA "
+         "2026 and the El Jem conference; our method is being replicated in Nigeria.",
+         "Speaking fees and consulting rates on request"),
+        ("🕶", "Custom XR experiences",
+         "AR lessons, virtual galleries and VR museum rooms built from real scans — for classrooms, exhibitions and "
+         "campaigns.",
+         "For museums, schools, festivals and brands that want heritage told immersively. Built by the same "
+         "volunteers making our virtual museum.",
+         "Project-based; every project funds the community"),
+        ("💻", "Hackathon & challenge tracks",
+         "We design and judge heritage tracks for hackathons and student challenges, bringing real 3D models and a "
+         "real problem to your participants.",
+         "For universities, hackathon organizers and companies. We sponsored a track at ImmerseGT 2026 at Georgia "
+         "Tech and are planning one for CityCamp Gainesville.",
+         "Co-sponsored; we bring the models and the mentors"),
+    ]
+    cards = "".join(
+        f'<div class="act" style="display:flex;flex-direction:column"><div class="ic">{ic}</div><b>{t}</b><p>{d}</p>'
+        f'<p style="margin-top:10px">{who}</p>'
+        f'<p style="margin-top:auto;padding-top:14px;color:var(--gold-dark);font-weight:700;font-size:13.5px">{price}</p></div>'
+        for ic, t, d, who, price in services)
+    body = f"""
+{page_hero("Services", '<a href="about.html">About</a> &nbsp;›&nbsp; Services', bg="sv-IMG_4299.jpg", pos="center 40%")}
+<section class="pad"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 40px">
+<div class="eyebrow">Work with us</div>
+<h2 class="sec-title">What we do for volunteers, we can do for you</h2>
+<p class="sec-sub" style="margin:0">Tanit XR is volunteer-run, so we do not charge market rates. Grassroots heritage
+and community groups get our help for free; institutions, companies and funders pay a low rate that goes straight
+back into the community — hosting, tools, training and scanning days. Every service below is something we already
+do every week.</p></div>
+<div class="acts" style="margin-top:0">{cards}</div>
+</div></section>
+
+<section class="pad" style="background:var(--cloud)"><div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:start">
+<div>
+<div class="eyebrow">How it works</div>
+<h2 class="sec-title">Three steps</h2>
+<div class="steps" style="grid-template-columns:1fr">
+<div><b>Tell us what you need</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">A few lines about your objects, audience or event, your timeline and where you are.</p></div>
+<div><b>We scope it together</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">A short call with our team. We tell you what is free, what has a rate, and what our volunteers can realistically deliver.</p></div>
+<div><b>You get the work — and the community gets funded</b><p style="color:var(--gray);font-size:14.5px;margin-top:6px">Invoices go through our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3)).</p></div>
+</div>
+</div>
+<div>
+<div class="eyebrow">Get in touch</div>
+<h2 class="sec-title">Partner with us</h2>
+<form class="nice" action="{FORM_ENDPOINT}" method="POST">
+<input type="hidden" name="_subject" value="Services inquiry — tanitxr.org">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none">
+<label class="req" for="sv-name">Name</label><input id="sv-name" type="text" name="name" required>
+<label class="req" for="sv-org">Organization</label><input id="sv-org" type="text" name="organization" required>
+<label class="req" for="sv-email">Email</label><input id="sv-email" type="email" name="email" required>
+<label class="req" for="sv-type">What are you interested in?</label>
+<select id="sv-type" name="service" required><option value="">Pick one</option>
+<option>Scanning &amp; 3D optimization</option><option>Workshops &amp; training</option><option>Sharing opportunities</option>
+<option>Talks &amp; consulting</option><option>Custom XR experiences</option><option>Hackathon &amp; challenge tracks</option><option>Something else</option></select>
+<label for="sv-msg">Tell us more</label><textarea id="sv-msg" name="message" rows="4" placeholder="Objects, audience, dates, location, budget if you have one."></textarea>
+<button class="btn btn-gold" type="submit">Send</button>
+</form>
+<p style="color:var(--gray);font-size:13.5px;margin-top:12px">Or email <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a>.</p>
+</div></div></div></section>
+
+<section class="band pad"><div class="wrap center">
+<div class="eyebrow">Prefer to give?</div>
+<h2 class="sec-title">Every service funds the community — so does every donation</h2>
+<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+&nbsp; <a class="btn btn-line-light" href="index.html#funding">How we’re funded</a>
+</div></section>"""
+    page("services.html", "Services", body, active="about.html",
+         desc="Work with Tanit XR: 3D scanning and optimization, workshops and training, sharing opportunities, talks and consulting, custom XR experiences and hackathon tracks — free for grassroots groups, low rates for institutions.")
 
 
 def build_press():
@@ -3023,6 +3124,7 @@ def main():
         build_community()
         build_press()
         build_museum()
+        build_services()
         build_archive()
         build_model_pages()
         build_news()
