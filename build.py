@@ -2527,7 +2527,7 @@ function render(){{
     b.textContent=(type==='thumbs'?LBL.helpful:LBL.applied)+' · '+s[type];
   }}));
 }}
-['q','f-type','f-elig','f-mode','sort'].forEach(id=>{{
+['q','sort'].forEach(id=>{{
   document.getElementById(id).addEventListener('input',render);
 }});
 render();
