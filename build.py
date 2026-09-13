@@ -1939,6 +1939,10 @@ tilework, everyday heritage — from scratch, for our virtual museum and communi
 
 
 MANUAL_CONTRIB = {  # work Sketchfab can't record — confirmed by Ines
+    "ana-beatriz-vega-gonzalez": [  # "Bety" on Slack
+        ("built", "Scanning & optimization guide for volunteers (with Rachel West and Nick Kaufmann)", "scanning-guide.html", None, "sv-IMG_4213.jpg"),
+        ("built", "Social media videos for Tanit XR", "community.html", None, "aug-PXL_0814_112926.jpg"),
+    ],
     "patrick-molen": [
         ("built", "Virtual museum — the original room and the modular building kit", "museum.html", None, "museum-progress-jan-2026.jpg"),
         ("built", "Tutorial videos for volunteers", "community.html", None, "museum-hall-arches.jpg"),
@@ -2147,14 +2151,13 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
                                     external=it["href"].startswith("http"))
             if cards:
                 total += len(seen)
-                blocks.append(f'<h3 style="margin:38px 0 18px;font-size:22px">{heading} <span style="color:var(--gray);'
-                              f'font-family:var(--sans);font-size:15px;font-weight:400">({len(seen)})</span></h3>'
+                blocks.append(f'<h3 style="margin:38px 0 18px;font-size:22px">{heading}</h3>'
                               f'<div class="cards">{cards}</div>')
         contrib_html = (f'<section class="pad" style="background:var(--cloud);padding-top:56px"><div class="wrap">'
                         f'<div class="eyebrow">Contributions to Tanit XR</div>'
-                        f'<h2 class="sec-title" style="font-size:32px">{total} contribution{"s" if total != 1 else ""} '
-                        f'to the archive</h2><p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to '
-                        f'explore it right here.</p>{"".join(blocks)}</div></section>') if blocks else ""
+                        f'<h2 class="sec-title" style="font-size:32px">What {esc(p["name"].split()[0])} has made with us</h2>'
+                        f'<p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to explore it right here.</p>'
+                        f'{"".join(blocks)}</div></section>') if blocks else ""
         body = f"""
 {page_hero(esc(p["name"]), f'<a href="team.html">Our People</a> &nbsp;›&nbsp; {esc(p["name"])}')}
 <section class="pad"><div class="wrap" style="max-width:960px">
