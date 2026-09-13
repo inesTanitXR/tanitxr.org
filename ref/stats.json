@@ -1,8 +1,8 @@
 {
-  "_what": "Impact numbers shown on the home and About stats bands. The weekly board-check task refreshes these: artifacts from the Sketchfab org model count, volunteers = members of the Tanit XR Slack workspace (Ines, 2026-09-12: 85+); the freshness task may update it from Slack's member count, reach from LinkedIn (followers + newsletter subscribers + recent post impressions, conservative). Displayed rounded DOWN to a friendly floor with a '+'.",
-  "artifacts": 60,
-  "sites": 15,
-  "volunteers": 85,
-  "reach": 100000,
-  "updated": "2026-09-12"
+ "_what": "Impact numbers shown on the home and About stats bands, displayed rounded DOWN to a friendly floor with a '+'. Sources: artifacts = public artifact pairs in ref/archive-data.json (42 pairs + 1 locked on 2026-09-12 -> shows 40+); sites = distinct 'place' values in archive-data.json, i.e. documented monuments/locations (Byrsa Hill, the Tophet, Baths of Antoninus, the Roman villas, Medina of Tunis, Water Temple of Zaghouan, Zawiya of Sidi Sahbi, the flood-revealed Neapolis site) — the coarser 'site' grouping used by the archive filters is 5 (Carthage, Kairouan, Medina of Tunis, Neapolis, Zaghouan); volunteers = members of the Tanit XR Slack workspace (Ines, 2026-09-12: 85+); reach = LinkedIn followers + newsletter subscribers + recent post impressions, conservative — NOT re-verified on 2026-09-12 because the Chrome extension was unavailable. The freshness task lowered artifacts 60->42 and sites 15->8 on 2026-09-12: the earlier figures were not supported by the published archive. If Tanit has documented sites that are not yet in the archive, raise these again with that list.",
+ "artifacts": 42,
+ "sites": 8,
+ "volunteers": 85,
+ "reach": 100000,
+ "updated": "2026-09-12"
 }
