@@ -980,7 +980,7 @@ CONTRIB = {}
 def _add_contrib(slug, kind, label, href, uid=None, thumb=None):
     if not slug:
         return
-    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "wrote": []})
+    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "wrote": [], "built": []})
     CONTRIB[slug][kind].append({"label": label, "href": href, "uid": uid, "thumb": thumb})
 
 
@@ -1630,7 +1630,7 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 
 
 # volunteers building the virtual museum (from Slack #vr-app / #volunteer-updates, Sept 2026) and Julia's recorded lessons
-MUSEUM_BUILDERS = "Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam K. (narrative and thematic brief), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
+MUSEUM_BUILDERS = "Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam K. (narrative and thematic brief), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
 HISTORY_LESSONS = [
     ("First Phoenicians and Tyrian Purple Origins", "July 31, 2026", "https://www.loom.com/share/e4717da8892544bca7b7aff597e27407"),
     ("Mini history lesson 2 — Carthage's craft quarters", "August 6, 2026", "https://www.loom.com/share/53d0a3afb9b14734a9c4b643d4f15b6e"),
@@ -1676,7 +1676,7 @@ src="{vid('museum-walkthrough-06.mp4')}"></video>
 <h2 class="sec-title">Rooms you can walk through, objects you can get close to</h2></div>
 <div class="acts">
 <div class="act"><div class="ic">🏛</div><b>Real artifacts</b><p>Punic stelae, Roman statues and mosaics, doors and tilework from the medina — the same scans you find in our open archive, placed life-size.</p></div>
-<div class="act"><div class="ic">🧩</div><b>Modular rooms</b><p>Walls, arches and courtyards are built from pre-made pieces, so volunteers can add a new gallery without starting from scratch.</p></div>
+<div class="act"><div class="ic">🧩</div><b>Modular rooms</b><p>Walls, arches and courtyards are built from a kit of pre-made pieces designed by Patrick Molen, so volunteers can puzzle together a new gallery without starting from scratch.</p></div>
 <div class="act"><div class="ic">🎧</div><b>Sound from the sites</b><p>Ambient sound recorded at the real places — wind, footsteps, echoes — so each gallery feels different.</p></div>
 <div class="act"><div class="ic">🧭</div><b>A guide</b><p>Nura, a guide character modeled in Blender, walks with you and tells the story behind each object. Her narrated tour, “Before It’s Gone,” is being written now.</p></div>
 <div class="act"><div class="ic">🕶</div><b>Headset, browser, phone</b><p>Planned for Viverse so it runs cross-platform — in VR, and as a scroll-to-walk version in any browser for classrooms.</p></div>
@@ -1937,8 +1937,20 @@ tilework, everyday heritage — from scratch, for our virtual museum and communi
 <div class="cards">{cards}</div></div></section>"""
 
 
+MANUAL_CONTRIB = {  # work Sketchfab can't record — confirmed by Ines
+    "patrick-molen": [
+        ("built", "Virtual museum — the original room and the modular building kit", "museum.html", None, "museum-progress-jan-2026.jpg"),
+        ("built", "Tutorial videos for volunteers", "community.html", None, "museum-hall-arches.jpg"),
+        ("built", "Mentoring students", "community.html", None, "sv-IMG_1315.jpg"),
+    ],
+}
+
+
 def build_model_pages():
     CONTRIB.clear()  # rebuilt each language pass
+    for slug, items in MANUAL_CONTRIB.items():
+        for kind, label, href, uid, thumb in items:
+            _add_contrib(slug, kind, label, href, uid=uid, thumb=thumb)
     for vm in VOLUNTEER_MADE:  # decorative props → "made" contribution
         _add_contrib(member_slug(vm.get("by")), "made", vm["title"],
                      f"https://sketchfab.com/models/{vm['uid']}", uid=vm["uid"], thumb=vm.get("thumb"))
@@ -2112,7 +2124,8 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
         c = CONTRIB.get(p["slug"], {})
         blocks = []
         total = 0
-        for kind, heading, meta in (("scanned", "🏛 3D scans captured", "Photogrammetry scan"),
+        for kind, heading, meta in (("built", "🏗 Built for the community", "Community"),
+                                    ("scanned", "🏛 3D scans captured", "Photogrammetry scan"),
                                     ("optimized", "🎮 Models optimized for game/VR", "Game-ready optimization"),
                                     ("made", "🏺 Models made by hand", "Modeled for the virtual museum"),
                                     ("wrote", "✍️ Articles written", "Article")):
