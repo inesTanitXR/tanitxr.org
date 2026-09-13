@@ -485,6 +485,26 @@ section.pad-sm{padding:56px 0}
 .fbtn:hover{background:#dfe3e8}
 .fbtn.on{background:var(--ink);color:var(--gold);font-weight:700}
 .board-tools{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;align-items:center}
+.board-tools[hidden]{display:none}
+/* modern toolbar: search + segmented sort, then pill filters */
+.toolbar{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.search{position:relative;flex:1;min-width:260px;display:block}
+.search .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--gray)}
+.search .ico svg{width:18px;height:18px;fill:currentColor}
+.search input{width:100%;padding:13px 16px 13px 42px;border:1px solid var(--mist);border-radius:30px;font-size:15px;background:#fff}
+.search input:focus{outline:2px solid var(--gold)}
+.sortwrap{display:flex;align-items:center;gap:10px}
+.seg{display:inline-flex;border:1px solid var(--mist);border-radius:30px;padding:4px;background:#fff}
+.seg button{border:0;background:none;padding:8px 16px;border-radius:24px;font:600 13.5px var(--sans);color:var(--gray);cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.fgroups{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin:0 0 26px}
+.fgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.flabel{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-right:2px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border:1px solid var(--mist);background:#fff;border-radius:30px;padding:6px 13px;font:500 13px var(--sans);color:var(--ink);cursor:pointer;transition:.15s}
+.pill:hover{border-color:var(--gold)}
+.pill.on{background:var(--gold);border-color:var(--gold);font-weight:700}
+.clearf{border:0;background:none;color:var(--gold-dark);font:700 13px var(--sans);cursor:pointer;text-decoration:underline}
 .board-tools select,.board-tools input[type=search]{padding:10px 14px;border:1px solid var(--mist);
   border-radius:6px;font-family:var(--sans);font-size:14.5px;background:#fff;color:var(--ink)}
 #featured .opp{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:0;padding:0;
@@ -500,7 +520,12 @@ section.pad-sm{padding:56px 0}
   cursor:pointer;font-family:var(--sans);transition:.15s}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
-#board{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
+#board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
+#closed .opp.hid{display:none}
+.closed-h{margin:44px 0 16px;font-size:20px;color:var(--gray);font-weight:400}
+.subtop{background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:18px 22px;margin:0 0 24px;display:grid;grid-template-columns:minmax(200px,.8fr) 1.6fr;gap:22px;align-items:center}
+.subtop form.nice{max-width:none}
+@media(max-width:760px){.subtop{grid-template-columns:1fr}}
 .opp{border:1px solid var(--mist);border-radius:12px;padding:24px 26px;background:#fff;
   display:flex;flex-direction:column}
 .opp:hover{box-shadow:0 8px 26px rgba(17,21,24,.08)}
@@ -649,6 +674,7 @@ def link_icon(u):
     return ICO_WEB, h
 
 
+ICO_SEARCH = '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9"/></svg>'
 ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5M.2 8h4.6v14.8H.2zm7.6 0h4.4v2h.1c.6-1.2 2.1-2.4 4.4-2.4 4.7 0 5.5 3.1 5.5 7.1v8.1h-4.6v-7.2c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8v7.3H7.8z"/></svg>'
 
 # ---------------------------------------------------------------- shell
@@ -2224,18 +2250,18 @@ def build_opportunities():
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
                "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
-               "vol": "Volunteer with us →", "terms": {}},
+               "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
-               "vol": "Devenez bénévole →",
+               "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins",
                "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
-               "vol": "تطوّع معنا ←",
+               "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل",
                "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
     }[LANG]
     data = []
@@ -2264,6 +2290,9 @@ def build_opportunities():
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
+    def pills(sel, values):
+        return ('<div class="pills" data-for="' + sel + '"><button type="button" class="pill on" data-v="">All</button>'
+                + "".join(f'<button type="button" class="pill" data-v="{esc(v)}">{esc(v)}</button>' for v in values) + '</div>')
     def opts(vals):
         return "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in vals)
     body = f"""
@@ -2274,18 +2303,33 @@ and events for artists, XR creators, educators, students, and changemakers, upda
 Tanit XR team. Also published as our
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
 target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newsletter</a>.</p>
-<div class="board-tools">
-<input type="search" id="q" placeholder="Search…" style="flex:1;min-width:170px">
+<div class="subtop">
+<div><b style="font-family:var(--serif);font-size:20px;font-weight:400;display:block">Get these in your inbox</b>
+<span style="color:var(--gray);font-size:14px">New opportunities every one to two weeks. Free.</span></div>
+{subscribe_form(dark=False)}
+</div>
+<div class="toolbar">
+<label class="search"><span class="ico">{ICO_SEARCH}</span><input type="search" id="q" placeholder="Search opportunities…"></label>
+<div class="sortwrap"><span class="flabel">Sort</span>
+<div class="seg" role="group" aria-label="Sort">
+<button type="button" class="on" data-sort="soon">Deadline soonest</button><button type="button" data-sort="new">Newest</button></div></div>
+</div>
+<div class="fgroups">
+<div class="fgroup"><span class="flabel">Type</span>{pills("f-type", types)}</div>
+<div class="fgroup"><span class="flabel">Eligibility</span>{pills("f-elig", eligs)}</div>
+<div class="fgroup"><span class="flabel">Mode</span>{pills("f-mode", modes)}</div>
+<button type="button" id="clearf" class="clearf" hidden>Clear filters</button>
+</div>
+<div class="board-tools" hidden>
 <select id="f-type"><option value="">Type</option>{opts(types)}</select>
 <select id="f-elig"><option value="">Eligibility</option>{opts(eligs)}</select>
 <select id="f-mode"><option value="">Mode</option>{opts(modes)}</select>
-<select id="sort">
-<option value="soon">Deadline soonest</option>
-<option value="new">Newest</option>
-</select>
+<select id="sort"><option value="soon">Deadline soonest</option><option value="new">Newest</option></select>
 </div>
 <div id="featured"></div>
 <div id="board"></div>
+<div id="closedwrap" hidden><h3 class="closed-h"></h3><div id="closed"></div>
+<p style="margin-top:18px"><button id="moreclosed" class="btn btn-line" type="button"></button></p></div>
 
 <div class="band" style="margin-top:64px;border-radius:14px;padding:44px 38px">
 <div style="max-width:640px">
@@ -2348,6 +2392,24 @@ function reactsHtml(o){{
   return '<div class="reacts">'+mk('thumbs',LBL.helpful)+mk('applied',LBL.applied)+'</div>';
 }}
 function parseDate(s){{return s?new Date(s):null}}
+document.querySelectorAll('.pills').forEach(g=>g.addEventListener('click',e=>{{
+  const b=e.target.closest('.pill');if(!b)return;
+  g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.getElementById(g.dataset.for).value=b.dataset.v;
+  document.getElementById('clearf').hidden=![...document.querySelectorAll('.pills .pill.on')].some(x=>x.dataset.v);
+  render();
+}}));
+document.querySelector('.seg').addEventListener('click',e=>{{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.getElementById('sort').value=b.dataset.sort;render();
+}});
+document.getElementById('clearf').addEventListener('click',()=>{{
+  document.querySelectorAll('.pills').forEach(g=>{{g.querySelectorAll('.pill').forEach((x,i)=>x.classList.toggle('on',i===0));document.getElementById(g.dataset.for).value='';}});
+  document.getElementById('q').value='';document.getElementById('clearf').hidden=true;render();
+}});
+let showAllClosed=false;
+document.getElementById('moreclosed').addEventListener('click',()=>{{showAllClosed=!showAllClosed;render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({{behavior:'smooth',block:'start'}});}});
 function render(){{
   const q=document.getElementById('q').value.toLowerCase();
   const ft=document.getElementById('f-type').value;
@@ -2401,13 +2463,23 @@ function render(){{
       '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
       '<div class="fp" style="background-image:url('+o.ph+')"></div></div>';
   }}).join('');
-  board.innerHTML=rest.map(o=>{{
+  const card=(o,extra)=>{{
     const [dl,cls]=dlOf(o);
     const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
-    return '<div class="opp'+(o._closed?' closed':'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
+    return '<div class="opp'+(o._closed?' closed':'')+(extra||'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+'</div>';
-  }}).join('')||'<p style="color:var(--gray)">'+LBL.none+'</p>';
+  }};
+  const openList=rest.filter(o=>!o._closed), closedList=rest.filter(o=>o._closed);
+  board.innerHTML=openList.map(o=>card(o)).join('')||(closedList.length?'':'<p style="color:var(--gray)">'+LBL.none+'</p>');
+  const cw=document.getElementById('closedwrap'), cb=document.getElementById('closed'), mb=document.getElementById('moreclosed');
+  if(closedList.length){{
+    cw.hidden=false;
+    cw.querySelector('.closed-h').textContent=LBL.closedh+' ('+closedList.length+')';
+    cb.innerHTML=closedList.map((o,i)=>card(o,(i>=3&&!showAllClosed)?' hid':'')).join('');
+    mb.hidden=closedList.length<=3;
+    mb.textContent=showAllClosed?LBL.showless:LBL.showall.replace('{{n}}',closedList.length);
+  }} else {{ cw.hidden=true; }}
   document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{{
     const card=b.closest('.opp');card.classList.toggle('x');
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
