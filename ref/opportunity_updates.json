@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities', editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29). Scraped 2026-09-08. Edition-18 raw list researched & added 2026-09-09 (draft in ref/newsletter-edition-18-draft.md).",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities', editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29). Scraped 2026-09-08. Edition-18 raw list researched & added 2026-09-09 (draft in ref/newsletter-edition-18-draft.md). Checked 2026-09-16: the newsletter's public edition list still ends at Edition 17 (Edition 18 not yet posted), so nothing new to harvest. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -7,7 +7,9 @@
   },
   "ubs-project-female-founder-2026": {
    "deadline_date": null,
-   "url": "https://www.ubs.com/global/en/wealthmanagement/who-we-serve/women-wealth/female-founders/project-female-founder/application-form.html"
+   "url": "https://www.ubs.com/global/en/wealthmanagement/who-we-serve/women-wealth/female-founders/project-female-founder/application-form.html",
+   "deadline_type": "Closed",
+   "desc": "The 2026 cohort of Project Female Founder started in April 2026. UBS states that applications for the next cohort will be available online from March 2027."
   },
   "htw-berlin-iuno-ai-xr-artistic-fellowship-2026": {
    "deadline_date": "March 31, 2026",
@@ -52,6 +54,46 @@
   "new-inc-year-13-open-call": {
    "deadline_date": "July 8, 2026",
    "url": "https://www.newmuseum.org"
+  },
+  "naaee-2026-conference-financial-aid": {
+   "deadline_type": "Closed",
+   "url": "https://conference.naaee.org/scholarships",
+   "desc": "Financial aid applications for the 2026 NAAEE conference closed on September 11, 2026; scholarship applications closed August 7, 2026."
+  },
+  "climate-change-ai-summer-school-2026": {
+   "deadline_type": "Closed",
+   "url": "https://www.climatechange.ai/events",
+   "desc": "The 2026 Climate Change AI Summer School ran July 19 to August 22, 2026 and is now listed as a past event."
+  },
+  "xr-women-awards-2026-nominations": {
+   "deadline_type": "Closed",
+   "url": "https://www.xrwomen.com/2026-awards",
+   "desc": "The 6th Annual XR Women Awards were presented on June 17, 2026 at AWE USA in Long Beach. Nominations for the 2027 awards open in the new year at xrwomen.com."
+  },
+  "the-iris-prize-2026-lgbtq-film-festival": {
+   "deadline_type": "Closed",
+   "url": "https://irisprize.org/submissions/",
+   "desc": "Submissions for Iris 2026 are closed. The festival runs October 12 to 18, 2026 in Cardiff; the next submission window opens Monday 11 January 2027."
+  },
+  "climate-champions-youth-fellowship-2025": {
+   "deadline_type": "Closed",
+   "url": "https://www.climatechampions.net/news/climate-champions-youth-fellowship-2025-applications-now-open/",
+   "desc": "The 2025 Youth Fellowship cohort closed to applications on March 2, 2025."
+  },
+  "viverse-creator-program-creator-grants-for-webxr-worlds": {
+   "url": "https://create.viverse.com/creator-grants",
+   "desc": "VIVERSE funds creators building web-based 3D worlds, immersive art and games, with funding negotiated per project. Applications are accepted on a rolling basis and no prior WebXR experience is required; Unity WebGL, Three.js, PlayCanvas, Babylon.js, A-Frame and Godot are supported."
+  },
+  "awe-2027-call-for-speakers-early-opportunities": {
+   "url": "https://www.awexr.com/call-for-speakers",
+   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal. No closing date has been published yet."
+  },
+  "womentech-global-awards-2026": {
+   "url": "https://www.womentech.net/women-in-tech-awards",
+   "desc": "Self-nomination is welcome and free. Nominations close October 1, 2026; voting ends November 13, finalists are announced November 19 to 26 and winners on December 3, 2026."
+  },
+  "awesome-foundation-conservation-climate-1-000-micro-grants": {
+   "desc": "$1,000 micro-grants for conservation and climate projects, no strings attached. The chapter reviews on a fixed bi-monthly cycle rather than rolling: the next application deadlines are September 25, 2026 and November 27, 2026, then January 29, 2027."
   }
  },
  "new": [

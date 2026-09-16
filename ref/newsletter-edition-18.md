@@ -131,7 +131,6 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 - 🏆 WomenTech Global Awards, deadline October 1. womentech.net
 - 🎨 IEEE VR 2027 XR Gallery, deadline November 3. ieeevr.org/2027/contribute/xrgallery
 - 🚀 NASA Space Apps Challenge (local events in Tunisia), November 14 to 15. spaceappschallenge.org
-- 🌲 NAAEE 2026 conference financial aid, rolling. conference.naaee.org/scholarships
 - 🎮 Games for Change Türkiye, speakers and arcade. turkiye.gamesforchange.org
 - 🕶 AWE USA 2027, call for speakers. awexr.com
 
