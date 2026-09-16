@@ -23,6 +23,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🇹🇳 Institut français × Cité internationale des arts (Paris residency; digital creation; nominated via Institut français de Tunisie) — Oct 8 — ifprog.emundus.fr
 - 🇹🇳 Culture Resource Production Awards — Oct 19 (reminder)
 - 📝 NatGeo "The Human Thread" RFP — opens Oct 1, closes Dec 1 — funding.nationalgeographic.org
+- 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
 - 🎨 EMAP European Media Art Platform residencies (€4k + €4k + travel; Tunisia-resident artists eligible via Creative Europe — verify list) — Nov 6 — call.emare.eu 🇹🇳

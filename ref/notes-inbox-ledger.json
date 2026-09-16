@@ -87,7 +87,13 @@
    "source": "slack",
    "shared_by": "Julia Moreno-Molen",
    "status": "skipped: corporate games-internship info session (Sept 22), not an open call for artists/XR creators"
+  },
+  {
+   "key": "https voqalpartners org fellowship",
+   "date": "2026-09-16",
+   "source": "note",
+   "status": "added (Voqal Partners Fellowship 2027, deadline Oct 31, 2026)"
   }
  ],
- "slack_last_ts": "1789480435.000000"
+ "slack_last_ts": "1789484035.576709"
 }
