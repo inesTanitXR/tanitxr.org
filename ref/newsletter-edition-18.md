@@ -1,4 +1,4 @@
-# 🌐 Art, XR & Impact Opportunities — Edition 18
+# 🌐 Art, XR & Impact Opportunities, Edition 18
 
 *Post: Sept 16, 2026. Deadlines verified at the source Sept 11 and re-checked Sept 16; items that closed Sept 14 and 15 were removed. Highlights carry no links; each highlight repeats as a full block below.*
 
@@ -10,11 +10,11 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## 🔥 HIGHLIGHTS
 
-- 💸 Fast Forward Accelerator — $25K for tech nonprofits — Sept 18 🚨
-- 🎬 Sundance 2027 — features late deadline — Sept 21 🚨
-- 🎤 IEEE VR 2027 — call for workshops — Sept 28
-- 🧬 Ars Electronica ArtXScience Residency — €24,000 — Sept 28
-- 🏆 World Summit Awards — Culture & Heritage — Sept 30
+- 💸 Fast Forward Accelerator: $25K for tech nonprofits: Sept 18 🚨
+- 🎬 Sundance 2027: features late deadline: Sept 21 🚨
+- 🎤 IEEE VR 2027: call for workshops: Sept 28
+- 🧬 Ars Electronica ArtXScience Residency: €24,000: Sept 28
+- 🏆 World Summit Awards: Culture & Heritage: Sept 30
 
 ───────────────────────────────────────
 
@@ -24,22 +24,22 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 📅 Deadline: September 18, 2026, 11:59 pm PT
 📍 Remote, Feb–June 2027, with two in-person weeks in San Francisco
-👥 Early-stage tech or AI nonprofits with a working product — any country, fiscally sponsored teams included
+👥 Early-stage tech or AI nonprofits with a working product: any country, fiscally sponsored teams included
 ✏️ $25K unrestricted grant, three months of mentorship and a Demo Day in front of funders. The only accelerator made for tech nonprofits.
 👉 https://www.ffwd.org/accelerator
 
-### 🌍 Awesome Foundation — Conservation & Climate
+### 🌍 Awesome Foundation: Conservation & Climate
 
 📅 Deadlines: September 25 and November 27, 2026
 📍 Online, worldwide
-👥 Anyone — no nonprofit status needed
+👥 Anyone: no nonprofit status needed
 ✏️ $1,000 micro-grants for climate, habitat or environmental storytelling projects. Short form, six rounds a year.
 👉 https://www.awesomefoundation.org/en/chapters/conservationandclimate
 
 ### 🧬 Ars Biologica ArtXScience Residency 2027–2028
 
 📅 Deadline: September 28, 2026, midnight CET
-📍 Hybrid — three stays in České Budějovice, Czechia + remote work
+📍 Hybrid: three stays in České Budějovice, Czechia + remote work
 👥 Artists, designers, collectives, any nationality, 5+ years of practice, able to travel in the EU
 ✏️ Two spots at €24,000 each (€6,000 fee, €15,000 production, €3,000 travel + accommodation), Jan 2027–Apr 2028, run by Ars Electronica. They want spatial and immersive work, not screen-based.
 👉 https://ars.electronica.art/export/en/ecoc2028-ars-biologica-art-science-residency/
@@ -48,7 +48,7 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## 🎨 IMMERSIVE ART & FILM
 
-### 🕶 SXSW 2027 — XR Experience
+### 🕶 SXSW 2027: XR Experience
 
 📅 Final deadline: October 1, 2026 ($90)
 📍 Austin, March 15–21, 2027
@@ -56,12 +56,12 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 ✏️ You need a streamable 360 or 2D playthrough. Selections announced by Feb 9.
 👉 https://sxsw.com/film-submissions/
 
-### 🎬 Sundance Film Festival 2027 — Feature Films 🚨
+### 🎬 Sundance Film Festival 2027: Feature Films 🚨
 
 📅 Late deadline: September 21, 2026 ($125)
 📍 Boulder, Colorado, January 21–31, 2027
 👥 Features 50+ min with premiere status; documentary and experimental features are considered for New Frontier
-✏️ Shorts and episodic are closed; features are still open. No separate XR category this year — submit as a feature.
+✏️ Shorts and episodic are closed; features are still open. No separate XR category this year: submit as a feature.
 👉 https://www.sundance.org/festivals/sundance-film-festival/submit/
 
 ### 👓 FIVARS 2027
@@ -88,15 +88,15 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## 🎤 SPEAK & BUILD
 
-### 🎤 IEEE VR 2027 — Call for Workshop Proposals
+### 🎤 IEEE VR 2027: Call for Workshop Proposals
 
 📅 Deadline: September 28, 2026 (notification October 12)
 📍 Melbourne, February 27–28, 2027
-👥 Researchers and practitioners — 3-page proposal
+👥 Researchers and practitioners: 3-page proposal
 ✏️ Propose a half-day workshop (XR for heritage, XR in the Global South, community documentation…). No fee; workshop papers can be published in IEEE Xplore.
 👉 https://ieeevr.org/2027/contribute/workshops/
 
-### 💻 Immerse the Bay 2026 — Stanford XR Hackathon
+### 💻 Immerse the Bay 2026: Stanford XR Hackathon
 
 📅 Priority October 2 · final October 16, 2026
 📍 Stanford, November 13–15, 2026
@@ -108,7 +108,7 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## 🇹🇳 FOR TUNISIANS & NORTH AFRICANS
 
-### 🎓 Chevening Scholarships 2027/28 — Tunisia
+### 🎓 Chevening Scholarships 2027/28: Tunisia
 
 📅 Deadline: October 6, 2026, 11:00 UTC
 📍 UK, one-year master's
@@ -116,7 +116,7 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 ✏️ Fully funded: tuition, stipend, flights, visa. Digital heritage, HCI, game design and immersive media programmes all count.
 👉 https://www.chevening.org/scholarship/tunisia/
 
-### 🎨 Culture Resource (Al Mawred) — Production Awards 2027
+### 🎨 Culture Resource (Al Mawred): Production Awards 2027
 
 📅 Deadline: October 19, 2026, 16:00 Beirut time
 📍 Arab region, diaspora included
@@ -128,16 +128,16 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## ⏰ STILL OPEN FROM PAST EDITIONS
 
-- 🏆 WomenTech Global Awards — October 1 — womentech.net
-- 🎨 IEEE VR 2027 XR Gallery — November 3 — ieeevr.org/2027/contribute/xrgallery
-- 🚀 NASA Space Apps Challenge (local events in Tunisia) — November 14–15 — spaceappschallenge.org
-- 🌲 NAAEE 2026 conference financial aid — rolling — conference.naaee.org/scholarships
-- 🎮 Games for Change Türkiye — speakers & arcade — turkiye.gamesforchange.org
-- 🕶 AWE USA 2027 — call for speakers — awexr.com
+- 🏆 WomenTech Global Awards: October 1: womentech.net
+- 🎨 IEEE VR 2027 XR Gallery: November 3: ieeevr.org/2027/contribute/xrgallery
+- 🚀 NASA Space Apps Challenge (local events in Tunisia): November 14–15: spaceappschallenge.org
+- 🌲 NAAEE 2026 conference financial aid: rolling: conference.naaee.org/scholarships
+- 🎮 Games for Change Türkiye: speakers & arcade: turkiye.gamesforchange.org
+- 🕶 AWE USA 2027: call for speakers: awexr.com
 
 ───────────────────────────────────────
 
-Everything here, with live countdowns, is on tanitxr.org/opportunities — you can also submit an opportunity there for the next edition.
+Everything here, with live countdowns, is on tanitxr.org/opportunities: you can also submit an opportunity there for the next edition.
 
 If you apply to any of these, tell me. And if you want to help preserve Tunisian heritage with XR and 3D scanning, Tanit XR is always looking for volunteers: ines@tanitxr.org 🌟
 
@@ -148,13 +148,13 @@ If you apply to any of these, tell me. And if you want to help preserve Tunisian
 
 Edition 18 of Art, XR & Impact Opportunities is out. Deadlines are close on this one:
 
-💸 @Fast Forward accelerator, $25K for tech nonprofits — Sept 18
-🎬 @Sundance Institute 2027 features — Sept 21
-🎤 @IEEE VR - Conference On Virtual Reality And 3D User Interfaces workshops — Sept 28
-🧬 @Ars Electronica ArtXScience residency, €24,000 — Sept 28
-🏆 @WSA World Summit Awards, Culture & Heritage — Sept 30
+💸 @Fast Forward accelerator, $25K for tech nonprofits: Sept 18
+🎬 @Sundance Institute 2027 features: Sept 21
+🎤 @IEEE VR - Conference On Virtual Reality And 3D User Interfaces workshops: Sept 28
+🧬 @Ars Electronica ArtXScience residency, €24,000: Sept 28
+🏆 @WSA World Summit Awards, Culture & Heritage: Sept 30
 
-Also: @SXSW XR, @FIVARS, @Awesome Foundation climate micro-grants, @Stanford XR Immerse the Bay — and a new section for Tunisians and North Africans with @Chevening Awards and @Culture Resource (Al Mawred Al Thaqafy).
+Also: @SXSW XR, @FIVARS, @Awesome Foundation climate micro-grants, @Stanford XR Immerse the Bay and a new section for Tunisians and North Africans with @Chevening Awards and @Culture Resource (Al Mawred Al Thaqafy).
 
 Only things I'd apply to myself. Link below 👇
 
@@ -164,7 +164,7 @@ Only things I'd apply to myself. Link below 👇
 
 | Mention | LinkedIn page |
 |---|---|
-| Fast Forward | search "Fast Forward" (ffwd.org, San Francisco) in the composer — slug not confirmed |
+| Fast Forward | search "Fast Forward" (ffwd.org, San Francisco) in the composer: slug not confirmed |
 | Sundance Institute | linkedin.com/company/sundanceorg |
 | IEEE VR – Conference On Virtual Reality And 3D User Interfaces | linkedin.com/company/ieee-vr-conference-on-virtual-reality-and-3d-user-interfaces |
 | Ars Electronica | linkedin.com/company/arselectronica |

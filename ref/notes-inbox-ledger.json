@@ -73,6 +73,21 @@
    "result": "added",
    "slug": "unitedxr-europe-2026-booster-programs-narratives-games-builders-startups",
    "deadline": "2026-09-15"
+  },
+  {
+   "key": "dam new york 2026 henry stewart conferences",
+   "date": "2026-09-16",
+   "source": "slack",
+   "shared_by": "Nick Kaufmann",
+   "status": "skipped: paid DAM industry conference in NYC, no open call or deadline"
+  },
+  {
+   "key": "playstation early career talent summer 2027 virtual information session",
+   "date": "2026-09-16",
+   "source": "slack",
+   "shared_by": "Julia Moreno-Molen",
+   "status": "skipped: corporate games-internship info session (Sept 22), not an open call for artists/XR creators"
   }
- ]
+ ],
+ "slack_last_ts": "1789480435.000000"
 }
