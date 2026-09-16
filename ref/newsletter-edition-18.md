@@ -1,18 +1,17 @@
 # 🌐 Art, XR & Impact Opportunities — Edition 18
 
-*Post: Sept 11 or 12, 2026. Deadlines verified at the source Sept 11. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Sept 16, 2026. Deadlines verified at the source Sept 11 and re-checked Sept 16; items that closed Sept 14 and 15 were removed. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
 Hi everyone 👋
 
-Back after a long summer break. A lot closes in the next three weeks, so this one is mostly deadlines. As always: only things I'd apply to myself, plus a new short section at the end for Tunisians and North Africans.
+Back after a long summer break. A lot closes in the next two weeks, so this one is mostly deadlines. As always: only things I'd apply to myself, plus a new short section at the end for Tunisians and North Africans.
 
 ## 🔥 HIGHLIGHTS
 
-- 🚀 UnitedXR Europe Booster Programs — Sept 15 🚨
 - 💸 Fast Forward Accelerator — $25K for tech nonprofits — Sept 18 🚨
-- 🎬 Sundance 2027 — features late deadline — Sept 21
+- 🎬 Sundance 2027 — features late deadline — Sept 21 🚨
 - 🎤 IEEE VR 2027 — call for workshops — Sept 28
 - 🧬 Ars Electronica ArtXScience Residency — €24,000 — Sept 28
 - 🏆 World Summit Awards — Culture & Heritage — Sept 30
@@ -20,14 +19,6 @@ Back after a long summer break. A lot closes in the next three weeks, so this on
 ───────────────────────────────────────
 
 ## 💰 GRANTS & FUNDING
-
-### 🖼 Art Worker Artist Grant 2026 🚨
-
-📅 Deadline: September 14, 2026 (or when they hit 500 applications)
-📍 Online, worldwide
-👥 Artists whose day job is in the art industry — museums, galleries, studios, fabrication, conservation, logistics
-✏️ $5,000 AUD, no strings, minimal application: a short statement and a link to your work.
-👉 https://artistengineering.co/pages/awa
 
 ### 💸 Fast Forward Accelerator 2027 🚨
 
@@ -59,13 +50,13 @@ Back after a long summer break. A lot closes in the next three weeks, so this on
 
 ### 🕶 SXSW 2027 — XR Experience
 
-📅 Deadlines: September 15 ($70) · October 1, 2026 ($90)
+📅 Final deadline: October 1, 2026 ($90)
 📍 Austin, March 15–21, 2027
 👥 VR/MR/AR, immersive performance, projection, audio and AI installations
 ✏️ You need a streamable 360 or 2D playthrough. Selections announced by Feb 9.
 👉 https://sxsw.com/film-submissions/
 
-### 🎬 Sundance Film Festival 2027 — Feature Films
+### 🎬 Sundance Film Festival 2027 — Feature Films 🚨
 
 📅 Late deadline: September 21, 2026 ($125)
 📍 Boulder, Colorado, January 21–31, 2027
@@ -80,18 +71,6 @@ Back after a long summer break. A lot closes in the next three weeks, so this on
 👥 VR/MR stories, 360°, live and spatial performance, WebXR, installations
 ✏️ Artist-friendly XR story festival; WebXR accepted, so no headset distribution needed. Fees on FilmFreeway.
 👉 https://fivars.net/
-
-───────────────────────────────────────
-
-## 🚀 PROGRAMS & PITCHES
-
-### 🚀 UnitedXR Europe 2026 — Booster Programs 🚨
-
-📅 Deadline: September 15, 2026
-📍 Online masterclasses in November, then Brussels, December 7–9
-👥 Four tracks: Narratives (early-stage narrative, artistic or documentary XR), Games, Builders (prototype/MVP), Startups
-✏️ Mentorship, a live pitch on stage, 3 guaranteed meetings with decision-makers, full event pass, up to 3 team members. Free to apply; €300/€200/€100 per person only if selected. Startups can also enter the free Startup Pitch Competition, same deadline.
-👉 https://unitedxr.eu/booster-programs
 
 ───────────────────────────────────────
 
@@ -169,7 +148,6 @@ If you apply to any of these, tell me. And if you want to help preserve Tunisian
 
 Edition 18 of Art, XR & Impact Opportunities is out. Deadlines are close on this one:
 
-🚀 @UnitedXR Europe Booster Programs — Sept 15
 💸 @Fast Forward accelerator, $25K for tech nonprofits — Sept 18
 🎬 @Sundance Institute 2027 features — Sept 21
 🎤 @IEEE VR - Conference On Virtual Reality And 3D User Interfaces workshops — Sept 28
@@ -186,7 +164,6 @@ Only things I'd apply to myself. Link below 👇
 
 | Mention | LinkedIn page |
 |---|---|
-| UnitedXR Europe | linkedin.com/company/unitedxr |
 | Fast Forward | search "Fast Forward" (ffwd.org, San Francisco) in the composer — slug not confirmed |
 | Sundance Institute | linkedin.com/company/sundanceorg |
 | IEEE VR – Conference On Virtual Reality And 3D User Interfaces | linkedin.com/company/ieee-vr-conference-on-virtual-reality-and-3d-user-interfaces |
@@ -198,4 +175,3 @@ Only things I'd apply to myself. Link below 👇
 | Stanford XR | linkedin.com/company/stanfordxr |
 | Chevening Awards | linkedin.com/company/cheveningfcdo |
 | Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
-| ARTIST ENGINEERING | no LinkedIn page — link artistengineering.co |

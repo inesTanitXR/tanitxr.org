@@ -4,7 +4,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
-| **18** | **Fri Sept 11 or Sat Sept 12** | Sept 14 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready, items on the board |
+| **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board |
 | **19** | **Fri Sept 25** | Oct 1 → Nov 3 | to assemble ~Sept 23 |
 | **20** | **Fri Oct 9** | Nov → Jan 2027 | to assemble ~Oct 7 |
 
