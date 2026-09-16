@@ -2151,7 +2151,7 @@ def build_news():
         else:
             byline = f"By {esc(author)} · " if author else ""
         body = f"""
-{page_hero(esc(n["title"]), f'<a href="news.html">News</a> &nbsp;›&nbsp; {esc(n["title"][:50])}')}
+{page_hero(esc(n["title"]), f'<a href="news.html">News</a> &nbsp;›&nbsp; {esc(n["title"][:50])}', bg=n.get("img") or None)}
 <section class="pad"><div class="wrap"><div class="prose">
 <p style="color:var(--gray);font-size:14px">{byline}Published {n['date']}</p>
 {content}
