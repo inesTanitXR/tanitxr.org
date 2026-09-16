@@ -10,11 +10,11 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ## 🔥 HIGHLIGHTS
 
-- 💸 Fast Forward Accelerator: $25K for tech nonprofits: Sept 18 🚨
-- 🎬 Sundance 2027: features late deadline: Sept 21 🚨
-- 🎤 IEEE VR 2027: call for workshops: Sept 28
-- 🧬 Ars Electronica ArtXScience Residency: €24,000: Sept 28
-- 🏆 World Summit Awards: Culture & Heritage: Sept 30
+- 💸 Fast Forward Accelerator, $25K for tech nonprofits. Deadline Sept 18 🚨
+- 🎬 Sundance 2027, feature films. Late deadline Sept 21 🚨
+- 🎤 IEEE VR 2027, call for workshops. Deadline Sept 28
+- 🧬 Ars Electronica ArtXScience Residency, €24,000. Deadline Sept 28
+- 🏆 World Summit Awards, Culture & Heritage. Deadline Sept 30
 
 ───────────────────────────────────────
 
