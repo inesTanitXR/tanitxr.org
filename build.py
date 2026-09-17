@@ -2375,11 +2375,13 @@ def build_walk():
         for m in group:
             d = MODEL_DIMS.get(m["file_slug"])
             ov = overrides.get(m["file_slug"], {})
+            measured = not m.get("by")      # props were modelled, not scanned to scale
             items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
-                          "href": m.get("href", "archive.html"), "place": m["place"],
-                          "size": human_size(d),
-                          "dims": [d["w"], d["h"], d["d"]] if d else None,
-                          "real": not m.get("by"),
+                          "href": m.get("href", "archive.html"),
+                          "place": m["place"] + (f', by {m["by"]}' if m.get("by") else ""),
+                          "size": human_size(d) if measured else "",
+                          "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
+                          "real": measured,
                           **({"rotate": ov["rotate"]} if ov.get("rotate") else {})})
             shutil.copy(os.path.join(models_dir, m["file_slug"] + ".glb"),
                         os.path.join(out_dir, m["file_slug"] + ".glb"))
