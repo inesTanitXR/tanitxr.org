@@ -93,6 +93,12 @@
    "date": "2026-09-16",
    "source": "note",
    "status": "added (Voqal Partners Fellowship 2027, deadline Oct 31, 2026)"
+  },
+  {
+   "key": "https connect ufalumni ufl edu events 40gatorsunder40",
+   "date": "2026-09-17",
+   "source": "note",
+   "status": "skipped for board: UF-alumni-only award, fails the curation filter — added to ref/ines-shortlist.json instead (40 Gators Under 40 Class of 2027, deadline Oct 5, 2026)"
   }
  ],
  "slack_last_ts": "1789484035.576709"
