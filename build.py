@@ -776,6 +776,34 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 .wf-btn.solid:hover{background:#2e2118}
 .wf-link{color:#a35f3f;text-decoration:none;font-size:13.5px;font-weight:700;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
+.wf-btn.gold{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700;
+  text-decoration:none}
+.wf-btn.gold:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+.wf-by{color:#7d6a58;font-size:13px;margin:-8px 0 14px}
+
+/* the rotate affordance stays put, it just dims once you have used it */
+#walk-hint{display:flex;align-items:center;gap:8px}
+#walk-hint svg{width:15px;height:15px;fill:currentColor}
+#walk-hint.gone{opacity:.4}
+
+/* Nura's speech bubble, pinned above her head */
+#nura-bubble{position:fixed;z-index:4;transform:translate(-50%,-100%);max-width:260px;
+  background:rgba(253,249,242,.95);border:1px solid rgba(74,53,43,.16);border-radius:14px;
+  padding:12px 14px 12px 15px;box-shadow:0 14px 34px rgba(60,40,26,.16);
+  display:flex;gap:9px;align-items:flex-start;opacity:0;transition:opacity .5s ease;
+  pointer-events:none}
+#nura-bubble.in{opacity:1;pointer-events:auto}
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:26px;width:13px;
+  height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
+  border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
+#nura-text{margin:0;font-size:13.5px;line-height:1.5;color:#463628}
+#nura-speak{flex:0 0 auto;width:28px;height:28px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(74,53,43,.2);background:#fff;color:#7d6a58;display:flex;
+  align-items:center;justify-content:center;padding:0}
+#nura-speak svg{width:14px;height:14px;fill:currentColor}
+#nura-speak:hover,#nura-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
+body.walk-fallback #nura-bubble{display:none}
+@media(max-width:760px){#nura-bubble{max-width:200px;padding:10px 11px}#nura-text{font-size:12.5px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
@@ -2307,6 +2335,41 @@ def short_title(title):
     return head if len(head) >= 4 else t
 
 
+def walk_credit(m):
+    """Who did the work: scanned by, optimized by, or modelled by. Plain text, no markup."""
+    if m.get("by"):
+        return f'Modelled by {m["by"]}'
+    ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
+               if k.lower() in m["title"].lower()), {})
+    s_name, _ = creator_credit(m.get("scanned_by"))
+    o_name, _ = creator_credit(m.get("optimized_by"))
+    if ov.get("scanned") in TEAM_BY_SLUG:
+        s_name = TEAM_BY_SLUG[ov["scanned"]]["name"]
+    if ov.get("optimized") in TEAM_BY_SLUG:
+        o_name = TEAM_BY_SLUG[ov["optimized"]]["name"]
+    bits = []
+    bits.append(f"Scanned by {s_name}" if s_name
+                else "Scanned by a Tanit XR volunteer")   # uploaded from the org account
+    if o_name and o_name != s_name:
+        bits.append(f"optimized by {o_name}")
+    return " \u00b7 ".join(bits)
+
+
+def nura_line(m):
+    """One short, factual remark for Nura, from the object's own description."""
+    t = re.sub(r"<[^>]+>", " ", m.get("text") or "")
+    t = htmod.unescape(t)
+    t = re.split(r"\U0001F4CC|This model is part of the Tanit XR", t)[0]
+    t = re.sub(r"\s*[\u2013\u2014]\s*", ", ", t)          # no em dashes in our copy
+    t = re.sub(r"\s+", " ", t).strip()
+    if not t:
+        return ""
+    first = re.split(r"(?<=[.!?])\s+", t)[0].strip()
+    if len(first) > 165:
+        first = first[:162].rsplit(" ", 1)[0] + "..."
+    return first
+
+
 def human_size(d):
     """A readable real-world size, using the two biggest dimensions for flat things."""
     if not d:
@@ -2380,6 +2443,10 @@ def build_walk():
                           "href": m.get("href", "archive.html"),
                           "place": m["place"] + (f', by {m["by"]}' if m.get("by") else ""),
                           "size": human_size(d) if measured else "",
+                          "credit": walk_credit(m),
+                          "note": nura_line(m) if measured else
+                                  (f'{short_title(m["title"])}, modelled by hand for our virtual '
+                                   f'museum{", by " + m["by"] if m.get("by") else ""}.'),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
                           **({"rotate": ov["rotate"]} if ov.get("rotate") else {})})
@@ -2413,7 +2480,12 @@ def build_walk():
     cfg_json = json.dumps({"items": items}, ensure_ascii=False)
     body = f"""
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
-<div id="walk-hint">Drag to turn</div></div>
+<div id="walk-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L8 6l4 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg> Drag to turn it</div></div>
+
+<div id="nura-bubble"><p id="nura-text"></p>
+<button id="nura-speak" aria-label="Read this aloud">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h3l4 3V7L6 10H3zm11.5 2a3.5 3.5 0 0 0-2-3.16v6.32A3.5 3.5 0 0 0 14.5 12zm-2-7.7v2.06A6 6 0 0 1 12.5 18.3v2.06a8 8 0 0 0 0-16.06z"/></svg>
+</button></div>
 
 <div id="walk-label">
 <button id="wf-prev" class="wf-round wf-l" aria-label="Previous object">&#8249;</button>
@@ -2421,9 +2493,11 @@ def build_walk():
 <div class="wf-panel">
 <div id="wf-id" class="wf-id"></div>
 <h2 id="wf-title"></h2>
+<div id="wf-by" class="wf-by"></div>
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
+<a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a id="wf-record" class="wf-link" href="archive.html">Full record</a>
 </div>
 </div>

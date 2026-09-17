@@ -22,13 +22,10 @@ try { gl = canvas.getContext('webgl2') || canvas.getContext('webgl'); } catch (e
 if (!gl || !CFG.items.length) { useFallback(); } else { start(); }
 
 function start() {
-  // One unit is one metre, for everything. Nura stands beside each object at her real
-  // 1.7 m, and the camera moves in or out so the object always fills the frame. That way
-  // size is honest: a small fragment makes her tower, a 7 m niche makes her tiny.
-  const NURA_H = 1.7;
+  // Every object is shown at one comfortable size; the real measurement is in the label.
+  // Nura is a companion, not a ruler: she floats nearby, faces you, and says a line.
+  const FIT = 2.15, NURA_H = 1.25;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const realMax = it => (it.real && it.dims ? Math.max(it.dims[0], it.dims[1], it.dims[2]) : 0.45);
-  const frameOf = it => Math.max(realMax(it), NURA_H) * 1.55;
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -37,9 +34,9 @@ function start() {
   renderer.toneMappingExposure = 1.1;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 400);
-  camera.position.set(0, 1.0, 5.0);
-  const camTarget = new THREE.Vector3(), camWant = new THREE.Vector3();
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+  camera.position.set(0, 0.1, 6.9);
+  camera.lookAt(0, 0, 0);
 
   // soft, even light from a few directions so any object reads without a set around it
   scene.add(new THREE.AmbientLight(0xf3ece0, 1.15));
@@ -63,16 +60,14 @@ function start() {
   const slots = CFG.items.map((it, i) => {
     const wrap = new THREE.Group();          // position + fade
     const pivot = new THREE.Group();         // drag turns this
-    const frame = frameOf(it);
-    const sw = Math.max(realMax(it), 0.4) * 1.7;
-    const shadow = new THREE.Mesh(new THREE.PlaneGeometry(sw, sw),
+    const shadow = new THREE.Mesh(new THREE.PlaneGeometry(FIT * 1.6, FIT * 1.6),
       new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
     shadow.rotation.x = -Math.PI / 2;
-    shadow.position.y = 0.002;
+    shadow.position.y = -FIT * 0.6;
     wrap.add(pivot, shadow);
     wrap.visible = false;
     scene.add(wrap);
-    return { it, i, wrap, pivot, shadow, frame, mats: [], loaded: false, loading: false };
+    return { it, i, wrap, pivot, shadow, mats: [], loaded: false, loading: false };
   });
 
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
@@ -85,14 +80,10 @@ function start() {
       const box = new THREE.Box3().setFromObject(o);
       const size = box.getSize(new THREE.Vector3());
       const mid = box.getCenter(new THREE.Vector3());
-      o.position.set(-mid.x, -box.min.y, -mid.z);        // stand on the ground, centred in x/z
+      o.position.set(-mid.x, -mid.y, -mid.z);            // centred on itself
       const fit = new THREE.Group();
       fit.add(o);
-      // real metres, unless the file has no measured size (the hand-modelled props)
-      const rm = realMax(s.it);
-      const fileMax = Math.max(size.x, size.y, size.z) || 1;
-      fit.scale.setScalar(s.it.real && s.it.dims ? 1 : rm / fileMax);
-      s.standH = (s.it.real && s.it.dims) ? size.y : rm * (size.y / fileMax);
+      fit.scale.setScalar(FIT / (Math.max(size.x, size.y, size.z) || 1));
       if (s.it.rotate) {
         const r = s.it.rotate;
         fit.rotation.set((r[0] || 0) * Math.PI / 180, (r[1] || 0) * Math.PI / 180,
@@ -117,10 +108,20 @@ function start() {
     });
   }
 
-  // ---- Nura, floating beside whatever you are looking at, as the scale reference
+  // ---- Nura: a companion who floats nearby, faces you, and has something to say
   let nura = null, mixer = null;
   const nuraHolder = new THREE.Group();
+  nuraHolder.position.set(2.15, -0.15, 1.1);
   scene.add(nuraHolder);
+  const sparks = new THREE.Group();
+  const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffd76a, transparent: true, opacity: .85 });
+  for (let i = 0; i < 7; i++) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.018 + Math.random() * 0.016, 7, 6), sparkMat);
+    m.userData = { a: Math.random() * Math.PI * 2, r: .34 + Math.random() * .3,
+                   y: .2 + Math.random() * .9, sp: .5 + Math.random() * .9 };
+    sparks.add(m);
+  }
+  nuraHolder.add(sparks);
   loader.load(MODEL_BASE + 'nura.glb', (gltf) => {
     const o = gltf.scene;
     o.updateMatrixWorld(true);
@@ -130,7 +131,7 @@ function start() {
     o.position.set(-c.x, -b.min.y, -c.z);
     const g = new THREE.Group();
     g.add(o);
-    g.scale.setScalar(NURA_H / (sz.y || 1));            // her real height
+    g.scale.setScalar(NURA_H / (sz.y || 1));
     nuraHolder.add(g);
     nura = g;
     if (gltf.animations && gltf.animations.length) {
@@ -138,7 +139,27 @@ function start() {
       const clip = gltf.animations.find(a => /float/i.test(a.name)) || gltf.animations[0];
       mixer.clipAction(clip).play();
     }
-  }, undefined, () => { /* Nura is optional, the page works without her */ });
+  }, undefined, () => { /* Nura is optional, the page still works without her */ });
+
+  const bubble = document.getElementById('nura-bubble');
+  const bubbleText = document.getElementById('nura-text');
+  const speakBtn = document.getElementById('nura-speak');
+  let speaking = false;
+  function sayLine(text) {
+    if (!('speechSynthesis' in window) || !text) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.98; u.pitch = 1.08;
+    u.onend = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
+    speaking = true;
+    if (speakBtn) speakBtn.classList.add('on');
+    speechSynthesis.speak(u);
+  }
+  if (speakBtn) speakBtn.addEventListener('click', () => {
+    if (speaking) { speechSynthesis.cancel(); speaking = false; speakBtn.classList.remove('on'); return; }
+    const s = slots[shown];
+    if (s) sayLine(s.it.note || s.it.title);
+  });
 
   // ---- scroll moves along the list, one object per section
   let cursor = 0, target = 0;
@@ -199,6 +220,15 @@ function start() {
     if (uiTitle) uiTitle.textContent = s.it.title;
     if (uiId) uiId.textContent = [s.it.place, s.it.size].filter(Boolean).join(' · ');
     if (uiRecord) uiRecord.href = s.it.href || 'archive.html';
+    const by = document.getElementById('wf-by');
+    if (by) by.textContent = s.it.credit || '';
+    if (bubbleText) bubbleText.textContent = s.it.note || '';
+    if (bubble) {
+      bubble.classList.remove('in');
+      void bubble.offsetWidth;                        // restart the fade
+      bubble.classList.add('in');
+    }
+    if (speaking) speechSynthesis.cancel();
     paintSave(s.it);
     history.replaceState(null, '', '#' + s.it.slug);
   }
@@ -265,37 +295,41 @@ function start() {
     if (!dragging) idle += dt;
     paint(Math.round(clamp(cursor, 0, slots.length - 1)));
 
-    const front = slots[Math.round(clamp(cursor, 0, slots.length - 1))];
-    const fr = front ? front.frame : NURA_H * 1.55;
-
     slots.forEach(s => {
       const d = s.i - cursor;                       // 0 = front and centre
       const a = Math.max(0, 1 - Math.abs(d) * 1.3);
       s.wrap.visible = s.loaded && a > 0.005;
       if (!s.wrap.visible) return;
-      s.wrap.position.set(0, -d * s.frame * 1.15, -Math.abs(d) * s.frame * 0.8);
+      s.wrap.position.set(0, -d * 3.5, -Math.abs(d) * 2.7);
+      s.wrap.scale.setScalar(0.82 + 0.18 * a);
       s.mats.forEach(m => { m.opacity = a; });
       s.shadow.material.opacity = a * 0.8;
       if (!reduce && !dragging && idle > 2.2 && Math.abs(d) < 0.5) s.pivot.rotation.y += dt * 0.14;
     });
 
+    const t = clock.elapsedTime;
     if (mixer) mixer.update(dt);
-    if (nura && front) {
-      // stand her to the right of the object, clear of the label in the lower left
-      nuraHolder.position.set(fr * 0.40, 0, Math.min(0.4, fr * 0.06));
-      nuraHolder.visible = true;
-      const bob = Math.sin(clock.elapsedTime * 0.9) * Math.min(0.06, fr * 0.012);
-      nuraHolder.position.y = NURA_H * 0.06 + bob;      // hovering, not standing
-      nuraHolder.rotation.y = -0.35;
+    if (nura) {
+      nuraHolder.position.y = -0.15 + Math.sin(t * 1.05) * 0.075;       // a gentle hover
+      nuraHolder.position.x = 2.15 + Math.sin(t * 0.43) * 0.09;
+      nura.rotation.y = Math.sin(t * 0.5) * 0.12;                        // she keeps facing you
+      nura.rotation.z = Math.sin(t * 0.8) * 0.03;
+      sparks.children.forEach(m => {
+        m.userData.a += dt * m.userData.sp;
+        m.position.set(Math.cos(m.userData.a) * m.userData.r,
+                       m.userData.y + Math.sin(t * m.userData.sp + m.userData.a) * 0.09,
+                       Math.sin(m.userData.a) * m.userData.r * 0.7);
+        m.material.opacity = 0.35 + 0.5 * (0.5 + 0.5 * Math.sin(t * 2 + m.userData.a));
+      });
+      if (bubble) {                                   // pin the bubble above her head
+        const v = new THREE.Vector3(0, NURA_H * 1.02, 0);
+        nuraHolder.localToWorld(v);
+        v.project(camera);
+        const r = stage.getBoundingClientRect();
+        bubble.style.left = (r.left + (v.x * 0.5 + 0.5) * r.width) + 'px';
+        bubble.style.top = (r.top + (-v.y * 0.5 + 0.5) * r.height) + 'px';
+      }
     }
-
-    // frame the object: move the camera, never resize the world
-    const dist = fr / 0.62;
-    const eyeY = Math.max(front ? front.standH || realMax(front.it) : NURA_H, NURA_H) * 0.5;
-    camTarget.set(0, eyeY, 0);
-    camWant.set(0, eyeY + fr * 0.05, dist);
-    camera.position.lerp(camWant, reduce ? 1 : 0.1);
-    camera.lookAt(camTarget);
 
     renderer.render(scene, camera);
     requestAnimationFrame(frame);

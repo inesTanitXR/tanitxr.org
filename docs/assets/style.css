@@ -578,6 +578,34 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 .wf-btn.solid:hover{background:#2e2118}
 .wf-link{color:#a35f3f;text-decoration:none;font-size:13.5px;font-weight:700;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
+.wf-btn.gold{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700;
+  text-decoration:none}
+.wf-btn.gold:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+.wf-by{color:#7d6a58;font-size:13px;margin:-8px 0 14px}
+
+/* the rotate affordance stays put, it just dims once you have used it */
+#walk-hint{display:flex;align-items:center;gap:8px}
+#walk-hint svg{width:15px;height:15px;fill:currentColor}
+#walk-hint.gone{opacity:.4}
+
+/* Nura's speech bubble, pinned above her head */
+#nura-bubble{position:fixed;z-index:4;transform:translate(-50%,-100%);max-width:260px;
+  background:rgba(253,249,242,.95);border:1px solid rgba(74,53,43,.16);border-radius:14px;
+  padding:12px 14px 12px 15px;box-shadow:0 14px 34px rgba(60,40,26,.16);
+  display:flex;gap:9px;align-items:flex-start;opacity:0;transition:opacity .5s ease;
+  pointer-events:none}
+#nura-bubble.in{opacity:1;pointer-events:auto}
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:26px;width:13px;
+  height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
+  border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
+#nura-text{margin:0;font-size:13.5px;line-height:1.5;color:#463628}
+#nura-speak{flex:0 0 auto;width:28px;height:28px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(74,53,43,.2);background:#fff;color:#7d6a58;display:flex;
+  align-items:center;justify-content:center;padding:0}
+#nura-speak svg{width:14px;height:14px;fill:currentColor}
+#nura-speak:hover,#nura-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
+body.walk-fallback #nura-bubble{display:none}
+@media(max-width:760px){#nura-bubble{max-width:200px;padding:10px 11px}#nura-text{font-size:12.5px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
