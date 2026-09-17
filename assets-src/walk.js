@@ -117,10 +117,25 @@ function start() {
     ptr.ty = clamp(((e.clientY - r.top) / r.height) * 2 - 1, -1, 1);
   }, { passive: true });
   stage.addEventListener('pointerleave', () => { ptr.tx = 0; ptr.ty = 0; });
+  // show the turn cursor only when the pointer is actually over an object
+  let hoverRaf = 0;
+  stage.addEventListener('pointermove', e => {
+    if (hoverRaf) return;
+    hoverRaf = requestAnimationFrame(() => {
+      hoverRaf = 0;
+      if (dragging) return;
+      const s = current();
+      if (!s || !s.loaded) return;
+      const r = stage.getBoundingClientRect();
+      ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      ray.setFromCamera(ndc, camera);
+      stage.classList.toggle('on-object', ray.intersectObject(s.wrap, true).length > 0);
+    });
+  }, { passive: true });
 
   // ---- Nura: a companion who floats nearby, faces you, and has something to say
   let nura = null, mixer = null, clips = null, idleAction = null, happyAction = null,
-      nuraBaseYaw = 0, flare = 0;
+      nuraBaseYaw = 0, flare = 0, glance = 0;
   const nuraHolder = new THREE.Group();
   nuraHolder.position.set(2.15, -0.15, 1.1);
   scene.add(nuraHolder);
@@ -222,6 +237,7 @@ function start() {
     expanded = !expanded;
     if (bubbleLong) bubbleLong.hidden = !expanded;
     moreBtn.textContent = expanded ? 'That is enough' : 'Tell me more';
+    if (expanded) bump(p => { p.more++; });
   });
   if (speakBtn) speakBtn.addEventListener('click', () => {
     if (speaking) { hushNura(); return; }
@@ -259,7 +275,11 @@ function start() {
   addEventListener('pointermove', e => {
     if (!dragging) return;
     moved += Math.abs(e.clientX - lastX);
-    if (moved > 24 && !turned) { turned = true; if (window.tx) tx('collection_rotate'); }
+    if (moved > 24 && !turned) {
+      turned = true;
+      if (window.tx) tx('collection_rotate');
+      bump(p => { p.rotated++; });
+    }
     const s = current();
     if (s) {
       s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
@@ -288,6 +308,94 @@ function start() {
                             catch (e) { return []; } };
   const writeSaved = l => { try { localStorage.setItem(SAVED, JSON.stringify(l)); }
                             catch (e) { /* private mode */ } };
+
+  // ---- badges: a quiet scavenger hunt through the collection
+  const PROG = 'tanitxr.progress';
+  const BADGES = [
+    { id: 'first-turn', icon: '\u21bb', name: 'First Turn',
+      how: 'Turn an object with your cursor', test: p => p.rotated >= 1 },
+    { id: 'curator', icon: '\u2665', name: 'Curator',
+      how: 'Save five objects', test: p => p.saved.length >= 5 },
+    { id: 'listener', icon: '\u25cf', name: 'Good Listener',
+      how: 'Ask Nura for more on ten objects', test: p => p.more >= 10 },
+    { id: 'surveyor', icon: '\u25c8', name: 'Site Surveyor',
+      how: 'See something from every place we have scanned',
+      test: p => p.places.length >= PLACES.length },
+    { id: 'guardian', icon: '\u2691', name: 'Guardian',
+      how: 'Share an object so others see it', test: p => p.shared >= 1 },
+    { id: 'completionist', icon: '\u2726', name: 'Whole Collection',
+      how: 'Look at every object', test: p => p.seen.length >= CFG.items.length },
+  ];
+  const PLACES = Array.from(new Set(CFG.items.map(i => i.place).filter(Boolean)));
+  const blank = { seen: [], places: [], saved: [], rotated: 0, more: 0, shared: 0, badges: [] };
+  function readProg() {
+    try { return Object.assign({}, blank, JSON.parse(localStorage.getItem(PROG) || '{}')); }
+    catch (e) { return Object.assign({}, blank); }
+  }
+  function writeProg(p) {
+    try { localStorage.setItem(PROG, JSON.stringify(p)); } catch (e) { /* private mode */ }
+  }
+  const toast = document.getElementById('badge-toast');
+  const toastName = document.getElementById('bt-name');
+  let lastBadge = null;
+  function award(p) {
+    BADGES.forEach(b => {
+      if (p.badges.includes(b.id) || !b.test(p)) return;
+      p.badges.push(b.id);
+      lastBadge = b;
+      if (toast && toastName) {
+        toast.querySelector('.bt-icon').textContent = b.icon;
+        toastName.textContent = b.name;
+        toast.hidden = false;
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => { toast.hidden = true; }, 9000);
+      }
+      if (window.tx) tx('badge_earned', { badge: b.id });
+    });
+  }
+  function bump(fn) {
+    const p = readProg();
+    fn(p);
+    award(p);
+    writeProg(p);
+    paintChip(p);
+    paintBadges(p);
+  }
+  function paintChip(p) {
+    p = p || readProg();
+    if (chipCount) chipCount.textContent = p.saved.length;
+    const prog = document.querySelector('#saved-chip .sc-prog');
+    if (prog) prog.textContent = p.seen.length + '/' + CFG.items.length;
+    if (chip) chip.style.display = (p.saved.length || p.seen.length > 2) ? '' : 'none';
+  }
+  function paintBadges(p) {
+    p = p || readProg();
+    const list = document.getElementById('badge-list');
+    if (!list) return;
+    list.innerHTML = '';
+    BADGES.forEach(b => {
+      const got = p.badges.includes(b.id);
+      const d = document.createElement('div');
+      d.className = 'bd' + (got ? '' : ' locked');
+      d.innerHTML = '<span class="bi">' + b.icon + '</span><span><b>' + b.name
+        + '</b><span>' + b.how + '</span></span>';
+      list.appendChild(d);
+    });
+  }
+  document.querySelectorAll('.st-tab').forEach(tb => tb.addEventListener('click', () => {
+    document.querySelectorAll('.st-tab').forEach(o => o.classList.toggle('on', o === tb));
+    const badges = tb.dataset.tab === 'badges';
+    document.getElementById('saved-list').hidden = badges;
+    document.getElementById('badge-list').hidden = !badges;
+    if (badges) paintBadges();
+  }));
+  const btClose = document.getElementById('bt-close');
+  if (btClose) btClose.addEventListener('click', () => { toast.hidden = true; });
+  const btShare = document.getElementById('bt-share');
+  if (btShare) btShare.addEventListener('click', () => {
+    toast.hidden = true;
+    makePoster(lastBadge);
+  });
 
   // ---- the saved tray, so saving actually leads somewhere
   const chip = document.getElementById('saved-chip');
@@ -365,6 +473,7 @@ function start() {
     if (by) by.textContent = s.it.credit || '';
     closeBubble();                                    // she stays quiet until you ask
     if (dot) dot.classList.add('in');
+    glance = 1.6;                                     // she looks over at the new piece
     if (cueEl && !turned) {                       // keep signalling until they try it once
       clearTimeout(cueTimer);
       cueEl.classList.remove('gone');
@@ -372,6 +481,10 @@ function start() {
     }
     paintSave(s.it);
     if (window.tx) tx('collection_view', { object: s.it.slug });
+    bump(p => {
+      if (!p.seen.includes(s.it.slug)) p.seen.push(s.it.slug);
+      if (s.it.place && !p.places.includes(s.it.place)) p.places.push(s.it.place);
+    });
     history.replaceState(null, '', '#' + s.it.slug);
   }
   const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
@@ -382,6 +495,9 @@ function start() {
     writeSaved(l);
     paintSave(s.it);
     paintTray();
+  paintChip();
+  paintBadges();
+    bump(p => { p.saved = l.slice(); });
     if (window.tx && i < 0) tx('collection_save', { object: s.it.slug });
   });
   on('wf-share', async () => {
@@ -390,6 +506,7 @@ function start() {
     const text = s.it.title + ', scanned in Tunisia by Tanit XR volunteers. '
       + 'Share it to help protect it.';
     if (window.tx) tx('collection_share', { object: s.it.slug });
+    bump(p => { p.shared++; });
     const btn = document.getElementById('wf-share');
     try {
       if (navigator.share) await navigator.share({ title: s.it.title, text, url });
@@ -413,7 +530,7 @@ function start() {
   });
 
   // ---- a square post image of whatever you are looking at, ready for LinkedIn
-  function makePoster() {
+  function makePoster(badge) {
     const s = slots[shown];
     if (!s || !s.loaded) return;
     const S = 1200;
@@ -439,21 +556,27 @@ function start() {
 
     const pad = 70;
     x.textAlign = 'left';
-    x.fillStyle = '#8a735c';
-    x.font = '500 22px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText([s.it.place, s.it.size].filter(Boolean).join('  \u00b7  ').toUpperCase(),
-               pad, S - 190);
+    const p = readProg();
+    const eyebrow = badge ? 'BADGE EARNED'
+      : [s.it.place, s.it.size].filter(Boolean).join('  \u00b7  ').toUpperCase();
+    const heading = badge ? badge.name : s.it.title;
+    const under = badge
+      ? p.seen.length + ' of ' + CFG.items.length + ' objects seen in the Tanit XR collection'
+      : (s.it.credit || 'Scanned by a Tanit XR volunteer');
+    x.fillStyle = badge ? '#a35f3f' : '#8a735c';
+    x.font = '700 22px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText(eyebrow, pad, S - 190);
     x.fillStyle = '#2e2118';
     let size = 62;
     x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
-    while (x.measureText(s.it.title).width > S - pad * 2 && size > 30) {
+    while (x.measureText(heading).width > S - pad * 2 && size > 30) {
       size -= 3;
       x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
     }
-    x.fillText(s.it.title, pad, S - 130);
+    x.fillText(heading, pad, S - 130);
     x.fillStyle = '#5d4c3c';
     x.font = '400 24px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText(s.it.credit || 'Scanned by a Tanit XR volunteer', pad, S - 88);
+    x.fillText(under, pad, S - 88);
     x.fillStyle = '#a35f3f';
     x.font = '700 22px Roboto, Helvetica, Arial, sans-serif';
     x.fillText('TANIT XR', pad, S - 44);
@@ -471,7 +594,7 @@ function start() {
       if (!b) return;
       const a = document.createElement('a');
       a.href = URL.createObjectURL(b);
-      a.download = 'tanitxr-' + s.it.slug + '.png';
+      a.download = 'tanitxr-' + (badge ? 'badge-' + badge.id : s.it.slug) + '.png';
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     }, 'image/png');
@@ -521,21 +644,26 @@ function start() {
     const dt = Math.min(clock.getDelta(), 0.05);
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
+    const t = clock.elapsedTime;
     paint(Math.round(clamp(cursor, 0, slots.length - 1)));
 
     slots.forEach(s => {
       const d = s.i - cursor;                       // 0 = front and centre
-      const a = Math.max(0, 1 - Math.abs(d) * 1.3);
+      const ad = Math.abs(d);
+      const a = Math.max(0, 1 - ad * 1.3);
       s.wrap.visible = s.loaded && a > 0.005;
       if (!s.wrap.visible) return;
-      s.wrap.position.set(0, -d * 3.5, -Math.abs(d) * 2.7);
-      s.wrap.scale.setScalar(0.82 + 0.18 * a);
+      // ease the travel so an object rises and settles rather than sliding past
+      const e = 1 - Math.pow(1 - Math.min(1, ad), 2);
+      s.wrap.position.set(0, -Math.sign(d) * e * 3.6, -e * 3.0);
+      s.wrap.scale.setScalar(0.78 + 0.22 * a);
+      const breathe = ad < 0.5 && !reduce ? Math.sin(t * 0.8) * 0.012 : 0;
+      s.wrap.position.y += breathe;                 // the faintest float, so it feels alive
       s.mats.forEach(m => { m.opacity = a; });
       s.shadow.material.opacity = a * 0.8;
-      if (!reduce && !dragging && idle > 2.2 && Math.abs(d) < 0.5) s.pivot.rotation.y += dt * 0.14;
+      if (!reduce && !dragging && idle > 2.2 && ad < 0.5) s.pivot.rotation.y += dt * 0.14;
     });
 
-    const t = clock.elapsedTime;
     if (mixer) mixer.update(dt);
     if (nura) {
       // park her a fixed fraction across the frame, so she is never cut off
@@ -543,12 +671,14 @@ function start() {
       const halfW = halfH * camera.aspect;
       ptr.x += (ptr.tx - ptr.x) * 0.06;
       ptr.y += (ptr.ty - ptr.y) * 0.06;
-      const homeX = clamp(halfW * 0.64, 1.1, 3.4);
+      const homeX = clamp(halfW * 0.52, 1.0, 2.9);
       nuraHolder.position.x = homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
       nuraHolder.position.y = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
       nuraHolder.position.z = 0.9;
-      // she looks where your cursor is
-      nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06;
+      // she looks at the new object for a moment, then back at you and your cursor
+      glance = Math.max(0, glance - dt);
+      const look = Math.min(1, glance) * 0.75;
+      nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look;
       nura.rotation.x = -ptr.y * 0.16;
       nura.rotation.z = Math.sin(t * 0.8) * 0.03;
       sparks.children.forEach(m => {
@@ -568,8 +698,10 @@ function start() {
       const sx = r.left + (head.x * 0.5 + 0.5) * r.width;
       const sy = r.top + (-head.y * 0.5 + 0.5) * r.height;
       if (bubble && !bubble.hidden) {
-        bubble.style.left = Math.round(sx) + 'px';
-        bubble.style.top = Math.round(sy - 10) + 'px';
+        const bw = bubble.offsetWidth || 290;
+        const lx = clamp(sx, r.left + bw / 2 + 12, r.right - bw / 2 - 12);
+        bubble.style.left = Math.round(lx) + 'px';
+        bubble.style.top = Math.round(Math.max(sy - 10, r.top + bubble.offsetHeight + 16)) + 'px';
       }
       if (dot) {
         dot.style.left = Math.round(sx) + 'px';
