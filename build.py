@@ -88,8 +88,9 @@ def fix_mojibake(s):
         return s
     repl = {
         "‚Äì": "–", "‚Äì": "–", "‚Äî": "—", "‚Ä¶": "…",
-        "‚Äú": "“", "‚Äù": "”", "‚Äô": "’", "‚Äò": "‘",
-        "Salammb√´": "Salammbô", "Salammb‚àö¬¥": "Salammbô",
+        "‚Äú": "“", "‚Äù": "”", "‚Äô": "’", "‚Äò": "‘", "‚Ä¢": "• ",
+        "Salammb√´": "Salammbô", "Salammb‚àö¬¥": "Salammbô", "√¥": "ô", "√®": "è",
+        "√©": "é", "√†": "à", "√ß": "ç", "√Æ": "î", "√¢": "â",
         " ‚ ": " – ",
         "üîé": "", "üìç": "", "üè∫": "", "‚ú®": "", "ü§ù": "",
     }
@@ -626,6 +627,119 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){footer.site .cols{grid-template-columns:1fr}}
 .notice{background:#fff8e1;border:1px solid var(--gold);border-radius:8px;padding:14px 18px;font-size:14.5px;margin:18px 0}
+
+/* ---------------- galleries: a dark exhibition over the same scans ---------------- */
+body.gal{background:#14110d}
+.gal-wrap{max-width:1240px;margin:0 auto;padding:0 26px}
+.gal-sec{background:#14110d;color:#f3ece0}
+
+/* entrance */
+.gal-door{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:#14110d}
+.gal-door .tiles{position:absolute;inset:-6% -2%;display:grid;
+  grid-template-columns:repeat(8,1fr);gap:8px;opacity:.5;filter:saturate(.35) contrast(1.05)}
+.gal-door .tiles img{width:100%;height:100%;object-fit:cover;border-radius:3px;aspect-ratio:1}
+.gal-door .veil{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 45%,rgba(20,17,13,.72) 0%,rgba(20,17,13,.93) 46%,#14110d 78%)}
+.gal-door .inner{position:relative;width:100%;text-align:center;padding:120px 0 80px}
+.gal-door .eyebrow{color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font-size:12.5px;font-weight:700}
+.gal-door h1{font-family:var(--serif);color:#fdf8f0;font-size:clamp(42px,6.4vw,82px);line-height:1.04;
+  margin:20px auto 22px;max-width:15ch;letter-spacing:-.01em}
+.gal-door p{color:rgba(243,236,224,.76);max-width:62ch;margin:0 auto;font-size:18px}
+.gal-figs{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin:44px auto 0;max-width:760px}
+.gal-figs div{padding:0 32px;border-inline-start:1px solid rgba(255,205,5,.28)}
+.gal-figs div:first-child{border:0}
+.gal-figs b{display:block;font-family:var(--serif);color:var(--gold);font-size:34px;line-height:1}
+.gal-figs span{display:block;color:rgba(243,236,224,.6);font-size:13px;letter-spacing:.09em;
+  text-transform:uppercase;margin-top:7px}
+.gal-scroll{display:inline-block;margin-top:46px;color:rgba(243,236,224,.75);text-decoration:none;
+  border:1px solid rgba(243,236,224,.3);border-radius:999px;padding:13px 28px;font-size:14.5px;
+  letter-spacing:.06em;transition:.25s}
+.gal-scroll:hover{background:var(--gold);border-color:var(--gold);color:#14110d}
+
+/* hall directory */
+.gal-dir{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;
+  padding:78px 0 10px}
+.gal-dir a{position:relative;display:block;border-radius:6px;overflow:hidden;text-decoration:none;
+  aspect-ratio:3/4;background:#1d1811}
+.gal-dir img{width:100%;height:100%;object-fit:cover;opacity:.52;transition:.45s}
+.gal-dir a:hover img{opacity:.78;transform:scale(1.05)}
+.gal-dir .cap{position:absolute;inset:auto 0 0 0;padding:20px 18px;
+  background:linear-gradient(transparent,rgba(20,17,13,.93) 62%)}
+.gal-dir .rn{color:var(--gold);font-size:12px;letter-spacing:.2em;font-weight:700}
+.gal-dir h3{font-family:var(--serif);color:#fdf8f0;font-size:21px;margin:5px 0 3px;font-weight:400}
+.gal-dir .n{color:rgba(243,236,224,.62);font-size:13px}
+
+/* a hall */
+.hall{padding:92px 0;border-top:1px solid rgba(243,236,224,.1)}
+.hall .hd{display:flex;gap:26px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px}
+.hall .rn{font-family:var(--serif);color:var(--gold);font-size:40px;line-height:1}
+.hall h2{font-family:var(--serif);color:#fdf8f0;font-size:clamp(30px,4vw,46px);font-weight:400;margin:0}
+.hall .per{color:rgba(243,236,224,.55);font-size:13.5px;letter-spacing:.14em;text-transform:uppercase}
+.hall .intro{color:rgba(243,236,224,.78);max-width:68ch;font-size:17.5px;margin-bottom:44px}
+
+/* feature object: viewer + wall label */
+.feat{display:grid;grid-template-columns:1.55fr 1fr;gap:30px;align-items:start;margin-bottom:46px}
+.feat .stage{position:relative;border-radius:6px;overflow:hidden;background:#000;aspect-ratio:16/10}
+.feat .stage img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.feat .stage iframe{width:100%;height:100%;border:0;display:block}
+.feat .stage.live img,.feat .stage.live .go{display:none}
+.feat .go{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(20,17,13,.32);border:0;cursor:pointer;color:#fdf8f0;font:inherit;font-size:15px;
+  letter-spacing:.05em;transition:.25s}
+.feat .go span{background:var(--gold);color:#14110d;font-weight:700;padding:14px 26px;border-radius:999px}
+.feat .go:hover{background:rgba(20,17,13,.1)}
+.label{border:1px solid rgba(243,236,224,.18);border-radius:6px;padding:26px 24px;background:#1a160f}
+.label .k{color:var(--gold);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.label h3{font-family:var(--serif);color:#fdf8f0;font-size:25px;font-weight:400;margin:9px 0 14px;line-height:1.2}
+.label dl{display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:14px;margin-bottom:16px}
+.label dt{color:rgba(243,236,224,.5);white-space:nowrap}
+.label dd{color:rgba(243,236,224,.9)}
+.label dd a{color:var(--gold);text-decoration:none;font-weight:600}
+.label dd a:hover{text-decoration:underline}
+.label p{color:rgba(243,236,224,.72);font-size:14.5px;line-height:1.65}
+.label .more{display:inline-block;margin-top:16px;color:var(--gold);text-decoration:none;
+  font-size:14px;font-weight:600;border-bottom:1px solid rgba(255,205,5,.4);padding-bottom:2px}
+
+/* plinths */
+.plinths{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:14px}
+.plinth{background:#1a160f;border:1px solid rgba(243,236,224,.11);border-radius:5px;overflow:hidden;
+  cursor:pointer;text-align:start;padding:0;color:inherit;font:inherit;transition:.25s;display:block;width:100%}
+.plinth:hover{border-color:rgba(255,205,5,.55);transform:translateY(-3px)}
+.plinth .ph{position:relative;aspect-ratio:1;background:#0d0b08}
+.plinth .ph img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:.3s}
+.plinth:hover .ph img{opacity:1}
+.plinth .gr{position:absolute;top:8px;inset-inline-end:8px;background:rgba(20,17,13,.82);color:var(--gold);
+  font-size:10.5px;letter-spacing:.06em;padding:4px 8px;border-radius:3px;font-weight:700}
+.plinth .tx{padding:12px 13px 14px}
+.plinth b{display:block;font-family:var(--serif);font-weight:400;color:#fdf8f0;font-size:15px;line-height:1.28}
+.plinth span{display:block;color:rgba(243,236,224,.5);font-size:12.5px;margin-top:5px}
+
+/* object overlay */
+.gov{position:fixed;inset:0;z-index:300;background:rgba(10,8,6,.96);display:none;
+  padding:26px;overflow-y:auto}
+.gov.on{display:block}
+.gov .box{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr;gap:26px;
+  align-items:start;padding-top:44px}
+.gov .stage{background:#000;border-radius:6px;overflow:hidden;aspect-ratio:16/10}
+.gov .stage iframe{width:100%;height:100%;border:0;display:block}
+.gov .x{position:fixed;top:18px;inset-inline-end:22px;background:none;border:1px solid rgba(243,236,224,.3);
+  color:#f3ece0;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:19px;line-height:1}
+.gov .x:hover{background:var(--gold);color:#14110d;border-color:var(--gold)}
+.gov .arrows{position:fixed;bottom:22px;inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:10px}
+.gov .arrows button{background:rgba(26,22,15,.9);border:1px solid rgba(243,236,224,.24);color:#f3ece0;
+  border-radius:999px;padding:11px 22px;cursor:pointer;font:inherit;font-size:14px}
+.gov .arrows button:hover{background:var(--gold);color:#14110d;border-color:var(--gold)}
+@media(max-width:900px){
+  .feat,.gov .box{grid-template-columns:1fr}
+  .gal-figs div{padding:0 20px}
+  .gov{padding:16px}
+  .gov .box{padding-top:56px}
+}
+@media(max-width:560px){
+  .gal-door .tiles{grid-template-columns:repeat(5,1fr)}
+  .gal-figs div{border:0;padding:12px 18px}
+  .plinths{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
 """
 
 JS = """
@@ -663,6 +777,63 @@ document.addEventListener('click',e=>{
   },{threshold:.4});
   els.forEach(e=>io.observe(e));
 })();
+
+// ---------------- galleries: feature viewers + the object overlay ----------------
+(function(){
+  const ov=document.getElementById('gov');
+  if(!ov)return;
+  const objs=window.GAL||[];
+  const stage=ov.querySelector('.stage'), label=ov.querySelector('.label');
+  let idx=-1;
+
+  // a feature object loads its viewer on click, in place
+  document.querySelectorAll('.feat .go').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const st=b.closest('.stage'), f=document.createElement('iframe');
+      f.src='https://sketchfab.com/models/'+st.dataset.uid+'/embed?autostart=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark=0';
+      f.allow='autoplay; fullscreen; xr-spatial-tracking';f.allowFullscreen=true;
+      f.title=st.dataset.title||'3D model';
+      st.classList.add('live');st.appendChild(f);
+    });
+  });
+
+  function esc(t){const d=document.createElement('div');d.textContent=t==null?'':t;return d.innerHTML}
+
+  function show(i){
+    if(i<0||i>=objs.length)return;
+    idx=i;const o=objs[i];
+    stage.innerHTML='';
+    const f=document.createElement('iframe');
+    f.src='https://sketchfab.com/models/'+o.uid+'/embed?autostart=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark=0';
+    f.allow='autoplay; fullscreen; xr-spatial-tracking';f.allowFullscreen=true;f.title=o.t+' 3D model';
+    stage.appendChild(f);
+    let rows='<dt>'+esc(o.hallLabel)+'</dt><dd>'+esc(o.place)+'</dd>';
+    if(o.period)rows+='<dt>Period</dt><dd>'+esc(o.period)+'</dd>';
+    if(o.scan)rows+='<dt>Scanned by</dt><dd>'+o.scan+'</dd>';
+    if(o.opt)rows+='<dt>Optimized by</dt><dd>'+o.opt+'</dd>';
+    rows+='<dt>Record</dt><dd>'+(o.gr?'Preservation scan and game-ready twin':'Preservation scan')+'</dd>';
+    label.innerHTML='<div class="k">'+esc(o.hall)+'</div><h3>'+esc(o.t)+'</h3>'
+      +'<dl>'+rows+'</dl><p>'+esc(o.d)+'</p>'
+      +'<a class="more" href="'+o.h+'">Open the full record</a>';
+    ov.classList.add('on');document.body.style.overflow='hidden';
+    ov.querySelector('.x').focus();
+  }
+  function close(){ov.classList.remove('on');stage.innerHTML='';document.body.style.overflow=''}
+
+  document.querySelectorAll('.plinth').forEach(p=>{
+    p.addEventListener('click',()=>show(+p.dataset.i));
+  });
+  ov.querySelector('.x').addEventListener('click',close);
+  ov.querySelector('.prev').addEventListener('click',()=>show((idx-1+objs.length)%objs.length));
+  ov.querySelector('.next').addEventListener('click',()=>show((idx+1)%objs.length));
+  ov.addEventListener('click',e=>{if(e.target===ov)close()});
+  addEventListener('keydown',e=>{
+    if(!ov.classList.contains('on'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show((idx-1+objs.length)%objs.length);
+    if(e.key==='ArrowRight')show((idx+1)%objs.length);
+  });
+})();
 """
 
 # cache-buster: browsers keep the old stylesheet after a deploy unless the URL changes
@@ -698,7 +869,11 @@ ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4
 
 NAV = [
     ("Home", "index.html"),
-    ("Archive", "archive.html"),
+    ("Archive", "archive.html", [
+        ("Browse all scans", "archive.html"),
+        ("Galleries", "galleries.html"),
+        ("Virtual Museum", "museum.html"),
+    ]),
     ("Opportunities", "opportunities.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
@@ -795,6 +970,7 @@ public everywhere.</p>
 </div></div>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
+<a href="galleries.html">Galleries</a>
 <a href="community.html">Community</a>
 <a href="museum.html">Virtual Museum</a>
 <a href="news.html">News</a>
@@ -988,14 +1164,33 @@ _PLACES = ["Byrsa Hill, Carthage", "Roman Villas of Carthage", "Tophet of Salamm
            "Medersa Slimanya"]
 
 
-def _complete_title(t):
-    t = t.replace("Mausolegt", "Mausoleum").rstrip(" –—-")
+# Sketchfab caps model names, so some arrive cut off mid-place ("… Roman Villas of Cartha…").
+_PLACE_FULL = {
+    "Byrsa Hill": "Byrsa Hill, Carthage",
+    "Roman villas of Carthage": "Roman Villas of Carthage",
+    "Tophet of Salammbo, Carthage": "Tophet of Salammbo, Carthage",
+    "Baths of Antoninus": "Baths of Antoninus",
+    "Water Temple, Zaghouan": "Water Temple, Zaghouan",
+    "Zawiya of Sidi Sahbi": "Mausoleum of Sidi Sahbi, Kairouan",
+    "Medina of Tunis": "Medina of Tunis",
+    "New Site (Flood)": "Nabeul",
+}
+
+
+def _complete_title(t, place=None):
+    t = t.replace("Mausolegt", "Mausoleum")
+    t = re.sub(r"\s*(?:…|\.\.\.)\s*$", "", t).rstrip(" –—-,")
     for full in _PLACES:
         if t.endswith(full):
             return t
         for cut in range(len(full) - 1, 3, -1):
             if t.endswith(full[:cut]):
                 return t[: len(t) - cut] + full
+    # still dangling on a connector: finish it with the artifact's own place
+    full = _PLACE_FULL.get(place or "")
+    if full and re.search(r"\b(of|the|at|in|from)$", t):
+        t = re.sub(r"\s*\b(?:of|the|at|in|from)$", "", t)
+        return f"{t} – {full}" if "–" not in t[-28:] else f"{t}, {full}"
     return t
 
 
@@ -1073,7 +1268,7 @@ _wp_by_slug = {w["slug"]: w for w in _WP_MODELS}
 MODELS = []
 _matched_wp = set()
 for a in _ARCH:
-    title = _complete_title(fix_mojibake(a["title"]).strip().rstrip("."))
+    title = _complete_title(fix_mojibake(a["title"]).strip().rstrip("."), a.get("place"))
     wpm = _wp_by_slug.get(a.get("wp_slug"))
     if wpm:
         _matched_wp.add(wpm["slug"])
@@ -1107,6 +1302,15 @@ for w in _WP_MODELS:  # old-site scans with no org counterpart keep their origin
         "sketchfab": w["sketchfab"], "gameready": None,
         "text": _clean_model_text(w["text"]), "img": w["img"],
     })
+# Old-site entries can slugify onto the same page as an org scan (same object, two uploads).
+# Keep one per URL, preferring the record that carries credits / a game-ready twin.
+_by_href = {}
+for _m in MODELS:
+    _cur = _by_href.get(_m["href"])
+    _score = (bool(_m.get("gameready")), bool(_m.get("scanned_by")), len(_m.get("text") or ""))
+    if _cur is None or _score > _cur[0]:
+        _by_href[_m["href"]] = (_score, _m)
+MODELS = [v[1] for v in _by_href.values()]
 MODELS.sort(key=lambda m: (m["site"], m["place"], m["title"]))
 for n in NEWS:
     n["href"] = f"news/{n['clean_slug']}.html"
@@ -1949,6 +2153,210 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
     page("press.html", "Press & Recognition", body, active="about.html",
          desc="Awards, talks, podcasts, articles and papers about Tanit XR, including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.")
 
+
+
+# ---------------------------------------------------------------- galleries
+# A curated exhibition over the same scans the Archive lists: five halls, a feature
+# object with a wall label, and an overlay you can walk with the arrow keys.
+HALLS = [
+    ("I", "Carthage", "Punic and Roman", "Carthage",
+     "Phoenician settlers founded Carthage and it grew into the capital of an empire that ran the "
+     "western Mediterranean. Rome destroyed it in 146 BCE, then rebuilt it as the capital of Roman "
+     "Africa. What stands today is layered. Punic stelae raised to Tanit and Baal Hammon sit a short "
+     "walk from Roman columns, villa mosaics and the largest bath complex Rome built in Africa. Our "
+     "volunteers scanned across four areas of the site."),
+    ("II", "Water Temple, Zaghouan", "Roman, 2nd century CE", "Zaghouan",
+     "Under Hadrian, Rome built a temple around a mountain spring at Zaghouan. From here an aqueduct "
+     "carried water more than 90 kilometres to Carthage, one of the longest in the Roman world. The "
+     "temple is the monumental head of that system. Niches once held statues of water deities, "
+     "laurel friezes ran along the cornices, and a Latin slab recorded who paid for it."),
+    ("III", "Kairouan", "7th century onward", "Kairouan",
+     "Kairouan was founded in 670 CE and became the first Islamic city of the Maghreb and its "
+     "spiritual centre for centuries. The Zawiya of Sidi Sahib, known as the Barber's Mosque, holds "
+     "some of the finest Ottoman era ceramic tilework and carved stucco in Tunisia. Scanning interiors "
+     "like these is difficult. The surfaces are reflective, the light is low and the detail is small."),
+    ("IV", "Medina of Tunis", "8th century onward", "Medina of Tunis",
+     "The medina grew around the Zitouna Mosque and became one of the great cities of the Islamic "
+     "world under the Almohads and the Hafsids. It is not a ruin. People live and work here now. "
+     "These scans are doors, wells, looms and prayer niches recorded in streets that are still in "
+     "daily use, including the Madrasa Al Bachia of 1752 and the Medersa Slimanya."),
+    ("V", "Neapolis", "Punic and Roman, exposed 2026", "Neapolis",
+     "In early 2026 Storm Harry stripped sand off the seabed near Nabeul and exposed part of "
+     "Neapolis, a Punic and later Roman city that collapsed into the sea after a tsunami in the 4th "
+     "century CE. Stone blocks and wall lines were visible for a few days before the sediment "
+     "returned. Tanit XR captured the newly exposed area inside that window. This hall holds one "
+     "object, and it is the reason we work quickly."),
+]
+
+# feature object per hall, matched on a unique part of the title
+HALL_FEATURE = {
+    "Carthage": "Tanit Stela",
+    "Zaghouan": "Sacred Niche",
+    "Kairouan": "Wooden Door with Tilework",
+    "Medina of Tunis": "Ornamental Mihrab",
+    "Neapolis": "Neapolis Site Revealed",
+}
+
+PLACE_PERIOD = {
+    "Byrsa Hill": "Roman",
+    "Roman villas of Carthage": "Roman",
+    "Tophet of Salammbo, Carthage": "Punic",
+    "Baths of Antoninus": "Roman, 2nd century CE",
+    "Water Temple, Zaghouan": "Roman, 2nd century CE",
+    "Zawiya of Sidi Sahbi": "Ottoman era",
+    "New Site (Flood)": "Punic and Roman",
+}
+
+
+def _gal_blurb(m, n=340):
+    """First couple of sentences of a model's description, without the boilerplate."""
+    t = re.sub(r"<[^>]+>", " ", m.get("text") or "")
+    t = htmod.unescape(t)
+    t = re.split(r"📌|This model is part of the Tanit XR", t)[0]
+    t = re.sub(r"\s*[—–]\s*", ", ", t)  # Ines's copy carries no em dashes
+    t = re.sub(r"\s+", " ", t).strip()
+    if len(t) <= n:
+        return t
+    cut = t[:n]
+    dot = cut.rfind(". ")
+    return (cut[:dot + 1] if dot > 120 else cut.rstrip() + "…")
+
+
+def _gal_credits(m):
+    """(scanned-by html, optimized-by html) for the wall label."""
+    ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
+               if k.lower() in m["title"].lower()), {})
+    s_name, s_href = creator_credit(m.get("scanned_by"))
+    o_name, o_href = creator_credit(m.get("optimized_by"))
+    if ov.get("scanned") in TEAM_BY_SLUG:
+        s_name, s_href = TEAM_BY_SLUG[ov["scanned"]]["name"], TEAM_BY_SLUG[ov["scanned"]]["href"]
+    if ov.get("optimized") in TEAM_BY_SLUG:
+        o_name, o_href = TEAM_BY_SLUG[ov["optimized"]]["name"], TEAM_BY_SLUG[ov["optimized"]]["href"]
+    mk = lambda n, h: (credit_link(n, h) if n else "")
+    return mk(s_name, s_href), mk(o_name, o_href)
+
+
+def build_galleries():
+    by_site = {}
+    for m in MODELS:
+        if m.get("sketchfab"):
+            by_site.setdefault(m["site"], []).append(m)
+
+    objs, sections, dirtiles = [], "", ""
+    total = sum(len(by_site.get(h[3], [])) for h in HALLS)
+
+    for rn, name, period, site, intro in HALLS:
+        items = by_site.get(site, [])
+        if not items:
+            continue
+        key = HALL_FEATURE.get(site, "")
+        feat = next((m for m in items if key.lower() in m["title"].lower()), None) \
+            or next((m for m in items if m.get("gameready")), items[0])
+        rest = [m for m in items if m is not feat]
+
+        # ---- directory tile
+        dirtiles += (f'<a href="#hall-{slugify(site)}">'
+                     f'<img src="{img(feat["img"], 700)}" alt="" loading="lazy">'
+                     f'<div class="cap"><div class="rn">HALL {rn}</div><h3>{esc(name)}</h3>'
+                     f'<div class="n">{len(items)} object{"s" if len(items) != 1 else ""}</div>'
+                     f'</div></a>')
+
+        # ---- feature object + wall label
+        f_uid = re.search(r"models/([a-f0-9]+)", feat["sketchfab"]).group(1)
+        f_scan, f_opt = _gal_credits(feat)
+        rows = f'<dt>Site</dt><dd>{esc(feat["place"])}</dd>'
+        fper = PLACE_PERIOD.get(feat["place"], "")
+        if fper:
+            rows += f'<dt>Period</dt><dd>{esc(fper)}</dd>'
+        if f_scan:
+            rows += f'<dt>Scanned by</dt><dd>{f_scan}</dd>'
+        if f_opt:
+            rows += f'<dt>Optimized by</dt><dd>{f_opt}</dd>'
+        rows += ('<dt>Record</dt><dd>' +
+                 ('Preservation scan and game-ready twin' if feat.get("gameready") else 'Preservation scan') +
+                 '</dd>')
+        feature = (
+            '<div class="feat"><div class="stage" data-uid="' + f_uid + '" data-title="' + esc(feat["title"]) + '">'
+            f'<img src="{img(feat["img"], 1200)}" alt="{esc(feat["title"])}" loading="lazy">'
+            '<button class="go" aria-label="View this object in 3D"><span>▶ View in 3D</span></button></div>'
+            '<div class="label"><div class="k">Hall ' + rn + ' &nbsp;·&nbsp; feature object</div>'
+            f'<h3>{esc(feat["title"])}</h3><dl>{rows}</dl><p>{esc(_gal_blurb(feat))}</p>'
+            f'<a class="more" href="{feat["href"]}">Open the full record</a></div></div>')
+
+        # ---- the rest, on plinths
+        plinths = ""
+        for m in rest:
+            uid = re.search(r"models/([a-f0-9]+)", m["sketchfab"]).group(1)
+            sc, op = _gal_credits(m)
+            objs.append({
+                "uid": uid, "t": m["title"], "place": m["place"], "hall": f"Hall {rn} · {name}",
+                "hallLabel": "Site", "period": PLACE_PERIOD.get(m["place"], ""),
+                "scan": sc, "opt": op, "gr": bool(m.get("gameready")),
+                "d": _gal_blurb(m), "h": m["href"],
+            })
+            i = len(objs) - 1
+            gr = '<span class="gr">GAME READY</span>' if m.get("gameready") else ""
+            plinths += (f'<button class="plinth" data-i="{i}">'
+                        f'<div class="ph"><img src="{img(m["img"], 600)}" alt="" loading="lazy">{gr}</div>'
+                        f'<div class="tx"><b>{esc(m["title"])}</b><span>{esc(m["place"])}</span></div></button>')
+        plinth_block = f'<div class="plinths">{plinths}</div>' if plinths else ""
+
+        sections += f"""
+<section class="gal-sec hall" id="hall-{slugify(site)}"><div class="gal-wrap">
+<div class="hd"><div class="rn">{rn}</div><h2>{esc(name)}</h2><div class="per">{esc(period)}</div></div>
+<p class="intro">{intro}</p>
+{feature}
+{plinth_block}
+</div></section>"""
+
+    # ---- entrance: a wall of the objects themselves, dimmed
+    wall = "".join(f'<img src="{img(m["img"], 320)}" alt="" loading="lazy">'
+                   for m in (MODELS * 3)[:40] if m.get("img"))
+    gal_json = json.dumps(objs, ensure_ascii=False)
+
+    body = f"""
+<section class="gal-sec gal-door">
+<div class="tiles">{wall}</div><div class="veil"></div>
+<div class="gal-wrap inner">
+<div class="eyebrow">Tanit XR Galleries</div>
+<h1>Walk through Tunisia, one object at a time</h1>
+<p>Five halls of real heritage, scanned on location by volunteers with phones and cameras.
+Every object here can be turned, zoomed and opened in full. Nothing is behind glass.</p>
+<div class="gal-figs">
+<div><b>{total}</b><span>Objects</span></div>
+<div><b>{len(HALLS)}</b><span>Halls</span></div>
+<div><b>2,800</b><span>Years covered</span></div>
+</div>
+<a class="gal-scroll" href="#directory">Enter the galleries ↓</a>
+</div></section>
+
+<section class="gal-sec" id="directory"><div class="gal-wrap">
+<div class="gal-dir">{dirtiles}</div>
+</div></section>
+{sections}
+
+<section class="gal-sec hall"><div class="gal-wrap" style="text-align:center;max-width:760px">
+<h2 style="font-family:var(--serif);color:#fdf8f0;font-size:clamp(28px,4vw,42px);font-weight:400">
+Every object in here was saved by a volunteer</h2>
+<p style="color:rgba(243,236,224,.76);margin:18px 0 30px">Most were captured with a phone. The halls are
+also being rebuilt as a real space you can walk in VR, room by room, by the same team.</p>
+<a class="btn btn-gold" href="museum.html">Visit the virtual museum</a>
+&nbsp;<a class="gal-scroll" href="volunteer.html" style="margin-top:0">Volunteer with us</a>
+<p style="color:rgba(243,236,224,.5);font-size:14px;margin-top:34px">Looking for a specific scan, a
+download or the game-ready twins? <a href="archive.html" style="color:var(--gold)">Browse the full
+archive</a>.</p>
+</div></section>
+
+<div class="gov" id="gov" role="dialog" aria-modal="true" aria-label="Object viewer">
+<button class="x" aria-label="Close">✕</button>
+<div class="box"><div class="stage"></div><div class="label"></div></div>
+<div class="arrows"><button class="prev">← Previous</button><button class="next">Next →</button></div>
+</div>
+<script>window.GAL={gal_json}</script>"""
+
+    page("galleries.html", "Galleries", body, active="archive.html", transparent=True,
+         desc="Five halls of Tunisian heritage scanned by Tanit XR volunteers. Turn every object in 3D, "
+              "from Punic stelae at Carthage to Ottoman tilework in Kairouan.")
 
 
 def build_archive():
@@ -3299,6 +3707,7 @@ def main():
         build_museum()
         build_services()
         build_archive()
+        build_galleries()
         build_model_pages()
         build_news()
         build_people()

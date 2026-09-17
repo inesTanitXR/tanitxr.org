@@ -33,3 +33,60 @@ document.addEventListener('click',e=>{
   },{threshold:.4});
   els.forEach(e=>io.observe(e));
 })();
+
+// ---------------- galleries: feature viewers + the object overlay ----------------
+(function(){
+  const ov=document.getElementById('gov');
+  if(!ov)return;
+  const objs=window.GAL||[];
+  const stage=ov.querySelector('.stage'), label=ov.querySelector('.label');
+  let idx=-1;
+
+  // a feature object loads its viewer on click, in place
+  document.querySelectorAll('.feat .go').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const st=b.closest('.stage'), f=document.createElement('iframe');
+      f.src='https://sketchfab.com/models/'+st.dataset.uid+'/embed?autostart=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark=0';
+      f.allow='autoplay; fullscreen; xr-spatial-tracking';f.allowFullscreen=true;
+      f.title=st.dataset.title||'3D model';
+      st.classList.add('live');st.appendChild(f);
+    });
+  });
+
+  function esc(t){const d=document.createElement('div');d.textContent=t==null?'':t;return d.innerHTML}
+
+  function show(i){
+    if(i<0||i>=objs.length)return;
+    idx=i;const o=objs[i];
+    stage.innerHTML='';
+    const f=document.createElement('iframe');
+    f.src='https://sketchfab.com/models/'+o.uid+'/embed?autostart=1&transparent=1&ui_theme=dark&ui_infos=0&ui_watermark=0';
+    f.allow='autoplay; fullscreen; xr-spatial-tracking';f.allowFullscreen=true;f.title=o.t+' 3D model';
+    stage.appendChild(f);
+    let rows='<dt>'+esc(o.hallLabel)+'</dt><dd>'+esc(o.place)+'</dd>';
+    if(o.period)rows+='<dt>Period</dt><dd>'+esc(o.period)+'</dd>';
+    if(o.scan)rows+='<dt>Scanned by</dt><dd>'+o.scan+'</dd>';
+    if(o.opt)rows+='<dt>Optimized by</dt><dd>'+o.opt+'</dd>';
+    rows+='<dt>Record</dt><dd>'+(o.gr?'Preservation scan and game-ready twin':'Preservation scan')+'</dd>';
+    label.innerHTML='<div class="k">'+esc(o.hall)+'</div><h3>'+esc(o.t)+'</h3>'
+      +'<dl>'+rows+'</dl><p>'+esc(o.d)+'</p>'
+      +'<a class="more" href="'+o.h+'">Open the full record</a>';
+    ov.classList.add('on');document.body.style.overflow='hidden';
+    ov.querySelector('.x').focus();
+  }
+  function close(){ov.classList.remove('on');stage.innerHTML='';document.body.style.overflow=''}
+
+  document.querySelectorAll('.plinth').forEach(p=>{
+    p.addEventListener('click',()=>show(+p.dataset.i));
+  });
+  ov.querySelector('.x').addEventListener('click',close);
+  ov.querySelector('.prev').addEventListener('click',()=>show((idx-1+objs.length)%objs.length));
+  ov.querySelector('.next').addEventListener('click',()=>show((idx+1)%objs.length));
+  ov.addEventListener('click',e=>{if(e.target===ov)close()});
+  addEventListener('keydown',e=>{
+    if(!ov.classList.contains('on'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show((idx-1+objs.length)%objs.length);
+    if(e.key==='ArrowRight')show((idx+1)%objs.length);
+  });
+})();
