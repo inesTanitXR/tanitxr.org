@@ -1,17 +1,17 @@
-// Tanit XR - The Collection.
-// You walk forward through a line of rooms, passing under a horseshoe arch into each one.
-// Objects stand at their real size relative to each other, with a 1.7 m figure for scale.
-// Flat pieces such as mosaics hang on the side walls. Whitewash, Sidi Bou Said blue, sand.
+// Tanit XR - The Collection. The simple one.
+// One artifact at a time, centred in soft light. Scroll moves to the next, drag turns it.
+// No room, no floor, no plinths: nothing for an object to sink into or collide with.
+// Real measurements live in the label, where they belong.
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
-const CFG = window.WALK_CFG || { clusters: [] };
+const CFG = window.WALK_CFG || { items: [] };
 const MODEL_BASE = new URL('models/', import.meta.url).href;
 const stage = document.getElementById('walk-stage');
 const canvas = document.getElementById('walk-canvas');
 const hintEl = document.getElementById('walk-hint');
-const areaEls = [...document.querySelectorAll('.warea[data-c]')];
+const sections = [...document.querySelectorAll('.wst[data-i]')];
 
 function useFallback() {
   document.body.classList.add('walk-fallback');
@@ -19,227 +19,63 @@ function useFallback() {
 }
 let gl = null;
 try { gl = canvas.getContext('webgl2') || canvas.getContext('webgl'); } catch (e) { gl = null; }
-if (!gl || !CFG.clusters.length) { useFallback(); } else { start(); }
+if (!gl || !CFG.items.length) { useFallback(); } else { start(); }
 
 function start() {
-  const ROOM = 17, HALF = 6.4, WALL_H = 6.8, EYE = 1.62;
-  const WHITEWASH = 0xf1e9db, BLUE = 0x39647f, SAND = 0xd9c7a6, OLIVE = 0x3b372c;
+  // One unit is one metre, for everything. Nura stands beside each object at her real
+  // 1.7 m, and the camera moves in or out so the object always fills the frame. That way
+  // size is honest: a small fragment makes her tower, a 7 m niche makes her tiny.
+  const NURA_H = 1.7;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const roomZ = ci => -ci * ROOM;                       // front edge of a room
-  const nRooms = CFG.clusters.length;
+  const realMax = it => (it.real && it.dims ? Math.max(it.dims[0], it.dims[1], it.dims[2]) : 0.45);
+  const frameOf = it => Math.max(realMax(it), NURA_H) * 1.55;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.12;
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMappingExposure = 1.1;
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xe7ddc9);
-  scene.fog = new THREE.Fog(0xe7ddc9, ROOM * 1.4, ROOM * 3.4);
-  const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 400);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 400);
+  camera.position.set(0, 1.0, 5.0);
+  const camTarget = new THREE.Vector3(), camWant = new THREE.Vector3();
 
-  // low ambient so the light pools on the objects read as sunlight, not flat fill
-  scene.add(new THREE.AmbientLight(0xdfe8ee, 0.55));
-  const sun = new THREE.DirectionalLight(0xfff0d4, 1.5);
-  sun.position.set(-9, 14, 6);
-  sun.castShadow = true;
-  sun.shadow.mapSize.set(2048, 2048);
-  Object.assign(sun.shadow.camera,
-    { near: 1, far: 70, left: -14, right: 14, top: 14, bottom: -14 });
-  sun.shadow.camera.updateProjectionMatrix();
-  sun.shadow.bias = -0.0009;
-  const sunHolder = new THREE.Group();
-  sunHolder.add(sun, sun.target);
-  scene.add(sunHolder);
+  // soft, even light from a few directions so any object reads without a set around it
+  scene.add(new THREE.AmbientLight(0xf3ece0, 1.15));
+  const l1 = new THREE.DirectionalLight(0xfff3e0, 1.9); l1.position.set(-4, 5, 6);
+  const l2 = new THREE.DirectionalLight(0xe8f0f6, 0.8); l2.position.set(5, 1, -3);
+  const l3 = new THREE.DirectionalLight(0xfff6ea, 0.5); l3.position.set(0, -4, 4);
+  scene.add(l1, l2, l3);
 
-  // ---- whitewashed plaster, with the shadow of a carved screen raking across it
-  function plaster(scale) {
-    const W = 512;
-    const c = document.createElement('canvas'); c.width = c.height = W;
+  // a soft shadow beneath, so an object sits in space instead of floating in a void
+  const shadowTex = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 256;
     const x = c.getContext('2d');
-    x.fillStyle = '#f4ecdf'; x.fillRect(0, 0, W, W);
-    for (let i = 0; i < 1400; i++) {
-      x.fillStyle = `rgba(${192 + Math.random() * 40},${178 + Math.random() * 40},${154 + Math.random() * 40},.12)`;
-      x.fillRect(Math.random() * W, Math.random() * W, 2, 2);
-    }
-    const lat = document.createElement('canvas'); lat.width = lat.height = W;
-    const l = lat.getContext('2d');
-    const step = 74, r = 20;
-    l.fillStyle = 'rgba(74,58,40,.14)';
-    for (let gy = -1; gy < W / step + 2; gy++) {
-      for (let gx = -1; gx < W / step + 2; gx++) {
-        const cx = gx * step + (gy % 2 ? step / 2 : 0), cy = gy * step;
-        for (const rot of [0, Math.PI / 4]) {
-          l.save(); l.translate(cx, cy); l.rotate(rot);
-          l.beginPath();
-          l.rect(-r, -r * 0.4, r * 2, r * 0.8);
-          l.rect(-r * 0.4, -r, r * 0.8, r * 2);
-          l.fill(); l.restore();
-        }
-      }
-    }
-    x.save(); x.transform(1, 0.3, 0, 1, -80, -90);
-    x.globalAlpha = 0.6; x.filter = 'blur(2px)';
-    x.drawImage(lat, 0, 0);
-    x.restore();
-    const t = new THREE.CanvasTexture(c);
-    t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    t.repeat.set(scale, scale);
-    t.colorSpace = THREE.SRGBColorSpace;
-    return t;
-  }
-  const wallMat = new THREE.MeshStandardMaterial({ map: plaster(2), color: WHITEWASH, roughness: .97 });
-  const floorMat = new THREE.MeshStandardMaterial({ map: plaster(14), color: SAND, roughness: 1 });
+    const g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
+    g.addColorStop(0, 'rgba(92,68,44,.34)');
+    g.addColorStop(.55, 'rgba(92,68,44,.11)');
+    g.addColorStop(1, 'rgba(92,68,44,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
 
-  const depth = nRooms * ROOM + 30;
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(HALF * 2, depth), floorMat);
-  floor.rotation.x = -Math.PI / 2;
-  floor.position.z = -depth / 2 + ROOM / 2;
-  floor.receiveShadow = true;
-  scene.add(floor);
-  [-HALF, HALF].forEach(x => {
-    const w = new THREE.Mesh(new THREE.PlaneGeometry(depth, WALL_H), wallMat);
-    w.rotation.y = x < 0 ? Math.PI / 2 : -Math.PI / 2;
-    w.position.set(x, WALL_H / 2, -depth / 2 + ROOM / 2);
-    w.receiveShadow = true;
-    scene.add(w);
+  const slots = CFG.items.map((it, i) => {
+    const wrap = new THREE.Group();          // position + fade
+    const pivot = new THREE.Group();         // drag turns this
+    const frame = frameOf(it);
+    const sw = Math.max(realMax(it), 0.4) * 1.7;
+    const shadow = new THREE.Mesh(new THREE.PlaneGeometry(sw, sw),
+      new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+    shadow.rotation.x = -Math.PI / 2;
+    shadow.position.y = 0.002;
+    wrap.add(pivot, shadow);
+    wrap.visible = false;
+    scene.add(wrap);
+    return { it, i, wrap, pivot, shadow, frame, mats: [], loaded: false, loading: false };
   });
-
-  // a horseshoe arch cut out of a cross wall
-  function archWall(w, h, aw, ah) {
-    const shape = new THREE.Shape();
-    shape.moveTo(-w / 2, 0); shape.lineTo(-w / 2, h);
-    shape.lineTo(w / 2, h); shape.lineTo(w / 2, 0); shape.closePath();
-    const hole = new THREE.Path();
-    const r = aw / 2, spring = ah - r * 1.15;
-    hole.moveTo(-r, 0); hole.lineTo(-r, spring);
-    hole.absarc(0, spring, r, Math.PI, 0, true);
-    hole.lineTo(r, 0); hole.closePath();
-    shape.holes.push(hole);
-    const geo = new THREE.ExtrudeGeometry(shape, { depth: 0.5, bevelEnabled: false });
-    geo.translate(0, 0, -0.25);
-    return geo;
-  }
-
-  const specks = new THREE.Group();
-  for (let i = 0; i < 80; i++) {
-    const m = new THREE.Mesh(new THREE.SphereGeometry(0.014 + Math.random() * 0.026, 6, 5),
-      new THREE.MeshStandardMaterial({ color: 0xe6d6b8, roughness: 1 }));
-    m.position.set((Math.random() - 0.5) * 11, Math.random() * 4 + 0.5,
-                   -Math.random() * depth + ROOM / 2);
-    m.userData.s = 0.12 + Math.random() * 0.3;
-    specks.add(m);
-  }
-  scene.add(specks);
 
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-  const slots = [], roomGroups = [];
-
-  CFG.clusters.forEach((cl, ci) => {
-    const zFront = roomZ(ci), zBack = zFront - ROOM;
-    const g = new THREE.Group();
-    scene.add(g);
-    roomGroups.push(g);
-
-    const heightOf = it => (it.real && it.dims ? Math.max(it.dims[1], 0.05) : 0.45);
-    const isFlat = it => it.real && it.dims && it.dims[1] < 0.15 &&
-                         Math.max(it.dims[0], it.dims[2]) > 0.4;
-    const tallest = Math.max(...cl.items.map(it => isFlat(it) ? 1.4 : heightOf(it)), 0.6);
-    const RS = clamp(3.6 / tallest, 0.24, 1.9);
-
-    // the cross wall you walk through to leave this room
-    const cross = new THREE.Mesh(archWall(HALF * 2, WALL_H, 3.4, 4.9), wallMat);
-    cross.position.set(0, 0, zBack);
-    cross.castShadow = cross.receiveShadow = true;
-    g.add(cross);
-    // painted reveal inside the arch, so the next room reads as a separate space
-    const reveal = new THREE.Mesh(new THREE.BoxGeometry(HALF * 2, WALL_H, 0.1),
-      new THREE.MeshStandardMaterial({ color: ci % 3 === 1 ? BLUE : WHITEWASH,
-                                       roughness: 0.9, transparent: true, opacity: 0.0 }));
-    reveal.position.set(0, WALL_H / 2, zBack - 0.3);
-    g.add(reveal);
-
-    const flats = cl.items.filter(isFlat);
-    const standing = cl.items.filter(it => !isFlat(it));
-
-    // standing pieces alternate left and right down the room, spaced by real footprint
-    const foot = it => ((it.real && it.dims ? Math.max(it.dims[0], it.dims[2]) : 0.45) * RS) + 1.5;
-    let zL = zFront - 4.2, zR = zFront - 6.6;
-    let si = 0;
-
-    cl.items.forEach(it => {
-      const h = heightOf(it) * RS;
-      const wrap = new THREE.Group();
-      const pivot = new THREE.Group();
-      wrap.add(pivot);
-      wrap.visible = false;
-      let lookAtY = h * 0.5;
-
-      if (isFlat(it)) {                                  // hang it on a side wall
-        const n = flats.indexOf(it);
-        const left = n % 2 === 0;
-        const z = zFront - 5 - Math.floor(n / 2) * 4.4;
-        wrap.position.set(left ? -HALF + 0.35 : HALF - 0.35, 2.35, z);
-        wrap.rotation.y = left ? Math.PI / 2 : -Math.PI / 2;
-        wrap.userData.flat = true;
-        const surround = new THREE.Mesh(new THREE.BoxGeometry(2.4, 2.4, 0.14),
-          new THREE.MeshStandardMaterial({ color: WHITEWASH, roughness: 0.55 }));
-        surround.position.copy(wrap.position);
-        surround.rotation.y = wrap.rotation.y;
-        surround.translateZ(-0.14);
-        surround.castShadow = true;
-        g.add(surround);
-        lookAtY = 0;
-      } else {
-        const left = si % 2 === 0;
-        const w = foot(it);
-        const z = left ? (zL -= w * 0.62) : (zR -= w * 0.62);
-        const x = left ? -HALF + 1.9 + (si % 3) * 0.35 : HALF - 1.9 - (si % 3) * 0.35;
-        const ph = clamp(1.35 * RS - h * 0.6, 0.05, 1.45 * RS);
-        if (ph > 0.12) {
-          const kind = ['white', 'blue', 'olive', 'white', 'cyl'][si % 5];
-          const pw = kind === 'cyl' ? 0.82 : 0.86 + ((si * 3) % 3) * 0.16;
-          const p = new THREE.Mesh(
-            kind === 'cyl' ? new THREE.CylinderGeometry(pw / 2, pw / 2, ph, 44)
-                           : new THREE.BoxGeometry(pw, ph, pw),
-            new THREE.MeshStandardMaterial({
-              color: kind === 'blue' ? BLUE : kind === 'olive' ? OLIVE : WHITEWASH,
-              roughness: kind === 'white' ? 0.55 : 0.75 }));
-          p.position.set(x, ph / 2, z);
-          p.castShadow = p.receiveShadow = true;
-          g.add(p);
-        }
-        wrap.position.set(x, Math.max(ph, 0), z);
-        wrap.rotation.y = left ? 0.45 : -0.45;            // angle it toward the walkway
-        // a pool of sunlight on each piece
-        const spot = new THREE.SpotLight(0xfff3dc, 26, 9, Math.PI / 7, 0.55, 1.4);
-        spot.position.set(x * 0.55, 5.4, z + 1.1);
-        spot.target.position.set(x, ph + h * 0.5, z);
-        g.add(spot, spot.target);
-        si++;
-      }
-      g.add(wrap);
-      slots.push({ it, wrap, pivot, ci, dispH: h, flat: isFlat(it), lookAtY,
-                   z: wrap.position.z, mats: [], loaded: false, loading: false });
-    });
-
-    // a 1.7 m figure standing in the walkway, so real size reads at a glance
-    const figH = 1.7 * RS;
-    const figMat = new THREE.MeshStandardMaterial({ color: 0xc3b49b, roughness: 1,
-                                                    transparent: true, opacity: 0.32 });
-    const fig = new THREE.Group();
-    const body = new THREE.Mesh(new THREE.CapsuleGeometry(figH * .112, figH * .5, 6, 14), figMat);
-    body.position.y = figH * 0.42;
-    const head = new THREE.Mesh(new THREE.SphereGeometry(figH * .08, 16, 12), figMat);
-    head.position.y = figH * 0.91;
-    fig.add(body, head);
-    fig.position.set(1.5, 0, zFront - 3.0);
-    g.add(fig);
-  });
-
   function load(s) {
     if (!s || s.loaded || s.loading) return;
     s.loading = true;
@@ -249,16 +85,14 @@ function start() {
       const box = new THREE.Box3().setFromObject(o);
       const size = box.getSize(new THREE.Vector3());
       const mid = box.getCenter(new THREE.Vector3());
+      o.position.set(-mid.x, -box.min.y, -mid.z);        // stand on the ground, centred in x/z
       const fit = new THREE.Group();
       fit.add(o);
-      if (s.flat) {
-        o.position.set(-mid.x, -mid.y, -mid.z);
-        fit.rotation.x = -Math.PI / 2;                   // stand a pavement up to face the room
-        fit.scale.setScalar(2.0 / (Math.max(size.x, size.z) || 1));
-      } else {
-        o.position.set(-mid.x, -box.min.y, -mid.z);
-        fit.scale.setScalar(s.dispH / (size.y || 1));
-      }
+      // real metres, unless the file has no measured size (the hand-modelled props)
+      const rm = realMax(s.it);
+      const fileMax = Math.max(size.x, size.y, size.z) || 1;
+      fit.scale.setScalar(s.it.real && s.it.dims ? 1 : rm / fileMax);
+      s.standH = (s.it.real && s.it.dims) ? size.y : rm * (size.y / fileMax);
       if (s.it.rotate) {
         const r = s.it.rotate;
         fit.rotation.set((r[0] || 0) * Math.PI / 180, (r[1] || 0) * Math.PI / 180,
@@ -266,134 +100,124 @@ function start() {
       }
       o.traverse(n => {
         if (!n.isMesh || !n.material) return;
-        n.castShadow = n.receiveShadow = true;
-        // scans are unlit with light baked into the texture; relighting them without
-        // normals renders them black, so leave unlit materials as they are
+        // scans are exported unlit with light baked into the texture; relighting them
+        // without normals renders them black, so leave unlit materials as they are
         if (!n.material.isMeshBasicMaterial && !n.geometry.attributes.normal) {
           n.geometry.computeVertexNormals();
         }
+        n.material.transparent = true;
         s.mats.push(n.material);
       });
       s.pivot.add(fit);
-      s.wrap.visible = true;
       s.loaded = true; s.loading = false;
     }, undefined, () => {
       s.loading = false;
-      const fb = document.querySelector('.warea[data-c="' + s.ci + '"] .wst-fallback');
+      const fb = sections[s.i] && sections[s.i].querySelector('.wst-fallback');
       if (fb) fb.hidden = false;
     });
   }
 
-  // ---- scroll walks you forward; each room is entered as you reach its card
-  let camZv = ROOM * 0.5, targetZ = ROOM * 0.5, keys = [];
-  const midOf = el => el.offsetTop + el.offsetHeight / 2 - innerHeight / 2;
-  function buildKeys() {
-    keys = [];
-    const intro = document.querySelector('.wst-intro');
-    if (intro) keys.push({ s: midOf(intro), z: ROOM * 0.62 });
-    areaEls.forEach(el => keys.push({ s: midOf(el), z: roomZ(+el.dataset.c) - ROOM * 0.42 }));
-    const end = document.querySelector('.wst-end');
-    if (end) keys.push({ s: midOf(end), z: roomZ(nRooms - 1) - ROOM * 1.1 });
-    keys.sort((a, b) => a.s - b.s);
-  }
-  const ease = t => t * t * (3 - 2 * t);
-  function readScroll() {
-    if (!keys.length || focused) return;
-    const y = scrollY;
-    if (y <= keys[0].s) targetZ = keys[0].z;
-    else if (y >= keys[keys.length - 1].s) targetZ = keys[keys.length - 1].z;
-    else for (let i = 0; i < keys.length - 1; i++) {
-      const a = keys[i], b = keys[i + 1];
-      if (y >= a.s && y <= b.s) { targetZ = a.z + (b.z - a.z) * ease((y - a.s) / (b.s - a.s || 1)); break; }
+  // ---- Nura, floating beside whatever you are looking at, as the scale reference
+  let nura = null, mixer = null;
+  const nuraHolder = new THREE.Group();
+  scene.add(nuraHolder);
+  loader.load(MODEL_BASE + 'nura.glb', (gltf) => {
+    const o = gltf.scene;
+    o.updateMatrixWorld(true);
+    const b = new THREE.Box3().setFromObject(o);
+    const sz = b.getSize(new THREE.Vector3());
+    const c = b.getCenter(new THREE.Vector3());
+    o.position.set(-c.x, -b.min.y, -c.z);
+    const g = new THREE.Group();
+    g.add(o);
+    g.scale.setScalar(NURA_H / (sz.y || 1));            // her real height
+    nuraHolder.add(g);
+    nura = g;
+    if (gltf.animations && gltf.animations.length) {
+      mixer = new THREE.AnimationMixer(o);
+      const clip = gltf.animations.find(a => /float/i.test(a.name)) || gltf.animations[0];
+      mixer.clipAction(clip).play();
     }
-    slots.forEach(s => { if (Math.abs(s.z - targetZ) < ROOM * 1.8) load(s); });
+  }, undefined, () => { /* Nura is optional, the page works without her */ });
+
+  // ---- scroll moves along the list, one object per section
+  let cursor = 0, target = 0;
+  const midOf = el => el.offsetTop + el.offsetHeight / 2 - innerHeight / 2;
+  function readScroll() {
+    if (!sections.length) return;
+    const y = scrollY;
+    if (y <= midOf(sections[0])) target = 0;
+    else if (y >= midOf(sections[sections.length - 1])) target = sections.length - 1;
+    else for (let i = 0; i < sections.length - 1; i++) {
+      const a = midOf(sections[i]), b = midOf(sections[i + 1]);
+      if (y >= a && y <= b) { target = i + (y - a) / (b - a || 1); break; }
+    }
+    const c = Math.round(target);
+    for (let i = c - 1; i <= c + 2; i++) load(slots[i]);
   }
 
-  // ---- focus: the camera walks over to the object you pick
-  const ui = document.getElementById('walk-focus');
+  // ---- drag to turn whichever object is in front
+  let dragging = false, lastX = 0, lastY = 0, idle = 0;
+  const current = () => slots[Math.round(clamp(cursor, 0, slots.length - 1))];
+  stage.addEventListener('pointerdown', e => {
+    dragging = true; idle = 0; lastX = e.clientX; lastY = e.clientY;
+    stage.classList.add('grabbing');
+    if (hintEl) hintEl.classList.add('gone');
+  });
+  addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const s = current();
+    if (s) {
+      s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
+      s.pivot.rotation.x = clamp(s.pivot.rotation.x + (e.clientY - lastY) * 0.005, -0.7, 0.7);
+    }
+    lastX = e.clientX; lastY = e.clientY;
+  }, { passive: true });
+  const stopDrag = () => { dragging = false; stage.classList.remove('grabbing'); };
+  addEventListener('pointerup', stopDrag);
+  addEventListener('pointercancel', stopDrag);
+
+  // ---- the label follows whichever object is in front
   const uiTitle = document.getElementById('wf-title');
   const uiId = document.getElementById('wf-id');
   const uiSave = document.getElementById('wf-save');
   const uiRecord = document.getElementById('wf-record');
-  let focused = null, mode = 'scroll', fly = null;
-  const camPos = new THREE.Vector3(0, EYE, ROOM * 0.5);
-  const camAim = new THREE.Vector3(0, EYE - 0.1, -ROOM);
-  const easeInOut = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  const _w = new THREE.Vector3();
-
-  function shotFor(s) {
-    s.wrap.getWorldPosition(_w);
-    const aim = _w.clone().add(new THREE.Vector3(0, s.flat ? 0 : s.dispH * 0.45, 0));
-    const back = 1.9 + Math.max(s.dispH, 1.0) * 1.05;
-    const dir = s.flat ? new THREE.Vector3(Math.sign(-_w.x) * back, 0.25, 0.1)
-                       : new THREE.Vector3(-Math.sign(_w.x) * back * 0.45, 0.22, back);
-    return { p: aim.clone().add(dir), t: aim };
-  }
-  const scrollShot = () => ({ p: new THREE.Vector3(0, EYE, camZv),
-                              t: new THREE.Vector3(0, EYE - 0.1, camZv - ROOM) });
-  function startFly(to, dur, then) {
-    fly = { from: { p: camPos.clone(), t: camAim.clone() }, to, k: 0, dur: dur || .85, then };
-    mode = 'flying';
-  }
   const SAVED = 'tanitxr.saved';
   const readSaved = () => { try { return JSON.parse(localStorage.getItem(SAVED) || '[]'); }
                             catch (e) { return []; } };
-  function paintSave() {
-    if (!uiSave || !focused) return;
-    const on = readSaved().includes(focused.it.slug);
+  let shown = -1;
+  function paintSave(it) {
+    if (!uiSave) return;
+    const on = readSaved().includes(it.slug);
     uiSave.classList.toggle('on', on);
     uiSave.textContent = on ? 'Saved ♥' : 'Save ♡';
   }
-  function openFocus(s, dur) {
-    if (!s || !s.loaded) return;
-    const first = !focused;
-    focused = s;
-    if (ui) ui.hidden = false;
-    document.body.classList.add('focusing');
+  function paint(i) {
+    const s = slots[i];
+    if (!s || shown === i) return;
+    shown = i;
     if (uiTitle) uiTitle.textContent = s.it.title;
     if (uiId) uiId.textContent = [s.it.place, s.it.size].filter(Boolean).join(' · ');
     if (uiRecord) uiRecord.href = s.it.href || 'archive.html';
-    paintSave();
-    startFly(shotFor(s), dur || (first ? .95 : .7), 'focus');
+    paintSave(s.it);
     history.replaceState(null, '', '#' + s.it.slug);
   }
-  function closeFocus() {
-    if (!focused) return;
-    focused = null;
-    if (ui) ui.hidden = true;
-    document.body.classList.remove('focusing');
-    startFly(scrollShot(), .8, 'scroll');
-    history.replaceState(null, '', location.pathname);
-  }
-  function step(dir) {
-    if (!focused) return;
-    const i = slots.indexOf(focused);
-    for (let k = 1; k <= slots.length; k++) {
-      const n = slots[(i + dir * k + slots.length * 2) % slots.length];
-      if (!n) continue;
-      load(n);
-      if (n.loaded) { openFocus(n, .7); return; }
-    }
-  }
   const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
-  on('wf-back', () => closeFocus());
-  on('wf-prev', () => step(-1));
-  on('wf-next', () => step(1));
   on('wf-save', () => {
-    if (!focused) return;
-    const l = readSaved(), i = l.indexOf(focused.it.slug);
-    i >= 0 ? l.splice(i, 1) : l.push(focused.it.slug);
+    const s = slots[shown]; if (!s) return;
+    const l = readSaved(), i = l.indexOf(s.it.slug);
+    i >= 0 ? l.splice(i, 1) : l.push(s.it.slug);
     try { localStorage.setItem(SAVED, JSON.stringify(l)); } catch (e) { /* private mode */ }
-    paintSave();
+    paintSave(s.it);
   });
   on('wf-share', async () => {
-    if (!focused) return;
-    const url = location.origin + location.pathname + '#' + focused.it.slug;
-    const text = focused.it.title + ', scanned in Tunisia by Tanit XR volunteers. '
+    const s = slots[shown]; if (!s) return;
+    const url = location.origin + location.pathname + '#' + s.it.slug;
+    const text = s.it.title + ', scanned in Tunisia by Tanit XR volunteers. '
       + 'Share it to help protect it.';
     const btn = document.getElementById('wf-share');
     try {
-      if (navigator.share) await navigator.share({ title: focused.it.title, text, url });
+      if (navigator.share) await navigator.share({ title: s.it.title, text, url });
       else {
         await navigator.clipboard.writeText(url);
         btn.textContent = 'Link copied';
@@ -401,121 +225,84 @@ function start() {
       }
     } catch (e) { /* dismissed */ }
   });
+  const jump = d => {
+    const i = clamp(Math.round(cursor) + d, 0, sections.length - 1);
+    const el = sections[i];
+    if (el) scrollTo({ top: midOf(el), behavior: 'smooth' });
+  };
+  on('wf-prev', () => jump(-1));
+  on('wf-next', () => jump(1));
   addEventListener('keydown', e => {
-    if (!focused) return;
-    if (e.key === 'Escape') closeFocus();
-    if (e.key === 'ArrowLeft') step(-1);
-    if (e.key === 'ArrowRight') step(1);
-  });
-
-  // ---- drag to turn, click to walk over
-  let dragging = false, lastX = 0, idle = 0, downX = 0, downY = 0, pressed = false;
-  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
-  function nearest() {
-    let best = null, bd = Infinity;
-    slots.forEach(s => {
-      if (!s.loaded) return;
-      const d = Math.abs(s.z - (camPos.z - 4));
-      if (d < bd) { bd = d; best = s; }
-    });
-    return bd < 7 ? best : null;
-  }
-  stage.addEventListener('pointerdown', e => {
-    dragging = true; pressed = true; idle = 0;
-    lastX = downX = e.clientX; downY = e.clientY;
-    stage.classList.add('grabbing');
-    if (hintEl) hintEl.classList.add('gone');
-  });
-  addEventListener('pointermove', e => {
-    if (!dragging) return;
-    const s = focused || nearest();
-    if (s) {
-      if (s.flat) s.pivot.rotation.z = clamp(s.pivot.rotation.z - (e.clientX - lastX) * .006, -.5, .5);
-      else s.pivot.rotation.y += (e.clientX - lastX) * .01;   // a turntable, it cannot tip over
-    }
-    lastX = e.clientX;
-  }, { passive: true });
-  const stopDrag = () => { dragging = false; stage.classList.remove('grabbing'); };
-  addEventListener('pointerup', stopDrag);
-  addEventListener('pointercancel', stopDrag);
-  stage.addEventListener('pointerup', e => {
-    if (!pressed) return;
-    pressed = false;
-    if (Math.abs(e.clientX - downX) > 5 || Math.abs(e.clientY - downY) > 5) return;
-    if (focused) return;
-    const r = stage.getBoundingClientRect();
-    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
-    ray.setFromCamera(ndc, camera);
-    const hits = ray.intersectObjects(slots.filter(s => s.loaded).map(s => s.wrap), true);
-    if (!hits.length) return;
-    let n = hits[0].object;
-    while (n && !slots.some(s => s.wrap === n)) n = n.parent;
-    const s = slots.find(x => x.wrap === n);
-    if (s) openFocus(s);
+    if (e.key === 'ArrowLeft') jump(-1);
+    if (e.key === 'ArrowRight') jump(1);
   });
 
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.fov = w < 760 ? 60 : 46;
+    camera.fov = w < 760 ? 46 : 36;
     camera.updateProjectionMatrix();
-    buildKeys();
     readScroll();
   }
   addEventListener('resize', resize, { passive: true });
   addEventListener('scroll', readScroll, { passive: true });
   resize();
-  camZv = targetZ;
+  cursor = target;
   load(slots[0]);
 
   const wanted = decodeURIComponent(location.hash.slice(1));
   if (wanted) {
-    const s = slots.find(x => x.it.slug === wanted);
-    if (s) {
-      load(s);
-      const t = setInterval(() => { if (s.loaded) { clearInterval(t); openFocus(s, .6); } }, 120);
-      setTimeout(() => clearInterval(t), 15000);
-    }
+    const i = slots.findIndex(x => x.it.slug === wanted);
+    if (i >= 0 && sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
   }
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clock = new THREE.Clock();
   (function frame() {
-    const dt = Math.min(clock.getDelta(), .05);
-    camZv += (targetZ - camZv) * (reduce ? 1 : .08);
+    const dt = Math.min(clock.getDelta(), 0.05);
+    cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
+    paint(Math.round(clamp(cursor, 0, slots.length - 1)));
 
-    if (mode === 'flying') {
-      fly.k = Math.min(1, fly.k + dt / fly.dur);
-      const k = easeInOut(fly.k);
-      camPos.lerpVectors(fly.from.p, fly.to.p, k);
-      camAim.lerpVectors(fly.from.t, fly.to.t, k);
-      if (fly.k >= 1) mode = fly.then === 'focus' ? 'focused' : 'scroll';
-    } else if (mode === 'focused' && focused) {
-      const sh = shotFor(focused);
-      camPos.lerp(sh.p, .12); camAim.lerp(sh.t, .12);
-    } else {
-      camPos.set(0, EYE, camZv);
-      camAim.set(0, EYE - 0.12, camZv - ROOM);
-    }
-    camera.position.copy(camPos);
-    camera.lookAt(camAim);
-    sunHolder.position.z = camPos.z;
+    const front = slots[Math.round(clamp(cursor, 0, slots.length - 1))];
+    const fr = front ? front.frame : NURA_H * 1.55;
 
-    if (!reduce) {
-      const n = focused || nearest();
-      if (n && !dragging && idle > 2.4 && !n.flat) n.pivot.rotation.y += dt * .12;
-      specks.children.forEach((m, i) => {
-        m.position.y += Math.sin(clock.elapsedTime * m.userData.s + i) * .0012;
-      });
+    slots.forEach(s => {
+      const d = s.i - cursor;                       // 0 = front and centre
+      const a = Math.max(0, 1 - Math.abs(d) * 1.3);
+      s.wrap.visible = s.loaded && a > 0.005;
+      if (!s.wrap.visible) return;
+      s.wrap.position.set(0, -d * s.frame * 1.15, -Math.abs(d) * s.frame * 0.8);
+      s.mats.forEach(m => { m.opacity = a; });
+      s.shadow.material.opacity = a * 0.8;
+      if (!reduce && !dragging && idle > 2.2 && Math.abs(d) < 0.5) s.pivot.rotation.y += dt * 0.14;
+    });
+
+    if (mixer) mixer.update(dt);
+    if (nura && front) {
+      // stand her to the right of the object, clear of the label in the lower left
+      nuraHolder.position.set(fr * 0.40, 0, Math.min(0.4, fr * 0.06));
+      nuraHolder.visible = true;
+      const bob = Math.sin(clock.elapsedTime * 0.9) * Math.min(0.06, fr * 0.012);
+      nuraHolder.position.y = NURA_H * 0.06 + bob;      // hovering, not standing
+      nuraHolder.rotation.y = -0.35;
     }
+
+    // frame the object: move the camera, never resize the world
+    const dist = fr / 0.62;
+    const eyeY = Math.max(front ? front.standH || realMax(front.it) : NURA_H, NURA_H) * 0.5;
+    camTarget.set(0, eyeY, 0);
+    camWant.set(0, eyeY + fr * 0.05, dist);
+    camera.position.lerp(camWant, reduce ? 1 : 0.1);
+    camera.lookAt(camTarget);
+
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   })();
 
   const io = new IntersectionObserver(es => es.forEach(e =>
-    e.target.classList.toggle('on', e.isIntersecting && e.intersectionRatio > .4)),
-    { threshold: [0, .4, 1] });
-  document.querySelectorAll('.warea,.wst-intro,.wst-end').forEach(s => io.observe(s));
+    e.target.classList.toggle('on', e.isIntersecting && e.intersectionRatio > 0.5)),
+    { threshold: [0, 0.5, 1] });
+  document.querySelectorAll('.wst-intro,.wst-end,.warea').forEach(s => io.observe(s));
 }

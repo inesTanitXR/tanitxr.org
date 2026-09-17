@@ -6,7 +6,7 @@
  "_available_but_unused": {
   "nura.glb": {
    "drive_id": "1RpZ4LpW2LEVH1vricoOcJDnb5zDLT3EV",
-   "note": "Narrator character, 11.6 MB. Rigged but has no animation clips, so she would stand frozen. Add her once there is a walk cycle."
+   "note": "Narrator character, rigged, 12k triangles, with animation clips Float / Happy / Idle. Compressed to media/models/nura.glb and used on walk.html as the floating scale reference. An earlier note here wrongly said she had no clips."
   },
   "narration_audio": {
    "folder": "1u2aV9FkkLo54BIEy6sKE4jZta6Fd5LZ-",
