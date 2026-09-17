@@ -740,6 +740,101 @@ body.gal{background:#14110d}
   .gal-figs div{border:0;padding:12px 18px}
   .plinths{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
 }
+
+/* ---------------- The Collection: one artifact at a time, drag to turn ---------------- */
+#walk-stage{position:fixed;inset:0;z-index:0;cursor:grab;touch-action:pan-y;
+  background:radial-gradient(120% 90% at 50% 38%,#fbf5ea 0%,#f0e6d5 45%,#e3d5be 100%)}
+#walk-stage.grabbing{cursor:grabbing}
+#walk-canvas{width:100%;height:100%;display:block}
+body.walk-fallback #walk-stage{display:none}
+#walk-hint{position:fixed;inset-inline-start:50%;bottom:30px;transform:translateX(-50%);z-index:3;
+  color:#7a6450;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid rgba(122,100,80,.3);border-radius:999px;padding:8px 20px;
+  background:rgba(253,248,240,.72);transition:opacity .5s;pointer-events:none}
+#walk-hint.gone{opacity:0}
+#walk-scroll{position:relative;z-index:2;pointer-events:none}
+#walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
+
+.wst{min-height:112vh;display:flex;align-items:flex-end;padding:0 26px 9vh}
+.warea .wcard{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.warea.on .wcard{opacity:1;transform:none}
+.wst-intro,.wst-end{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:80px 26px;text-align:center}
+.warea{min-height:150vh;display:flex;align-items:center;justify-content:flex-start;
+  padding:0 26px}
+.warea h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);color:#2e2118;font-weight:400;
+  margin:9px 0 5px;line-height:1.1}
+.warea .wn{color:#8a735c;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.wlist{list-style:none;margin:14px 0 0;padding:0;columns:1;max-height:230px;overflow:hidden}
+.wlist li{font-size:13.5px;line-height:1.55;color:#6d5a48}
+.wlist a{color:#6d5a48;text-decoration:none;border-bottom:1px solid transparent}
+.wlist a:hover{color:#a35f3f;border-bottom-color:rgba(163,95,63,.45)}
+
+.wcard{max-width:392px;background:rgba(253,249,242,.9);backdrop-filter:blur(10px) saturate(1.1);
+  border:1px solid rgba(74,53,43,.13);border-radius:4px;padding:22px 24px 20px;
+  box-shadow:0 20px 56px rgba(60,40,26,.16);
+  opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.wcard.wide{max-width:640px;padding:34px 34px 32px}
+.wst.on .wcard,.wst-intro .wcard,.wst-end .wcard{opacity:1;transform:none}
+.wch{color:#a35f3f;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+.wcard h1{font-family:var(--serif);font-size:clamp(40px,6vw,68px);color:#2e2118;margin:14px 0 18px;
+  line-height:1.04;font-weight:400}
+.wcard h2{font-family:var(--serif);font-size:clamp(26px,3.3vw,36px);color:#2e2118;margin:0 0 12px;
+  line-height:1.14;font-weight:400}
+.wcard h3{font-family:var(--serif);font-size:21px;color:#2e2118;margin:0 0 7px;line-height:1.24;
+  font-weight:400}
+.wmeta{color:#7d6a58;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase}
+.wcard p{color:#463628;font-size:16px;line-height:1.7}
+.wcard p.lead{font-size:18.5px;color:#3a2c20}
+.wmore{display:inline-block;margin-top:13px;color:#a35f3f;text-decoration:none;font-weight:700;
+  font-size:13.5px;border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
+.wmore:hover{border-bottom-color:#a35f3f}
+.wst-fallback{margin-top:16px}
+.wst-fallback iframe{width:100%;aspect-ratio:16/11;border:0;border-radius:4px;background:#000}
+body.walk-fallback #walk-scroll{background:var(--paper);pointer-events:auto}
+body.walk-fallback .wst,body.walk-fallback .wst-intro,body.walk-fallback .wst-end,
+body.walk-fallback .warea{min-height:0;padding:40px 26px;display:block;text-align:start}
+body.walk-fallback .wcard,body.walk-fallback .warea>div{opacity:1;transform:none;margin:0 auto}
+body.walk-fallback #walk-hint{display:none}
+@media(max-width:760px){
+  .wst{justify-content:center;padding:0 16px 7vh;min-height:104vh}
+  .wcard{padding:18px 18px 16px;max-width:none;width:100%}
+  .wcard.wide{padding:26px 22px 24px}
+}
+.wlist{list-style:none;margin:14px 0 0;padding:0}
+/* focus view: one object, zoomed */
+#walk-focus{position:fixed;inset:0;z-index:5;pointer-events:none}
+#walk-focus>*{pointer-events:auto}
+body.focusing #walk-scroll{display:none}
+body.focusing{overflow:hidden}
+.wf-round{position:fixed;width:46px;height:46px;border-radius:50%;border:1px solid rgba(74,53,43,.22);
+  background:rgba(253,248,240,.9);color:#4a3527;font-size:24px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.2s}
+.wf-round:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.wf-tl{top:96px;inset-inline-start:26px}
+.wf-l{top:50%;inset-inline-start:26px;transform:translateY(-50%)}
+.wf-r{top:50%;inset-inline-end:26px;transform:translateY(-50%)}
+.wf-panel{position:fixed;inset-inline-start:34px;bottom:34px;max-width:min(440px,calc(100vw - 68px))}
+.wf-id{color:#8a735c;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.wf-hint{color:#a0886d;font-size:12.5px;margin-top:8px}
+#walk-focus h2{font-family:var(--serif);font-size:clamp(28px,4vw,42px);color:#2e2118;font-weight:400;
+  margin:6px 0 16px;line-height:1.1}
+.wf-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.wf-btn{border:1px solid rgba(74,53,43,.3);background:rgba(253,248,240,.9);color:#4a3527;
+  border-radius:999px;padding:11px 22px;font:inherit;font-size:14.5px;cursor:pointer;transition:.2s}
+.wf-btn:hover{background:#fff}
+.wf-btn.on{border-color:#a35f3f;color:#a35f3f}
+.wf-btn.solid{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.wf-btn.solid:hover{background:#2e2118}
+.wf-link{color:#a35f3f;text-decoration:none;font-size:14px;font-weight:700;
+  border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
+@media(max-width:760px){
+  .wf-panel{inset-inline-start:16px;bottom:22px;max-width:calc(100vw - 32px)}
+  .wf-l,.wf-r{top:auto;bottom:calc(100% - 58vh);transform:none}
+  .wf-l{inset-inline-start:14px}.wf-r{inset-inline-end:14px}
+  .wf-tl{top:82px;inset-inline-start:14px}
+}
+@media(prefers-reduced-motion:reduce){.wcard,.warea>div{transition:none;opacity:1;transform:none}}
 """
 
 JS = """
@@ -837,7 +932,16 @@ document.addEventListener('click',e=>{
 """
 
 # cache-buster: browsers keep the old stylesheet after a deploy unless the URL changes
-ASSET_V = hashlib.md5((CSS + JS).encode()).hexdigest()[:8]
+# the 3D walk's module script lives in assets-src/walk.js so it stays editable as real JS
+with open(os.path.join(HERE, "assets-src", "walk.js")) as _f:
+    WALK_JS = _f.read()
+with open(os.path.join(HERE, "ref", "museum-3d.json")) as _f:
+    WALK_CFG = json.load(_f)
+THREE_V = "0.169.0"
+THREE_CDN = f"https://cdn.jsdelivr.net/npm/three@{THREE_V}"
+
+
+ASSET_V = hashlib.md5((CSS + JS + WALK_JS).encode()).hexdigest()[:8]
 
 # ---------------------------------------------------------------- svg icons
 
@@ -871,6 +975,7 @@ NAV = [
     ("Home", "index.html"),
     ("Archive", "archive.html", [
         ("Browse all scans", "archive.html"),
+        ("The Collection (3D)", "walk.html"),
         ("Galleries", "galleries.html"),
         ("Virtual Museum", "museum.html"),
     ]),
@@ -970,6 +1075,7 @@ public everywhere.</p>
 </div></div>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
+<a href="walk.html">The Collection (3D)</a>
 <a href="galleries.html">Galleries</a>
 <a href="community.html">Community</a>
 <a href="museum.html">Virtual Museum</a>
@@ -2153,6 +2259,244 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
     page("press.html", "Press & Recognition", body, active="about.html",
          desc="Awards, talks, podcasts, articles and papers about Tanit XR, including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.")
 
+
+
+# Rooms are named the way a curator would name them, not by file category. Each room says
+# what the objects are for; the sizes in the labels are the real measured ones.
+WALK_ROOMS = [
+    ("The people of Carthage", "Figures carved in marble and limestone, most of them broken",
+     ["statue", "torso", "figure", "togatus", "bust"]),
+    ("What held the roof up", "Columns and capitals from public buildings and villas",
+     ["column", "capital"]),
+    ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
+     ["stela", "stelae"]),
+    ("Floors people walked on", "Mosaic pavements from the Roman villas",
+     ["mosaic"]),
+    ("Doors still in use", "Doors and tilework from streets people live in today",
+     ["door", "tilework"]),
+    ("Where prayer faces", "Mihrabs and niches from mosques and madrasas",
+     ["niche", "mihrab", "mahram"]),
+    ("Words cut in stone", "Inscriptions and carved blocks, Latin and Arabic",
+     ["inscri", "laurel", "architectural fragment", "architectural block", "relief", "calligraph"]),
+    ("Water, carried and kept", "Basins and wells from the aqueduct and the medina",
+     ["basin", "bir ", "bir(", "well", "fountain"]),
+    ("Rooms and passages", "Whole spaces rather than single objects",
+     ["test scan", "passageway", "neapolis", "interior"]),
+    ("Everyday things", "Objects from ordinary life",
+     ["loom", "carpet"]),
+]
+WALK_MADE = ("Made by hand, today",
+             "Not scans. Volunteers modelled these from scratch for the virtual museum")
+WALK_MAX_PER_ROOM = 5
+
+with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
+    MODEL_DIMS = json.load(_f)
+
+
+def walk_room(title):
+    t = title.lower()
+    for label, sub, keys in WALK_ROOMS:
+        if any(k in t for k in keys):
+            return label
+    return "Other objects"
+
+
+_PLACE_TAIL = re.compile(
+    r"[\s,\u2013\u2014-]+(?:of\s+)?(?:the\s+)?(?:byrsa hill|roman villas?(?: of carthage)?|"
+    r"tophet of salammb[o\u00f4](?:\s*\(?carthage\)?)?|baths of antoninus|water temple(?:,? of)?"
+    r"(?:\s*zaghouan)?|zaghouan|zawiya of sidi sahbi|mausoleum of sidi sahbi|medersa slimanya|"
+    r"madrasa al[- ]bachia|medina of tunis|zitouna mosque|kairouan|carthage|tunisia|nabeul)"
+    r"[\s,()]*$", re.I)
+
+
+def short_title(title):
+    """'Draped Statue - Byrsa Hill, Carthage' -> 'Draped Statue'. Place is its own field."""
+    t = re.sub(r"\s+", " ", title).strip()
+    parts = re.split(r"\s+[\u2013\u2014-]\s+", t)
+    head = parts[0].strip()
+    if head.lower().rstrip(".") in ("test scan", "new site") and len(parts) > 1:
+        head = parts[1].strip()
+    for _ in range(3):                       # peel repeated place tails
+        stripped = _PLACE_TAIL.sub("", head).strip(" ,-\u2013\u2014")
+        if stripped == head or len(stripped) < 4:
+            break
+        head = stripped
+    return head if len(head) >= 4 else t
+
+
+def human_size(d):
+    """A readable real-world size, using the two biggest dimensions for flat things."""
+    if not d:
+        return ""
+    w, h, dp = d["w"], d["h"], d["d"]
+    if h < 0.12 and max(w, dp) > 0.3:                 # a pavement or slab, lying flat
+        return f"{max(w, dp):.2f} m across"
+    if h < 0.02:
+        return ""
+    return f"{h:.2f} m tall"
+
+
+def build_walk():
+    """Descend past one cluster of plinths per area. Drag to turn an artifact. No narration."""
+    models_dir = os.path.join(HERE, "media", "models")
+    on_disk = ({f[:-4] for f in os.listdir(models_dir) if f.endswith(".glb")}
+               if os.path.isdir(models_dir) else set())
+    # the puller names files from the raw Sketchfab titles, which the build later repairs,
+    # so resolve each model to its file by Sketchfab id rather than by slug
+    WALK_MAX_BYTES = 8_000_000
+    by_uid, too_big = {}, []
+    man = os.path.join(HERE, "ref", "models-manifest.json")  # versioned; media/models is not
+    if os.path.exists(man):
+        with open(man) as f:
+            for e in json.load(f).get("models", []):
+                if e["slug"] not in on_disk:
+                    continue
+                p = os.path.join(models_dir, e["slug"] + ".glb")
+                if os.path.getsize(p) > WALK_MAX_BYTES:
+                    too_big.append((e["slug"], os.path.getsize(p)))
+                    continue
+                by_uid[e["uid"]] = e["slug"]
+    for slug, n in too_big:
+        print(f"  ! walk: skipping {slug} ({n/1e6:.0f} MB, over the 8 MB page budget)")
+    overrides = {o["slug"]: o for o in WALK_CFG.get("overrides", [])}
+
+    by_type = {}
+    for m in MODELS:
+        pres = re.search(r"models/([a-f0-9]+)", m["sketchfab"] or "")
+        file_slug = (by_uid.get(m.get("gameready"))
+                     or by_uid.get(pres.group(1) if pres else None)
+                     or (m["clean_slug"] if m["clean_slug"] in on_disk else None))
+        if not file_slug:
+            continue
+        m = {**m, "file_slug": file_slug}
+        by_type.setdefault(walk_room(m["title"]), []).append(m)
+
+    # models volunteers built by hand get their own room at the end
+    made = []
+    for vm in VOLUNTEER_MADE:
+        fs = by_uid.get(vm.get("uid"))
+        if fs:
+            byname, byhref = creator_credit(vm.get("by"))
+            made.append({"title": vm["title"], "file_slug": fs, "place": "Made by volunteers",
+                         "site": "Made by volunteers", "href": "archive.html#volunteer-made",
+                         "by": byname})
+    if made:
+        by_type[WALK_MADE[0]] = made
+
+    out_dir = os.path.join(DOCS, "assets", "models")
+    os.makedirs(out_dir, exist_ok=True)
+    shipped = set()
+    # keep the declared type order, then split anything oversized into numbered rooms
+    order = []
+    room_meta = [(l, sb) for l, sb, _ in WALK_ROOMS] + [("Other objects", "")] + [WALK_MADE]
+    for label, sub in room_meta:
+        group = by_type.get(label)
+        if not group:
+            continue
+        group.sort(key=lambda g: -(MODEL_DIMS.get(g["file_slug"], {}).get("h") or 0))
+        # split an oversized room by where the objects came from, never "1 of 3"
+        if len(group) > WALK_MAX_PER_ROOM:
+            group.sort(key=lambda g: (g["place"], -(MODEL_DIMS.get(g["file_slug"], {})
+                                                    .get("h") or 0)))
+            n = -(-len(group) // WALK_MAX_PER_ROOM)          # even chunks, never a leftover of one
+            per = -(-len(group) // n)
+            for i in range(0, len(group), per):
+                part = group[i:i + per]
+                where = sorted({g["place"] for g in part})
+                order.append((label, ", ".join(where[:2]) +
+                              (" and more" if len(where) > 2 else ""), part))
+        else:
+            order.append((label, sub, group))
+
+    clusters, blocks, n_obj = [], "", 0
+    for ci, (label, sub, group) in enumerate(order):
+        items = []
+        for m in group:
+            ov = overrides.get(m["file_slug"], {})
+            d = MODEL_DIMS.get(m["file_slug"])
+            items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
+                          "href": m.get("href", "archive.html"), "place": m["place"],
+                          "size": human_size(d),
+                          "dims": [d["w"], d["h"], d["d"]] if d else None,
+                          "real": not m.get("by"),      # volunteer props are not measured
+                          **({"rotate": ov["rotate"]} if ov.get("rotate") else {})})
+            shutil.copy(os.path.join(models_dir, m["file_slug"] + ".glb"),
+                        os.path.join(out_dir, m["file_slug"] + ".glb"))
+            shipped.add(m["file_slug"] + ".glb")
+        clusters.append({"area": label, "items": items})
+        n_obj += len(items)
+        names = "".join(
+            f'<li><a href="{m.get("href", "archive.html")}">{esc(short_title(m["title"]))}</a>'
+            + (f' <span>{esc(human_size(MODEL_DIMS.get(m["file_slug"])))}</span>'
+               if human_size(MODEL_DIMS.get(m["file_slug"])) else '')
+            + (f' <span>{esc(m["by"])}</span>' if m.get("by") else '')
+            + '</li>'
+            for m in group)
+        fb = ('<div class="wst-fallback" hidden><p>3D could not load here. '
+              '<a href="galleries.html">Browse the objects instead</a>.</p></div>')
+        blocks += f"""
+<section class="warea" data-c="{ci}"><div class="wcard">
+<div class="wch">{esc(sub) if sub else "Tanit XR"}</div>
+<h2>{esc(label)}</h2>
+<div class="wn">{len(group)} object{"s" if len(group) != 1 else ""}</div>
+<ul class="wlist">{names}</ul>
+{fb}</div></section>"""
+
+    for stale in set(os.listdir(out_dir)) - shipped:
+        if stale.endswith(".glb"):
+            os.remove(os.path.join(out_dir, stale))
+
+    if not clusters:
+        print("  ! walk: no models in media/models, run tools/pull_sketchfab_models.py")
+
+    cfg_json = json.dumps({"clusters": clusters}, ensure_ascii=False)
+    body = f"""
+<div id="walk-stage"><canvas id="walk-canvas"></canvas>
+<div id="walk-hint">Drag to turn</div></div>
+
+<div id="walk-focus" hidden>
+<button id="wf-back" class="wf-round wf-tl" aria-label="Back to the collection">&#8249;</button>
+<button id="wf-prev" class="wf-round wf-l" aria-label="Previous object">&#8249;</button>
+<button id="wf-next" class="wf-round wf-r" aria-label="Next object">&#8250;</button>
+<div class="wf-panel">
+<div id="wf-id" class="wf-id"></div>
+<div class="wf-hint">Drag to rotate the object</div>
+<h2 id="wf-title"></h2>
+<div class="wf-row">
+<button id="wf-save" class="wf-btn">Save &#9825;</button>
+<button id="wf-share" class="wf-btn solid">Share to protect it</button>
+<a id="wf-record" class="wf-link" href="archive.html">Full record</a>
+</div>
+</div>
+</div>
+
+<div id="walk-scroll">
+<section class="wst-intro"><div class="wcard wide">
+<div class="wch">Tanit XR</div>
+<h1>The Collection</h1>
+<p class="lead">{n_obj} artifacts scanned in Tunisia by our volunteers, grouped into
+{len(clusters)} areas. Scroll to descend through them. Drag any object to turn it.</p>
+</div></section>
+{blocks}
+<section class="wst-end"><div class="wcard wide">
+<h2>Every one of these was scanned by a volunteer</h2>
+<p>These are the game-ready versions our volunteers optimized, the same models behind the
+virtual museum being built in Unity.</p>
+<p><a class="btn btn-gold" href="galleries.html">Browse with descriptions</a>
+&nbsp;<a class="wmore" href="volunteer.html">Volunteer with us</a></p>
+</div></section>
+</div>
+
+<script type="importmap">
+{{"imports":{{"three":"{THREE_CDN}/build/three.module.js","three/addons/":"{THREE_CDN}/examples/jsm/"}}}}
+</script>
+<script>window.WALK_CFG={cfg_json}</script>
+<script type="module" src="assets/walk.js?v={ASSET_V}"></script>"""
+
+    page("walk.html", "The Collection", body, active="archive.html", transparent=True,
+         trending=False,
+         desc=f"{n_obj} Tunisian artifacts scanned by Tanit XR volunteers, in 3D. "
+              "Scroll through the collection and turn each object.")
 
 
 # ---------------------------------------------------------------- galleries
@@ -3684,6 +4028,8 @@ def main():
     # static assets
     with open(os.path.join(DOCS, "assets", "style.css"), "w") as f:
         f.write(CSS)
+    with open(os.path.join(DOCS, "assets", "walk.js"), "w") as f:
+        f.write(WALK_JS)
     with open(os.path.join(DOCS, "assets", "site.js"), "w") as f:
         f.write(JS)
     for pdf in ["El-Jem-2026-Paper_English.pdf", "El-Jem-2026-Paper_French.pdf",
@@ -3708,6 +4054,7 @@ def main():
         build_services()
         build_archive()
         build_galleries()
+        build_walk()
         build_model_pages()
         build_news()
         build_people()

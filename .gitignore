@@ -3,3 +3,6 @@ html/
 .DS_Store
 __pycache__/
 ref/applications/
+
+# 3D model working copies; regenerate with tools/pull_sketchfab_models.py
+media/models/

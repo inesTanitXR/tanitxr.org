@@ -1,0 +1,67 @@
+{
+ "_what": "Stations for the 3D walk page (walk.html). Models are STREAMED from Google Drive at page load, so nothing is committed to this repo and the team can update a model without a site rebuild.",
+ "_how_to_update_a_model": "In Drive, open the .glb > three-dot menu > Manage versions > Upload new version. That KEEPS the same file id, so the site picks up the new model automatically. Do NOT delete and re-upload, that creates a new id. If the id does change, paste the new one into 'drive_id' here and rebuild.",
+ "_sharing_requirement": "Each file must stay 'Anyone with the link, Viewer'. If sharing is tightened the page falls back to the Sketchfab viewer for that object.",
+ "_source_folder": "https://drive.google.com/drive/folders/1EaKMxetoxK12yAYncq9yZupKJugiQKr-",
+ "_available_but_unused": {
+  "nura.glb": {
+   "drive_id": "1RpZ4LpW2LEVH1vricoOcJDnb5zDLT3EV",
+   "note": "Narrator character, 11.6 MB. Rigged but has no animation clips, so she would stand frozen. Add her once there is a walk cycle."
+  },
+  "narration_audio": {
+   "folder": "1u2aV9FkkLo54BIEy6sKE4jZta6Fd5LZ-",
+   "files": [
+    "Object_1.mp3",
+    "Object_2.mp3",
+    "Object_3.mp3"
+   ],
+   "note": "Nura voice lines from MIT Reality Hack. Wire up once the lines are matched to these three stations."
+  },
+  "SPRINT03TanitXR.glb": {
+   "drive_id": "1nl3aK7iMJ4XWmuQpy_dQaJfIo1dG-23G",
+   "note": "Full Unity museum scene export, 2.65 GB. Far too heavy for the web as-is."
+  }
+ },
+ "stations": [
+  {
+   "slug": "tanit-stela",
+   "drive_id": "12khrnQmpQgRLxHYM_fH9HcVm6OfFRkYW",
+   "sketchfab": "e7bfb3b0767248f5b4064ca8c57dc6e4",
+   "title": "Tanit Stela",
+   "place": "Tophet of Salammbo, Carthage",
+   "period": "Punic",
+   "chapter": "I",
+   "chapter_title": "The Chosen Land",
+   "height_m": 0.98,
+   "unlit": true,
+   "text": "Her name was Elissa. A Phoenician princess. Her brother took the throne, murdered her husband, and expected her to accept it. She did not. She loaded the ships and sailed west. When she reached this coast she asked the local king for land. He said she could have as much as an ox hide could cover. So she cut the hide into one thin continuous strip and laid it in a circle around an entire hilltop. That hill is called Byrsa. On it she built Carthage, 814 years before Christ. This stone was placed in the Tophet, the oldest sacred space in the city, as an offering by a real person who stood on this ground. The symbol carved into it is Tanit. Protector. Keeper of what must not be lost.",
+   "archive_title": "Tanit Stela – Tophet of Salammbo, Carthage"
+  },
+  {
+   "slug": "roman-column",
+   "drive_id": "1MEwy00xI5LoZV6tnjFQ_FsI9iIC1vw1R",
+   "title": "Roman Column",
+   "place": "Byrsa Hill, Carthage",
+   "period": "Roman",
+   "chapter": "II",
+   "chapter_title": "What She Built",
+   "height_m": 2.46,
+   "text": "Elissa did not just survive. She built the most powerful city in the western Mediterranean. For five hundred years it was not Rome. It was Carthage. Their ships reached the coast of West Africa and they held the sea lanes through Gibraltar. Rome destroyed the city in 146 BCE, then rebuilt it on the same ground, because what Elissa saw seven centuries earlier was still true. This land was worth staying for. This column belongs to that second city, standing on the same hill she once circled with a strip of hide.",
+   "sketchfab": "39d6fdb430434a3ea48a3cfacc1c05cd",
+   "archive_title": "Roman Column ‚Äì Byrsa Hill, Carthage"
+  },
+  {
+   "slug": "draped-statue",
+   "drive_id": "1D07IcZw3ydhfLZhuvXVz4HFG9-2ThV4I",
+   "title": "Draped Statue",
+   "place": "Byrsa Hill, Carthage",
+   "period": "Roman",
+   "chapter": "III",
+   "chapter_title": "Still Here",
+   "height_m": 1.59,
+   "text": "Someone carved this by hand. They chose the fall of the cloth, the weight in the shoulders, the way it would catch the light. Two thousand years later, here it is. Every person who has lived on this land felt the same thing, that what was built here matters and that it belongs to more than one generation. That impulse, to document and to protect and to say this must not be lost, is as old as the first stone carved in the Tophet. It is what we are continuing.",
+   "sketchfab": "391bb9b7d8384daaa66300363baa0005",
+   "archive_title": "Draped Statue – Byrsa Hill, Carthage"
+  }
+ ]
+}
