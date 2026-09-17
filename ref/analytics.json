@@ -1,0 +1,17 @@
+{
+ "_what": "Privacy-friendly visitor analytics. Nothing is emitted until one of these is filled in, so the site ships with no tracking at all today.",
+ "_why": "Grant applications ask for reach and engagement. These tools answer that without cookies, without a consent banner, and without sending anything to an ad network.",
+ "_pick_one": {
+   "cloudflare": "Free, unlimited. Sign in at dash.cloudflare.com > Analytics > Web Analytics > Add a site (tanitxr.org). It gives you a token; paste it below as cloudflare_token.",
+   "goatcounter": "Free for non-profits, open source. Sign up at goatcounter.com, pick a code like 'tanitxr', paste it below as goatcounter_code."
+ },
+ "_events_we_send": [
+   "collection_view: someone looked at an object (with its slug)",
+   "collection_rotate: someone turned an object with the cursor",
+   "collection_save: someone saved an object",
+   "collection_share: someone shared an object or their collection",
+   "donate_click: someone opened the donate page"
+ ],
+ "cloudflare_token": "",
+ "goatcounter_code": ""
+}

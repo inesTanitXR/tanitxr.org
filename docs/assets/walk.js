@@ -10,7 +10,7 @@ const CFG = window.WALK_CFG || { items: [] };
 const MODEL_BASE = new URL('models/', import.meta.url).href;
 const stage = document.getElementById('walk-stage');
 const canvas = document.getElementById('walk-canvas');
-const hintEl = document.getElementById('walk-hint');
+const cueEl = document.getElementById('rotate-cue');
 const sections = [...document.querySelectorAll('.wst[data-i]')];
 
 function useFallback() {
@@ -27,7 +27,8 @@ function start() {
   const FIT = 2.15, NURA_H = 1.25;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true,
+                                             preserveDrawingBuffer: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -108,8 +109,18 @@ function start() {
     });
   }
 
+  // where the pointer is, so Nura can look at it
+  const ptr = { x: 0, y: 0, tx: 0, ty: 0, over: false };
+  stage.addEventListener('pointermove', e => {
+    const r = stage.getBoundingClientRect();
+    ptr.tx = clamp(((e.clientX - r.left) / r.width) * 2 - 1, -1, 1);
+    ptr.ty = clamp(((e.clientY - r.top) / r.height) * 2 - 1, -1, 1);
+  }, { passive: true });
+  stage.addEventListener('pointerleave', () => { ptr.tx = 0; ptr.ty = 0; });
+
   // ---- Nura: a companion who floats nearby, faces you, and has something to say
-  let nura = null, mixer = null;
+  let nura = null, mixer = null, clips = null, idleAction = null, happyAction = null,
+      nuraBaseYaw = 0, flare = 0;
   const nuraHolder = new THREE.Group();
   nuraHolder.position.set(2.15, -0.15, 1.1);
   scene.add(nuraHolder);
@@ -132,19 +143,45 @@ function start() {
     const g = new THREE.Group();
     g.add(o);
     g.scale.setScalar(NURA_H / (sz.y || 1));
+    // turn her to face the viewer; CFG.nuraYaw lets this be corrected without a code change
+    g.rotation.y = (CFG.nuraYaw != null ? CFG.nuraYaw : 180) * Math.PI / 180;
+    nuraBaseYaw = g.rotation.y;
     nuraHolder.add(g);
     nura = g;
     if (gltf.animations && gltf.animations.length) {
       mixer = new THREE.AnimationMixer(o);
-      const clip = gltf.animations.find(a => /float/i.test(a.name)) || gltf.animations[0];
-      mixer.clipAction(clip).play();
+      clips = {};
+      gltf.animations.forEach(a => { clips[a.name.toLowerCase()] = a; });
+      const float = gltf.animations.find(a => /float/i.test(a.name)) || gltf.animations[0];
+      idleAction = mixer.clipAction(float);
+      idleAction.play();
     }
   }, undefined, () => { /* Nura is optional, the page still works without her */ });
 
+  function beHappy() {
+    if (!mixer || !clips) return;
+    const c = clips['happy'];
+    if (!c || (happyAction && happyAction.isRunning())) return;
+    happyAction = mixer.clipAction(c);
+    happyAction.setLoop(THREE.LoopOnce, 1);
+    happyAction.clampWhenFinished = false;
+    happyAction.reset().fadeIn(0.2).play();
+    if (idleAction) idleAction.crossFadeTo(happyAction, 0.2, false);
+    setTimeout(() => {
+      if (idleAction) { idleAction.reset().fadeIn(0.3).play(); }
+      if (happyAction) happyAction.fadeOut(0.3);
+    }, Math.max(900, c.duration * 1000));
+  }
+
   const bubble = document.getElementById('nura-bubble');
   const bubbleText = document.getElementById('nura-text');
+  const bubbleLong = document.getElementById('nura-long');
+  const moreBtn = document.getElementById('nura-more');
   const speakBtn = document.getElementById('nura-speak');
-  let speaking = false;
+  const closeBtn = document.getElementById('nura-close');
+  const dot = document.getElementById('nura-dot');
+  let speaking = false, bubbleOpen = false, expanded = false;
+
   function sayLine(text) {
     if (!('speechSynthesis' in window) || !text) return;
     speechSynthesis.cancel();
@@ -155,10 +192,42 @@ function start() {
     if (speakBtn) speakBtn.classList.add('on');
     speechSynthesis.speak(u);
   }
-  if (speakBtn) speakBtn.addEventListener('click', () => {
-    if (speaking) { speechSynthesis.cancel(); speaking = false; speakBtn.classList.remove('on'); return; }
+  function hushNura() {
+    if (speaking) { speechSynthesis.cancel(); speaking = false; }
+    if (speakBtn) speakBtn.classList.remove('on');
+  }
+  function openBubble() {
     const s = slots[shown];
-    if (s) sayLine(s.it.note || s.it.title);
+    if (!s || !bubble) return;
+    bubbleOpen = true; expanded = false;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = s.it.hi || s.it.title;
+    if (bubbleLong) { bubbleLong.textContent = s.it.note || ''; bubbleLong.hidden = true; }
+    if (moreBtn) {
+      moreBtn.textContent = 'Tell me more';
+      moreBtn.hidden = !(s.it.note && s.it.note !== s.it.hi);
+    }
+    beHappy();
+    flare = 1;
+  }
+  function closeBubble() {
+    bubbleOpen = false;
+    if (bubble) bubble.hidden = true;
+    hushNura();
+  }
+  if (closeBtn) closeBtn.addEventListener('click', closeBubble);
+  if (dot) dot.addEventListener('click', openBubble);
+  if (moreBtn) moreBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    if (bubbleLong) bubbleLong.hidden = !expanded;
+    moreBtn.textContent = expanded ? 'That is enough' : 'Tell me more';
+  });
+  if (speakBtn) speakBtn.addEventListener('click', () => {
+    if (speaking) { hushNura(); return; }
+    const s = slots[shown];
+    if (!s) return;
+    sayLine(expanded ? (s.it.hi + ' ' + s.it.note) : (s.it.hi || s.it.title));
   });
 
   // ---- scroll moves along the list, one object per section
@@ -179,14 +248,18 @@ function start() {
 
   // ---- drag to turn whichever object is in front
   let dragging = false, lastX = 0, lastY = 0, idle = 0;
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   const current = () => slots[Math.round(clamp(cursor, 0, slots.length - 1))];
   stage.addEventListener('pointerdown', e => {
     dragging = true; idle = 0; lastX = e.clientX; lastY = e.clientY;
     stage.classList.add('grabbing');
-    if (hintEl) hintEl.classList.add('gone');
+    moved = 0;
+    if (cueEl) { cueEl.classList.remove('show'); cueEl.classList.add('gone'); }
   });
   addEventListener('pointermove', e => {
     if (!dragging) return;
+    moved += Math.abs(e.clientX - lastX);
+    if (moved > 24 && !turned) { turned = true; if (window.tx) tx('collection_rotate'); }
     const s = current();
     if (s) {
       s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
@@ -194,7 +267,14 @@ function start() {
     }
     lastX = e.clientX; lastY = e.clientY;
   }, { passive: true });
-  const stopDrag = () => { dragging = false; stage.classList.remove('grabbing'); };
+  const stopDrag = () => {
+    dragging = false;
+    stage.classList.remove('grabbing');
+    if (!turned && cueEl) {                   // a tap is not a turn, keep showing the cue
+      cueEl.classList.remove('gone');
+      cueEl.classList.add('show');
+    }
+  };
   addEventListener('pointerup', stopDrag);
   addEventListener('pointercancel', stopDrag);
 
@@ -206,7 +286,68 @@ function start() {
   const SAVED = 'tanitxr.saved';
   const readSaved = () => { try { return JSON.parse(localStorage.getItem(SAVED) || '[]'); }
                             catch (e) { return []; } };
-  let shown = -1;
+  const writeSaved = l => { try { localStorage.setItem(SAVED, JSON.stringify(l)); }
+                            catch (e) { /* private mode */ } };
+
+  // ---- the saved tray, so saving actually leads somewhere
+  const chip = document.getElementById('saved-chip');
+  const chipCount = document.getElementById('saved-count');
+  const tray = document.getElementById('saved-tray');
+  const trayList = document.getElementById('saved-list');
+  function goTo(slug) {
+    const i = slots.findIndex(x => x.it.slug === slug);
+    if (i >= 0 && sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'smooth' });
+  }
+  function paintTray() {
+    const list = readSaved();
+    if (chipCount) chipCount.textContent = list.length;
+    if (chip) chip.style.display = list.length ? '' : 'none';
+    if (!trayList) return;
+    trayList.innerHTML = '';
+    if (!list.length) {
+      trayList.innerHTML = '<p>Nothing saved yet. Press Save on any object.</p>';
+      return;
+    }
+    list.forEach(slug => {
+      const it = (CFG.items.find(x => x.slug === slug));
+      if (!it) return;
+      const b = document.createElement('button');
+      b.className = 'si';
+      b.innerHTML = (it.thumb ? '<img src="' + it.thumb + '" alt="">' : '<img alt="">')
+        + '<span><b>' + it.title.replace(/[<>&]/g, '') + '</b>'
+        + '<span>' + (it.place || '').replace(/[<>&]/g, '') + '</span></span>';
+      b.addEventListener('click', () => { tray.hidden = true; goTo(slug); });
+      trayList.appendChild(b);
+    });
+  }
+  if (chip) chip.addEventListener('click', () => {
+    tray.hidden = !tray.hidden;
+    if (!tray.hidden) paintTray();
+  });
+  const closeTray = document.getElementById('saved-close');
+  if (closeTray) closeTray.addEventListener('click', () => { tray.hidden = true; });
+  const clearBtn = document.getElementById('saved-clear');
+  if (clearBtn) clearBtn.addEventListener('click', () => {
+    writeSaved([]); paintTray(); paintSave(slots[shown] ? slots[shown].it : {});
+  });
+  const shareColl = document.getElementById('saved-share');
+  if (shareColl) shareColl.addEventListener('click', async () => {
+    const list = readSaved();
+    if (!list.length) return;
+    const url = location.origin + location.pathname + '#saved=' + list.join(',');
+    const text = 'My collection of Tunisian heritage scanned by Tanit XR volunteers, '
+      + list.length + ' objects. Share them to help protect them.';
+    if (window.tx) tx('collection_share', { count: list.length });
+    try {
+      if (navigator.share) await navigator.share({ title: 'My Tanit XR collection', text, url });
+      else {
+        await navigator.clipboard.writeText(url);
+        shareColl.textContent = 'Link copied';
+        setTimeout(() => { shareColl.textContent = 'Share my collection'; }, 2000);
+      }
+    } catch (e) { /* dismissed */ }
+  });
+  let shown = -1, turned = false, cueTimer = null, moved = 0;
   function paintSave(it) {
     if (!uiSave) return;
     const on = readSaved().includes(it.slug);
@@ -222,14 +363,15 @@ function start() {
     if (uiRecord) uiRecord.href = s.it.href || 'archive.html';
     const by = document.getElementById('wf-by');
     if (by) by.textContent = s.it.credit || '';
-    if (bubbleText) bubbleText.textContent = s.it.note || '';
-    if (bubble) {
-      bubble.classList.remove('in');
-      void bubble.offsetWidth;                        // restart the fade
-      bubble.classList.add('in');
+    closeBubble();                                    // she stays quiet until you ask
+    if (dot) dot.classList.add('in');
+    if (cueEl && !turned) {                       // keep signalling until they try it once
+      clearTimeout(cueTimer);
+      cueEl.classList.remove('gone');
+      cueTimer = setTimeout(() => cueEl.classList.add('show'), 500);
     }
-    if (speaking) speechSynthesis.cancel();
     paintSave(s.it);
+    if (window.tx) tx('collection_view', { object: s.it.slug });
     history.replaceState(null, '', '#' + s.it.slug);
   }
   const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
@@ -237,14 +379,17 @@ function start() {
     const s = slots[shown]; if (!s) return;
     const l = readSaved(), i = l.indexOf(s.it.slug);
     i >= 0 ? l.splice(i, 1) : l.push(s.it.slug);
-    try { localStorage.setItem(SAVED, JSON.stringify(l)); } catch (e) { /* private mode */ }
+    writeSaved(l);
     paintSave(s.it);
+    paintTray();
+    if (window.tx && i < 0) tx('collection_save', { object: s.it.slug });
   });
   on('wf-share', async () => {
     const s = slots[shown]; if (!s) return;
     const url = location.origin + location.pathname + '#' + s.it.slug;
     const text = s.it.title + ', scanned in Tunisia by Tanit XR volunteers. '
       + 'Share it to help protect it.';
+    if (window.tx) tx('collection_share', { object: s.it.slug });
     const btn = document.getElementById('wf-share');
     try {
       if (navigator.share) await navigator.share({ title: s.it.title, text, url });
@@ -267,6 +412,80 @@ function start() {
     if (e.key === 'ArrowRight') jump(1);
   });
 
+  // ---- a square post image of whatever you are looking at, ready for LinkedIn
+  function makePoster() {
+    const s = slots[shown];
+    if (!s || !s.loaded) return;
+    const S = 1200;
+    const oldW = stage.clientWidth, oldH = stage.clientHeight, oldFov = camera.fov;
+    const wasDot = dot ? dot.className : '';
+    const nuraWas = nuraHolder.visible;
+    nuraHolder.visible = false;                       // the object alone, no guide
+    renderer.setSize(S, S, false);
+    camera.aspect = 1; camera.fov = 34; camera.updateProjectionMatrix();
+    const held = slots.map(x => [x, x.wrap.visible, x.wrap.position.clone()]);
+    slots.forEach(x => { x.wrap.visible = (x === s); });
+    s.wrap.position.set(0, 0, 0);
+    s.mats.forEach(m => { m.opacity = 1; });
+    renderer.render(scene, camera);
+
+    const out = document.createElement('canvas');
+    out.width = out.height = S;
+    const x = out.getContext('2d');
+    const g = x.createRadialGradient(S * .5, S * .38, 0, S * .5, S * .38, S * .8);
+    g.addColorStop(0, '#fdf8ef'); g.addColorStop(.5, '#f2e9da'); g.addColorStop(1, '#e2d4bd');
+    x.fillStyle = g; x.fillRect(0, 0, S, S);
+    x.drawImage(renderer.domElement, 0, -40, S, S);
+
+    const pad = 70;
+    x.textAlign = 'left';
+    x.fillStyle = '#8a735c';
+    x.font = '500 22px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText([s.it.place, s.it.size].filter(Boolean).join('  \u00b7  ').toUpperCase(),
+               pad, S - 190);
+    x.fillStyle = '#2e2118';
+    let size = 62;
+    x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
+    while (x.measureText(s.it.title).width > S - pad * 2 && size > 30) {
+      size -= 3;
+      x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
+    }
+    x.fillText(s.it.title, pad, S - 130);
+    x.fillStyle = '#5d4c3c';
+    x.font = '400 24px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText(s.it.credit || 'Scanned by a Tanit XR volunteer', pad, S - 88);
+    x.fillStyle = '#a35f3f';
+    x.font = '700 22px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText('TANIT XR', pad, S - 44);
+    x.fillStyle = '#8a735c';
+    x.font = '400 22px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText('tanitxr.org', pad + 130, S - 44);
+
+    held.forEach(([o, vis, pos]) => { o.wrap.visible = vis; o.wrap.position.copy(pos); });
+    nuraHolder.visible = nuraWas;
+    if (dot) dot.className = wasDot;
+    camera.fov = oldFov; camera.aspect = oldW / oldH; camera.updateProjectionMatrix();
+    renderer.setSize(oldW, oldH, false);
+
+    out.toBlob(b => {
+      if (!b) return;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'tanitxr-' + s.it.slug + '.png';
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    }, 'image/png');
+    if (window.tx) tx('collection_poster', { object: s.it.slug });
+  }
+  const posterBtn = document.getElementById('wf-poster');
+  if (posterBtn) posterBtn.addEventListener('click', () => {
+    posterBtn.textContent = 'Saving...';
+    setTimeout(() => {
+      makePoster();
+      posterBtn.textContent = 'Make a post image';
+    }, 40);
+  });
+
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
@@ -282,10 +501,19 @@ function start() {
   load(slots[0]);
 
   const wanted = decodeURIComponent(location.hash.slice(1));
-  if (wanted) {
+  if (wanted.startsWith('saved=')) {              // someone shared their collection
+    const list = wanted.slice(6).split(',').filter(sl => CFG.items.some(x => x.slug === sl));
+    if (list.length) {
+      writeSaved(Array.from(new Set(readSaved().concat(list))));
+      paintTray();
+      if (tray) tray.hidden = false;
+      goTo(list[0]);
+    }
+  } else if (wanted) {
     const i = slots.findIndex(x => x.it.slug === wanted);
     if (i >= 0 && sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
   }
+  paintTray();
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clock = new THREE.Clock();
@@ -310,24 +538,42 @@ function start() {
     const t = clock.elapsedTime;
     if (mixer) mixer.update(dt);
     if (nura) {
-      nuraHolder.position.y = -0.15 + Math.sin(t * 1.05) * 0.075;       // a gentle hover
-      nuraHolder.position.x = 2.15 + Math.sin(t * 0.43) * 0.09;
-      nura.rotation.y = Math.sin(t * 0.5) * 0.12;                        // she keeps facing you
+      // park her a fixed fraction across the frame, so she is never cut off
+      const halfH = Math.tan(camera.fov * Math.PI / 360) * camera.position.z;
+      const halfW = halfH * camera.aspect;
+      ptr.x += (ptr.tx - ptr.x) * 0.06;
+      ptr.y += (ptr.ty - ptr.y) * 0.06;
+      const homeX = clamp(halfW * 0.64, 1.1, 3.4);
+      nuraHolder.position.x = homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
+      nuraHolder.position.y = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
+      nuraHolder.position.z = 0.9;
+      // she looks where your cursor is
+      nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06;
+      nura.rotation.x = -ptr.y * 0.16;
       nura.rotation.z = Math.sin(t * 0.8) * 0.03;
       sparks.children.forEach(m => {
         m.userData.a += dt * m.userData.sp;
         m.position.set(Math.cos(m.userData.a) * m.userData.r,
                        m.userData.y + Math.sin(t * m.userData.sp + m.userData.a) * 0.09,
                        Math.sin(m.userData.a) * m.userData.r * 0.7);
-        m.material.opacity = 0.35 + 0.5 * (0.5 + 0.5 * Math.sin(t * 2 + m.userData.a));
+        m.material.opacity = clamp(0.3 + 0.5 * (0.5 + 0.5 * Math.sin(t * 2 + m.userData.a))
+                                   + flare * 0.7, 0, 1);
+        m.scale.setScalar(1 + flare * 1.4);
       });
-      if (bubble) {                                   // pin the bubble above her head
-        const v = new THREE.Vector3(0, NURA_H * 1.02, 0);
-        nuraHolder.localToWorld(v);
-        v.project(camera);
-        const r = stage.getBoundingClientRect();
-        bubble.style.left = (r.left + (v.x * 0.5 + 0.5) * r.width) + 'px';
-        bubble.style.top = (r.top + (-v.y * 0.5 + 0.5) * r.height) + 'px';
+      flare = Math.max(0, flare - dt * 1.1);
+      const head = new THREE.Vector3(0, NURA_H * 1.02, 0);
+      nuraHolder.localToWorld(head);
+      head.project(camera);
+      const r = stage.getBoundingClientRect();
+      const sx = r.left + (head.x * 0.5 + 0.5) * r.width;
+      const sy = r.top + (-head.y * 0.5 + 0.5) * r.height;
+      if (bubble && !bubble.hidden) {
+        bubble.style.left = Math.round(sx) + 'px';
+        bubble.style.top = Math.round(sy - 10) + 'px';
+      }
+      if (dot) {
+        dot.style.left = Math.round(sx) + 'px';
+        dot.style.top = Math.round(sy) + 'px';
       }
     }
 

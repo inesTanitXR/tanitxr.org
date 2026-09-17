@@ -1,4 +1,18 @@
 
+// One place to record what people do, so the numbers exist when a grant asks for them.
+// Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
+window.tx = function(name, props){
+  try{
+    if (window.counter && typeof counter.count === 'function') counter.count({path: name});
+    if (window.goatcounter && goatcounter.count) goatcounter.count({path: name, event: true});
+    if (typeof gtag === 'function') gtag('event', name, props || {});
+  }catch(e){ /* never let counting break the page */ }
+};
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
+  if (a) window.tx('donate_click');
+});
+
 const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
 const nt=document.getElementById('nav-toggle');

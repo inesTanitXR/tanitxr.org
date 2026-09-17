@@ -428,6 +428,21 @@ footer.site .base{border-top:1px solid rgba(255,255,255,.14);margin-top:52px;pad
 footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){footer.site .cols{grid-template-columns:1fr}}
+.collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
+.cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
+  background:#e6dbc6;text-decoration:none}
+.cb-art img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cb-art:hover img{transform:scale(1.04)}
+.cb-ring{position:absolute;inset-inline-start:50%;top:50%;width:44%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border:1.6px dashed rgba(255,255,255,.75);border-radius:50%;
+  animation:cbspin 11s linear infinite;pointer-events:none}
+@keyframes cbspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.cb-tag{position:absolute;inset-inline-start:50%;bottom:16px;transform:translateX(-50%);
+  background:rgba(20,17,13,.72);color:#fdf8f0;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;padding:7px 16px;border-radius:999px}
+@media(max-width:900px){.cb-grid{grid-template-columns:1fr;gap:28px}}
+@media(prefers-reduced-motion:reduce){.cb-ring{animation:none}}
 .notice{background:#fff8e1;border:1px solid var(--gold);border-radius:8px;padding:14px 18px;font-size:14.5px;margin:18px 0}
 
 /* ---------------- galleries: a dark exhibition over the same scans ---------------- */
@@ -549,11 +564,24 @@ body.gal{background:#14110d}
 #walk-stage.grabbing{cursor:grabbing}
 #walk-canvas{width:100%;height:100%;display:block}
 body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
-#walk-hint{position:fixed;inset-inline-start:50%;bottom:26px;transform:translateX(-50%);z-index:3;
-  color:#7a6450;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-  border:1px solid rgba(122,100,80,.28);border-radius:999px;padding:8px 20px;
-  background:rgba(253,248,240,.7);transition:opacity .5s;pointer-events:none}
-#walk-hint.gone{opacity:0}
+/* a ring with two arrows around the object: the signal that it turns */
+#rotate-cue{position:fixed;inset-inline-start:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:3;pointer-events:none;width:min(46vmin,340px);opacity:0;transition:opacity .6s ease;
+  text-align:center}
+#rotate-cue.show{opacity:.9}
+#rotate-cue.gone{opacity:0}
+#rotate-cue svg{width:100%;height:auto;display:block;overflow:visible}
+.rc-ring{fill:none;stroke:#8a6a4d;stroke-width:1.6;stroke-dasharray:5 9;opacity:.55;
+  transform-origin:110px 110px;animation:rcspin 9s linear infinite}
+.rc-arrow{fill:none;stroke:#a35f3f;stroke-width:2.6;stroke-linecap:round}
+.rc-head{fill:#a35f3f}
+.rc-arrow,.rc-head{animation:rcpulse 2.4s ease-in-out infinite}
+.rc-label{display:inline-block;margin-top:10px;color:#7a6450;font-size:11.5px;
+  letter-spacing:.22em;text-transform:uppercase;background:rgba(253,248,240,.72);
+  border-radius:999px;padding:6px 16px}
+@keyframes rcspin{to{transform:rotate(360deg)}}
+@keyframes rcpulse{0%,100%{opacity:.45}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.rc-ring,.rc-arrow,.rc-head{animation:none}}
 
 /* the label stays put; only its text changes as you scroll */
 #walk-label{position:fixed;inset:0;z-index:4;pointer-events:none}
@@ -588,24 +616,72 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #walk-hint svg{width:15px;height:15px;fill:currentColor}
 #walk-hint.gone{opacity:.4}
 
-/* Nura's speech bubble, pinned above her head */
-#nura-bubble{position:fixed;z-index:4;transform:translate(-50%,-100%);max-width:260px;
-  background:rgba(253,249,242,.95);border:1px solid rgba(74,53,43,.16);border-radius:14px;
-  padding:12px 14px 12px 15px;box-shadow:0 14px 34px rgba(60,40,26,.16);
-  display:flex;gap:9px;align-items:flex-start;opacity:0;transition:opacity .5s ease;
-  pointer-events:none}
-#nura-bubble.in{opacity:1;pointer-events:auto}
-#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:26px;width:13px;
+/* what you saved, and how to get it back */
+#saved-chip{position:fixed;top:96px;inset-inline-end:26px;z-index:5;display:flex;align-items:center;
+  gap:7px;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);color:#4a3527;
+  border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#saved-chip svg{width:15px;height:15px;fill:#a35f3f}
+#saved-chip b{font-weight:700}
+#saved-chip:hover{background:#fff}
+body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
+#saved-tray{position:fixed;top:146px;inset-inline-end:26px;z-index:6;width:min(320px,86vw);
+  background:rgba(253,249,242,.98);border:1px solid rgba(74,53,43,.16);border-radius:10px;
+  box-shadow:0 22px 56px rgba(60,40,26,.2);padding:14px}
+#saved-tray[hidden]{display:none}
+.st-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.st-head h3{font-family:var(--serif);font-size:19px;font-weight:400;color:#2e2118;margin:0}
+#saved-close{border:0;background:none;color:#a3907a;font-size:21px;line-height:1;cursor:pointer}
+#saved-close:hover{color:#4a3527}
+#saved-list{max-height:46vh;overflow-y:auto;display:grid;gap:8px}
+#saved-list .si{display:flex;gap:10px;align-items:center;border:0;background:none;padding:6px;
+  border-radius:6px;cursor:pointer;text-align:start;width:100%;font:inherit}
+#saved-list .si:hover{background:rgba(163,95,63,.08)}
+#saved-list .si img{width:46px;height:46px;object-fit:cover;border-radius:4px;flex:0 0 auto;
+  background:#e6dbc6}
+#saved-list .si b{display:block;font-weight:600;font-size:13.5px;color:#2e2118;line-height:1.3}
+#saved-list .si span{display:block;font-size:11.5px;color:#8a735c;margin-top:2px}
+#saved-list p{font-size:13px;color:#8a735c;margin:6px 2px}
+.st-foot{display:flex;gap:8px;margin-top:12px}
+.st-foot .wf-btn{flex:1;padding:9px 10px;font-size:13px}
+@media(max-width:760px){#saved-chip{top:auto;bottom:96px;inset-inline-end:14px}
+  #saved-tray{top:auto;bottom:146px;inset-inline-end:14px}}
+
+/* Nura stays quiet: a pulsing dot says she has something, the bubble opens on click */
+#nura-dot{position:fixed;z-index:5;transform:translate(-50%,-50%);width:26px;height:26px;
+  border-radius:50%;border:0;padding:0;cursor:pointer;background:transparent;opacity:0;
+  transition:opacity .4s;pointer-events:none}
+#nura-dot.in{opacity:1;pointer-events:auto}
+#nura-dot span{display:block;width:11px;height:11px;margin:7px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 0 rgba(255,205,5,.65);animation:ndot 1.9s infinite}
+@keyframes ndot{0%{box-shadow:0 0 0 0 rgba(255,205,5,.6)}
+  70%{box-shadow:0 0 0 13px rgba(255,205,5,0)}100%{box-shadow:0 0 0 0 rgba(255,205,5,0)}}
+#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(290px,72vw);
+  background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
+  padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
+#nura-bubble[hidden]{display:none}
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:30px;width:13px;
   height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
   border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
-#nura-text{margin:0;font-size:13.5px;line-height:1.5;color:#463628}
-#nura-speak{flex:0 0 auto;width:28px;height:28px;border-radius:50%;cursor:pointer;
-  border:1px solid rgba(74,53,43,.2);background:#fff;color:#7d6a58;display:flex;
+#nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
+  color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
+#nura-close:hover{color:#4a3527}
+#nura-text{margin:0 14px 0 0;font-size:14.5px;line-height:1.5;color:#2e2118;
+  font-family:var(--serif)}
+#nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
+  border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
+#nura-long[hidden]{display:none}
+.nb-row{display:flex;align-items:center;gap:8px;margin-top:11px}
+.nb-more{flex:1;border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;
+  border-radius:999px;padding:7px 12px;font:inherit;font-size:12.5px;cursor:pointer}
+.nb-more:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.nb-speak{flex:0 0 auto;width:30px;height:30px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#7d6a58;display:flex;
   align-items:center;justify-content:center;padding:0}
-#nura-speak svg{width:14px;height:14px;fill:currentColor}
-#nura-speak:hover,#nura-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
-body.walk-fallback #nura-bubble{display:none}
-@media(max-width:760px){#nura-bubble{max-width:200px;padding:10px 11px}#nura-text{font-size:12.5px}}
+.nb-speak svg{width:15px;height:15px;fill:currentColor}
+.nb-speak:hover,.nb-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
+body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
+@media(max-width:760px){#nura-text{font-size:13.5px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}

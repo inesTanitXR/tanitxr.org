@@ -626,6 +626,21 @@ footer.site .base{border-top:1px solid rgba(255,255,255,.14);margin-top:52px;pad
 footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){footer.site .cols{grid-template-columns:1fr}}
+.collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
+.cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
+  background:#e6dbc6;text-decoration:none}
+.cb-art img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cb-art:hover img{transform:scale(1.04)}
+.cb-ring{position:absolute;inset-inline-start:50%;top:50%;width:44%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border:1.6px dashed rgba(255,255,255,.75);border-radius:50%;
+  animation:cbspin 11s linear infinite;pointer-events:none}
+@keyframes cbspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.cb-tag{position:absolute;inset-inline-start:50%;bottom:16px;transform:translateX(-50%);
+  background:rgba(20,17,13,.72);color:#fdf8f0;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;padding:7px 16px;border-radius:999px}
+@media(max-width:900px){.cb-grid{grid-template-columns:1fr;gap:28px}}
+@media(prefers-reduced-motion:reduce){.cb-ring{animation:none}}
 .notice{background:#fff8e1;border:1px solid var(--gold);border-radius:8px;padding:14px 18px;font-size:14.5px;margin:18px 0}
 
 /* ---------------- galleries: a dark exhibition over the same scans ---------------- */
@@ -747,11 +762,24 @@ body.gal{background:#14110d}
 #walk-stage.grabbing{cursor:grabbing}
 #walk-canvas{width:100%;height:100%;display:block}
 body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
-#walk-hint{position:fixed;inset-inline-start:50%;bottom:26px;transform:translateX(-50%);z-index:3;
-  color:#7a6450;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-  border:1px solid rgba(122,100,80,.28);border-radius:999px;padding:8px 20px;
-  background:rgba(253,248,240,.7);transition:opacity .5s;pointer-events:none}
-#walk-hint.gone{opacity:0}
+/* a ring with two arrows around the object: the signal that it turns */
+#rotate-cue{position:fixed;inset-inline-start:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:3;pointer-events:none;width:min(46vmin,340px);opacity:0;transition:opacity .6s ease;
+  text-align:center}
+#rotate-cue.show{opacity:.9}
+#rotate-cue.gone{opacity:0}
+#rotate-cue svg{width:100%;height:auto;display:block;overflow:visible}
+.rc-ring{fill:none;stroke:#8a6a4d;stroke-width:1.6;stroke-dasharray:5 9;opacity:.55;
+  transform-origin:110px 110px;animation:rcspin 9s linear infinite}
+.rc-arrow{fill:none;stroke:#a35f3f;stroke-width:2.6;stroke-linecap:round}
+.rc-head{fill:#a35f3f}
+.rc-arrow,.rc-head{animation:rcpulse 2.4s ease-in-out infinite}
+.rc-label{display:inline-block;margin-top:10px;color:#7a6450;font-size:11.5px;
+  letter-spacing:.22em;text-transform:uppercase;background:rgba(253,248,240,.72);
+  border-radius:999px;padding:6px 16px}
+@keyframes rcspin{to{transform:rotate(360deg)}}
+@keyframes rcpulse{0%,100%{opacity:.45}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.rc-ring,.rc-arrow,.rc-head{animation:none}}
 
 /* the label stays put; only its text changes as you scroll */
 #walk-label{position:fixed;inset:0;z-index:4;pointer-events:none}
@@ -786,24 +814,72 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #walk-hint svg{width:15px;height:15px;fill:currentColor}
 #walk-hint.gone{opacity:.4}
 
-/* Nura's speech bubble, pinned above her head */
-#nura-bubble{position:fixed;z-index:4;transform:translate(-50%,-100%);max-width:260px;
-  background:rgba(253,249,242,.95);border:1px solid rgba(74,53,43,.16);border-radius:14px;
-  padding:12px 14px 12px 15px;box-shadow:0 14px 34px rgba(60,40,26,.16);
-  display:flex;gap:9px;align-items:flex-start;opacity:0;transition:opacity .5s ease;
-  pointer-events:none}
-#nura-bubble.in{opacity:1;pointer-events:auto}
-#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:26px;width:13px;
+/* what you saved, and how to get it back */
+#saved-chip{position:fixed;top:96px;inset-inline-end:26px;z-index:5;display:flex;align-items:center;
+  gap:7px;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);color:#4a3527;
+  border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#saved-chip svg{width:15px;height:15px;fill:#a35f3f}
+#saved-chip b{font-weight:700}
+#saved-chip:hover{background:#fff}
+body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
+#saved-tray{position:fixed;top:146px;inset-inline-end:26px;z-index:6;width:min(320px,86vw);
+  background:rgba(253,249,242,.98);border:1px solid rgba(74,53,43,.16);border-radius:10px;
+  box-shadow:0 22px 56px rgba(60,40,26,.2);padding:14px}
+#saved-tray[hidden]{display:none}
+.st-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.st-head h3{font-family:var(--serif);font-size:19px;font-weight:400;color:#2e2118;margin:0}
+#saved-close{border:0;background:none;color:#a3907a;font-size:21px;line-height:1;cursor:pointer}
+#saved-close:hover{color:#4a3527}
+#saved-list{max-height:46vh;overflow-y:auto;display:grid;gap:8px}
+#saved-list .si{display:flex;gap:10px;align-items:center;border:0;background:none;padding:6px;
+  border-radius:6px;cursor:pointer;text-align:start;width:100%;font:inherit}
+#saved-list .si:hover{background:rgba(163,95,63,.08)}
+#saved-list .si img{width:46px;height:46px;object-fit:cover;border-radius:4px;flex:0 0 auto;
+  background:#e6dbc6}
+#saved-list .si b{display:block;font-weight:600;font-size:13.5px;color:#2e2118;line-height:1.3}
+#saved-list .si span{display:block;font-size:11.5px;color:#8a735c;margin-top:2px}
+#saved-list p{font-size:13px;color:#8a735c;margin:6px 2px}
+.st-foot{display:flex;gap:8px;margin-top:12px}
+.st-foot .wf-btn{flex:1;padding:9px 10px;font-size:13px}
+@media(max-width:760px){#saved-chip{top:auto;bottom:96px;inset-inline-end:14px}
+  #saved-tray{top:auto;bottom:146px;inset-inline-end:14px}}
+
+/* Nura stays quiet: a pulsing dot says she has something, the bubble opens on click */
+#nura-dot{position:fixed;z-index:5;transform:translate(-50%,-50%);width:26px;height:26px;
+  border-radius:50%;border:0;padding:0;cursor:pointer;background:transparent;opacity:0;
+  transition:opacity .4s;pointer-events:none}
+#nura-dot.in{opacity:1;pointer-events:auto}
+#nura-dot span{display:block;width:11px;height:11px;margin:7px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 0 rgba(255,205,5,.65);animation:ndot 1.9s infinite}
+@keyframes ndot{0%{box-shadow:0 0 0 0 rgba(255,205,5,.6)}
+  70%{box-shadow:0 0 0 13px rgba(255,205,5,0)}100%{box-shadow:0 0 0 0 rgba(255,205,5,0)}}
+#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(290px,72vw);
+  background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
+  padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
+#nura-bubble[hidden]{display:none}
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:30px;width:13px;
   height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
   border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
-#nura-text{margin:0;font-size:13.5px;line-height:1.5;color:#463628}
-#nura-speak{flex:0 0 auto;width:28px;height:28px;border-radius:50%;cursor:pointer;
-  border:1px solid rgba(74,53,43,.2);background:#fff;color:#7d6a58;display:flex;
+#nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
+  color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
+#nura-close:hover{color:#4a3527}
+#nura-text{margin:0 14px 0 0;font-size:14.5px;line-height:1.5;color:#2e2118;
+  font-family:var(--serif)}
+#nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
+  border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
+#nura-long[hidden]{display:none}
+.nb-row{display:flex;align-items:center;gap:8px;margin-top:11px}
+.nb-more{flex:1;border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;
+  border-radius:999px;padding:7px 12px;font:inherit;font-size:12.5px;cursor:pointer}
+.nb-more:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.nb-speak{flex:0 0 auto;width:30px;height:30px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#7d6a58;display:flex;
   align-items:center;justify-content:center;padding:0}
-#nura-speak svg{width:14px;height:14px;fill:currentColor}
-#nura-speak:hover,#nura-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
-body.walk-fallback #nura-bubble{display:none}
-@media(max-width:760px){#nura-bubble{max-width:200px;padding:10px 11px}#nura-text{font-size:12.5px}}
+.nb-speak svg{width:15px;height:15px;fill:currentColor}
+.nb-speak:hover,.nb-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
+body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
+@media(max-width:760px){#nura-text{font-size:13.5px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
@@ -849,6 +925,20 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 """
 
 JS = """
+// One place to record what people do, so the numbers exist when a grant asks for them.
+// Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
+window.tx = function(name, props){
+  try{
+    if (window.counter && typeof counter.count === 'function') counter.count({path: name});
+    if (window.goatcounter && goatcounter.count) goatcounter.count({path: name, event: true});
+    if (typeof gtag === 'function') gtag('event', name, props || {});
+  }catch(e){ /* never let counting break the page */ }
+};
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
+  if (a) window.tx('donate_click');
+});
+
 const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
 const nt=document.getElementById('nav-toggle');
@@ -1143,7 +1233,29 @@ FONTS_ARABIC = ("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;60
                 "500;700&display=swap")
 
 
-def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True):
+# Where the site lives. Swap this for https://tanitxr.org/ at the DNS cutover and every
+# link preview follows.
+SITE_URL = "https://inestanitxr.github.io/tanitxr.org/"
+
+with open(os.path.join(HERE, "ref", "analytics.json")) as _f:
+    ANALYTICS = json.load(_f)
+
+
+def analytics_tag():
+    """Privacy-friendly visitor counting, only if a code is configured. No cookies either way."""
+    cf = (ANALYTICS.get("cloudflare_token") or "").strip()
+    gc = (ANALYTICS.get("goatcounter_code") or "").strip()
+    if cf:
+        return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+                f'data-cf-beacon=\'{{"token": "{cf}"}}\'></script>')
+    if gc:
+        return (f'<script data-goatcounter="https://{gc}.goatcounter.com/count" '
+                'async src="//gc.zgo.at/count.js"></script>')
+    return ""
+
+
+def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
+         share_img="aug-20260813_124249.jpg"):
     # like the original site, the menu floats over the page hero photo wherever there is one
     transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
@@ -1156,6 +1268,12 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         html_attrs = f'lang="{LANG}"'
         fonts = FONTS_LATIN
         font_fix = ""
+    # LinkedIn and the rest need absolute urls, and a real preview image
+    _dir = "" if LANG == "en" else LANG_DIRS[LANG]
+    _slug = "" if fname == "index.html" else fname[:-5] + "/"
+    page_url = SITE_URL + _dir + _slug
+    share_url = SITE_URL + img(share_img, 1200, as_jpeg=True)
+
     doc = f"""<!DOCTYPE html>
 <html {html_attrs}>
 <head>
@@ -1163,6 +1281,21 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} – TANIT XR</title>
 <meta name="description" content="{esc(desc)}">
+<link rel="canonical" href="{page_url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tanit XR">
+<meta property="og:locale" content="{LANG}">
+<meta property="og:title" content="{esc(title)} – Tanit XR">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:url" content="{page_url}">
+<meta property="og:image" content="{share_url}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(title)} – Tanit XR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)} – Tanit XR">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:image" content="{share_url}">
 <link rel="icon" href="{img('tanitxr-logo_red_vertical.png', 120, as_jpeg=False)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1175,6 +1308,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 {trending_html() if trending else ''}
 {footer_html()}
 <script src="assets/site.js?v={ASSET_V}"></script>
+{analytics_tag()}
 </body>
 </html>"""
     doc = _translate(doc)
@@ -1908,6 +2042,25 @@ Tunisian culture, and celebrate wins together.</p>
 <p style="margin-top:34px"><a class="btn btn-line" href="archive.html">Open the Full Archive</a></p>
 </div></section>
 
+<section class="pad collection-band"><div class="wrap">
+<div class="cb-grid">
+<div>
+<div class="eyebrow">New</div>
+<h2 class="sec-title" style="margin-bottom:14px">Hold the collection in your hands</h2>
+<p class="sec-sub" style="margin:0 0 22px">Every scan our volunteers have made, in one place and
+in 3D. Turn each object with your cursor. Nura, our guide, floats along and tells you what you
+are looking at.</p>
+<p><a class="btn btn-gold" href="walk.html">Open The Collection</a>
+&nbsp; <a class="btn btn-line" href="galleries.html">Browse with descriptions</a></p>
+</div>
+<a class="cb-art" href="walk.html" aria-label="Open The Collection">
+<span class="cb-ring"></span>
+<img src="{img('museum-statue-niche.jpg', 900)}" alt="" loading="lazy">
+<span class="cb-tag">Drag to turn</span>
+</a>
+</div>
+</div></section>
+
 <section class="pad" style="background:var(--cloud)"><div class="wrap center">
 <div class="eyebrow">🏺 Made by our volunteers</div>
 <h2 class="sec-title">Recreated by hand, for VR &amp; learning</h2>
@@ -2300,6 +2453,23 @@ WALK_MADE = ("Made by hand, today",
              "Not scans. Volunteers modelled these from scratch for the virtual museum")
 WALK_MAX_PER_ROOM = 5
 
+# Nura speaks in short, warm lines. The long factual text stays on the label, where it
+# belongs; she only opens with one line and lets you ask for more.
+NURA_OPENERS = {
+    "The people of Carthage": "Someone sat for this once. Only pieces are left.",
+    "What held the roof up": "This held up a roof. Now it holds up nothing.",
+    "Stones raised to Tanit": "Every one of these was set down by a person.",
+    "Floors people walked on": "People walked on this every day, for centuries.",
+    "Doors still in use": "This door is still in use. People pass through it.",
+    "Where prayer faces": "This niche points the way to pray.",
+    "Words cut in stone": "Someone cut these letters by hand.",
+    "Water, carried and kept": "Water came through here. It still matters.",
+    "Rooms and passages": "This is a whole space, not a single object.",
+    "Everyday things": "An ordinary thing. That is exactly why it is rare.",
+    "Other objects": "This one is hard to put in a category.",
+    "Made by hand, today": "No scan here. A volunteer built this from nothing.",
+}
+
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
     MODEL_DIMS = json.load(_f)
 
@@ -2444,6 +2614,10 @@ def build_walk():
                           "place": m["place"] + (f', by {m["by"]}' if m.get("by") else ""),
                           "size": human_size(d) if measured else "",
                           "credit": walk_credit(m),
+                          "thumb": img(m.get("img") or m.get("thumb"), 260)
+                                   if (m.get("img") or m.get("thumb")) else "",
+                          "hi": (NURA_OPENERS.get(label, "Have a look at this one.")
+                                 + (f' {human_size(d)}.' if measured and human_size(d) else "")),
                           "note": nura_line(m) if measured else
                                   (f'{short_title(m["title"])}, modelled by hand for our virtual '
                                    f'museum{", by " + m["by"] if m.get("by") else ""}.'),
@@ -2477,15 +2651,48 @@ def build_walk():
         print("  ! walk: no models, run tools/pull_sketchfab_models.py")
 
     rooms = blocks.count('class="warea"')
-    cfg_json = json.dumps({"items": items}, ensure_ascii=False)
+    # nuraYaw turns the character to face the viewer; adjust here if she ends up backwards
+    cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180), "items": items},
+                          ensure_ascii=False)
     body = f"""
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
-<div id="walk-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L8 6l4 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg> Drag to turn it</div></div>
+<div id="rotate-cue" aria-hidden="true">
+<svg viewBox="0 0 220 220">
+<ellipse class="rc-ring" cx="110" cy="110" rx="86" ry="30"/>
+<path class="rc-arrow" d="M24 110a86 30 0 0 0 26 21"/>
+<path class="rc-head" d="M52 124l-6 11 12 1z"/>
+<path class="rc-arrow" d="M196 110a86 30 0 0 1-26 21"/>
+<path class="rc-head" d="M168 124l6 11-12 1z"/>
+</svg>
+<span class="rc-label">Drag to turn</span>
+</div></div>
 
-<div id="nura-bubble"><p id="nura-text"></p>
-<button id="nura-speak" aria-label="Read this aloud">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h3l4 3V7L6 10H3zm11.5 2a3.5 3.5 0 0 0-2-3.16v6.32A3.5 3.5 0 0 0 14.5 12zm-2-7.7v2.06A6 6 0 0 1 12.5 18.3v2.06a8 8 0 0 0 0-16.06z"/></svg>
-</button></div>
+<button id="saved-chip" aria-label="Open your saved objects">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
+<b id="saved-count">0</b> saved</button>
+
+<div id="saved-tray" hidden>
+<div class="st-head"><h3>Your collection</h3>
+<button id="saved-close" aria-label="Close">&times;</button></div>
+<div id="saved-list"></div>
+<div class="st-foot">
+<button id="saved-share" class="wf-btn solid">Share my collection</button>
+<button id="saved-clear" class="wf-btn">Clear</button>
+</div>
+</div>
+
+<button id="nura-dot" aria-label="Nura has something to say"><span></span></button>
+<div id="nura-bubble" hidden>
+<button id="nura-close" aria-label="Close">&times;</button>
+<p id="nura-text"></p>
+<div id="nura-long" hidden></div>
+<div class="nb-row">
+<button id="nura-more" class="nb-more">Tell me more</button>
+<button id="nura-speak" class="nb-speak" aria-label="Read this aloud">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h3l4 3V7L6 10H3zm11.5 2a3.5 3.5 0 0 0-2-3.16v6.32A3.5 3.5 0 0 0 14.5 12z"/></svg>
+</button>
+</div>
+</div>
 
 <div id="walk-label">
 <button id="wf-prev" class="wf-round wf-l" aria-label="Previous object">&#8249;</button>
@@ -2497,6 +2704,7 @@ def build_walk():
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
+<button id="wf-poster" class="wf-btn">Make a post image</button>
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a id="wf-record" class="wf-link" href="archive.html">Full record</a>
 </div>
@@ -2528,6 +2736,7 @@ separately in Unity by Patrick Molen and the team.</p>
 
     page("walk.html", "The Collection", body, active="archive.html", transparent=True,
          trending=False,
+         share_img="museum-statue-niche.jpg",
          desc=f"{len(items)} Tunisian artifacts scanned by Tanit XR volunteers, in 3D. "
               "Scroll through the collection and turn each object.")
 
@@ -2732,6 +2941,7 @@ archive</a>.</p>
 <script>window.GAL={gal_json}</script>"""
 
     page("galleries.html", "Galleries", body, active="archive.html", transparent=True,
+         share_img="museum-hall-arches.jpg",
          desc="Five halls of Tunisian heritage scanned by Tanit XR volunteers. Turn every object in 3D, "
               "from Punic stelae at Carthage to Ottoman tilework in Kairouan.")
 
