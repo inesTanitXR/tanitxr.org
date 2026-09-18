@@ -54,7 +54,9 @@ function start() {
   shaft.position.set(-1.7, 4.4, 3.2);
   scene.add(shaft, shaft.target);
   const LIT = { amb: 1.15, l1: 1.9, l2: 0.8, l3: 0.5 };
-  let entered = false, entryK = 0;                  // 0 = dark entrance, 1 = full light
+  // the page opens straight into the experience; the light just eases up over the first
+  // moment so the first object arrives rather than snapping on
+  let entryK = 0;
 
   // a soft shadow beneath, so an object sits in space instead of floating in a void
   const shadowTex = (() => {
@@ -328,32 +330,20 @@ function start() {
     demo.add(phone);
   })();
 
-  function enterCollection() {
-    if (entered) return;
-    entered = true;
-    document.body.classList.add('entered');
-    if (window.tx) tx('collection_entered');
-  }
   function jumpTo(pred) {
     const i = CFG.items.findIndex(pred);
     if (i >= 0 && sections[i]) {
       target = i;
-      scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+      scrollTo({ top: midOf(sections[i]), behavior: 'smooth' });
     }
   }
-  const entGo = document.getElementById('ent-go');
-  if (entGo) entGo.addEventListener('click', () => { enterCollection(); });
-  const entMade = document.getElementById('ent-made');
-  if (entMade) entMade.addEventListener('click', () => {
-    enterCollection();
-    jumpTo(it => !it.real);                       // straight to what volunteers made
-    if (window.tx) tx('entered_volunteer_made');
-  });
-  addEventListener('wheel', () => { if (!entered) enterCollection(); }, { passive: true });
-  addEventListener('keydown', e => {
-    if (!entered && (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown')) enterCollection();
-  });
-  addEventListener('touchstart', () => { if (!entered) enterCollection(); }, { passive: true });
+  // a persistent switch between the two bodies of work, not a gate in front of them
+  document.querySelectorAll('.tsw').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tsw').forEach(o => o.classList.toggle('on', o === b));
+    const made = b.dataset.track === 'made';
+    jumpTo(it => made ? !it.real : it.real);
+    if (window.tx) tx(made ? 'track_made' : 'track_scans');
+  }));
 
   // ---- scroll moves along the list, one object per section
   let cursor = 0, target = 0;
@@ -501,10 +491,28 @@ function start() {
   }));
   const btClose = document.getElementById('bt-close');
   if (btClose) btClose.addEventListener('click', () => { toast.hidden = true; });
+  // LinkedIn cannot be handed a caption or an image by a link, so do the three things a
+  // person would otherwise do by hand: save the picture, copy the words, open the composer.
+  async function shareToLinkedIn(caption, badge) {
+    makePoster(badge);                                   // the picture lands in Downloads
+    let copied = false;
+    try { await navigator.clipboard.writeText(caption); copied = true; } catch (e) { copied = false; }
+    const url = 'https://www.linkedin.com/sharing/share-offsite/?url='
+      + encodeURIComponent(location.origin + location.pathname);
+    window.open(url, '_blank', 'noopener');
+    return copied;
+  }
   const btShare = document.getElementById('bt-share');
-  if (btShare) btShare.addEventListener('click', () => {
-    toast.hidden = true;
-    makePoster(lastBadge);
+  if (btShare) btShare.addEventListener('click', async () => {
+    const p = readProg();
+    const b = lastBadge;
+    const caption = 'I just earned the "' + (b ? b.name : 'explorer') + '" badge in the Tanit XR '
+      + 'collection: ' + p.seen.length + ' of ' + CFG.items.length + ' Tunisian artifacts, all '
+      + 'scanned by volunteers with their phones. You can turn every one of them over yourself.';
+    btShare.textContent = 'Opening LinkedIn...';
+    const copied = await shareToLinkedIn(caption, b);
+    btShare.textContent = copied ? 'Image saved, caption copied' : 'Image saved';
+    setTimeout(() => { toast.hidden = true; btShare.textContent = 'Share it'; }, 5200);
   });
 
   // She offers the demo once, after you have turned a few things, and never nags again.
@@ -611,9 +619,11 @@ function start() {
     try {
       if (navigator.share) await navigator.share({ title: 'My Tanit XR collection', text, url });
       else {
-        await navigator.clipboard.writeText(url);
-        shareColl.textContent = 'Link copied';
-        setTimeout(() => { shareColl.textContent = 'Share my collection'; }, 2000);
+        await navigator.clipboard.writeText(url + '\n\n' + text);
+        window.open('https://www.linkedin.com/sharing/share-offsite/?url='
+          + encodeURIComponent(url), '_blank', 'noopener');
+        shareColl.textContent = 'Copied, LinkedIn open';
+        setTimeout(() => { shareColl.textContent = 'Share my collection'; }, 3200);
       }
     } catch (e) { /* dismissed */ }
   });
@@ -643,6 +653,8 @@ function start() {
     }
     paintSave(s.it);
     if (window.tx) tx('collection_view', { object: s.it.slug });
+    document.querySelectorAll('.tsw').forEach(b =>
+      b.classList.toggle('on', (b.dataset.track === 'made') === !s.it.real));
     showCameo(s.it);
     bump(p => {
       if (!p.seen.includes(s.it.slug)) p.seen.push(s.it.slug);
@@ -898,33 +910,18 @@ function start() {
       renderer.render(scene, camera);
       return;
     }
-    entryK += ((entered ? 1 : 0) - entryK) * (reduce ? 1 : 0.035);
-    amb.intensity = LIT.amb * (0.06 + 0.94 * entryK);
-    l1.intensity = LIT.l1 * (0.05 + 0.95 * entryK);
+    entryK = Math.min(1, entryK + dt * 0.9);        // a short warm-up, nothing to click
+    amb.intensity = LIT.amb * (0.25 + 0.75 * entryK);
+    l1.intensity = LIT.l1 * (0.2 + 0.8 * entryK);
     l2.intensity = LIT.l2 * entryK;
     l3.intensity = LIT.l3 * entryK;
-    shaft.intensity = 90 * (1 - entryK) + 6;
-    dust.visible = entryK < 0.98;
+    shaft.intensity = 40 * (1 - entryK);
+    shaft.target.position.set(0, 0, 0);
+    dust.visible = entryK < 0.99;
     dust.children.forEach((m, i) => {
-      m.material.opacity = 0.5 * (1 - entryK) + 0.06;
+      m.material.opacity = 0.45 * (1 - entryK);
       if (!reduce) m.position.y += Math.sin(clock.elapsedTime * m.userData.s + i) * 0.0009;
     });
-    if (!entered) {                                 // hold on the first object until they enter
-      const s0 = slots[0];
-      if (s0 && s0.loaded) {
-        s0.wrap.visible = true;
-        s0.wrap.position.set(0, -0.15, 0);
-        s0.wrap.scale.setScalar(1.0);
-        s0.mats.forEach(m => { m.opacity = 1; });
-        s0.shadow.material.opacity = 0.25;
-        if (!reduce) s0.pivot.rotation.y += dt * 0.09;
-        shaft.target.position.set(0, -0.15, 0);
-      }
-      if (nuraHolder) nuraHolder.visible = false;
-      renderer.render(scene, camera);
-      return;
-    }
-    if (nuraHolder) nuraHolder.visible = true;
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
     const t = clock.elapsedTime;
