@@ -332,10 +332,12 @@ function start() {
 
   function jumpTo(pred) {
     const i = CFG.items.findIndex(pred);
-    if (i >= 0 && sections[i]) {
-      target = i;
-      scrollTo({ top: midOf(sections[i]), behavior: 'smooth' });
-    }
+    if (i < 0 || !sections[i]) return;
+    // this can be forty screens away, which a smooth scroll never finishes in time
+    target = i;
+    cursor = i;
+    scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+    readScroll();
   }
   // a persistent switch between the two bodies of work, not a gate in front of them
   document.querySelectorAll('.tsw').forEach(b => b.addEventListener('click', () => {
@@ -862,6 +864,8 @@ function start() {
   }
   addEventListener('resize', resize, { passive: true });
   addEventListener('scroll', readScroll, { passive: true });
+  // a backgrounded tab freezes the animation loop, so re-sync when it comes back
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) readScroll(); });
   resize();
   cursor = target;
   load(slots[0]);
@@ -1048,7 +1052,15 @@ function start() {
 
     renderer.render(scene, camera);
   }
-  renderer.setAnimationLoop(frame);                 // setAnimationLoop is what WebXR needs
+  // An exception inside setAnimationLoop silently kills the loop, so never let one escape.
+  let loopFault = null;
+  renderer.setAnimationLoop(() => {
+    try { frame(); }
+    catch (e) {
+      if (!loopFault) { loopFault = e; console.error('walk: frame failed', e); }
+    }
+  });
+
 
   const io = new IntersectionObserver(es => es.forEach(e =>
     e.target.classList.toggle('on', e.isIntersecting && e.intersectionRatio > 0.5)),
