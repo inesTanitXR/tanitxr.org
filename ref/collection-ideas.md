@@ -79,3 +79,11 @@ Waiting on Ines:
 - Sketchfab: tools/upload_sketchfab.py is ready to put Patrick's and Kristina's pieces on the Tanit XR account as private drafts. Not run: needs her yes, and theirs.
 - Splats: export from the Scaniverse app (share > export > PLY or SPZ) to Drive; then Spark renders them here with a "see it in its environment" fade.
 - A licensed Tunisian recording for the background, the DC venue, real names for danielgo257 and georgealyssa85.
+
+## 18 September, evening
+
+- Section names went back to the storytelling ones (Ines prefers story over facts), with fuller blurbs; Nura's lines are friendlier. "Rooms" are "galleries" everywhere.
+- Phones: one small menu button replaces four top buttons; label keeps Save, Share, Donate, Read more. AR button hidden on phones for now (Ines reports AR not working; to investigate on a device).
+- Headset: grip opens an in-world menu (tracks, every maker's gallery, saved objects, leave). Galleries render in VR from the ring's centre; point and pull brings a piece over. Untested on a real Quest.
+- Menu simplified: Explore group (3D, galleries, every scan, virtual museum), Get Involved, About with Contact inside. Volunteer FAQ and Support intro rewritten.
+- Home: real renders of the experience (media/explore-hero.jpg, explore-gallery.jpg) captured through window.tanitxrFrame and a local receiver.
