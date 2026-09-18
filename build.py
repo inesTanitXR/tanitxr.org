@@ -828,6 +828,9 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
 body.in-xr #sound-toggle{display:none}
 .wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+.tour-ends{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tour-ends .wf-btn{font-size:13px;padding:8px 14px;text-decoration:none}
+body.touring #vol-cameo{display:none}
 #more-toggle{display:none;position:fixed;top:78px;inset-inline-start:12px;z-index:6;width:38px;height:38px;
   border-radius:50%;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);cursor:pointer;
   flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0}
@@ -3068,6 +3071,9 @@ WALK_ROOMS = [
 WALK_MADE = ("Made by hand, today",
              "Not scans. Our volunteers modelled these themselves for the virtual museum, learning Tunisia's history as they went")
 WALK_MAX_PER_ROOM = 5
+# a few titles read badly once the place is stripped; these are the names we use instead
+WALK_TITLES = {"neapolis-site-revealed-by-floods-in-tunisia": "Neapolis, uncovered by the storm",
+               "test-scan-underground-passageways": "Underground passageways"}
 # the background recording, with the credit its licence asks for. Replace the file and the
 # credit together when a Tunisian recording we hold the rights to comes along.
 MUSIC = {"file": "bg-oriental-nights.mp3",
@@ -3311,7 +3317,8 @@ def build_walk():
             voice = NURA_VOICE.get(m["file_slug"])
             voice_more = NURA_VOICE.get(m["file_slug"] + "--more")
             gps = MODEL_GPS.get(m["file_slug"])
-            items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
+            items.append({"slug": m["file_slug"],
+                          "title": WALK_TITLES.get(m["file_slug"]) or short_title(m["title"]),
                           "artist": artist,
                           **({"gps": [gps["lat"], gps["lon"]]} if gps else {}),
                           **({"voice": voice} if voice else {}),

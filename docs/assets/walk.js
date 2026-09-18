@@ -302,7 +302,7 @@ function start() {
     if (bubble) bubble.hidden = true;
     hushNura();
   }
-  if (closeBtn) closeBtn.addEventListener('click', closeBubble);
+  if (closeBtn) closeBtn.addEventListener('click', () => { closeBubble(); if (typeof tourStep !== 'undefined' && tourStep >= 0 && !tourWait) { tourStep = -1; clearTimeout(tourTimer); } });
   if (dot) dot.addEventListener('click', openBubble);
   if (moreBtn) moreBtn.addEventListener('click', () => {
     if (moreBtn.dataset.offer === '1') {          // she offered the demo, you said yes
@@ -312,6 +312,7 @@ function start() {
       goToScanDemo();
       return;
     }
+    if (moreBtn.dataset.offer === 'tour') { moreBtn.dataset.offer = ''; moreBtn.classList.remove('nb-offer'); tourAct(); return; }
     if (moreBtn.dataset.offer) {                  // one of her asks, and you said yes
       const n = NUDGES.find(x => x.id === moreBtn.dataset.offer);
       moreBtn.dataset.offer = '';
@@ -348,6 +349,7 @@ function start() {
   function endScanDemo() {
     demoOn = false;
     if (scanPanel) scanPanel.hidden = true;
+    tourEvent('demo');
   }
   const scanBtn = document.getElementById('scan-entry');
   if (scanBtn) scanBtn.addEventListener('click', () => demoOn ? endScanDemo() : goToScanDemo());
@@ -1040,7 +1042,7 @@ function start() {
   let nudgeLast = -99, nudgeCount = 0, nudgeItem = null;
   function nudgedIds() { try { return JSON.parse(sessionStorage.getItem(NUDGED) || '[]'); } catch (e) { return []; } }
   function maybeNudge(it) {
-    if (!bubble || bubbleOpen || demoOn || roomMode || xrMode) return;
+    if (!bubble || bubbleOpen || demoOn || roomMode || xrMode || tourStep >= 0) return;
     const seen = readProg().seen.length;
     if (seen < 4 || seen - nudgeLast < 6 || nudgeCount >= 4) return;
     if (Math.random() < 0.4) return;                 // not on a rhythm you can feel
@@ -1062,6 +1064,82 @@ function start() {
     }
     beHappy(); flare = 1; sfx('pop');
     if (window.tx) tx('nura_ask', { ask: n.id });
+  }
+
+
+  // ---- the guided visit, for the link we send to donors and partners: ?tour=1
+  // Nura walks a first-time visitor through five stops in about four minutes: a scan and
+  // how it is made, a volunteer's piece and her gallery, the city the sea gave back, the
+  // museum being built, and what a donation does. Close her bubble at any point to stop.
+  const TOUR_ON = /[?&]tour=1/.test(location.search);
+  let tourStep = -1, tourWait = null, tourTimer = null;
+  const findSlot = pred => slots.find(s => pred(s.it));
+  const TOUR = [
+    { pick: it => it.slug.startsWith('tanit-stela'),
+      line: 'Welcome. I am Nura. Let me show you what a hundred volunteers built with their phones. This stone was set down in Carthage more than two thousand years ago. A volunteer scanned it in a few minutes.',
+      btn: 'How do you scan a stone?', act: 'demo' },
+    { pick: it => it.artist === 'Rachel West',
+      line: 'Not everything here is a scan. Rachel has never been to Tunisia. She learned its history on our Thursday calls and modelled this for our museum. Every volunteer gets a gallery of their own.',
+      btn: "Visit Rachel’s gallery", act: 'room' },
+    { pick: it => it.slug.includes('neapolis'),
+      line: 'In January a storm uncovered this ancient city for a few days. A volunteer reached the beach and scanned it before the sea took it back. This is the only 3D record that exists. It is why we hurry.',
+      btn: 'Next', act: 'next' },
+    { pick: it => it.slug === 'patrick-museum-main-hall',
+      line: 'The volunteers are building a whole museum for these objects, room by room, in their free time. Patrick modelled this hall; others are furnishing it.',
+      btn: 'Next', act: 'next' },
+    { pick: it => it.slug.startsWith('tanit-stela'),
+      line: 'Ninety-nine scans, eight sites, eighty-five volunteers on four continents, and not one paid person. Everything you saw is free, forever. This is what your support does.',
+      btn: null, act: 'end' },
+  ];
+  function tourBubble(step) {
+    if (!bubble) return;
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = step.line;
+    if (bubbleLong) {
+      if (step.act === 'end') {
+        bubbleLong.innerHTML = '<span class="tour-ends">'
+          + '<a class="wf-btn gold" href="' + CFG.links.donate + '" target="_blank" rel="noopener">Donate</a>'
+          + '<a class="wf-btn" href="' + linkUrl(CFG.links.volunteer) + '">Volunteer</a>'
+          + '<a class="wf-btn" href="' + linkUrl(CFG.links.newsletter) + '">Subscribe</a></span>';
+        bubbleLong.hidden = false;
+      } else { bubbleLong.innerHTML = ''; bubbleLong.hidden = true; }
+    }
+    if (moreBtn) {
+      moreBtn.hidden = !step.btn;
+      if (step.btn) { moreBtn.textContent = step.btn; moreBtn.classList.add('nb-offer'); moreBtn.dataset.offer = 'tour'; }
+    }
+    beHappy(); flare = 1;
+    sayLine(step.line, { voice: null });
+    if (window.tx) tx('tour_step', { step: tourStep });
+  }
+  function tourGo(k) {
+    clearTimeout(tourTimer);
+    while (k < TOUR.length && !findSlot(TOUR[k].pick)) k++;
+    if (k >= TOUR.length) { tourStep = -1; return; }
+    tourStep = k;
+    const step = TOUR[k];
+    jumpTo(step.pick);
+    // paint() closes her bubble when a new object arrives, so she speaks once it has settled
+    tourTimer = setTimeout(() => { if (tourStep === k) tourBubble(step); }, 1400);
+  }
+  function tourAdvance() { if (tourStep >= 0) tourGo(tourStep + 1); }
+  function tourAct() {
+    const step = TOUR[tourStep]; if (!step) return;
+    closeBubble();
+    if (step.act === 'demo') { tourWait = 'demo'; goToScanDemo(); }
+    else if (step.act === 'room') { tourWait = 'room'; openRoom(slots[shown].it.artist); }
+    else if (step.act === 'next') tourAdvance();
+  }
+  function tourEvent(what) {
+    if (tourStep < 0 || tourWait !== what) return;
+    tourWait = null;
+    setTimeout(tourAdvance, 600);
+  }
+  if (TOUR_ON) {
+    document.body.classList.add('touring');
+    setTimeout(() => tourGo(0), 2200);
   }
 
   const cameoClose = document.getElementById('vc-close');
@@ -2035,6 +2113,7 @@ function start() {
     slots.forEach(s => { s.roomPos = null; s.wrap.rotation.y = 0; });
     homeCamera();
     if (back) jumpTo(x => x.slug === back.it.slug);
+    tourEvent('room');
   }
   document.querySelectorAll('.room-open').forEach(b =>
     b.addEventListener('click', () => openRoom(b.dataset.artist)));
@@ -2133,7 +2212,7 @@ function start() {
     let seenBefore = false;
     try { seenBefore = localStorage.getItem(GREETED) === '1'; } catch (e) { seenBefore = true; }
     const returning = seenBefore && readProg().seen.length > 3;
-    if ((seenBefore && !returning) || !bubble || demoOn) return;
+    if ((seenBefore && !returning) || !bubble || demoOn || TOUR_ON) return;
     try { localStorage.setItem(GREETED, '1'); } catch (e) { /* private mode */ }
     bubbleOpen = true;
     bubble.hidden = false;
