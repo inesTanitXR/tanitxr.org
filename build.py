@@ -947,6 +947,12 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 body.in-room #walk-scroll,body.in-room #track-switch,body.in-room #rotate-cue,
 body.in-room #scan-entry,body.in-room #nura-bubble,body.in-room #nura-dot{display:none}
 body.in-room{overflow:hidden}
+body.in-room header.site{display:none}
+body.in-room:not(.room-focus) #walk-label,body.in-room:not(.room-focus) .wf-round{display:none}
+body.in-room #vr-button,body.in-room #saved-chip{display:none}
+#walk-stage.can-pick{cursor:pointer}
+#room-hint{font-size:12.5px;color:#8a735c;margin-inline-start:auto;text-align:end;max-width:280px}
+@media(max-width:760px){#room-hint{display:none}}
 @media(max-width:760px){#room-bar{padding:10px 14px}#room-bar h2{font-size:17px}
   #room-count{display:none}}
 
@@ -3352,6 +3358,7 @@ care as well as method.</p>
 <button id="room-back" aria-label="Back to the collection">&#8249;</button>
 <div><div class="wch" id="room-eyebrow">Gallery room</div><h2 id="room-title"></h2></div>
 <div id="room-count"></div>
+<div id="room-hint">Tap a piece to bring it closer. Drag or scroll to move around the room.</div>
 </div>
 
 <div id="share-sheet" hidden>

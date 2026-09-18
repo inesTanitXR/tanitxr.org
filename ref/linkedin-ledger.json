@@ -1,0 +1,41 @@
+{
+ "_what": "State for the tanitxr-site-freshness scheduled task, Part B. last_checked = date of the last LinkedIn pass; last_post = the newest post seen on Ines's activity feed and on the Tanit XR company page, so the next run only looks at newer ones.",
+ "last_checked": "2026-09-18",
+ "ines_activity": {
+  "newest_post": "PortalCam by XGRIDS with Kelly, posted about 2026-09-04 (shown as '2w' on 2026-09-18)",
+  "followers": 7028
+ },
+ "company_page": {
+  "url": "https://www.linkedin.com/company/tanit-xr/",
+  "id": "108342542",
+  "newest_post": "2026-08-13, a repost of Ines's Neapolis snorkel-trip post",
+  "followers": 456
+ },
+ "seen_not_published": [
+  {
+   "post": "PortalCam by XGRIDS",
+   "date": "~2026-09-04",
+   "why": "about Froliq, her day job, not Tanit XR"
+  },
+  {
+   "post": "Free Gaussian Splats course with Mark Jeffcock",
+   "date": "~2026-08-21",
+   "why": "already on the site as the Splats With Phones workshop in COMMUNITY_ACTS"
+  },
+  {
+   "post": "Looking for the underwater ruins of Neapolis, with Laura Harrison and Caroline Nickerson",
+   "date": "~2026-08-18",
+   "why": "site-worthy field trip with photos, but a month old and the photos need Ines's go-ahead; flagged to her 2026-09-18 instead of published"
+  },
+  {
+   "post": "Birthday fundraising appeal",
+   "date": "~2026-08-17",
+   "why": "personal appeal, not site content"
+  },
+  {
+   "post": "Thanks to Niantic Spatial for the interview",
+   "date": "~2026-08-15",
+   "why": "already in PRESS as the Niantic entry"
+  }
+ ]
+}

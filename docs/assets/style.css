@@ -749,6 +749,12 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 body.in-room #walk-scroll,body.in-room #track-switch,body.in-room #rotate-cue,
 body.in-room #scan-entry,body.in-room #nura-bubble,body.in-room #nura-dot{display:none}
 body.in-room{overflow:hidden}
+body.in-room header.site{display:none}
+body.in-room:not(.room-focus) #walk-label,body.in-room:not(.room-focus) .wf-round{display:none}
+body.in-room #vr-button,body.in-room #saved-chip{display:none}
+#walk-stage.can-pick{cursor:pointer}
+#room-hint{font-size:12.5px;color:#8a735c;margin-inline-start:auto;text-align:end;max-width:280px}
+@media(max-width:760px){#room-hint{display:none}}
 @media(max-width:760px){#room-bar{padding:10px 14px}#room-bar h2{font-size:17px}
   #room-count{display:none}}
 

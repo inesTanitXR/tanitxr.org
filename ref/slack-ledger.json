@@ -1,14 +1,14 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
- "last_run": "2026-09-12",
+ "last_run": "2026-09-18",
  "last_ts": {
-  "C0983LHM7K8": "1789138246.612869",
+  "C0983LHM7K8": "1789677054.742009",
   "C0983L047V4": "1789266670.767275",
   "C09CZV4B0SW": "1789266670.767275",
   "C0AD71FAT7Y": "1789266670.767275",
   "C09F84HV8J1": "1789187278.487179",
   "C09JATYDLF7": "1789266670.767275",
-  "C0B89BWR5S9": "1788036022.618919",
+  "C0B89BWR5S9": "1789716753.547009",
   "C09FKJWCVKJ": "1789266670.767275"
  },
  "_channels": {
@@ -61,6 +61,16 @@
    "id": "1DnM5VHnlNqgvxvyDHbjWX877Cg8sEKpJ",
    "what": "Fig 5 Tanit floor mosaic",
    "action": "downloaded to media/extra/kerkouane-tanit-mosaic.jpg (news card image)"
+  },
+  {
+   "id": "1WH4UjdzVPudBvfrwPQkUqXpQdSl7DQzA",
+   "what": "TanitXR_CityCamp_Gainesville_Challenge_Tracks.docx (hackathon challenge brief, Caroline Nickerson)",
+   "action": "already in Tanit tree (10 Workshops/Events/Hackathons > City Camp) - left in place; used to write the CityCamp news post 2026-09-18"
+  },
+  {
+   "id": "F0C2FRMD6JV",
+   "what": "OutlineDraft.mp4 (Bety Vega, scanning-session video cut, #volunteer-updates 2026-09-16)",
+   "action": "Slack-hosted attachment, cannot be fetched by the Drive connector - listed for manual filing in the 2026-09-14 digest"
   }
  ],
  "digests": [
@@ -68,6 +78,12 @@
    "week": "2026-09-07",
    "doc_id": "15qgHhUkbVbR5wUWAlbMb1tmZrEz0WxFmRqxdMKSFar0",
    "url": "https://docs.google.com/document/d/15qgHhUkbVbR5wUWAlbMb1tmZrEz0WxFmRqxdMKSFar0/edit"
+  },
+  {
+   "week": "2026-09-14",
+   "doc_id": "1Z9o47hqEZ62eB3vbTuc0FBJJtM3i6wmN_CBVZcFnxUI",
+   "url": "https://docs.google.com/document/d/1Z9o47hqEZ62eB3vbTuc0FBJJtM3i6wmN_CBVZcFnxUI/edit",
+   "note": "A first attempt, 1s1zTv8oBJEEnbB5NATqvajAYpkNrD2GEAOJMuBtyLxM, was left in 01 Notes renamed '(superseded, formatting error)'. Same text, ugly escaping. Ines can delete it."
   }
  ]
 }
