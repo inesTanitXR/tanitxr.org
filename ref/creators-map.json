@@ -9,8 +9,8 @@
  "pending": {
   "clairee123": "Claire Natanek",
   "EunjeongYu": "Eunjeong Yu",
-  "danielgo257": "danielgo257",
-  "georgealyssa85": "georgealyssa85"
+  "danielgo257": "Daniel Gómez",
+  "georgealyssa85": "Alyssa George"
  },
  "model_overrides": {
   "_how": "Reassign credit per model when the Sketchfab uploader is not the person who did the work. Key = any unique part of the model title (case-insensitive); value = {\"scanned\": slug} and/or {\"optimized\": slug}. Example: \"Corinthian Capital\": {\"optimized\": \"nick-kaufmann\"}"

@@ -48,7 +48,10 @@ for p in data["pieces"]:
     fields = {"name": f'{p["title"]} (Tanit XR building kit)' if kit else f'{p["title"]} (Tanit XR museum)',
               "description": desc,
               "tags": "tanitxr tunisia museum vr architecture volunteer modular buildingkit lowpoly",
-              "categories": "architecture", "license": "by-nc-sa",
+              "categories": "architecture",
+              # kit pieces carry a CC licence, which is what makes them downloadable; the whole
+              # hall and the whole furnished room stay all rights reserved, so view only
+              **({"license": "by-nc-sa"} if kit else {}),
               "isPublished": "true" if publish else "false", "isInspectable": "true"}
     body, ctype = multipart(fields, f)
     req = urllib.request.Request("https://api.sketchfab.com/v3/models", data=body, method="POST",
