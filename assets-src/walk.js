@@ -1172,7 +1172,7 @@ function start() {
     x.fillText('TANIT XR', pad, S - 44);
     x.fillStyle = '#8a735c';
     x.font = '400 22px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText('tanitxr.org', pad + 130, S - 44);
+    x.fillText('tanitxr.org/explore', pad + 130, S - 44);
 
     held.forEach(([o, vis, pos]) => { o.wrap.visible = vis; o.wrap.position.copy(pos); });
     nuraHolder.visible = nuraWas;
@@ -1257,8 +1257,9 @@ function start() {
       nativeBtn.hidden = !navigator.share;
       nativeBtn.onclick = async () => {
         try {
-          if (canFiles) await navigator.share({ files: [file], text: text() });
-          else await navigator.share({ text: text(), url: link });
+          // the link rides inside the text: with a picture attached, phones drop a separate url
+          if (canFiles) await navigator.share({ files: [file], text: text() + '\n' + link });
+          else await navigator.share({ text: text() + '\n' + link, url: link });
           bump(p => { p.shared++; });
           if (window.tx) tx('collection_share', { net: 'device', object: slots[shown] && slots[shown].it.slug });
         } catch (e) { /* dismissed */ }
@@ -1270,7 +1271,7 @@ function start() {
     if (igBtn) igBtn.onclick = async () => {
       if (canFiles) { nativeBtn.onclick(); return; }
       const saved = saveImage();
-      const ok = await copy(text());
+      const ok = await copy(text() + '\n' + link);
       hint((saved ? 'Picture saved' : 'Save the picture') + (ok ? ' and caption copied. ' : '. ')
            + 'Open Instagram on your phone, make a post, pick the picture, paste the caption.');
       bump(p => { p.shared++; });
