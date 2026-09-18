@@ -2551,9 +2551,9 @@ Tunisian culture, and celebrate wins together.</p>
 <p class="sec-sub" style="margin:0 0 18px">Every object our volunteers have scanned in Tunisia, one at a
 time, in 3D, in your browser. Turn each one with a finger. Nura, our guide, floats beside you and
 tells you what you are looking at. Save the ones you love, share them, collect badges, step into
-a maker's own gallery room, or put on a headset.</p>
+each maker's own gallery, or put on a headset.</p>
 <ul class="cb-feats">
-<li>Turn any object</li><li>Meet Nura</li><li>Save and share</li><li>Gallery rooms</li><li>Works in VR</li>
+<li>Turn any object</li><li>Meet Nura</li><li>Save and share</li><li>Makers’ galleries</li><li>Works in VR</li>
 </ul>
 <p><a class="btn btn-gold" href="explore.html">Explore in 3D</a>
 &nbsp; <a class="btn btn-line" href="galleries.html">Browse with descriptions</a></p>
@@ -3000,29 +3000,29 @@ if os.path.isdir(_audio_dir):
 
 
 WALK_ROOMS = [
-    ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
+    ("Stelae of the Tophet", "Grave stones from Punic Carthage, many carved with the sign of Tanit",
      ["stela", "stelae"]),
-    ("The people of Carthage", "Figures carved in marble and limestone, most of them broken",
+    ("Statues of Carthage", "Roman statues from Byrsa Hill and the villas. Most have lost a head or an arm along the way",
      ["statue", "torso", "figure", "togatus", "bust"]),
-    ("What held the roof up", "Columns and capitals from public buildings and villas",
+    ("Columns and capitals", "From the temples, baths and villas of Roman Carthage",
      ["column", "capital"]),
-    ("Floors people walked on", "Mosaic pavements from the Roman villas",
+    ("Mosaic floors", "From the Roman villas of Carthage, stood up so you can see them properly",
      ["mosaic"]),
-    ("Doors still in use", "Doors and tilework from streets people live in today",
+    ("Doors of the medina", "Still opening and closing every day in Tunis and Kairouan",
      ["door", "tilework"]),
-    ("Where prayer faces", "Mihrabs and niches from mosques and madrasas",
+    ("Mihrabs and niches", "The niches that show which way to face when you pray",
      ["niche", "mihrab", "mahram"]),
-    ("Words cut in stone", "Inscriptions and carved blocks, Latin and Arabic",
+    ("Inscriptions", "Latin and Arabic, all of it cut by hand",
      ["inscri", "laurel", "architectural fragment", "architectural block", "relief", "calligraph"]),
-    ("Water, carried and kept", "Basins and wells from the aqueduct and the medina",
+    ("Water", "From the aqueduct temple at Zaghouan to the wells of the medina",
      ["basin", "bir ", "bir(", "well", "fountain"]),
-    ("Rooms and passages", "Whole spaces rather than single objects",
+    ("Whole places", "Passages, interiors, and a city the sea gave back for a few days",
      ["test scan", "passageway", "neapolis", "interior"]),
-    ("Everyday things", "Objects from ordinary life",
+    ("Everyday objects", "Things people used, which is exactly why we kept them",
      ["loom", "carpet"]),
 ]
-WALK_MADE = ("Made by hand, today",
-             "Not scans. Volunteers modelled these from scratch for the virtual museum")
+WALK_MADE = ("Made by our volunteers",
+             "Not scans: pieces our volunteers modelled themselves for the virtual museum")
 WALK_MAX_PER_ROOM = 5
 # the background recording, with the credit its licence asks for. Replace the file and the
 # credit together when a Tunisian recording we hold the rights to comes along.
@@ -3033,18 +3033,18 @@ MUSIC = {"file": "bg-oriental-nights.mp3",
 # Nura speaks in short, warm lines. The long factual text stays on the label, where it
 # belongs; she only opens with one line and lets you ask for more.
 NURA_OPENERS = {
-    "The people of Carthage": "Someone sat for this once. Only pieces are left.",
-    "What held the roof up": "This held up a roof. Now it holds up nothing.",
-    "Stones raised to Tanit": "Every one of these was set down by a person.",
-    "Floors people walked on": "People walked on this every day, for centuries.",
-    "Doors still in use": "This door is still in use. People pass through it.",
-    "Where prayer faces": "This niche points the way to pray.",
-    "Words cut in stone": "Someone cut these letters by hand.",
-    "Water, carried and kept": "Water came through here. It still matters.",
-    "Rooms and passages": "This is a whole space, not a single object.",
-    "Everyday things": "An ordinary thing. That is exactly why it is rare.",
-    "Other objects": "This one is hard to put in a category.",
-    "Made by hand, today": "No scan here. A volunteer built this from nothing.",
+    "Statues of Carthage": "This was a portrait of someone once. We only have part of them now.",
+    "Columns and capitals": "This used to hold up a roof. Quite a job, for two thousand years.",
+    "Stelae of the Tophet": "Someone placed this stone here more than two thousand years ago.",
+    "Mosaic floors": "People walked across this every day. Look at the detail under their feet.",
+    "Doors of the medina": "This door is still in use. Someone probably opened it this morning.",
+    "Mihrabs and niches": "This niche shows which way to face when you pray.",
+    "Inscriptions": "Someone carved these letters by hand. See if you can read any.",
+    "Water": "Water ran through here on its way to a whole city.",
+    "Whole places": "This one is a whole place, not a single object. Turn it slowly.",
+    "Everyday objects": "Nothing grand, just something people used. That is why we kept it.",
+    "Other objects": "This one does not fit a category, which makes it my favourite kind.",
+    "Made by our volunteers": "This one is not a scan. A volunteer built it from nothing.",
 }
 
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
@@ -3227,8 +3227,8 @@ def build_walk():
                                  "text": pc.get("note", ""), "hi": pc.get("hi")})
     # one room per artist, so each maker has their own space rather than a shared shelf
     ROOM_SUB = {"Patrick Molen": "The museum itself, and its building kit: puzzle pieces any "
-                                 "volunteer can take and assemble into a room of their own",
-                "Kristina Reyes": "A furnished room for the virtual museum, and the pieces in it"}
+                                 "volunteer can take and put together into a gallery of their own",
+                "Kristina Reyes": "A furnished room Kristina built for the virtual museum, and everything in it"}
     made_rooms = []
     if made:
         byname = {}
@@ -3237,8 +3237,8 @@ def build_walk():
         for who, group in sorted(byname.items(), key=lambda kv: (-len(kv[1]), kv[0])):
             group.sort(key=lambda g: g["title"])
             made_rooms.append((who, ROOM_SUB.get(who) or
-                               f'{len(group)} piece{"s" if len(group) != 1 else ""} modelled '
-                               f'by hand for the museum', group, who))
+                               f'{len(group)} piece{"s" if len(group) != 1 else ""} {who.split()[0]} '
+                               f'modelled for the virtual museum', group, who))
 
     out_dir = os.path.join(DOCS, "assets", "models")
     os.makedirs(out_dir, exist_ok=True)
@@ -3254,7 +3254,7 @@ def build_walk():
         elif artist:                      # the hall first, then the kit in the order it was listed
             group.sort(key=lambda g: (0 if "main-hall" in g["file_slug"] else 1))
         room_btn = (f'<button class="room-open" data-artist="{esc(artist)}">'
-                    f'See all of {esc(artist.split()[0])}\u2019s work together</button>'
+                    f'Visit {esc(artist.split()[0])}\u2019s gallery</button>'
                     ) if artist else ""
         blocks += (f'<section class="warea"><div><div class="wch">{esc(sub) if sub else "Tanit XR"}'
                    f'</div><h2>{esc(label)}</h2>'
@@ -3391,12 +3391,12 @@ How to scan</button>
 <div id="scan-panel" hidden>
 <div class="wcard">
 <div class="wch">How these are made</div>
-<h2>You circle it, slowly</h2>
-<p>That is the whole technique. Walk a full circle around the object with your phone, then
-again higher, then again lower, overlapping every shot with the last. We use Scaniverse,
-which is free, and we capture a mesh rather than a splat.</p>
-<p class="tiny">Scanning heritage is not only a technique. Our guide covers permission and
-care as well as method.</p>
+<h2>Walk around it, slowly</h2>
+<p>That is honestly most of it. Walk a full circle around the object with your phone, then
+another circle a little higher, then one lower, so every photo overlaps the last. We use
+Scaniverse, which is free. Nura is showing you the path right now.</p>
+<p class="tiny">The technique is the easy part. Our guide also covers asking permission and
+taking care of the place you are in.</p>
 <p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
 &nbsp;<button id="scan-done" class="wf-btn">Got it</button></p>
 </div>
@@ -3404,16 +3404,16 @@ care as well as method.</p>
 
 <div id="room-bar" hidden>
 <button id="room-back" aria-label="Back to the collection">&#8249;</button>
-<div><div class="wch" id="room-eyebrow">Gallery room</div><h2 id="room-title"></h2></div>
+<div><div class="wch" id="room-eyebrow">Gallery</div><h2 id="room-title"></h2></div>
 <div id="room-count"></div>
-<div id="room-hint">Drag to look around the room. Tap a piece to walk up to it.</div>
+<div id="room-hint">Drag to look around. Tap anything to get closer.</div>
 </div>
 
 <div id="share-sheet" hidden>
 <div class="ss-card" role="dialog" aria-labelledby="ss-title">
 <button id="ss-close" aria-label="Close">&times;</button>
 <div class="ss-head"><div class="wch">Share it</div><h3 id="ss-title">Share this</h3>
-<p class="ss-sub">Every share keeps this object seen. Pick where it goes; the caption comes with it.</p></div>
+<p class="ss-sub">Every share helps more people see this. Pick where it goes, the caption comes along.</p></div>
 <div class="ss-body">
 <div class="ss-left"><img id="ss-preview" alt="The picture you are about to share">
 <button class="ss-mini" data-net="save">Save the picture</button></div>
@@ -3473,7 +3473,7 @@ care as well as method.</p>
 </div>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
-<a id="wf-record" class="wf-link" href="archive.html">Full record</a>
+<a id="wf-record" class="wf-link" href="archive.html">Read more</a>
 <button id="ar-button" class="wf-btn" hidden title="Passthrough on a headset, camera AR on a phone">See it in your space</button>
 <a id="wf-map" class="wf-map" href="#" target="_blank" rel="noopener" hidden title="Where this was scanned">
 <span class="wf-map-tile"><img id="wf-map-img" alt=""><i class="wf-pin"></i></span>
@@ -3488,8 +3488,8 @@ care as well as method.</p>
 {blocks}
 <section class="wst-end"><div class="wcard wide">
 <h2>Every one of these was scanned by a volunteer</h2>
-<p>Sizes in the labels are the real measured ones. The full walkable museum is being built
-separately in Unity by Patrick Molen and the team.</p>
+<p>The sizes on the labels are the real ones. A full museum you can walk through is being
+built separately by Patrick, Cam and the team, and every object here will hang in it.</p>
 <p><a class="btn btn-gold" href="galleries.html">Browse with descriptions</a>
 &nbsp;<a class="wmore" href="volunteer.html">Volunteer with us</a></p>
 </div><p class="music-credit"><a href="{MUSIC["href"]}" target="_blank" rel="noopener">{MUSIC["credit"]}</a></p></section>

@@ -12,7 +12,7 @@ picks them up by key (items by slug, fixed lines by name).
 import json, os, re, sys, time, urllib.request
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-html = open(os.path.join(HERE, "docs", "walk", "index.html"), encoding="utf-8").read()
+html = open(os.path.join(HERE, "docs", "explore", "index.html"), encoding="utf-8").read()
 cfg = json.loads(re.search(r"WALK_CFG=(\{.*?\})</script>", html, re.S).group(1))
 
 lines = {}

@@ -313,7 +313,7 @@ function start() {
     }
     expanded = !expanded;
     if (bubbleLong) bubbleLong.hidden = !expanded;
-    moreBtn.textContent = expanded ? 'That is enough' : 'Tell me more';
+    moreBtn.textContent = expanded ? 'Thanks, Nura' : 'Tell me more';
     // she reads the longer line too, in her own voice where it has been recorded
     const cur = slots[shown];
     if (expanded && cur && cur.it.note) sayLine(cur.it.note, { voice: cur.it.voiceMore });
@@ -895,7 +895,7 @@ function start() {
       if (roomBtn) {
         const n = CFG.items.filter(x => inRoomOf(x, p.name)).length;
         roomBtn.hidden = n < 2;
-        roomBtn.textContent = 'See ' + p.name.split(' ')[0] + "'s room (" + n + ')';
+        roomBtn.textContent = 'Visit ' + p.name.split(' ')[0] + "'s gallery (" + n + ')';
         roomBtn.onclick = () => {
           cameo.hidden = true;
           openRoom(p.name);            // the real room: everything of theirs in one space
@@ -935,7 +935,7 @@ function start() {
     const pic = await makePoster();
     openShare({
       title: 'Share to protect it',
-      caption: s0.it.title + ', scanned in Tunisia by Tanit XR volunteers before it is lost. '
+      caption: s0.it.title + ', scanned in Tunisia by Tanit XR volunteers so it is never lost. '
         + 'Share it to help protect it.',
       link: pageLink() + '#' + s0.it.slug,
       picture: pic,
@@ -1697,7 +1697,7 @@ function start() {
     signAt.forEach(({ s, isMade }) => {
       const cnt = isMade ? made.length : opt.length;
       const sg = roomSign(isMade ? 'Modelled by ' + first : 'Optimized by ' + first,
-        cnt + (isMade ? (cnt === 1 ? ' piece' : ' pieces') + ' built from scratch' : (cnt === 1 ? ' scan' : ' scans') + ' made light for the web'));
+        cnt + (isMade ? (cnt === 1 ? ' piece' : ' pieces') + ' built from scratch' : (cnt === 1 ? ' scan' : ' scans') + ' prepared for the web'));
       sg.position.copy(ringPos(s.roomR + 1.2, s.roomAng, s.roomTop + 2.35)); sg.rotation.y = -s.roomAng;
       roomPlinths.add(sg);
     });
@@ -1730,7 +1730,7 @@ function start() {
     if (!roomMode) return;
     document.body.classList.toggle('room-focus', !!roomFocus);
     if (roomTitle) roomTitle.textContent = roomMode.artist;
-    if (roomEyebrow) roomEyebrow.textContent = roomFocus ? 'Up close' : 'Gallery room';
+    if (roomEyebrow) roomEyebrow.textContent = roomFocus ? 'Up close' : 'Gallery';
     if (roomCount) {
       const bits = [];
       if (roomMode.made) bits.push(roomMode.made + ' modelled');
@@ -1840,7 +1840,7 @@ function start() {
   if (/[?&]hall=1/.test(location.search)) {
     const hallList = slots.filter(s => s.it.real).slice(0, 14);
     setTimeout(() => {
-      openRoom('Inside the museum hall (preview)', { hall: true, list: hallList });
+      openRoom('Inside the museum hall, a preview', { hall: true, list: hallList });
       loader.load(MODEL_BASE + 'patrick-museum-main-hall.glb', g => {
         const o = g.scene;
         const box = new THREE.Box3().setFromObject(o);
@@ -1896,9 +1896,9 @@ function start() {
     const prog = readProg();
     const left = CFG.items.length - prog.seen.length;
     if (bubbleText) bubbleText.textContent = prog.seen.length > 3 && left > 0
-      ? 'Welcome back. You have seen ' + prog.seen.length + ' so far, ' + left + ' to go.'
-      : 'I am Nura. Drag anything to turn it, save the ones you like, and see how many of the '
-        + 'six badges you can find.';
+      ? 'Welcome back! ' + prog.seen.length + ' seen so far, ' + left + ' to go.'
+      : 'Hi, I am Nura. Drag anything to turn it, save what you like, and see how many '
+        + 'badges you can collect along the way.';
     if (bubbleLong) bubbleLong.hidden = true;
     if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
     beHappy();
