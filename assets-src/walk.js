@@ -1174,58 +1174,91 @@ function start() {
   if (sheet) sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && sheet && !sheet.hidden) closeSheet(); });
 
+  const ssHint = document.getElementById('ss-hint');
   async function openShare({ title, caption, link, picture }) {
     if (!sheet) return;
     ssTitle.textContent = title || 'Share this';
-    ssCaption.textContent = caption;
+    ssCaption.value = caption;
+    if (ssHint) ssHint.textContent = '';
     if (ssUrlObj) URL.revokeObjectURL(ssUrlObj);
     ssUrlObj = picture && picture.blob ? URL.createObjectURL(picture.blob) : null;
     ssPreview.src = ssUrlObj || '';
     ssPreview.hidden = !ssUrlObj;
-
+    const text = () => ssCaption.value.trim();
     const enc = encodeURIComponent;
-    const set = (net, href) => {
-      const el = sheet.querySelector('[data-net="' + net + '"]');
-      if (el) el.href = href;
+    const hint = m => { if (ssHint) ssHint.textContent = m; };
+    const copy = async what => { try { await navigator.clipboard.writeText(what); return true; } catch (e) { return false; } };
+    const el = net => sheet.querySelector('[data-net="' + net + '"]');
+    const saveImage = () => {
+      if (!ssUrlObj) return false;
+      const aEl = document.createElement('a'); aEl.href = ssUrlObj; aEl.download = picture.name; aEl.click();
+      return true;
     };
-    set('linkedin', 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc(link));
-    set('facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + enc(link));
-    set('x', 'https://twitter.com/intent/tweet?text=' + enc(caption) + '&url=' + enc(link));
-    set('whatsapp', 'https://wa.me/?text=' + enc(caption + ' ' + link));
 
-    // the device sheet is the only route that can reach Instagram, so offer it where it exists
-    const nativeBtn = sheet.querySelector('[data-net="native"]');
+    // LinkedIn and Facebook ignore any text we send, so the caption goes to the clipboard
+    // first and the post opens ready for a paste. X and WhatsApp carry the words themselves.
+    const opens = {
+      linkedin: () => 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc(link),
+      facebook: () => 'https://www.facebook.com/sharer/sharer.php?u=' + enc(link),
+      x: () => 'https://twitter.com/intent/tweet?text=' + enc(text()) + '&url=' + enc(link),
+      whatsapp: () => 'https://wa.me/?text=' + enc(text() + ' ' + link),
+    };
+    Object.keys(opens).forEach(net => {
+      const a2 = el(net); if (!a2) return;
+      a2.href = opens[net]();
+      a2.onclick = async () => {
+        a2.href = opens[net]();
+        if (net === 'linkedin' || net === 'facebook') {
+          const ok = await copy(text());
+          hint(ok ? 'Caption copied. Paste it into your post when it opens.' : 'Paste the caption from the box above into your post.');
+        } else hint('Opening ' + a2.textContent.trim() + ' with the caption filled in.');
+        bump(p => { p.shared++; });
+        if (window.tx) tx('collection_share', { net, object: slots[shown] && slots[shown].it.slug });
+      };
+    });
+
+    // the device's own sheet reaches every app installed, Instagram included
     let file = null;
     if (picture && picture.blob && window.File) {
       try { file = new File([picture.blob], picture.name, { type: 'image/png' }); } catch (e) { file = null; }
     }
     const canFiles = !!(file && navigator.canShare && navigator.canShare({ files: [file] }));
+    const nativeBtn = el('native');
     if (nativeBtn) {
-      nativeBtn.hidden = !(navigator.share);
+      nativeBtn.hidden = !navigator.share;
       nativeBtn.onclick = async () => {
         try {
-          if (canFiles) await navigator.share({ files: [file], text: caption });
-          else await navigator.share({ text: caption, url: link });
+          if (canFiles) await navigator.share({ files: [file], text: text() });
+          else await navigator.share({ text: text(), url: link });
+          bump(p => { p.shared++; });
+          if (window.tx) tx('collection_share', { net: 'device', object: slots[shown] && slots[shown].it.slug });
         } catch (e) { /* dismissed */ }
       };
     }
-    const copyBtn = sheet.querySelector('[data-net="copy"]');
-    if (copyBtn) copyBtn.onclick = async () => {
-      try { await navigator.clipboard.writeText(caption + '\n' + link);
-            copyBtn.textContent = 'Caption copied';
-            setTimeout(() => { copyBtn.textContent = 'Copy caption'; }, 1800); } catch (e) { /* denied */ }
+    // Instagram has no web posting: on a phone the device sheet does it, elsewhere the picture
+    // is saved and the caption copied, ready for the app
+    const igBtn = el('instagram');
+    if (igBtn) igBtn.onclick = async () => {
+      if (canFiles) { nativeBtn.onclick(); return; }
+      const saved = saveImage();
+      const ok = await copy(text());
+      hint((saved ? 'Picture saved' : 'Save the picture') + (ok ? ' and caption copied. ' : '. ')
+           + 'Open Instagram on your phone, make a post, pick the picture, paste the caption.');
+      bump(p => { p.shared++; });
+      if (window.tx) tx('collection_share', { net: 'instagram', object: slots[shown] && slots[shown].it.slug });
     };
-    const saveBtn = sheet.querySelector('[data-net="save"]');
+    const copyBtn = el('copy');
+    if (copyBtn) copyBtn.onclick = async () => {
+      const ok = await copy(link);
+      hint(ok ? 'Link copied.' : link);
+    };
+    const saveBtn = el('save');
     if (saveBtn) {
       saveBtn.hidden = !(picture && picture.blob);
-      saveBtn.onclick = () => {
-        const a = document.createElement('a');
-        a.href = ssUrlObj;
-        a.download = picture.name;
-        a.click();
-      };
+      saveBtn.onclick = () => { saveImage(); hint('Picture saved to your downloads.'); };
     }
     sheet.hidden = false;
+    setTimeout(() => { const f = el(navigator.share ? 'native' : 'linkedin'); if (f) f.focus(); }, 50);
     if (window.tx) tx('share_sheet_opened');
   }
   const pageLink = () => location.origin + location.pathname;
@@ -1250,11 +1283,19 @@ function start() {
   // the thumbstick, or pull the trigger on empty space, for the next object; squeeze for
   // the one before; hold the trigger on the object and swing to turn it; point at the
   // label and pull to save it; point at Nura and pull to hear her.
-  let xrMode = false, xrCursor = 0, xrTarget = 0;
-  const XR_EYE = 1.55, XR_DIST = 2.5, XR_SCALE = 0.62;
+  let xrMode = false, arMode = false, xrCursor = 0, xrTarget = 0;
+  const XR_EYE = 1.55, XR_DIST = 2.8, XR_SCALE = 0.62;
+  // in passthrough the object stands on your real floor at its real size where we know it
+  const xrDist = () => arMode ? 1.7 : XR_DIST;
+  const xrScaleOf = s => arMode
+    ? ((s.it.real && s.it.dims) ? Math.max(0.25, Math.min(2.6, Math.max(...s.it.dims))) : 0.9) / FIT
+    : XR_SCALE;
+  const xrBottom = s => (s.fitMin !== undefined ? s.fitMin : -FIT * 0.3);
   const xrRoot = new THREE.Group();
   xrRoot.visible = false;
   scene.add(xrRoot);
+  const xrEnv = new THREE.Group();
+  xrRoot.add(xrEnv);
   const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.2);
   xrLight.position.set(2, 5, 3);
   xrRoot.add(xrLight);
@@ -1267,12 +1308,12 @@ function start() {
     x.fillStyle = g; x.fillRect(0, 0, 4, 256);
     const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
   })();
-  xrRoot.add(new THREE.Mesh(new THREE.SphereGeometry(30, 32, 24),
+  xrEnv.add(new THREE.Mesh(new THREE.SphereGeometry(30, 24, 12),
     new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide })));
-  const xrFloor = new THREE.Mesh(new THREE.CircleGeometry(14, 48),
+  const xrFloor = new THREE.Mesh(new THREE.CircleGeometry(14, 40),
     new THREE.MeshBasicMaterial({ color: 0xe2d3b9 }));
   xrFloor.rotation.x = -Math.PI / 2; xrFloor.position.y = 0.001;
-  xrRoot.add(xrFloor);
+  xrEnv.add(xrFloor);
   const xrShade = new THREE.Mesh(new THREE.PlaneGeometry(5, 5),
     new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
   xrShade.rotation.x = -Math.PI / 2; xrShade.position.set(0, 0.004, -XR_DIST);
@@ -1336,8 +1377,15 @@ function start() {
   function paintXRLabel(it) {
     if (xrLabel) { xrRoot.remove(xrLabel); xrLabel.material.map.dispose(); xrLabel = null; }
     xrLabel = makeLabel(it, readSaved().includes(it.slug));
-    xrLabel.position.set(-0.82, 0.95, -XR_DIST + 0.35);
-    xrLabel.rotation.y = 0.32;
+    if (arMode) {
+      const f = xrCurrent(), h = f && f.fitH ? f.fitH * xrScaleOf(f) : 1;
+      xrLabel.position.set(-0.45, h + 0.32, -xrDist() + 0.15);
+      xrLabel.rotation.y = 0.2;
+      xrLabel.scale.setScalar(0.6);
+    } else {
+      xrLabel.position.set(-1.15, 0.95, -XR_DIST + 0.45);
+      xrLabel.rotation.y = 0.36;
+    }
     xrLabelSlug = it.slug;
     xrRoot.add(xrLabel);
   }
@@ -1368,19 +1416,29 @@ function start() {
     }
   }
 
+  let pendingAR = false;
   function enterXR() {
     xrMode = true;
+    const sess = renderer.xr.getSession();
+    arMode = pendingAR || !!(sess && sess.environmentBlendMode && sess.environmentBlendMode !== 'opaque');
+    pendingAR = false;
     document.body.classList.add('in-xr');
+    document.body.classList.toggle('in-ar', arMode);
     xrRoot.visible = true;
+    xrEnv.visible = !arMode;
+    xrShade.visible = !arMode;
+    dust.visible = false;
     xrCursor = xrTarget = Math.max(0, shown);
     xrLabelSlug = null;
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     if (window.tx) tx('xr_entered', { from: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
-    xrMode = false;
-    document.body.classList.remove('in-xr');
+    xrMode = false; arMode = false;
+    document.body.classList.remove('in-xr', 'in-ar');
     xrRoot.visible = false;
+    nuraHolder.scale.setScalar(1);
+    if (nuraPanel) nuraPanel.scale.setScalar(0.9);
     xrGrab = null;
     if (xrLabel) { xrRoot.remove(xrLabel); xrLabel = null; xrLabelSlug = null; }
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
@@ -1446,7 +1504,7 @@ function start() {
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     const p = makeLabel({ title: it.title, place: it.place, size: it.size, credit: it.hi || '' });
     p.position.set(0, NURA_H * 1.18, 0.02);
-    p.scale.setScalar(0.9);
+    p.scale.setScalar(arMode ? 1.2 : 1.6);         // relative to a Nura who is small in here
     nuraPanel = p;
     nuraHolder.add(p);
     sayLine(it.hi || it.title, it);
@@ -1455,20 +1513,75 @@ function start() {
 
   // Only offer this where a headset can actually answer. On a laptop three.js would
   // otherwise render a dead "VR NOT SUPPORTED" chip, which reads as a broken feature.
+  let xrWired = false;
+  function readyXR() {
+    if (xrWired) return;
+    xrWired = true;
+    renderer.xr.enabled = true;
+    renderer.xr.setReferenceSpaceType('local-floor');
+    // a little cheaper per frame: a slightly smaller eye buffer and fixed foveation
+    try { renderer.xr.setFramebufferScaleFactor(0.9); renderer.xr.setFoveation(1); } catch (e) { /* older browser */ }
+    wireXRControllers();
+    renderer.xr.addEventListener('sessionstart', enterXR);
+    renderer.xr.addEventListener('sessionend', exitXR);
+  }
+  const arBtn = document.getElementById('ar-button');
   if (navigator.xr && navigator.xr.isSessionSupported) {
     navigator.xr.isSessionSupported('immersive-vr').then(ok => {
       if (!ok) return;
       return import('three/addons/webxr/VRButton.js').then(mod => {
-        renderer.xr.enabled = true;
+        readyXR();
         const btn = mod.VRButton.createButton(renderer);
         btn.id = 'vr-button';
         btn.textContent = 'See it in VR';
         document.body.appendChild(btn);
-        wireXRControllers();
-        renderer.xr.addEventListener('sessionstart', () => { btn.textContent = 'Leave VR'; enterXR(); });
-        renderer.xr.addEventListener('sessionend', () => { btn.textContent = 'See it in VR'; exitXR(); });
+        renderer.xr.addEventListener('sessionstart', () => { btn.textContent = arMode ? 'See it in VR' : 'Leave VR'; });
+        renderer.xr.addEventListener('sessionend', () => { btn.textContent = 'See it in VR'; });
       });
     }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+    // passthrough on a headset, camera AR on an Android phone: the same session type
+    navigator.xr.isSessionSupported('immersive-ar').then(ok => {
+      if (!ok || !arBtn) return;
+      arBtn.hidden = false;
+      arBtn.addEventListener('click', async () => {
+        if (renderer.xr.isPresenting) { renderer.xr.getSession().end(); return; }
+        readyXR();
+        try {
+          pendingAR = true;
+          const session = await navigator.xr.requestSession('immersive-ar',
+            { requiredFeatures: ['local-floor'], optionalFeatures: ['hit-test', 'hand-tracking'] });
+          await renderer.xr.setSession(session);
+          if (window.tx) tx('ar_entered', { object: slots[shown] && slots[shown].it.slug });
+        } catch (e) { pendingAR = false; }
+      });
+    }).catch(() => {});
+  }
+  // iPhones have no WebXR; Apple's Quick Look shows the object in the room instead
+  if (arBtn && arBtn.hidden && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    arBtn.hidden = false;
+    let mv = null;
+    const ensureMV = () => {
+      if (mv) return mv;
+      const sc = document.createElement('script');
+      sc.type = 'module';
+      sc.src = 'https://cdn.jsdelivr.net/npm/@google/model-viewer@4/dist/model-viewer.min.js';
+      document.head.appendChild(sc);
+      mv = document.createElement('model-viewer');
+      mv.setAttribute('ar', ''); mv.setAttribute('ar-modes', 'quick-look');
+      mv.setAttribute('ar-scale', 'auto');
+      mv.style.cssText = 'position:fixed;width:1px;height:1px;left:-10px;top:-10px;opacity:0';
+      document.body.appendChild(mv);
+      return mv;
+    };
+    const syncMV = () => { const s0 = slots[shown]; if (s0 && mv) mv.setAttribute('src', MODEL_BASE + s0.it.slug + '.glb'); };
+    ensureMV(); syncMV();
+    addEventListener('hashchange', syncMV);
+    arBtn.addEventListener('click', () => {
+      syncMV();
+      const go = () => { try { mv.activateAR(); } catch (e) { /* not ready yet */ } };
+      if (mv.loaded) go(); else mv.addEventListener('load', go, { once: true });
+      if (window.tx) tx('ar_quicklook', { object: slots[shown] && slots[shown].it.slug });
+    });
   }
 
   // ---- gallery room: a small round gallery you stand inside. One maker's pieces on plinths
@@ -1835,8 +1948,10 @@ function start() {
         if (!s.wrap.visible) return;
         // the same rise and settle as the page, in front of you instead of down the screen
         const e = 1 - Math.pow(1 - Math.min(1, ad), 2);
-        s.wrap.position.set(0, XR_EYE - 0.3 - Math.sign(d) * e * 2.4, -XR_DIST - e * 2.2);
-        s.wrap.scale.setScalar(XR_SCALE * (0.78 + 0.22 * a));
+        const sc = xrScaleOf(s) * (arMode ? 1 : (0.78 + 0.22 * a));
+        const baseY = arMode ? -xrBottom(s) * sc : XR_EYE - 0.3;
+        s.wrap.position.set(0, baseY - Math.sign(d) * e * (arMode ? 1.2 : 2.4), -xrDist() - e * 2.2);
+        s.wrap.scale.setScalar(sc);
         s.mats.forEach(m => { m.opacity = a; });
         s.shadow.material.opacity = 0;              // the floor carries the shadow in here
         if (!reduce && !xrGrab && ad < 0.5) s.pivot.rotation.y += dt * 0.1;
@@ -1850,12 +1965,13 @@ function start() {
       if (mixer) mixer.update(dt);
       if (nura) {
         nuraHolder.visible = true;
-        // beside the object, and she swings round it with you when you turn it
+        // a small companion beside the object, never on top of it; she swings round with you
+        nuraHolder.scale.setScalar(arMode ? 0.36 : 0.48);
         const swing = clamp(front.pivot.rotation.y * 0.3, -0.65, 0.65);
-        const R = 1.0;
-        nuraHolder.position.set(Math.cos(swing) * R + Math.sin(te * 0.43) * 0.05,
-                                XR_EYE - 1.0 + Math.sin(te * 1.05) * 0.06,
-                                -XR_DIST + 0.3 + Math.sin(swing) * R * 0.55);
+        const R = arMode ? 0.8 : 1.35;
+        nuraHolder.position.set(Math.cos(swing) * R + Math.sin(te * 0.43) * 0.04,
+                                (arMode ? 0.02 : XR_EYE - 0.9) + Math.sin(te * 1.05) * 0.04,
+                                -xrDist() + (arMode ? 0.25 : 0.45) + Math.sin(swing) * R * 0.55);
         // she keeps facing you; at nuraBaseYaw she faces +Z, and you stand at the origin
         nura.rotation.y = nuraBaseYaw + Math.atan2(-nuraHolder.position.x, -nuraHolder.position.z)
                           + Math.sin(te * 0.5) * 0.06;

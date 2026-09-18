@@ -826,6 +826,8 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
 body.in-xr #sound-toggle{display:none}
 .wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+#ar-button[hidden]{display:none}
+body.in-ar #vr-button{display:none}
 .music-credit{font-size:12px;color:#8a735c;margin-top:18px}.music-credit a{color:inherit}
 .wf-stats[hidden]{display:none}
 #map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
@@ -968,24 +970,35 @@ body.in-room #vr-button,body.in-room #saved-chip{display:none}
 #ss-close{position:absolute;top:10px;inset-inline-end:12px;border:0;background:none;
   color:#a3907a;font-size:24px;line-height:1;cursor:pointer}
 #ss-close:hover{color:#4a3527}
-.ss-head h3{font-family:var(--serif);font-size:26px;font-weight:400;color:#2e2118;margin:6px 0 16px}
-.ss-body{display:grid;grid-template-columns:230px 1fr;gap:20px;align-items:start}
-#ss-preview{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:#efe6d6;
-  border:1px solid rgba(74,53,43,.14)}
-#ss-caption{margin:0 0 14px;font-size:14px;line-height:1.55;color:#5d4c3c;
-  background:rgba(74,53,43,.05);border-radius:8px;padding:11px 13px}
-.ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.ss-btn{display:flex;align-items:center;justify-content:center;text-align:center;
-  border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;border-radius:999px;
-  padding:11px 12px;font:inherit;font-size:13.5px;cursor:pointer;text-decoration:none}
-.ss-btn:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
-.ss-btn.ss-native,.ss-btn.ss-save{grid-column:1 / -1;background:#4a3527;color:#fdf8f0;
-  border-color:#4a3527}
-.ss-btn.ss-native:hover,.ss-btn.ss-save:hover{background:var(--gold);color:#241a10;
-  border-color:var(--gold)}
-.ss-note{font-size:12px;color:#8a735c;line-height:1.5;margin:14px 0 0}
-@media(max-width:620px){.ss-body{grid-template-columns:1fr}#ss-preview{max-width:240px;margin:0 auto}
-  .ss-card{padding:18px}}
+.ss-head h3{font-family:var(--serif);font-size:26px;font-weight:400;color:#2e2118;margin:6px 0 4px}
+.ss-sub{margin:0 0 18px;color:#7d6a58;font-size:14px}
+.ss-body{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:start}
+#ss-preview{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:#efe6d6;
+  border:1px solid rgba(74,53,43,.14);display:block}
+.ss-mini{display:block;width:100%;margin-top:10px;border:1px solid rgba(74,53,43,.22);background:#fff;
+  color:#4a3527;border-radius:999px;padding:9px 12px;font:inherit;font-size:13px;cursor:pointer}
+.ss-mini:hover{background:#4a3527;color:#fdf8f0}
+.ss-lab{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a35f3f;font-weight:700;margin-bottom:6px}
+.ss-lab span{text-transform:none;letter-spacing:0;font-weight:400;color:#8a735c;margin-inline-start:6px}
+#ss-caption{display:block;width:100%;box-sizing:border-box;resize:vertical;font:inherit;font-size:14px;line-height:1.5;
+  color:#3a2b20;background:rgba(74,53,43,.05);border:1px solid rgba(74,53,43,.14);border-radius:10px;padding:11px 13px;margin:0 0 16px}
+#ss-caption:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ss-nets{display:flex;flex-wrap:wrap;gap:6px 4px}
+.ss-net{display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;padding:8px 4px;border:0;background:none;
+  color:#4a3527;font:inherit;font-size:12.5px;cursor:pointer;text-decoration:none;border-radius:12px}
+.ss-net[hidden]{display:none}
+.ss-ic{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#fff;border:1px solid rgba(74,53,43,.2);transition:.15s}
+.ss-ic svg{width:22px;height:22px;fill:#4a3527}
+.ss-net:hover .ss-ic,.ss-net:focus-visible .ss-ic{background:#4a3527;border-color:#4a3527}
+.ss-net:hover .ss-ic svg,.ss-net:focus-visible .ss-ic svg{fill:#fdf8f0}
+.ss-net[data-net="native"] .ss-ic{background:var(--gold);border-color:var(--gold)}
+.ss-net[data-net="native"] .ss-ic svg{fill:#241a10}
+.ss-note{font-size:13px;color:#8a735c;line-height:1.5;margin:10px 0 0;min-height:1.5em}
+@media(max-width:620px){.ss-body{grid-template-columns:1fr;gap:16px}.ss-left{display:flex;gap:12px;align-items:center}
+  #ss-preview{width:104px;height:104px;flex:0 0 auto}.ss-mini{width:auto;margin:0}
+  .ss-card{padding:18px;border-radius:16px 16px 0 0;align-self:flex-end;max-height:94vh}
+  #share-sheet{padding:0;align-items:flex-end}.ss-net{width:72px}.ss-ic{width:46px;height:46px}}
 
 /* the volunteer who worked on this object, introduced once each */
 #vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
@@ -3397,24 +3410,26 @@ care as well as method.</p>
 </div>
 
 <div id="share-sheet" hidden>
-<div class="ss-card">
+<div class="ss-card" role="dialog" aria-labelledby="ss-title">
 <button id="ss-close" aria-label="Close">&times;</button>
-<div class="ss-head"><div class="wch">Share it</div><h3 id="ss-title">Share this</h3></div>
+<div class="ss-head"><div class="wch">Share it</div><h3 id="ss-title">Share this</h3>
+<p class="ss-sub">Every share keeps this object seen. Pick where it goes; the caption comes with it.</p></div>
 <div class="ss-body">
-<img id="ss-preview" alt="Preview of the image you are about to share">
+<div class="ss-left"><img id="ss-preview" alt="The picture you are about to share">
+<button class="ss-mini" data-net="save">Save the picture</button></div>
 <div class="ss-right">
-<p id="ss-caption"></p>
-<div class="ss-grid">
-<button class="ss-btn ss-native" data-net="native" hidden>Share on this device</button>
-<a class="ss-btn" data-net="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-<a class="ss-btn" data-net="facebook" target="_blank" rel="noopener">Facebook</a>
-<a class="ss-btn" data-net="x" target="_blank" rel="noopener">X</a>
-<a class="ss-btn" data-net="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-<button class="ss-btn" data-net="copy">Copy caption</button>
-<button class="ss-btn ss-save" data-net="save">Save image</button>
+<label class="ss-lab" for="ss-caption">Caption <span>you can edit it</span></label>
+<textarea id="ss-caption" rows="4" spellcheck="false"></textarea>
+<div class="ss-nets">
+<button class="ss-net" data-net="native" hidden><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M12 3l4 4h-3v8h-2V7H8l4-4zm-7 9h2v7h10v-7h2v9H5v-9z"/></svg></span><span>Share…</span></button>
+<a class="ss-net" data-net="linkedin" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H10z"/></svg></span><span>LinkedIn</span></a>
+<button class="ss-net" data-net="instagram"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.6 5.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></span><span>Instagram</span></button>
+<a class="ss-net" data-net="facebook" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.5H7.3V14h2.8v8h3.4z"/></svg></span><span>Facebook</span></a>
+<a class="ss-net" data-net="whatsapp" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4.3c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.6 2.6 1 3.2.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4l-2-1c-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg></span><span>WhatsApp</span></a>
+<a class="ss-net" data-net="x" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16.2h1.7L6.6 4.7H4.8l11.6 14.5z"/></svg></span><span>X</span></a>
+<button class="ss-net" data-net="copy"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l2.8-2.8a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zM7.8 17.7a3 3 0 0 1 0-4.2l2.1-2.1 1.4 1.4-2.1 2.1a1 1 0 1 0 1.4 1.4l2.1-2.1 1.4 1.4-2.1 2.1a3 3 0 0 1-4.2 0zm8.4-8.4l-1.4-1.4 2.1-2.1a3 3 0 1 1 4.2 4.2l-2.1 2.1-1.4-1.4 2.1-2.1a1 1 0 1 0-1.4-1.4l-2.1 2.1z"/></svg></span><span>Copy link</span></button>
 </div>
-<p class="ss-note">Instagram has no web posting, so save the image and post it from your
-phone. The caption is copied for you.</p>
+<p id="ss-hint" class="ss-note" aria-live="polite"></p>
 </div>
 </div>
 </div>
@@ -3459,6 +3474,7 @@ phone. The caption is copied for you.</p>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a id="wf-record" class="wf-link" href="archive.html">Full record</a>
+<button id="ar-button" class="wf-btn" hidden title="Passthrough on a headset, camera AR on a phone">See it in your space</button>
 <a id="wf-map" class="wf-map" href="#" target="_blank" rel="noopener" hidden title="Where this was scanned">
 <span class="wf-map-tile"><img id="wf-map-img" alt=""><i class="wf-pin"></i></span>
 <span class="wf-map-txt"><b>Scanned here</b><small>&copy; OpenStreetMap</small></span>
