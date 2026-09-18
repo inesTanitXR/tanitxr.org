@@ -416,6 +416,49 @@ function start() {
   const writeSaved = l => { try { localStorage.setItem(SAVED, JSON.stringify(l)); }
                             catch (e) { /* private mode */ } };
 
+  // ---- paint(): everything that has to change when a different object comes to the front.
+  // This is the hinge of the page, so keep it in one place.
+  let shown = -1, turned = false, cueTimer = null, moved = 0;
+  function paint(i) {
+    const s = slots[i];
+    if (!s || shown === i) return;
+    shown = i;
+    const it = s.it;
+
+    if (uiTitle) uiTitle.textContent = it.title;
+    if (uiId) uiId.textContent = [it.place, it.size].filter(Boolean).join(' \u00b7 ');
+    if (uiRecord) uiRecord.href = linkUrl(it.href || 'archive.html');
+    const by = document.getElementById('wf-by');
+    if (by) by.textContent = it.credit || '';
+    paintSave(it);
+
+    // the switch follows where you actually are
+    document.querySelectorAll('.tsw').forEach(b =>
+      b.classList.toggle('on', (b.dataset.track === 'made') === !it.real));
+
+    // Nura goes quiet on a new object and glances over at it
+    if (cameo) cameo.hidden = true;
+    clearTimeout(cameoTimer);
+    closeBubble();
+    if (dot) dot.classList.add('in');
+    glance = 1.6;
+    showCameo(it);
+
+    // keep signalling that it turns until someone has actually turned one
+    if (cueEl && !turned) {
+      clearTimeout(cueTimer);
+      cueEl.classList.remove('gone');
+      cueTimer = setTimeout(() => cueEl.classList.add('show'), 500);
+    }
+
+    bump(p => {
+      if (!p.seen.includes(it.slug)) p.seen.push(it.slug);
+      if (it.real && it.place && !p.places.includes(it.place)) p.places.push(it.place);
+    });
+    if (window.tx) tx('collection_view', { object: it.slug });
+    history.replaceState(null, '', '#' + it.slug);
+  }
+
   // ---- badges: a quiet scavenger hunt through the collection
   const PROG = 'tanitxr.progress';
   const BADGES = [
@@ -566,6 +609,65 @@ function start() {
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
+  // ---- the Save button, its label, and the one-time offer of the scan demo.
+  // These definitions were lost in an earlier refactor while their call sites survived,
+  // which threw ReferenceError and stopped the scene from ever drawing.
+  function paintSave(it) {
+    if (!uiSave) return;
+    const on = it && it.slug ? readSaved().includes(it.slug) : false;
+    uiSave.classList.toggle('on', on);
+    uiSave.textContent = on ? 'Saved \u2665' : 'Save \u2661';
+  }
+  if (uiSave) uiSave.addEventListener('click', () => {
+    const s0 = slots[shown];
+    if (!s0) return;
+    const l = readSaved(), i = l.indexOf(s0.it.slug);
+    i >= 0 ? l.splice(i, 1) : l.push(s0.it.slug);
+    writeSaved(l);
+    paintSave(s0.it);
+    paintTray();
+    bump(p => { p.saved = l.slice(); });
+    if (window.tx && i < 0) tx('collection_save', { object: s0.it.slug });
+  });
+
+  const shareBtn = document.getElementById('wf-share');
+  if (shareBtn) shareBtn.addEventListener('click', async () => {
+    const s0 = slots[shown];
+    if (!s0) return;
+    const pic = await makePoster();
+    openShare({
+      title: 'Share to protect it',
+      caption: s0.it.title + ', scanned in Tunisia by Tanit XR volunteers before it is lost. '
+        + 'Share it to help protect it.',
+      link: pageLink() + '#' + s0.it.slug,
+      picture: pic,
+    });
+    bump(p => { p.shared++; });
+    if (window.tx) tx('collection_share', { object: s0.it.slug });
+  });
+
+  // She offers the demo once, after you have turned a few things, and never nags again.
+  const OFFERED = 'tanitxr.demoOffered';
+  function maybeOfferDemo() {
+    let done = false;
+    try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
+    if (done || readProg().rotated < 3 || !bubble) return;
+    try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = 'Want to see how we make these?';
+    if (bubbleLong) bubbleLong.hidden = true;
+    if (moreBtn) {
+      moreBtn.textContent = 'Show me';
+      moreBtn.hidden = false;
+      moreBtn.classList.add('nb-offer');
+      moreBtn.dataset.offer = '1';
+    }
+    beHappy();
+    flare = 1;
+  }
+
   const cameoClose = document.getElementById('vc-close');
   if (cameoClose) cameoClose.addEventListener('click', () => { cameo.hidden = true; });
 
@@ -630,8 +732,12 @@ function start() {
     const el = sections[i];
     if (el) scrollTo({ top: midOf(el), behavior: 'smooth' });
   };
-  on('wf-prev', () => jump(-1));
-  on('wf-next', () => jump(1));
+  const bindClick = (id, fn) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', fn);
+  };
+  bindClick('wf-prev', () => jump(-1));
+  bindClick('wf-next', () => jump(1));
   addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft') jump(-1);
     if (e.key === 'ArrowRight') jump(1);
@@ -791,6 +897,67 @@ function start() {
       picture: pic,
     });
   });
+
+  // ---- immersive mode. In a headset the objects stand at the size they really are.
+  let xrMode = false, xrHome = null;
+  const xrRoot = new THREE.Group();
+  scene.add(xrRoot);
+  const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.4);
+  xrLight.position.set(2, 5, 3);
+  xrRoot.add(xrLight);
+
+  const realHeight = it => (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
+
+  function enterXR() {
+    xrMode = true;
+    document.body.classList.add('in-xr');
+    const s = slots[shown];
+    if (!s || !s.fit) return;
+    xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
+               scale: s.fit.scale.x, shadow: s.shadow.position.y };
+    xrRoot.add(s.wrap);
+    s.fit.scale.setScalar(1);                       // real metres
+    s.wrap.position.set(0, realHeight(s.it) / 2, -1.7);
+    s.wrap.scale.setScalar(1);
+    s.shadow.position.y = -realHeight(s.it) / 2 + 0.002;
+    s.mats.forEach(m => { m.opacity = 1; });
+    s.wrap.visible = true;
+    if (nura) nuraHolder.position.set(1.0, 0.1, -1.4);
+    if (window.tx) tx('xr_entered', { object: s.it.slug });
+  }
+  function exitXR() {
+    xrMode = false;
+    document.body.classList.remove('in-xr');
+    const s = slots[shown];
+    if (s && xrHome && s.fit) {
+      xrHome.parent.add(s.wrap);
+      s.wrap.position.copy(xrHome.pos);
+      s.fit.scale.setScalar(xrHome.scale);
+      s.shadow.position.y = xrHome.shadow;
+    }
+    xrHome = null;
+  }
+
+  // Only offer this where a headset can actually answer. On a laptop three.js would
+  // otherwise render a dead "VR NOT SUPPORTED" chip, which reads as a broken feature.
+  if (navigator.xr && navigator.xr.isSessionSupported) {
+    navigator.xr.isSessionSupported('immersive-vr').then(ok => {
+      if (!ok) return;
+      return import('three/addons/webxr/VRButton.js').then(mod => {
+        renderer.xr.enabled = true;
+        const btn = mod.VRButton.createButton(renderer);
+        btn.id = 'vr-button';
+        btn.textContent = 'See it at real size in VR';
+        document.body.appendChild(btn);
+        renderer.xr.addEventListener('sessionstart', () => {
+          btn.textContent = 'Leave VR'; enterXR();
+        });
+        renderer.xr.addEventListener('sessionend', () => {
+          btn.textContent = 'See it at real size in VR'; exitXR();
+        });
+      });
+    }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+  }
 
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
