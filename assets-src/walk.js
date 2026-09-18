@@ -1126,13 +1126,22 @@ function start() {
     const S = 1200;
     const oldW = stage.clientWidth, oldH = stage.clientHeight, oldFov = camera.fov;
     const wasDot = dot ? dot.className : '';
-    const nuraWas = nuraHolder.visible;
-    nuraHolder.visible = false;                       // the object alone, no guide
+    // Nura comes along, small, beside the object, looking at whoever gets the picture
+    const nuraWas = { vis: nuraHolder.visible, pos: nuraHolder.position.clone(),
+                      scale: nuraHolder.scale.x, rot: nura ? nura.rotation.clone() : null };
+    const camWas = camera.position.clone();
+    camera.position.set(0, 0.1, 6.2); camera.lookAt(0, 0, 0);
+    if (nura) {
+      nuraHolder.visible = true;
+      nuraHolder.scale.setScalar(0.62);
+      nuraHolder.position.set(1.05, -0.55, 0.9);
+      nura.rotation.set(0, nuraBaseYaw - 0.25, 0);
+    }
     renderer.setSize(S, S, false);
     camera.aspect = 1; camera.fov = 34; camera.updateProjectionMatrix();
     const held = slots.map(x => [x, x.wrap.visible, x.wrap.position.clone()]);
     slots.forEach(x => { x.wrap.visible = (x === s); });
-    s.wrap.position.set(0, 0, 0);
+    s.wrap.position.set(-0.25, 0, 0);
     s.mats.forEach(m => { m.opacity = 1; });
     renderer.render(scene, camera);
 
@@ -1175,7 +1184,9 @@ function start() {
     x.fillText('tanitxr.org/explore', pad + 130, S - 44);
 
     held.forEach(([o, vis, pos]) => { o.wrap.visible = vis; o.wrap.position.copy(pos); });
-    nuraHolder.visible = nuraWas;
+    nuraHolder.visible = nuraWas.vis; nuraHolder.position.copy(nuraWas.pos); nuraHolder.scale.setScalar(nuraWas.scale);
+    if (nura && nuraWas.rot) nura.rotation.copy(nuraWas.rot);
+    camera.position.copy(camWas); camera.lookAt(0, camWas.y - 0.1, 0);
     if (dot) dot.className = wasDot;
     camera.fov = oldFov; camera.aspect = oldW / oldH; camera.updateProjectionMatrix();
     renderer.setSize(oldW, oldH, false);
