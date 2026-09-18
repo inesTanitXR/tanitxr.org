@@ -711,6 +711,33 @@ function start() {
   }
   function stopMusic() { if (music) { const m = music; music = null; m.stop(); } }
   const sndBtn = document.getElementById('sound-toggle');
+  // phones fold the top buttons into one small menu that drives the originals
+  const moreBtn2 = document.getElementById('more-toggle'), moreSheet = document.getElementById('more-sheet');
+  function paintMore() {
+    if (!moreSheet) return;
+    moreSheet.querySelectorAll('.ms-track').forEach(x => {
+      const orig = document.querySelector('.tsw[data-track="' + x.dataset.track + '"]');
+      x.classList.toggle('on', !!(orig && orig.classList.contains('on')));
+      if (orig) x.textContent = orig.textContent.replace(/\s+\d+$/, '');
+    });
+    const snd = moreSheet.querySelector('.ms-sound');
+    if (snd) snd.textContent = soundOn ? 'Sound: on' : 'Sound: off';
+  }
+  if (moreBtn2 && moreSheet) {
+    moreBtn2.addEventListener('click', () => {
+      const open = moreSheet.hidden;
+      moreSheet.hidden = !open; moreBtn2.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) paintMore();
+    });
+    moreSheet.addEventListener('click', e => {
+      const t = e.target.closest('button'); if (!t) return;
+      if (t.dataset.track) { const o = document.querySelector('.tsw[data-track="' + t.dataset.track + '"]'); if (o) o.click(); }
+      else if (t.dataset.for) { const o = document.getElementById(t.dataset.for); if (o) o.click(); }
+      if (t.classList.contains('ms-sound')) { paintMore(); return; }
+      moreSheet.hidden = true; moreBtn2.setAttribute('aria-expanded', 'false');
+    });
+    stage.addEventListener('pointerdown', () => { moreSheet.hidden = true; moreBtn2.setAttribute('aria-expanded', 'false'); });
+  }
   function paintSound() {
     if (!sndBtn) return;
     sndBtn.classList.toggle('off', !soundOn);
@@ -903,6 +930,7 @@ function start() {
       }
       cameoLink.textContent = 'See what else ' + p.name.split(' ')[0] + ' has made';
       cameo.hidden = false;
+      if (narrow()) { clearTimeout(cameoTimer); cameoTimer = setTimeout(() => { cameo.hidden = true; }, 6500); }
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
@@ -1434,7 +1462,8 @@ function start() {
     if (window.tx) tx('xr_entered', { from: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
-    xrMode = false; arMode = false;
+    xrMode = false; arMode = false; xrRoomFocus = null;
+    closeXRMenu();
     document.body.classList.remove('in-xr', 'in-ar');
     xrRoot.visible = false;
     nuraHolder.scale.setScalar(1);
@@ -1463,6 +1492,15 @@ function start() {
       c.add(line);
       c.addEventListener('selectstart', () => {
         if (!xrMode) return;
+        const m = xrMenuHit(c);
+        if (m) { closeXRMenu(); m.act(); return; }
+        if (roomMode) {
+          const rs = xrRoomHit(c);
+          if (!rs) { xrRoomFocus = null; return; }
+          if (xrRoomFocus === rs) { xrGrab = { slot: rs, ctrl: c, lastYaw: ctrlYaw(c) }; return; }
+          xrRoomFocus = rs; paintXRLabel(rs.it); paint(rs.i);
+          return;
+        }
         const hit = xrPick(c);
         if (!hit) { xrStep(1); return; }
         if (hit.kind === 'nura') {
@@ -1479,7 +1517,7 @@ function start() {
         if (!turned) { turned = true; bump(p => { p.rotated++; }); }
       });
       c.addEventListener('selectend', () => { xrGrab = null; });
-      c.addEventListener('squeezestart', () => { if (xrMode) xrStep(-1); });
+      c.addEventListener('squeezestart', () => { if (xrMode) toggleXRMenu(); });
       xrRoot.add(c);
       xrCtrl.push(c);
     }
@@ -1513,6 +1551,128 @@ function start() {
 
   // Only offer this where a headset can actually answer. On a laptop three.js would
   // otherwise render a dead "VR NOT SUPPORTED" chip, which reads as a broken feature.
+  // ---- the headset menu. Squeeze the grip and a panel appears where you are looking: the
+  // two tracks, every maker's gallery, your saved objects, and the way out. Point and pull.
+  let xrMenu = null, xrMenuRows = [], xrRoomFocus = null;
+  function xrHead() {
+    const cam = renderer.xr.isPresenting ? renderer.xr.getCamera() : camera;
+    cam.updateMatrixWorld();
+    const pos = new THREE.Vector3().setFromMatrixPosition(cam.matrixWorld);
+    const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(cam.quaternion);
+    return { pos, dir };
+  }
+  function xrMenuItems() {
+    const items = [];
+    if (roomMode) items.push({ label: 'Back to the collection', act: () => closeRoom() });
+    const firstReal = slots.findIndex(s => s.it.real), firstMade = slots.findIndex(s => !s.it.real);
+    if (firstReal >= 0) items.push({ label: 'Scanned in Tunisia', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstReal; } });
+    if (firstMade >= 0) items.push({ label: 'Made by volunteers', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstMade; } });
+    Array.from(new Set(CFG.items.map(i => i.artist).filter(Boolean))).forEach(m =>
+      items.push({ label: m.split(' ')[0] + "’s gallery", act: () => openRoom(m, { hall: arMode }) }));
+    const saved = readSaved();
+    if (saved.length) items.push({ label: 'Your saved objects (' + saved.length + ')',
+      act: () => openRoom('Your collection', { hall: arMode, plain: true, list: slots.filter(s => saved.includes(s.it.slug)) }) });
+    items.push({ label: arMode ? 'Leave passthrough' : 'Leave VR', act: () => { const ss = renderer.xr.getSession(); if (ss) ss.end(); } });
+    return items;
+  }
+  function closeXRMenu() {
+    if (!xrMenu) return;
+    xrRoot.remove(xrMenu); xrMenu.material.map.dispose(); xrMenu = null; xrMenuRows = [];
+  }
+  function toggleXRMenu() {
+    if (xrMenu) { closeXRMenu(); return; }
+    const items = xrMenuItems();
+    const W = 900, RH = 84, H = 110 + items.length * RH + 20;
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    const x = c.getContext('2d');
+    x.fillStyle = 'rgba(253,249,242,0.97)';
+    x.beginPath(); x.roundRect(0, 0, W, H, 36); x.fill();
+    x.fillStyle = '#a35f3f'; x.font = '700 28px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText('W H E R E   T O', 48, 66);
+    xrMenuRows = [];
+    items.forEach((it, k) => {
+      const y0 = 96 + k * RH;
+      if (k % 2) { x.fillStyle = 'rgba(74,53,43,0.05)'; x.fillRect(24, y0, W - 48, RH); }
+      x.fillStyle = '#2e2118'; x.font = '400 42px "Yeseva One", Georgia, serif';
+      x.fillText(it.label, 48, y0 + 56);
+      xrMenuRows.push({ v0: 1 - (y0 + RH) / H, v1: 1 - y0 / H, act: it.act });
+    });
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+    const w = 0.9;
+    xrMenu = new THREE.Mesh(new THREE.PlaneGeometry(w, w * H / W),
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthTest: false }));
+    xrMenu.renderOrder = 10;
+    const { pos, dir } = xrHead();
+    dir.y = 0; dir.normalize();
+    xrMenu.position.copy(pos).addScaledVector(dir, 1.25);
+    xrMenu.position.y = pos.y - 0.12;
+    xrMenu.lookAt(pos.x, xrMenu.position.y, pos.z);
+    xrRoot.add(xrMenu);
+  }
+  function xrMenuHit(c) {
+    if (!xrMenu) return null;
+    const o = new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
+    const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion).normalize();
+    xrRay.set(o, d);
+    const h = xrRay.intersectObject(xrMenu)[0];
+    if (!h || !h.uv) return null;
+    return xrMenuRows.find(r => h.uv.y >= r.v0 && h.uv.y < r.v1) || { act: () => {} };
+  }
+  // a gallery in the headset: you stand in the middle of the ring; point at a piece and pull
+  // and it floats over to you, pull again to turn it, pull on nothing to send it back
+  function xrRoomHit(c) {
+    const o = new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
+    const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion).normalize();
+    xrRay.set(o, d);
+    const hits = xrRay.intersectObjects(roomMode.list.filter(s => s.loaded).map(s => s.wrap), true);
+    if (!hits.length) return null;
+    let n = hits[0].object;
+    while (n && !roomMode.list.some(s => s.wrap === n)) n = n.parent;
+    return roomMode.list.find(s => s.wrap === n) || null;
+  }
+  function xrRoomFrame(dt) {
+    slots.forEach(s => { s.wrap.visible = false; });
+    xrEnv.visible = false; xrShade.visible = false;
+    if (nuraHolder) nuraHolder.visible = false;
+    const { pos, dir } = xrHead();
+    roomMode.list.forEach(s => {
+      if (!s.loaded || !s.roomPos) return;
+      s.wrap.visible = true;
+      const isF = xrRoomFocus === s;
+      let want = s.roomPos;
+      if (isF) {
+        const f = dir.clone(); f.y = 0; f.normalize();
+        want = pos.clone().addScaledVector(f, 1.6);
+        want.y = pos.y - 0.25;
+      }
+      s.wrap.position.lerp(want, 0.1);
+      const sc = isF ? s.roomScale * 1.15 : s.roomScale;
+      s.wrap.scale.lerp(new THREE.Vector3(sc, sc, sc), 0.1);
+      if (isF) {
+        s.wrap.rotation.y = Math.atan2(pos.x - s.wrap.position.x, pos.z - s.wrap.position.z);
+        if (!reduce && !xrGrab) s.pivot.rotation.y += dt * 0.15;
+      } else s.wrap.rotation.y = -s.roomAng;
+      s.mats.forEach(m => { m.opacity = 1; });
+      s.shadow.material.opacity = 0;
+    });
+    if (xrGrab) {
+      const y = ctrlYaw(xrGrab.ctrl);
+      xrGrab.slot.pivot.rotation.y += (y - xrGrab.lastYaw) * 2.2;
+      xrGrab.lastYaw = y;
+    }
+    if (xrLabel) {
+      if (xrRoomFocus) {
+        const f = xrRoomFocus, h = (f.fitH || 1) * f.wrap.scale.y;
+        xrLabel.visible = true;
+        xrLabel.position.set(f.wrap.position.x, f.wrap.position.y + h / 2 + 0.3, f.wrap.position.z);
+        xrLabel.lookAt(pos);
+        xrLabel.scale.setScalar(0.7);
+      } else xrLabel.visible = false;
+    }
+    if (mixer) mixer.update(dt);
+    renderer.render(scene, camera);
+  }
+
   let xrWired = false;
   function readyXR() {
     if (xrWired) return;
@@ -1650,8 +1810,9 @@ function start() {
   function layoutRoom(list, opts) {
     roomPlinths.clear();
     const who = roomMode.artist, first = who.split(' ')[0];
-    const made = list.filter(s => s.it.artist === who);
-    const opt = list.filter(s => s.it.artist !== who);
+    const plain = !!(opts && opts.plain);
+    const made = plain ? list.slice() : list.filter(s => s.it.artist === who);
+    const opt = plain ? [] : list.filter(s => s.it.artist !== who);
     const order = made.concat(opt);
     roomMode.list = order; roomMode.made = made.length; roomMode.opt = opt.length;
     const n = order.length;
@@ -1696,7 +1857,8 @@ function start() {
     });
     signAt.forEach(({ s, isMade }) => {
       const cnt = isMade ? made.length : opt.length;
-      const sg = roomSign(isMade ? 'Modelled by ' + first : 'Optimized by ' + first,
+      const sg = plain ? roomSign(who, cnt + (cnt === 1 ? ' object' : ' objects') + ' you saved')
+        : roomSign(isMade ? 'Modelled by ' + first : 'Optimized by ' + first,
         cnt + (isMade ? (cnt === 1 ? ' piece' : ' pieces') + ' built from scratch' : (cnt === 1 ? ' scan' : ' scans') + ' prepared for the web'));
       sg.position.copy(ringPos(s.roomR + 1.2, s.roomAng, s.roomTop + 2.35)); sg.rotation.y = -s.roomAng;
       roomPlinths.add(sg);
@@ -1781,9 +1943,10 @@ function start() {
   function closeRoom() {
     if (!roomMode) return;
     const back = roomFocus || roomMode.list[roomNearest()];
-    roomMode = null; roomFocus = null; roomHover = null;
+    roomMode = null; roomFocus = null; roomHover = null; xrRoomFocus = null;
     roomPlinths.clear();
     scene.fog = null;
+    if (xrMode) { xrEnv.visible = !arMode; xrShade.visible = !arMode; xrLabelSlug = null; if (xrLabel) xrLabel.visible = true; }
     document.body.classList.remove('in-room', 'room-focus');
     if (roomBar) roomBar.hidden = true;
     stage.classList.remove('can-pick');
@@ -1933,6 +2096,8 @@ function start() {
         camera.updateProjectionMatrix();
         camera.updateMatrixWorld();
       }
+      if (roomMode) { xrRoomFrame(dt); return; }
+      if (xrLabel && !xrLabel.visible) { xrLabel.visible = true; xrLabelSlug = null; }
       xrPollInput(dt);
       xrCursor += (xrTarget - xrCursor) * (reduce ? 1 : 0.1);
       cursor = target = xrCursor;                   // so save, share and Nura agree on the object
@@ -2162,6 +2327,8 @@ function start() {
 
     renderer.render(scene, camera);
   }
+  // one frame on demand, for a picture of the page taken from outside
+  window.tanitxrFrame = () => { try { frame(); } catch (e) { /* reported below */ } };
   // An exception inside setAnimationLoop silently kills the loop, so never let one escape.
   let loopFault = null;
   renderer.setAnimationLoop(() => {

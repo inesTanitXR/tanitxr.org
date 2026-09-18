@@ -642,6 +642,8 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:600px){.ev{grid-template-columns:1fr;gap:10px}
   .ev-date{border:0;padding:0;text-align:start;display:flex;gap:10px;align-items:baseline}}
 .collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
+.cb-inset{position:absolute;right:4%;bottom:5%;width:40%;border-radius:10px;border:4px solid #fdf8f0;
+  box-shadow:0 14px 34px rgba(60,40,26,.25)}
 .cb-feats{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:8px}
 .cb-feats li{border:1px solid rgba(74,53,43,.22);border-radius:999px;padding:6px 13px;font-size:13px;color:#4a3527;background:rgba(253,248,240,.7)}
 .cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
@@ -826,6 +828,21 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
 body.in-xr #sound-toggle{display:none}
 .wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+#more-toggle{display:none;position:fixed;top:78px;inset-inline-start:12px;z-index:6;width:38px;height:38px;
+  border-radius:50%;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0}
+#more-toggle span{display:block;width:4px;height:4px;border-radius:50%;background:#4a3527}
+#more-toggle[aria-expanded="true"]{background:#4a3527}#more-toggle[aria-expanded="true"] span{background:#fdf8f0}
+#more-sheet{position:fixed;top:124px;inset-inline-start:12px;z-index:6;display:flex;flex-direction:column;gap:6px;
+  background:rgba(253,248,240,.97);border:1px solid rgba(74,53,43,.16);border-radius:14px;padding:8px;
+  box-shadow:0 12px 30px rgba(60,40,26,.14);min-width:200px}
+#more-sheet[hidden]{display:none}
+#more-sheet button{border:0;background:none;text-align:start;padding:9px 12px;border-radius:9px;font:inherit;
+  font-size:14px;color:#4a3527;cursor:pointer}
+#more-sheet button:hover{background:rgba(74,53,43,.08)}
+#more-sheet .ms-track.on{background:#4a3527;color:#fdf8f0}
+#more-sheet .ms-act{border-top:1px solid rgba(74,53,43,.1);border-radius:0}
+#more-sheet .ms-act:first-of-type{margin-top:4px}
 #ar-button[hidden]{display:none}
 body.in-ar #vr-button{display:none}
 .music-credit{font-size:12px;color:#8a735c;margin-top:18px}.music-credit a{color:inherit}
@@ -1176,6 +1193,11 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   .wf-row{gap:7px}
   .wf-map-txt{display:none}.wf-map{padding:3px}.wf-map-tile{width:44px;height:38px}
   #rotate-cue{transform:translate(-50%,-50%) scale(.8)}
+  /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
+  body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
+  body #more-toggle{display:flex}
+  body #wf-poster,body #wf-map,body #ar-button{display:none}
+  .wf-row2{margin-top:2px}
   body #vol-cameo{top:182px;bottom:auto;inset-inline-start:12px;inset-inline-end:12px;width:auto;
     padding:8px 12px;gap:10px;align-items:center;border-radius:14px}
   body #vol-cameo img{width:38px;height:38px}
@@ -1555,32 +1577,31 @@ ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4
 
 NAV = [
     ("Home", "index.html"),
-    ("Archive", "archive.html", [
-        ("Browse all scans", "archive.html"),
+    ("Explore", "explore.html", [
         ("Explore in 3D", "explore.html"),
-        ("Galleries", "galleries.html"),
-        ("Virtual Museum", "museum.html"),
+        ("Galleries, with the stories", "galleries.html"),
+        ("Browse every scan", "archive.html"),
+        ("Virtual Museum, in progress", "museum.html"),
     ]),
     ("Opportunities", "opportunities.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
-        ("Community", "community.html"),
         ("Volunteer", "volunteer.html"),
-        ("Volunteer Profile (members)", "create-profile.html"),
+        ("Community", "community.html"),
         ("Scanning Guide", "scanning-guide.html"),
-        ("Splats With Phones", "splats-with-phones.html"),
+        ("Splats With Phones course", "splats-with-phones.html"),
+        ("Bring it to your region", "unique-mappers.html"),
+        ("Member profile", "create-profile.html"),
     ]),
     ("About", "about.html", [
-        ("About", "about.html"),
+        ("Our story", "about.html"),
         ("Our People", "team.html"),
-        ("El Jem Conference", "el-jem-conference.html"),
-        ("ImmerseGT 2026", "immersegt-2026.html"),
-        ("TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
-        ("Virtual Museum", "museum.html"),
-        ("Services", "services.html"),
         ("Press &amp; Recognition", "press.html"),
+        ("El Jem Conference paper", "el-jem-conference.html"),
+        ("ImmerseGT 2026", "immersegt-2026.html"),
+        ("Services", "services.html"),
+        ("Contact", "contact.html"),
     ]),
-    ("Contact", "contact.html"),
 ]
 
 
@@ -2560,8 +2581,9 @@ each maker's own gallery, or put on a headset.</p>
 </div>
 <a class="cb-art" href="explore.html" aria-label="Explore in 3D">
 <span class="cb-ring"></span>
-<img src="{img('museum-statue-niche.jpg', 900)}" alt="" loading="lazy">
+<img src="{img('explore-hero.jpg', 1000)}" alt="The Tanit Stela in 3D, with Nura the guide floating beside it" loading="lazy">
 <span class="cb-tag">Drag to turn</span>
+<img class="cb-inset" src="{img('explore-gallery.jpg', 600)}" alt="A maker's gallery: pieces on plinths in a round room" loading="lazy">
 </a>
 </div>
 </div></section>
@@ -3000,29 +3022,39 @@ if os.path.isdir(_audio_dir):
 
 
 WALK_ROOMS = [
-    ("Stelae of the Tophet", "Grave stones from Punic Carthage, many carved with the sign of Tanit",
+    ("Stones raised to Tanit",
+     "Two thousand years ago, families set these stones in the Tophet of Carthage. Many still carry the sign of Tanit, the goddess this whole project is named after",
      ["stela", "stelae"]),
-    ("Statues of Carthage", "Roman statues from Byrsa Hill and the villas. Most have lost a head or an arm along the way",
+    ("The people of Carthage",
+     "Romans of Byrsa Hill and the villas, carved in marble. Most lost a head or an arm on the way to us, and they are still unmistakably people",
      ["statue", "torso", "figure", "togatus", "bust"]),
-    ("Columns and capitals", "From the temples, baths and villas of Roman Carthage",
+    ("What held the roof up",
+     "Columns and capitals from the temples, baths and villas. The roofs are long gone. These stayed standing",
      ["column", "capital"]),
-    ("Mosaic floors", "From the Roman villas of Carthage, stood up so you can see them properly",
+    ("Floors people walked on",
+     "Mosaics from the Roman villas of Carthage. Somebody set every one of these little stones by hand, and people walked over them for centuries",
      ["mosaic"]),
-    ("Doors of the medina", "Still opening and closing every day in Tunis and Kairouan",
+    ("Doors still in use",
+     "Doors and tilework from Tunis and Kairouan that still open and close every day. This is heritage people live inside",
      ["door", "tilework"]),
-    ("Mihrabs and niches", "The niches that show which way to face when you pray",
+    ("Where prayer faces",
+     "Mihrabs and niches from mosques, madrasas and a Roman water temple. Each one tells you which way to turn",
      ["niche", "mihrab", "mahram"]),
-    ("Inscriptions", "Latin and Arabic, all of it cut by hand",
+    ("Words cut in stone",
+     "Latin and Arabic inscriptions, every letter cut by hand. Some of them can still be read",
      ["inscri", "laurel", "architectural fragment", "architectural block", "relief", "calligraph"]),
-    ("Water", "From the aqueduct temple at Zaghouan to the wells of the medina",
+    ("Water, carried and kept",
+     "From the temple over the spring at Zaghouan, water travelled ninety kilometres to Carthage. These basins and wells are where it arrived",
      ["basin", "bir ", "bir(", "well", "fountain"]),
-    ("Whole places", "Passages, interiors, and a city the sea gave back for a few days",
+    ("Rooms and passages",
+     "Whole places rather than single objects: passages under the baths, tiled interiors, and a city the sea gave back for a few days",
      ["test scan", "passageway", "neapolis", "interior"]),
-    ("Everyday objects", "Things people used, which is exactly why we kept them",
+    ("Everyday things",
+     "A loom, a carpet. Nothing grand, just what people used, which is exactly why we kept them",
      ["loom", "carpet"]),
 ]
-WALK_MADE = ("Made by our volunteers",
-             "Not scans: pieces our volunteers modelled themselves for the virtual museum")
+WALK_MADE = ("Made by hand, today",
+             "Not scans. Our volunteers modelled these themselves for the virtual museum, learning Tunisia's history as they went")
 WALK_MAX_PER_ROOM = 5
 # the background recording, with the credit its licence asks for. Replace the file and the
 # credit together when a Tunisian recording we hold the rights to comes along.
@@ -3033,18 +3065,18 @@ MUSIC = {"file": "bg-oriental-nights.mp3",
 # Nura speaks in short, warm lines. The long factual text stays on the label, where it
 # belongs; she only opens with one line and lets you ask for more.
 NURA_OPENERS = {
-    "Statues of Carthage": "This was a portrait of someone once. We only have part of them now.",
-    "Columns and capitals": "This used to hold up a roof. Quite a job, for two thousand years.",
-    "Stelae of the Tophet": "Someone placed this stone here more than two thousand years ago.",
-    "Mosaic floors": "People walked across this every day. Look at the detail under their feet.",
-    "Doors of the medina": "This door is still in use. Someone probably opened it this morning.",
-    "Mihrabs and niches": "This niche shows which way to face when you pray.",
-    "Inscriptions": "Someone carved these letters by hand. See if you can read any.",
-    "Water": "Water ran through here on its way to a whole city.",
-    "Whole places": "This one is a whole place, not a single object. Turn it slowly.",
-    "Everyday objects": "Nothing grand, just something people used. That is why we kept it.",
+    "The people of Carthage": "This was a portrait of someone once. We only have part of them now.",
+    "What held the roof up": "This used to hold up a roof. Quite a job, for two thousand years.",
+    "Stones raised to Tanit": "Someone placed this stone here more than two thousand years ago.",
+    "Floors people walked on": "People walked across this every day. Look at the detail under their feet.",
+    "Doors still in use": "This door is still in use. Someone probably opened it this morning.",
+    "Where prayer faces": "This niche shows which way to face when you pray.",
+    "Words cut in stone": "Someone carved these letters by hand. See if you can read any.",
+    "Water, carried and kept": "Water ran through here on its way to a whole city.",
+    "Rooms and passages": "This one is a whole place, not a single object. Turn it slowly.",
+    "Everyday things": "Nothing grand, just something people used. That is why we kept it.",
     "Other objects": "This one does not fit a category, which makes it my favourite kind.",
-    "Made by our volunteers": "This one is not a scan. A volunteer built it from nothing.",
+    "Made by hand, today": "This one is not a scan. A volunteer built it from nothing.",
 }
 
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
@@ -3384,6 +3416,14 @@ Map</button>
 <svg class="off-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3l2.7-2.7-1.4-1.4L15.2 10.6l-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>
 Sound</button>
 
+<button id="more-toggle" aria-label="More" aria-expanded="false"><span></span><span></span><span></span></button>
+<div id="more-sheet" hidden>
+<button class="ms-track" data-track="scans">Scanned in Tunisia</button>
+<button class="ms-track" data-track="made">Made by volunteers</button>
+<button class="ms-act" data-for="scan-entry">How to scan</button>
+<button class="ms-act" data-for="map-toggle">Map of everything</button>
+<button class="ms-act ms-sound" data-for="sound-toggle">Sound</button>
+</div>
 <button id="scan-entry" title="See how a scan is made">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
 How to scan</button>
@@ -4324,34 +4364,36 @@ if(RX){{
 
 def build_volunteer():
     faqs = [
-        ("How can I become a volunteer?",
-         "We’re so excited that you’re interested in volunteering! Please fill out our "
-         f"<a href='{VOLUNTEER_FORM_URL}' target='_blank' rel='noopener'>volunteer form</a> "
-         "and we’ll get back to you via email."),
-        ("What should I know before applying?",
-         "Our volunteer positions are currently unpaid and remote. We work with volunteers digitally all over "
-         "the globe. We have some mentorship and networking opportunities available to our volunteers based on "
-         "your chosen area of focus. Areas of focus we’re currently seeking are: grant writing, XR/VR "
-         "development, business development, social media management, graphic design, and general interest. "
-         "All levels of experience and expertise are welcome to volunteer."),
-        ("How does your team work together?",
-         "As a global, virtual team, it’s important for us to communicate asynchronously. The majority of our "
-         "communication is done via Slack. Once a week, we meet virtually and discuss ongoing, upcoming, and "
-         "blocked tasks to keep our mission moving forward."),
-        ("Are there different ways to volunteer?",
-         "As one of our goals is to engage the public in preservation work, the ability to volunteer will "
-         "eventually expand and become tiered. While we build our foundation, we hold only one tier. Keep "
-         "checking back to see how you can get involved!"),
-        ("Do you work with organizations and external partners?",
-         "Preservation, cultural conservation, and climate work is done best in community. We are open to all "
-         "forms of partnership that help move our mission forward. If you are an archaeologist, non-profit, "
-         "government agency, or any other organization aligned in the mission of conservation or preservation, "
-         f"please reach out to us at <a href='mailto:{EMAIL}'>{EMAIL}</a>."),
-        ("How much time do I need to dedicate if I become a volunteer?",
-         "Volunteer tasks are project and task based. After expressing your interests via the volunteer form, a "
-         "member of our leadership team will reach out to you with questions about your capacity for available "
-         "work that aligns with your interests and expertise. You set the expectation on how much you can "
-         "commit to and what time you have."),
+        ("How do I join?",
+         f"Fill in the <a href='{VOLUNTEER_FORM_URL}' target='_blank' rel='noopener'>volunteer form</a> and "
+         "tell us what you enjoy doing. Someone from the team writes back, adds you to Slack, and you meet "
+         "everyone on the next Thursday call. That is the whole process."),
+        ("Do I need to know 3D, or archaeology?",
+         "No. Our first scans were made with a phone by someone who had never scanned anything. People here "
+         "write, design, research, teach, translate, organise trips, model objects, clean up scans, apply for "
+         "grants and run our social media. If you are curious about Tunisia's history, there is a place for you."),
+        ("Is it paid?",
+         "Not yet. Everyone at Tanit XR is a volunteer, including the founders, and most costs so far have come "
+         "out of our own pockets. We will never ask volunteers to work so that someone else earns; when funding "
+         "arrives, the first people we want to pay are the volunteers on the ground in Tunisia."),
+        ("How much time does it take?",
+         "As much as you can give. Tasks are small and self-contained: one scan to clean up, one object to "
+         "research, one article to write. Some people come to the Thursday call every week, some appear once a "
+         "month. You set the pace and you can pause whenever life gets busy."),
+        ("How do you work together?",
+         "Mostly on Slack, across four continents and as many time zones. Once a week we meet on a call, "
+         "Thursdays at 12 pm Eastern, 5 pm in Tunisia, to look at new scans, learn the history behind them and "
+         "help each other with whatever is stuck. Julia records a short history lesson each week for anyone who "
+         "cannot make it."),
+        ("What do I get out of it?",
+         "Your work is credited to you, on your own page here and on every model you touch. You learn "
+         "photogrammetry, 3D and XR by doing them on real heritage. Students get portfolio reviews, mock "
+         "interviews and mentoring from people working in the field. And you become part of a community that "
+         "genuinely likes each other."),
+        ("I run an organisation. Can we work with you?",
+         "Please write. We work with universities, museums, mapping communities and nonprofits, in Tunisia and "
+         "beyond. The Unique Mappers in Nigeria are the first community bringing the model to a second country. "
+         f"Reach us at <a href='mailto:{EMAIL}'>{EMAIL}</a>."),
     ]
     faq_html = "".join(
         f"<details><summary>{q}</summary><div class='a'>{a}</div></details>" for q, a in faqs)
@@ -4378,10 +4420,10 @@ objects by hand, like these.</p></div>
 </div></section>
 <section class="band pad"><div class="wrap center">
 <div class="eyebrow">Become a volunteer</div>
-<h2 class="sec-title">Join us in preserving Tunisia’s cultural heritage</h2>
-<p class="sec-sub" style="color:rgba(255,255,255,.82)">We rely on our international volunteer support to bring
-TanitXR to life. We greatly appreciate any time you are willing to share with us as we work toward the digital
-preservation of Tunisia’s historically and culturally rich heritage sites.</p>
+<h2 class="sec-title">Come and help us keep Tunisia’s history</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.82)">Everything on this site was made by volunteers, on
+Thursday calls and weekend scanning trips. Whatever time you have, there is a piece of this that is yours to
+do.</p>
 <a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer</a>
 </div></section>"""
     page("volunteer.html", "Volunteer", body)
@@ -4846,14 +4888,13 @@ def build_support():
     body = f"""
 {page_hero("Support", "Support", bg="img_7396-copy.jpg")}
 <section class="pad"><div class="wrap"><div class="prose">
-<p>As climate change, conflict, and neglect threaten historic sites like ancient ruins, our shared global
-heritage is at risk.</p>
-<p>XR, a term that includes augmented and virtual reality, offers powerful tools to help. XR offers a way to
-preserve disappearing heritage, by capturing sites in 3D, enriching visits with storytelling, and making
-global history accessible from anywhere.</p>
-<p>Named for the ancient Carthaginian goddess of protection and the moon, if we can protect heritage in
-Tunisia, using immersive technology, community storytelling, and local leadership, we can build a model to
-safeguard cultural sites around the world.</p>
+<p>Tanit XR is run entirely by volunteers. Nobody is paid, and most of what you see here, the scanning
+trips, the tools, the hosting, the hackathon prizes, has so far been paid out of our founders' own pockets.
+That cannot last, and it should not.</p>
+<p>A donation goes straight into the work: a volunteer's bus fare and mobile data for a day of scanning, a
+month of hosting for the free archive, a workshop that teaches someone in Tunisia to capture their own
+heritage, and one day a proper scanner so the community can record more than a phone allows. Here is what
+each amount does.</p>
 <p class="center" style="margin:34px 0">
 <a class="btn btn-gold" style="font-size:17px;padding:16px 44px" href="{DONATE_URL_SUPPORT}"
 target="_blank" rel="noopener">DONATE HERE</a></p>
