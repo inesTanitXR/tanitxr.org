@@ -972,7 +972,7 @@ function start() {
     x.fillText('TANIT XR', 44, H - 40);
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(0.72, 0.295),
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(1.06, 0.435),
       new THREE.MeshBasicMaterial({ map: tex, transparent: true }));
     return m;
   }
@@ -1003,7 +1003,7 @@ function start() {
     const spread = Math.PI * 0.72;                  // a little over a third of a circle
     list.forEach((s, k) => {
       const a = -spread / 2 + (list.length === 1 ? spread / 2 : (k / (list.length - 1)) * spread);
-      const R = 2.7;
+      const R = 3.4;
       const h = realHeight(s.it);
       s.xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
                    wrapScale: s.wrap.scale.x, fitScale: s.fit ? s.fit.scale.x : 1,
@@ -1018,8 +1018,8 @@ function start() {
       s.wrap.visible = s.loaded;
       if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
       const lab = makeLabel(s.it);
-      lab.position.set(Math.sin(a) * (R - 0.15), Math.max(0.42, h * 0.5) - h / 2 - 0.26,
-                       -Math.cos(a) * (R - 0.15));
+      // float it above the piece so nothing occludes it, a little above eye line
+      lab.position.set(Math.sin(a) * R, Math.max(h + 0.34, 1.8), -Math.cos(a) * R);
       lab.rotation.y = a;
       s.xrLabel = lab;
       xrRoot.add(lab);
@@ -1027,9 +1027,14 @@ function start() {
     });
     if (nura) {
       nuraHolder.visible = true;
-      nuraHolder.position.set(0.9, 1.25, -1.1);
+      nuraHolder.position.set(1.5, 1.15, -1.9);
     }
   }
+
+  // A way to inspect the immersive layout without a headset: ?xrpreview=1 builds the same
+  // arc and puts the camera where a standing viewer's eyes would be. Drag to look around.
+  const XR_PREVIEW = /[?&]xrpreview=1/.test(location.search);
+  let previewYaw = 0;
 
   function enterXR() {
     xrMode = true;
@@ -1265,6 +1270,19 @@ function start() {
   cursor = target;
   load(slots[0]);
 
+  if (XR_PREVIEW) {
+    // let the arc's models arrive, then lay it out and hold there
+    setTimeout(() => {
+      xrMode = true;
+      document.body.classList.add('in-xr');
+      xrStart = 0;
+      xrLayout();
+    }, 900);
+    stage.addEventListener('pointermove', e => {
+      if (dragging) previewYaw -= (e.clientX - lastX) * 0.004;
+    }, { passive: true });
+  }
+
   // she introduces herself once, so the opening screen does not have to
   const GREETED = 'tanitxr.greeted';
   setTimeout(() => {
@@ -1304,6 +1322,13 @@ function start() {
   function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
     if (xrMode) {                                   // the headset owns the camera; you walk
+      if (XR_PREVIEW) {                             // no headset: stand at the centre of the arc
+        camera.position.set(0, 1.6, 0);
+        camera.rotation.set(0, previewYaw, 0);
+        camera.fov = 70;
+        camera.updateProjectionMatrix();
+        camera.updateMatrixWorld();
+      }
       if (mixer) mixer.update(dt);
       xrPlaced.forEach(s => { if (s.loaded) s.wrap.visible = true; });
       if (xrGrab) {                                 // hold the trigger and swing to turn it
@@ -1312,7 +1337,7 @@ function start() {
         xrGrab.lastYaw = y;
       }
       if (nura) {
-        nuraHolder.position.y = 1.25 + Math.sin(clock.elapsedTime * 1.05) * 0.06;
+        nuraHolder.position.y = 1.15 + Math.sin(clock.elapsedTime * 1.05) * 0.06;
         nura.rotation.y = nuraBaseYaw + Math.sin(clock.elapsedTime * 0.5) * 0.25;
       }
       renderer.render(scene, camera);
