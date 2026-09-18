@@ -4893,31 +4893,35 @@ helping remotely, every volunteer contributes to preserving history.</p>
 def build_partners():
     """For companies and foundations: what working with Tanit XR looks like, without amounts."""
     offers = [
-        ("Your team learns to scan",
-         "A half-day or a six-week course, online or on site, where your employees learn to capture "
-         "objects and places in 3D with a phone, then publish a real piece of heritage to the open "
-         "archive under their names. Skills-based volunteering people actually talk about afterwards."),
-        ("Adopt a site or a gallery",
-         "Fund the scanning of one Tunisian site, or the making of one gallery in the virtual museum, "
-         "and it carries your name: on the page, in the 3D experience, in the headset."),
-        ("Bring a room to your event",
-         "We set up the 3D experience and a headset at your conference, office or client event, with "
-         "a volunteer to guide people through it. Heritage is a conversation nobody expects at a tech event."),
-        ("A talk or a workshop",
-         "Our founder and team speak at conferences and companies about phone photogrammetry, "
-         "community-built XR and heritage at risk: AWE, Voices of VR, Georgia Tech, the El Jem conference. "
-         "Book a session for your team or your audience."),
-        ("Sponsor a hackathon track",
-         "We run heritage tracks at hackathons, with real scans as the material. Your company sets the "
-         "challenge, meets the students, and sees what they build in a weekend."),
-        ("Fund a scanning season",
-         "Bus fares, mobile data, backups and a modest fee for local volunteers in Tunisia for a season of "
-         "documentation, with the sites, the counts and the stories reported back to you monthly."),
+        ("Your team's hours, on real work",
+         "Skills-based volunteering with a clear task: optimise a scan for the web, research an object's history, "
+         "translate a label into French or Arabic, build a piece of the virtual museum. Half a day or a season, "
+         "online, with a volunteer of ours alongside. Everything your team makes is published under their names."),
+        ("Adopt a gallery in the virtual museum",
+         "The museum is ours to build, room by room. Fund one gallery, from its walls to the objects inside and the "
+         "stories Nura tells there, and it carries your name in the browser and in the headset."),
+        ("Build an immersive experience with us",
+         "Your developers and designers, our volunteers and our published scans, one weekend or one quarter: an AR "
+         "lesson, a VR room, a piece for your own event. The kind of project your team asks to be part of."),
+        ("A care day for a coastal site",
+         "With the authorities who look after the sites, a day of cleaning and care at a coastal site with local "
+         "volunteers: travel, meals, gloves and bags, and a modest fee for the locals who show up. The sea is the "
+         "clock we work against."),
+        ("Learn to capture in 3D with a phone",
+         "A workshop for your team on phone photogrammetry, on objects and places we are free to scan, with the "
+         "method our volunteers use. A skill people keep, and a new way to look at the street they walk every day."),
+        ("A talk, a workshop or a room at your event",
+         "Our founder and team speak on community XR, phone 3D capture and heritage at risk: AWE, Voices of VR, Georgia "
+         "Tech, the El Jem conference. Or we bring the 3D experience and a headset to your conference or office, with "
+         "a volunteer to guide people through it."),
+        ("Fund the community itself",
+         "Courses, mentoring for students, hosting and tools, the weekly call across four continents. The unglamorous "
+         "part that keeps eighty-five volunteers working, and the first paid coordinator when we can afford one."),
     ]
     offer_html = "".join(f'<div class="act"><b>{esc(t)}</b><p>{esc(d)}</p></div>' for t, d in offers)
     gets = [
-        "Impact you can point at: every object your support made possible is public, in 3D, with your name beside it.",
-        "Numbers, monthly: visits, objects viewed, people trained, sites documented, from the same counter we use ourselves.",
+        "Impact you can point at: every gallery, experience and piece your support made possible is public, in 3D, with your name beside it.",
+        "Numbers, monthly: visits, objects viewed, people trained, volunteer hours, from the same counter we use ourselves.",
         "Stories your communications team can use: volunteers, sites, a storm, a rescue, with pictures we take ourselves.",
         "Your logo on the site, in the experience and at our events, and a mention in every newsletter edition.",
         "Employees who learned something real and can show their families what they helped keep.",
@@ -4930,9 +4934,10 @@ def build_partners():
 <div class="center" style="max-width:760px;margin:0 auto 44px">
 <div class="eyebrow">For companies and foundations</div>
 <h2 class="sec-title">Keep a country's memory, with your name on it</h2>
-<p class="sec-sub">Tanit XR is eighty-five volunteers on four continents who scan Tunisia's endangered heritage
-with their phones and publish it free, in 3D, for anyone. Everything on this site was built without a single paid
-person. A partnership pays for the scanning seasons, the training and the tools, and gives your team a real part in it.</p>
+<p class="sec-sub">Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage
+into 3D and publish it free, for anyone, working alongside the institutions that look after the sites. Everything on
+this site was built without a single paid person. A partnership pays for the museum, the experiences, the training and
+the care of the places, and gives your team a real part in it.</p>
 <p style="margin-top:18px"><a class="btn btn-gold" href="explore.html?tour=1">Take the four-minute guided visit</a>
 &nbsp; <a class="btn btn-line" href="mailto:{EMAIL}?subject=Partnering%20with%20Tanit%20XR">Write to us</a></p>
 </div>

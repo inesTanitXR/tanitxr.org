@@ -32,7 +32,7 @@ async function icon(Comp, color, size = 256) {
   s.addImage({ path: MEDIA + 'tanitxr-logo_red_horizontal.png', x: 0.7, y: 0.6, w: 2.4, h: 1.0 });
   eyebrow(s, 'Partnership opportunities', 0.7, 2.3, C.gold);
   T(s, "Keep a country's memory, with your name on it", { x: 0.7, y: 2.7, w: 5.9, h: 2.2, fontFace: TITLE, fontSize: 40, bold: true, color: C.white });
-  T(s, 'Tanit XR is a volunteer community on four continents that 3D-scans Tunisia\'s endangered heritage with phones and publishes it free, in 3D, AR and VR.', { x: 0.7, y: 5.0, w: 5.9, h: 1.2, fontSize: 15, color: C.sand });
+  T(s, 'Tanit XR is a volunteer community on four continents that brings Tunisia\'s endangered heritage into 3D and publishes it free, in 3D, AR and VR, alongside the institutions that look after the sites.', { x: 0.7, y: 5.0, w: 5.9, h: 1.2, fontSize: 15, color: C.sand });
   footer(s, true);
   s.addNotes('Open with the four-minute guided visit at tanitxr.org/explore?tour=1 before this deck.');
 
@@ -135,12 +135,12 @@ async function icon(Comp, color, size = 256) {
   eyebrow(s, 'Ways to partner', 0.7, 0.7);
   T(s, 'Pick one, or shape one with us', { x: 0.7, y: 1.05, w: 12, h: 0.9, fontFace: TITLE, fontSize: 32, bold: true });
   const offers = [
-    [FA.FaMobileAlt, 'Your team learns to scan', 'A half day or a six-week course, online or on site. Your employees publish a real piece of heritage under their names.'],
-    [FA.FaLandmark, 'Adopt a site or a gallery', 'Fund the scanning of one site, or one gallery in the virtual museum, and it carries your name in 3D and in the headset.'],
-    [FA.FaVrCardboard, 'Bring a room to your event', 'The 3D experience and a headset at your conference or office, with a volunteer to guide people through it.'],
-    [FA.FaMicrophone, 'A talk or a workshop', 'Our founder and team speak on phone photogrammetry, community XR and heritage at risk: AWE, Voices of VR, Georgia Tech, El Jem.'],
-    [FA.FaCode, 'Sponsor a hackathon track', 'Real scans as the material. You set the challenge, meet the students, see what they build in a weekend.'],
-    [FA.FaRoute, 'Fund a scanning season', 'Bus fares, data, backups and a modest fee for local volunteers, with sites, counts and stories reported monthly.'],
+    [FA.FaUsers, "Your team's hours, on real work", 'Optimise a scan, research an object, translate a label, build a piece of the museum. Published under their names.'],
+    [FA.FaLandmark, 'Adopt a gallery in the museum', 'Fund one gallery of the virtual museum, walls to stories, and it carries your name in the browser and the headset.'],
+    [FA.FaCode, 'Build an experience with us', 'Your developers, our volunteers and our published scans: an AR lesson, a VR room, a piece for your own event.'],
+    [FA.FaWater, 'A care day for a coastal site', 'With the site authorities: cleaning and care at a coastal site with local volunteers, who are paid for their day.'],
+    [FA.FaMobileAlt, 'Learn 3D capture with a phone', 'A workshop for your team, on objects and places we are free to scan, with the method our volunteers use.'],
+    [FA.FaMicrophone, 'A talk or a room at your event', 'Our team speaks on community XR and heritage at risk, or brings the 3D experience and a headset to you.'],
   ];
   const grid = [[0.7, 2.15], [4.87, 2.15], [9.04, 2.15], [0.7, 4.55], [4.87, 4.55], [9.04, 4.55]];
   for (let i = 0; i < offers.length; i++) {
@@ -157,8 +157,8 @@ async function icon(Comp, color, size = 256) {
   eyebrow(s, 'What you get back', 0.7, 0.7, C.gold);
   T(s, 'Impact you can point at', { x: 0.7, y: 1.05, w: 12, h: 0.9, fontFace: TITLE, fontSize: 32, bold: true, color: C.white });
   const gets = [
-    'Every object your support made possible is public, in 3D, with your name beside it.',
-    'Numbers, monthly: visits, objects viewed, people trained, sites documented, from the same counter we use ourselves.',
+    'Every gallery, experience and piece your support made possible is public, in 3D, with your name beside it.',
+    'Numbers, monthly: visits, objects viewed, people trained, volunteer hours, from the same counter we use ourselves.',
     'Stories and pictures for your communications team, told plainly, with your part in them.',
     'Your logo on the site, in the experience and at our events, and a mention in every newsletter edition.',
     'Employees who learned something real and can show their families what they helped keep.',
@@ -175,8 +175,8 @@ async function icon(Comp, color, size = 256) {
   eyebrow(s, 'Partnership levels', 0.7, 0.7);
   T(s, 'A first step, and a way to grow', { x: 0.7, y: 1.05, w: 12, h: 0.9, fontFace: TITLE, fontSize: 32, bold: true });
   const tiers = [
-    ['Scanning day', '$2,500', 'One volunteer\'s season of site visits: transport, data, backups.', 'Named on the objects scanned that season'],
-    ['Adopt a site', '$10,000', 'Every object from one site, scanned, researched, published.', 'Your name on the site\'s gallery'],
+    ['Care day', '$2,500', 'One day of cleaning and care at a coastal site, with local volunteers paid for their time.', 'Named on the day\'s story and pictures'],
+    ['Adopt a gallery', '$10,000', 'One gallery of the virtual museum, built, furnished and told, with your name on it.', 'Your name in the browser and the headset'],
     ['Sponsor a track', '$25,000', 'A year of one volunteer track, or a full course cohort of 20.', 'Featured in materials, quarterly reports'],
     ['Founding partner', '$100,000', 'A custom year-round volunteer programme for your team on one track.', 'Lead recognition, quarterly reports'],
     ['Title sponsor', '$300,000', 'All four tracks, the virtual museum, and core team capacity.', 'Title sponsor of the museum, monthly reports'],
