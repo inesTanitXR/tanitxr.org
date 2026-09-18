@@ -37,10 +37,17 @@ for p in data["pieces"]:
     f = os.path.join(HERE, "media", "models", p["slug"] + ".glb")
     if not os.path.exists(f):
         print("missing file:", f); continue
+    kit = "main-hall" not in p["slug"] and "furnished-room" not in p["slug"]
     desc = (f'{p["title"]}, modelled by {p["by"]} for the Tanit XR virtual museum of Tunisian heritage. '
-            f'{p.get("note", "")}\n\nPart of the volunteer-built collection at https://tanitxr.org/walk/')
-    fields = {"name": f'{p["title"]} (Tanit XR museum)', "description": desc,
-              "tags": "tanitxr tunisia museum vr architecture volunteer",
+            f'{p.get("note", "")}\n\n'
+            + ('One piece of the Tanit XR building kit. The kit is a set of puzzle pieces (arches, walls, '
+               'pillars, ceilings, fountains, lamps, plants) that any volunteer can download, snap together '
+               'in Unity or Blender, and turn into a room of their own for the museum. Download is free '
+               'under CC BY-NC-SA; credit the maker.\n\n' if kit else '')
+            + 'All the pieces, in 3D: https://tanitxr.org/walk/  Join us: https://tanitxr.org/community/')
+    fields = {"name": f'{p["title"]} (Tanit XR building kit)' if kit else f'{p["title"]} (Tanit XR museum)',
+              "description": desc,
+              "tags": "tanitxr tunisia museum vr architecture volunteer modular buildingkit lowpoly",
               "categories": "architecture", "license": "by-nc-sa",
               "isPublished": "true" if publish else "false", "isInspectable": "true"}
     body, ctype = multipart(fields, f)

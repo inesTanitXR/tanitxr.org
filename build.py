@@ -3158,8 +3158,8 @@ def build_walk():
                                  "sketchfab": pc.get("sketchfab"),
                                  "text": pc.get("note", ""), "hi": pc.get("hi")})
     # one room per artist, so each maker has their own space rather than a shared shelf
-    ROOM_SUB = {"Patrick Molen": "The museum itself: the main hall, and the building kit every "
-                                 "new gallery is assembled from",
+    ROOM_SUB = {"Patrick Molen": "The museum itself, and its building kit: puzzle pieces any "
+                                 "volunteer can take and assemble into a room of their own",
                 "Kristina Reyes": "A furnished room for the virtual museum, and the pieces in it"}
     made_rooms = []
     if made:
