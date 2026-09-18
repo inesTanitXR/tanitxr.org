@@ -1684,6 +1684,16 @@ def analytics_tag():
     return ""
 
 
+# Ines's copy carries no em dashes. Imported text (old posts, model descriptions, scraped
+# bios) arrives full of them, so every page is normalised once, outside its script blocks.
+_SCRIPT_SPLIT = re.compile(r"(<script\b.*?</script>)", re.S)
+def dedash(html):
+    parts = _SCRIPT_SPLIT.split(html)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r"[ \t]*\u2014[ \t]*", ", ", parts[i])
+    return "".join(parts)
+
+
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
          share_img="aug-20260813_124249.jpg"):
     # like the original site, the menu floats over the page hero photo wherever there is one
@@ -1769,7 +1779,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     out_dir = os.path.join(DOCS, out_dir_rel)
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html" if not (is_index or is_404) else fname), "w") as f:
-        f.write(doc)
+        f.write(dedash(doc))
     if not is_404:
         SITEMAP.append(out_dir_rel)
     if not (is_index or is_404):
