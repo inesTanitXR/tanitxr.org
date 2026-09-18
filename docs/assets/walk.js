@@ -246,6 +246,60 @@ function start() {
     sayLine(expanded ? (s.it.hi + ' ' + s.it.note) : (s.it.hi || s.it.title));
   });
 
+  // ---- the closing demo: how a scan is actually made, three circles around the object
+  const scanEl = document.querySelector('.wst-scan');
+  let scanT = 0, scanTarget = 0, phone = null, demoObj = null, demoAngle = 0, demoY = 0;
+  const demo = new THREE.Group();
+  demo.visible = false;
+  scene.add(demo);
+
+  const RINGS = [-0.42, 0.06, 0.54];                 // low pass, eye level, high pass
+  RINGS.forEach(y => {
+    const pts = [];
+    for (let i = 0; i <= 96; i++) {
+      const a = (i / 96) * Math.PI * 2;
+      pts.push(new THREE.Vector3(Math.cos(a) * 1.45, y, Math.sin(a) * 1.45));
+    }
+    const geo = new THREE.BufferGeometry().setFromPoints(pts);
+    const line = new THREE.Line(geo, new THREE.LineDashedMaterial({
+      color: 0xa35f3f, dashSize: 0.1, gapSize: 0.08, transparent: true, opacity: 0.55 }));
+    line.computeLineDistances();
+    demo.add(line);
+  });
+
+  (function buildPhone() {
+    phone = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.3, 0.022),
+      new THREE.MeshStandardMaterial({ color: 0x2e2724, roughness: 0.42, metalness: 0.25 }));
+    const screen = new THREE.Mesh(new THREE.PlaneGeometry(0.128, 0.265),
+      new THREE.MeshBasicMaterial({ color: 0xbfd8e6 }));
+    screen.position.z = -0.013;
+    screen.rotation.y = Math.PI;                     // the screen faces the object
+    const lens = new THREE.Mesh(new THREE.CircleGeometry(0.023, 18),
+      new THREE.MeshStandardMaterial({ color: 0x14110d, roughness: 0.3 }));
+    lens.position.set(0.042, 0.09, 0.013);
+    phone.add(body, screen, lens);
+    demo.add(phone);
+  })();
+
+  // a real object in the middle of the demo, so it is not an abstraction
+  const demoSlug = (CFG.items.find(i => /corinthian/i.test(i.slug)) || CFG.items[0] || {}).slug;
+  if (demoSlug) {
+    loader.load(MODEL_BASE + demoSlug + '.glb', (gltf) => {
+      const o = gltf.scene;
+      o.updateMatrixWorld(true);
+      const b = new THREE.Box3().setFromObject(o);
+      const sz = b.getSize(new THREE.Vector3());
+      const c = b.getCenter(new THREE.Vector3());
+      o.position.set(-c.x, -c.y, -c.z);
+      const g = new THREE.Group();
+      g.add(o);
+      g.scale.setScalar(1.15 / (Math.max(sz.x, sz.y, sz.z) || 1));
+      demoObj = g;
+      demo.add(g);
+    }, undefined, () => { /* the rings still explain it without the object */ });
+  }
+
   // ---- scroll moves along the list, one object per section
   let cursor = 0, target = 0;
   const midOf = el => el.offsetTop + el.offsetHeight / 2 - innerHeight / 2;
@@ -260,6 +314,10 @@ function start() {
     }
     const c = Math.round(target);
     for (let i = c - 1; i <= c + 2; i++) load(slots[i]);
+    if (scanEl) {                                    // how centred the closing demo is
+      const m = midOf(scanEl);
+      scanTarget = clamp(1 - Math.abs(scrollY - m) / (innerHeight * 0.75), 0, 1);
+    }
   }
 
   // ---- drag to turn whichever object is in front
@@ -659,11 +717,36 @@ function start() {
       s.wrap.scale.setScalar(0.78 + 0.22 * a);
       const breathe = ad < 0.5 && !reduce ? Math.sin(t * 0.8) * 0.012 : 0;
       s.wrap.position.y += breathe;                 // the faintest float, so it feels alive
-      s.mats.forEach(m => { m.opacity = a; });
-      s.shadow.material.opacity = a * 0.8;
+      const fade = a * (1 - scanT);
+      s.mats.forEach(m => { m.opacity = fade; });
+      s.shadow.material.opacity = fade * 0.8;
+      s.wrap.visible = fade > 0.005;
       if (!reduce && !dragging && idle > 2.2 && ad < 0.5) s.pivot.rotation.y += dt * 0.14;
     });
 
+    scanT += (scanTarget - scanT) * (reduce ? 1 : 0.1);
+    demo.visible = scanT > 0.01;
+    document.body.classList.toggle('demoing', scanT > 0.5);
+    if (demo.visible) {
+      demo.scale.setScalar(1.06 + 0.16 * scanT);
+      demo.position.set(0.35, -0.1, 0);
+      demo.children.forEach(ch => {
+        if (ch.material && ch.material.isLineDashedMaterial) ch.material.opacity = 0.9 * scanT;
+      });
+      if (demoObj) demoObj.rotation.y += dt * 0.15;
+      // one full circle per pass, stepping up a ring each time
+      const per = 5.0;
+      const loop = (t % (per * RINGS.length)) / per;
+      const ring = Math.floor(loop) % RINGS.length;
+      const a2 = (loop % 1) * Math.PI * 2;
+      const y = RINGS[ring];
+      demoAngle = a2; demoY = y;
+      if (phone) {
+        phone.position.set(Math.cos(a2) * 1.45, y, Math.sin(a2) * 1.45);
+        phone.lookAt(0, y * 0.45, 0);
+        phone.visible = scanT > 0.15;
+      }
+    }
     if (mixer) mixer.update(dt);
     if (nura) {
       // park her a fixed fraction across the frame, so she is never cut off
@@ -672,13 +755,36 @@ function start() {
       ptr.x += (ptr.tx - ptr.x) * 0.06;
       ptr.y += (ptr.ty - ptr.y) * 0.06;
       const homeX = clamp(halfW * 0.52, 1.0, 2.9);
-      nuraHolder.position.x = homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
-      nuraHolder.position.y = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
-      nuraHolder.position.z = 0.9;
+      const hx = homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
+      const hy = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
+      if (scanT > 0.05) {
+        // she flies the circle herself, just behind the phone, and shows you how
+        const R = 1.45 * (demo.scale.x || 1) + 0.62;
+        const ox = demo.position.x + Math.cos(demoAngle - 0.42) * R;
+        const oz = demo.position.z + Math.sin(demoAngle - 0.42) * R;
+        const oy = demo.position.y + demoY * (demo.scale.y || 1) + 0.1;
+        nuraHolder.position.x += ((1 - scanT) * hx + scanT * ox - nuraHolder.position.x) * 0.12;
+        nuraHolder.position.y += ((1 - scanT) * hy + scanT * oy - nuraHolder.position.y) * 0.12;
+        nuraHolder.position.z += ((1 - scanT) * 0.9 + scanT * oz - nuraHolder.position.z) * 0.12;
+      } else {
+        nuraHolder.position.x = hx;
+        nuraHolder.position.y = hy;
+        nuraHolder.position.z = 0.9;
+      }
       // she looks at the new object for a moment, then back at you and your cursor
       glance = Math.max(0, glance - dt);
       const look = Math.min(1, glance) * 0.75;
-      nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look;
+      if (scanT > 0.5) {
+        // turned inward, watching the object as she circles it
+        const want = Math.atan2(demo.position.x - nuraHolder.position.x,
+                                demo.position.z - nuraHolder.position.z) + Math.PI;
+        let diff = want - nuraBaseYaw - nura.rotation.y;
+        while (diff > Math.PI) diff -= Math.PI * 2;
+        while (diff < -Math.PI) diff += Math.PI * 2;
+        nura.rotation.y += diff * 0.1;
+      } else {
+        nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look;
+      }
       nura.rotation.x = -ptr.y * 0.16;
       nura.rotation.z = Math.sin(t * 0.8) * 0.03;
       sparks.children.forEach(m => {

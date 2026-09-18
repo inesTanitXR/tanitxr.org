@@ -804,6 +804,9 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 .wf-btn.solid:hover{background:#2e2118}
 .wf-link{color:#a35f3f;text-decoration:none;font-size:13.5px;font-weight:700;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
+.wf-btn.icon{width:40px;height:40px;padding:0;display:flex;align-items:center;
+  justify-content:center;border-radius:50%}
+.wf-btn.icon svg{width:17px;height:17px;fill:currentColor}
 .wf-btn.gold{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700;
   text-decoration:none}
 .wf-btn.gold:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
@@ -911,6 +914,11 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
 .wst{height:105vh}
+.wst-scan{min-height:125vh;display:flex;align-items:center;padding:0 26px}
+/* the demo takes the stage: the object label and the cues step aside */
+body.demoing #walk-label,body.demoing #saved-chip,body.demoing #rotate-cue,
+body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
+  transition:opacity .4s}
 .wsr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .wst-intro,.wst-end{min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:80px 26px;text-align:center}
@@ -932,6 +940,12 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
   line-height:1.14;font-weight:400}
 .wcard p{color:#463628;font-size:16px;line-height:1.7}
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
+.intro-hints{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;text-align:start}
+.intro-hints li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#5d4c3c;
+  line-height:1.5}
+.intro-hints span{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:var(--gold);
+  color:#241a10;font-size:12px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;margin-top:1px}
 .wmore{display:inline-block;color:#a35f3f;text-decoration:none;font-weight:700;font-size:14px;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
 .wst-fallback{margin:0 auto;max-width:720px;padding:20px 0}
@@ -2739,7 +2753,9 @@ def build_walk():
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
-<button id="wf-poster" class="wf-btn">Make a post image</button>
+<button id="wf-poster" class="wf-btn icon" title="Save a picture of this to post" aria-label="Save a picture of this to post">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+</button>
 </div>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
@@ -2754,8 +2770,23 @@ def build_walk():
 <h1>The Collection</h1>
 <p class="lead">{len(items)} artifacts scanned in Tunisia by our volunteers. Scroll to move
 through them, drag any one to turn it.</p>
+<ul class="intro-hints">
+<li><span>1</span>Nura is here. Tap her and she will tell you about whatever you are looking at.</li>
+<li><span>2</span>Save the ones you like. They stay in your collection and you can share it.</li>
+<li><span>3</span>Six badges are hidden in here. See how many you can find.</li>
+</ul>
 </div></section>
 {blocks}
+<section class="wst-scan" data-scan="1"><div class="wcard">
+<div class="wch">How these are made</div>
+<h2>You circle it, slowly</h2>
+<p>That is the whole technique. Walk a full circle around the object with your phone,
+then do it again higher, and again lower. Overlap every shot with the last one. We use
+Scaniverse, which is free.</p>
+<p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
+&nbsp;<a class="wmore" href="splats-with-phones.html">Come to a workshop</a></p>
+</div></section>
+
 <section class="wst-end"><div class="wcard wide">
 <h2>Every one of these was scanned by a volunteer</h2>
 <p>Sizes in the labels are the real measured ones. The full walkable museum is being built
