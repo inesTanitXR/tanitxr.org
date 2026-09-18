@@ -1651,8 +1651,8 @@ def _nav_items(entries, active):
 
 def header_html(active, transparent, fname="index.html"):
     logo = img("tanitxr-logo_red_vertical.png", 300, as_jpeg=False)
-    left = _nav_items(NAV[:4], active)     # Home, Archive, Opportunities, News
-    right = _nav_items(NAV[4:], active)    # Get Involved, About, Contact
+    left = _nav_items(NAV[:3], active)     # Home, Explore, Opportunities
+    right = _nav_items(NAV[3:], active)    # News, Get Involved, About
     socials = f"""<div class="socials">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
