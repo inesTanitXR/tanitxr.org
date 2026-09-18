@@ -494,6 +494,36 @@ function start() {
     flare = 1;
   }
 
+  // ---- introduce each volunteer once, when you first meet their work
+  const cameo = document.getElementById('vol-cameo');
+  const cameoPhoto = document.getElementById('vc-photo');
+  const cameoLine = document.getElementById('vc-line');
+  const cameoLink = document.getElementById('vc-link');
+  const metPeople = new Set();
+  let cameoTimer = null;
+  function showCameo(it) {
+    const p = it.person;
+    if (!cameo || !p || metPeople.has(p.name)) return;
+    metPeople.add(p.name);
+    clearTimeout(cameoTimer);
+    cameoTimer = setTimeout(() => {
+      if (document.body.classList.contains('demoing')) return;
+      cameoPhoto.src = p.photo;
+      cameoPhoto.alt = p.name;
+      cameoLine.textContent = 'I ' + p.verb + ' this one.';
+      const who = document.getElementById('vc-who');
+      if (who) who.textContent = p.name;
+      cameoLink.href = p.href;
+      cameoLink.textContent = 'See what else ' + p.name.split(' ')[0] + ' has made';
+      cameo.hidden = false;
+      clearTimeout(cameo._h);
+      cameo._h = setTimeout(() => { cameo.hidden = true; }, 11000);
+      if (window.tx) tx('volunteer_cameo', { person: p.name });
+    }, 1400);
+  }
+  const cameoClose = document.getElementById('vc-close');
+  if (cameoClose) cameoClose.addEventListener('click', () => { cameo.hidden = true; });
+
   // ---- the saved tray, so saving actually leads somewhere
   const chip = document.getElementById('saved-chip');
   const chipCount = document.getElementById('saved-count');
@@ -578,6 +608,7 @@ function start() {
     }
     paintSave(s.it);
     if (window.tx) tx('collection_view', { object: s.it.slug });
+    showCameo(s.it);
     bump(p => {
       if (!p.seen.includes(s.it.slug)) p.seen.push(s.it.slug);
       if (s.it.place && !p.places.includes(s.it.place)) p.places.push(s.it.place);

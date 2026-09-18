@@ -636,6 +636,24 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* the volunteer who worked on this object, introduced once each */
+#vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
+  align-items:center;width:min(300px,80vw);background:rgba(253,249,242,.97);
+  border:1px solid rgba(74,53,43,.16);border-radius:14px;padding:13px 15px;
+  box-shadow:0 16px 40px rgba(60,40,26,.2);animation:vcin .5s ease}
+#vol-cameo[hidden]{display:none}
+@keyframes vcin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#vc-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:0 0 auto;
+  background:#e6dbc6;border:2px solid var(--gold)}
+#vc-line{margin:0;font-size:14px;line-height:1.4;color:#2e2118;font-family:var(--serif)}
+#vc-who{display:block;font-size:12px;color:#8a735c;font-weight:600;margin-top:2px}
+#vc-link{display:inline-block;margin-top:4px;font-size:12.5px;color:#a35f3f;font-weight:700;
+  text-decoration:none;border-bottom:1px solid rgba(163,95,63,.4)}
+#vc-close{position:absolute;top:5px;inset-inline-end:8px;border:0;background:none;color:#a3907a;
+  font-size:18px;line-height:1;cursor:pointer}
+#vc-close:hover{color:#4a3527}
+body.walk-fallback #vol-cameo,body.demoing #vol-cameo{display:none}
+@media(max-width:760px){#vol-cameo{inset-inline-end:14px;bottom:92px;width:min(280px,88vw)}}
 @media(max-width:760px){#scan-entry{top:auto;bottom:96px;inset-inline-start:14px;
   padding:8px 13px;font-size:12.5px}}
 #saved-chip:hover{background:#fff}

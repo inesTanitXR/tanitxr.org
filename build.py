@@ -834,6 +834,24 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* the volunteer who worked on this object, introduced once each */
+#vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
+  align-items:center;width:min(300px,80vw);background:rgba(253,249,242,.97);
+  border:1px solid rgba(74,53,43,.16);border-radius:14px;padding:13px 15px;
+  box-shadow:0 16px 40px rgba(60,40,26,.2);animation:vcin .5s ease}
+#vol-cameo[hidden]{display:none}
+@keyframes vcin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#vc-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:0 0 auto;
+  background:#e6dbc6;border:2px solid var(--gold)}
+#vc-line{margin:0;font-size:14px;line-height:1.4;color:#2e2118;font-family:var(--serif)}
+#vc-who{display:block;font-size:12px;color:#8a735c;font-weight:600;margin-top:2px}
+#vc-link{display:inline-block;margin-top:4px;font-size:12.5px;color:#a35f3f;font-weight:700;
+  text-decoration:none;border-bottom:1px solid rgba(163,95,63,.4)}
+#vc-close{position:absolute;top:5px;inset-inline-end:8px;border:0;background:none;color:#a3907a;
+  font-size:18px;line-height:1;cursor:pointer}
+#vc-close:hover{color:#4a3527}
+body.walk-fallback #vol-cameo,body.demoing #vol-cameo{display:none}
+@media(max-width:760px){#vol-cameo{inset-inline-end:14px;bottom:92px;width:min(280px,88vw)}}
 @media(max-width:760px){#scan-entry{top:auto;bottom:96px;inset-inline-start:14px;
   padding:8px 13px;font-size:12.5px}}
 #saved-chip:hover{background:#fff}
@@ -2578,6 +2596,24 @@ def walk_credit(m):
     return " \u00b7 ".join(bits)
 
 
+def walk_person(m):
+    """The volunteer to introduce on this object, if we know who they are and they have a page."""
+    if m.get("by"):
+        slug = member_slug(m.get("by_user")) or author_slug(m["by"])
+        p = TEAM_BY_SLUG.get(slug or "")
+        return ({"name": p["name"], "href": p["href"], "photo": img(p["photo"], 200),
+                 "verb": "modelled"} if (p and p.get("photo")) else None)
+    ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
+               if k.lower() in m["title"].lower()), {})
+    for field, verb in (("optimized_by", "optimized"), ("scanned_by", "scanned")):
+        slug = ov.get(verb.rstrip("d") + "ed") or member_slug(m.get(field))
+        p = TEAM_BY_SLUG.get(slug or "")
+        if p and p.get("photo"):
+            return {"name": p["name"], "href": p["href"], "photo": img(p["photo"], 200),
+                    "verb": verb}
+    return None
+
+
 def nura_line(m):
     """One short, factual remark for Nura, from the object's own description."""
     t = re.sub(r"<[^>]+>", " ", m.get("text") or "")
@@ -2667,6 +2703,7 @@ def build_walk():
                           "place": m["place"] + (f', by {m["by"]}' if m.get("by") else ""),
                           "size": human_size(d) if measured else "",
                           "credit": walk_credit(m),
+                          "person": walk_person(m),
                           "thumb": img(m.get("img") or m.get("thumb"), 260)
                                    if (m.get("img") or m.get("thumb")) else "",
                           "hi": (NURA_OPENERS.get(label, "Have a look at this one.")
@@ -2746,6 +2783,12 @@ def build_walk():
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
 How to scan</button>
 
+<div id="vol-cameo" hidden>
+<img id="vc-photo" src="" alt="">
+<div><p id="vc-line"></p><b id="vc-who"></b><a id="vc-link" href="team.html">See their work</a></div>
+<button id="vc-close" aria-label="Close">&times;</button>
+</div>
+
 <button id="nura-dot" aria-label="Nura has something to say"><span></span></button>
 <div id="nura-bubble" hidden>
 <button id="nura-close" aria-label="Close">&times;</button>
@@ -2799,8 +2842,8 @@ through them, drag any one to turn it.</p>
 <p>That is the whole technique. Walk a full circle around the object with your phone,
 then again higher, then again lower, overlapping every shot with the last. We use
 Scaniverse, which is free, and we capture a mesh rather than a splat.</p>
-<p class="tiny">Our full guide covers the ethics too: consent, care, and who the heritage
-belongs to. It follows the London Charter, the Seville Principles and the CARE Principles.</p>
+<p class="tiny">Scanning heritage is not only a technique. Our guide covers permission and
+care as well as method.</p>
 <p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
 &nbsp;<a class="wmore" href="splats-with-phones.html">Come to a workshop</a></p>
 </div></section>
