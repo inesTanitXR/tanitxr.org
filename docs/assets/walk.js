@@ -255,26 +255,34 @@ function start() {
   });
 
   // ---- the closing demo: how a scan is actually made, three circles around the object
-  const scanEl = document.querySelector('.wst-scan');
+  const scanPanel = document.getElementById('scan-panel');
+  let demoOn = false;
   function goToScanDemo() {
-    if (!scanEl) return;
-    scrollTo({ top: scanEl.offsetTop + scanEl.offsetHeight / 2 - innerHeight / 2,
-               behavior: 'smooth' });
+    demoOn = true;                                   // runs around the object you are on
+    if (scanPanel) scanPanel.hidden = false;
+    closeBubble();
     if (window.tx) tx('scan_demo_opened');
   }
+  function endScanDemo() {
+    demoOn = false;
+    if (scanPanel) scanPanel.hidden = true;
+  }
   const scanBtn = document.getElementById('scan-entry');
-  if (scanBtn) scanBtn.addEventListener('click', goToScanDemo);
+  if (scanBtn) scanBtn.addEventListener('click', () => demoOn ? endScanDemo() : goToScanDemo());
+  const scanDone = document.getElementById('scan-done');
+  if (scanDone) scanDone.addEventListener('click', endScanDemo);
+  addEventListener('keydown', e => { if (e.key === 'Escape' && demoOn) endScanDemo(); });
   let scanT = 0, scanTarget = 0, phone = null, demoObj = null, demoAngle = 0, demoY = 0;
   const demo = new THREE.Group();
   demo.visible = false;
   scene.add(demo);
 
-  const RINGS = [-0.42, 0.06, 0.54];                 // low pass, eye level, high pass
+  const RINGS = [-0.75, 0.05, 0.85];                 // low pass, eye level, high pass
   RINGS.forEach(y => {
     const pts = [];
     for (let i = 0; i <= 96; i++) {
       const a = (i / 96) * Math.PI * 2;
-      pts.push(new THREE.Vector3(Math.cos(a) * 1.45, y, Math.sin(a) * 1.45));
+      pts.push(new THREE.Vector3(Math.cos(a) * 1.75, y, Math.sin(a) * 1.75));
     }
     const geo = new THREE.BufferGeometry().setFromPoints(pts);
     const line = new THREE.Line(geo, new THREE.LineDashedMaterial({
@@ -298,24 +306,6 @@ function start() {
     demo.add(phone);
   })();
 
-  // a real object in the middle of the demo, so it is not an abstraction
-  const demoSlug = (CFG.items.find(i => /corinthian/i.test(i.slug)) || CFG.items[0] || {}).slug;
-  if (demoSlug) {
-    loader.load(MODEL_BASE + demoSlug + '.glb', (gltf) => {
-      const o = gltf.scene;
-      o.updateMatrixWorld(true);
-      const b = new THREE.Box3().setFromObject(o);
-      const sz = b.getSize(new THREE.Vector3());
-      const c = b.getCenter(new THREE.Vector3());
-      o.position.set(-c.x, -c.y, -c.z);
-      const g = new THREE.Group();
-      g.add(o);
-      g.scale.setScalar(1.15 / (Math.max(sz.x, sz.y, sz.z) || 1));
-      demoObj = g;
-      demo.add(g);
-    }, undefined, () => { /* the rings still explain it without the object */ });
-  }
-
   // ---- scroll moves along the list, one object per section
   let cursor = 0, target = 0;
   const midOf = el => el.offsetTop + el.offsetHeight / 2 - innerHeight / 2;
@@ -330,10 +320,6 @@ function start() {
     }
     const c = Math.round(target);
     for (let i = c - 1; i <= c + 2; i++) load(slots[i]);
-    if (scanEl) {                                    // how centred the closing demo is
-      const m = midOf(scanEl);
-      scanTarget = clamp(1 - Math.abs(scrollY - m) / (innerHeight * 0.75), 0, 1);
-    }
   }
 
   // ---- drag to turn whichever object is in front
@@ -751,6 +737,25 @@ function start() {
   cursor = target;
   load(slots[0]);
 
+  // she introduces herself once, so the opening screen does not have to
+  const GREETED = 'tanitxr.greeted';
+  setTimeout(() => {
+    let done = false;
+    try { done = localStorage.getItem(GREETED) === '1'; } catch (e) { done = true; }
+    if (done || !bubble || demoOn) return;
+    try { localStorage.setItem(GREETED, '1'); } catch (e) { /* private mode */ }
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent =
+      'I am Nura. Drag anything to turn it, save the ones you like, and see how many of the '
+      + 'six badges you can find.';
+    if (bubbleLong) bubbleLong.hidden = true;
+    if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
+    beHappy();
+    flare = 1;
+  }, 4200);
+
   const wanted = decodeURIComponent(location.hash.slice(1));
   if (wanted.startsWith('saved=')) {              // someone shared their collection
     const list = wanted.slice(6).split(',').filter(sl => CFG.items.some(x => x.slug === sl));
@@ -787,23 +792,22 @@ function start() {
       s.wrap.scale.setScalar(0.78 + 0.22 * a);
       const breathe = ad < 0.5 && !reduce ? Math.sin(t * 0.8) * 0.012 : 0;
       s.wrap.position.y += breathe;                 // the faintest float, so it feels alive
-      const fade = a * (1 - scanT);
-      s.mats.forEach(m => { m.opacity = fade; });
-      s.shadow.material.opacity = fade * 0.8;
-      s.wrap.visible = fade > 0.005;
+      s.mats.forEach(m => { m.opacity = a; });
+      s.shadow.material.opacity = a * 0.8;
       if (!reduce && !dragging && idle > 2.2 && ad < 0.5) s.pivot.rotation.y += dt * 0.14;
     });
 
+    scanTarget = demoOn ? 1 : 0;
     scanT += (scanTarget - scanT) * (reduce ? 1 : 0.1);
     demo.visible = scanT > 0.01;
     document.body.classList.toggle('demoing', scanT > 0.5);
     if (demo.visible) {
-      demo.scale.setScalar(1.06 + 0.16 * scanT);
-      demo.position.set(0.35, -0.1, 0);
+      demo.scale.setScalar(1.0);
+      demo.position.set(0, 0, 0);                    // centred on the object you are viewing
       demo.children.forEach(ch => {
         if (ch.material && ch.material.isLineDashedMaterial) ch.material.opacity = 0.9 * scanT;
       });
-      if (demoObj) demoObj.rotation.y += dt * 0.15;
+
       // one full circle per pass, stepping up a ring each time
       const per = 5.0;
       const loop = (t % (per * RINGS.length)) / per;
@@ -812,7 +816,7 @@ function start() {
       const y = RINGS[ring];
       demoAngle = a2; demoY = y;
       if (phone) {
-        phone.position.set(Math.cos(a2) * 1.45, y, Math.sin(a2) * 1.45);
+        phone.position.set(Math.cos(a2) * 1.75, y, Math.sin(a2) * 1.75);
         phone.lookAt(0, y * 0.45, 0);
         phone.visible = scanT > 0.15;
       }
@@ -834,7 +838,7 @@ function start() {
       const hy = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
       if (scanT > 0.05) {
         // she flies the circle herself, just behind the phone, and shows you how
-        const R = 1.45 * (demo.scale.x || 1) + 0.62;
+        const R = 1.75 * (demo.scale.x || 1) + 0.7;
         const ox = demo.position.x + Math.cos(demoAngle - 0.42) * R;
         const oz = demo.position.z + Math.sin(demoAngle - 0.42) * R;
         const oy = demo.position.y + demoY * (demo.scale.y || 1) + 0.1;
@@ -850,13 +854,16 @@ function start() {
       glance = Math.max(0, glance - dt);
       const look = Math.min(1, glance) * 0.75;
       if (scanT > 0.5) {
-        // turned inward, watching the object as she circles it
-        const want = Math.atan2(demo.position.x - nuraHolder.position.x,
-                                demo.position.z - nuraHolder.position.z) + Math.PI;
-        let diff = want - nuraBaseYaw - nura.rotation.y;
+        // turn inward and watch the object as she circles it.
+        // At yaw = nuraBaseYaw she faces +Z, which is the camera, so the yaw that points
+        // her at a target is simply that base plus the bearing to it.
+        const dx = demo.position.x - nuraHolder.position.x;
+        const dz = demo.position.z - nuraHolder.position.z;
+        const want = nuraBaseYaw + Math.atan2(dx, dz);
+        let diff = want - nura.rotation.y;
         while (diff > Math.PI) diff -= Math.PI * 2;
         while (diff < -Math.PI) diff += Math.PI * 2;
-        nura.rotation.y += diff * 0.1;
+        nura.rotation.y += diff * 0.16;
       } else {
         nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look
                           - clamp((frontObj ? frontObj.pivot.rotation.y : 0) * 0.3, -0.65, 0.65);

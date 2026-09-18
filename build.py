@@ -943,7 +943,10 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
 .wst{height:105vh}
-.wst-scan{min-height:125vh;display:flex;align-items:center;padding:0 26px}
+#scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
+  max-width:min(400px,calc(100vw - 68px))}
+#scan-panel[hidden]{display:none}
+#scan-panel .wcard{animation:vcin .5s ease}
 /* the demo takes the stage: the object label and the cues step aside */
 body.demoing #walk-label,body.demoing #saved-chip,body.demoing #rotate-cue,
 body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
@@ -970,12 +973,19 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
 .wcard p{color:#463628;font-size:16px;line-height:1.7}
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
 .wcard p.tiny{font-size:13px;color:#7d6a58;line-height:1.55;margin-top:10px}
-.intro-hints{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;text-align:start}
-.intro-hints li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#5d4c3c;
-  line-height:1.5}
-.intro-hints span{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:var(--gold);
-  color:#241a10;font-size:12px;font-weight:700;display:flex;align-items:center;
-  justify-content:center;margin-top:1px}
+/* the opening is a moment, not a manual: type on the air, the object already turning */
+.intro-hero{text-align:center;max-width:760px;margin-top:-26vh}
+.intro-hero h1{font-family:var(--serif);font-size:clamp(34px,5.6vw,66px);color:#2e2118;
+  font-weight:400;line-height:1.12;margin:16px 0 18px;
+  text-shadow:0 2px 26px rgba(253,248,239,.9)}
+.intro-hero .lead{font-size:clamp(16px,2vw,19px);color:#5d4c3c;margin:0 auto;max-width:44ch;
+  text-shadow:0 2px 18px rgba(253,248,239,.9)}
+.scroll-cue{margin-top:40px;color:#8a735c;font-size:11.5px;letter-spacing:.24em;
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
+.scroll-cue span{width:1px;height:38px;background:linear-gradient(#8a735c,transparent);
+  animation:scue 2s ease-in-out infinite}
+@keyframes scue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.scroll-cue span{animation:none}}
 .wmore{display:inline-block;color:#a35f3f;text-decoration:none;font-weight:700;font-size:14px;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
 .wst-fallback{margin:0 auto;max-width:720px;padding:20px 0}
@@ -2783,6 +2793,20 @@ def build_walk():
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
 How to scan</button>
 
+<div id="scan-panel" hidden>
+<div class="wcard">
+<div class="wch">How these are made</div>
+<h2>You circle it, slowly</h2>
+<p>That is the whole technique. Walk a full circle around the object with your phone, then
+again higher, then again lower, overlapping every shot with the last. We use Scaniverse,
+which is free, and we capture a mesh rather than a splat.</p>
+<p class="tiny">Scanning heritage is not only a technique. Our guide covers permission and
+care as well as method.</p>
+<p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
+&nbsp;<button id="scan-done" class="wf-btn">Got it</button></p>
+</div>
+</div>
+
 <div id="vol-cameo" hidden>
 <img id="vc-photo" src="" alt="">
 <div><p id="vc-line"></p><b id="vc-who"></b><a id="vc-link" href="team.html">See their work</a></div>
@@ -2824,30 +2848,13 @@ How to scan</button>
 </div>
 
 <div id="walk-scroll">
-<section class="wst-intro"><div class="wcard wide">
+<section class="wst-intro"><div class="intro-hero">
 <div class="wch">Tanit XR</div>
-<h1>The Collection</h1>
-<p class="lead">{len(items)} artifacts scanned in Tunisia by our volunteers. Scroll to move
-through them, drag any one to turn it.</p>
-<ul class="intro-hints">
-<li><span>1</span>Nura is here. Tap her and she will tell you about whatever you are looking at.</li>
-<li><span>2</span>Save the ones you like. They stay in your collection and you can share it.</li>
-<li><span>3</span>Six badges are hidden in here. See how many you can find.</li>
-</ul>
+<h1>Everything here is real.<br>Some of it is disappearing.</h1>
+<p class="lead">{len(items)} pieces of Tunisia, scanned by volunteers with their phones.</p>
+<div class="scroll-cue"><span></span>Scroll</div>
 </div></section>
 {blocks}
-<section class="wst-scan" data-scan="1"><div class="wcard">
-<div class="wch">How these are made</div>
-<h2>You circle it, slowly</h2>
-<p>That is the whole technique. Walk a full circle around the object with your phone,
-then again higher, then again lower, overlapping every shot with the last. We use
-Scaniverse, which is free, and we capture a mesh rather than a splat.</p>
-<p class="tiny">Scanning heritage is not only a technique. Our guide covers permission and
-care as well as method.</p>
-<p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
-&nbsp;<a class="wmore" href="splats-with-phones.html">Come to a workshop</a></p>
-</div></section>
-
 <section class="wst-end"><div class="wcard wide">
 <h2>Every one of these was scanned by a volunteer</h2>
 <p>Sizes in the labels are the real measured ones. The full walkable museum is being built

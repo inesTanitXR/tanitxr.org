@@ -745,7 +745,10 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
 .wst{height:105vh}
-.wst-scan{min-height:125vh;display:flex;align-items:center;padding:0 26px}
+#scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
+  max-width:min(400px,calc(100vw - 68px))}
+#scan-panel[hidden]{display:none}
+#scan-panel .wcard{animation:vcin .5s ease}
 /* the demo takes the stage: the object label and the cues step aside */
 body.demoing #walk-label,body.demoing #saved-chip,body.demoing #rotate-cue,
 body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
@@ -772,12 +775,19 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
 .wcard p{color:#463628;font-size:16px;line-height:1.7}
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
 .wcard p.tiny{font-size:13px;color:#7d6a58;line-height:1.55;margin-top:10px}
-.intro-hints{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;text-align:start}
-.intro-hints li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#5d4c3c;
-  line-height:1.5}
-.intro-hints span{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:var(--gold);
-  color:#241a10;font-size:12px;font-weight:700;display:flex;align-items:center;
-  justify-content:center;margin-top:1px}
+/* the opening is a moment, not a manual: type on the air, the object already turning */
+.intro-hero{text-align:center;max-width:760px;margin-top:-26vh}
+.intro-hero h1{font-family:var(--serif);font-size:clamp(34px,5.6vw,66px);color:#2e2118;
+  font-weight:400;line-height:1.12;margin:16px 0 18px;
+  text-shadow:0 2px 26px rgba(253,248,239,.9)}
+.intro-hero .lead{font-size:clamp(16px,2vw,19px);color:#5d4c3c;margin:0 auto;max-width:44ch;
+  text-shadow:0 2px 18px rgba(253,248,239,.9)}
+.scroll-cue{margin-top:40px;color:#8a735c;font-size:11.5px;letter-spacing:.24em;
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
+.scroll-cue span{width:1px;height:38px;background:linear-gradient(#8a735c,transparent);
+  animation:scue 2s ease-in-out infinite}
+@keyframes scue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.scroll-cue span{animation:none}}
 .wmore{display:inline-block;color:#a35f3f;text-decoration:none;font-weight:700;font-size:14px;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
 .wst-fallback{margin:0 auto;max-width:720px;padding:20px 0}
