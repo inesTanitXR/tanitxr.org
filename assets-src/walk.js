@@ -312,6 +312,14 @@ function start() {
       goToScanDemo();
       return;
     }
+    if (moreBtn.dataset.offer) {                  // one of her asks, and you said yes
+      const n = NUDGES.find(x => x.id === moreBtn.dataset.offer);
+      moreBtn.dataset.offer = '';
+      moreBtn.classList.remove('nb-offer');
+      closeBubble();
+      if (n) { if (window.tx) tx('nura_ask_yes', { ask: n.id }); n.act(nudgeItem || slots[shown].it); }
+      return;
+    }
     expanded = !expanded;
     if (bubbleLong) bubbleLong.hidden = !expanded;
     moreBtn.textContent = expanded ? 'Thanks, Nura' : 'Tell me more';
@@ -580,6 +588,7 @@ function start() {
     });
     if (window.tx) tx('collection_view', { object: it.slug });
     history.replaceState(null, '', '#' + it.slug);
+    maybeNudge(it);
   }
 
   // ---- badges: a quiet scavenger hunt through the collection
@@ -996,6 +1005,61 @@ function start() {
     }
     beHappy();
     flare = 1;
+  }
+
+
+  // ---- Nura asks, now and then: share, donate, join, subscribe, save, a gallery, a headset.
+  // Never before you have seen a few objects, never two asks close together, never the same
+  // ask twice in a visit, and at most four in a visit. One line, one button.
+  const NUDGES = [
+    { id: 'share', when: () => true, btn: 'Share it',
+      line: () => 'Know someone who would love this one? Share it. Every share keeps it seen.',
+      act: () => { const b = document.getElementById('wf-share'); if (b) b.click(); } },
+    { id: 'donate', when: () => true, btn: 'Donate',
+      line: () => 'Everything here is free and made by volunteers. If it means something to you, a small donation keeps it going.',
+      act: () => window.open(CFG.links.donate, '_blank', 'noopener') },
+    { id: 'gallery', when: it => !!it.artist && CFG.items.filter(x => x.artist === it.artist).length > 2, btn: 'Visit the gallery',
+      line: it => 'This is one of ' + CFG.items.filter(x => x.artist === it.artist).length + ' pieces ' + it.artist.split(' ')[0] + ' made. Want to see them all together?',
+      act: it => openRoom(it.artist) },
+    { id: 'volunteer', when: () => true, btn: 'Join us',
+      line: () => 'We do this every Thursday, together, from four continents. You could be one of us.',
+      act: () => { location.href = linkUrl(CFG.links.volunteer); } },
+    { id: 'newsletter', when: () => true, btn: 'Subscribe',
+      line: () => 'Every two weeks we send grants and open calls for artists and XR makers. Want them in your inbox?',
+      act: () => { location.href = linkUrl(CFG.links.newsletter); } },
+    { id: 'save', when: () => readSaved().length === 0, btn: 'Save this one',
+      line: () => 'You can keep the ones you love. Tap Save and they wait for you here.',
+      act: () => { if (uiSave) uiSave.click(); } },
+    { id: 'vr', when: () => !!document.getElementById('vr-button'), btn: 'See it in VR',
+      line: () => 'You can stand next to this one in your headset.',
+      act: () => { const b = document.getElementById('vr-button'); if (b) b.click(); } },
+  ];
+  const NUDGED = 'tanitxr.nudged';
+  let nudgeLast = -99, nudgeCount = 0, nudgeItem = null;
+  function nudgedIds() { try { return JSON.parse(sessionStorage.getItem(NUDGED) || '[]'); } catch (e) { return []; } }
+  function maybeNudge(it) {
+    if (!bubble || bubbleOpen || demoOn || roomMode || xrMode) return;
+    const seen = readProg().seen.length;
+    if (seen < 4 || seen - nudgeLast < 6 || nudgeCount >= 4) return;
+    if (Math.random() < 0.4) return;                 // not on a rhythm you can feel
+    const done = nudgedIds();
+    const n = NUDGES.find(x => !done.includes(x.id) && x.when(it));
+    if (!n) return;
+    nudgeLast = seen; nudgeCount++; nudgeItem = it;
+    try { sessionStorage.setItem(NUDGED, JSON.stringify(done.concat(n.id))); } catch (e) { /* private mode */ }
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = n.line(it);
+    if (bubbleLong) bubbleLong.hidden = true;
+    if (moreBtn) {
+      moreBtn.textContent = n.btn;
+      moreBtn.hidden = false;
+      moreBtn.classList.add('nb-offer');
+      moreBtn.dataset.offer = n.id;
+    }
+    beHappy(); flare = 1; sfx('pop');
+    if (window.tx) tx('nura_ask', { ask: n.id });
   }
 
   const cameoClose = document.getElementById('vc-close');

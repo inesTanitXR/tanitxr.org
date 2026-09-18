@@ -1103,7 +1103,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
   background:var(--gold);box-shadow:0 0 0 0 rgba(255,205,5,.65);animation:ndot 1.9s infinite}
 @keyframes ndot{0%{box-shadow:0 0 0 0 rgba(255,205,5,.6)}
   70%{box-shadow:0 0 0 13px rgba(255,205,5,0)}100%{box-shadow:0 0 0 0 rgba(255,205,5,0)}}
-#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(290px,72vw);
+#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(340px,76vw);
   background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
   padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
 #nura-bubble[hidden]{display:none}
@@ -1113,7 +1113,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
   color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
 #nura-close:hover{color:#4a3527}
-#nura-text{margin:0 14px 0 0;font-size:14.5px;line-height:1.5;color:#2e2118;
+#nura-text{margin:0 14px 0 0;font-size:17px;line-height:1.45;color:#241a10;
   font-family:var(--serif)}
 #nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
   border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
@@ -1128,7 +1128,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 .nb-speak svg{width:15px;height:15px;fill:currentColor}
 .nb-speak:hover,.nb-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
 body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
-@media(max-width:760px){#nura-text{font-size:13.5px}}
+@media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
@@ -1354,7 +1354,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
   background:var(--gold);box-shadow:0 0 0 0 rgba(255,205,5,.65);animation:ndot 1.9s infinite}
 @keyframes ndot{0%{box-shadow:0 0 0 0 rgba(255,205,5,.6)}
   70%{box-shadow:0 0 0 13px rgba(255,205,5,0)}100%{box-shadow:0 0 0 0 rgba(255,205,5,0)}}
-#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(290px,72vw);
+#nura-bubble{position:fixed;z-index:5;transform:translate(-50%,-100%);width:min(340px,76vw);
   background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
   padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
 #nura-bubble[hidden]{display:none}
@@ -1364,7 +1364,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
   color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
 #nura-close:hover{color:#4a3527}
-#nura-text{margin:0 14px 0 0;font-size:14.5px;line-height:1.5;color:#2e2118;
+#nura-text{margin:0 14px 0 0;font-size:17px;line-height:1.45;color:#241a10;
   font-family:var(--serif)}
 #nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
   border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
@@ -1379,7 +1379,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 .nb-speak svg{width:15px;height:15px;fill:currentColor}
 .nb-speak:hover,.nb-speak.on{background:var(--gold);border-color:var(--gold);color:#241a10}
 body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
-@media(max-width:760px){#nura-text{font-size:13.5px}}
+@media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
@@ -3257,7 +3257,7 @@ def build_walk():
     mp = os.path.join(HERE, "ref", "made-pieces.json")
     if os.path.exists(mp):
         with open(mp) as f:
-            for pc in json.load(f)["pieces"]:
+            for _k, pc in enumerate(json.load(f)["pieces"]):
                 gp = os.path.join(models_dir, pc["slug"] + ".glb")
                 th = os.path.join(HERE, "media", "thumbs", pc["slug"] + ".png")
                 if os.path.exists(th):
@@ -3268,7 +3268,7 @@ def build_walk():
                                  "href": pc.get("href", "museum.html"), "by": pc["by"], "made": True,
                                  "thumb": os.path.basename(th) if os.path.exists(th) else None,
                                  "sketchfab": pc.get("sketchfab"),
-                                 "text": pc.get("note", ""), "hi": pc.get("hi")})
+                                 "text": pc.get("note", ""), "hi": pc.get("hi"), "order": _k})
     # one room per artist, so each maker has their own space rather than a shared shelf
     ROOM_SUB = {"Patrick Molen": "The museum itself, and its building kit: puzzle pieces any "
                                  "volunteer can take and put together into a gallery of their own",
@@ -3278,8 +3278,9 @@ def build_walk():
         byname = {}
         for mm in made:
             byname.setdefault(mm.get("by") or "Tanit XR volunteers", []).append(mm)
-        for who, group in sorted(byname.items(), key=lambda kv: (-len(kv[1]), kv[0])):
-            group.sort(key=lambda g: g["title"])
+        # the scanned-and-modelled makers first; the museum's building kit closes the collection
+        for who, group in sorted(byname.items(), key=lambda kv: (kv[0] == "Patrick Molen", -len(kv[1]), kv[0])):
+            group.sort(key=lambda g: (g.get("order", 999), g["title"]))
             made_rooms.append((who, ROOM_SUB.get(who) or
                                f'{len(group)} piece{"s" if len(group) != 1 else ""} {who.split()[0]} '
                                f'modelled for the virtual museum', group, who))
@@ -3295,8 +3296,6 @@ def build_walk():
             continue
         if preset is None:
             group.sort(key=lambda g: (not g["file_slug"].startswith(WALK_OPENER), g["title"]))
-        elif artist:                      # the hall first, then the kit in the order it was listed
-            group.sort(key=lambda g: (0 if "main-hall" in g["file_slug"] else 1))
         room_btn = (f'<button class="room-open" data-artist="{esc(artist)}">'
                     f'Visit {esc(artist.split()[0])}\u2019s gallery</button>'
                     ) if artist else ""
@@ -3377,6 +3376,8 @@ def build_walk():
         music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
     cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180),
                            "gc": (ANALYTICS.get("goatcounter_code") or "").strip(),
+                           "links": {"donate": DONATE_URL, "volunteer": "volunteer.html",
+                                     "newsletter": "opportunities.html#subscribe"},
                            **({"music": music} if music else {}),
                            "items": items}, ensure_ascii=False)
     body = f"""
@@ -3550,11 +3551,11 @@ built separately by Patrick, Cam and the team, and every object here will hang i
 <script>window.WALK_CFG={cfg_json}</script>
 <script type="module" src="assets/walk.js?v={ASSET_V}"></script>"""
 
-    page("explore.html", "The Collection", body, active="archive.html", transparent=True,
+    page("explore.html", "Explore in 3D", body, active="explore.html", transparent=True,
          trending=False,
-         share_img="museum-statue-niche.jpg",
-         desc=f"{len(items)} Tunisian artifacts scanned by Tanit XR volunteers, in 3D. "
-              "Scroll through the collection and turn each object.")
+         share_img="explore-og.jpg",
+         desc=f"Tunisia's heritage in your hands: {len(items)} objects scanned and modelled by "
+              "volunteers. Turn them, meet Nura, save and share them, in your browser or a headset.")
     # the page used to live at /walk/; that address still works and carries the object hash
     for _pre in ("", "fr/", "ar/"):
         _d = os.path.join(DOCS, _pre + "walk")

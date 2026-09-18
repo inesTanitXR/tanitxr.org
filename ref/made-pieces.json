@@ -29,6 +29,49 @@
    "sketchfab": "https://sketchfab.com/3d-models/6328a1c16198489dbb902ba6747038f9"
   },
   {
+   "slug": "patrick-wall-tanit",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Wall_01.fbx",
+   "title": "Wall with the sign of Tanit",
+   "by": "Patrick Molen",
+   "note": "A wall section from the kit carrying the sign of Tanit, the symbol the project takes its name from.",
+   "hi": "The sign of Tanit, cut into the museum's own walls.",
+   "sketchfab": "https://sketchfab.com/3d-models/5fa2fc519fd54c9ba0b9d7b5b0572b9c"
+  },
+  {
+   "slug": "patrick-palm-tree",
+   "fbx": "Assets/Models/ReusableStructures/Palm_Tree.fbx",
+   "title": "Palm tree",
+   "by": "Patrick Molen",
+   "note": "A palm for the courtyards, so the museum feels like Tunisia and not a white box.",
+   "hi": "A palm for the courtyard. It should feel like home.",
+   "sketchfab": "https://sketchfab.com/3d-models/4da084b44d044116b5e39288f38d30f8"
+  },
+  {
+   "slug": "patrick-carved-ceiling",
+   "fbx": "Assets/Models/ReusableStructures/Complex_Large_Cieling.fbx",
+   "title": "Carved ceiling",
+   "by": "Patrick Molen",
+   "note": "A ceiling piece with carved coffers, for the larger rooms.",
+   "hi": "Look up. This goes over your head in the museum.",
+   "sketchfab": "https://sketchfab.com/3d-models/14c5e8e6c2d14d5ba833c492fe2fcc07"
+  },
+  {
+   "slug": "patrick-clay-lamp",
+   "fbx": "Assets/Models/ReusableStructures/Clay_Light.fbx",
+   "title": "Clay lamp",
+   "by": "Patrick Molen",
+   "note": "A hanging clay lamp that lights the galleries.",
+   "sketchfab": "https://sketchfab.com/3d-models/b9140c85c57045f593f500510f7ab7e8"
+  },
+  {
+   "slug": "patrick-wall-lamp",
+   "fbx": "Assets/Models/ReusableStructures/Wall_Light.fbx",
+   "title": "Wall lamp",
+   "by": "Patrick Molen",
+   "note": "A wall-mounted lamp from the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/d9d91604e9a54e93a2dd50c9440a0243"
+  },
+  {
    "slug": "patrick-arch-1",
    "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_01.fbx",
    "title": "Arch, first pattern",
@@ -62,15 +105,6 @@
    "sketchfab": "https://sketchfab.com/3d-models/6c09c3c73016471db35e3699bb63c694"
   },
   {
-   "slug": "patrick-wall-tanit",
-   "fbx": "Assets/Models/ReusableStructures/Tanit_Wall_01.fbx",
-   "title": "Wall with the sign of Tanit",
-   "by": "Patrick Molen",
-   "note": "A wall section from the kit carrying the sign of Tanit, the symbol the project takes its name from.",
-   "hi": "The sign of Tanit, cut into the museum's own walls.",
-   "sketchfab": "https://sketchfab.com/3d-models/5fa2fc519fd54c9ba0b9d7b5b0572b9c"
-  },
-  {
    "slug": "patrick-wall-solid",
    "fbx": "Assets/Models/ReusableStructures/Wall_01_noDoor.fbx",
    "title": "Wall, solid",
@@ -85,40 +119,6 @@
    "by": "Patrick Molen",
    "note": "A free-standing pillar from the kit.",
    "sketchfab": "https://sketchfab.com/3d-models/b6969d26eda842b6b071cf094f106374"
-  },
-  {
-   "slug": "patrick-carved-ceiling",
-   "fbx": "Assets/Models/ReusableStructures/Complex_Large_Cieling.fbx",
-   "title": "Carved ceiling",
-   "by": "Patrick Molen",
-   "note": "A ceiling piece with carved coffers, for the larger rooms.",
-   "hi": "Look up. This goes over your head in the museum.",
-   "sketchfab": "https://sketchfab.com/3d-models/14c5e8e6c2d14d5ba833c492fe2fcc07"
-  },
-  {
-   "slug": "patrick-clay-lamp",
-   "fbx": "Assets/Models/ReusableStructures/Clay_Light.fbx",
-   "title": "Clay lamp",
-   "by": "Patrick Molen",
-   "note": "A hanging clay lamp that lights the galleries.",
-   "sketchfab": "https://sketchfab.com/3d-models/b9140c85c57045f593f500510f7ab7e8"
-  },
-  {
-   "slug": "patrick-wall-lamp",
-   "fbx": "Assets/Models/ReusableStructures/Wall_Light.fbx",
-   "title": "Wall lamp",
-   "by": "Patrick Molen",
-   "note": "A wall-mounted lamp from the kit.",
-   "sketchfab": "https://sketchfab.com/3d-models/d9d91604e9a54e93a2dd50c9440a0243"
-  },
-  {
-   "slug": "patrick-palm-tree",
-   "fbx": "Assets/Models/ReusableStructures/Palm_Tree.fbx",
-   "title": "Palm tree",
-   "by": "Patrick Molen",
-   "note": "A palm for the courtyards, so the museum feels like Tunisia and not a white box.",
-   "hi": "A palm for the courtyard. It should feel like home.",
-   "sketchfab": "https://sketchfab.com/3d-models/4da084b44d044116b5e39288f38d30f8"
   },
   {
    "slug": "patrick-bamboo",
