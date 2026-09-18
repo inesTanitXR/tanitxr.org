@@ -51,6 +51,8 @@ function start() {
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
   const narrow = () => camera.aspect < 0.8;
   function homeCamera() {
+    camera.fov = narrow() ? 46 : 36;
+    camera.updateProjectionMatrix();
     if (narrow()) { camera.position.set(0, -0.05, 6.9); camera.lookAt(0, -0.05, 0); }
     else { camera.position.set(0, 0.1, 6.9); camera.lookAt(0, 0, 0); }
   }
@@ -444,8 +446,9 @@ function start() {
     if (s) {
       s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
       s.pivot.rotation.x = clamp(s.pivot.rotation.x + (e.clientY - lastY) * 0.005, -0.7, 0.7);
-    } else if (roomMode) {
-      roomPanY = clamp(roomPanY + (e.clientY - lastY) * 0.012, -roomMaxPan * 2, 0);
+    } else if (roomMode) {                    // look around the room
+      roomYawT -= (e.clientX - lastX) * 0.005;
+      roomPitchT = clamp(roomPitchT + (e.clientY - lastY) * 0.003, -0.35, 0.3);
     }
     lastX = e.clientX; lastY = e.clientY;
   }, { passive: true });
@@ -1062,12 +1065,7 @@ function start() {
 
 
   const jump = d => {
-    if (roomMode) {
-      if (!roomFocus) return;
-      const L = roomMode.list, k = L.indexOf(roomFocus);
-      setFocus(L[clamp(k + d, 0, L.length - 1)]);
-      return;
-    }
+    if (roomMode) { roomStep(d); return; }
     const i = clamp(Math.round(cursor) + d, 0, sections.length - 1);
     const el = sections[i];
     if (el) scrollTo({ top: midOf(el), behavior: 'smooth' });
@@ -1464,10 +1462,11 @@ function start() {
     }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
   }
 
-  // ---- gallery room: one maker's whole body of work on one page, the way the UNESCO
-  // museum shows a case at a time. Every piece floats in a clean grid at the same size,
-  // nothing overlaps, what they modelled sits under one heading and the scans they
-  // optimized under another. Tap a piece and it comes forward, large, and turns.
+  // ---- gallery room: a small round gallery you stand inside. One maker's pieces on plinths
+  // around you, what they modelled on one side and the scans they optimized on the other,
+  // warm plaster walls, pools of light on the floor, a card on every plinth. Drag to look
+  // around, tap a piece to walk up to it. Built from primitives on purpose: simple, quiet,
+  // and a place rather than a menu.
   const roomBar = document.getElementById('room-bar');
   const roomTitle = document.getElementById('room-title');
   const roomCount = document.getElementById('room-count');
@@ -1475,101 +1474,135 @@ function start() {
   const roomPlinths = new THREE.Group();
   scene.add(roomPlinths);
   let roomMode = null, roomFocus = null, roomHover = null;
-  const CELL_W = 2.55, CELL_H = 2.7, HEAD_H = 0.95, ROOM_SCALE = 1.75 / FIT;
-  let roomCamZ = 12, roomCamY = 0, roomPanY = 0, roomMaxPan = 0, roomW = 0, roomH = 0;
+  const ROOM_SCALE = 1.35 / FIT, ROOM_EYE = 1.55;
+  const PL_COL = [0xf1e9db, 0x39647f, 0x3b372c, 0xb4735a];   // plaster, indigo, ink, terracotta
+  let roomYaw = 0, roomYawT = 0, roomPitch = 0, roomPitchT = 0, roomOuterR = 6;
+  const roomCamPos = new THREE.Vector3(0, ROOM_EYE, 0);
 
-  function roomSign(text, sub, width) {
-    const c = document.createElement('canvas'); c.width = 1400; c.height = 150;
+  const glowTex = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 256;
     const x = c.getContext('2d');
-    x.fillStyle = '#a35f3f';
-    x.font = '700 44px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText(text.toUpperCase().split('').join(' '), 8, 62);
-    x.fillStyle = '#8a735c';
-    x.font = '400 36px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText(sub, 8, 124);
-    x.fillStyle = 'rgba(163,95,63,0.35)';
-    x.fillRect(8, 142, 1384, 3);
+    const g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
+    g.addColorStop(0, 'rgba(255,241,214,.95)'); g.addColorStop(.5, 'rgba(255,241,214,.35)');
+    g.addColorStop(1, 'rgba(255,241,214,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
+  const wallTex = (() => {
+    const c = document.createElement('canvas'); c.width = 8; c.height = 256;
+    const x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, 0, 256);
+    g.addColorStop(0, '#f6efe3'); g.addColorStop(0.55, '#ecdfc9'); g.addColorStop(1, '#d9c7a8');
+    x.fillStyle = g; x.fillRect(0, 0, 8, 256);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
+  function textPlane(draw, w, h, pxW, pxH) {
+    const c = document.createElement('canvas'); c.width = pxW; c.height = pxH;
+    draw(c.getContext('2d'), pxW, pxH);
     const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(width, width * 150 / 1400),
+    return new THREE.Mesh(new THREE.PlaneGeometry(w, h),
       new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
-    return m;
   }
+  function roomSign(text, sub) {
+    return textPlane((x, W, H) => {
+      x.textAlign = 'center';
+      x.fillStyle = '#a35f3f'; x.font = '700 46px Roboto, Helvetica, Arial, sans-serif';
+      x.fillText(text.toUpperCase().split('').join(' '), W / 2, 74);
+      x.fillStyle = '#7d6a58'; x.font = '400 36px Roboto, Helvetica, Arial, sans-serif';
+      x.fillText(sub, W / 2, 138);
+    }, 3.6, 0.76, 1200, 254);
+  }
+  function plinthCard(title) {
+    return textPlane((x, W, H) => {
+      x.fillStyle = 'rgba(253,249,242,.96)'; x.fillRect(0, 0, W, H);
+      x.fillStyle = '#2e2118'; x.textAlign = 'center';
+      let size = 44; x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
+      while (x.measureText(title).width > W - 40 && size > 22) { size -= 2; x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif'; }
+      x.fillText(title, W / 2, H / 2 + size * 0.36);
+    }, 0.62, 0.16, 620, 160);
+  }
+  // where a piece stands: on the ring at its angle, its bottom on the plinth top
+  const ringPos = (R, a, y) => new THREE.Vector3(R * Math.sin(a), y, -R * Math.cos(a));
+  const standY = (s, top) => top + ((s.fitH || FIT * 0.6) * ROOM_SCALE) / 2 + 0.01;
 
-  function layoutRoom(list) {
+  function layoutRoom(list, opts) {
     roomPlinths.clear();
     const who = roomMode.artist, first = who.split(' ')[0];
     const made = list.filter(s => s.it.artist === who);
     const opt = list.filter(s => s.it.artist !== who);
-    const groups = [];
-    if (made.length) groups.push({ title: 'Modelled by ' + first, sub: made.length + (made.length === 1 ? ' piece' : ' pieces') + ' built from scratch', items: made });
-    if (opt.length) groups.push({ title: 'Optimized by ' + first, sub: opt.length + (opt.length === 1 ? ' scan' : ' scans') + ' cleaned and made light for the web', items: opt });
-    roomMode.list = made.concat(opt);
-    roomMode.made = made.length; roomMode.opt = opt.length;
-    const n = roomMode.list.length;
-    const wide = camera.aspect > 1.15;
-    const cols = wide ? Math.min(5, Math.max(3, Math.ceil(n / 3))) : Math.min(3, n);
-    roomW = cols * CELL_W;
-    // lay the groups out top to bottom, then centre the whole thing on the origin
-    let y = 0;
-    const put = [];
-    groups.forEach(g => {
-      put.push({ sign: g, y: y - HEAD_H * 0.55 });
-      y -= HEAD_H;
-      g.items.forEach((s, k) => {
-        const r = Math.floor(k / cols), c = k % cols;
-        const inRow = Math.min(cols, g.items.length - r * cols);
-        const x = wide ? (c - (cols - 1) / 2) * CELL_W : (c - (inRow - 1) / 2) * CELL_W;
-        put.push({ slot: s, x, y: y - r * CELL_H - CELL_H / 2 });
+    const order = made.concat(opt);
+    roomMode.list = order; roomMode.made = made.length; roomMode.opt = opt.length;
+    const n = order.length;
+    // one ring up to twelve pieces, two rings beyond; with both kinds present the inner ring
+    // holds the modelled work and the outer the optimized scans
+    let inner, outer;
+    if (n <= 12) { inner = order; outer = []; }
+    else if (made.length && opt.length && made.length <= 14) { inner = made; outer = opt; }
+    else { inner = order.slice(0, Math.ceil(n / 2)); outer = order.slice(Math.ceil(n / 2)); }
+    const rings = [{ items: inner, R: n <= 12 ? 6.2 : 6.6, top: 0.95, col: [0, 1] },
+                   { items: outer, R: 10.2, top: 1.25, col: [2, 3] }];
+    roomOuterR = outer.length ? 10.2 : 6.2;
+    const signAt = [];
+    rings.forEach((ring, ri) => {
+      const m = ring.items.length; if (!m) return;
+      const step = Math.min(2 * Math.PI / m, 2.7 / ring.R);       // never sparser than 2.7 m
+      const span = step * (m - 1);
+      const start = -span / 2 + (ri === 1 && inner.length ? step / 2 : 0);
+      ring.items.forEach((s, k) => {
+        const a = start + k * step;
+        s.roomAng = a; s.roomR = ring.R; s.roomTop = ring.top;
+        const w = 0.82;
+        const box = new THREE.Mesh(new THREE.BoxGeometry(w, ring.top, w),
+          new THREE.MeshStandardMaterial({ color: PL_COL[ring.col[k % 2]], roughness: 0.7 }));
+        box.position.copy(ringPos(ring.R, a, ring.top / 2)); box.rotation.y = -a;
+        roomPlinths.add(box);
+        const pool = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 3.6),
+          new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, depthWrite: false, opacity: 0.75 }));
+        pool.rotation.x = -Math.PI / 2; pool.position.copy(ringPos(ring.R, a, 0.004));
+        roomPlinths.add(pool);
+        const card = plinthCard(s.it.title);
+        card.position.copy(ringPos(ring.R - w / 2 - 0.012, a, ring.top - 0.17)); card.rotation.y = -a;
+        roomPlinths.add(card);
+        s.roomPos = ringPos(ring.R, a, standY(s, ring.top));
+        s.roomScale = ROOM_SCALE;
+        s.wrap.position.copy(s.roomPos); s.wrap.rotation.y = -a;
+        s.wrap.scale.setScalar(ROOM_SCALE); s.wrap.visible = s.loaded;
+        s.mats.forEach(mm => { mm.opacity = 1; }); s.shadow.material.opacity = 0;
+        if ((made.length && s === made[0]) || (opt.length && s === opt[0])) signAt.push({ s, isMade: s === made[0] && made.length > 0 });
       });
-      y -= Math.ceil(g.items.length / cols) * CELL_H + 0.35;
     });
-    roomH = -y;
-    const shift = roomH / 2;
-    put.forEach(q => {
-      if (q.sign) {
-        const sg = roomSign(q.sign.title, q.sign.sub, roomW);
-        sg.position.set(0, q.y + shift, -0.2);
-        roomPlinths.add(sg);
-        return;
-      }
-      const s = q.slot;
-      s.roomPos = new THREE.Vector3(q.x, q.y + shift, 0);
-      s.roomScale = ROOM_SCALE;
-      s.wrap.position.copy(s.roomPos);
-      s.wrap.scale.setScalar(ROOM_SCALE);
-      s.wrap.visible = s.loaded;
-      s.mats.forEach(m => { m.opacity = 1; });
-      s.shadow.material.opacity = 0;
-      // a faint disc beneath each piece, so the grid reads as a room and not a spreadsheet
-      const sh = new THREE.Mesh(new THREE.PlaneGeometry(CELL_W * 0.9, CELL_W * 0.9),
-        new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false, opacity: 0.55 }));
-      sh.rotation.x = -Math.PI / 2; sh.position.set(q.x, q.y + shift - CELL_H * 0.42, 0.1);
-      roomPlinths.add(sh);
+    signAt.forEach(({ s, isMade }) => {
+      const cnt = isMade ? made.length : opt.length;
+      const sg = roomSign(isMade ? 'Modelled by ' + first : 'Optimized by ' + first,
+        cnt + (isMade ? (cnt === 1 ? ' piece' : ' pieces') + ' built from scratch' : (cnt === 1 ? ' scan' : ' scans') + ' made light for the web'));
+      sg.position.copy(ringPos(s.roomR + 1.2, s.roomAng, s.roomTop + 2.35)); sg.rotation.y = -s.roomAng;
+      roomPlinths.add(sg);
     });
-    // stand back far enough that the whole width fits; tall rooms scroll instead of shrinking
-    const vf = camera.fov * Math.PI / 360;
-    const hf = Math.atan(Math.tan(vf) * camera.aspect);
-    const zW = (roomW / 2 + 0.6) / Math.tan(hf);
-    const zH = (roomH / 2 + 0.5) / Math.tan(vf);
-    // fit the width; a room with many rows scrolls rather than shrinking its pieces
-    roomCamZ = clamp(Math.min(Math.max(zW, zH * 0.55), zW * 1.1), 6, 24);
-    const viewH = 2 * roomCamZ * Math.tan(vf);
-    roomMaxPan = Math.max(0, roomH / 2 + 0.6 - viewH / 2);
-    roomCamY = roomMaxPan; roomPanY = 0;          // start at the top heading
-    camera.position.set(0, roomCamY, roomCamZ);
-    camera.lookAt(0, roomCamY, 0);
+    if (!(opts && opts.hall)) {
+      // the room itself: a warm plaster drum, a stone floor, a haze that softens the far side
+      const RW = roomOuterR + 3.6;
+      const wall = new THREE.Mesh(new THREE.CylinderGeometry(RW, RW, 9, 72, 1, true),
+        new THREE.MeshBasicMaterial({ map: wallTex, side: THREE.BackSide }));
+      wall.position.y = 4.5; roomPlinths.add(wall);
+      const floor = new THREE.Mesh(new THREE.CircleGeometry(RW + 0.05, 72),
+        new THREE.MeshStandardMaterial({ color: 0xd6c4a5, roughness: 0.95 }));
+      floor.rotation.x = -Math.PI / 2; roomPlinths.add(floor);
+      const skirt = new THREE.Mesh(new THREE.CylinderGeometry(RW - 0.01, RW - 0.01, 0.12, 72, 1, true),
+        new THREE.MeshBasicMaterial({ color: 0xb59f7e, side: THREE.BackSide }));
+      skirt.position.y = 0.06; roomPlinths.add(skirt);
+    }
+    roomYaw = roomYawT = made.length ? made[0].roomAng : order[0].roomAng;
+    roomPitch = roomPitchT = 0;
+    roomCamPos.set(0, ROOM_EYE, 0);
   }
 
-  // a piece that finishes loading after the room opened still needs placing
   function placeIfInRoom(s) {
     if (!roomMode || !s.roomPos) return;
-    s.wrap.position.copy(s.roomPos);
-    s.wrap.scale.setScalar(s.roomScale);
-    s.wrap.visible = true;
-    s.mats.forEach(m => { m.opacity = 1; });
-    s.shadow.material.opacity = 0;
+    s.roomPos.y = standY(s, s.roomTop);
+    s.wrap.position.copy(s.roomPos); s.wrap.rotation.y = -s.roomAng;
+    s.wrap.scale.setScalar(s.roomScale); s.wrap.visible = true;
+    s.mats.forEach(m => { m.opacity = 1; }); s.shadow.material.opacity = 0;
   }
-
   function paintRoomBar() {
     if (!roomMode) return;
     document.body.classList.toggle('room-focus', !!roomFocus);
@@ -1585,19 +1618,36 @@ function start() {
   }
   function setFocus(s) {
     roomFocus = s;
-    if (s) { s.pivot.rotation.x = 0; load(s); }
+    if (s) { s.pivot.rotation.x = 0; load(s); roomYawT = s.roomAng; roomPitchT = 0; }
     paintRoomBar();
+  }
+  // the piece nearest to where you are looking, and the one after it in either direction
+  function roomNearest() {
+    const L = roomMode.list; let best = 0;
+    const d = (a, b) => Math.abs(Math.atan2(Math.sin(a - b), Math.cos(a - b)));
+    L.forEach((s, k) => { if (d(s.roomAng, roomYawT) < d(L[best].roomAng, roomYawT)) best = k; });
+    return best;
+  }
+  function roomStep(dir) {
+    const L = roomMode.list.slice().sort((a, b) => a.roomAng - b.roomAng);
+    const cur = L.indexOf(roomMode.list[roomNearest()]);
+    const nxt = L[clamp(cur + dir, 0, L.length - 1)];
+    if (roomFocus) setFocus(nxt); else { roomYawT = nxt.roomAng; roomPitchT = 0; }
   }
 
   const inRoomOf = (it, who) => it.artist === who || (it.person && it.person.name === who);
-  function openRoom(artist) {
-    const list = slots.filter(s => inRoomOf(s.it, artist));
+  function openRoom(artist, opts) {
+    const list = opts && opts.list ? opts.list : slots.filter(s => inRoomOf(s.it, artist));
     if (!list.length) return;
     if (roomMode) { roomPlinths.clear(); slots.forEach(s => { s.roomPos = null; }); }
     list.forEach(load);
     roomMode = { artist, list };
     roomFocus = null; roomHover = null;
-    layoutRoom(list);
+    layoutRoom(list, opts);
+    // the page underneath sits at the top while a room is open; leaving the room scrolls
+    // back to the piece you were nearest to, so nothing is lost
+    scrollTo({ top: 0, behavior: 'instant' });
+    scene.fog = new THREE.Fog(0xefe5d4, 9, 34);
     document.body.classList.add('in-room');
     if (roomBar) roomBar.hidden = false;
     paintRoomBar();
@@ -1607,13 +1657,14 @@ function start() {
   }
   function closeRoom() {
     if (!roomMode) return;
-    const back = roomFocus || roomMode.list[0];
+    const back = roomFocus || roomMode.list[roomNearest()];
     roomMode = null; roomFocus = null; roomHover = null;
     roomPlinths.clear();
+    scene.fog = null;
     document.body.classList.remove('in-room', 'room-focus');
     if (roomBar) roomBar.hidden = true;
     stage.classList.remove('can-pick');
-    slots.forEach(s => { s.roomPos = null; });
+    slots.forEach(s => { s.roomPos = null; s.wrap.rotation.y = 0; });
     homeCamera();
     if (back) jumpTo(x => x.slug === back.it.slug);
   }
@@ -1627,17 +1678,14 @@ function start() {
   addEventListener('keydown', e => {
     if (!roomMode) return;
     if (e.key === 'Escape') { if (roomFocus) setFocus(null); else closeRoom(); }
-    if (roomFocus && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
-      const L = roomMode.list, k = L.indexOf(roomFocus);
-      setFocus(L[clamp(k + (e.key === 'ArrowRight' ? 1 : -1), 0, L.length - 1)]);
-    }
   });
-  // the wheel moves you up and down a tall room instead of scrolling a page that is not there
+  // the wheel turns you round the room instead of scrolling a page that is not there
   addEventListener('wheel', e => {
     if (!roomMode) return;
     e.preventDefault();
     if (roomFocus) return;
-    roomPanY = clamp(roomPanY - e.deltaY * 0.004, -roomMaxPan * 2, 0);
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    roomYawT += d * 0.0022;
   }, { passive: false });
 
   function roomHit(e) {
@@ -1651,18 +1699,35 @@ function start() {
     while (n && !roomMode.list.some(s => s.wrap === n)) n = n.parent;
     return roomMode.list.find(x => x.wrap === n) || null;
   }
-  // the cursor tells you a piece can be picked, and the piece leans toward you a little
   stage.addEventListener('pointermove', e => {
     if (!roomMode || dragging) return;
     roomHover = roomHit(e);
     stage.classList.toggle('can-pick', !!roomHover && roomHover !== roomFocus);
   }, { passive: true });
-  // tap a piece to bring it forward, tap another to swap, tap the room to put it back
+  // tap a piece to walk up to it, tap another to move on, tap the room to step back
   function pickInRoom(e) {
     const s = roomHit(e);
     if (!s) { if (roomFocus) setFocus(null); return; }
     setFocus(roomFocus === s ? null : s);
     if (roomFocus && window.tx) tx('room_pick', { object: s.it.slug });
+  }
+
+  // For curiosity only: ?hall=1 puts the same ring of scans inside Patrick's museum hall
+  // instead of the plaster drum. The real museum is a separate project.
+  if (/[?&]hall=1/.test(location.search)) {
+    const hallList = slots.filter(s => s.it.real).slice(0, 14);
+    setTimeout(() => {
+      openRoom('Inside the museum hall (preview)', { hall: true, list: hallList });
+      loader.load(MODEL_BASE + 'patrick-museum-main-hall.glb', g => {
+        const o = g.scene;
+        const box = new THREE.Box3().setFromObject(o);
+        const size = box.getSize(new THREE.Vector3()), mid = box.getCenter(new THREE.Vector3());
+        const k = 38 / Math.max(size.x, size.z);          // the hall as a real building
+        o.scale.setScalar(k);
+        o.position.set(-mid.x * k, -box.min.y * k, -mid.z * k);
+        roomPlinths.add(o);
+      });
+    }, 600);
   }
 
   function resize() {
@@ -1811,24 +1876,30 @@ function start() {
     const t = clock.elapsedTime;
     if (roomMode) {
       slots.forEach(s => { s.wrap.visible = false; });
-      roomCamY += ((roomMaxPan + roomPanY) - roomCamY) * (reduce ? 1 : 0.12);
-      const front = new THREE.Vector3(0, roomCamY - 0.15, roomCamZ - Math.max(4.6, roomCamZ * 0.42));
+      roomYaw += (roomYawT - roomYaw) * (reduce ? 1 : 0.1);
+      roomPitch += (roomPitchT - roomPitch) * (reduce ? 1 : 0.1);
+      const F = roomFocus;
+      // where you stand: the middle of the room, or two and a half metres from the piece
+      const wantPos = F ? ringPos(F.roomR - 2.5, F.roomAng, ROOM_EYE - 0.05) : new THREE.Vector3(0, ROOM_EYE, 0);
+      roomCamPos.lerp(wantPos, reduce ? 1 : 0.08);
+      camera.position.copy(roomCamPos);
+      const wantFov = F ? (narrow() ? 52 : 40) : (narrow() ? 72 : 58);
+      if (Math.abs(camera.fov - wantFov) > 0.05) { camera.fov += (wantFov - camera.fov) * 0.1; camera.updateProjectionMatrix(); }
+      if (F) camera.lookAt(F.roomPos.x, F.roomPos.y + 0.05, F.roomPos.z);
+      else camera.lookAt(roomCamPos.x + Math.sin(roomYaw) * Math.cos(roomPitch),
+                         roomCamPos.y + Math.sin(roomPitch) - 0.08,
+                         roomCamPos.z - Math.cos(roomYaw) * Math.cos(roomPitch));
       roomMode.list.forEach(s => {
         if (!s.loaded || !s.roomPos) return;
         s.wrap.visible = true;
-        const isF = roomFocus === s, isH = roomHover === s && !roomFocus;
-        const want = isF ? front : s.roomPos;
-        s.wrap.position.lerp(want, 0.12);
-        const big = isF ? Math.max(1.3, (roomCamZ - front.z) * 0.24) : (isH ? s.roomScale * 1.08 : s.roomScale);
-        s.wrap.scale.lerp(new THREE.Vector3(big, big, big), 0.12);
-        s.mats.forEach(m => { m.opacity = roomFocus && !isF ? 0.14 : 1; });
+        const isF = F === s, isH = roomHover === s && !F;
+        const sc = isF ? s.roomScale * 1.06 : (isH ? s.roomScale * 1.05 : s.roomScale);
+        s.wrap.scale.lerp(new THREE.Vector3(sc, sc, sc), 0.12);
+        s.mats.forEach(m => { m.opacity = 1; });
         s.shadow.material.opacity = 0;
-        if (!reduce && (isF || isH)) s.pivot.rotation.y += dt * (isF ? 0.18 : 0.35);
+        if (!reduce && (isF || isH)) s.pivot.rotation.y += dt * (isF ? 0.16 : 0.3);
         else if (!isF && Math.abs(s.pivot.rotation.y) > 0.001 && !dragging) s.pivot.rotation.y *= 0.9;
       });
-      roomPlinths.children.forEach(ch => { if (ch.material) ch.material.opacity = roomFocus ? 0.12 : (ch.geometry.type === 'PlaneGeometry' && ch.rotation.x ? 0.55 : 1); });
-      camera.position.lerp(new THREE.Vector3(0, roomCamY, roomCamZ), 0.12);
-      camera.lookAt(0, roomCamY, 0);
       if (mixer) mixer.update(dt);
       if (nuraHolder) nuraHolder.visible = false;
       renderer.render(scene, camera);
