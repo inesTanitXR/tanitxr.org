@@ -11,3 +11,4 @@ ref/decks/node_modules/
 ref/decks/package*.json
 ref/decks/*.pdf
 ref/decks/slide-*.jpg
+ref/decks/*.pptx

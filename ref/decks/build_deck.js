@@ -215,7 +215,8 @@ async function icon(Comp, color, size = 256) {
 
   // 12. Close
   s = pres.addSlide(); s.background = { color: C.ink };
-  s.addImage({ path: IMG + 'hero-baths-flipped-1920.jpg', x: 0, y: 0, w: W, h: H, sizing: { type: 'cover', w: W, h: H }, transparency: 70 });
+  s.addImage({ path: IMG + 'hero-baths-flipped-1920.jpg', x: 0, y: 0, w: W, h: H, sizing: { type: 'cover', w: W, h: H } });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: W, h: H, fill: { color: C.ink, transparency: 28 }, line: { color: C.ink, transparency: 100 } });
   eyebrow(s, 'Start the conversation', 0.7, 2.0, C.gold);
   T(s, 'Fifteen minutes is enough to see if this fits', { x: 0.7, y: 2.4, w: 9, h: 1.6, fontFace: TITLE, fontSize: 38, bold: true, color: C.white });
   T(s, 'Tell us about your team and what matters to you. We come back with two or three ways to work together, with real numbers.', { x: 0.7, y: 4.05, w: 8, h: 0.9, fontSize: 15, color: C.sand });
