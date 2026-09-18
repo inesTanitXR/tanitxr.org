@@ -563,6 +563,15 @@ body.gal{background:#14110d}
   background:radial-gradient(125% 95% at 50% 34%,#fdf8ef 0%,#f2e9da 46%,#e2d4bd 100%)}
 #walk-stage.grabbing{cursor:grabbing}
 #walk-stage.on-object{cursor:ew-resize}
+/* the headset button only appears where WebXR exists */
+#vr-button{position:fixed!important;bottom:26px!important;inset-inline-start:50%!important;
+  transform:translateX(-50%)!important;background:rgba(74,53,43,.92)!important;
+  color:#fdf8f0!important;border:1px solid rgba(74,53,43,.4)!important;border-radius:999px!important;
+  padding:12px 26px!important;font:inherit!important;font-size:13.5px!important;
+  letter-spacing:.12em!important;width:auto!important;opacity:1!important;z-index:6!important}
+#vr-button:hover{background:var(--gold)!important;color:#241a10!important}
+body.in-xr #walk-label,body.in-xr #saved-chip,body.in-xr #scan-entry,body.in-xr #nura-bubble,
+body.in-xr #nura-dot,body.in-xr #rotate-cue,body.in-xr #vol-cameo{display:none}
 #walk-canvas{width:100%;height:100%;display:block}
 body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 /* a ring with two arrows around the object: the signal that it turns */
@@ -654,8 +663,8 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 #vc-close:hover{color:#4a3527}
 body.walk-fallback #vol-cameo,body.demoing #vol-cameo{display:none}
 @media(max-width:760px){#vol-cameo{inset-inline-end:14px;bottom:92px;width:min(280px,88vw)}}
-@media(max-width:760px){#scan-entry{top:auto;bottom:96px;inset-inline-start:14px;
-  padding:8px 13px;font-size:12.5px}}
+@media(max-width:760px){#scan-entry{top:78px;inset-inline-start:12px;
+  padding:7px 12px;font-size:12.5px}}
 #saved-chip:hover{background:#fff}
 body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #saved-tray{position:fixed;top:146px;inset-inline-end:26px;z-index:6;width:min(320px,86vw);
@@ -703,8 +712,9 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #bt-close{border:0;background:none;color:rgba(253,248,240,.6);font-size:19px;cursor:pointer}
 .st-foot{display:flex;gap:8px;margin-top:12px}
 .st-foot .wf-btn{flex:1;padding:9px 10px;font-size:13px}
-@media(max-width:760px){#saved-chip{top:auto;bottom:96px;inset-inline-end:14px}
-  #saved-tray{top:auto;bottom:146px;inset-inline-end:14px}}
+@media(max-width:760px){
+  #saved-chip{top:78px;inset-inline-end:12px;padding:7px 12px;font-size:12.5px}
+  #saved-tray{top:126px;inset-inline-end:12px}}
 
 /* Nura stays quiet: a pulsing dot says she has something, the bubble opens on click */
 #nura-dot{position:fixed;z-index:5;transform:translate(-50%,-50%);width:26px;height:26px;
@@ -801,7 +811,8 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 @media(max-width:760px){
   .wf-panel{inset-inline-start:16px;bottom:20px;max-width:calc(100vw - 32px)}
   .wf-l{inset-inline-start:12px}.wf-r{inset-inline-end:12px}
-  .wf-round{width:38px;height:38px;font-size:19px;top:42%}
+  /* on a phone you scroll, so the side arrows only collide with the label */
+  .wf-round{display:none}
   .wcard.wide{padding:26px 22px 24px}
 }
 @media(prefers-reduced-motion:reduce){.warea>div{transition:none;opacity:1;transform:none}}

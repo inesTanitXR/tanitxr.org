@@ -8,6 +8,10 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 const CFG = window.WALK_CFG || { items: [] };
 const MODEL_BASE = new URL('models/', import.meta.url).href;
+// thumbnails are stored as 'assets/img/x.jpg'; resolve them beside this script, not beside
+// the page, or a pretty URL like /walk/ turns them into /walk/assets/img/x.jpg
+const ASSET_BASE = new URL('./', import.meta.url).href;
+const assetUrl = p => p ? new URL(p.replace(/^assets\//, ''), ASSET_BASE).href : '';
 const stage = document.getElementById('walk-stage');
 const canvas = document.getElementById('walk-canvas');
 const cueEl = document.getElementById('rotate-cue');
@@ -84,7 +88,9 @@ function start() {
       o.position.set(-mid.x, -mid.y, -mid.z);            // centred on itself
       const fit = new THREE.Group();
       fit.add(o);
-      fit.scale.setScalar(FIT / (Math.max(size.x, size.y, size.z) || 1));
+      s.fileMax = Math.max(size.x, size.y, size.z) || 1;
+      s.fit = fit;
+      fit.scale.setScalar(FIT / s.fileMax);
       if (s.it.rotate) {
         const r = s.it.rotate;
         fit.rotation.set((r[0] || 0) * Math.PI / 180, (r[1] || 0) * Math.PI / 180,
@@ -494,7 +500,7 @@ function start() {
     clearTimeout(cameoTimer);
     cameoTimer = setTimeout(() => {
       if (document.body.classList.contains('demoing')) return;
-      cameoPhoto.src = p.photo;
+      cameoPhoto.src = assetUrl(p.photo);
       cameoPhoto.alt = p.name;
       cameoLine.textContent = 'I ' + p.verb + ' this one.';
       const who = document.getElementById('vc-who');
@@ -534,7 +540,7 @@ function start() {
       if (!it) return;
       const b = document.createElement('button');
       b.className = 'si';
-      b.innerHTML = (it.thumb ? '<img src="' + it.thumb + '" alt="">' : '<img alt="">')
+      b.innerHTML = (it.thumb ? '<img src="' + assetUrl(it.thumb) + '" alt="">' : '<img alt="">')
         + '<span><b>' + it.title.replace(/[<>&]/g, '') + '</b>'
         + '<span>' + (it.place || '').replace(/[<>&]/g, '') + '</span></span>';
       b.addEventListener('click', () => { tray.hidden = true; goTo(slug); });
@@ -723,6 +729,60 @@ function start() {
     }, 40);
   });
 
+  // ---- immersive mode. In a headset the objects stand at the size they really are.
+  let xrMode = false, xrHome = null;
+  const xrRoot = new THREE.Group();
+  scene.add(xrRoot);
+  const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.4);
+  xrLight.position.set(2, 5, 3);
+  xrRoot.add(xrLight);
+
+  function realHeight(it) {
+    return (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
+  }
+  function enterXR() {
+    xrMode = true;
+    document.body.classList.add('in-xr');
+    const s = slots[shown];
+    if (!s || !s.fit) return;
+    xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
+               scale: s.fit.scale.x, shadow: s.shadow.position.y };
+    xrRoot.add(s.wrap);
+    s.fit.scale.setScalar(1);                       // real metres
+    s.wrap.position.set(0, realHeight(s.it) / 2, -1.7);
+    s.wrap.scale.setScalar(1);
+    s.shadow.position.y = -realHeight(s.it) / 2 + 0.002;
+    s.shadow.scale.setScalar(Math.max(0.6, realHeight(s.it)) / FIT * 1.2);
+    s.mats.forEach(m => { m.opacity = 1; });
+    s.wrap.visible = true;
+    if (nura) nuraHolder.position.set(1.0, 0.1, -1.4);
+    if (window.tx) tx('xr_entered', { object: s.it.slug });
+  }
+  function exitXR() {
+    xrMode = false;
+    document.body.classList.remove('in-xr');
+    const s = slots[shown];
+    if (s && xrHome && s.fit) {
+      xrHome.parent.add(s.wrap);
+      s.wrap.position.copy(xrHome.pos);
+      s.fit.scale.setScalar(xrHome.scale);
+      s.shadow.position.y = xrHome.shadow;
+      s.shadow.scale.setScalar(1);
+    }
+    xrHome = null;
+  }
+
+  // load the button lazily, so a browser without it can never break the page
+  import('three/addons/webxr/VRButton.js').then(mod => {
+    if (!navigator.xr) return;
+    renderer.xr.enabled = true;
+    const btn = mod.VRButton.createButton(renderer);
+    btn.id = 'vr-button';
+    document.body.appendChild(btn);
+    renderer.xr.addEventListener('sessionstart', enterXR);
+    renderer.xr.addEventListener('sessionend', exitXR);
+  }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
@@ -773,8 +833,15 @@ function start() {
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clock = new THREE.Clock();
-  (function frame() {
+  function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
+    if (xrMode) {                                   // the headset owns the camera and the layout
+      if (mixer) mixer.update(dt);
+      const s = slots[shown];
+      if (s && !dragging) s.pivot.rotation.y += dt * 0.1;
+      renderer.render(scene, camera);
+      return;
+    }
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
     const t = clock.elapsedTime;
@@ -899,8 +966,8 @@ function start() {
     }
 
     renderer.render(scene, camera);
-    requestAnimationFrame(frame);
-  })();
+  }
+  renderer.setAnimationLoop(frame);                 // setAnimationLoop is what WebXR needs
 
   const io = new IntersectionObserver(es => es.forEach(e =>
     e.target.classList.toggle('on', e.isIntersecting && e.intersectionRatio > 0.5)),
