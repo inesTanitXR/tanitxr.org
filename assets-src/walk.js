@@ -732,6 +732,8 @@ function start() {
     });
     const snd = moreSheet.querySelector('.ms-sound');
     if (snd) snd.textContent = soundOn ? 'Sound: on' : 'Sound: off';
+    const arRow = moreSheet.querySelector('.ms-ar'), arB = document.getElementById('ar-button');
+    if (arRow) arRow.hidden = !(arB && !arB.hidden);     // only where the phone can actually do it
   }
   if (moreBtn2 && moreSheet) {
     moreBtn2.addEventListener('click', () => {

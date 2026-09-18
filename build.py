@@ -3436,6 +3436,7 @@ Sound</button>
 <button class="ms-act" data-for="scan-entry">How to scan</button>
 <button class="ms-act" data-for="map-toggle">Map of everything</button>
 <button class="ms-act ms-sound" data-for="sound-toggle">Sound</button>
+<button class="ms-act ms-ar" data-for="ar-button" hidden>See it in your space (AR)</button>
 </div>
 <button id="scan-entry" title="See how a scan is made">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
