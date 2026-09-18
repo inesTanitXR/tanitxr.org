@@ -180,7 +180,8 @@
   "uid": "83cdf15a722445268e31e5fed632600a",
   "created": "2025-10-02",
   "name": "Carved Architectural Block with Laurel Motifs",
-  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -219,7 +220,8 @@
   "uid": "e25a2062afc34055a933f8c7af612d67",
   "created": "2025-10-01",
   "name": "Traditional Door – Medina of Tunis",
-  "path": "Photogrammetry Models>Medina of Tunis"
+  "path": "Photogrammetry Models>Medina of Tunis",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -234,21 +236,24 @@
   "uid": "6dc31f04d9b942aaa4d473fbb691839b",
   "created": "2025-10-01",
   "name": "Test Scan – Underground Passageways",
-  "path": "Photogrammetry Models>Carthage>Baths of Antoninus - Carthage"
+  "path": "Photogrammetry Models>Carthage>Baths of Antoninus - Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "org",
   "uid": "02469b29cc5940f88706c3b1150d5612",
   "created": "2025-10-22",
   "name": "bad upload",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "andrew.maneri"
  },
  {
   "visibility": "org",
   "uid": "d9b6a6290ff8456686d0b175965294b5",
   "created": "2025-12-18",
   "name": "Architectural Element - Created by Ala Zgarni",
-  "path": "Decorative Models (VR Museum)"
+  "path": "Decorative Models (VR Museum)",
+  "creator": "juliamorenomolen"
  },
  {
   "visibility": "public",
@@ -271,35 +276,40 @@
   "uid": "132c41eb8c614305949dccc97b132ad2",
   "created": "2026-04-17",
   "name": "Pottery Collection",
-  "path": "Decorative Models (VR Museum)>Sprint - Pottery"
+  "path": "Decorative Models (VR Museum)>Sprint - Pottery",
+  "creator": "BetyVega03"
  },
  {
   "visibility": "public",
   "uid": "6999dd0aa173410d8e7589a91bf8c986",
   "created": "2025-10-10",
   "name": "Roman Togatus Statue – Byrsa Hill, Cartha - OPT",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "c4e20003209a48d0a384d6eaf7e175cb",
   "created": "2025-10-10",
   "name": "Reclining Figure - Byrsa Hill, Carthage - OPT",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "ca4d5d7be53b43998f89b9465d31ba4d",
   "created": "2025-10-23",
   "name": "Corinthian Capital – Byrsa Hill, Carthage - copy",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "041c35bd4f0d407d9570ca9d54e44fe7",
   "created": "2025-10-23",
   "name": "Roman Column Base – Byrsa Hill, Carthage - copy",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
@@ -330,7 +340,8 @@
   "uid": "96a069b90cdf46159db2ca8e9b1cdd23",
   "created": "2025-10-21",
   "name": "Corinthian Capital – Byrsa Hill, Carthage",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
@@ -369,7 +380,8 @@
   "uid": "74d3a1ca1aaf4f5381c2912a581d1afd",
   "created": "2025-12-04",
   "name": "Bir(TraditionalWell)",
-  "path": "VR & Game Ready Models>Medina of Tunis"
+  "path": "VR & Game Ready Models>Medina of Tunis",
+  "creator": "EunjeongYu"
  },
  {
   "visibility": "public",
@@ -384,14 +396,16 @@
   "uid": "95fd6b0872034f6e9ef424f300504620",
   "created": "2025-10-02",
   "name": "Carved Architectural Block with Laurel Motifs –…",
-  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "ad59dd38a4bf4f59954c09024a014f32",
   "created": "2026-02-28",
   "name": "Carved Architectural Block with Laurel Motifs –…",
-  "path": "VR & Game Ready Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "VR & Game Ready Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "nickkauf"
  },
  {
   "visibility": "public",
@@ -406,42 +420,48 @@
   "uid": "55deb87adcce4e89b0b2fa3c00530e1b",
   "created": "2025-10-01",
   "name": "Wooden Door with Tilework – Mausolegt of Sidi S…",
-  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan"
+  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "2fefaa52c0f04902bb218e5bd217c21a",
   "created": "2025-10-01",
   "name": "Ornamental Wooden Door with Studded Patterns – …",
-  "path": "Photogrammetry Models>Medina of Tunis"
+  "path": "Photogrammetry Models>Medina of Tunis",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "11f7430ffd5e4c93858e1c3ec47a6969",
   "created": "2026-02-10",
   "name": "Ornamental Mihrab (Mahram) – Medersa Slimanya",
-  "path": "VR & Game Ready Models>Medina of Tunis"
+  "path": "VR & Game Ready Models>Medina of Tunis",
+  "creator": "BetyVega03"
  },
  {
   "visibility": "public",
   "uid": "145f3450f32045738ca87b4e6aa57bdc",
   "created": "2025-10-10",
   "name": "Inscribed-architectural-fragment-byrsa - OPT",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "b5053092fea4481fbc845935fb52175e",
   "created": "2025-10-01",
   "name": "Ornamental Mihrab (Mahram) – Medersa Slimanya",
-  "path": "Photogrammetry Models>Medina of Tunis"
+  "path": "Photogrammetry Models>Medina of Tunis",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "org",
   "uid": "d8c1bc40e39b46ad94b949c60d63696d",
   "created": "2026-01-22",
   "name": "Fountain Version 02",
-  "path": "Decorative Models (VR Museum)"
+  "path": "Decorative Models (VR Museum)",
+  "creator": "BetyVega03"
  },
  {
   "visibility": "public",
@@ -464,14 +484,16 @@
   "uid": "0076fb25e675438d98c028e24479245a",
   "created": "2025-09-30",
   "name": "Latin Inscription Slab – Water Temple of Zaghou…",
-  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "40d0069e56a14c40b84e8c958c39fc54",
   "created": "2025-09-23",
   "name": "Headless Draped Statue – Byrsa Hill, Cart - copy",
-  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage"
+  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -486,7 +508,8 @@
   "uid": "1df7e3beb6774b1d8668381903ed5bb3",
   "created": "2025-10-02",
   "name": "Punic Stelae – Tophet of Salammbo (Carthage)",
-  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage"
+  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -501,21 +524,24 @@
   "uid": "bf2219b1a4e3470ab99ac6f757094814",
   "created": "2025-10-02",
   "name": "Punic Stelae – Tophet of Salammbo (Carthage)",
-  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage"
+  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "68c6ea8d2ae9486a9ef593e91c1307dd",
   "created": "2025-12-29",
   "name": "Roman Column – Byrsa Hill, Carthage - OPT",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "BetyVega03"
  },
  {
   "visibility": "public",
   "uid": "4a388e189c224a97bcd31b960aca3af0",
   "created": "2025-10-21",
   "name": "Corinthian Capital – Byrsa Hill, Carthage - copy",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
@@ -538,7 +564,8 @@
   "uid": "317a4363973646659758bfd4bed1150e",
   "created": "2026-02-23",
   "name": "Statue Fragment – Roman Villas of Carthage",
-  "path": "VR & Game Ready Models>Carthage>Roman villas of Carthage - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Roman villas of Carthage - Carthage",
+  "creator": "BetyVega03"
  },
  {
   "visibility": "public",
@@ -577,14 +604,16 @@
   "uid": "e489778b3a0e4ee89c4e2e22ab00b9f8",
   "created": "2025-10-10",
   "name": "Wooden Door with Tilework – Zawiya of Sid - OPT",
-  "path": "VR & Game Ready Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan"
+  "path": "VR & Game Ready Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "25ab1ce8609441b98c4200310bd7d499",
   "created": "2025-09-30",
   "name": "Stone Basin – Water Temple, Zaghouan",
-  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -599,7 +628,8 @@
   "uid": "ac59a9bcab514237becb810885e0a0a3",
   "created": "2025-10-01",
   "name": "Corinthian Capital – Byrsa Hill, Carthage",
-  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage"
+  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -646,7 +676,8 @@
   "uid": "69949747e11a4c9d8641afb7347e2bdc",
   "created": "2026-02-22",
   "name": "carved-architectural-block-with-laurel-motifs-",
-  "path": "VR & Game Ready Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "VR & Game Ready Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "nickkauf"
  },
  {
   "visibility": "public",
@@ -677,35 +708,40 @@
   "uid": "0f74bb9142ed4be9b5db128c1b1dd7e3",
   "created": "2025-10-02",
   "name": "Punic Stelae – Tophet of Salammbo (Carthage)",
-  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage"
+  "path": "Photogrammetry Models>Carthage>Tophet of Salammbo, Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "d35e4ccf4ec2436db9227486f1eb7d7f",
   "created": "2025-09-23",
   "name": "Reclining Figure - Byrsa Hill, Carthage",
-  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage"
+  "path": "Photogrammetry Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "af6858454d664099a006ff39cb8bd08b",
   "created": "2025-10-01",
   "name": "Tilework Wall Panel – Mausolegt of Sidi Sahbi, …",
-  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan"
+  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "69c17d81b8054f5ca7c447f582bd8634",
   "created": "2026-02-05",
   "name": "Neapolis Site Revealed By Floods In Tunisia",
-  "path": "Photogrammetry Models>Neapolis>New Site (Flood)"
+  "path": "Photogrammetry Models>Neapolis>New Site (Flood)",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "7c77b1b720e844f59b1cdf7b728fd744",
   "created": "2025-09-30",
   "name": "Sacred Niche – Roman Water Temple, Zaghouan",
-  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan"
+  "path": "Photogrammetry Models>Zaghouan>Water Temple, Zaghouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
@@ -720,35 +756,40 @@
   "uid": "7c07cf6096c24786b643cb44dee8fbae",
   "created": "2025-10-22",
   "name": "Draped-statue-byrsa-hill-carthage -- OPT",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "andrew.maneri"
  },
  {
   "visibility": "public",
   "uid": "b0af4cdb7eb44b8bbe4628968e6868bc",
   "created": "2025-10-01",
   "name": "Bird and Floral Mosaic – Roman Villas of Cartha…",
-  "path": "Photogrammetry Models>Carthage>Roman villas of Carthage - Carthage"
+  "path": "Photogrammetry Models>Carthage>Roman villas of Carthage - Carthage",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "aff72c64b9454ad1b2e46c1972e8477b",
   "created": "2025-10-23",
   "name": "Fluted Column Fragment – Byrsa Hill, Cart - copy",
-  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage"
+  "path": "VR & Game Ready Models>Carthage>Byrsa Hill - Carthage",
+  "creator": "danielgo257"
  },
  {
   "visibility": "public",
   "uid": "d62a37fd379e4e3e886589758ecb1f84",
   "created": "2025-10-01",
   "name": "Marble Calligraphic Panel – Zitouna Mosque",
-  "path": "Photogrammetry Models>Medina of Tunis"
+  "path": "Photogrammetry Models>Medina of Tunis",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",
   "uid": "2d9ad8b8f0c84b85a1627fc249b23d73",
   "created": "2025-10-01",
   "name": "Test Scan – Interior with Tilework and Fountain…",
-  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan"
+  "path": "Photogrammetry Models>Kairouan>Zawiya of Sidi Sahbi - Kairouan",
+  "creator": "TanitXROrg"
  },
  {
   "visibility": "public",

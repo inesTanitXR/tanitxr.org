@@ -693,7 +693,8 @@ function start() {
     if (!sndBtn) return;
     sndBtn.classList.toggle('off', !soundOn);
     sndBtn.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
-    sndBtn.title = soundOn ? 'Sound is on. Tap to mute' : 'Sound is off. Tap to turn it on';
+    const cr = CFG.music && CFG.music.credit ? ' ' + CFG.music.credit : '';
+    sndBtn.title = (soundOn ? 'Sound is on. Tap to mute.' : 'Sound is off. Tap to turn it on.') + cr;
   }
   paintSound();
   if (sndBtn) sndBtn.addEventListener('click', () => {
