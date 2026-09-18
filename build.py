@@ -825,6 +825,17 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #saved-chip svg{width:15px;height:15px;fill:#a35f3f}
 #saved-chip b{font-weight:700}
 #saved-chip .sc-prog{color:#8a735c;font-size:12px}
+#scan-entry{position:fixed;top:96px;inset-inline-start:26px;z-index:5;display:flex;
+  align-items:center;gap:7px;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);
+  color:#4a3527;border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#scan-entry svg{width:15px;height:15px;fill:#a35f3f}
+#scan-entry:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#scan-entry:hover svg{fill:var(--gold)}
+body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
+.nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+@media(max-width:760px){#scan-entry{top:auto;bottom:96px;inset-inline-start:14px;
+  padding:8px 13px;font-size:12.5px}}
 #saved-chip:hover{background:#fff}
 body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #saved-tray{position:fixed;top:146px;inset-inline-end:26px;z-index:6;width:min(320px,86vw);
@@ -940,6 +951,7 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
   line-height:1.14;font-weight:400}
 .wcard p{color:#463628;font-size:16px;line-height:1.7}
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
+.wcard p.tiny{font-size:13px;color:#7d6a58;line-height:1.55;margin-top:10px}
 .intro-hints{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;text-align:start}
 .intro-hints li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#5d4c3c;
   line-height:1.5}
@@ -2730,6 +2742,10 @@ def build_walk():
 <button id="bt-share" class="wf-btn">Share it</button>
 <button id="bt-close" aria-label="Close">&times;</button></div>
 
+<button id="scan-entry" title="See how a scan is made">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
+How to scan</button>
+
 <button id="nura-dot" aria-label="Nura has something to say"><span></span></button>
 <div id="nura-bubble" hidden>
 <button id="nura-close" aria-label="Close">&times;</button>
@@ -2781,8 +2797,10 @@ through them, drag any one to turn it.</p>
 <div class="wch">How these are made</div>
 <h2>You circle it, slowly</h2>
 <p>That is the whole technique. Walk a full circle around the object with your phone,
-then do it again higher, and again lower. Overlap every shot with the last one. We use
-Scaniverse, which is free.</p>
+then again higher, then again lower, overlapping every shot with the last. We use
+Scaniverse, which is free, and we capture a mesh rather than a splat.</p>
+<p class="tiny">Our full guide covers the ethics too: consent, care, and who the heritage
+belongs to. It follows the London Charter, the Seville Principles and the CARE Principles.</p>
 <p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
 &nbsp;<a class="wmore" href="splats-with-phones.html">Come to a workshop</a></p>
 </div></section>

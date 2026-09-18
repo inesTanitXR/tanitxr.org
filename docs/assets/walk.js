@@ -216,6 +216,7 @@ function start() {
     if (!s || !bubble) return;
     bubbleOpen = true; expanded = false;
     bubble.hidden = false;
+    if (moreBtn) { moreBtn.dataset.offer = ''; moreBtn.classList.remove('nb-offer'); }
     if (dot) dot.classList.remove('in');
     if (bubbleText) bubbleText.textContent = s.it.hi || s.it.title;
     if (bubbleLong) { bubbleLong.textContent = s.it.note || ''; bubbleLong.hidden = true; }
@@ -234,6 +235,13 @@ function start() {
   if (closeBtn) closeBtn.addEventListener('click', closeBubble);
   if (dot) dot.addEventListener('click', openBubble);
   if (moreBtn) moreBtn.addEventListener('click', () => {
+    if (moreBtn.dataset.offer === '1') {          // she offered the demo, you said yes
+      moreBtn.dataset.offer = '';
+      moreBtn.classList.remove('nb-offer');
+      closeBubble();
+      goToScanDemo();
+      return;
+    }
     expanded = !expanded;
     if (bubbleLong) bubbleLong.hidden = !expanded;
     moreBtn.textContent = expanded ? 'That is enough' : 'Tell me more';
@@ -248,6 +256,14 @@ function start() {
 
   // ---- the closing demo: how a scan is actually made, three circles around the object
   const scanEl = document.querySelector('.wst-scan');
+  function goToScanDemo() {
+    if (!scanEl) return;
+    scrollTo({ top: scanEl.offsetTop + scanEl.offsetHeight / 2 - innerHeight / 2,
+               behavior: 'smooth' });
+    if (window.tx) tx('scan_demo_opened');
+  }
+  const scanBtn = document.getElementById('scan-entry');
+  if (scanBtn) scanBtn.addEventListener('click', goToScanDemo);
   let scanT = 0, scanTarget = 0, phone = null, demoObj = null, demoAngle = 0, demoY = 0;
   const demo = new THREE.Group();
   demo.visible = false;
@@ -337,6 +353,7 @@ function start() {
       turned = true;
       if (window.tx) tx('collection_rotate');
       bump(p => { p.rotated++; });
+      maybeOfferDemo();
     }
     const s = current();
     if (s) {
@@ -454,6 +471,28 @@ function start() {
     toast.hidden = true;
     makePoster(lastBadge);
   });
+
+  // She offers the demo once, after you have turned a few things, and never nags again.
+  const OFFERED = 'tanitxr.demoOffered';
+  function maybeOfferDemo() {
+    let done = false;
+    try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
+    if (done || readProg().rotated < 3 || !bubble) return;
+    try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = 'Want to see how we make these?';
+    if (bubbleLong) bubbleLong.hidden = true;
+    if (moreBtn) {
+      moreBtn.textContent = 'Show me';
+      moreBtn.hidden = false;
+      moreBtn.classList.add('nb-offer');
+      moreBtn.dataset.offer = '1';
+    }
+    beHappy();
+    flare = 1;
+  }
 
   // ---- the saved tray, so saving actually leads somewhere
   const chip = document.getElementById('saved-chip');
@@ -755,7 +794,12 @@ function start() {
       ptr.x += (ptr.tx - ptr.x) * 0.06;
       ptr.y += (ptr.ty - ptr.y) * 0.06;
       const homeX = clamp(halfW * 0.52, 1.0, 2.9);
-      const hx = homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
+      // when you turn the object, she swings around it with you, within a comfortable arc
+      const frontObj = slots[shown];
+      const spin = frontObj ? frontObj.pivot.rotation.y : 0;
+      const swing = clamp(spin * 0.3, -0.65, 0.65);
+      const hx = Math.cos(swing) * homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
+      const hz = 0.9 + Math.sin(swing) * homeX * 0.55;
       const hy = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
       if (scanT > 0.05) {
         // she flies the circle herself, just behind the phone, and shows you how
@@ -765,11 +809,11 @@ function start() {
         const oy = demo.position.y + demoY * (demo.scale.y || 1) + 0.1;
         nuraHolder.position.x += ((1 - scanT) * hx + scanT * ox - nuraHolder.position.x) * 0.12;
         nuraHolder.position.y += ((1 - scanT) * hy + scanT * oy - nuraHolder.position.y) * 0.12;
-        nuraHolder.position.z += ((1 - scanT) * 0.9 + scanT * oz - nuraHolder.position.z) * 0.12;
+        nuraHolder.position.z += ((1 - scanT) * hz + scanT * oz - nuraHolder.position.z) * 0.12;
       } else {
-        nuraHolder.position.x = hx;
-        nuraHolder.position.y = hy;
-        nuraHolder.position.z = 0.9;
+        nuraHolder.position.x += (hx - nuraHolder.position.x) * 0.1;
+        nuraHolder.position.y += (hy - nuraHolder.position.y) * 0.14;
+        nuraHolder.position.z += (hz - nuraHolder.position.z) * 0.1;
       }
       // she looks at the new object for a moment, then back at you and your cursor
       glance = Math.max(0, glance - dt);
@@ -783,7 +827,8 @@ function start() {
         while (diff < -Math.PI) diff += Math.PI * 2;
         nura.rotation.y += diff * 0.1;
       } else {
-        nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look;
+        nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look
+                          - clamp((frontObj ? frontObj.pivot.rotation.y : 0) * 0.3, -0.65, 0.65);
       }
       nura.rotation.x = -ptr.y * 0.16;
       nura.rotation.z = Math.sin(t * 0.8) * 0.03;
