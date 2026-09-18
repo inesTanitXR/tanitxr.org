@@ -122,14 +122,22 @@ function start() {
       const fit = new THREE.Group();
       fit.add(o);
       s.fileMax = Math.max(size.x, size.y, size.z) || 1;
-      s.fitH = size.y * (FIT / s.fileMax);
       s.fit = fit;
       fit.scale.setScalar(FIT / s.fileMax);
       if (s.it.rotate) {
         const r = s.it.rotate;
         fit.rotation.set((r[0] || 0) * Math.PI / 180, (r[1] || 0) * Math.PI / 180,
                          (r[2] || 0) * Math.PI / 180);
+      } else if (size.y < 0.08 * Math.max(size.x, size.z)) {   // only truly flat: mosaics, rugs, slabs
+        // a mosaic, rug or slab scanned lying flat: stand it up so its face looks at you
+        fit.rotation.x = -Math.PI / 2;
+        s.stood = true;
       }
+      // the real fitted extent, after any turn, so a piece can stand exactly on a plinth
+      fit.updateMatrixWorld(true);
+      const fb = new THREE.Box3().setFromObject(fit);
+      s.fitH = fb.max.y - fb.min.y;
+      s.fitMin = fb.min.y;
       o.traverse(n => {
         if (!n.isMesh || !n.material) return;
         // scans are exported unlit with light baked into the texture; relighting them
@@ -142,6 +150,7 @@ function start() {
       });
       s.pivot.add(fit);
       s.loaded = true; s.loading = false;
+      placeIfInRoom(s);
       if (s.i === 0) document.body.classList.add('first-loaded');   // lifts the loading glow
     }, undefined, () => {
       s.loading = false;
@@ -1523,7 +1532,7 @@ function start() {
   }
   // where a piece stands: on the ring at its angle, its bottom on the plinth top
   const ringPos = (R, a, y) => new THREE.Vector3(R * Math.sin(a), y, -R * Math.cos(a));
-  const standY = (s, top) => top + ((s.fitH || FIT * 0.6) * ROOM_SCALE) / 2 + 0.01;
+  const standY = (s, top) => top - (s.fitMin !== undefined ? s.fitMin : -FIT * 0.3) * ROOM_SCALE + 0.02;
 
   function layoutRoom(list, opts) {
     roomPlinths.clear();
@@ -1563,6 +1572,7 @@ function start() {
         const card = plinthCard(s.it.title);
         card.position.copy(ringPos(ring.R - w / 2 - 0.012, a, ring.top - 0.17)); card.rotation.y = -a;
         roomPlinths.add(card);
+        s.pivot.rotation.set(0, 0, 0);                 // upright, however it was left
         s.roomPos = ringPos(ring.R, a, standY(s, ring.top));
         s.roomScale = ROOM_SCALE;
         s.wrap.position.copy(s.roomPos); s.wrap.rotation.y = -a;
@@ -1895,6 +1905,7 @@ function start() {
         const isF = F === s, isH = roomHover === s && !F;
         const sc = isF ? s.roomScale * 1.06 : (isH ? s.roomScale * 1.05 : s.roomScale);
         s.wrap.scale.lerp(new THREE.Vector3(sc, sc, sc), 0.12);
+        if (s.fitMin !== undefined) s.wrap.position.y = s.roomTop - s.fitMin * s.wrap.scale.y + 0.02;
         s.mats.forEach(m => { m.opacity = 1; });
         s.shadow.material.opacity = 0;
         if (!reduce && (isF || isH)) s.pivot.rotation.y += dt * (isF ? 0.16 : 0.3);

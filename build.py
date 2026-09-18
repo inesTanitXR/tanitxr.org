@@ -642,6 +642,8 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:600px){.ev{grid-template-columns:1fr;gap:10px}
   .ev-date{border:0;padding:0;text-align:start;display:flex;gap:10px;align-items:baseline}}
 .collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
+.cb-feats{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:8px}
+.cb-feats li{border:1px solid rgba(74,53,43,.22);border-radius:999px;padding:6px 13px;font-size:13px;color:#4a3527;background:rgba(253,248,240,.7)}
 .cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
 .cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
   background:#e6dbc6;text-decoration:none}
@@ -1542,7 +1544,7 @@ NAV = [
     ("Home", "index.html"),
     ("Archive", "archive.html", [
         ("Browse all scans", "archive.html"),
-        ("The Collection (3D)", "walk.html"),
+        ("Explore in 3D", "explore.html"),
         ("Galleries", "galleries.html"),
         ("Virtual Museum", "museum.html"),
     ]),
@@ -1642,7 +1644,7 @@ public everywhere.</p>
 </div></div>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
-<a href="walk.html">The Collection (3D)</a>
+<a href="explore.html">Explore in 3D</a>
 <a href="galleries.html">Galleries</a>
 <a href="community.html">Community</a>
 <a href="museum.html">Virtual Museum</a>
@@ -2531,15 +2533,19 @@ Tunisian culture, and celebrate wins together.</p>
 <section class="pad collection-band"><div class="wrap">
 <div class="cb-grid">
 <div>
-<div class="eyebrow">New</div>
-<h2 class="sec-title" style="margin-bottom:14px">Hold the collection in your hands</h2>
-<p class="sec-sub" style="margin:0 0 22px">Every scan our volunteers have made, in one place and
-in 3D. Turn each object with your cursor. Nura, our guide, floats along and tells you what you
-are looking at.</p>
-<p><a class="btn btn-gold" href="walk.html">Open The Collection</a>
+<div class="eyebrow">Explore in 3D</div>
+<h2 class="sec-title" style="margin-bottom:14px">Walk through the collection</h2>
+<p class="sec-sub" style="margin:0 0 18px">Every object our volunteers have scanned in Tunisia, one at a
+time, in 3D, in your browser. Turn each one with a finger. Nura, our guide, floats beside you and
+tells you what you are looking at. Save the ones you love, share them, collect badges, step into
+a maker's own gallery room, or put on a headset.</p>
+<ul class="cb-feats">
+<li>Turn any object</li><li>Meet Nura</li><li>Save and share</li><li>Gallery rooms</li><li>Works in VR</li>
+</ul>
+<p><a class="btn btn-gold" href="explore.html">Explore in 3D</a>
 &nbsp; <a class="btn btn-line" href="galleries.html">Browse with descriptions</a></p>
 </div>
-<a class="cb-art" href="walk.html" aria-label="Open The Collection">
+<a class="cb-art" href="explore.html" aria-label="Explore in 3D">
 <span class="cb-ring"></span>
 <img src="{img('museum-statue-niche.jpg', 900)}" alt="" loading="lazy">
 <span class="cb-tag">Drag to turn</span>
@@ -3479,11 +3485,21 @@ separately in Unity by Patrick Molen and the team.</p>
 <script>window.WALK_CFG={cfg_json}</script>
 <script type="module" src="assets/walk.js?v={ASSET_V}"></script>"""
 
-    page("walk.html", "The Collection", body, active="archive.html", transparent=True,
+    page("explore.html", "The Collection", body, active="archive.html", transparent=True,
          trending=False,
          share_img="museum-statue-niche.jpg",
          desc=f"{len(items)} Tunisian artifacts scanned by Tanit XR volunteers, in 3D. "
               "Scroll through the collection and turn each object.")
+    # the page used to live at /walk/; that address still works and carries the object hash
+    for _pre in ("", "fr/", "ar/"):
+        _d = os.path.join(DOCS, _pre + "walk")
+        os.makedirs(_d, exist_ok=True)
+        with open(os.path.join(_d, "index.html"), "w", encoding="utf-8") as _f:
+            _f.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Explore in 3D</title>'
+                     '<meta http-equiv="refresh" content="0;url=../explore/">'
+                     '<link rel="canonical" href="https://tanitxr.org/explore/">'
+                     '<script>location.replace("../explore/" + location.search + location.hash)</script>'
+                     '</head><body><p>Moved: <a href="../explore/">tanitxr.org/explore</a></p></body></html>')
 
 
 # ---------------------------------------------------------------- galleries

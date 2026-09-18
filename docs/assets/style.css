@@ -444,6 +444,8 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:600px){.ev{grid-template-columns:1fr;gap:10px}
   .ev-date{border:0;padding:0;text-align:start;display:flex;gap:10px;align-items:baseline}}
 .collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
+.cb-feats{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:8px}
+.cb-feats li{border:1px solid rgba(74,53,43,.22);border-radius:999px;padding:6px 13px;font-size:13px;color:#4a3527;background:rgba(253,248,240,.7)}
 .cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
 .cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
   background:#e6dbc6;text-decoration:none}

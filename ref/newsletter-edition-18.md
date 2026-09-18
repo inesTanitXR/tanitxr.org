@@ -143,7 +143,7 @@ A lot closes in the next two weeks, so this one is mostly deadlines. As always: 
 ## 🆕 NEW ON TANITXR.ORG
 
 - 🔎 tanitxr.org/opportunities: everything in this edition and past ones, filter by type, live countdowns, subscribe to get these by email, and a form to send me an opportunity.
-- 🏺 tanitxr.org/walk: The Collection. Scroll from one Tunisian object to the next, drag to turn it, save the ones you like, share them, and meet Nura, our guide. It runs in a browser, and in a Quest headset too.
+- 🏺 tanitxr.org/explore: The Collection. Scroll from one Tunisian object to the next, drag to turn it, save the ones you like, share them, and meet Nura, our guide. It runs in a browser, and in a Quest headset too.
 - 🧩 Volunteers built the virtual museum's own pieces: the main hall and a building kit of arches, walls and fountains by Patrick Molen, a furnished room by Kristina Reyes. They are in The Collection under Made by volunteers.
 
 If you apply to any of these, tell me. And if you want to help preserve Tunisian heritage with XR and 3D scanning, Tanit XR is always looking for volunteers: ines@tanitxr.org 🌟
@@ -153,7 +153,7 @@ If you apply to any of these, tell me. And if you want to help preserve Tunisian
 
 # 📝 Before posting
 
-The links say tanitxr.org. Post after the domain switch is live (I confirm it in chat). If you post before, use inestanitxr.github.io/tanitxr.org/opportunities and inestanitxr.github.io/tanitxr.org/walk instead; both keep working after the switch too.
+The links say tanitxr.org. Post after the domain switch is live (I confirm it in chat). If you post before, use inestanitxr.github.io/tanitxr.org/opportunities and inestanitxr.github.io/tanitxr.org/explore instead; both keep working after the switch too.
 
 # 📣 LinkedIn post (profile)
 
