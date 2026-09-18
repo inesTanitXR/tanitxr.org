@@ -157,7 +157,8 @@ function start() {
       if (!s || !s.loaded) return;
       const r = stage.getBoundingClientRect();
       ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
-      ray.setFromCamera(ndc, camera);
+      camera.updateMatrixWorld();          // the ray needs a current camera matrix
+    ray.setFromCamera(ndc, camera);
       stage.classList.toggle('on-object', ray.intersectObject(s.wrap, true).length > 0);
     });
   }, { passive: true });
@@ -387,7 +388,7 @@ function start() {
       bump(p => { p.rotated++; });
       maybeOfferDemo();
     }
-    const s = current();
+    const s = roomMode ? roomFocus : current();
     if (s) {
       s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
       s.pivot.rotation.x = clamp(s.pivot.rotation.x + (e.clientY - lastY) * 0.005, -0.7, 0.7);
@@ -908,34 +909,88 @@ function start() {
 
   const realHeight = it => (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
 
+  // In a headset you can simply walk, so lay a set of pieces out at real size on an arc
+  // around the viewer instead of showing one object you cannot reach.
+  const XR_BATCH = 7;
+  let xrStart = 0, xrPlaced = [];
+  function xrLayout() {
+    xrPlaced.forEach(s => {
+      if (s.xrHome) {
+        s.xrHome.parent.add(s.wrap);
+        s.wrap.position.copy(s.xrHome.pos);
+        s.wrap.scale.setScalar(s.xrHome.wrapScale);
+        if (s.fit) s.fit.scale.setScalar(s.xrHome.fitScale);
+        s.shadow.position.y = s.xrHome.shadow;
+        s.xrHome = null;
+      }
+      s.wrap.visible = false;
+    });
+    xrPlaced = [];
+    const list = [];
+    for (let k = 0; k < XR_BATCH; k++) {
+      const s = slots[(xrStart + k) % slots.length];
+      if (s) { load(s); list.push(s); }
+    }
+    const spread = Math.PI * 0.72;                  // a little over a third of a circle
+    list.forEach((s, k) => {
+      const a = -spread / 2 + (list.length === 1 ? spread / 2 : (k / (list.length - 1)) * spread);
+      const R = 2.7;
+      const h = realHeight(s.it);
+      s.xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
+                   wrapScale: s.wrap.scale.x, fitScale: s.fit ? s.fit.scale.x : 1,
+                   shadow: s.shadow.position.y };
+      xrRoot.add(s.wrap);
+      s.wrap.position.set(Math.sin(a) * R, h / 2, -Math.cos(a) * R);
+      s.wrap.rotation.y = a;                        // turned to face the middle
+      s.wrap.scale.setScalar(1);
+      if (s.fit) s.fit.scale.setScalar(1);          // real metres
+      s.shadow.position.y = -h / 2 + 0.003;
+      s.mats.forEach(m => { m.opacity = 1; });
+      s.wrap.visible = s.loaded;
+      xrPlaced.push(s);
+    });
+    if (nura) {
+      nuraHolder.visible = true;
+      nuraHolder.position.set(0.9, 1.25, -1.1);
+    }
+  }
+
   function enterXR() {
     xrMode = true;
     document.body.classList.add('in-xr');
-    const s = slots[shown];
-    if (!s || !s.fit) return;
-    xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
-               scale: s.fit.scale.x, shadow: s.shadow.position.y };
-    xrRoot.add(s.wrap);
-    s.fit.scale.setScalar(1);                       // real metres
-    s.wrap.position.set(0, realHeight(s.it) / 2, -1.7);
-    s.wrap.scale.setScalar(1);
-    s.shadow.position.y = -realHeight(s.it) / 2 + 0.002;
-    s.mats.forEach(m => { m.opacity = 1; });
-    s.wrap.visible = true;
-    if (nura) nuraHolder.position.set(1.0, 0.1, -1.4);
-    if (window.tx) tx('xr_entered', { object: s.it.slug });
+    xrStart = Math.max(0, shown);
+    xrLayout();
+    if (window.tx) tx('xr_entered', { from: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
     xrMode = false;
     document.body.classList.remove('in-xr');
-    const s = slots[shown];
-    if (s && xrHome && s.fit) {
-      xrHome.parent.add(s.wrap);
-      s.wrap.position.copy(xrHome.pos);
-      s.fit.scale.setScalar(xrHome.scale);
-      s.shadow.position.y = xrHome.shadow;
+    xrStart = 0;
+    xrPlaced.forEach(s => {
+      if (!s.xrHome) return;
+      s.xrHome.parent.add(s.wrap);
+      s.wrap.position.copy(s.xrHome.pos);
+      s.wrap.rotation.y = 0;
+      s.wrap.scale.setScalar(s.xrHome.wrapScale);
+      if (s.fit) s.fit.scale.setScalar(s.xrHome.fitScale);
+      s.shadow.position.y = s.xrHome.shadow;
+      s.xrHome = null;
+    });
+    xrPlaced = [];
+  }
+
+  // a controller trigger brings the next set of pieces in
+  function wireXRControllers() {
+    for (const i of [0, 1]) {
+      const c = renderer.xr.getController(i);
+      c.addEventListener('selectstart', () => {
+        if (!xrMode) return;
+        xrStart = (xrStart + XR_BATCH) % slots.length;
+        xrLayout();
+        if (window.tx) tx('xr_next_set');
+      });
+      xrRoot.add(c);
     }
-    xrHome = null;
   }
 
   // Only offer this where a headset can actually answer. On a laptop three.js would
@@ -949,6 +1004,7 @@ function start() {
         btn.id = 'vr-button';
         btn.textContent = 'See it at real size in VR';
         document.body.appendChild(btn);
+        wireXRControllers();
         renderer.xr.addEventListener('sessionstart', () => {
           btn.textContent = 'Leave VR'; enterXR();
         });
@@ -957,6 +1013,125 @@ function start() {
         });
       });
     }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+  }
+
+  // ---- gallery room: every piece by one maker in the scene at once, pick one to look at
+  const roomBar = document.getElementById('room-bar');
+  const roomTitle = document.getElementById('room-title');
+  const roomCount = document.getElementById('room-count');
+  const roomEyebrow = document.getElementById('room-eyebrow');
+  const roomPlinths = new THREE.Group();
+  scene.add(roomPlinths);
+  let roomMode = null, roomFocus = null, roomCamZ = 9;
+
+  const PL_COL = [0xf1e9db, 0x39647f, 0x3b372c, 0xb4735a];
+
+  function layoutRoom(list) {
+    roomPlinths.clear();
+    const n = list.length;
+    const cols = Math.min(n, n <= 4 ? n : Math.ceil(Math.sqrt(n * 1.6)));
+    const gapX = 2.5, gapZ = 2.4;
+    const rows = Math.ceil(n / cols);
+    list.forEach((s, k) => {
+      const r = Math.floor(k / cols), cIdx = k % cols;
+      const inRow = Math.min(cols, n - r * cols);
+      const x = (cIdx - (inRow - 1) / 2) * gapX;
+      const z = -r * gapZ;
+      const ph = 1.1 + ((k * 7) % 4) * 0.42;             // varied heights, like a still life
+      const kind = k % 4;
+      const w = kind === 2 ? 0.8 : 0.92;
+      const mesh = new THREE.Mesh(
+        kind === 2 ? new THREE.CylinderGeometry(w / 2, w / 2, ph, 40)
+                   : new THREE.BoxGeometry(w, ph, w),
+        new THREE.MeshStandardMaterial({ color: PL_COL[kind], roughness: 0.62 }));
+      mesh.position.set(x, ph / 2 - 2.1, z);
+      roomPlinths.add(mesh);
+      s.roomPos = new THREE.Vector3(x, ph - 2.1 + 0.62, z);
+      s.roomScale = 0.62;
+      // place it now rather than waiting for a frame, so the room is correct on arrival
+      s.wrap.position.copy(s.roomPos);
+      s.wrap.scale.setScalar(s.roomScale);
+      s.wrap.visible = s.loaded;
+      s.mats.forEach(m => { m.opacity = 1; });
+      s.shadow.material.opacity = 0;
+    });
+    roomCamZ = 6.2 + cols * 0.95 + rows * 0.7;
+    camera.position.set(0, 0.9, roomCamZ);
+    camera.lookAt(0, -0.5, -1);
+  }
+
+  // a piece that finishes loading after the room opened still needs placing
+  function placeIfInRoom(s) {
+    if (!roomMode || !s.roomPos) return;
+    s.wrap.position.copy(s.roomPos);
+    s.wrap.scale.setScalar(s.roomScale);
+    s.wrap.visible = true;
+    s.mats.forEach(m => { m.opacity = 1; });
+    s.shadow.material.opacity = 0;
+  }
+
+  function openRoom(artist) {
+    const list = slots.filter(s => s.it.artist === artist);
+    if (!list.length) return;
+    list.forEach(load);
+    roomMode = { artist, list };
+    roomFocus = null;
+    layoutRoom(list);
+    document.body.classList.add('in-room');
+    if (roomBar) roomBar.hidden = false;
+    if (roomTitle) roomTitle.textContent = artist;
+    if (roomEyebrow) roomEyebrow.textContent = 'Gallery room';
+    if (roomCount) roomCount.textContent = list.length + ' pieces';
+    if (cameo) cameo.hidden = true;
+    closeBubble();
+    if (window.tx) tx('room_opened', { artist });
+  }
+  function closeRoom() {
+    if (!roomMode) return;
+    const back = roomMode.list[0];
+    roomMode = null; roomFocus = null;
+    roomPlinths.clear();
+    document.body.classList.remove('in-room');
+    if (roomBar) roomBar.hidden = true;
+    slots.forEach(s => { s.roomPos = null; });
+    if (back) jumpTo(x => x.slug === back.it.slug);
+  }
+  document.querySelectorAll('.room-open').forEach(b =>
+    b.addEventListener('click', () => openRoom(b.dataset.artist)));
+  const roomBack = document.getElementById('room-back');
+  if (roomBack) roomBack.addEventListener('click', () => {
+    if (roomFocus) { roomFocus = null; if (roomEyebrow) roomEyebrow.textContent = 'Gallery room';
+                     if (roomTitle) roomTitle.textContent = roomMode.artist; return; }
+    closeRoom();
+  });
+  addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || !roomMode) return;
+    if (roomFocus) { roomFocus = null; if (roomTitle) roomTitle.textContent = roomMode.artist; }
+    else closeRoom();
+  });
+
+  // clicking a piece in the room brings it forward; clicking the background steps back
+  function pickInRoom(e) {
+    const r = stage.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    camera.updateMatrixWorld();
+    ray.setFromCamera(ndc, camera);
+    const hits = ray.intersectObjects(roomMode.list.filter(s => s.loaded).map(s => s.wrap), true);
+    if (!hits.length) {
+      roomFocus = null;
+      if (roomTitle) roomTitle.textContent = roomMode.artist;
+      if (roomEyebrow) roomEyebrow.textContent = 'Gallery room';
+      return;
+    }
+    let n = hits[0].object;
+    while (n && !roomMode.list.some(s => s.wrap === n)) n = n.parent;
+    const s = roomMode.list.find(x => x.wrap === n);
+    if (!s) return;
+    roomFocus = s;
+    if (roomTitle) roomTitle.textContent = s.it.title;
+    if (roomEyebrow) roomEyebrow.textContent =
+      [s.it.place, s.it.size].filter(Boolean).join(' \u00b7 ') || 'Gallery room';
+    if (window.tx) tx('room_pick', { object: s.it.slug });
   }
 
   function resize() {
@@ -1013,10 +1188,13 @@ function start() {
   const clock = new THREE.Clock();
   function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
-    if (xrMode) {                                   // the headset owns the camera and the layout
+    if (xrMode) {                                   // the headset owns the camera; you walk
       if (mixer) mixer.update(dt);
-      const s = slots[shown];
-      if (s && !dragging) s.pivot.rotation.y += dt * 0.1;
+      xrPlaced.forEach(s => { if (s.loaded) s.wrap.visible = true; });
+      if (nura) {
+        nuraHolder.position.y = 1.25 + Math.sin(clock.elapsedTime * 1.05) * 0.06;
+        nura.rotation.y = nuraBaseYaw + Math.sin(clock.elapsedTime * 0.5) * 0.25;
+      }
       renderer.render(scene, camera);
       return;
     }
@@ -1032,9 +1210,31 @@ function start() {
       m.material.opacity = 0.45 * (1 - entryK);
       if (!reduce) m.position.y += Math.sin(clock.elapsedTime * m.userData.s + i) * 0.0009;
     });
+    const t = clock.elapsedTime;
+    if (roomMode) {
+      slots.forEach(s => { s.wrap.visible = false; });
+      roomMode.list.forEach(s => {
+        if (!s.loaded || !s.roomPos) return;
+        const isF = roomFocus === s;
+        s.wrap.visible = true;
+        const want = isF ? new THREE.Vector3(0, -0.2, roomCamZ - 4.6) : s.roomPos;
+        s.wrap.position.lerp(want, 0.14);
+        const sc = isF ? 1.25 : (roomFocus ? 0.42 : s.roomScale);
+        s.wrap.scale.lerp(new THREE.Vector3(sc, sc, sc), 0.14);
+        s.mats.forEach(m => { m.opacity = roomFocus && !isF ? 0.35 : 1; });
+        s.shadow.material.opacity = 0;
+        if (!reduce && (isF || !roomFocus)) s.pivot.rotation.y += dt * (isF ? 0.16 : 0.05);
+      });
+      camera.position.lerp(new THREE.Vector3(0, 0.9, roomFocus ? roomCamZ - 2.2 : roomCamZ), 0.1);
+      camera.lookAt(0, roomFocus ? -0.2 : -0.5, roomFocus ? roomCamZ - 4.6 : -1);
+      if (mixer) mixer.update(dt);
+      if (nuraHolder) nuraHolder.visible = false;
+      renderer.render(scene, camera);
+      return;
+    }
+    if (nuraHolder) nuraHolder.visible = true;
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
-    const t = clock.elapsedTime;
     paint(Math.round(clamp(cursor, 0, slots.length - 1)));
 
     slots.forEach(s => {

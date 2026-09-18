@@ -646,6 +646,28 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* a gallery room: every piece by one maker, together, and you pick one */
+.room-open{display:inline-block;margin:12px 0 0;border:1px solid rgba(74,53,43,.25);
+  background:var(--gold);color:#241a10;border-radius:999px;padding:9px 18px;font:inherit;
+  font-size:13px;font-weight:700;cursor:pointer}
+.room-open:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#room-bar{position:fixed;top:0;inset-inline:0;z-index:7;display:flex;align-items:center;gap:14px;
+  padding:14px 24px;background:rgba(253,248,240,.94);border-bottom:1px solid rgba(74,53,43,.14);
+  backdrop-filter:blur(8px)}
+#room-bar[hidden]{display:none}
+#room-back{width:40px;height:40px;flex:0 0 auto;border-radius:50%;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;font-size:22px;line-height:1;
+  cursor:pointer}
+#room-back:hover{background:#4a3527;color:#fdf8f0}
+#room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
+#room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
+  text-transform:uppercase}
+body.in-room #walk-scroll,body.in-room #track-switch,body.in-room #rotate-cue,
+body.in-room #scan-entry,body.in-room #nura-bubble,body.in-room #nura-dot{display:none}
+body.in-room{overflow:hidden}
+@media(max-width:760px){#room-bar{padding:10px 14px}#room-bar h2{font-size:17px}
+  #room-count{display:none}}
+
 /* the share sheet: the picture, the caption, and where it can go */
 #share-sheet{position:fixed;inset:0;z-index:9;background:rgba(28,20,14,.72);display:flex;
   align-items:center;justify-content:center;padding:26px}

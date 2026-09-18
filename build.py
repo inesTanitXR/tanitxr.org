@@ -844,6 +844,28 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* a gallery room: every piece by one maker, together, and you pick one */
+.room-open{display:inline-block;margin:12px 0 0;border:1px solid rgba(74,53,43,.25);
+  background:var(--gold);color:#241a10;border-radius:999px;padding:9px 18px;font:inherit;
+  font-size:13px;font-weight:700;cursor:pointer}
+.room-open:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#room-bar{position:fixed;top:0;inset-inline:0;z-index:7;display:flex;align-items:center;gap:14px;
+  padding:14px 24px;background:rgba(253,248,240,.94);border-bottom:1px solid rgba(74,53,43,.14);
+  backdrop-filter:blur(8px)}
+#room-bar[hidden]{display:none}
+#room-back{width:40px;height:40px;flex:0 0 auto;border-radius:50%;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;font-size:22px;line-height:1;
+  cursor:pointer}
+#room-back:hover{background:#4a3527;color:#fdf8f0}
+#room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
+#room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
+  text-transform:uppercase}
+body.in-room #walk-scroll,body.in-room #track-switch,body.in-room #rotate-cue,
+body.in-room #scan-entry,body.in-room #nura-bubble,body.in-room #nura-dot{display:none}
+body.in-room{overflow:hidden}
+@media(max-width:760px){#room-bar{padding:10px 14px}#room-bar h2{font-size:17px}
+  #room-count{display:none}}
+
 /* the share sheet: the picture, the caption, and where it can go */
 #share-sheet{position:fixed;inset:0;z-index:9;background:rgba(28,20,14,.72);display:flex;
   align-items:center;justify-content:center;padding:26px}
@@ -2750,13 +2772,17 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
 
 # Rooms are named the way a curator would name them, not by file category. Each room says
 # what the objects are for; the sizes in the labels are the real measured ones.
+# The first object a visitor meets. The Tanit Stela carries the symbol the organisation is
+# named for, which is a better opening than whatever happens to sort first.
+WALK_OPENER = "tanit-stela"
+
 WALK_ROOMS = [
+    ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
+     ["stela", "stelae"]),
     ("The people of Carthage", "Figures carved in marble and limestone, most of them broken",
      ["statue", "torso", "figure", "togatus", "bust"]),
     ("What held the roof up", "Columns and capitals from public buildings and villas",
      ["column", "capital"]),
-    ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
-     ["stela", "stelae"]),
     ("Floors people walked on", "Mosaic pavements from the Roman villas",
      ["mosaic"]),
     ("Doors still in use", "Doors and tilework from streets people live in today",
@@ -2973,10 +2999,14 @@ def build_walk():
         if not group:
             continue
         if preset is None:
-            group.sort(key=lambda g: g["title"])
+            group.sort(key=lambda g: (not g["file_slug"].startswith(WALK_OPENER), g["title"]))
+        room_btn = (f'<button class="room-open" data-artist="{esc(artist)}">'
+                    f'See all of {esc(artist.split()[0])}\u2019s work together</button>'
+                    ) if artist else ""
         blocks += (f'<section class="warea"><div><div class="wch">{esc(sub) if sub else "Tanit XR"}'
                    f'</div><h2>{esc(label)}</h2>'
                    f'<div class="wn">{len(group)} object{"s" if len(group) != 1 else ""}</div>'
+                   f'{room_btn}'
                    f'</div></section>')
         for m in group:
             d = MODEL_DIMS.get(m["file_slug"])
@@ -3085,6 +3115,12 @@ care as well as method.</p>
 <p><a class="btn btn-gold" href="scanning-guide.html">Read the scanning guide</a>
 &nbsp;<button id="scan-done" class="wf-btn">Got it</button></p>
 </div>
+</div>
+
+<div id="room-bar" hidden>
+<button id="room-back" aria-label="Back to the collection">&#8249;</button>
+<div><div class="wch" id="room-eyebrow">Gallery room</div><h2 id="room-title"></h2></div>
+<div id="room-count"></div>
 </div>
 
 <div id="share-sheet" hidden>
