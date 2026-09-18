@@ -2843,14 +2843,9 @@ def walk_credit(m):
     o_name, o_href = creator_credit(m.get("optimized_by"))
     if ov.get("optimized") in TEAM_BY_SLUG:
         o_name, o_href = TEAM_BY_SLUG[ov["optimized"]]["name"], True
-    # a pending entry that just echoes the username is not a name
-    if o_name and not o_href and o_name == (m.get("optimized_by") or ""):
-        o_name = None
     bits = ["Scanned by a Tanit XR volunteer"]
-    if o_name:
+    if o_name:                                  # a username is better than a vague stand-in
         bits.append(f"optimized by {o_name}")
-    elif m.get("optimized_by"):
-        bits.append("optimized by a Tanit XR volunteer")
     return " \u00b7 ".join(bits)
 
 
@@ -2880,8 +2875,9 @@ def walk_person(m):
                  "verb": "modelled"} if (p and p.get("photo")) else None)
     ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
                if k.lower() in m["title"].lower()), {})
-    for field, verb in (("optimized_by", "optimized"), ("scanned_by", "scanned")):
-        slug = ov.get(verb.rstrip("d") + "ed") or member_slug(m.get(field))
+    for field, verb, ovkey in (("optimized_by", "optimized", "optimized"),
+                               ("scanned_by", "scanned", "scanned")):
+        slug = ov.get(ovkey) or member_slug(m.get(field))
         p = TEAM_BY_SLUG.get(slug or "")
         if p and p.get("photo"):
             return {"name": p["name"], "href": p["href"], "photo": img(p["photo"], 200),
@@ -2951,9 +2947,6 @@ def build_walk():
         fs = by_uid.get(vm.get("uid"))
         if fs:
             byname, byhref = creator_credit(vm.get("by"))
-            # a pending entry that only echoes the Sketchfab username is not a name
-            if byname and not byhref and byname == (vm.get("by") or ""):
-                byname = None
             made.append({"title": vm["title"], "file_slug": fs, "place": "Made by volunteers",
                          "site": "Made by volunteers", "href": "archive.html#volunteer-made",
                          "by": byname, "made": True, "thumb": vm.get("thumb"),

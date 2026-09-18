@@ -537,8 +537,12 @@ function start() {
     if (!cameo || !p || metPeople.has(p.name)) return;
     metPeople.add(p.name);
     clearTimeout(cameoTimer);
+    const forSlug = it.slug;                        // remember which object this belongs to
     cameoTimer = setTimeout(() => {
       if (document.body.classList.contains('demoing')) return;
+      // if you have scrolled on, this card would name the wrong person for what is on screen
+      const now = slots[shown];
+      if (!now || now.it.slug !== forSlug) { metPeople.delete(p.name); return; }
       cameoPhoto.src = assetUrl(p.photo);
       cameoPhoto.alt = p.name;
       cameoLine.textContent = 'I ' + p.verb + ' this one.';
