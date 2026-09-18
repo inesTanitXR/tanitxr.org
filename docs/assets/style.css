@@ -626,6 +626,7 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
 body.in-xr #sound-toggle{display:none}
 .wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+.music-credit{font-size:12px;color:#8a735c;margin-top:18px}.music-credit a{color:inherit}
 .wf-stats[hidden]{display:none}
 #map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
 #map-toggle:hover svg,#map-toggle.on svg{fill:var(--gold)}

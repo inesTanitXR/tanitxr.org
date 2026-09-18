@@ -232,25 +232,27 @@ function start() {
   let voiceEl = null;
   function sayLine(text, item) {
     hushNura();
+    duckMusic(true);
     const it = item || (slots[shown] && slots[shown].it);
     if (it && it.voice) {                          // her own recorded line
       voiceEl = new Audio(AUDIO_BASE + it.voice);
-      voiceEl.onended = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
-      voiceEl.onerror = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
+      voiceEl.onended = () => { speaking = false; duckMusic(false); if (speakBtn) speakBtn.classList.remove('on'); };
+      voiceEl.onerror = () => { speaking = false; duckMusic(false); if (speakBtn) speakBtn.classList.remove('on'); };
       speaking = true;
       if (speakBtn) speakBtn.classList.add('on');
-      voiceEl.play().catch(() => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); });
+      voiceEl.play().catch(() => { speaking = false; duckMusic(false); if (speakBtn) speakBtn.classList.remove('on'); });
       return;
     }
     if (!('speechSynthesis' in window) || !text) return;
     const u = new SpeechSynthesisUtterance(text);
     u.rate = 0.98; u.pitch = 1.08;
-    u.onend = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
+    u.onend = () => { speaking = false; duckMusic(false); if (speakBtn) speakBtn.classList.remove('on'); };
     speaking = true;
     if (speakBtn) speakBtn.classList.add('on');
     speechSynthesis.speak(u);
   }
   function hushNura() {
+    duckMusic(false);
     if (voiceEl) { voiceEl.pause(); voiceEl = null; }
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     speaking = false;
@@ -617,8 +619,26 @@ function start() {
   // much Tunisian music, generated live so nothing is downloaded and nothing needs a licence.
   // It stands in until a recorded track we have the rights to takes its place.
   const HIJAZ = [146.83, 155.56, 185.0, 196.0, 220.0, 233.08, 261.63, 293.66, 311.13, 369.99, 392.0, 440.0];
+  let track = null;
+  function duckMusic(on) {
+    if (track) track.volume = on ? 0.08 : 0.26;
+    if (music && music.duck) music.duck(on);
+  }
   function startMusic() {
     if (music || !soundOn || !gestured) return;
+    if (CFG.music && CFG.music.src) {           // a recording we hold the rights to
+      try {
+        track = new Audio(AUDIO_BASE + CFG.music.src);
+        track.loop = true; track.volume = 0.0001;
+        track.play().then(() => {
+          let v = 0.0001;
+          const up = setInterval(() => { v = Math.min(0.26, v + 0.012); track.volume = v; if (v >= 0.26) clearInterval(up); }, 120);
+        }).catch(() => { track = null; });
+        music = { stop() { const t = track; track = null; if (!t) return;
+                           const down = setInterval(() => { t.volume = Math.max(0, t.volume - 0.02); if (t.volume <= 0.001) { clearInterval(down); t.pause(); } }, 80); } };
+      } catch (e) { music = null; track = null; }
+      return;
+    }
     try {
       const c = actx();
       const master = c.createGain();
@@ -652,6 +672,9 @@ function start() {
         timer = setTimeout(pluck, 1900 + Math.random() * 3400);
       };
       music = {
+        duck(on) { const t = c.currentTime; master.gain.cancelScheduledValues(t);
+                   master.gain.setValueAtTime(Math.max(master.gain.value, 0.0001), t);
+                   master.gain.exponentialRampToValueAtTime(on ? 0.15 : 0.5, t + 0.6); },
         stop() {
           clearTimeout(timer);
           const t = c.currentTime;

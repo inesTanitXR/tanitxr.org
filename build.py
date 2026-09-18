@@ -824,6 +824,7 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
 body.in-xr #sound-toggle{display:none}
 .wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+.music-credit{font-size:12px;color:#8a735c;margin-top:18px}.music-credit a{color:inherit}
 .wf-stats[hidden]{display:none}
 #map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
 #map-toggle:hover svg,#map-toggle.on svg{fill:var(--gold)}
@@ -1666,6 +1667,10 @@ FONTS_ARABIC = ("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;60
 # Where the site lives. Swap this for https://tanitxr.org/ at the DNS cutover and every
 # link preview follows.
 SITE_URL = "https://inestanitxr.github.io/tanitxr.org/"
+_domain_file = os.path.join(HERE, "ref", "domain.txt")
+CUSTOM_DOMAIN = open(_domain_file).read().strip() if os.path.exists(_domain_file) else ""
+if CUSTOM_DOMAIN:
+    SITE_URL = f"https://{CUSTOM_DOMAIN}/"
 
 with open(os.path.join(HERE, "ref", "analytics.json")) as _f:
     ANALYTICS = json.load(_f)
@@ -2032,6 +2037,7 @@ CONTRIBUTORS = [
     ("Patrick Molen", "3D Generalist"),
     ("Nick Kaufmann", "Photogrammetry, Grants and Opportunities"),
     ("Kristina Reyes", "3D Generalist"),
+    ("Cam Kania", "Creative Director / Experiential Designer"),
     ("Brianne Lehan", "Strategy & Creative Support"),
 ]
 
@@ -2259,6 +2265,9 @@ PRESS = [
     {"k": "Event", "t": "ImmerseGT 2026, Sponsored track at Georgia Tech's XR hackathon",
      "d": "We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.",
      "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt"},
+    {"k": "Event", "t": "CityCamp Gainesville Hack Day 2026, heritage challenge",
+     "d": "Tanit XR brought a heritage challenge to the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.",
+     "u": "https://citycamp-hack-day.devpost.com/", "date": "September 20, 2026", "anchor": "citycamp"},
     {"k": "Partnership", "t": "TanitXR & the Unique Mappers, expanding to Nigeria",
      "d": "The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.",
      "u": "unique-mappers.html", "date": "2026", "anchor": "nigeria"},
@@ -2645,7 +2654,7 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 
 
 # volunteers building the virtual museum (from Slack #vr-app / #volunteer-updates, Sept 2026) and Julia's recorded lessons
-MUSEUM_BUILDERS = "Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam K. (narrative and thematic brief), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
+MUSEUM_BUILDERS = "Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam Kania (narrative and thematic brief, experience design), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization)"
 HISTORY_LESSONS = [
     ("First Phoenicians and Tyrian Purple Origins", "July 31, 2026", "https://www.loom.com/share/e4717da8892544bca7b7aff597e27407"),
     ("Mini history lesson 2, Carthage's craft quarters", "August 6, 2026", "https://www.loom.com/share/53d0a3afb9b14734a9c4b643d4f15b6e"),
@@ -2826,7 +2835,7 @@ scanning days.</p></div>
 
 
 def build_press():
-    groups = [("Awards", ["auggie"]), ("Exhibitions", ["xrwomen"]), ("Talks & events", ["awe", "eljem", "immersegt"]),
+    groups = [("Awards", ["auggie"]), ("Exhibitions", ["xrwomen"]), ("Talks & events", ["awe", "eljem", "immersegt", "citycamp"]),
               ("Podcasts & video", ["voices", "niantic"]), ("Articles", ["aljazeera", "carthage", "medium"]),
               ("Partnerships", ["nigeria"])]
     by = {x["anchor"]: x for x in PRESS}
@@ -2961,6 +2970,11 @@ WALK_ROOMS = [
 WALK_MADE = ("Made by hand, today",
              "Not scans. Volunteers modelled these from scratch for the virtual museum")
 WALK_MAX_PER_ROOM = 5
+# the background recording, with the credit its licence asks for. Replace the file and the
+# credit together when a Tunisian recording we hold the rights to comes along.
+MUSIC = {"file": "bg-oriental-nights.mp3",
+         "credit": "Music: Oriental Nights by Ahmad Al-Nakib (CC BY 3.0, via the Internet Archive)",
+         "href": "https://archive.org/details/OrientalNights"}
 
 # Nura speaks in short, warm lines. The long factual text stays on the label, where it
 # belongs; she only opens with one line and lets you ask for more.
@@ -3260,8 +3274,12 @@ def build_walk():
 
     rooms = blocks.count('class="warea"')
     # nuraYaw turns the character to face the viewer; adjust here if she ends up backwards
+    music = None
+    if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
+        music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
     cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180),
                            "gc": (ANALYTICS.get("goatcounter_code") or "").strip(),
+                           **({"music": music} if music else {}),
                            "items": items}, ensure_ascii=False)
     body = f"""
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
@@ -3307,7 +3325,7 @@ def build_walk():
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h5v5H3zm7 0h4v5h-4zm6 0h5v5h-5zM3 12h5v7H3zm7 0h4v7h-4zm6 0h5v7h-5z"/></svg>
 Map</button>
 <div id="filmstrip" hidden></div>
-<button id="sound-toggle" aria-pressed="true" title="Sound is on. Tap to mute">
+<button id="sound-toggle" aria-pressed="true" title="Sound is on. Tap to mute. {MUSIC["credit"]}">
 <svg class="on-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
 <svg class="off-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3l2.7-2.7-1.4-1.4L15.2 10.6l-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>
 Sound</button>
@@ -3416,7 +3434,7 @@ phone. The caption is copied for you.</p>
 separately in Unity by Patrick Molen and the team.</p>
 <p><a class="btn btn-gold" href="galleries.html">Browse with descriptions</a>
 &nbsp;<a class="wmore" href="volunteer.html">Volunteer with us</a></p>
-</div></section>
+</div><p class="music-credit"><a href="{MUSIC["href"]}" target="_blank" rel="noopener">{MUSIC["credit"]}</a></p></section>
 </div>
 
 <script type="importmap">
@@ -3714,6 +3732,9 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
     "ana-beatriz-vega-gonzalez": [  # "Bety" on Slack
         ("built", "Scanning & optimization guide for volunteers (with Rachel West and Nick Kaufmann)", "scanning-guide.html", None, "sv-IMG_4213.jpg"),
         ("built", "Social media videos for Tanit XR", "community.html", None, "aug-PXL_0814_112926.jpg"),
+    ],
+    "cam-kania": [
+        ("built", "Virtual museum, narrative and thematic brief, experience design", "museum.html", None, "museum-progress-jan-2026.jpg"),
     ],
     "patrick-molen": [
         ("built", "Virtual museum, the original room and the modular building kit", "museum.html", None, "museum-progress-jan-2026.jpg"),
@@ -5026,6 +5047,9 @@ def main():
                 if _d != _h:
                     with open(_p, "w", encoding="utf-8") as _f:
                         _f.write(_d)
+    if CUSTOM_DOMAIN:
+        with open(os.path.join(DOCS, "CNAME"), "w") as _f:
+            _f.write(CUSTOM_DOMAIN + "\n")
     print(f"\nBuilt {n_pages} en + {n_fr} fr + {n_ar} ar pages -> docs/ ({size})")
     # newsletter ⇄ board consistency (Ines: "everything needs to be reflected on the website")
     r = subprocess.run(["python3", os.path.join(HERE, "sync_check.py"), "--quiet"], capture_output=True, text=True)

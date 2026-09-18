@@ -45,7 +45,8 @@ for p in data["pieces"]:
                'in Unity or Blender, and turn into a room of their own for the museum. Download is free '
                'under CC BY-NC-SA; credit the maker.\n\n' if kit else '')
             + 'All the pieces, in 3D: https://tanitxr.org/walk/  Join us: https://tanitxr.org/community/')
-    fields = {"name": f'{p["title"]} (Tanit XR building kit)' if kit else f'{p["title"]} (Tanit XR museum)',
+    name = f'{p["title"]} (Tanit XR kit)' if kit else f'{p["title"]} (Tanit XR)'
+    fields = {"name": name[:48],                 # Sketchfab caps names at 48 characters
               "description": desc,
               "tags": "tanitxr tunisia museum vr architecture volunteer modular buildingkit lowpoly",
               "categories": "architecture",

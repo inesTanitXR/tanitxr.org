@@ -8,7 +8,8 @@
    "title": "The museum's main hall",
    "by": "Patrick Molen",
    "note": "The heart of the virtual museum: a courtyard hall with arcades and fountains, where the scanned objects will one day be hung. Everything else in this room is a piece of it.",
-   "hi": "This is the museum itself, still being built."
+   "hi": "This is the museum itself, still being built.",
+   "sketchfab": "https://sketchfab.com/3d-models/d092d4029cfd4a5f812f6a0550c06ae2"
   },
   {
    "slug": "patrick-fountain-large",
@@ -16,14 +17,16 @@
    "title": "Courtyard fountain, large",
    "by": "Patrick Molen",
    "note": "The big fountain at the centre of the main hall, tiled in the trim pattern used across the museum.",
-   "hi": "Water in the middle of the hall, like a real Tunisian courtyard."
+   "hi": "Water in the middle of the hall, like a real Tunisian courtyard.",
+   "sketchfab": "https://sketchfab.com/3d-models/a31115069d0a441ab23645254bfa0a47"
   },
   {
    "slug": "patrick-fountain-small",
    "fbx": "Assets/Models/ReusableStructures/TanitMuseumFountain02_V02.fbx",
    "title": "Courtyard fountain, small",
    "by": "Patrick Molen",
-   "note": "The smaller fountain, for the side courts."
+   "note": "The smaller fountain, for the side courts.",
+   "sketchfab": "https://sketchfab.com/3d-models/6328a1c16198489dbb902ba6747038f9"
   },
   {
    "slug": "patrick-arch-1",
@@ -31,28 +34,32 @@
    "title": "Arch, first pattern",
    "by": "Patrick Molen",
    "note": "One of four arch pieces from the modular building kit. Volunteers snap these together to make new galleries without modelling anything from scratch.",
-   "hi": "A building block. New rooms are puzzled together from these."
+   "hi": "A building block. New rooms are puzzled together from these.",
+   "sketchfab": "https://sketchfab.com/3d-models/e635a954a21e46858bc5126c29af0b03"
   },
   {
    "slug": "patrick-arch-2",
    "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_02.fbx",
    "title": "Arch, second pattern",
    "by": "Patrick Molen",
-   "note": "Another arch from the kit, with a deeper reveal."
+   "note": "Another arch from the kit, with a deeper reveal.",
+   "sketchfab": "https://sketchfab.com/3d-models/9c0a11023df8412ca3365eec04f7b3f5"
   },
   {
    "slug": "patrick-arch-3",
    "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_03.fbx",
    "title": "Arch, third pattern",
    "by": "Patrick Molen",
-   "note": "The tallest arch in the kit."
+   "note": "The tallest arch in the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/f29b3f61705949d0b16ac65b99eddc2a"
   },
   {
    "slug": "patrick-arch-4",
    "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_04.fbx",
    "title": "Arch, fourth pattern",
    "by": "Patrick Molen",
-   "note": "The smallest arch, for passages."
+   "note": "The smallest arch, for passages.",
+   "sketchfab": "https://sketchfab.com/3d-models/6c09c3c73016471db35e3699bb63c694"
   },
   {
    "slug": "patrick-wall-tanit",
@@ -60,21 +67,24 @@
    "title": "Wall with the sign of Tanit",
    "by": "Patrick Molen",
    "note": "A wall section from the kit carrying the sign of Tanit, the symbol the project takes its name from.",
-   "hi": "The sign of Tanit, cut into the museum's own walls."
+   "hi": "The sign of Tanit, cut into the museum's own walls.",
+   "sketchfab": "https://sketchfab.com/3d-models/5fa2fc519fd54c9ba0b9d7b5b0572b9c"
   },
   {
    "slug": "patrick-wall-solid",
    "fbx": "Assets/Models/ReusableStructures/Wall_01_noDoor.fbx",
    "title": "Wall, solid",
    "by": "Patrick Molen",
-   "note": "A plain wall section from the kit."
+   "note": "A plain wall section from the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/14d6c195acd24aa4ab713103282f2ecc"
   },
   {
    "slug": "patrick-pillar",
    "fbx": "Assets/Models/ReusableStructures/Pillar.fbx",
    "title": "Pillar",
    "by": "Patrick Molen",
-   "note": "A free-standing pillar from the kit."
+   "note": "A free-standing pillar from the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/b6969d26eda842b6b071cf094f106374"
   },
   {
    "slug": "patrick-carved-ceiling",
@@ -82,21 +92,24 @@
    "title": "Carved ceiling",
    "by": "Patrick Molen",
    "note": "A ceiling piece with carved coffers, for the larger rooms.",
-   "hi": "Look up. This goes over your head in the museum."
+   "hi": "Look up. This goes over your head in the museum.",
+   "sketchfab": "https://sketchfab.com/3d-models/14c5e8e6c2d14d5ba833c492fe2fcc07"
   },
   {
    "slug": "patrick-clay-lamp",
    "fbx": "Assets/Models/ReusableStructures/Clay_Light.fbx",
    "title": "Clay lamp",
    "by": "Patrick Molen",
-   "note": "A hanging clay lamp that lights the galleries."
+   "note": "A hanging clay lamp that lights the galleries.",
+   "sketchfab": "https://sketchfab.com/3d-models/b9140c85c57045f593f500510f7ab7e8"
   },
   {
    "slug": "patrick-wall-lamp",
    "fbx": "Assets/Models/ReusableStructures/Wall_Light.fbx",
    "title": "Wall lamp",
    "by": "Patrick Molen",
-   "note": "A wall-mounted lamp from the kit."
+   "note": "A wall-mounted lamp from the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/d9d91604e9a54e93a2dd50c9440a0243"
   },
   {
    "slug": "patrick-palm-tree",
@@ -104,35 +117,40 @@
    "title": "Palm tree",
    "by": "Patrick Molen",
    "note": "A palm for the courtyards, so the museum feels like Tunisia and not a white box.",
-   "hi": "A palm for the courtyard. It should feel like home."
+   "hi": "A palm for the courtyard. It should feel like home.",
+   "sketchfab": "https://sketchfab.com/3d-models/4da084b44d044116b5e39288f38d30f8"
   },
   {
    "slug": "patrick-bamboo",
    "fbx": "Assets/Models/ReusableStructures/Bamboo_Group.fbx",
    "title": "Bamboo",
    "by": "Patrick Molen",
-   "note": "A clump of bamboo for the planted corners."
+   "note": "A clump of bamboo for the planted corners.",
+   "sketchfab": "https://sketchfab.com/3d-models/c87ff8f7c51e4987b64094a0e742ba1f"
   },
   {
    "slug": "patrick-curved-bench",
    "fbx": "Assets/Models/ReusableStructures/Curved_Bench.fbx",
    "title": "Curved bench",
    "by": "Patrick Molen",
-   "note": "Somewhere to sit in the courtyard."
+   "note": "Somewhere to sit in the courtyard.",
+   "sketchfab": "https://sketchfab.com/3d-models/3eb2c6ed31d24bf9919d17332238bca6"
   },
   {
    "slug": "patrick-large-pot",
    "fbx": "Assets/Models/ReusableStructures/Large_Dirt_Pot.fbx",
    "title": "Large clay pot",
    "by": "Patrick Molen",
-   "note": "A large planter for the courtyards."
+   "note": "A large planter for the courtyards.",
+   "sketchfab": "https://sketchfab.com/3d-models/4f9ec8b90be94c0491f2494fdb9f8061"
   },
   {
    "slug": "patrick-small-pot",
    "fbx": "Assets/Models/ReusableStructures/Small_Pot.fbx",
    "title": "Small pot",
    "by": "Patrick Molen",
-   "note": "A small pot from the kit."
+   "note": "A small pot from the kit.",
+   "sketchfab": "https://sketchfab.com/3d-models/e0a410894ee947a38cb881168049056f"
   },
   {
    "slug": "kristina-furnished-room",
@@ -140,14 +158,16 @@
    "title": "Furnished room",
    "by": "Kristina Reyes",
    "note": "A complete furnished room for the virtual museum, built as one piece.",
-   "hi": "A whole room, built by hand, ready to hang objects in."
+   "hi": "A whole room, built by hand, ready to hang objects in.",
+   "sketchfab": "https://sketchfab.com/3d-models/88637343fbde47e095e78b5230c8b702"
   },
   {
    "slug": "kristina-stained-glass-lamp",
    "fbx": "Assets/Models/ReusableStructures/stainedLamp_opt.fbx",
    "title": "Stained glass lamp",
    "by": "Kristina Reyes",
-   "note": "A stained glass lamp, modelled and optimized for the headset."
+   "note": "A stained glass lamp, modelled and optimized for the headset.",
+   "sketchfab": "https://sketchfab.com/3d-models/b879688c25704c6386c0b669752acd6b"
   },
   {
    "slug": "kristina-display-plinth",
@@ -155,14 +175,16 @@
    "title": "Display plinth",
    "by": "Kristina Reyes",
    "note": "The plinth the scanned objects stand on inside the museum.",
-   "hi": "This is what the scans stand on in the museum."
+   "hi": "This is what the scans stand on in the museum.",
+   "sketchfab": "https://sketchfab.com/3d-models/3e89de1d78934adb8153ca435a74472b"
   },
   {
    "slug": "kristina-rug",
    "fbx": "Assets/Models/ReusableStructures/tanitxr_rug.fbx",
    "title": "Rug",
    "by": "Kristina Reyes",
-   "note": "A rug for the furnished room."
+   "note": "A rug for the furnished room.",
+   "sketchfab": "https://sketchfab.com/3d-models/b8dcf76fa9014ef29f48a6439577df9b"
   }
  ]
 }
