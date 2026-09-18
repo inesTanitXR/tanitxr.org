@@ -766,7 +766,8 @@ body.gal{background:#14110d}
   transform:translateX(-50%)!important;background:rgba(74,53,43,.92)!important;
   color:#fdf8f0!important;border:1px solid rgba(74,53,43,.4)!important;border-radius:999px!important;
   padding:12px 26px!important;font:inherit!important;font-size:13.5px!important;
-  letter-spacing:.12em!important;width:auto!important;opacity:1!important;z-index:6!important}
+  letter-spacing:.12em!important;width:auto!important;z-index:6!important;
+  transition:opacity .9s ease}
 #vr-button:hover{background:var(--gold)!important;color:#241a10!important}
 body.in-xr #walk-label,body.in-xr #saved-chip,body.in-xr #scan-entry,body.in-xr #nura-bubble,
 body.in-xr #nura-dot,body.in-xr #rotate-cue,body.in-xr #vol-cameo{display:none}
@@ -983,19 +984,47 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
 .wcard p{color:#463628;font-size:16px;line-height:1.7}
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
 .wcard p.tiny{font-size:13px;color:#7d6a58;line-height:1.55;margin-top:10px}
-/* the opening is a moment, not a manual: type on the air, the object already turning */
-.intro-hero{text-align:center;max-width:760px;margin-top:-26vh}
-.intro-hero h1{font-family:var(--serif);font-size:clamp(34px,5.6vw,66px);color:#2e2118;
-  font-weight:400;line-height:1.12;margin:16px 0 18px;
-  text-shadow:0 2px 26px rgba(253,248,239,.9)}
-.intro-hero .lead{font-size:clamp(16px,2vw,19px);color:#5d4c3c;margin:0 auto;max-width:44ch;
-  text-shadow:0 2px 18px rgba(253,248,239,.9)}
-.scroll-cue{margin-top:40px;color:#8a735c;font-size:11.5px;letter-spacing:.24em;
-  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
-.scroll-cue span{width:1px;height:38px;background:linear-gradient(#8a735c,transparent);
-  animation:scue 2s ease-in-out infinite}
-@keyframes scue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
-@media(prefers-reduced-motion:reduce){.scroll-cue span{animation:none}}
+/* the entrance: one object out of the dark, lines arriving one at a time */
+#walk-entrance{position:fixed;inset:0;z-index:8;display:flex;align-items:center;
+  justify-content:center;padding:6vh 26px;text-align:center;pointer-events:auto;
+  background:radial-gradient(120% 95% at 50% 46%,rgba(24,19,13,.18) 0%,rgba(18,14,9,.82) 62%,#100d09 100%);
+  transition:opacity 1.1s ease,visibility 1.1s}
+body.entered #walk-entrance{opacity:0;visibility:hidden;pointer-events:none}
+.ent-inner{max-width:680px;transform:translateY(-4vh)}
+.ent-eyebrow,.ent-line1,.ent-line2,.ent-sub,.ent-go{opacity:0;animation:entin 1.5s ease forwards}
+.ent-eyebrow{animation-delay:.5s;color:var(--gold);font-size:12px;letter-spacing:.32em;
+  text-transform:uppercase;font-weight:700}
+.ent-line1,.ent-line2{font-family:var(--serif);font-weight:400;color:#f6efe2;
+  font-size:clamp(30px,5vw,58px);line-height:1.14;margin:0}
+.ent-line1{animation-delay:1.1s;margin-top:22px}
+.ent-line2{animation-delay:2.0s;color:#e7d2ae}
+.ent-sub{animation-delay:3.0s;color:rgba(240,231,216,.72);font-size:clamp(15px,1.8vw,17.5px);
+  margin:22px auto 0;max-width:46ch;line-height:1.65}
+.ent-doors{opacity:0;animation:entin 1.5s ease forwards;animation-delay:3.7s;
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.ent-door{background:rgba(246,239,226,.05);border:1px solid rgba(246,239,226,.26);
+  border-radius:10px;padding:20px 18px;cursor:pointer;font:inherit;color:#f6efe2;text-align:start;
+  transition:background .3s,border-color .3s,transform .3s}
+.ent-door:hover{background:rgba(255,205,5,.1);border-color:var(--gold);transform:translateY(-3px)}
+.ent-door b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;
+  color:var(--gold);line-height:1}
+.ent-door span{display:block;font-size:14.5px;margin-top:6px;color:#f6efe2}
+.ent-door em{display:block;font-style:normal;font-size:12.5px;line-height:1.5;margin-top:6px;
+  color:rgba(240,231,216,.6)}
+@media(max-width:620px){.ent-doors{grid-template-columns:1fr;gap:10px}
+  .ent-door{padding:14px 15px}.ent-door b{font-size:26px}}
+@keyframes entin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* the stage starts dark and warms up once you are in */
+#walk-stage{transition:background 1.4s ease}
+body:not(.entered) #walk-stage{background:radial-gradient(120% 95% at 50% 42%,#2a2118 0%,#16120c 60%,#0f0c08 100%)}
+body:not(.entered) #walk-label,body:not(.entered) #saved-chip,body:not(.entered) #scan-entry,
+body:not(.entered) #nura-bubble,body:not(.entered) #nura-dot,body:not(.entered) #rotate-cue,
+body:not(.entered) #vol-cameo{opacity:0;pointer-events:none}
+body:not(.entered) #vr-button{opacity:0!important;pointer-events:none}
+#walk-label,#saved-chip,#scan-entry,#rotate-cue,#vol-cameo{transition:opacity .9s ease}
+body:not(.entered){overflow:hidden}
+@media(prefers-reduced-motion:reduce){
+  .ent-eyebrow,.ent-line1,.ent-line2,.ent-sub,.ent-go{animation-duration:.01s;animation-delay:0s}}
 .wmore{display:inline-block;color:#a35f3f;text-decoration:none;font-weight:700;font-size:14px;
   border-bottom:1px solid rgba(163,95,63,.4);padding-bottom:2px}
 .wst-fallback{margin:0 auto;max-width:720px;padding:20px 0}
@@ -2766,6 +2795,28 @@ def build_walk():
     cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180), "items": items},
                           ensure_ascii=False)
     body = f"""
+<div id="walk-entrance">
+<div class="ent-inner">
+<div class="ent-eyebrow">Tanit XR</div>
+<h1 class="ent-line1">Everything here is real.</h1>
+<h1 class="ent-line2">Some of it is disappearing.</h1>
+<p class="ent-sub">{len(items)} pieces of Tunisia, scanned by volunteers with their phones.
+Turn any one of them over in your hands.</p>
+<div class="ent-doors">
+<button id="ent-go" class="ent-door">
+<b>{sum(1 for i in items if i.get("real"))}</b>
+<span>Scanned in Tunisia</span>
+<em>Statues, stelae, mosaics and doors, captured on location</em>
+</button>
+<button id="ent-made" class="ent-door">
+<b>{sum(1 for i in items if not i.get("real"))}</b>
+<span>Made by volunteers</span>
+<em>Lamps, pottery and plants, modelled by hand for the museum</em>
+</button>
+</div>
+</div>
+</div>
+
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
 <div id="rotate-cue" aria-hidden="true">
 <svg viewBox="0 0 240 150">
@@ -2859,12 +2910,7 @@ care as well as method.</p>
 </div>
 
 <div id="walk-scroll">
-<section class="wst-intro"><div class="intro-hero">
-<div class="wch">Tanit XR</div>
-<h1>Everything here is real.<br>Some of it is disappearing.</h1>
-<p class="lead">{len(items)} pieces of Tunisia, scanned by volunteers with their phones.</p>
-<div class="scroll-cue"><span></span>Scroll</div>
-</div></section>
+<section class="wst-intro" aria-hidden="true"></section>
 {blocks}
 <section class="wst-end"><div class="wcard wide">
 <h2>Every one of these was scanned by a volunteer</h2>

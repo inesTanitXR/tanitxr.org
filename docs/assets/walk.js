@@ -44,11 +44,17 @@ function start() {
   camera.lookAt(0, 0, 0);
 
   // soft, even light from a few directions so any object reads without a set around it
-  scene.add(new THREE.AmbientLight(0xf3ece0, 1.15));
+  const amb = new THREE.AmbientLight(0xf3ece0, 1.15);
   const l1 = new THREE.DirectionalLight(0xfff3e0, 1.9); l1.position.set(-4, 5, 6);
   const l2 = new THREE.DirectionalLight(0xe8f0f6, 0.8); l2.position.set(5, 1, -3);
   const l3 = new THREE.DirectionalLight(0xfff6ea, 0.5); l3.position.set(0, -4, 4);
-  scene.add(l1, l2, l3);
+  scene.add(amb, l1, l2, l3);
+  // one shaft of light for the entrance, so the first object comes out of the dark
+  const shaft = new THREE.SpotLight(0xffe9c4, 90, 14, Math.PI / 9, 0.62, 1.5);
+  shaft.position.set(-1.7, 4.4, 3.2);
+  scene.add(shaft, shaft.target);
+  const LIT = { amb: 1.15, l1: 1.9, l2: 0.8, l3: 0.5 };
+  let entered = false, entryK = 0;                  // 0 = dark entrance, 1 = full light
 
   // a soft shadow beneath, so an object sits in space instead of floating in a void
   const shadowTex = (() => {
@@ -61,6 +67,16 @@ function start() {
     x.fillStyle = g; x.fillRect(0, 0, 256, 256);
     const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
   })();
+
+  const dust = new THREE.Group();
+  for (let i = 0; i < 90; i++) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.008 + Math.random() * 0.018, 6, 5),
+      new THREE.MeshBasicMaterial({ color: 0xffe6bb, transparent: true, opacity: 0.5 }));
+    m.position.set((Math.random() - 0.5) * 9, (Math.random() - 0.5) * 6, (Math.random() - 0.5) * 5);
+    m.userData.s = 0.1 + Math.random() * 0.35;
+    dust.add(m);
+  }
+  scene.add(dust);
 
   const slots = CFG.items.map((it, i) => {
     const wrap = new THREE.Group();          // position + fade
@@ -311,6 +327,33 @@ function start() {
     phone.add(body, screen, lens);
     demo.add(phone);
   })();
+
+  function enterCollection() {
+    if (entered) return;
+    entered = true;
+    document.body.classList.add('entered');
+    if (window.tx) tx('collection_entered');
+  }
+  function jumpTo(pred) {
+    const i = CFG.items.findIndex(pred);
+    if (i >= 0 && sections[i]) {
+      target = i;
+      scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+    }
+  }
+  const entGo = document.getElementById('ent-go');
+  if (entGo) entGo.addEventListener('click', () => { enterCollection(); });
+  const entMade = document.getElementById('ent-made');
+  if (entMade) entMade.addEventListener('click', () => {
+    enterCollection();
+    jumpTo(it => !it.real);                       // straight to what volunteers made
+    if (window.tx) tx('entered_volunteer_made');
+  });
+  addEventListener('wheel', () => { if (!entered) enterCollection(); }, { passive: true });
+  addEventListener('keydown', e => {
+    if (!entered && (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown')) enterCollection();
+  });
+  addEventListener('touchstart', () => { if (!entered) enterCollection(); }, { passive: true });
 
   // ---- scroll moves along the list, one object per section
   let cursor = 0, target = 0;
@@ -773,15 +816,28 @@ function start() {
   }
 
   // load the button lazily, so a browser without it can never break the page
-  import('three/addons/webxr/VRButton.js').then(mod => {
-    if (!navigator.xr) return;
-    renderer.xr.enabled = true;
-    const btn = mod.VRButton.createButton(renderer);
-    btn.id = 'vr-button';
-    document.body.appendChild(btn);
-    renderer.xr.addEventListener('sessionstart', enterXR);
-    renderer.xr.addEventListener('sessionend', exitXR);
-  }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+  // Only offer this where a headset can actually answer. On a laptop three.js would
+  // otherwise render a dead "VR NOT SUPPORTED" chip, which reads as a broken feature.
+  if (navigator.xr && navigator.xr.isSessionSupported) {
+    navigator.xr.isSessionSupported('immersive-vr').then(ok => {
+      if (!ok) return;
+      return import('three/addons/webxr/VRButton.js').then(mod => {
+        renderer.xr.enabled = true;
+        const btn = mod.VRButton.createButton(renderer);
+        btn.id = 'vr-button';
+        btn.textContent = 'See it at real size in VR';
+        document.body.appendChild(btn);
+        renderer.xr.addEventListener('sessionstart', () => {
+          btn.textContent = 'Leave VR';
+          enterXR();
+        });
+        renderer.xr.addEventListener('sessionend', () => {
+          btn.textContent = 'See it at real size in VR';
+          exitXR();
+        });
+      });
+    }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
+  }
 
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
@@ -842,6 +898,33 @@ function start() {
       renderer.render(scene, camera);
       return;
     }
+    entryK += ((entered ? 1 : 0) - entryK) * (reduce ? 1 : 0.035);
+    amb.intensity = LIT.amb * (0.06 + 0.94 * entryK);
+    l1.intensity = LIT.l1 * (0.05 + 0.95 * entryK);
+    l2.intensity = LIT.l2 * entryK;
+    l3.intensity = LIT.l3 * entryK;
+    shaft.intensity = 90 * (1 - entryK) + 6;
+    dust.visible = entryK < 0.98;
+    dust.children.forEach((m, i) => {
+      m.material.opacity = 0.5 * (1 - entryK) + 0.06;
+      if (!reduce) m.position.y += Math.sin(clock.elapsedTime * m.userData.s + i) * 0.0009;
+    });
+    if (!entered) {                                 // hold on the first object until they enter
+      const s0 = slots[0];
+      if (s0 && s0.loaded) {
+        s0.wrap.visible = true;
+        s0.wrap.position.set(0, -0.15, 0);
+        s0.wrap.scale.setScalar(1.0);
+        s0.mats.forEach(m => { m.opacity = 1; });
+        s0.shadow.material.opacity = 0.25;
+        if (!reduce) s0.pivot.rotation.y += dt * 0.09;
+        shaft.target.position.set(0, -0.15, 0);
+      }
+      if (nuraHolder) nuraHolder.visible = false;
+      renderer.render(scene, camera);
+      return;
+    }
+    if (nuraHolder) nuraHolder.visible = true;
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
     const t = clock.elapsedTime;
