@@ -1008,7 +1008,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
   body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
   body #more-toggle{display:flex}
-  body #wf-poster,body #wf-map,body #ar-button{display:none}
+  body #wf-map,body #ar-button{display:none}
   .wf-row2{margin-top:2px}
   body #vol-cameo{top:182px;bottom:auto;inset-inline-start:12px;inset-inline-end:12px;width:auto;
     padding:8px 12px;gap:10px;align-items:center;border-radius:14px}

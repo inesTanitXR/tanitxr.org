@@ -1206,7 +1206,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
   body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
   body #more-toggle{display:flex}
-  body #wf-poster,body #wf-map,body #ar-button{display:none}
+  body #wf-map,body #ar-button{display:none}
   .wf-row2{margin-top:2px}
   body #vol-cameo{top:182px;bottom:auto;inset-inline-start:12px;inset-inline-end:12px;width:auto;
     padding:8px 12px;gap:10px;align-items:center;border-radius:14px}
@@ -3519,9 +3519,6 @@ taking care of the place you are in.</p>
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
-<button id="wf-poster" class="wf-btn icon" title="Save a picture of this to post" aria-label="Save a picture of this to post">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-</button>
 </div>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
