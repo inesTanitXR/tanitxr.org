@@ -1,16 +1,18 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 18
 
-*Post: Sept 16, 2026. Deadlines verified at the source Sept 11 and re-checked Sept 16; items that closed Sept 14 and 15 were removed. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Sept 18, 2026. Deadlines verified at the source Sept 11 and re-checked Sept 16 and 18; nothing has closed since. Fast Forward closes tonight. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
 Hi everyone 👋
 
-Back after a long summer break. A lot closes in the next two weeks, so this one is mostly deadlines. As always: only things I'd apply to myself, plus a new short section at the end for Tunisians and North Africans.
+Back after a long summer break, and with news: tanitxr.org is a new site as of today. Two things on it are made for you. The opportunities page now has filters (grants, awards, open calls, fellowships, conferences), live countdowns, a Subscribe box so these land in your inbox, and a form to send me an opportunity for the next edition. And there is a 3D page called The Collection, where you can turn our scans of Tunisian heritage in your browser, with our guide Nura. Links at the end.
+
+A lot closes in the next two weeks, so this one is mostly deadlines. As always: only things I'd apply to myself, plus a short section at the end for Tunisians and North Africans.
 
 ## 🔥 HIGHLIGHTS
 
-- 💸 Fast Forward Accelerator, $25K for tech nonprofits. Deadline Sept 18 🚨
+- 💸 Fast Forward Accelerator, $25K for tech nonprofits. Closes tonight, Sept 18 🚨
 - 🎬 Sundance 2027, feature films. Late deadline Sept 21 🚨
 - 🎤 IEEE VR 2027, call for workshops. Deadline Sept 28
 - 🧬 Ars Electronica ArtXScience Residency, €24,000. Deadline Sept 28
@@ -22,7 +24,7 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ### 💸 Fast Forward Accelerator 2027 🚨
 
-📅 Deadline: September 18, 2026, 11:59 pm PT
+📅 Deadline: tonight, September 18, 2026, 11:59 pm PT
 📍 Remote, Feb–June 2027, with two in-person weeks in San Francisco
 👥 Early-stage tech or AI nonprofits with a working product: any country, fiscally sponsored teams included
 ✏️ $25K unrestricted grant, three months of mentorship and a Demo Day in front of funders. The only accelerator made for tech nonprofits.
@@ -136,16 +138,26 @@ Back after a long summer break. A lot closes in the next two weeks, so this one 
 
 ───────────────────────────────────────
 
-Everything here, with live countdowns, is on tanitxr.org/opportunities: you can also submit an opportunity there for the next edition.
+───────────────────────────────────────
+
+## 🆕 NEW ON TANITXR.ORG
+
+- 🔎 tanitxr.org/opportunities: everything in this edition and past ones, filter by type, live countdowns, subscribe to get these by email, and a form to send me an opportunity.
+- 🏺 tanitxr.org/walk: The Collection. Scroll from one Tunisian object to the next, drag to turn it, save the ones you like, share them, and meet Nura, our guide. It runs in a browser, and in a Quest headset too.
+- 🧩 Volunteers built the virtual museum's own pieces: the main hall and a building kit of arches, walls and fountains by Patrick Molen, a furnished room by Kristina Reyes. They are in The Collection under Made by volunteers.
 
 If you apply to any of these, tell me. And if you want to help preserve Tunisian heritage with XR and 3D scanning, Tanit XR is always looking for volunteers: ines@tanitxr.org 🌟
 
 ---
 ---
 
+# 📝 Before posting
+
+The links say tanitxr.org. Post after the domain switch is live (I confirm it in chat). If you post before, use inestanitxr.github.io/tanitxr.org/opportunities and inestanitxr.github.io/tanitxr.org/walk instead; both keep working after the switch too.
+
 # 📣 LinkedIn post (profile)
 
-Edition 18 of Art, XR & Impact Opportunities is out. Deadlines are close on this one:
+Edition 18 of Art, XR & Impact Opportunities is out, on a brand new tanitxr.org. Deadlines are close on this one:
 
 💸 @Fast Forward accelerator, $25K for tech nonprofits: Sept 18
 🎬 @Sundance Institute 2027 features: Sept 21
@@ -154,6 +166,8 @@ Edition 18 of Art, XR & Impact Opportunities is out. Deadlines are close on this
 🏆 @WSA World Summit Awards, Culture & Heritage: Sept 30
 
 Also: @SXSW XR, @FIVARS, @Awesome Foundation climate micro-grants, @Stanford XR Immerse the Bay and a new section for Tunisians and North Africans with @Chevening Awards and @Culture Resource (Al Mawred Al Thaqafy).
+
+New this time: the opportunities page on tanitxr.org has filters, countdowns and a subscribe box, and The Collection lets you turn our 3D scans of Tunisian heritage right in the browser, with our guide Nura.
 
 Only things I'd apply to myself. Link below 👇
 
