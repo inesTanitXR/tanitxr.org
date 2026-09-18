@@ -1,7 +1,7 @@
 # The Collection: ideas, and what state each one is in
 
 Everything Ines raised while we built tanitxr.org/walk, so nothing gets lost.
-Last updated 2026-09-18.
+Last updated 2026-09-18, overnight.
 
 ## Built and live
 
@@ -28,6 +28,11 @@ Last updated 2026-09-18.
 | Nura teaches scanning | Three dashed circles around a real object, a phone travelling them, Nura flying the same path |
 | When to show the tutorial | Not a surprise. A "How to scan" button that is always there, plus one offer after three turns |
 | Put it on the website | In the Archive menu, the footer, and a band on the home page |
+| A cinematic entrance | The first artifact turns in the dark under one shaft of light, dust drifting, lines arriving one at a time. All controls stay hidden until you enter |
+| Showcase volunteer-made work | Two doors at the entrance: 42 scanned in Tunisia, or 11 modelled by hand. Volunteer work is a choice, not a footnote at the end |
+| A volunteer says "I made this" | The first time you reach an object someone worked on, their photo appears with a line and a link to their profile. Once per volunteer |
+| Nura rotates with the object | She swings around it as you turn it, and flies the circle herself during the scan demo |
+| Does it work in a VR headset | Yes. In a Quest browser there is now an Enter VR button, and the object stands at the size it really is. This is where the measurements pay off |
 
 ## Not done yet, and what each needs
 
@@ -35,6 +40,7 @@ Last updated 2026-09-18.
 |---|---|
 | **Splats: "see it in its real environment"** | Scaniverse can export a splat as `.ply`. Spark (World Labs) renders splats inside three.js, so a splat could fade in around an object. Blocked only on getting files out of the app: open a scan in Scaniverse, Share or Export, choose the splat/PLY option, drop it in Drive |
 | **Nura's real voice** | Three recorded lines already exist in Drive from MIT Reality Hack (`Object_1/2/3.mp3`). They are not matched to objects yet. Today she uses the browser's robot voice |
+| **Patrick's museum pieces** | Ines wants his fragments and room pieces shown too. Nothing of his is in the Sketchfab archive data, so we need the files or their Sketchfab ids before they can appear |
 | **Tunisian background music** | Not started. Needs properly licensed audio, and should be off by default with a toggle. See the open question below |
 | **Hackathon track and the October 22 event** | Ines asked for these to be mentioned on the site. Not added yet |
 | **Analytics** | `ref/analytics.json` is wired but switched off. Cloudflare Web Analytics is free and needs no cookie banner. Once a token is in there, views, rotations, saves and shares start recording, which is what grant applications ask for |
