@@ -24,6 +24,9 @@ const cueEl = document.getElementById('rotate-cue');
 const sections = [...document.querySelectorAll('.wst[data-i]')];
 
 function useFallback() {
+  // the Sketchfab players only start loading now; with a src from the start, 75 hidden
+  // viewers would download behind the page and starve the models on a slow connection
+  document.querySelectorAll('.wst-fallback iframe[data-src]').forEach(f => { f.src = f.dataset.src; });
   document.body.classList.add('walk-fallback');
   document.querySelectorAll('.wst-fallback').forEach(el => { el.hidden = false; });
 }

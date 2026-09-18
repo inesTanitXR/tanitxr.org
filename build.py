@@ -3250,7 +3250,7 @@ def build_walk():
             fb = ""
             if uid:
                 fb = (f'<div class="wst-fallback" hidden><h3>{esc(short_title(m["title"]))}</h3>'
-                      f'<iframe src="https://sketchfab.com/models/{uid.group(1)}/embed?ui_theme=dark"'
+                      f'<iframe data-src="https://sketchfab.com/models/{uid.group(1)}/embed?ui_theme=dark"'
                       f' title="{esc(m["title"])} 3D model" allow="autoplay; fullscreen;'
                       f' xr-spatial-tracking" allowfullscreen loading="lazy"></iframe></div>')
             blocks += (f'<section class="wst" data-i="{i}">'
