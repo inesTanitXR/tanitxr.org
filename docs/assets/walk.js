@@ -49,8 +49,12 @@ function start() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-  camera.position.set(0, 0.1, 6.9);
-  camera.lookAt(0, 0, 0);
+  const narrow = () => camera.aspect < 0.8;
+  function homeCamera() {
+    if (narrow()) { camera.position.set(0, -0.05, 6.9); camera.lookAt(0, -0.05, 0); }
+    else { camera.position.set(0, 0.1, 6.9); camera.lookAt(0, 0, 0); }
+  }
+  homeCamera();
 
   // soft, even light from a few directions so any object reads without a set around it
   const amb = new THREE.AmbientLight(0xf3ece0, 1.15);
@@ -590,17 +594,17 @@ function start() {
     if (!soundOn || !gestured) return;
     try {
       const c = actx(), now = c.currentTime;
-      if (kind === 'badge') [523.25, 659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.06, 'sine'));
-      else if (kind === 'save') [659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.06, 'sine'));
-      else if (kind === 'tap') tone(c, 987.77, now, 0.14, 0.035, 'triangle');
+      if (kind === 'badge') [523.25, 659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.14, 'sine'));
+      else if (kind === 'save') [659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.13, 'sine'));
+      else if (kind === 'tap') tone(c, 987.77, now, 0.14, 0.09, 'triangle');
       else if (kind === 'pop') {                     // a bubble opening: one quick upward blip
         const o = c.createOscillator(), g = c.createGain();
         o.type = 'sine';
         o.frequency.setValueAtTime(620, now);
         o.frequency.exponentialRampToValueAtTime(1180, now + 0.07);
         g.gain.setValueAtTime(0.0001, now);
-        g.gain.exponentialRampToValueAtTime(0.05, now + 0.012);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+        g.gain.exponentialRampToValueAtTime(0.16, now + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
         o.connect(g).connect(c.destination); o.start(now); o.stop(now + 0.18);
       } else if (kind === 'whoosh') {                // an object arriving: a breath of air
         const n = Math.floor(c.sampleRate * 0.36), buf = c.createBuffer(1, n, c.sampleRate);
@@ -613,7 +617,7 @@ function start() {
         bp.frequency.exponentialRampToValueAtTime(450, now + 0.36);
         const g = c.createGain();
         g.gain.setValueAtTime(0.0001, now);
-        g.gain.exponentialRampToValueAtTime(0.03, now + 0.08);
+        g.gain.exponentialRampToValueAtTime(0.07, now + 0.08);
         g.gain.exponentialRampToValueAtTime(0.0001, now + 0.36);
         src.connect(bp).connect(g).connect(c.destination); src.start(now); src.stop(now + 0.37);
       }
@@ -1374,6 +1378,7 @@ function start() {
     if (xrLabel) { xrRoot.remove(xrLabel); xrLabel = null; xrLabelSlug = null; }
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     slots.forEach(s => { s.shadow.material.opacity = 0.8; });
+    homeCamera();
     // carry on down the page from the object you were looking at in the headset
     const i = Math.round(clamp(xrCursor, 0, slots.length - 1));
     if (sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
@@ -1609,6 +1614,7 @@ function start() {
     if (roomBar) roomBar.hidden = true;
     stage.classList.remove('can-pick');
     slots.forEach(s => { s.roomPos = null; });
+    homeCamera();
     if (back) jumpTo(x => x.slug === back.it.slug);
   }
   document.querySelectorAll('.room-open').forEach(b =>
@@ -1665,6 +1671,7 @@ function start() {
     camera.aspect = w / h;
     camera.fov = w < 760 ? 46 : 36;
     camera.updateProjectionMatrix();
+    if (!roomMode && !xrMode) homeCamera();
     readScroll();
   }
   addEventListener('resize', resize, { passive: true });
@@ -1726,6 +1733,7 @@ function start() {
   paintTray();
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let dimK = 1;
   const clock = new THREE.Clock();
   function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
@@ -1830,6 +1838,8 @@ function start() {
     cursor += (target - cursor) * (reduce ? 1 : 0.12);
     if (!dragging) idle += dt;
     paint(Math.round(clamp(cursor, 0, slots.length - 1)));
+    const headingOn = !!document.querySelector('.warea.on');
+    dimK += ((headingOn ? 0.3 : 1) - dimK) * (reduce ? 1 : 0.1);
 
     slots.forEach(s => {
       const d = s.i - cursor;                       // 0 = front and centre
@@ -1843,8 +1853,8 @@ function start() {
       s.wrap.scale.setScalar(0.78 + 0.22 * a);
       const breathe = ad < 0.5 && !reduce ? Math.sin(t * 0.8) * 0.012 : 0;
       s.wrap.position.y += breathe;                 // the faintest float, so it feels alive
-      s.mats.forEach(m => { m.opacity = a; });
-      s.shadow.material.opacity = a * 0.8;
+      s.mats.forEach(m => { m.opacity = a * dimK; });
+      s.shadow.material.opacity = a * 0.8 * dimK;
       if (!reduce && !dragging && idle > 2.2 && ad < 0.5) s.pivot.rotation.y += dt * 0.14;
     });
 
@@ -1879,14 +1889,17 @@ function start() {
       const halfW = halfH * camera.aspect;
       ptr.x += (ptr.tx - ptr.x) * 0.06;
       ptr.y += (ptr.ty - ptr.y) * 0.06;
-      const homeX = clamp(halfW * 0.52, 1.0, 2.9);
+      // on a phone she is smaller and sits low on the right, beside the object's foot
+      const ph = narrow();
+      nuraHolder.scale.setScalar(ph ? 0.52 : 1);
+      const homeX = ph ? halfW * 0.62 : clamp(halfW * 0.52, 1.0, 2.9);
       // when you turn the object, she swings around it with you, within a comfortable arc
       const frontObj = slots[shown];
       const spin = frontObj ? frontObj.pivot.rotation.y : 0;
       const swing = clamp(spin * 0.3, -0.65, 0.65);
       const hx = Math.cos(swing) * homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
-      const hz = 0.9 + Math.sin(swing) * homeX * 0.55;
-      const hy = -halfH * 0.16 + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
+      const hz = (ph ? 0.2 : 0.9) + Math.sin(swing) * homeX * 0.55;
+      const hy = (ph ? camera.position.y - halfH * 0.36 : -halfH * 0.16) + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
       if (scanT > 0.05) {
         // she flies the circle herself, just behind the phone, and shows you how
         const R = 1.75 * (demo.scale.x || 1) + 0.7;

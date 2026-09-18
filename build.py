@@ -1112,7 +1112,9 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
   padding:80px 26px;text-align:center}
 .warea{height:68vh;display:flex;align-items:center;justify-content:center;text-align:center;
   padding:0 26px}
-.warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s;
+  background:rgba(253,248,240,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:22px 34px 20px;border-radius:20px;box-shadow:0 12px 40px rgba(60,40,26,.08);max-width:min(640px,88vw)}
 .warea.on>div{opacity:1;transform:none}
 .warea h2{font-family:var(--serif);font-size:clamp(28px,4.4vw,48px);color:#2e2118;font-weight:400;
   margin:9px 0 5px;line-height:1.08}
@@ -1139,9 +1141,34 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
 .tsw.on{background:#4a3527;color:#fdf8f0}
 .tsw.on b{color:var(--gold)}
 body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-switch{display:none}
+/* phones: one row of icons at the top, the switch alone beneath it, a compact label, and
+   the object higher and larger with Nura tucked top right (see homeCamera in walk.js) */
 @media(max-width:760px){
-  #track-switch{top:126px;font-size:12px;padding:3px}
+  body #scan-entry{top:78px;inset-inline-start:12px;width:38px;height:38px;padding:0;justify-content:center;font-size:0;gap:0}
+  body #scan-entry svg{width:17px;height:17px}
+  body #map-toggle{top:78px;inset-inline-end:auto;inset-inline-start:58px;width:38px;height:38px;padding:0;justify-content:center;font-size:0;gap:0}
+  body #map-toggle svg{width:16px;height:16px}
+  body #sound-toggle{top:80px;inset-inline-end:auto;inset-inline-start:104px;width:34px;height:34px}
+  body #saved-chip{top:78px;inset-inline-end:12px;padding:7px 11px;font-size:12.5px}
+  body #track-switch{top:128px;inset-inline-start:50%;transform:translateX(-50%);font-size:12px;padding:3px}
   .tsw{padding:7px 11px;font-size:11.5px}
+  .wf-panel{inset-inline-start:14px;inset-inline-end:14px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:none}
+  .wf-panel #wf-id{font-size:10.5px;letter-spacing:.12em}
+  .wf-panel #wf-title{font-size:25px;line-height:1.1;margin:2px 0 4px}
+  .wf-panel .wf-by{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0 0 9px;font-size:12.5px}
+  .wf-panel .wf-stats{margin:-4px 0 8px}
+  .wf-btn{padding:9px 13px;font-size:13.5px}
+  .wf-row{gap:7px}
+  .wf-map-txt{display:none}.wf-map{padding:3px}.wf-map-tile{width:44px;height:38px}
+  #rotate-cue{transform:translate(-50%,-50%) scale(.8)}
+  body #vol-cameo{top:182px;bottom:auto;inset-inline-start:12px;inset-inline-end:12px;width:auto;
+    padding:8px 12px;gap:10px;align-items:center;border-radius:14px}
+  body #vol-cameo img{width:38px;height:38px}
+  body #vol-cameo p{font-size:13.5px;margin:0}
+  body #vol-cameo b{display:none}
+  body #vc-link{display:none}
+  body #vol-cameo .vc-room{margin:2px 0 0;font-size:12.5px}
+  .warea>div{padding:16px 20px 14px}
 }
 
 /* the label stays put; only its text changes as you scroll */
@@ -1321,7 +1348,9 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
   padding:80px 26px;text-align:center}
 .warea{height:68vh;display:flex;align-items:center;justify-content:center;text-align:center;
   padding:0 26px}
-.warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s;
+  background:rgba(253,248,240,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:22px 34px 20px;border-radius:20px;box-shadow:0 12px 40px rgba(60,40,26,.08);max-width:min(640px,88vw)}
 .warea.on>div{opacity:1;transform:none}
 .warea h2{font-family:var(--serif);font-size:clamp(28px,4.4vw,48px);color:#2e2118;font-weight:400;
   margin:9px 0 5px;line-height:1.08}
