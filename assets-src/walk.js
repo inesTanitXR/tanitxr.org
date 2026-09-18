@@ -373,11 +373,31 @@ function start() {
   let dragging = false, lastX = 0, lastY = 0, idle = 0;
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   const current = () => slots[Math.round(clamp(cursor, 0, slots.length - 1))];
+  let pressed = false, downX = 0, downY = 0;
   stage.addEventListener('pointerdown', e => {
-    dragging = true; idle = 0; lastX = e.clientX; lastY = e.clientY;
+    dragging = true; pressed = true; idle = 0;
+    lastX = downX = e.clientX; lastY = downY = e.clientY;
     stage.classList.add('grabbing');
     moved = 0;
     if (cueEl) { cueEl.classList.remove('show'); cueEl.classList.add('gone'); }
+  });
+  // A tap, as opposed to a drag, selects. In a gallery room it picks a piece; in the normal
+  // view it picks the object under the cursor so Nura can talk about it.
+  stage.addEventListener('pointerup', e => {
+    if (!pressed) return;
+    pressed = false;
+    if (Math.abs(e.clientX - downX) > 5 || Math.abs(e.clientY - downY) > 5) return;
+    if (roomMode) { pickInRoom(e); return; }
+    const r = stage.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    camera.updateMatrixWorld();
+    ray.setFromCamera(ndc, camera);
+    if (nura && ray.intersectObject(nuraHolder, true).length) {
+      bubbleOpen ? closeBubble() : openBubble();
+      return;
+    }
+    const s = current();
+    if (s && s.loaded && ray.intersectObject(s.wrap, true).length) openBubble();
   });
   addEventListener('pointermove', e => {
     if (!dragging) return;
@@ -909,12 +929,61 @@ function start() {
 
   const realHeight = it => (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
 
+  // A headset renders only the 3D scene, so every label has to exist as an object in the
+  // world. This paints one onto a canvas and hangs it beside the piece.
+  function makeLabel(it) {
+    const W = 1024, H = 420;
+    const c = document.createElement('canvas');
+    c.width = W; c.height = H;
+    const x = c.getContext('2d');
+    x.fillStyle = 'rgba(253,249,242,0.96)';
+    x.strokeStyle = 'rgba(74,53,43,0.25)';
+    x.lineWidth = 4;
+    const rr = (a, b, w, h, r) => {
+      x.beginPath();
+      x.moveTo(a + r, b); x.lineTo(a + w - r, b); x.quadraticCurveTo(a + w, b, a + w, b + r);
+      x.lineTo(a + w, b + h - r); x.quadraticCurveTo(a + w, b + h, a + w - r, b + h);
+      x.lineTo(a + r, b + h); x.quadraticCurveTo(a, b + h, a, b + h - r);
+      x.lineTo(a, b + r); x.quadraticCurveTo(a, b, a + r, b); x.closePath();
+    };
+    rr(6, 6, W - 12, H - 12, 26); x.fill(); x.stroke();
+    x.fillStyle = '#8a735c';
+    x.font = '600 30px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText([it.place, it.size].filter(Boolean).join('   \u00b7   ').toUpperCase(), 44, 84);
+    x.fillStyle = '#2e2118';
+    let size = 74;
+    x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
+    while (x.measureText(it.title).width > W - 88 && size > 34) {
+      size -= 4; x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
+    }
+    x.fillText(it.title, 44, 190);
+    x.fillStyle = '#5d4c3c';
+    x.font = '400 32px Roboto, Helvetica, Arial, sans-serif';
+    const credit = it.credit || '';
+    const words = credit.split(' ');
+    let line = '', y = 260;
+    for (const w of words) {
+      if (x.measureText(line + w + ' ').width > W - 88) { x.fillText(line, 44, y); line = w + ' '; y += 42; }
+      else line += w + ' ';
+    }
+    x.fillText(line, 44, y);
+    x.fillStyle = '#a35f3f';
+    x.font = '700 28px Roboto, Helvetica, Arial, sans-serif';
+    x.fillText('TANIT XR', 44, H - 40);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(0.72, 0.295),
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true }));
+    return m;
+  }
+
   // In a headset you can simply walk, so lay a set of pieces out at real size on an arc
   // around the viewer instead of showing one object you cannot reach.
   const XR_BATCH = 7;
   let xrStart = 0, xrPlaced = [];
   function xrLayout() {
     xrPlaced.forEach(s => {
+      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
       if (s.xrHome) {
         s.xrHome.parent.add(s.wrap);
         s.wrap.position.copy(s.xrHome.pos);
@@ -947,6 +1016,13 @@ function start() {
       s.shadow.position.y = -h / 2 + 0.003;
       s.mats.forEach(m => { m.opacity = 1; });
       s.wrap.visible = s.loaded;
+      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
+      const lab = makeLabel(s.it);
+      lab.position.set(Math.sin(a) * (R - 0.15), Math.max(0.42, h * 0.5) - h / 2 - 0.26,
+                       -Math.cos(a) * (R - 0.15));
+      lab.rotation.y = a;
+      s.xrLabel = lab;
+      xrRoot.add(lab);
       xrPlaced.push(s);
     });
     if (nura) {
@@ -967,6 +1043,7 @@ function start() {
     document.body.classList.remove('in-xr');
     xrStart = 0;
     xrPlaced.forEach(s => {
+      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
       if (!s.xrHome) return;
       s.xrHome.parent.add(s.wrap);
       s.wrap.position.copy(s.xrHome.pos);
@@ -979,18 +1056,56 @@ function start() {
     xrPlaced = [];
   }
 
-  // a controller trigger brings the next set of pieces in
+  // Controllers: a visible ray, point at a piece and hold the trigger to turn it, and a
+  // trigger on empty space brings in the next set.
+  const xrCtrl = [], xrRay = new THREE.Raycaster();
+  let xrGrab = null;
   function wireXRControllers() {
     for (const i of [0, 1]) {
       const c = renderer.xr.getController(i);
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(
+          [new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1)]),
+        new THREE.LineBasicMaterial({ color: 0xffcd05, transparent: true, opacity: 0.75 }));
+      line.scale.z = 3;
+      c.add(line);
       c.addEventListener('selectstart', () => {
         if (!xrMode) return;
-        xrStart = (xrStart + XR_BATCH) % slots.length;
-        xrLayout();
-        if (window.tx) tx('xr_next_set');
+        const hit = xrPick(c);
+        if (hit) { xrGrab = { slot: hit, ctrl: c, lastYaw: ctrlYaw(c) }; showNuraLine(hit.it); }
+        else { xrStart = (xrStart + XR_BATCH) % slots.length; xrLayout(); if (window.tx) tx('xr_next_set'); }
       });
+      c.addEventListener('selectend', () => { xrGrab = null; });
       xrRoot.add(c);
+      xrCtrl.push(c);
     }
+  }
+  function ctrlYaw(c) {
+    const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion);
+    return Math.atan2(d.x, d.z);
+  }
+  function xrPick(c) {
+    const o = new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
+    const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion).normalize();
+    xrRay.set(o, d);
+    const hits = xrRay.intersectObjects(
+      xrPlaced.filter(s => s.loaded).map(s => s.wrap), true);
+    if (!hits.length) return null;
+    let n = hits[0].object;
+    while (n && !xrPlaced.some(s => s.wrap === n)) n = n.parent;
+    return xrPlaced.find(s => s.wrap === n) || null;
+  }
+  // Nura's line, as a panel in the world, and read aloud if the headset browser allows it
+  let nuraPanel = null;
+  function showNuraLine(it) {
+    if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
+    const p = makeLabel({ title: it.title, place: it.place, size: it.size, credit: it.hi || '' });
+    p.position.set(0, 1.05, 0.02);
+    p.scale.setScalar(0.9);
+    nuraPanel = p;
+    nuraHolder.add(p);
+    sayLine(it.hi || it.title);
+    if (window.tx) tx('xr_pick', { object: it.slug });
   }
 
   // Only offer this where a headset can actually answer. On a laptop three.js would
@@ -1191,6 +1306,11 @@ function start() {
     if (xrMode) {                                   // the headset owns the camera; you walk
       if (mixer) mixer.update(dt);
       xrPlaced.forEach(s => { if (s.loaded) s.wrap.visible = true; });
+      if (xrGrab) {                                 // hold the trigger and swing to turn it
+        const y = ctrlYaw(xrGrab.ctrl);
+        xrGrab.slot.pivot.rotation.y += (y - xrGrab.lastYaw) * 2.2;
+        xrGrab.lastYaw = y;
+      }
       if (nura) {
         nuraHolder.position.y = 1.25 + Math.sin(clock.elapsedTime * 1.05) * 0.06;
         nura.rotation.y = nuraBaseYaw + Math.sin(clock.elapsedTime * 0.5) * 0.25;
