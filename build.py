@@ -2272,7 +2272,7 @@ PRESS = [
      "d": "We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.",
      "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt"},
     {"k": "Event", "t": "CityCamp Gainesville Hack Day 2026, heritage challenge",
-     "d": "Tanit XR brought a heritage challenge to the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.",
+     "d": "Tanit XR's heritage challenge at the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.",
      "u": "https://citycamp-hack-day.devpost.com/", "date": "September 20, 2026", "anchor": "citycamp"},
     {"k": "Partnership", "t": "TanitXR & the Unique Mappers, expanding to Nigeria",
      "d": "The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.",
