@@ -53,8 +53,9 @@ function start() {
   function homeCamera() {
     camera.fov = narrow() ? 46 : 36;
     camera.updateProjectionMatrix();
-    if (narrow()) { camera.position.set(0, -0.05, 6.9); camera.lookAt(0, -0.05, 0); }
-    else { camera.position.set(0, 0.1, 6.9); camera.lookAt(0, 0, 0); }
+    // closer than before: the object is the point, the chrome around it is small now
+    if (narrow()) { camera.position.set(0, -0.2, 6.1); camera.lookAt(0, -0.2, 0); }
+    else { camera.position.set(0, 0.1, 6.2); camera.lookAt(0, 0, 0); }
   }
   homeCamera();
 

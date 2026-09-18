@@ -899,7 +899,7 @@ body.first-loaded #walk-stage:before{opacity:0;animation:none}
 .wf-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .wf-row2{margin-top:9px}
 .wf-btn{border:1px solid rgba(74,53,43,.28);background:rgba(253,248,240,.88);color:#4a3527;
-  border-radius:999px;padding:10px 20px;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
+  border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;transition:.2s}
 .wf-btn:hover{background:#fff}
 .wf-btn.on{border-color:#a35f3f;color:#a35f3f}
 .wf-btn.solid{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
@@ -1038,6 +1038,8 @@ body.in-room #vr-button,body.in-room #saved-chip{display:none}
   font-size:18px;line-height:1;cursor:pointer}
 #vc-close:hover{color:#4a3527}
 body.walk-fallback #vol-cameo,body.demoing #vol-cameo{display:none}
+body.demoing #walk-label,body.demoing #saved-chip,body.demoing #more-toggle,body.demoing #more-sheet,
+body.demoing #track-switch,body.demoing #nura-bubble,body.demoing #nura-dot,body.demoing #rotate-cue{display:none}
 @media(max-width:760px){#vol-cameo{inset-inline-end:14px;bottom:92px;width:min(280px,88vw)}}
 @media(max-width:760px){#scan-entry{top:78px;inset-inline-start:12px;
   padding:7px 12px;font-size:12.5px}}
@@ -1186,13 +1188,21 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   .tsw{padding:7px 11px;font-size:11.5px}
   .wf-panel{inset-inline-start:14px;inset-inline-end:14px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:none}
   .wf-panel #wf-id{font-size:10.5px;letter-spacing:.12em}
-  .wf-panel #wf-title{font-size:25px;line-height:1.1;margin:2px 0 4px}
+  .wf-panel #wf-title{font-size:23px;line-height:1.1;margin:2px 0 3px}
   .wf-panel .wf-by{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0 0 9px;font-size:12.5px}
   .wf-panel .wf-stats{margin:-4px 0 8px}
-  .wf-btn{padding:9px 13px;font-size:13.5px}
+  .wf-btn{padding:8px 12px;font-size:12.5px}
+  .wf-btn.gold{padding:8px 14px}
   .wf-row{gap:7px}
   .wf-map-txt{display:none}.wf-map{padding:3px}.wf-map-tile{width:44px;height:38px}
   #rotate-cue{transform:translate(-50%,-50%) scale(.8)}
+  /* the scan card becomes a short sheet at the bottom, so Nura's circle stays in view */
+  body #scan-panel{inset-inline:0;top:auto;bottom:0;transform:none;max-width:none}
+  body #scan-panel .wcard{border-radius:18px 18px 0 0;padding:14px 18px 16px;max-height:38vh;overflow:auto}
+  body #scan-panel h2{font-size:20px;margin:2px 0 6px}
+  body #scan-panel p{font-size:13.5px;line-height:1.45;margin:0 0 8px}
+  body #scan-panel p.tiny{display:none}
+  body #scan-panel .btn{padding:8px 14px;font-size:13px}
   /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
   body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
   body #more-toggle{display:flex}
@@ -1225,7 +1235,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
 .wf-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .wf-row2{margin-top:9px}
 .wf-btn{border:1px solid rgba(74,53,43,.28);background:rgba(253,248,240,.88);color:#4a3527;
-  border-radius:999px;padding:10px 20px;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
+  border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;transition:.2s}
 .wf-btn:hover{background:#fff}
 .wf-btn.on{border-color:#a35f3f;color:#a35f3f}
 .wf-btn.solid{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
@@ -1279,6 +1289,8 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
   font-size:18px;line-height:1;cursor:pointer}
 #vc-close:hover{color:#4a3527}
 body.walk-fallback #vol-cameo,body.demoing #vol-cameo{display:none}
+body.demoing #walk-label,body.demoing #saved-chip,body.demoing #more-toggle,body.demoing #more-sheet,
+body.demoing #track-switch,body.demoing #nura-bubble,body.demoing #nura-dot,body.demoing #rotate-cue{display:none}
 @media(max-width:760px){#vol-cameo{inset-inline-end:14px;bottom:92px;width:min(280px,88vw)}}
 @media(max-width:760px){#scan-entry{top:78px;inset-inline-start:12px;
   padding:7px 12px;font-size:12.5px}}
@@ -2507,7 +2519,7 @@ def build_home():
 <p>A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to
 life in AR and VR, and learning from each other along the way.</p>
 <div class="ctas"><a class="btn btn-gold" href="community.html">Join the Community</a>
-<a class="btn btn-dark" href="archive.html">Explore the Archive</a></div>
+<a class="btn btn-dark" href="explore.html">Explore in 3D</a></div>
 </div></div>
 
 <section class="pad-sm cream"><div class="wrap center">
