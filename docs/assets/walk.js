@@ -964,8 +964,11 @@ function start() {
     const pic = await makePoster();
     openShare({
       title: 'Share to protect it',
-      caption: s0.it.title + ', scanned in Tunisia by Tanit XR volunteers so it is never lost. '
-        + 'Share it to help protect it.',
+      // a scan and a hand-made piece deserve different words
+      caption: s0.it.real
+        ? s0.it.title + ', scanned in Tunisia by Tanit XR volunteers so it is never lost. Share it to help protect it.'
+        : s0.it.title + ', modelled by ' + (s0.it.artist || 'a Tanit XR volunteer') + ' for the Tanit XR virtual museum. '
+          + 'Volunteers from Tunisia and around the world learn Tunisian culture together and make pieces inspired by it. Share it to help the museum grow.',
       link: pageLink() + '#' + s0.it.slug,
       picture: pic,
     });
@@ -1313,7 +1316,7 @@ function start() {
     openShare({
       title: s0.it.title,
       caption: s0.it.title + ', ' + s0.it.place + (s0.it.size ? ', ' + s0.it.size : '')
-        + '. Scanned in Tunisia by Tanit XR volunteers. ' + (s0.it.credit || ''),
+        + (s0.it.real ? '. Scanned in Tunisia by Tanit XR volunteers. ' : '. Modelled by a Tanit XR volunteer for our virtual museum. ') + (s0.it.credit || ''),
       link: pageLink() + '#' + s0.it.slug,
       picture: pic,
     });
