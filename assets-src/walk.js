@@ -12,6 +12,11 @@ const MODEL_BASE = new URL('models/', import.meta.url).href;
 // the page, or a pretty URL like /walk/ turns them into /walk/assets/img/x.jpg
 const ASSET_BASE = new URL('./', import.meta.url).href;
 const assetUrl = p => p ? new URL(p.replace(/^assets\//, ''), ASSET_BASE).href : '';
+// Links in the config are site-root relative, like 'archive/x.html'. The build rewrites
+// such paths in real markup but cannot see inside a JSON blob, so from a pretty URL like
+// /walk/ they would resolve to /walk/archive/x.html and 404. Resolve them off the root.
+const SITE_ROOT = new URL('../', import.meta.url).href;
+const linkUrl = p => p ? new URL(p, SITE_ROOT).href : '';
 const stage = document.getElementById('walk-stage');
 const canvas = document.getElementById('walk-canvas');
 const cueEl = document.getElementById('rotate-cue');
@@ -507,38 +512,18 @@ function start() {
   }
   const btShare = document.getElementById('bt-share');
   if (btShare) btShare.addEventListener('click', async () => {
-    const p = readProg();
-    const b = lastBadge;
-    const caption = 'I just earned the "' + (b ? b.name : 'explorer') + '" badge in the Tanit XR '
-      + 'collection: ' + p.seen.length + ' of ' + CFG.items.length + ' Tunisian artifacts, all '
-      + 'scanned by volunteers with their phones. You can turn every one of them over yourself.';
-    btShare.textContent = 'Opening LinkedIn...';
-    const copied = await shareToLinkedIn(caption, b);
-    btShare.textContent = copied ? 'Image saved, caption copied' : 'Image saved';
-    setTimeout(() => { toast.hidden = true; btShare.textContent = 'Share it'; }, 5200);
+    const p = readProg(), b = lastBadge;
+    toast.hidden = true;
+    const pic = await makePoster(b);
+    openShare({
+      title: b ? b.name : 'Badge earned',
+      caption: 'I earned the "' + (b ? b.name : 'explorer') + '" badge in the Tanit XR '
+        + 'collection: ' + p.seen.length + ' of ' + CFG.items.length + ' Tunisian artifacts, '
+        + 'all scanned by volunteers with their phones.',
+      link: pageLink(),
+      picture: pic,
+    });
   });
-
-  // She offers the demo once, after you have turned a few things, and never nags again.
-  const OFFERED = 'tanitxr.demoOffered';
-  function maybeOfferDemo() {
-    let done = false;
-    try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
-    if (done || readProg().rotated < 3 || !bubble) return;
-    try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
-    bubbleOpen = true;
-    bubble.hidden = false;
-    if (dot) dot.classList.remove('in');
-    if (bubbleText) bubbleText.textContent = 'Want to see how we make these?';
-    if (bubbleLong) bubbleLong.hidden = true;
-    if (moreBtn) {
-      moreBtn.textContent = 'Show me';
-      moreBtn.hidden = false;
-      moreBtn.classList.add('nb-offer');
-      moreBtn.dataset.offer = '1';
-    }
-    beHappy();
-    flare = 1;
-  }
 
   // ---- introduce each volunteer once, when you first meet their work
   const cameo = document.getElementById('vol-cameo');
@@ -559,11 +544,21 @@ function start() {
       cameoLine.textContent = 'I ' + p.verb + ' this one.';
       const who = document.getElementById('vc-who');
       if (who) who.textContent = p.name;
-      cameoLink.href = p.href;
+      cameoLink.href = linkUrl(p.href);
+      // a direct route into that artist's own room, where they have one
+      const roomBtn = document.getElementById('vc-room');
+      if (roomBtn) {
+        const hasRoom = CFG.items.some(x => x.artist === p.name);
+        roomBtn.hidden = !hasRoom;
+        roomBtn.textContent = 'See ' + p.name.split(' ')[0] + "'s room";
+        roomBtn.onclick = () => {
+          cameo.hidden = true;
+          jumpTo(x => x.artist === p.name);
+          if (window.tx) tx('artist_room', { artist: p.name });
+        };
+      }
       cameoLink.textContent = 'See what else ' + p.name.split(' ')[0] + ' has made';
       cameo.hidden = false;
-      clearTimeout(cameo._h);
-      cameo._h = setTimeout(() => { cameo.hidden = true; }, 11000);
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
@@ -615,86 +610,17 @@ function start() {
   if (shareColl) shareColl.addEventListener('click', async () => {
     const list = readSaved();
     if (!list.length) return;
-    const url = location.origin + location.pathname + '#saved=' + list.join(',');
-    const text = 'My collection of Tunisian heritage scanned by Tanit XR volunteers, '
-      + list.length + ' objects. Share them to help protect them.';
-    if (window.tx) tx('collection_share', { count: list.length });
-    try {
-      if (navigator.share) await navigator.share({ title: 'My Tanit XR collection', text, url });
-      else {
-        await navigator.clipboard.writeText(url + '\n\n' + text);
-        window.open('https://www.linkedin.com/sharing/share-offsite/?url='
-          + encodeURIComponent(url), '_blank', 'noopener');
-        shareColl.textContent = 'Copied, LinkedIn open';
-        setTimeout(() => { shareColl.textContent = 'Share my collection'; }, 3200);
-      }
-    } catch (e) { /* dismissed */ }
-  });
-  let shown = -1, turned = false, cueTimer = null, moved = 0;
-  function paintSave(it) {
-    if (!uiSave) return;
-    const on = readSaved().includes(it.slug);
-    uiSave.classList.toggle('on', on);
-    uiSave.textContent = on ? 'Saved ♥' : 'Save ♡';
-  }
-  function paint(i) {
-    const s = slots[i];
-    if (!s || shown === i) return;
-    shown = i;
-    if (uiTitle) uiTitle.textContent = s.it.title;
-    if (uiId) uiId.textContent = [s.it.place, s.it.size].filter(Boolean).join(' · ');
-    if (uiRecord) uiRecord.href = s.it.href || 'archive.html';
-    const by = document.getElementById('wf-by');
-    if (by) by.textContent = s.it.credit || '';
-    closeBubble();                                    // she stays quiet until you ask
-    if (dot) dot.classList.add('in');
-    glance = 1.6;                                     // she looks over at the new piece
-    if (cueEl && !turned) {                       // keep signalling until they try it once
-      clearTimeout(cueTimer);
-      cueEl.classList.remove('gone');
-      cueTimer = setTimeout(() => cueEl.classList.add('show'), 500);
-    }
-    paintSave(s.it);
-    if (window.tx) tx('collection_view', { object: s.it.slug });
-    document.querySelectorAll('.tsw').forEach(b =>
-      b.classList.toggle('on', (b.dataset.track === 'made') === !s.it.real));
-    showCameo(s.it);
-    bump(p => {
-      if (!p.seen.includes(s.it.slug)) p.seen.push(s.it.slug);
-      if (s.it.place && !p.places.includes(s.it.place)) p.places.push(s.it.place);
+    const pic = await makePoster();
+    openShare({
+      title: 'My collection',
+      caption: 'My collection of Tunisian heritage scanned by Tanit XR volunteers, '
+        + list.length + ' objects. Share them to help protect them.',
+      link: pageLink() + '#saved=' + list.join(','),
+      picture: pic,
     });
-    history.replaceState(null, '', '#' + s.it.slug);
-  }
-  const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
-  on('wf-save', () => {
-    const s = slots[shown]; if (!s) return;
-    const l = readSaved(), i = l.indexOf(s.it.slug);
-    i >= 0 ? l.splice(i, 1) : l.push(s.it.slug);
-    writeSaved(l);
-    paintSave(s.it);
-    paintTray();
-  paintChip();
-  paintBadges();
-    bump(p => { p.saved = l.slice(); });
-    if (window.tx && i < 0) tx('collection_save', { object: s.it.slug });
   });
-  on('wf-share', async () => {
-    const s = slots[shown]; if (!s) return;
-    const url = location.origin + location.pathname + '#' + s.it.slug;
-    const text = s.it.title + ', scanned in Tunisia by Tanit XR volunteers. '
-      + 'Share it to help protect it.';
-    if (window.tx) tx('collection_share', { object: s.it.slug });
-    bump(p => { p.shared++; });
-    const btn = document.getElementById('wf-share');
-    try {
-      if (navigator.share) await navigator.share({ title: s.it.title, text, url });
-      else {
-        await navigator.clipboard.writeText(url);
-        btn.textContent = 'Link copied';
-        setTimeout(() => { btn.textContent = 'Share to protect it'; }, 2000);
-      }
-    } catch (e) { /* dismissed */ }
-  });
+
+
   const jump = d => {
     const i = clamp(Math.round(cursor) + d, 0, sections.length - 1);
     const el = sections[i];
@@ -768,91 +694,99 @@ function start() {
     camera.fov = oldFov; camera.aspect = oldW / oldH; camera.updateProjectionMatrix();
     renderer.setSize(oldW, oldH, false);
 
-    out.toBlob(b => {
-      if (!b) return;
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(b);
-      a.download = 'tanitxr-' + (badge ? 'badge-' + badge.id : s.it.slug) + '.png';
-      a.click();
-      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-    }, 'image/png');
     if (window.tx) tx('collection_poster', { object: s.it.slug });
+    return new Promise(res => out.toBlob(b => res({
+      blob: b,
+      name: 'tanitxr-' + (badge ? 'badge-' + badge.id : s.it.slug) + '.png',
+    }), 'image/png'));
   }
-  const posterBtn = document.getElementById('wf-poster');
-  if (posterBtn) posterBtn.addEventListener('click', () => {
-    posterBtn.textContent = 'Saving...';
-    setTimeout(() => {
-      makePoster();
-      posterBtn.textContent = 'Make a post image';
-    }, 40);
-  });
 
-  // ---- immersive mode. In a headset the objects stand at the size they really are.
-  let xrMode = false, xrHome = null;
-  const xrRoot = new THREE.Group();
-  scene.add(xrRoot);
-  const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.4);
-  xrLight.position.set(2, 5, 3);
-  xrRoot.add(xrLight);
+  // ---- one share sheet for everything: the picture, the words, and where it can go
+  const sheet = document.getElementById('share-sheet');
+  const ssPreview = document.getElementById('ss-preview');
+  const ssCaption = document.getElementById('ss-caption');
+  const ssTitle = document.getElementById('ss-title');
+  let ssUrlObj = null;
+  function closeSheet() {
+    if (!sheet) return;
+    sheet.hidden = true;
+    if (ssUrlObj) { URL.revokeObjectURL(ssUrlObj); ssUrlObj = null; }
+  }
+  const ssClose = document.getElementById('ss-close');
+  if (ssClose) ssClose.addEventListener('click', closeSheet);
+  if (sheet) sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && sheet && !sheet.hidden) closeSheet(); });
 
-  function realHeight(it) {
-    return (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
-  }
-  function enterXR() {
-    xrMode = true;
-    document.body.classList.add('in-xr');
-    const s = slots[shown];
-    if (!s || !s.fit) return;
-    xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
-               scale: s.fit.scale.x, shadow: s.shadow.position.y };
-    xrRoot.add(s.wrap);
-    s.fit.scale.setScalar(1);                       // real metres
-    s.wrap.position.set(0, realHeight(s.it) / 2, -1.7);
-    s.wrap.scale.setScalar(1);
-    s.shadow.position.y = -realHeight(s.it) / 2 + 0.002;
-    s.shadow.scale.setScalar(Math.max(0.6, realHeight(s.it)) / FIT * 1.2);
-    s.mats.forEach(m => { m.opacity = 1; });
-    s.wrap.visible = true;
-    if (nura) nuraHolder.position.set(1.0, 0.1, -1.4);
-    if (window.tx) tx('xr_entered', { object: s.it.slug });
-  }
-  function exitXR() {
-    xrMode = false;
-    document.body.classList.remove('in-xr');
-    const s = slots[shown];
-    if (s && xrHome && s.fit) {
-      xrHome.parent.add(s.wrap);
-      s.wrap.position.copy(xrHome.pos);
-      s.fit.scale.setScalar(xrHome.scale);
-      s.shadow.position.y = xrHome.shadow;
-      s.shadow.scale.setScalar(1);
+  async function openShare({ title, caption, link, picture }) {
+    if (!sheet) return;
+    ssTitle.textContent = title || 'Share this';
+    ssCaption.textContent = caption;
+    if (ssUrlObj) URL.revokeObjectURL(ssUrlObj);
+    ssUrlObj = picture && picture.blob ? URL.createObjectURL(picture.blob) : null;
+    ssPreview.src = ssUrlObj || '';
+    ssPreview.hidden = !ssUrlObj;
+
+    const enc = encodeURIComponent;
+    const set = (net, href) => {
+      const el = sheet.querySelector('[data-net="' + net + '"]');
+      if (el) el.href = href;
+    };
+    set('linkedin', 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc(link));
+    set('facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + enc(link));
+    set('x', 'https://twitter.com/intent/tweet?text=' + enc(caption) + '&url=' + enc(link));
+    set('whatsapp', 'https://wa.me/?text=' + enc(caption + ' ' + link));
+
+    // the device sheet is the only route that can reach Instagram, so offer it where it exists
+    const nativeBtn = sheet.querySelector('[data-net="native"]');
+    let file = null;
+    if (picture && picture.blob && window.File) {
+      try { file = new File([picture.blob], picture.name, { type: 'image/png' }); } catch (e) { file = null; }
     }
-    xrHome = null;
+    const canFiles = !!(file && navigator.canShare && navigator.canShare({ files: [file] }));
+    if (nativeBtn) {
+      nativeBtn.hidden = !(navigator.share);
+      nativeBtn.onclick = async () => {
+        try {
+          if (canFiles) await navigator.share({ files: [file], text: caption });
+          else await navigator.share({ text: caption, url: link });
+        } catch (e) { /* dismissed */ }
+      };
+    }
+    const copyBtn = sheet.querySelector('[data-net="copy"]');
+    if (copyBtn) copyBtn.onclick = async () => {
+      try { await navigator.clipboard.writeText(caption + '\n' + link);
+            copyBtn.textContent = 'Caption copied';
+            setTimeout(() => { copyBtn.textContent = 'Copy caption'; }, 1800); } catch (e) { /* denied */ }
+    };
+    const saveBtn = sheet.querySelector('[data-net="save"]');
+    if (saveBtn) {
+      saveBtn.hidden = !(picture && picture.blob);
+      saveBtn.onclick = () => {
+        const a = document.createElement('a');
+        a.href = ssUrlObj;
+        a.download = picture.name;
+        a.click();
+      };
+    }
+    sheet.hidden = false;
+    if (window.tx) tx('share_sheet_opened');
   }
-
-  // load the button lazily, so a browser without it can never break the page
-  // Only offer this where a headset can actually answer. On a laptop three.js would
-  // otherwise render a dead "VR NOT SUPPORTED" chip, which reads as a broken feature.
-  if (navigator.xr && navigator.xr.isSessionSupported) {
-    navigator.xr.isSessionSupported('immersive-vr').then(ok => {
-      if (!ok) return;
-      return import('three/addons/webxr/VRButton.js').then(mod => {
-        renderer.xr.enabled = true;
-        const btn = mod.VRButton.createButton(renderer);
-        btn.id = 'vr-button';
-        btn.textContent = 'See it at real size in VR';
-        document.body.appendChild(btn);
-        renderer.xr.addEventListener('sessionstart', () => {
-          btn.textContent = 'Leave VR';
-          enterXR();
-        });
-        renderer.xr.addEventListener('sessionend', () => {
-          btn.textContent = 'See it at real size in VR';
-          exitXR();
-        });
-      });
-    }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
-  }
+  const pageLink = () => location.origin + location.pathname;
+  const posterBtn = document.getElementById('wf-poster');
+  if (posterBtn) posterBtn.addEventListener('click', async () => {
+    const s0 = slots[shown];
+    if (!s0) return;
+    posterBtn.disabled = true;
+    const pic = await makePoster();
+    posterBtn.disabled = false;
+    openShare({
+      title: s0.it.title,
+      caption: s0.it.title + ', ' + s0.it.place + (s0.it.size ? ', ' + s0.it.size : '')
+        + '. Scanned in Tunisia by Tanit XR volunteers. ' + (s0.it.credit || ''),
+      link: pageLink() + '#' + s0.it.slug,
+      picture: pic,
+    });
+  });
 
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;

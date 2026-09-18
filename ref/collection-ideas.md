@@ -28,6 +28,8 @@ Last updated 2026-09-18, overnight.
 | Nura teaches scanning | Three dashed circles around a real object, a phone travelling them, Nura flying the same path |
 | When to show the tutorial | Not a surprise. A "How to scan" button that is always there, plus one offer after three turns |
 | Put it on the website | In the Archive menu, the footer, and a band on the home page |
+| A share sheet with the platforms | One sheet for everything: shows the generated image, the caption, and LinkedIn, Facebook, X, WhatsApp, copy, save. On a phone the device sheet is offered, which is the only route that reaches Instagram |
+| A room for each artist | The hand-modelled work is now one room per maker, and the cameo has a 'See Rachel's room' button that jumps straight there |
 | A cinematic entrance | The first artifact turns in the dark under one shaft of light, dust drifting, lines arriving one at a time. All controls stay hidden until you enter |
 | Showcase volunteer-made work | Two doors at the entrance: 42 scanned in Tunisia, or 11 modelled by hand. Volunteer work is a choice, not a footnote at the end |
 | A volunteer says "I made this" | The first time you reach an object someone worked on, their photo appears with a line and a link to their profile. Once per volunteer |
@@ -46,6 +48,20 @@ Last updated 2026-09-18, overnight.
 | **Analytics** | `ref/analytics.json` is wired but switched off. Cloudflare Web Analytics is free and needs no cookie banner. Once a token is in there, views, rotations, saves and shares start recording, which is what grant applications ask for |
 | **The cactus model** | 47 MB and will not compress. Left out of the 3D page, still in the archive viewer |
 | **Two volunteers show as usernames** | `danielgo257` and `georgealyssa85` need their real names in `ref/creators-map.json` |
+
+## Found by auditing, worth knowing
+
+- **The links on the walk page were all broken.** Its data sits in a JSON blob, which the
+  build's URL rewriting cannot see into, so every "Full record" and profile link resolved to
+  `/walk/archive/...` instead of `/archive/...`. Fixed by resolving them off the site root.
+- **The rest of the site is clean**: 30,299 internal links across 857 pages, none broken.
+- **`optimized_by` is only the Sketchfab account that uploaded the game-ready file**, not
+  necessarily who did the work, and `model_overrides` in `ref/creators-map.json` is still
+  empty. Two accounts, `danielgo257` and `georgealyssa85`, have no real name, so we were
+  printing usernames as credits. Those now read "optimized by a Tanit XR volunteer" until
+  Ines fills in the names or the overrides.
+- **`scanned_by` is never a person** in this data, only blank or the org account. So scans
+  are credited to the community, which is the honest maximum.
 
 ## Open questions for Ines
 

@@ -844,6 +844,35 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* the share sheet: the picture, the caption, and where it can go */
+#share-sheet{position:fixed;inset:0;z-index:9;background:rgba(28,20,14,.72);display:flex;
+  align-items:center;justify-content:center;padding:26px}
+#share-sheet[hidden]{display:none}
+.ss-card{position:relative;background:#fdf9f2;border-radius:12px;padding:24px;
+  width:min(720px,100%);max-height:90vh;overflow-y:auto;
+  box-shadow:0 30px 80px rgba(30,18,8,.45)}
+#ss-close{position:absolute;top:10px;inset-inline-end:12px;border:0;background:none;
+  color:#a3907a;font-size:24px;line-height:1;cursor:pointer}
+#ss-close:hover{color:#4a3527}
+.ss-head h3{font-family:var(--serif);font-size:26px;font-weight:400;color:#2e2118;margin:6px 0 16px}
+.ss-body{display:grid;grid-template-columns:230px 1fr;gap:20px;align-items:start}
+#ss-preview{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:#efe6d6;
+  border:1px solid rgba(74,53,43,.14)}
+#ss-caption{margin:0 0 14px;font-size:14px;line-height:1.55;color:#5d4c3c;
+  background:rgba(74,53,43,.05);border-radius:8px;padding:11px 13px}
+.ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ss-btn{display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;border-radius:999px;
+  padding:11px 12px;font:inherit;font-size:13.5px;cursor:pointer;text-decoration:none}
+.ss-btn:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.ss-btn.ss-native,.ss-btn.ss-save{grid-column:1 / -1;background:#4a3527;color:#fdf8f0;
+  border-color:#4a3527}
+.ss-btn.ss-native:hover,.ss-btn.ss-save:hover{background:var(--gold);color:#241a10;
+  border-color:var(--gold)}
+.ss-note{font-size:12px;color:#8a735c;line-height:1.5;margin:14px 0 0}
+@media(max-width:620px){.ss-body{grid-template-columns:1fr}#ss-preview{max-width:240px;margin:0 auto}
+  .ss-card{padding:18px}}
+
 /* the volunteer who worked on this object, introduced once each */
 #vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
   align-items:center;width:min(300px,80vw);background:rgba(253,249,242,.97);
@@ -857,6 +886,10 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 #vc-who{display:block;font-size:12px;color:#8a735c;font-weight:600;margin-top:2px}
 #vc-link{display:inline-block;margin-top:4px;font-size:12.5px;color:#a35f3f;font-weight:700;
   text-decoration:none;border-bottom:1px solid rgba(163,95,63,.4)}
+.vc-room{display:inline-block;margin:4px 0 0 10px;border:0;background:none;padding:0;
+  font:inherit;font-size:12.5px;color:#a35f3f;font-weight:700;cursor:pointer;
+  border-bottom:1px solid rgba(163,95,63,.4)}
+.vc-room:hover,#vc-link:hover{border-bottom-color:#a35f3f}
 #vc-close{position:absolute;top:5px;inset-inline-end:8px;border:0;background:none;color:#a3907a;
   font-size:18px;line-height:1;cursor:pointer}
 #vc-close:hover{color:#4a3527}
@@ -2796,22 +2829,28 @@ def short_title(title):
 
 
 def walk_credit(m):
-    """Who did the work: scanned by, optimized by, or modelled by. Plain text, no markup."""
-    if m.get("by"):
-        return f'Modelled by {m["by"]}'
+    """Who did the work, only where the data can actually support the claim.
+
+    scanned_by is never a person in this data, only blank or the org account, so scans are
+    credited to the community. optimized_by is the Sketchfab account that uploaded the
+    game-ready file; where that maps to a real person we name them, and where it is only a
+    username we say a volunteer rather than printing the username as if it were a name.
+    """
+    if m.get("made"):
+        return f'Modelled by {m["by"]}' if m.get("by") else "Modelled by a Tanit XR volunteer"
     ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
-               if k.lower() in m["title"].lower()), {})
-    s_name, _ = creator_credit(m.get("scanned_by"))
-    o_name, _ = creator_credit(m.get("optimized_by"))
-    if ov.get("scanned") in TEAM_BY_SLUG:
-        s_name = TEAM_BY_SLUG[ov["scanned"]]["name"]
+               if not k.startswith("_") and k.lower() in m["title"].lower()), {})
+    o_name, o_href = creator_credit(m.get("optimized_by"))
     if ov.get("optimized") in TEAM_BY_SLUG:
-        o_name = TEAM_BY_SLUG[ov["optimized"]]["name"]
-    bits = []
-    bits.append(f"Scanned by {s_name}" if s_name
-                else "Scanned by a Tanit XR volunteer")   # uploaded from the org account
-    if o_name and o_name != s_name:
+        o_name, o_href = TEAM_BY_SLUG[ov["optimized"]]["name"], True
+    # a pending entry that just echoes the username is not a name
+    if o_name and not o_href and o_name == (m.get("optimized_by") or ""):
+        o_name = None
+    bits = ["Scanned by a Tanit XR volunteer"]
+    if o_name:
         bits.append(f"optimized by {o_name}")
+    elif m.get("optimized_by"):
+        bits.append("optimized by a Tanit XR volunteer")
     return " \u00b7 ".join(bits)
 
 
@@ -2830,7 +2869,9 @@ def nice_place(p):
 
 def walk_person(m):
     """The volunteer to introduce on this object, if we know who they are and they have a page."""
-    if m.get("by"):
+    if m.get("made"):
+        if not m.get("by"):
+            return None
         # the made-by field carries a display name, so match the person by their own slug;
         # author_slug only covers article writers and misses every modeller
         slug = author_slug(m["by"]) or slugify(m["by"])
@@ -2909,22 +2950,37 @@ def build_walk():
     for vm in VOLUNTEER_MADE:
         fs = by_uid.get(vm.get("uid"))
         if fs:
-            byname, _ = creator_credit(vm.get("by"))
+            byname, byhref = creator_credit(vm.get("by"))
+            # a pending entry that only echoes the Sketchfab username is not a name
+            if byname and not byhref and byname == (vm.get("by") or ""):
+                byname = None
             made.append({"title": vm["title"], "file_slug": fs, "place": "Made by volunteers",
                          "site": "Made by volunteers", "href": "archive.html#volunteer-made",
-                         "by": byname, "thumb": vm.get("thumb"),
+                         "by": byname, "made": True, "thumb": vm.get("thumb"),
                          "sketchfab": f"https://sketchfab.com/models/{vm['uid']}/embed"})
+    # one room per artist, so each maker has their own space rather than a shared shelf
+    made_rooms = []
     if made:
-        by_room[WALK_MADE[0]] = made
+        byname = {}
+        for mm in made:
+            byname.setdefault(mm.get("by") or "Tanit XR volunteers", []).append(mm)
+        for who, group in sorted(byname.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+            group.sort(key=lambda g: g["title"])
+            made_rooms.append((who,
+                               f'{len(group)} piece{"s" if len(group) != 1 else ""} modelled '
+                               f'by hand for the museum', group, who))
 
     out_dir = os.path.join(DOCS, "assets", "models")
     os.makedirs(out_dir, exist_ok=True)
     shipped, items, blocks = set(), [], ""
-    for label, sub in [(l, sb) for l, sb, _ in WALK_ROOMS] + [("Other objects", ""), WALK_MADE]:
-        group = by_room.get(label)
+    rooms = [(l, sb, None, None) for l, sb, _ in WALK_ROOMS] + [("Other objects", "", None, None)]
+    rooms += made_rooms
+    for label, sub, preset, artist in rooms:
+        group = preset if preset is not None else by_room.get(label)
         if not group:
             continue
-        group.sort(key=lambda g: g["title"])
+        if preset is None:
+            group.sort(key=lambda g: g["title"])
         blocks += (f'<section class="warea"><div><div class="wch">{esc(sub) if sub else "Tanit XR"}'
                    f'</div><h2>{esc(label)}</h2>'
                    f'<div class="wn">{len(group)} object{"s" if len(group) != 1 else ""}</div>'
@@ -2934,6 +2990,7 @@ def build_walk():
             ov = overrides.get(m["file_slug"], {})
             measured = not m.get("by")      # props were modelled, not scanned to scale
             items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
+                          "artist": artist,
                           "href": m.get("href", "archive.html"),
                           "place": nice_place(m["place"]),
                           "size": human_size(d) if measured else "",
@@ -3037,9 +3094,35 @@ care as well as method.</p>
 </div>
 </div>
 
+<div id="share-sheet" hidden>
+<div class="ss-card">
+<button id="ss-close" aria-label="Close">&times;</button>
+<div class="ss-head"><div class="wch">Share it</div><h3 id="ss-title">Share this</h3></div>
+<div class="ss-body">
+<img id="ss-preview" alt="Preview of the image you are about to share">
+<div class="ss-right">
+<p id="ss-caption"></p>
+<div class="ss-grid">
+<button class="ss-btn ss-native" data-net="native" hidden>Share on this device</button>
+<a class="ss-btn" data-net="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+<a class="ss-btn" data-net="facebook" target="_blank" rel="noopener">Facebook</a>
+<a class="ss-btn" data-net="x" target="_blank" rel="noopener">X</a>
+<a class="ss-btn" data-net="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+<button class="ss-btn" data-net="copy">Copy caption</button>
+<button class="ss-btn ss-save" data-net="save">Save image</button>
+</div>
+<p class="ss-note">Instagram has no web posting, so save the image and post it from your
+phone. The caption is copied for you.</p>
+</div>
+</div>
+</div>
+</div>
+
 <div id="vol-cameo" hidden>
 <img id="vc-photo" src="" alt="">
-<div><p id="vc-line"></p><b id="vc-who"></b><a id="vc-link" href="team.html">See their work</a></div>
+<div><p id="vc-line"></p><b id="vc-who"></b>
+<a id="vc-link" href="team.html">Their profile</a>
+<button id="vc-room" class="vc-room" hidden>See their room</button></div>
 <button id="vc-close" aria-label="Close">&times;</button>
 </div>
 

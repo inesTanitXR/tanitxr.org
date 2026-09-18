@@ -646,6 +646,35 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scan-entry:hover svg{fill:var(--gold)}
 body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .nb-offer{background:var(--gold);border-color:var(--gold);color:#241a10;font-weight:700}
+/* the share sheet: the picture, the caption, and where it can go */
+#share-sheet{position:fixed;inset:0;z-index:9;background:rgba(28,20,14,.72);display:flex;
+  align-items:center;justify-content:center;padding:26px}
+#share-sheet[hidden]{display:none}
+.ss-card{position:relative;background:#fdf9f2;border-radius:12px;padding:24px;
+  width:min(720px,100%);max-height:90vh;overflow-y:auto;
+  box-shadow:0 30px 80px rgba(30,18,8,.45)}
+#ss-close{position:absolute;top:10px;inset-inline-end:12px;border:0;background:none;
+  color:#a3907a;font-size:24px;line-height:1;cursor:pointer}
+#ss-close:hover{color:#4a3527}
+.ss-head h3{font-family:var(--serif);font-size:26px;font-weight:400;color:#2e2118;margin:6px 0 16px}
+.ss-body{display:grid;grid-template-columns:230px 1fr;gap:20px;align-items:start}
+#ss-preview{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:#efe6d6;
+  border:1px solid rgba(74,53,43,.14)}
+#ss-caption{margin:0 0 14px;font-size:14px;line-height:1.55;color:#5d4c3c;
+  background:rgba(74,53,43,.05);border-radius:8px;padding:11px 13px}
+.ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ss-btn{display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;border-radius:999px;
+  padding:11px 12px;font:inherit;font-size:13.5px;cursor:pointer;text-decoration:none}
+.ss-btn:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+.ss-btn.ss-native,.ss-btn.ss-save{grid-column:1 / -1;background:#4a3527;color:#fdf8f0;
+  border-color:#4a3527}
+.ss-btn.ss-native:hover,.ss-btn.ss-save:hover{background:var(--gold);color:#241a10;
+  border-color:var(--gold)}
+.ss-note{font-size:12px;color:#8a735c;line-height:1.5;margin:14px 0 0}
+@media(max-width:620px){.ss-body{grid-template-columns:1fr}#ss-preview{max-width:240px;margin:0 auto}
+  .ss-card{padding:18px}}
+
 /* the volunteer who worked on this object, introduced once each */
 #vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
   align-items:center;width:min(300px,80vw);background:rgba(253,249,242,.97);
@@ -659,6 +688,10 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 #vc-who{display:block;font-size:12px;color:#8a735c;font-weight:600;margin-top:2px}
 #vc-link{display:inline-block;margin-top:4px;font-size:12.5px;color:#a35f3f;font-weight:700;
   text-decoration:none;border-bottom:1px solid rgba(163,95,63,.4)}
+.vc-room{display:inline-block;margin:4px 0 0 10px;border:0;background:none;padding:0;
+  font:inherit;font-size:12.5px;color:#a35f3f;font-weight:700;cursor:pointer;
+  border-bottom:1px solid rgba(163,95,63,.4)}
+.vc-room:hover,#vc-link:hover{border-bottom-color:#a35f3f}
 #vc-close{position:absolute;top:5px;inset-inline-end:8px;border:0;background:none;color:#a3907a;
   font-size:18px;line-height:1;cursor:pointer}
 #vc-close:hover{color:#4a3527}
