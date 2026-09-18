@@ -1,0 +1,82 @@
+{
+ "roman-draped-statue-byrsa-hill-carthage": {
+  "lat": 36.85281,
+  "lon": 10.32384,
+  "place": "Byrsa Hill"
+ },
+ "headless-draped-statue-byrsa-hill-cart": {
+  "lat": 36.85279,
+  "lon": 10.32386,
+  "place": "Byrsa Hill"
+ },
+ "roman-column-base-byrsa-hill-carthage": {
+  "lat": 36.85279,
+  "lon": 10.32376,
+  "place": "Byrsa Hill"
+ },
+ "inscribed-architectural-fragment-byrsa": {
+  "lat": 36.85311,
+  "lon": 10.32313,
+  "place": "Byrsa Hill"
+ },
+ "roman-togatus-statue-byrsa-hill-cartha": {
+  "lat": 36.85313,
+  "lon": 10.32362,
+  "place": "Byrsa Hill"
+ },
+ "reclining-figure-byrsa-hill-carthage": {
+  "lat": 36.85301,
+  "lon": 10.32487,
+  "place": "Byrsa Hill"
+ },
+ "fluted-column-fragment-byrsa-hill-cart": {
+  "lat": 36.8531,
+  "lon": 10.32321,
+  "place": "Byrsa Hill"
+ },
+ "draped-statue-byrsa-hill-carthage": {
+  "lat": 36.85316,
+  "lon": 10.32353,
+  "place": "Byrsa Hill"
+ },
+ "male-torso-statue-roman-villas-of-carth": {
+  "lat": 36.85773,
+  "lon": 10.33153,
+  "place": "Roman villas of Carthage"
+ },
+ "statue-fragment-roman-villas-of-carthage": {
+  "lat": 36.85776,
+  "lon": 10.33137,
+  "place": "Roman villas of Carthage"
+ },
+ "bird-of-prey-statue-roman-villas-of-car": {
+  "lat": 36.8578,
+  "lon": 10.33143,
+  "place": "Roman villas of Carthage"
+ },
+ "bird-and-floral-mosaic-roman-villas-of-cartha": {
+  "lat": 36.85791,
+  "lon": 10.33139,
+  "place": "Roman villas of Carthage"
+ },
+ "punic-stelae-tophet-of-salammbo-carthage": {
+  "lat": 36.84133,
+  "lon": 10.32312,
+  "place": "Tophet of Salammbo, Carthage"
+ },
+ "tanit-stela-tophet-of-salammbo-carthage": {
+  "lat": 36.84132,
+  "lon": 10.32312,
+  "place": "Tophet of Salammbo, Carthage"
+ },
+ "punic-stela-tophet-of-salammbo-carthag": {
+  "lat": 36.8415,
+  "lon": 10.32297,
+  "place": "Tophet of Salammbo, Carthage"
+ },
+ "punic-stelae-row-tophet-of-salammbo-ca": {
+  "lat": 36.84133,
+  "lon": 10.32312,
+  "place": "Tophet of Salammbo, Carthage"
+ }
+}

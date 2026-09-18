@@ -257,6 +257,7 @@ function start() {
     if (speakBtn) speakBtn.classList.remove('on');
   }
   function openBubble() {
+    sfx('pop');
     const s = slots[shown];
     if (!s || !bubble) return;
     bubbleOpen = true; expanded = false;
@@ -292,6 +293,10 @@ function start() {
     expanded = !expanded;
     if (bubbleLong) bubbleLong.hidden = !expanded;
     moreBtn.textContent = expanded ? 'That is enough' : 'Tell me more';
+    // she reads the longer line too, in her own voice where it has been recorded
+    const cur = slots[shown];
+    if (expanded && cur && cur.it.note) sayLine(cur.it.note, { voice: cur.it.voiceMore });
+    else hushNura();
     if (expanded) bump(p => { p.more++; });
   });
   if (speakBtn) speakBtn.addEventListener('click', () => {
@@ -454,14 +459,66 @@ function start() {
   const writeSaved = l => { try { localStorage.setItem(SAVED, JSON.stringify(l)); }
                             catch (e) { /* private mode */ } };
 
+  // ---- where it was scanned: one OpenStreetMap tile, the pin at the exact spot, a link out
+  const mapA = document.getElementById('wf-map');
+  const mapImg = document.getElementById('wf-map-img');
+  const mapPin = document.querySelector('.wf-pin');
+  function paintMap(it) {
+    if (!mapA) return;
+    if (!it.gps) { mapA.hidden = true; return; }
+    const [lat, lon] = it.gps, z = 15, n = Math.pow(2, z);
+    const xf = (lon + 180) / 360 * n;
+    const la = lat * Math.PI / 180;
+    const yf = (1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n;
+    const x = Math.floor(xf), y = Math.floor(yf);
+    const px = (xf - x) * 256, py = (yf - y) * 256;
+    mapImg.src = 'https://tile.openstreetmap.org/' + z + '/' + x + '/' + y + '.png';
+    // slide the tile so the pin sits in the middle of the little window
+    mapImg.style.left = (32 - px) + 'px';
+    mapImg.style.top = (22 - py) + 'px';
+    mapPin.style.left = '32px'; mapPin.style.top = '22px';
+    mapA.href = 'https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon + '#map=17/' + lat + '/' + lon;
+    mapA.hidden = false;
+  }
+
+  // ---- how many people have seen and saved this object, from the public counter, so the
+  // page itself shows the numbers a report would ask for. Silent until analytics is on.
+  const statsEl = document.getElementById('wf-stats');
+  const statCache = {};
+  function counter(path) {
+    if (!CFG.gc) return Promise.resolve(null);
+    if (!statCache[path]) {
+      statCache[path] = fetch('https://' + CFG.gc + '.goatcounter.com/counter/' + path + '.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(j => j ? (parseInt(String(j.count).replace(/\D/g, ''), 10) || 0) : null)
+        .catch(() => null);
+    }
+    return statCache[path];
+  }
+  function paintStats(it) {
+    if (!statsEl) return;
+    if (!CFG.gc) { statsEl.hidden = true; return; }
+    Promise.all([counter('collection_view/' + it.slug), counter('collection_save/' + it.slug)])
+      .then(([v, sv]) => {
+        if (!slots[shown] || slots[shown].it.slug !== it.slug) return;
+        const bits = [];
+        if (v) bits.push('seen ' + v.toLocaleString() + (v === 1 ? ' time' : ' times'));
+        if (sv) bits.push('saved by ' + sv.toLocaleString());
+        statsEl.textContent = bits.join(' · ');
+        statsEl.hidden = !bits.length;
+      });
+  }
+
   // ---- paint(): everything that has to change when a different object comes to the front.
   // This is the hinge of the page, so keep it in one place.
   let shown = -1, turned = false, cueTimer = null, moved = 0;
   function paint(i) {
     const s = slots[i];
     if (!s || shown === i) return;
+    const wasShown = shown;
     shown = i;
     const it = s.it;
+    if (wasShown >= 0) sfx('whoosh');
 
     if (uiTitle) uiTitle.textContent = it.title;
     if (uiId) uiId.textContent = [it.place, it.size].filter(Boolean).join(' \u00b7 ');
@@ -469,6 +526,8 @@ function start() {
     const by = document.getElementById('wf-by');
     if (by) by.textContent = it.credit || '';
     paintSave(it);
+    paintMap(it);
+    paintStats(it);
 
     // the switch follows where you actually are
     document.querySelectorAll('.tsw').forEach(b =>
@@ -499,25 +558,132 @@ function start() {
   }
 
   // ---- badges: a quiet scavenger hunt through the collection
-  // a quiet two-note chime, made in the browser, for the moments that deserve one
-  let audioCtx = null;
-  function chime(kind) {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // ---- sound. Small cues and a quiet background, all made in the browser, nothing
+  // downloaded. One tap turns it all off, and the choice is remembered.
+  let audioCtx = null, music = null, gestured = false;
+  const SOUND_KEY = 'tanitxr.sound';
+  let soundOn = true;
+  try { soundOn = localStorage.getItem(SOUND_KEY) !== 'off'; } catch (e) { /* private mode */ }
+  function actx() {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+    return audioCtx;
+  }
+  function tone(c, f, t0, dur, peak, type, dest) {
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(peak, t0 + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(dest || c.destination);
+    o.start(t0); o.stop(t0 + dur + 0.05);
+  }
+  function sfx(kind) {
+    if (!soundOn || !gestured) return;
     try {
-      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-      const notes = kind === 'badge' ? [523.25, 659.25, 783.99] : [659.25, 783.99];
-      notes.forEach((f, i) => {
-        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-        o.type = 'sine'; o.frequency.value = f;
-        const t0 = audioCtx.currentTime + i * 0.11;
-        g.gain.setValueAtTime(0.0001, t0);
-        g.gain.exponentialRampToValueAtTime(0.06, t0 + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.5);
-        o.connect(g).connect(audioCtx.destination);
-        o.start(t0); o.stop(t0 + 0.55);
-      });
+      const c = actx(), now = c.currentTime;
+      if (kind === 'badge') [523.25, 659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.06, 'sine'));
+      else if (kind === 'save') [659.25, 783.99].forEach((f, i) => tone(c, f, now + i * 0.11, 0.5, 0.06, 'sine'));
+      else if (kind === 'tap') tone(c, 987.77, now, 0.14, 0.035, 'triangle');
+      else if (kind === 'pop') {                     // a bubble opening: one quick upward blip
+        const o = c.createOscillator(), g = c.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(620, now);
+        o.frequency.exponentialRampToValueAtTime(1180, now + 0.07);
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(0.05, now + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+        o.connect(g).connect(c.destination); o.start(now); o.stop(now + 0.18);
+      } else if (kind === 'whoosh') {                // an object arriving: a breath of air
+        const n = Math.floor(c.sampleRate * 0.36), buf = c.createBuffer(1, n, c.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+        const src = c.createBufferSource(); src.buffer = buf;
+        const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 0.9;
+        bp.frequency.setValueAtTime(300, now);
+        bp.frequency.exponentialRampToValueAtTime(1500, now + 0.17);
+        bp.frequency.exponentialRampToValueAtTime(450, now + 0.36);
+        const g = c.createGain();
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(0.03, now + 0.08);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.36);
+        src.connect(bp).connect(g).connect(c.destination); src.start(now); src.stop(now + 0.37);
+      }
     } catch (e) { /* no audio here */ }
   }
+  const chime = kind => sfx(kind === 'badge' ? 'badge' : 'save');
+
+  // The background: a low drone and sparse plucked notes in maqam Hijaz, the scale under
+  // much Tunisian music, generated live so nothing is downloaded and nothing needs a licence.
+  // It stands in until a recorded track we have the rights to takes its place.
+  const HIJAZ = [146.83, 155.56, 185.0, 196.0, 220.0, 233.08, 261.63, 293.66, 311.13, 369.99, 392.0, 440.0];
+  function startMusic() {
+    if (music || !soundOn || !gestured) return;
+    try {
+      const c = actx();
+      const master = c.createGain();
+      master.gain.setValueAtTime(0.0001, c.currentTime);
+      master.gain.exponentialRampToValueAtTime(0.5, c.currentTime + 5);
+      const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1500;
+      master.connect(lp).connect(c.destination);
+      const drone = [73.42, 73.42 * 1.004, 110.0].map((f, i) => {
+        const o = c.createOscillator(), g = c.createGain();
+        o.type = i === 2 ? 'sine' : 'triangle'; o.frequency.value = f;
+        g.gain.value = i === 2 ? 0.05 : 0.03;
+        o.connect(g).connect(master); o.start(); return o;
+      });
+      let timer = null, last = -1;
+      const pluck = () => {
+        if (!music) return;
+        if (c.state !== 'running') { timer = setTimeout(pluck, 1500); return; }
+        let k; do { k = Math.floor(Math.random() * HIJAZ.length); } while (k === last);
+        last = k;
+        const f = HIJAZ[k], t0 = c.currentTime;
+        const o = c.createOscillator(), g = c.createGain(), fl = c.createBiquadFilter();
+        o.type = 'sawtooth'; o.frequency.value = f;
+        fl.type = 'lowpass';
+        fl.frequency.setValueAtTime(f * 6, t0);
+        fl.frequency.exponentialRampToValueAtTime(f * 1.5, t0 + 0.9);
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(0.1, t0 + 0.008);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.7);
+        o.connect(fl).connect(g).connect(master); o.start(t0); o.stop(t0 + 1.8);
+        if (Math.random() < 0.4) tone(c, f * 2, t0 + 0.26, 1.1, 0.025, 'triangle', master);
+        timer = setTimeout(pluck, 1900 + Math.random() * 3400);
+      };
+      music = {
+        stop() {
+          clearTimeout(timer);
+          const t = c.currentTime;
+          master.gain.cancelScheduledValues(t);
+          master.gain.setValueAtTime(Math.max(master.gain.value, 0.0001), t);
+          master.gain.exponentialRampToValueAtTime(0.0001, t + 1.2);
+          setTimeout(() => drone.forEach(o => { try { o.stop(); } catch (e) { /* done */ } }), 1400);
+        }
+      };
+      timer = setTimeout(pluck, 1400);
+    } catch (e) { music = null; }
+  }
+  function stopMusic() { if (music) { const m = music; music = null; m.stop(); } }
+  const sndBtn = document.getElementById('sound-toggle');
+  function paintSound() {
+    if (!sndBtn) return;
+    sndBtn.classList.toggle('off', !soundOn);
+    sndBtn.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+    sndBtn.title = soundOn ? 'Sound is on. Tap to mute' : 'Sound is off. Tap to turn it on';
+  }
+  paintSound();
+  if (sndBtn) sndBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    try { localStorage.setItem(SOUND_KEY, soundOn ? 'on' : 'off'); } catch (e) { /* private mode */ }
+    paintSound();
+    if (soundOn) { gestured = true; startMusic(); sfx('tap'); } else stopMusic();
+    if (window.tx) tx('sound_toggle', { on: soundOn });
+  });
+  // browsers only allow sound after a real gesture, so everything waits for the first one
+  const firstGesture = () => { gestured = true; startMusic(); };
+  ['pointerdown', 'keydown', 'touchstart'].forEach(ev =>
+    addEventListener(ev, firstGesture, { once: true, passive: true }));
 
   const PROG = 'tanitxr.progress';
   const BADGES = [
@@ -680,13 +846,12 @@ function start() {
       // a direct route into that artist's own room, where they have one
       const roomBtn = document.getElementById('vc-room');
       if (roomBtn) {
-        const hasRoom = CFG.items.some(x => x.artist === p.name);
-        roomBtn.hidden = !hasRoom;
-        roomBtn.textContent = 'See ' + p.name.split(' ')[0] + "'s room";
+        const n = CFG.items.filter(x => inRoomOf(x, p.name)).length;
+        roomBtn.hidden = n < 2;
+        roomBtn.textContent = 'See ' + p.name.split(' ')[0] + "'s room (" + n + ')';
         roomBtn.onclick = () => {
           cameo.hidden = true;
-          jumpTo(x => x.artist === p.name);
-          if (window.tx) tx('artist_room', { artist: p.name });
+          openRoom(p.name);            // the real room: everything of theirs in one space
         };
       }
       cameoLink.textContent = 'See what else ' + p.name.split(' ')[0] + ' has made';
@@ -1032,19 +1197,42 @@ function start() {
     });
   });
 
-  // ---- immersive mode. In a headset the objects stand at the size they really are.
-  let xrMode = false, xrHome = null;
+  // ---- immersive mode: the same experience as the page, in a headset. One object in front
+  // of you at a comfortable size, Nura beside it, the label as a panel in the world. Push
+  // the thumbstick, or pull the trigger on empty space, for the next object; squeeze for
+  // the one before; hold the trigger on the object and swing to turn it; point at the
+  // label and pull to save it; point at Nura and pull to hear her.
+  let xrMode = false, xrCursor = 0, xrTarget = 0;
+  const XR_EYE = 1.55, XR_DIST = 2.5, XR_SCALE = 0.62;
   const xrRoot = new THREE.Group();
+  xrRoot.visible = false;
   scene.add(xrRoot);
-  const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.4);
+  const xrLight = new THREE.DirectionalLight(0xfff3e0, 1.2);
   xrLight.position.set(2, 5, 3);
   xrRoot.add(xrLight);
+  // the same warm room as the page: a soft gradient all round and a floor to stand on
+  const skyTex = (() => {
+    const c = document.createElement('canvas'); c.width = 4; c.height = 256;
+    const x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, 0, 256);
+    g.addColorStop(0, '#e6d8c0'); g.addColorStop(0.5, '#f7f1e6'); g.addColorStop(1, '#d6c5a8');
+    x.fillStyle = g; x.fillRect(0, 0, 4, 256);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
+  xrRoot.add(new THREE.Mesh(new THREE.SphereGeometry(30, 32, 24),
+    new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide })));
+  const xrFloor = new THREE.Mesh(new THREE.CircleGeometry(14, 48),
+    new THREE.MeshBasicMaterial({ color: 0xe2d3b9 }));
+  xrFloor.rotation.x = -Math.PI / 2; xrFloor.position.y = 0.001;
+  xrRoot.add(xrFloor);
+  const xrShade = new THREE.Mesh(new THREE.PlaneGeometry(5, 5),
+    new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+  xrShade.rotation.x = -Math.PI / 2; xrShade.position.set(0, 0.004, -XR_DIST);
+  xrRoot.add(xrShade);
 
-  const realHeight = it => (it.real && it.dims && it.dims[1] > 0.05) ? it.dims[1] : 0.4;
-
-  // A headset renders only the 3D scene, so every label has to exist as an object in the
-  // world. This paints one onto a canvas and hangs it beside the piece.
-  function makeLabel(it) {
+  // A headset renders only the 3D scene, so the label has to exist as an object in the
+  // world. This paints one onto a canvas. With `saved` given it also shows the save state.
+  function makeLabel(it, saved) {
     const W = 1024, H = 420;
     const c = document.createElement('canvas');
     c.width = W; c.height = H;
@@ -1062,7 +1250,7 @@ function start() {
     rr(6, 6, W - 12, H - 12, 26); x.fill(); x.stroke();
     x.fillStyle = '#8a735c';
     x.font = '600 30px Roboto, Helvetica, Arial, sans-serif';
-    x.fillText([it.place, it.size].filter(Boolean).join('   \u00b7   ').toUpperCase(), 44, 84);
+    x.fillText([it.place, it.size].filter(Boolean).join('   ·   ').toUpperCase(), 44, 84);
     x.fillStyle = '#2e2118';
     let size = 74;
     x.font = '400 ' + size + 'px "Yeseva One", Georgia, serif';
@@ -1072,8 +1260,7 @@ function start() {
     x.fillText(it.title, 44, 190);
     x.fillStyle = '#5d4c3c';
     x.font = '400 32px Roboto, Helvetica, Arial, sans-serif';
-    const credit = it.credit || '';
-    const words = credit.split(' ');
+    const words = (it.credit || '').split(' ');
     let line = '', y = 260;
     for (const w of words) {
       if (x.measureText(line + w + ' ').width > W - 88) { x.fillText(line, 44, y); line = w + ' '; y += 42; }
@@ -1083,99 +1270,79 @@ function start() {
     x.fillStyle = '#a35f3f';
     x.font = '700 28px Roboto, Helvetica, Arial, sans-serif';
     x.fillText('TANIT XR', 44, H - 40);
+    if (saved !== undefined) {
+      x.textAlign = 'right';
+      x.fillStyle = saved ? '#a35f3f' : '#8a735c';
+      x.font = '600 26px Roboto, Helvetica, Arial, sans-serif';
+      x.fillText(saved ? '♥  SAVED' : 'POINT HERE AND PULL THE TRIGGER TO SAVE', W - 44, H - 40);
+      x.textAlign = 'left';
+    }
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(1.06, 0.435),
+    return new THREE.Mesh(new THREE.PlaneGeometry(1.06, 0.435),
       new THREE.MeshBasicMaterial({ map: tex, transparent: true }));
-    return m;
   }
 
-  // In a headset you can simply walk, so lay a set of pieces out at real size on an arc
-  // around the viewer instead of showing one object you cannot reach.
-  const XR_BATCH = 7;
-  let xrStart = 0, xrPlaced = [];
-  function xrLayout() {
-    xrPlaced.forEach(s => {
-      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
-      if (s.xrHome) {
-        s.xrHome.parent.add(s.wrap);
-        s.wrap.position.copy(s.xrHome.pos);
-        s.wrap.scale.setScalar(s.xrHome.wrapScale);
-        if (s.fit) s.fit.scale.setScalar(s.xrHome.fitScale);
-        s.shadow.position.y = s.xrHome.shadow;
-        s.xrHome = null;
-      }
-      s.wrap.visible = false;
-    });
-    xrPlaced = [];
-    const list = [];
-    for (let k = 0; k < XR_BATCH; k++) {
-      const s = slots[(xrStart + k) % slots.length];
-      if (s) { load(s); list.push(s); }
-    }
-    const spread = Math.PI * 0.72;                  // a little over a third of a circle
-    list.forEach((s, k) => {
-      const a = -spread / 2 + (list.length === 1 ? spread / 2 : (k / (list.length - 1)) * spread);
-      const R = 3.4;
-      const h = realHeight(s.it);
-      s.xrHome = { parent: s.wrap.parent, pos: s.wrap.position.clone(),
-                   wrapScale: s.wrap.scale.x, fitScale: s.fit ? s.fit.scale.x : 1,
-                   shadow: s.shadow.position.y };
-      xrRoot.add(s.wrap);
-      s.wrap.position.set(Math.sin(a) * R, h / 2, -Math.cos(a) * R);
-      s.wrap.rotation.y = a;                        // turned to face the middle
-      s.wrap.scale.setScalar(1);
-      if (s.fit) s.fit.scale.setScalar(1);          // real metres
-      s.shadow.position.y = -h / 2 + 0.003;
-      s.mats.forEach(m => { m.opacity = 1; });
-      s.wrap.visible = s.loaded;
-      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
-      const lab = makeLabel(s.it);
-      // float it above the piece so nothing occludes it, a little above eye line
-      lab.position.set(Math.sin(a) * R, Math.max(h + 0.34, 1.8), -Math.cos(a) * R);
-      lab.rotation.y = a;
-      s.xrLabel = lab;
-      xrRoot.add(lab);
-      xrPlaced.push(s);
-    });
-    if (nura) {
-      nuraHolder.visible = true;
-      nuraHolder.position.set(1.5, 1.15, -1.9);
-    }
+  // one label, repainted for each object, hung low and to the left like the page's panel
+  let xrLabel = null, xrLabelSlug = null;
+  function paintXRLabel(it) {
+    if (xrLabel) { xrRoot.remove(xrLabel); xrLabel.material.map.dispose(); xrLabel = null; }
+    xrLabel = makeLabel(it, readSaved().includes(it.slug));
+    xrLabel.position.set(-0.82, 0.95, -XR_DIST + 0.35);
+    xrLabel.rotation.y = 0.32;
+    xrLabelSlug = it.slug;
+    xrRoot.add(xrLabel);
   }
 
   // A way to inspect the immersive layout without a headset: ?xrpreview=1 builds the same
-  // arc and puts the camera where a standing viewer's eyes would be. Drag to look around.
+  // scene and puts the camera where a standing viewer's eyes would be. Drag to look around.
   const XR_PREVIEW = /[?&]xrpreview=1/.test(location.search);
   let previewYaw = 0;
+  const xrCurrent = () => slots[Math.round(clamp(xrCursor, 0, slots.length - 1))];
+  function xrStep(n) {
+    xrTarget = clamp(Math.round(xrTarget) + n, 0, slots.length - 1);
+    if (window.tx) tx('xr_step', { dir: n });
+  }
+  let xrStickCool = 0;
+  function xrPollInput(dt) {
+    xrStickCool = Math.max(0, xrStickCool - dt);
+    const sess = renderer.xr.getSession();
+    if (!sess || xrStickCool > 0) return;
+    for (const src of sess.inputSources) {
+      const gp = src.gamepad;
+      if (!gp || !gp.axes) continue;
+      const x = gp.axes[2] || gp.axes[0] || 0, y = gp.axes[3] || gp.axes[1] || 0;
+      if (Math.abs(x) > 0.6 || Math.abs(y) > 0.6) {
+        xrStep(Math.abs(y) > Math.abs(x) ? (y > 0 ? 1 : -1) : (x > 0 ? 1 : -1));
+        xrStickCool = 0.6;
+        return;
+      }
+    }
+  }
 
   function enterXR() {
     xrMode = true;
     document.body.classList.add('in-xr');
-    xrStart = Math.max(0, shown);
-    xrLayout();
+    xrRoot.visible = true;
+    xrCursor = xrTarget = Math.max(0, shown);
+    xrLabelSlug = null;
+    if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     if (window.tx) tx('xr_entered', { from: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
     xrMode = false;
     document.body.classList.remove('in-xr');
-    xrStart = 0;
-    xrPlaced.forEach(s => {
-      if (s.xrLabel) { xrRoot.remove(s.xrLabel); s.xrLabel = null; }
-      if (!s.xrHome) return;
-      s.xrHome.parent.add(s.wrap);
-      s.wrap.position.copy(s.xrHome.pos);
-      s.wrap.rotation.y = 0;
-      s.wrap.scale.setScalar(s.xrHome.wrapScale);
-      if (s.fit) s.fit.scale.setScalar(s.xrHome.fitScale);
-      s.shadow.position.y = s.xrHome.shadow;
-      s.xrHome = null;
-    });
-    xrPlaced = [];
+    xrRoot.visible = false;
+    xrGrab = null;
+    if (xrLabel) { xrRoot.remove(xrLabel); xrLabel = null; xrLabelSlug = null; }
+    if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
+    slots.forEach(s => { s.shadow.material.opacity = 0.8; });
+    // carry on down the page from the object you were looking at in the headset
+    const i = Math.round(clamp(xrCursor, 0, slots.length - 1));
+    if (sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
   }
 
-  // Controllers: a visible ray, point at a piece and hold the trigger to turn it, and a
-  // trigger on empty space brings in the next set.
+  // Controllers: a visible ray. What the trigger does depends on what it points at.
   const xrCtrl = [], xrRay = new THREE.Raycaster();
   let xrGrab = null;
   function wireXRControllers() {
@@ -1190,10 +1357,22 @@ function start() {
       c.addEventListener('selectstart', () => {
         if (!xrMode) return;
         const hit = xrPick(c);
-        if (hit) { xrGrab = { slot: hit, ctrl: c, lastYaw: ctrlYaw(c) }; showNuraLine(hit.it); }
-        else { xrStart = (xrStart + XR_BATCH) % slots.length; xrLayout(); if (window.tx) tx('xr_next_set'); }
+        if (!hit) { xrStep(1); return; }
+        if (hit.kind === 'nura') {
+          if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; hushNura(); }
+          else { showNuraLine(hit.slot.it); bump(p => { p.more++; }); }
+          return;
+        }
+        if (hit.kind === 'label') {
+          if (uiSave) uiSave.click();
+          paintXRLabel(hit.slot.it);
+          return;
+        }
+        xrGrab = { slot: hit.slot, ctrl: c, lastYaw: ctrlYaw(c) };
+        if (!turned) { turned = true; bump(p => { p.rotated++; }); }
       });
       c.addEventListener('selectend', () => { xrGrab = null; });
+      c.addEventListener('squeezestart', () => { if (xrMode) xrStep(-1); });
       xrRoot.add(c);
       xrCtrl.push(c);
     }
@@ -1206,23 +1385,22 @@ function start() {
     const o = new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
     const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion).normalize();
     xrRay.set(o, d);
-    const hits = xrRay.intersectObjects(
-      xrPlaced.filter(s => s.loaded).map(s => s.wrap), true);
-    if (!hits.length) return null;
-    let n = hits[0].object;
-    while (n && !xrPlaced.some(s => s.wrap === n)) n = n.parent;
-    return xrPlaced.find(s => s.wrap === n) || null;
+    const slot = xrCurrent();
+    if (nura && nuraHolder.visible && xrRay.intersectObject(nuraHolder, true).length) return { kind: 'nura', slot };
+    if (xrLabel && xrRay.intersectObject(xrLabel).length) return { kind: 'label', slot };
+    if (slot && slot.loaded && xrRay.intersectObject(slot.wrap, true).length) return { kind: 'object', slot };
+    return null;
   }
-  // Nura's line, as a panel in the world, and read aloud if the headset browser allows it
+  // Nura's line, as a panel above her head, and read aloud if the headset browser allows it
   let nuraPanel = null;
   function showNuraLine(it) {
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     const p = makeLabel({ title: it.title, place: it.place, size: it.size, credit: it.hi || '' });
-    p.position.set(0, 1.05, 0.02);
+    p.position.set(0, NURA_H * 1.18, 0.02);
     p.scale.setScalar(0.9);
     nuraPanel = p;
     nuraHolder.add(p);
-    sayLine(it.hi || it.title);
+    sayLine(it.hi || it.title, it);
     if (window.tx) tx('xr_pick', { object: it.slug });
   }
 
@@ -1235,15 +1413,11 @@ function start() {
         renderer.xr.enabled = true;
         const btn = mod.VRButton.createButton(renderer);
         btn.id = 'vr-button';
-        btn.textContent = 'See it at real size in VR';
+        btn.textContent = 'See it in VR';
         document.body.appendChild(btn);
         wireXRControllers();
-        renderer.xr.addEventListener('sessionstart', () => {
-          btn.textContent = 'Leave VR'; enterXR();
-        });
-        renderer.xr.addEventListener('sessionend', () => {
-          btn.textContent = 'See it at real size in VR'; exitXR();
-        });
+        renderer.xr.addEventListener('sessionstart', () => { btn.textContent = 'Leave VR'; enterXR(); });
+        renderer.xr.addEventListener('sessionend', () => { btn.textContent = 'See it in VR'; exitXR(); });
       });
     }).catch(() => { /* no immersive mode here, the flat page is unaffected */ });
   }
@@ -1303,9 +1477,11 @@ function start() {
     s.shadow.material.opacity = 0;
   }
 
+  const inRoomOf = (it, who) => it.artist === who || (it.person && it.person.name === who);
   function openRoom(artist) {
-    const list = slots.filter(s => s.it.artist === artist);
+    const list = slots.filter(s => inRoomOf(s.it, artist));
     if (!list.length) return;
+    if (roomMode) { roomPlinths.clear(); slots.forEach(s => { s.roomPos = null; }); }
     list.forEach(load);
     roomMode = { artist, list };
     roomFocus = null;
@@ -1314,7 +1490,7 @@ function start() {
     if (roomBar) roomBar.hidden = false;
     if (roomTitle) roomTitle.textContent = artist;
     if (roomEyebrow) roomEyebrow.textContent = 'Gallery room';
-    if (roomCount) roomCount.textContent = list.length + ' pieces';
+    if (roomCount) roomCount.textContent = list.length + ' pieces, modelled or optimized';
     if (cameo) cameo.hidden = true;
     closeBubble();
     if (window.tx) tx('room_opened', { artist });
@@ -1387,13 +1563,8 @@ function start() {
   load(slots[0]);
 
   if (XR_PREVIEW) {
-    // let the arc's models arrive, then lay it out and hold there
-    setTimeout(() => {
-      xrMode = true;
-      document.body.classList.add('in-xr');
-      xrStart = 0;
-      xrLayout();
-    }, 900);
+    // no headset: hold the same scene and stand where the viewer would stand
+    setTimeout(enterXR, 900);
     stage.addEventListener('pointermove', e => {
       if (dragging) previewYaw -= (e.clientX - lastX) * 0.004;
     }, { passive: true });
@@ -1442,24 +1613,61 @@ function start() {
   const clock = new THREE.Clock();
   function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
-    if (xrMode) {                                   // the headset owns the camera; you walk
-      if (XR_PREVIEW) {                             // no headset: stand at the centre of the arc
-        camera.position.set(0, 1.6, 0);
+    if (xrMode) {                                   // the headset owns the camera
+      if (XR_PREVIEW) {                             // no headset: stand where a viewer stands
+        camera.position.set(0, XR_EYE, 0);
         camera.rotation.set(0, previewYaw, 0);
         camera.fov = 70;
         camera.updateProjectionMatrix();
         camera.updateMatrixWorld();
       }
-      if (mixer) mixer.update(dt);
-      xrPlaced.forEach(s => { if (s.loaded) s.wrap.visible = true; });
+      xrPollInput(dt);
+      xrCursor += (xrTarget - xrCursor) * (reduce ? 1 : 0.1);
+      cursor = target = xrCursor;                   // so save, share and Nura agree on the object
+      const front = xrCurrent();
+      paint(front.i);
+      if (xrLabelSlug !== front.it.slug && Math.abs(xrCursor - front.i) < 0.3) paintXRLabel(front.it);
+      const te = clock.elapsedTime;
+      slots.forEach(s => {
+        const d = s.i - xrCursor, ad = Math.abs(d);
+        const a = Math.max(0, 1 - ad * 1.3);
+        if (ad < 1.6) load(s);
+        s.wrap.visible = s.loaded && a > 0.005;
+        if (!s.wrap.visible) return;
+        // the same rise and settle as the page, in front of you instead of down the screen
+        const e = 1 - Math.pow(1 - Math.min(1, ad), 2);
+        s.wrap.position.set(0, XR_EYE - 0.3 - Math.sign(d) * e * 2.4, -XR_DIST - e * 2.2);
+        s.wrap.scale.setScalar(XR_SCALE * (0.78 + 0.22 * a));
+        s.mats.forEach(m => { m.opacity = a; });
+        s.shadow.material.opacity = 0;              // the floor carries the shadow in here
+        if (!reduce && !xrGrab && ad < 0.5) s.pivot.rotation.y += dt * 0.1;
+      });
+      xrShade.material.opacity = 0.9;
       if (xrGrab) {                                 // hold the trigger and swing to turn it
         const y = ctrlYaw(xrGrab.ctrl);
         xrGrab.slot.pivot.rotation.y += (y - xrGrab.lastYaw) * 2.2;
         xrGrab.lastYaw = y;
       }
+      if (mixer) mixer.update(dt);
       if (nura) {
-        nuraHolder.position.y = 1.15 + Math.sin(clock.elapsedTime * 1.05) * 0.06;
-        nura.rotation.y = nuraBaseYaw + Math.sin(clock.elapsedTime * 0.5) * 0.25;
+        nuraHolder.visible = true;
+        // beside the object, and she swings round it with you when you turn it
+        const swing = clamp(front.pivot.rotation.y * 0.3, -0.65, 0.65);
+        const R = 1.0;
+        nuraHolder.position.set(Math.cos(swing) * R + Math.sin(te * 0.43) * 0.05,
+                                XR_EYE - 1.0 + Math.sin(te * 1.05) * 0.06,
+                                -XR_DIST + 0.3 + Math.sin(swing) * R * 0.55);
+        // she keeps facing you; at nuraBaseYaw she faces +Z, and you stand at the origin
+        nura.rotation.y = nuraBaseYaw + Math.atan2(-nuraHolder.position.x, -nuraHolder.position.z)
+                          + Math.sin(te * 0.5) * 0.06;
+        nura.rotation.x = 0;
+        nura.rotation.z = Math.sin(te * 0.8) * 0.03;
+        sparks.children.forEach(m => {
+          m.userData.a += dt * m.userData.sp;
+          m.position.set(Math.cos(m.userData.a) * m.userData.r,
+                         m.userData.y + Math.sin(te * m.userData.sp + m.userData.a) * 0.09,
+                         Math.sin(m.userData.a) * m.userData.r * 0.7);
+        });
       }
       renderer.render(scene, camera);
       return;

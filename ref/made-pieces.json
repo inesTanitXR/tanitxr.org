@@ -1,0 +1,168 @@
+{
+ "_what": "Volunteer-built pieces from the Unity museum project (github VRApp), converted with tools/convert_unity_pieces.py. Authorship is from the project's git history: Patrick Molen built the main hall and the modular kit, Kristina Reyes the furnished room and its pieces.",
+ "_source": "~/Documents/GitHub/VRApp",
+ "pieces": [
+  {
+   "slug": "patrick-museum-main-hall",
+   "fbx": "Assets/Models/TanitMuseum/TanitMuseumMainArea/TanitMuseumMainArea.fbx",
+   "title": "The museum's main hall",
+   "by": "Patrick Molen",
+   "note": "The heart of the virtual museum: a courtyard hall with arcades and fountains, where the scanned objects will one day be hung. Everything else in this room is a piece of it.",
+   "hi": "This is the museum itself, still being built."
+  },
+  {
+   "slug": "patrick-fountain-large",
+   "fbx": "Assets/Models/ReusableStructures/TanitMuseumFountain01_V02.fbx",
+   "title": "Courtyard fountain, large",
+   "by": "Patrick Molen",
+   "note": "The big fountain at the centre of the main hall, tiled in the trim pattern used across the museum.",
+   "hi": "Water in the middle of the hall, like a real Tunisian courtyard."
+  },
+  {
+   "slug": "patrick-fountain-small",
+   "fbx": "Assets/Models/ReusableStructures/TanitMuseumFountain02_V02.fbx",
+   "title": "Courtyard fountain, small",
+   "by": "Patrick Molen",
+   "note": "The smaller fountain, for the side courts."
+  },
+  {
+   "slug": "patrick-arch-1",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_01.fbx",
+   "title": "Arch, first pattern",
+   "by": "Patrick Molen",
+   "note": "One of four arch pieces from the modular building kit. Volunteers snap these together to make new galleries without modelling anything from scratch.",
+   "hi": "A building block. New rooms are puzzled together from these."
+  },
+  {
+   "slug": "patrick-arch-2",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_02.fbx",
+   "title": "Arch, second pattern",
+   "by": "Patrick Molen",
+   "note": "Another arch from the kit, with a deeper reveal."
+  },
+  {
+   "slug": "patrick-arch-3",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_03.fbx",
+   "title": "Arch, third pattern",
+   "by": "Patrick Molen",
+   "note": "The tallest arch in the kit."
+  },
+  {
+   "slug": "patrick-arch-4",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Arch_04.fbx",
+   "title": "Arch, fourth pattern",
+   "by": "Patrick Molen",
+   "note": "The smallest arch, for passages."
+  },
+  {
+   "slug": "patrick-wall-tanit",
+   "fbx": "Assets/Models/ReusableStructures/Tanit_Wall_01.fbx",
+   "title": "Wall with the sign of Tanit",
+   "by": "Patrick Molen",
+   "note": "A wall section from the kit carrying the sign of Tanit, the symbol the project takes its name from.",
+   "hi": "The sign of Tanit, cut into the museum's own walls."
+  },
+  {
+   "slug": "patrick-wall-solid",
+   "fbx": "Assets/Models/ReusableStructures/Wall_01_noDoor.fbx",
+   "title": "Wall, solid",
+   "by": "Patrick Molen",
+   "note": "A plain wall section from the kit."
+  },
+  {
+   "slug": "patrick-pillar",
+   "fbx": "Assets/Models/ReusableStructures/Pillar.fbx",
+   "title": "Pillar",
+   "by": "Patrick Molen",
+   "note": "A free-standing pillar from the kit."
+  },
+  {
+   "slug": "patrick-carved-ceiling",
+   "fbx": "Assets/Models/ReusableStructures/Complex_Large_Cieling.fbx",
+   "title": "Carved ceiling",
+   "by": "Patrick Molen",
+   "note": "A ceiling piece with carved coffers, for the larger rooms.",
+   "hi": "Look up. This goes over your head in the museum."
+  },
+  {
+   "slug": "patrick-clay-lamp",
+   "fbx": "Assets/Models/ReusableStructures/Clay_Light.fbx",
+   "title": "Clay lamp",
+   "by": "Patrick Molen",
+   "note": "A hanging clay lamp that lights the galleries."
+  },
+  {
+   "slug": "patrick-wall-lamp",
+   "fbx": "Assets/Models/ReusableStructures/Wall_Light.fbx",
+   "title": "Wall lamp",
+   "by": "Patrick Molen",
+   "note": "A wall-mounted lamp from the kit."
+  },
+  {
+   "slug": "patrick-palm-tree",
+   "fbx": "Assets/Models/ReusableStructures/Palm_Tree.fbx",
+   "title": "Palm tree",
+   "by": "Patrick Molen",
+   "note": "A palm for the courtyards, so the museum feels like Tunisia and not a white box.",
+   "hi": "A palm for the courtyard. It should feel like home."
+  },
+  {
+   "slug": "patrick-bamboo",
+   "fbx": "Assets/Models/ReusableStructures/Bamboo_Group.fbx",
+   "title": "Bamboo",
+   "by": "Patrick Molen",
+   "note": "A clump of bamboo for the planted corners."
+  },
+  {
+   "slug": "patrick-curved-bench",
+   "fbx": "Assets/Models/ReusableStructures/Curved_Bench.fbx",
+   "title": "Curved bench",
+   "by": "Patrick Molen",
+   "note": "Somewhere to sit in the courtyard."
+  },
+  {
+   "slug": "patrick-large-pot",
+   "fbx": "Assets/Models/ReusableStructures/Large_Dirt_Pot.fbx",
+   "title": "Large clay pot",
+   "by": "Patrick Molen",
+   "note": "A large planter for the courtyards."
+  },
+  {
+   "slug": "patrick-small-pot",
+   "fbx": "Assets/Models/ReusableStructures/Small_Pot.fbx",
+   "title": "Small pot",
+   "by": "Patrick Molen",
+   "note": "A small pot from the kit."
+  },
+  {
+   "slug": "kristina-furnished-room",
+   "fbx": "Assets/Models/ReusableStructures/room3.fbx",
+   "title": "Furnished room",
+   "by": "Kristina Reyes",
+   "note": "A complete furnished room for the virtual museum, built as one piece.",
+   "hi": "A whole room, built by hand, ready to hang objects in."
+  },
+  {
+   "slug": "kristina-stained-glass-lamp",
+   "fbx": "Assets/Models/ReusableStructures/stainedLamp_opt.fbx",
+   "title": "Stained glass lamp",
+   "by": "Kristina Reyes",
+   "note": "A stained glass lamp, modelled and optimized for the headset."
+  },
+  {
+   "slug": "kristina-display-plinth",
+   "fbx": "Assets/Models/ReusableStructures/tanitxr_display.fbx",
+   "title": "Display plinth",
+   "by": "Kristina Reyes",
+   "note": "The plinth the scanned objects stand on inside the museum.",
+   "hi": "This is what the scans stand on in the museum."
+  },
+  {
+   "slug": "kristina-rug",
+   "fbx": "Assets/Models/ReusableStructures/tanitxr_rug.fbx",
+   "title": "Rug",
+   "by": "Kristina Reyes",
+   "note": "A rug for the furnished room."
+  }
+ ]
+}

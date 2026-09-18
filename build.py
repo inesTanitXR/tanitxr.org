@@ -811,6 +811,20 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
   color:#4a3527;border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
   box-shadow:0 8px 22px rgba(60,40,26,.1)}
 #map-toggle svg{width:15px;height:15px;fill:#a35f3f}
+#sound-toggle{position:fixed;top:96px;inset-inline-start:274px;z-index:5;display:flex;
+  align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(74,53,43,.2);
+  background:rgba(253,248,240,.92);color:#4a3527;border-radius:999px;padding:0;font:inherit;
+  font-size:0;cursor:pointer;box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#sound-toggle svg{width:16px;height:16px;fill:#a35f3f}
+#sound-toggle .off-ic,#sound-toggle.off .on-ic{display:none}
+#sound-toggle.off .off-ic{display:block}
+#sound-toggle.off{color:#8a735c}#sound-toggle.off svg{fill:#8a735c}
+#sound-toggle:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#sound-toggle:hover svg{fill:var(--gold)}
+body.walk-fallback #sound-toggle,body.demoing #sound-toggle,body.in-room #sound-toggle,
+body.in-xr #sound-toggle{display:none}
+.wf-stats{display:block;color:#a35f3f;font-size:12.5px;margin:-8px 0 14px}
+.wf-stats[hidden]{display:none}
 #map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
 #map-toggle:hover svg,#map-toggle.on svg{fill:var(--gold)}
 #filmstrip{position:fixed;inset-inline:0;bottom:0;z-index:6;display:flex;gap:6px;align-items:flex-end;
@@ -829,7 +843,7 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 body.walk-fallback #map-toggle,body.demoing #map-toggle,body.in-room #map-toggle,
 body.in-xr #map-toggle,body.in-room #filmstrip{display:none}
 @media(max-width:760px){#map-toggle{top:126px;inset-inline-start:auto;inset-inline-end:12px;
-  padding:7px 12px;font-size:12.5px}#track-switch{inset-inline-start:12px;transform:none}}
+  padding:7px 12px;font-size:12.5px}#sound-toggle{top:126px;inset-inline-start:auto;inset-inline-end:92px;width:34px;height:34px}#track-switch{inset-inline-start:12px;transform:none}}
 
 /* until the first model arrives, the stage breathes instead of sitting empty */
 #walk-stage:before{content:"";position:absolute;inset-inline-start:50%;top:46%;width:34vmin;
@@ -877,6 +891,19 @@ body.first-loaded #walk-stage:before{opacity:0;animation:none}
   text-decoration:none}
 .wf-btn.gold:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
 .wf-by{color:#7d6a58;font-size:13px;margin:-8px 0 14px}
+/* where it was scanned: one map tile with a pin, linking out to the map */
+.wf-map{display:flex;align-items:center;gap:9px;text-decoration:none;color:#4a3527;
+  border:1px solid rgba(74,53,43,.18);border-radius:10px;padding:4px 10px 4px 4px;
+  background:rgba(253,248,240,.9)}
+.wf-map[hidden]{display:none}
+.wf-map:hover{border-color:#a35f3f}
+.wf-map-tile{position:relative;width:64px;height:44px;border-radius:6px;overflow:hidden;
+  background:#e6dbc6;flex:0 0 auto}
+.wf-map-tile img{position:absolute;width:256px;height:256px;max-width:none;display:block}
+.wf-pin{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--gold);
+  border:2px solid #241a10;transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(255,205,5,.35)}
+.wf-map-txt b{display:block;font-size:12.5px;line-height:1.2}
+.wf-map-txt small{display:block;font-size:9.5px;color:#8a735c;letter-spacing:.02em}
 
 /* the rotate affordance stays put, it just dims once you have used it */
 #walk-hint{display:flex;align-items:center;gap:8px}
@@ -1330,8 +1357,10 @@ JS = """
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
   try{
-    if (window.counter && typeof counter.count === 'function') counter.count({path: name});
-    if (window.goatcounter && goatcounter.count) goatcounter.count({path: name, event: true});
+    // an object's slug becomes part of the path, so counts exist per object as well as in total
+    const path = name + (props && props.object ? '/' + props.object : '');
+    if (window.counter && typeof counter.count === 'function') counter.count({path: path});
+    if (window.goatcounter && goatcounter.count) goatcounter.count({path: path, event: true});
     if (typeof gtag === 'function') gtag('event', name, props || {});
   }catch(e){ /* never let counting break the page */ }
 };
@@ -2888,6 +2917,14 @@ NURA_VOICE = {
     "draped-statue-byrsa-hill-carthage": "nura-object-2.mp3",
     "roman-column-byrsa-hill-carthage": "nura-object-3.mp3",
 }
+# any recording named nura-<key>.mp3 in media/audio is picked up automatically: <slug> for an
+# object's opener, <slug>--more for its longer line (see tools/nura_script.py)
+_audio_dir = os.path.join(HERE, "media", "audio")
+if os.path.isdir(_audio_dir):
+    for _fn in sorted(os.listdir(_audio_dir)):
+        if _fn.startswith("nura-") and _fn.endswith(".mp3"):
+            NURA_VOICE.setdefault(_fn[5:-4], _fn)
+
 
 WALK_ROOMS = [
     ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
@@ -2934,6 +2971,10 @@ NURA_OPENERS = {
 
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
     MODEL_DIMS = json.load(_f)
+# where each scan was made, recovered from the location links the phone app wrote into the
+# original descriptions; only objects with real coordinates appear here
+_gps_path = os.path.join(HERE, "ref", "model-gps.json")
+MODEL_GPS = json.load(open(_gps_path)) if os.path.exists(_gps_path) else {}
 
 
 def walk_room(title):
@@ -3090,7 +3131,26 @@ def build_walk():
                          "site": "Made by volunteers", "href": "archive.html#volunteer-made",
                          "by": byname, "made": True, "thumb": vm.get("thumb"),
                          "sketchfab": f"https://sketchfab.com/models/{vm['uid']}/embed"})
+    # pieces of the virtual museum itself, converted from the Unity project
+    mp = os.path.join(HERE, "ref", "made-pieces.json")
+    if os.path.exists(mp):
+        with open(mp) as f:
+            for pc in json.load(f)["pieces"]:
+                gp = os.path.join(models_dir, pc["slug"] + ".glb")
+                th = os.path.join(HERE, "media", "thumbs", pc["slug"] + ".png")
+                if os.path.exists(th):
+                    _media_files[os.path.basename(th).lower()] = th
+                if pc["slug"] in on_disk and os.path.getsize(gp) <= WALK_MAX_BYTES:
+                    made.append({"title": pc["title"], "file_slug": pc["slug"],
+                                 "place": "Made by volunteers", "site": "Made by volunteers",
+                                 "href": pc.get("href", "museum.html"), "by": pc["by"], "made": True,
+                                 "thumb": os.path.basename(th) if os.path.exists(th) else None,
+                                 "sketchfab": pc.get("sketchfab"),
+                                 "text": pc.get("note", ""), "hi": pc.get("hi")})
     # one room per artist, so each maker has their own space rather than a shared shelf
+    ROOM_SUB = {"Patrick Molen": "The museum itself: the main hall, and the building kit every "
+                                 "new gallery is assembled from",
+                "Kristina Reyes": "A furnished room for the virtual museum, and the pieces in it"}
     made_rooms = []
     if made:
         byname = {}
@@ -3098,7 +3158,7 @@ def build_walk():
             byname.setdefault(mm.get("by") or "Tanit XR volunteers", []).append(mm)
         for who, group in sorted(byname.items(), key=lambda kv: (-len(kv[1]), kv[0])):
             group.sort(key=lambda g: g["title"])
-            made_rooms.append((who,
+            made_rooms.append((who, ROOM_SUB.get(who) or
                                f'{len(group)} piece{"s" if len(group) != 1 else ""} modelled '
                                f'by hand for the museum', group, who))
 
@@ -3113,6 +3173,8 @@ def build_walk():
             continue
         if preset is None:
             group.sort(key=lambda g: (not g["file_slug"].startswith(WALK_OPENER), g["title"]))
+        elif artist:                      # the hall first, then the kit in the order it was listed
+            group.sort(key=lambda g: (0 if "main-hall" in g["file_slug"] else 1))
         room_btn = (f'<button class="room-open" data-artist="{esc(artist)}">'
                     f'See all of {esc(artist.split()[0])}\u2019s work together</button>'
                     ) if artist else ""
@@ -3126,9 +3188,13 @@ def build_walk():
             ov = overrides.get(m["file_slug"], {})
             measured = not m.get("by")      # props were modelled, not scanned to scale
             voice = NURA_VOICE.get(m["file_slug"])
+            voice_more = NURA_VOICE.get(m["file_slug"] + "--more")
+            gps = MODEL_GPS.get(m["file_slug"])
             items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
                           "artist": artist,
+                          **({"gps": [gps["lat"], gps["lon"]]} if gps else {}),
                           **({"voice": voice} if voice else {}),
+                          **({"voiceMore": voice_more} if voice_more else {}),
                           "href": m.get("href", "archive.html"),
                           "place": nice_place(m["place"]),
                           "size": human_size(d) if measured else "",
@@ -3136,10 +3202,12 @@ def build_walk():
                           "person": walk_person(m),
                           "thumb": img(m.get("img") or m.get("thumb"), 260)
                                    if (m.get("img") or m.get("thumb")) else "",
-                          "hi": (NURA_OPENERS.get(label, "Have a look at this one.")
-                                 + (f' {human_size(d)}.' if measured and human_size(d) else "")),
+                          "hi": (m.get("hi") or NURA_OPENERS.get(label)
+                                 or (NURA_OPENERS[WALK_MADE[0]] if artist else "Have a look at this one."))
+                                + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_line(m) if measured else
-                                  (f'{short_title(m["title"])}, modelled by hand for our virtual '
+                                  (m.get("text") or
+                                   f'{short_title(m["title"])}, modelled by hand for our virtual '
                                    f'museum{", by " + m["by"] if m.get("by") else ""}.'),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
@@ -3182,8 +3250,9 @@ def build_walk():
 
     rooms = blocks.count('class="warea"')
     # nuraYaw turns the character to face the viewer; adjust here if she ends up backwards
-    cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180), "items": items},
-                          ensure_ascii=False)
+    cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180),
+                           "gc": (ANALYTICS.get("goatcounter_code") or "").strip(),
+                           "items": items}, ensure_ascii=False)
     body = f"""
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
 <div id="rotate-cue" aria-hidden="true">
@@ -3228,6 +3297,10 @@ def build_walk():
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h5v5H3zm7 0h4v5h-4zm6 0h5v5h-5zM3 12h5v7H3zm7 0h4v7h-4zm6 0h5v7h-5z"/></svg>
 Map</button>
 <div id="filmstrip" hidden></div>
+<button id="sound-toggle" aria-pressed="true" title="Sound is on. Tap to mute">
+<svg class="on-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+<svg class="off-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3l2.7-2.7-1.4-1.4L15.2 10.6l-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>
+Sound</button>
 
 <button id="scan-entry" title="See how a scan is made">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
@@ -3305,6 +3378,7 @@ phone. The caption is copied for you.</p>
 <div id="wf-id" class="wf-id"></div>
 <h2 id="wf-title"></h2>
 <div id="wf-by" class="wf-by"></div>
+<span id="wf-stats" class="wf-stats" hidden></span>
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
@@ -3315,6 +3389,10 @@ phone. The caption is copied for you.</p>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a id="wf-record" class="wf-link" href="archive.html">Full record</a>
+<a id="wf-map" class="wf-map" href="#" target="_blank" rel="noopener" hidden title="Where this was scanned">
+<span class="wf-map-tile"><img id="wf-map-img" alt=""><i class="wf-pin"></i></span>
+<span class="wf-map-txt"><b>Scanned here</b><small>&copy; OpenStreetMap</small></span>
+</a>
 </div>
 </div>
 </div>

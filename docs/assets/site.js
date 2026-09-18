@@ -3,8 +3,10 @@
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
   try{
-    if (window.counter && typeof counter.count === 'function') counter.count({path: name});
-    if (window.goatcounter && goatcounter.count) goatcounter.count({path: name, event: true});
+    // an object's slug becomes part of the path, so counts exist per object as well as in total
+    const path = name + (props && props.object ? '/' + props.object : '');
+    if (window.counter && typeof counter.count === 'function') counter.count({path: path});
+    if (window.goatcounter && goatcounter.count) goatcounter.count({path: path, event: true});
     if (typeof gtag === 'function') gtag('event', name, props || {});
   }catch(e){ /* never let counting break the page */ }
 };
