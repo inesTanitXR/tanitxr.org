@@ -5015,6 +5015,17 @@ def main():
     n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])
     n_ar = len([f for f in os.listdir(os.path.join(DOCS, "ar")) if f.endswith(".html")])
     size = subprocess.run(["du", "-sh", DOCS], capture_output=True, text=True).stdout.split()[0]
+    # last pass: whichever path wrote a page, no em dash survives outside its script blocks
+    for _dp, _, _fs in os.walk(DOCS):
+        for _fn in _fs:
+            if _fn.endswith(".html"):
+                _p = os.path.join(_dp, _fn)
+                with open(_p, encoding="utf-8") as _f:
+                    _h = _f.read()
+                _d = dedash(_h)
+                if _d != _h:
+                    with open(_p, "w", encoding="utf-8") as _f:
+                        _f.write(_d)
     print(f"\nBuilt {n_pages} en + {n_fr} fr + {n_ar} ar pages -> docs/ ({size})")
     # newsletter ⇄ board consistency (Ines: "everything needs to be reflected on the website")
     r = subprocess.run(["python3", os.path.join(HERE, "sync_check.py"), "--quiet"], capture_output=True, text=True)
