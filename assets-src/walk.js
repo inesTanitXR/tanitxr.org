@@ -420,13 +420,14 @@ function start() {
       how: 'Ask Nura for more on ten objects', test: p => p.more >= 10 },
     { id: 'surveyor', icon: '\u25c8', name: 'Site Surveyor',
       how: 'See something from every place we have scanned',
-      test: p => p.places.length >= PLACES.length },
+      test: p => PLACES.every(pl => p.places.includes(pl)) },
     { id: 'guardian', icon: '\u2691', name: 'Guardian',
       how: 'Share an object so others see it', test: p => p.shared >= 1 },
     { id: 'completionist', icon: '\u2726', name: 'Whole Collection',
       how: 'Look at every object', test: p => p.seen.length >= CFG.items.length },
   ];
-  const PLACES = Array.from(new Set(CFG.items.map(i => i.place).filter(Boolean)));
+  // only the places we scanned on location count as sites; the hand-made shelf is not one
+  const PLACES = Array.from(new Set(CFG.items.filter(i => i.real).map(i => i.place).filter(Boolean)));
   const blank = { seen: [], places: [], saved: [], rotated: 0, more: 0, shared: 0, badges: [] };
   function readProg() {
     try { return Object.assign({}, blank, JSON.parse(localStorage.getItem(PROG) || '{}')); }

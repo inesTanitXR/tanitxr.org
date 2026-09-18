@@ -2815,6 +2815,19 @@ def walk_credit(m):
     return " \u00b7 ".join(bits)
 
 
+# a few place names come out of the scan data in working shorthand
+PLACE_DISPLAY = {
+    "New Site (Flood)": "Neapolis, Nabeul",
+    "Zawiya of Sidi Sahbi": "Zawiya of Sidi Sahbi, Kairouan",
+    "Byrsa Hill": "Byrsa Hill, Carthage",
+    "Water Temple, Zaghouan": "Water Temple, Zaghouan",
+}
+
+
+def nice_place(p):
+    return PLACE_DISPLAY.get(p, p)
+
+
 def walk_person(m):
     """The volunteer to introduce on this object, if we know who they are and they have a page."""
     if m.get("by"):
@@ -2899,7 +2912,8 @@ def build_walk():
             byname, _ = creator_credit(vm.get("by"))
             made.append({"title": vm["title"], "file_slug": fs, "place": "Made by volunteers",
                          "site": "Made by volunteers", "href": "archive.html#volunteer-made",
-                         "by": byname})
+                         "by": byname, "thumb": vm.get("thumb"),
+                         "sketchfab": f"https://sketchfab.com/models/{vm['uid']}/embed"})
     if made:
         by_room[WALK_MADE[0]] = made
 
@@ -2921,7 +2935,7 @@ def build_walk():
             measured = not m.get("by")      # props were modelled, not scanned to scale
             items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
                           "href": m.get("href", "archive.html"),
-                          "place": m["place"] + (f', by {m["by"]}' if m.get("by") else ""),
+                          "place": nice_place(m["place"]),
                           "size": human_size(d) if measured else "",
                           "credit": walk_credit(m),
                           "person": walk_person(m),
