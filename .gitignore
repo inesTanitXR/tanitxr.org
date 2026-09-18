@@ -6,3 +6,8 @@ ref/applications/
 
 # 3D model working copies; regenerate with tools/pull_sketchfab_models.py
 media/models/
+
+ref/decks/node_modules/
+ref/decks/package*.json
+ref/decks/*.pdf
+ref/decks/slide-*.jpg

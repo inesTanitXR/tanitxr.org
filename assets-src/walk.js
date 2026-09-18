@@ -302,7 +302,7 @@ function start() {
     if (bubble) bubble.hidden = true;
     hushNura();
   }
-  if (closeBtn) closeBtn.addEventListener('click', () => { closeBubble(); if (typeof tourStep !== 'undefined' && tourStep >= 0 && !tourWait) { tourStep = -1; clearTimeout(tourTimer); } });
+  if (closeBtn) closeBtn.addEventListener('click', () => { closeBubble(); if (typeof tourStep !== 'undefined' && tourStep >= 0 && !tourWait) tourDone(); });
   if (dot) dot.addEventListener('click', openBubble);
   if (moreBtn) moreBtn.addEventListener('click', () => {
     if (moreBtn.dataset.offer === '1') {          // she offered the demo, you said yes
@@ -571,7 +571,7 @@ function start() {
     // Nura goes quiet on a new object and glances over at it
     if (cameo) cameo.hidden = true;
     clearTimeout(cameoTimer);
-    closeBubble();
+    if (!(tourStep >= 0 && bubbleOpen && tourBubbleSlug === it.slug)) closeBubble();
     if (dot) dot.classList.add('in');
     glance = 1.6;
     showCameo(it);
@@ -819,6 +819,7 @@ function start() {
   }
   function roomKey(it) { return it.artist ? 'artist:' + it.artist : 'place:' + it.place; }
   function checkRoomDone(p, it) {
+    if (tourStep >= 0) return;                     // the guided visit keeps the floor
     const key = roomKey(it);
     p.rooms = p.rooms || [];
     if (p.rooms.includes(key)) return;
@@ -994,7 +995,7 @@ function start() {
   function maybeOfferDemo() {
     let done = false;
     try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
-    if (done || readProg().rotated < 3 || !bubble) return;
+    if (done || readProg().rotated < 3 || !bubble || tourStep >= 0) return;
     try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
     bubbleOpen = true;
     bubble.hidden = false;
@@ -1071,8 +1072,14 @@ function start() {
   // Nura walks a first-time visitor through five stops in about four minutes: a scan and
   // how it is made, a volunteer's piece and her gallery, the city the sea gave back, the
   // museum being built, and what a donation does. Close her bubble at any point to stop.
-  const TOUR_ON = /[?&]tour=1/.test(location.search);
-  let tourStep = -1, tourWait = null, tourTimer = null;
+  let TOUR_ON = /[?&]tour=1/.test(location.search) || /tour/.test(location.hash);
+  // the flag lives for the visit: a redirect or reload keeps it, finishing or closing ends it
+  try {
+    if (TOUR_ON) sessionStorage.setItem('tanitxr.tour', '1');
+    else TOUR_ON = sessionStorage.getItem('tanitxr.tour') === '1';
+  } catch (e) { /* private mode */ }
+  const tourDone = () => { tourStep = -1; clearTimeout(tourTimer); try { sessionStorage.setItem('tanitxr.tour', 'done'); } catch (e) { /* private mode */ } };
+  let tourStep = -1, tourWait = null, tourTimer = null, tourBubbleSlug = null;
   const findSlot = pred => slots.find(s => pred(s.it));
   const TOUR = [
     { pick: it => it.slug.startsWith('tanit-stela'),
@@ -1113,16 +1120,26 @@ function start() {
     beHappy(); flare = 1;
     sayLine(step.line, { voice: null });
     if (window.tx) tx('tour_step', { step: tourStep });
+    if (step.act === 'end') { try { sessionStorage.setItem('tanitxr.tour', 'done'); } catch (e) { /* private mode */ } }
   }
   function tourGo(k) {
     clearTimeout(tourTimer);
     while (k < TOUR.length && !findSlot(TOUR[k].pick)) k++;
-    if (k >= TOUR.length) { tourStep = -1; return; }
+    if (k >= TOUR.length) { tourDone(); return; }
     tourStep = k;
     const step = TOUR[k];
     jumpTo(step.pick);
-    // paint() closes her bubble when a new object arrives, so she speaks once it has settled
-    tourTimer = setTimeout(() => { if (tourStep === k) tourBubble(step); }, 1400);
+    const target = findSlot(step.pick);
+    let tries = 0;
+    const settle = () => {
+      if (tourStep !== k) return;
+      const here = slots[shown] === target && Math.abs(cursor - target.i) < 0.03 && target.loaded;
+      tries++;
+      if (!here && tries % 10 === 0 && slots[shown] !== target) jumpTo(step.pick);   // a scroll can be swallowed while the demo winds down
+      if (here || tries > 150) { tourBubbleSlug = target.it.slug; tourBubble(step); }
+      else tourTimer = setTimeout(settle, 100);
+    };
+    tourTimer = setTimeout(settle, 400);
   }
   function tourAdvance() { if (tourStep >= 0) tourGo(tourStep + 1); }
   function tourAct() {
@@ -1137,6 +1154,7 @@ function start() {
     tourWait = null;
     setTimeout(tourAdvance, 600);
   }
+  window.tanitxrTour = () => ({ step: tourStep, wait: tourWait, on: TOUR_ON });
   if (TOUR_ON) {
     document.body.classList.add('touring');
     setTimeout(() => tourGo(0), 2200);

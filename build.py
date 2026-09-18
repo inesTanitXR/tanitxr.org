@@ -1614,6 +1614,7 @@ NAV = [
         ("Press &amp; Recognition", "press.html"),
         ("El Jem Conference paper", "el-jem-conference.html"),
         ("ImmerseGT 2026", "immersegt-2026.html"),
+        ("Partner with us", "partners.html"),
         ("Services", "services.html"),
         ("Contact", "contact.html"),
     ]),
@@ -4889,6 +4890,73 @@ helping remotely, every volunteer contributes to preserving history.</p>
     page("contact.html", "Contact", body)
 
 
+def build_partners():
+    """For companies and foundations: what working with Tanit XR looks like, without amounts."""
+    offers = [
+        ("Your team learns to scan",
+         "A half-day or a six-week course, online or on site, where your employees learn to capture "
+         "objects and places in 3D with a phone, then publish a real piece of heritage to the open "
+         "archive under their names. Skills-based volunteering people actually talk about afterwards."),
+        ("Adopt a site or a gallery",
+         "Fund the scanning of one Tunisian site, or the making of one gallery in the virtual museum, "
+         "and it carries your name: on the page, in the 3D experience, in the headset."),
+        ("Bring a room to your event",
+         "We set up the 3D experience and a headset at your conference, office or client event, with "
+         "a volunteer to guide people through it. Heritage is a conversation nobody expects at a tech event."),
+        ("A talk or a workshop",
+         "Our founder and team speak at conferences and companies about phone photogrammetry, "
+         "community-built XR and heritage at risk: AWE, Voices of VR, Georgia Tech, the El Jem conference. "
+         "Book a session for your team or your audience."),
+        ("Sponsor a hackathon track",
+         "We run heritage tracks at hackathons, with real scans as the material. Your company sets the "
+         "challenge, meets the students, and sees what they build in a weekend."),
+        ("Fund a scanning season",
+         "Bus fares, mobile data, backups and a modest fee for local volunteers in Tunisia for a season of "
+         "documentation, with the sites, the counts and the stories reported back to you monthly."),
+    ]
+    offer_html = "".join(f'<div class="act"><b>{esc(t)}</b><p>{esc(d)}</p></div>' for t, d in offers)
+    gets = [
+        "Impact you can point at: every object your support made possible is public, in 3D, with your name beside it.",
+        "Numbers, monthly: visits, objects viewed, people trained, sites documented, from the same counter we use ourselves.",
+        "Stories your communications team can use: volunteers, sites, a storm, a rescue, with pictures we take ourselves.",
+        "Your logo on the site, in the experience and at our events, and a mention in every newsletter edition.",
+        "Employees who learned something real and can show their families what they helped keep.",
+        "A tax-deductible gift through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3).",
+    ]
+    gets_html = "".join(f'<li>{esc(g)}</li>' for g in gets)
+    body = f"""
+{page_hero("Partner with us", "Partner with us", bg="sv-IMG_0511.jpg")}
+<section class="pad"><div class="wrap">
+<div class="center" style="max-width:760px;margin:0 auto 44px">
+<div class="eyebrow">For companies and foundations</div>
+<h2 class="sec-title">Keep a country's memory, with your name on it</h2>
+<p class="sec-sub">Tanit XR is eighty-five volunteers on four continents who scan Tunisia's endangered heritage
+with their phones and publish it free, in 3D, for anyone. Everything on this site was built without a single paid
+person. A partnership pays for the scanning seasons, the training and the tools, and gives your team a real part in it.</p>
+<p style="margin-top:18px"><a class="btn btn-gold" href="explore.html?tour=1">Take the four-minute guided visit</a>
+&nbsp; <a class="btn btn-line" href="mailto:{EMAIL}?subject=Partnering%20with%20Tanit%20XR">Write to us</a></p>
+</div>
+<h3 class="sec-title" style="font-size:26px;text-align:center;margin-bottom:8px">What a partnership can look like</h3>
+<p class="sec-sub center" style="margin:0 auto 26px;max-width:640px">Pick one, or shape one with us. We build each partnership around your team and your budget.</p>
+<div class="acts">{offer_html}</div>
+</div></section>
+<section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:820px">
+<h3 class="sec-title" style="font-size:26px">What you get back</h3>
+<ul class="prose" style="margin-top:14px">{gets_html}</ul>
+<p class="sec-sub" style="margin-top:26px">One promise we keep whatever the partnership: the archive stays free and open,
+and our volunteers are never made to work so that someone else earns. We sell training, events and our time, never the heritage.</p>
+</div></section>
+<section class="band pad"><div class="wrap center">
+<div class="eyebrow">Start the conversation</div>
+<h2 class="sec-title">Fifteen minutes is enough to see if this fits</h2>
+<p class="sec-sub" style="color:rgba(255,255,255,.82)">Tell us about your team and what matters to you. We come back with two or three ways to work together, with real numbers.</p>
+<a class="btn btn-gold" href="mailto:{EMAIL}?subject=Partnering%20with%20Tanit%20XR">Email {EMAIL}</a>
+&nbsp; <a class="btn btn-line" style="color:#fff;border-color:rgba(255,255,255,.6)" href="explore.html?tour=1">See the experience first</a>
+</div></section>"""
+    page("partners.html", "Partner with us", body, active="about.html",
+         desc="For companies and foundations: how to partner with Tanit XR, from teaching your team to scan to adopting a site in the virtual museum.")
+
+
 def build_support():
     tiers = [
         ("$25", "Help cover basic costs for scanning a site: like transportation, mobile data for uploads, "
@@ -5154,6 +5222,7 @@ def main():
         build_about()
         build_contact()
         build_support()
+        build_partners()
         build_misc()
         print(f"  {LANG}: done")
     LANG = "en"
