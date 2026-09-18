@@ -16,6 +16,7 @@ const assetUrl = p => p ? new URL(p.replace(/^assets\//, ''), ASSET_BASE).href :
 // such paths in real markup but cannot see inside a JSON blob, so from a pretty URL like
 // /walk/ they would resolve to /walk/archive/x.html and 404. Resolve them off the root.
 const SITE_ROOT = new URL('../', import.meta.url).href;
+const AUDIO_BASE = new URL('audio/', import.meta.url).href;
 const linkUrl = p => p ? new URL(p, SITE_ROOT).href : '';
 const stage = document.getElementById('walk-stage');
 const canvas = document.getElementById('walk-canvas');
@@ -131,6 +132,7 @@ function start() {
       });
       s.pivot.add(fit);
       s.loaded = true; s.loading = false;
+      if (s.i === 0) document.body.classList.add('first-loaded');   // lifts the loading glow
     }, undefined, () => {
       s.loading = false;
       const fb = sections[s.i] && sections[s.i].querySelector('.wst-fallback');
@@ -227,9 +229,20 @@ function start() {
   const dot = document.getElementById('nura-dot');
   let speaking = false, bubbleOpen = false, expanded = false;
 
-  function sayLine(text) {
+  let voiceEl = null;
+  function sayLine(text, item) {
+    hushNura();
+    const it = item || (slots[shown] && slots[shown].it);
+    if (it && it.voice) {                          // her own recorded line
+      voiceEl = new Audio(AUDIO_BASE + it.voice);
+      voiceEl.onended = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
+      voiceEl.onerror = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
+      speaking = true;
+      if (speakBtn) speakBtn.classList.add('on');
+      voiceEl.play().catch(() => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); });
+      return;
+    }
     if (!('speechSynthesis' in window) || !text) return;
-    speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.rate = 0.98; u.pitch = 1.08;
     u.onend = () => { speaking = false; if (speakBtn) speakBtn.classList.remove('on'); };
@@ -238,7 +251,9 @@ function start() {
     speechSynthesis.speak(u);
   }
   function hushNura() {
-    if (speaking) { speechSynthesis.cancel(); speaking = false; }
+    if (voiceEl) { voiceEl.pause(); voiceEl = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    speaking = false;
     if (speakBtn) speakBtn.classList.remove('on');
   }
   function openBubble() {
@@ -249,6 +264,8 @@ function start() {
     if (moreBtn) { moreBtn.dataset.offer = ''; moreBtn.classList.remove('nb-offer'); }
     if (dot) dot.classList.remove('in');
     if (bubbleText) bubbleText.textContent = s.it.hi || s.it.title;
+    if (speakBtn) speakBtn.title = s.it.voice ? 'Hear Nura tell it' : 'Read this aloud';
+    if (speakBtn) speakBtn.classList.toggle('real', !!s.it.voice);
     if (bubbleLong) { bubbleLong.textContent = s.it.note || ''; bubbleLong.hidden = true; }
     if (moreBtn) {
       moreBtn.textContent = 'Tell me more';
@@ -472,6 +489,7 @@ function start() {
       cueTimer = setTimeout(() => cueEl.classList.add('show'), 500);
     }
 
+    paintStrip();
     bump(p => {
       if (!p.seen.includes(it.slug)) p.seen.push(it.slug);
       if (it.real && it.place && !p.places.includes(it.place)) p.places.push(it.place);
@@ -481,6 +499,26 @@ function start() {
   }
 
   // ---- badges: a quiet scavenger hunt through the collection
+  // a quiet two-note chime, made in the browser, for the moments that deserve one
+  let audioCtx = null;
+  function chime(kind) {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const notes = kind === 'badge' ? [523.25, 659.25, 783.99] : [659.25, 783.99];
+      notes.forEach((f, i) => {
+        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+        o.type = 'sine'; o.frequency.value = f;
+        const t0 = audioCtx.currentTime + i * 0.11;
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(0.06, t0 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.5);
+        o.connect(g).connect(audioCtx.destination);
+        o.start(t0); o.stop(t0 + 0.55);
+      });
+    } catch (e) { /* no audio here */ }
+  }
+
   const PROG = 'tanitxr.progress';
   const BADGES = [
     { id: 'first-turn', icon: '\u21bb', name: 'First Turn',
@@ -515,6 +553,7 @@ function start() {
       if (p.badges.includes(b.id) || !b.test(p)) return;
       p.badges.push(b.id);
       lastBadge = b;
+      chime('badge');
       if (toast && toastName) {
         toast.querySelector('.bt-icon').textContent = b.icon;
         toastName.textContent = b.name;
@@ -525,10 +564,35 @@ function start() {
       if (window.tx) tx('badge_earned', { badge: b.id });
     });
   }
+  function roomKey(it) { return it.artist ? 'artist:' + it.artist : 'place:' + it.place; }
+  function checkRoomDone(p, it) {
+    const key = roomKey(it);
+    p.rooms = p.rooms || [];
+    if (p.rooms.includes(key)) return;
+    const members = CFG.items.filter(x => roomKey(x) === key);
+    if (members.length < 2 || !members.every(x => p.seen.includes(x.slug))) return;
+    p.rooms.push(key);
+    flare = 1.6;
+    beHappy();
+    if (bubble && bubbleText) {
+      bubbleOpen = true; bubble.hidden = false;
+      if (dot) dot.classList.remove('in');
+      bubbleText.textContent = it.artist
+        ? 'That is everything ' + it.artist.split(' ')[0] + ' has made so far.'
+        : 'That is every piece we have from ' + it.place + '. ' + (CFG.items.length - p.seen.length)
+          + ' left in the whole collection.';
+      if (bubbleLong) bubbleLong.hidden = true;
+      if (moreBtn) moreBtn.hidden = true;
+    }
+    chime('badge');
+    if (window.tx) tx('room_complete', { room: key });
+  }
   function bump(fn) {
     const p = readProg();
     fn(p);
     award(p);
+    const cur = slots[shown] && slots[shown].it;
+    if (cur) checkRoomDone(p, cur);
     writeProg(p);
     paintChip(p);
     paintBadges(p);
@@ -647,6 +711,7 @@ function start() {
     writeSaved(l);
     paintSave(s0.it);
     paintTray();
+    if (i < 0) chime('save');
     bump(p => { p.saved = l.slice(); });
     if (window.tx && i < 0) tx('collection_save', { object: s0.it.slug });
   });
@@ -691,6 +756,54 @@ function start() {
 
   const cameoClose = document.getElementById('vc-close');
   if (cameoClose) cameoClose.addEventListener('click', () => { cameo.hidden = true; });
+
+  // ---- the map: every object as a thumbnail, the one you are on marked, click to jump
+  const strip = document.getElementById('filmstrip');
+  const stripBtn = document.getElementById('map-toggle');
+  let stripBuilt = false;
+  function buildStrip() {
+    if (!strip || stripBuilt) return;
+    stripBuilt = true;
+    const frag = document.createDocumentFragment();
+    let lastRoom = null;
+    CFG.items.forEach((it, i) => {
+      const room = it.artist || it.place;
+      if (room !== lastRoom) {
+        const h = document.createElement('div');
+        h.className = 'fs-room'; h.textContent = room;
+        frag.appendChild(h); lastRoom = room;
+      }
+      const b = document.createElement('button');
+      b.className = 'fs-item'; b.dataset.i = i; b.title = it.title;
+      b.innerHTML = it.thumb ? '<img src="' + assetUrl(it.thumb) + '" alt="' + it.title.replace(/"/g,'') + '">' : '';
+      b.addEventListener('click', () => {
+        target = i; cursor = i;
+        if (sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+        readScroll();
+        if (window.tx) tx('map_jump', { object: it.slug });
+      });
+      frag.appendChild(b);
+    });
+    strip.appendChild(frag);
+  }
+  function paintStrip() {
+    if (!strip || strip.hidden) return;
+    const p = readProg();
+    strip.querySelectorAll('.fs-item').forEach(b => {
+      const it = CFG.items[+b.dataset.i];
+      b.classList.toggle('on', +b.dataset.i === shown);
+      b.classList.toggle('seen', p.seen.includes(it.slug));
+    });
+    const on = strip.querySelector('.fs-item.on');
+    if (on) on.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+  }
+  if (stripBtn && strip) stripBtn.addEventListener('click', () => {
+    buildStrip();
+    strip.hidden = !strip.hidden;
+    stripBtn.classList.toggle('on', !strip.hidden);
+    paintStrip();
+    if (window.tx && !strip.hidden) tx('map_opened');
+  });
 
   // ---- the saved tray, so saving actually leads somewhere
   const chip = document.getElementById('saved-chip');
@@ -1264,6 +1377,9 @@ function start() {
   }
   addEventListener('resize', resize, { passive: true });
   addEventListener('scroll', readScroll, { passive: true });
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.style.scrollSnapType = 'y proximity';
+  }
   // a backgrounded tab freezes the animation loop, so re-sync when it comes back
   document.addEventListener('visibilitychange', () => { if (!document.hidden) readScroll(); });
   resize();
@@ -1286,16 +1402,21 @@ function start() {
   // she introduces herself once, so the opening screen does not have to
   const GREETED = 'tanitxr.greeted';
   setTimeout(() => {
-    let done = false;
-    try { done = localStorage.getItem(GREETED) === '1'; } catch (e) { done = true; }
-    if (done || !bubble || demoOn) return;
+    // greet on the first visit, and welcome back on later ones once there is progress to note
+    let seenBefore = false;
+    try { seenBefore = localStorage.getItem(GREETED) === '1'; } catch (e) { seenBefore = true; }
+    const returning = seenBefore && readProg().seen.length > 3;
+    if ((seenBefore && !returning) || !bubble || demoOn) return;
     try { localStorage.setItem(GREETED, '1'); } catch (e) { /* private mode */ }
     bubbleOpen = true;
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');
-    if (bubbleText) bubbleText.textContent =
-      'I am Nura. Drag anything to turn it, save the ones you like, and see how many of the '
-      + 'six badges you can find.';
+    const prog = readProg();
+    const left = CFG.items.length - prog.seen.length;
+    if (bubbleText) bubbleText.textContent = prog.seen.length > 3 && left > 0
+      ? 'Welcome back. You have seen ' + prog.seen.length + ' so far, ' + left + ' to go.'
+      : 'I am Nura. Drag anything to turn it, save the ones you like, and see how many of the '
+        + 'six badges you can find.';
     if (bubbleLong) bubbleLong.hidden = true;
     if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
     beHappy();

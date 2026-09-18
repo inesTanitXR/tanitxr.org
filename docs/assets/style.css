@@ -428,6 +428,21 @@ footer.site .base{border-top:1px solid rgba(255,255,255,.14);margin-top:52px;pad
 footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){footer.site .cols{grid-template-columns:1fr}}
+.events{display:grid;gap:18px;max-width:900px;margin:0 auto}
+.ev{display:grid;grid-template-columns:86px 1fr;gap:22px;background:var(--paper);
+  border:1px solid #e6e1d6;border-radius:10px;padding:24px 26px;text-align:start}
+.ev-date{text-align:center;border-inline-end:1px solid #e6e1d6;padding-inline-end:18px}
+.ev-date b{display:block;font-family:var(--serif);font-size:42px;line-height:1;color:var(--ink)}
+.ev-date span{display:block;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray);margin-top:6px}
+.ev-when{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);
+  font-weight:700}
+.ev h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:6px 0 4px;line-height:1.2}
+.ev-where{color:var(--gray);font-size:14.5px;margin-bottom:10px}
+.ev p{margin:0;color:#3c454c;font-size:15.5px}
+.ev-links{margin-top:14px!important}
+@media(max-width:600px){.ev{grid-template-columns:1fr;gap:10px}
+  .ev-date{border:0;padding:0;text-align:start;display:flex;gap:10px;align-items:baseline}}
 .collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
 .cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
 .cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
@@ -591,6 +606,47 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
   border-radius:999px;padding:6px 16px}
 @keyframes rcpulse{0%,100%{opacity:.45}50%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.rc-ring,.rc-arrow,.rc-head{animation:none}}
+
+/* the map: every object in a strip along the bottom, the current one marked */
+#map-toggle{position:fixed;top:96px;inset-inline-start:190px;z-index:5;display:flex;
+  align-items:center;gap:7px;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);
+  color:#4a3527;border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#map-toggle svg{width:15px;height:15px;fill:#a35f3f}
+#map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#map-toggle:hover svg,#map-toggle.on svg{fill:var(--gold)}
+#filmstrip{position:fixed;inset-inline:0;bottom:0;z-index:6;display:flex;gap:6px;align-items:flex-end;
+  padding:14px 18px 12px;overflow-x:auto;background:linear-gradient(transparent,rgba(253,248,240,.96) 40%);
+  scrollbar-width:thin}
+#filmstrip[hidden]{display:none}
+.fs-room{flex:0 0 auto;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:#8a735c;padding:4px 0;margin:0 6px 0 10px;
+  max-height:74px;overflow:hidden;white-space:nowrap}
+.fs-item{flex:0 0 auto;width:56px;height:56px;border-radius:6px;border:2px solid transparent;
+  padding:0;background:#efe6d6;cursor:pointer;overflow:hidden;opacity:.55;transition:.2s}
+.fs-item img{width:100%;height:100%;object-fit:cover;display:block}
+.fs-item.seen{opacity:.9}
+.fs-item:hover{opacity:1;transform:translateY(-3px)}
+.fs-item.on{opacity:1;border-color:var(--gold);transform:translateY(-4px) scale(1.08)}
+body.walk-fallback #map-toggle,body.demoing #map-toggle,body.in-room #map-toggle,
+body.in-xr #map-toggle,body.in-room #filmstrip{display:none}
+@media(max-width:760px){#map-toggle{top:126px;inset-inline-start:auto;inset-inline-end:12px;
+  padding:7px 12px;font-size:12.5px}#track-switch{inset-inline-start:12px;transform:none}}
+
+/* until the first model arrives, the stage breathes instead of sitting empty */
+#walk-stage:before{content:"";position:absolute;inset-inline-start:50%;top:46%;width:34vmin;
+  height:34vmin;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(163,95,63,.14),transparent 70%);
+  animation:breathe 1.8s ease-in-out infinite;transition:opacity .6s}
+body.first-loaded #walk-stage:before{opacity:0;animation:none}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.9);opacity:.6}
+  50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}}
+
+/* each object settles into the centre rather than stopping wherever the wheel did */
+.wst{scroll-snap-align:center}
+
+/* the speaker glows when it is her own recorded voice, not the browser's */
+.nb-speak.real{border-color:var(--gold);color:#a35f3f;box-shadow:0 0 0 3px rgba(255,205,5,.25)}
 
 /* the label stays put; only its text changes as you scroll */
 #walk-label{position:fixed;inset:0;z-index:4;pointer-events:none}

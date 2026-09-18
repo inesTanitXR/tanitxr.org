@@ -626,6 +626,21 @@ footer.site .base{border-top:1px solid rgba(255,255,255,.14);margin-top:52px;pad
 footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){footer.site .cols{grid-template-columns:1fr}}
+.events{display:grid;gap:18px;max-width:900px;margin:0 auto}
+.ev{display:grid;grid-template-columns:86px 1fr;gap:22px;background:var(--paper);
+  border:1px solid #e6e1d6;border-radius:10px;padding:24px 26px;text-align:start}
+.ev-date{text-align:center;border-inline-end:1px solid #e6e1d6;padding-inline-end:18px}
+.ev-date b{display:block;font-family:var(--serif);font-size:42px;line-height:1;color:var(--ink)}
+.ev-date span{display:block;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray);margin-top:6px}
+.ev-when{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);
+  font-weight:700}
+.ev h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:6px 0 4px;line-height:1.2}
+.ev-where{color:var(--gray);font-size:14.5px;margin-bottom:10px}
+.ev p{margin:0;color:#3c454c;font-size:15.5px}
+.ev-links{margin-top:14px!important}
+@media(max-width:600px){.ev{grid-template-columns:1fr;gap:10px}
+  .ev-date{border:0;padding:0;text-align:start;display:flex;gap:10px;align-items:baseline}}
 .collection-band{background:linear-gradient(180deg,#fbf6ec 0%,#f3e9d9 100%)}
 .cb-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
 .cb-art{position:relative;display:block;border-radius:6px;overflow:hidden;aspect-ratio:4/3;
@@ -789,6 +804,47 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
   border-radius:999px;padding:6px 16px}
 @keyframes rcpulse{0%,100%{opacity:.45}50%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.rc-ring,.rc-arrow,.rc-head{animation:none}}
+
+/* the map: every object in a strip along the bottom, the current one marked */
+#map-toggle{position:fixed;top:96px;inset-inline-start:190px;z-index:5;display:flex;
+  align-items:center;gap:7px;border:1px solid rgba(74,53,43,.2);background:rgba(253,248,240,.92);
+  color:#4a3527;border-radius:999px;padding:9px 16px;font:inherit;font-size:13.5px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(60,40,26,.1)}
+#map-toggle svg{width:15px;height:15px;fill:#a35f3f}
+#map-toggle:hover,#map-toggle.on{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
+#map-toggle:hover svg,#map-toggle.on svg{fill:var(--gold)}
+#filmstrip{position:fixed;inset-inline:0;bottom:0;z-index:6;display:flex;gap:6px;align-items:flex-end;
+  padding:14px 18px 12px;overflow-x:auto;background:linear-gradient(transparent,rgba(253,248,240,.96) 40%);
+  scrollbar-width:thin}
+#filmstrip[hidden]{display:none}
+.fs-room{flex:0 0 auto;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:#8a735c;padding:4px 0;margin:0 6px 0 10px;
+  max-height:74px;overflow:hidden;white-space:nowrap}
+.fs-item{flex:0 0 auto;width:56px;height:56px;border-radius:6px;border:2px solid transparent;
+  padding:0;background:#efe6d6;cursor:pointer;overflow:hidden;opacity:.55;transition:.2s}
+.fs-item img{width:100%;height:100%;object-fit:cover;display:block}
+.fs-item.seen{opacity:.9}
+.fs-item:hover{opacity:1;transform:translateY(-3px)}
+.fs-item.on{opacity:1;border-color:var(--gold);transform:translateY(-4px) scale(1.08)}
+body.walk-fallback #map-toggle,body.demoing #map-toggle,body.in-room #map-toggle,
+body.in-xr #map-toggle,body.in-room #filmstrip{display:none}
+@media(max-width:760px){#map-toggle{top:126px;inset-inline-start:auto;inset-inline-end:12px;
+  padding:7px 12px;font-size:12.5px}#track-switch{inset-inline-start:12px;transform:none}}
+
+/* until the first model arrives, the stage breathes instead of sitting empty */
+#walk-stage:before{content:"";position:absolute;inset-inline-start:50%;top:46%;width:34vmin;
+  height:34vmin;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(163,95,63,.14),transparent 70%);
+  animation:breathe 1.8s ease-in-out infinite;transition:opacity .6s}
+body.first-loaded #walk-stage:before{opacity:0;animation:none}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.9);opacity:.6}
+  50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}}
+
+/* each object settles into the centre rather than stopping wherever the wheel did */
+.wst{scroll-snap-align:center}
+
+/* the speaker glows when it is her own recorded voice, not the browser's */
+.nb-speak.real{border-color:var(--gold);color:#a35f3f;box-shadow:0 0 0 3px rgba(255,205,5,.25)}
 
 /* the label stays put; only its text changes as you scroll */
 #walk-label{position:fixed;inset:0;z-index:4;pointer-events:none}
@@ -1775,6 +1831,7 @@ _PLACE_FULL = {
 
 def _complete_title(t, place=None):
     t = t.replace("Mausolegt", "Mausoleum")
+    t = re.sub(r"^Test Scan\s*[\u2013\u2014-]\s*", "", t)      # a working label, not a name
     t = re.sub(r"\s*(?:…|\.\.\.)\s*$", "", t).rstrip(" –—-,")
     for full in _PLACES:
         if t.endswith(full):
@@ -2316,7 +2373,7 @@ def build_home():
          "real threats, but every scan is a way to push back, to make sure our heritage is preserved and "
          "celebrated.", "Ines Said"),
     ]
-    quote_html = "".join(f'<div class="quote"><p>“{q}”</p><b>— {a}</b></div>' for q, a in quotes)
+    quote_html = "".join(f'<div class="quote"><p>“{q}”</p><b>{a}</b></div>' for q, a in quotes)
 
     partners = "".join(
         f'<img src="{img(fn, 300, as_jpeg=False)}" alt="{alt}" loading="lazy">'
@@ -2387,6 +2444,7 @@ Tunisian culture, and celebrate wins together.</p>
 <p style="margin-top:34px"><a class="btn btn-line" href="archive.html">Open the Full Archive</a></p>
 </div></section>
 
+{events_block(cloud=True)}
 <section class="pad collection-band"><div class="wrap">
 <div class="cb-grid">
 <div>
@@ -2516,6 +2574,7 @@ Everything we make is free and open.</p></div>
 </div>
 </div></section>
 
+{events_block()}
 <section class="pad"><div class="wrap">
 <div class="center"><div class="eyebrow">Join</div>
 <h2 class="sec-title">How to get in</h2>
@@ -2770,11 +2829,65 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
 
 
 
+# Upcoming events. Past ones drop off at build time, so nothing on the site goes stale.
+EVENTS = [
+    {"date": "2026-09-20", "when": "Sunday, September 20, 10am to 6pm",
+     "title": "CityCamp Gainesville Hack Day: two Tanit XR tracks",
+     "where": "Reitz Union, Room G330, University of Florida",
+     "desc": "A six hour hack day, an official Major League Hacking event hosted by Florida "
+             "Community Innovation with NASA. Tanit XR has two tracks: build an interactive "
+             "experience from one of our real 3D scans, or create a public history or "
+             "communications piece about Tunisian heritage. No coding needed for the second.",
+     "links": [("Register on MLH", "https://events.mlh.com/events/14677-citycamp-gainesville-hack-day"),
+               ("Devpost", "https://citycamp-hack-day.devpost.com/")]},
+    {"date": "2026-10-22", "when": "Thursday, October 22",
+     "title": "Tanit XR in person, Washington DC",
+     "where": "Washington, DC. Venue to be announced",
+     "desc": "An evening with the Tanit XR community, planned with TAYP, the Tunisian American "
+             "Young Professionals. Save the date. Details will follow here and in the newsletter.",
+     "links": []},
+]
+
+
+def events_block(heading="Coming up", cloud=False):
+    today = _dt.date.today().isoformat()
+    live = [e for e in EVENTS if e["date"] >= today]
+    if not live:
+        return ""
+    cards = ""
+    for e in live:
+        links = " &nbsp; ".join(
+            f'<a class="btn {"btn-gold" if i == 0 else "btn-line"}" href="{u}" target="_blank" '
+            f'rel="noopener">{esc(t)}</a>' for i, (t, u) in enumerate(e["links"]))
+        d = _dt.date.fromisoformat(e["date"])
+        cards += f"""
+<div class="ev"><div class="ev-date"><b>{d.day}</b><span>{d.strftime('%b')}</span></div>
+<div class="ev-body"><div class="ev-when">{esc(e["when"])}</div>
+<h3>{esc(e["title"])}</h3>
+<div class="ev-where">{esc(e["where"])}</div>
+<p>{esc(e["desc"])}</p>
+{f'<p class="ev-links">{links}</p>' if links else ''}
+</div></div>"""
+    return f"""
+<section class="pad"{' style="background:var(--cloud)"' if cloud else ''}><div class="wrap">
+<div class="center"><div class="eyebrow">{esc(heading)}</div>
+<h2 class="sec-title">Where to find us next</h2></div>
+<div class="events">{cards}</div>
+</div></section>"""
+
+
 # Rooms are named the way a curator would name them, not by file category. Each room says
 # what the objects are for; the sizes in the labels are the real measured ones.
 # The first object a visitor meets. The Tanit Stela carries the symbol the organisation is
 # named for, which is a better opening than whatever happens to sort first.
 WALK_OPENER = "tanit-stela"
+
+# which recorded line belongs to which object (see media/audio, from MIT Reality Hack)
+NURA_VOICE = {
+    "tanit-stela-tophet-of-salammbo-carthage": "nura-object-1.mp3",
+    "draped-statue-byrsa-hill-carthage": "nura-object-2.mp3",
+    "roman-column-byrsa-hill-carthage": "nura-object-3.mp3",
+}
 
 WALK_ROOMS = [
     ("Stones raised to Tanit", "Punic stelae from the Tophet, each one set down by a person",
@@ -3012,8 +3125,10 @@ def build_walk():
             d = MODEL_DIMS.get(m["file_slug"])
             ov = overrides.get(m["file_slug"], {})
             measured = not m.get("by")      # props were modelled, not scanned to scale
+            voice = NURA_VOICE.get(m["file_slug"])
             items.append({"slug": m["file_slug"], "title": short_title(m["title"]),
                           "artist": artist,
+                          **({"voice": voice} if voice else {}),
                           "href": m.get("href", "archive.html"),
                           "place": nice_place(m["place"]),
                           "size": human_size(d) if measured else "",
@@ -3043,6 +3158,16 @@ def build_walk():
             blocks += (f'<section class="wst" data-i="{i}">'
                        f'<h3 class="wsr">{esc(short_title(m["title"]))}, {esc(m["place"])}</h3>'
                        f'{fb}</section>')
+
+    # Nura's three recorded lines from MIT Reality Hack, matched to their objects by the
+    # script order and confirmed by duration (41s, 39s, 36s)
+    audio_src = os.path.join(HERE, "media", "audio")
+    audio_out = os.path.join(DOCS, "assets", "audio")
+    if os.path.isdir(audio_src):
+        os.makedirs(audio_out, exist_ok=True)
+        for fn in os.listdir(audio_src):
+            if fn.endswith(".mp3"):
+                shutil.copy(os.path.join(audio_src, fn), os.path.join(audio_out, fn))
 
     nura_src = os.path.join(models_dir, "nura.glb")      # the guide who stands for scale
     if os.path.exists(nura_src):
@@ -3098,6 +3223,11 @@ def build_walk():
 <button class="tsw on" data-track="scans">Scanned in Tunisia <b>{sum(1 for i in items if i.get("real"))}</b></button>
 <button class="tsw" data-track="made">Made by volunteers <b>{sum(1 for i in items if not i.get("real"))}</b></button>
 </div>
+
+<button id="map-toggle" title="See the whole collection at a glance">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h5v5H3zm7 0h4v5h-4zm6 0h5v5h-5zM3 12h5v7H3zm7 0h4v7h-4zm6 0h5v7h-5z"/></svg>
+Map</button>
+<div id="filmstrip" hidden></div>
 
 <button id="scan-entry" title="See how a scan is made">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
@@ -3852,6 +3982,9 @@ and in the newsletter.</p>
 </div>
 </div></section>
 <script>
+// image paths in this data are site-root relative; resolve them beside the stylesheet,
+// whose href the build has already rewritten to the right depth for this page
+const ASSET=p=>p?new URL(String(p).replace(/^assets\\//,''),document.querySelector('link[href*="style.css"]').href).href:'';
 const OPPS={json.dumps(data)};
 const LBL={json.dumps(LBL, ensure_ascii=False)};
 const RX={json.dumps(REACTIONS_ENDPOINT)};
@@ -3958,7 +4091,7 @@ function render(){{
       '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
       '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
-      '<div class="fp" style="background-image:url('+o.ph+')"></div></div>';
+      '<div class="fp" style="background-image:url('+ASSET(o.ph)+')"></div></div>';
   }}).join('');
   const card=(o,extra)=>{{
     const [dl,cls]=dlOf(o);
@@ -4323,7 +4456,7 @@ with a goal of mapping streets and buildings.</p>
 engage in participatory mapping projects for disaster response, humanitarian action, and research, with a
 specific focus on Sustainable Development Goals (SDGs).</p>
 <p>What sets the Unique Mappers apart is their ability to mobilize volunteers from diverse
-backgrounds—including students, women, and youth—for impactful mapping projects.</p>
+backgrounds, including students, women and youth, for impactful mapping projects.</p>
 <p>They’ve expanded their scope to include efforts like mapping flood-affected regions, monitoring oil
 spills, and even mapping stalled blood vessels in the brain to support Alzheimer’s research through the
 <a href="https://scistarter.org/stall-catchers-by-eyesonalz" target="_blank" rel="noopener">Stall
@@ -4538,11 +4671,11 @@ def build_support():
 <section class="pad"><div class="wrap"><div class="prose">
 <p>As climate change, conflict, and neglect threaten historic sites like ancient ruins, our shared global
 heritage is at risk.</p>
-<p>XR—a term that includes augmented and virtual reality—offers powerful tools to help. XR offers a way to
-preserve disappearing heritage—by capturing sites in 3D, enriching visits with storytelling, and making
+<p>XR, a term that includes augmented and virtual reality, offers powerful tools to help. XR offers a way to
+preserve disappearing heritage, by capturing sites in 3D, enriching visits with storytelling, and making
 global history accessible from anywhere.</p>
 <p>Named for the ancient Carthaginian goddess of protection and the moon, if we can protect heritage in
-Tunisia—using immersive technology, community storytelling, and local leadership—we can build a model to
+Tunisia, using immersive technology, community storytelling, and local leadership, we can build a model to
 safeguard cultural sites around the world.</p>
 <p class="center" style="margin:34px 0">
 <a class="btn btn-gold" style="font-size:17px;padding:16px 44px" href="{DONATE_URL_SUPPORT}"
