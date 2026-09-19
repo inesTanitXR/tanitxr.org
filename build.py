@@ -435,6 +435,10 @@ section.pad-sm{padding:56px 0}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:36px 0}
 .shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}
 /* archive index tiles */
+.arch-3d{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+  background:linear-gradient(135deg,#fbf6ec,#efe3cf);border:1px solid rgba(74,53,43,.14);border-radius:14px;
+  padding:26px 30px;margin:0 0 30px}
+.arch-3d .btn{white-space:nowrap;font-size:17px;padding:15px 30px}
 .arch-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:0 0 34px}
 .ix{display:flex;gap:20px;align-items:center;padding:22px 26px;border-radius:12px;background:#fff;
   border:1px solid var(--mist);text-decoration:none;color:var(--ink);transition:.2s}
@@ -1134,7 +1138,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 @media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
-#walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
+#walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
 .wst{height:105vh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
@@ -1385,7 +1389,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 @media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
-#walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
+#walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
 .wst{height:105vh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
@@ -1787,7 +1791,7 @@ def dedash(html):
 
 
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
-         share_img="aug-20260813_124249.jpg"):
+         share_img="aug-20260813_124249.jpg", jsonld=None):
     # like the original site, the menu floats over the page hero photo wherever there is one
     transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
@@ -1805,6 +1809,17 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     _slug = "" if fname == "index.html" else fname[:-5] + "/"
     page_url = SITE_URL + _dir + _slug
     share_url = SITE_URL + img(share_img, 1200, as_jpeg=True)
+    # the same page in the other languages, so search engines show the right one
+    hreflang = "".join(f'<link rel="alternate" hreflang="{c}" href="{SITE_URL}{d}{_slug}">'
+                       for c, d in LANG_DIRS.items()) + f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{_slug}">'
+    # structured data: the organisation on every page, plus whatever the page adds
+    _org = {"@context": "https://schema.org", "@type": "NGO", "name": "Tanit XR", "url": SITE_URL,
+            "logo": SITE_URL + img("tanitxr-logo_red_vertical.png", 300, as_jpeg=False),
+            "description": "A volunteer community that 3D-scans Tunisia's endangered heritage with phones and publishes it free in 3D, AR and VR.",
+            "foundingDate": "2025", "areaServed": "Tunisia", "email": EMAIL,
+            "sameAs": [INSTAGRAM, LINKEDIN, "https://sketchfab.com/TanitXR"]}
+    _ld = [_org] + (jsonld or [])
+    ldjson = "".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in _ld)
 
     doc = f"""<!DOCTYPE html>
 <html {html_attrs}>
@@ -1814,6 +1829,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <title>{esc(title)} – TANIT XR</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{page_url}">
+{hreflang}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tanit XR">
 <meta property="og:locale" content="{LANG}">
@@ -1828,6 +1844,8 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <meta name="twitter:title" content="{esc(title)} – Tanit XR">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{share_url}">
+{ldjson}
+<meta name="theme-color" content="#fdf8f0">
 <link rel="icon" href="{img('tanitxr-logo_red_vertical.png', 120, as_jpeg=False)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2679,7 +2697,15 @@ weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Fre
 <div class="partners" style="margin-top:22px">{partners}</div>
 </div></section>
 """
-    page("index.html", "Home", body, transparent=True)
+    page("index.html", "Home", body, transparent=True,
+         jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tanit XR", "url": SITE_URL,
+                  "inLanguage": ["en", "fr", "ar"], "publisher": {"@type": "NGO", "name": "Tanit XR"}}]
+                + [{"@context": "https://schema.org", "@type": "Event", "name": e["title"], "startDate": e["date"],
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "location": {"@type": "Place", "name": e["where"]}, "description": e["desc"],
+                    "organizer": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL}}
+                   for e in EVENTS if e["date"] >= _dt.date.today().isoformat()])
 
 
 def build_community():
@@ -3069,6 +3095,23 @@ WALK_ROOMS = [
      "A loom, a carpet. Nothing grand, just what people used, which is exactly why we kept them",
      ["loom", "carpet"]),
 ]
+# the volunteer-made half of the collection, by kind. Each maker still has a gallery of their own.
+MADE_ROOMS = [
+    ("Lamps and lanterns", "Light the way it falls in a Tunisian home, modelled by volunteers who studied the real ones",
+     ["lamp", "lantern", "light"]),
+    ("Pots, plants and gardens", "Succulents, a cactus, clay pots and palms for the museum's courtyards",
+     ["succulent", "cactus", "pot", "palm", "bamboo", "plant"]),
+    ("Kitchen and table", "A tagine and a plate: the everyday Tunisia our volunteers wanted in the museum",
+     ["tagine", "plate", "bowl", "cup"]),
+    ("From the sea", "The murex shell whose dye made Carthage rich and its cloth purple",
+     ["murex", "shell"]),
+    ("Fountains and courtyards", "Water and stone for the museum's open air",
+     ["fountain", "bench", "courtyard"]),
+    ("Rooms of the museum", "Whole spaces built by volunteers: the main hall, a furnished room, the plinths and rugs inside",
+     ["hall", "room", "plinth", "rug", "display"]),
+    ("The building kit", "Arches, walls, pillars and ceilings: puzzle pieces any volunteer can take and assemble into a gallery of their own",
+     ["arch", "wall", "pillar", "ceiling", "cieling"]),
+]
 WALK_MADE = ("Made by hand, today",
              "Not scans. Our volunteers modelled these themselves for the virtual museum, learning Tunisia's history as they went")
 WALK_MAX_PER_ROOM = 5
@@ -3096,6 +3139,13 @@ NURA_OPENERS = {
     "Everyday things": "Nothing grand, just something people used. That is why we kept it.",
     "Other objects": "This one does not fit a category, which makes it my favourite kind.",
     "Made by hand, today": "This one is not a scan. A volunteer built it from nothing.",
+    "Lamps and lanterns": "A volunteer modelled this from photos of real Tunisian lamps. Look at how the light would fall.",
+    "Pots, plants and gardens": "Every Tunisian courtyard has these. A volunteer grew this one from nothing.",
+    "Kitchen and table": "Something from a Tunisian kitchen, modelled by someone who wanted it in the museum.",
+    "From the sea": "This shell made Carthage rich. Its dye was the purple of emperors.",
+    "Fountains and courtyards": "Water in the middle of the courtyard, like a real Tunisian house.",
+    "Rooms of the museum": "This is a whole room of the museum, built by a volunteer.",
+    "The building kit": "A building block. Volunteers snap these together into new galleries.",
 }
 
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
@@ -3276,21 +3326,26 @@ def build_walk():
                                  "thumb": os.path.basename(th) if os.path.exists(th) else None,
                                  "sketchfab": pc.get("sketchfab"),
                                  "text": pc.get("note", ""), "hi": pc.get("hi"), "order": _k})
-    # one room per artist, so each maker has their own space rather than a shared shelf
-    ROOM_SUB = {"Patrick Molen": "The museum itself, and its building kit: puzzle pieces any "
-                                 "volunteer can take and put together into a gallery of their own",
-                "Kristina Reyes": "A furnished room Kristina built for the virtual museum, and everything in it"}
+    # the made pieces by kind; anything that fits no kind goes under the general heading
+    def made_room(m):
+        t = (m["title"] + " " + m["file_slug"]).lower()
+        for label, sub, keys in MADE_ROOMS:
+            if any(k in t for k in keys):
+                return label
+        return WALK_MADE[0]
     made_rooms = []
     if made:
-        byname = {}
+        bykind = {}
         for mm in made:
-            byname.setdefault(mm.get("by") or "Tanit XR volunteers", []).append(mm)
-        # the scanned-and-modelled makers first; the museum's building kit closes the collection
-        for who, group in sorted(byname.items(), key=lambda kv: (kv[0] == "Patrick Molen", -len(kv[1]), kv[0])):
-            group.sort(key=lambda g: (g.get("order", 999), g["title"]))
-            made_rooms.append((who, ROOM_SUB.get(who) or
-                               f'{len(group)} piece{"s" if len(group) != 1 else ""} {who.split()[0]} '
-                               f'modelled for the virtual museum', group, who))
+            bykind.setdefault(made_room(mm), []).append(mm)
+        order = [l for l, _, _ in MADE_ROOMS] + [WALK_MADE[0]]
+        subs = {l: s for l, s, _ in MADE_ROOMS}
+        subs[WALK_MADE[0]] = WALK_MADE[1]
+        for label in order:
+            group = bykind.get(label)
+            if group:
+                group.sort(key=lambda g: (g.get("order", 999), g["title"]))
+                made_rooms.append((label, subs[label], group, None))
 
     out_dir = os.path.join(DOCS, "assets", "models")
     os.makedirs(out_dir, exist_ok=True)
@@ -3320,7 +3375,7 @@ def build_walk():
             gps = MODEL_GPS.get(m["file_slug"])
             items.append({"slug": m["file_slug"],
                           "title": WALK_TITLES.get(m["file_slug"]) or short_title(m["title"]),
-                          "artist": artist,
+                          "artist": (m.get("by") or None) if m.get("made") else None,
                           **({"gps": [gps["lat"], gps["lon"]]} if gps else {}),
                           **({"voice": voice} if voice else {}),
                           **({"voiceMore": voice_more} if voice_more else {}),
@@ -3332,7 +3387,7 @@ def build_walk():
                           "thumb": img(m.get("img") or m.get("thumb"), 260)
                                    if (m.get("img") or m.get("thumb")) else "",
                           "hi": (m.get("hi") or NURA_OPENERS.get(label)
-                                 or (NURA_OPENERS[WALK_MADE[0]] if artist else "Have a look at this one."))
+                                 or (NURA_OPENERS[WALK_MADE[0]] if m.get("made") else "Have a look at this one."))
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_line(m) if measured else
                                   (m.get("text") or
@@ -3562,6 +3617,11 @@ built separately by Patrick, Cam and the team, and every object here will hang i
 
     page("explore.html", "Explore in 3D", body, active="explore.html", transparent=True,
          trending=False,
+         jsonld=[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Explore in 3D, the Tanit XR collection",
+                  "url": SITE_URL + "explore/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any",
+                  "browserRequirements": "WebGL", "isAccessibleForFree": True, "inLanguage": ["en", "fr", "ar"],
+                  "description": f"{len(items)} objects of Tunisian heritage scanned and modelled by volunteers, in 3D, AR and VR.",
+                  "publisher": {"@type": "NGO", "name": "Tanit XR"}}],
          share_img="explore-og.jpg",
          desc=f"Tunisia's heritage in your hands: {len(items)} objects scanned and modelled by "
               "volunteers. Turn them, meet Nura, save and share them, in your browser or a headset.")
@@ -3797,6 +3857,12 @@ def build_archive():
     body = f"""
 {page_hero("Explore the Tanit XR Archive", "Archive", bg="aug-20260813_124249.jpg")}
 <section class="pad"><div class="wrap">
+<div class="arch-3d">
+<div><div class="eyebrow">New</div><h2 class="sec-title" style="margin:0 0 8px">Explore it in 3D</h2>
+<p class="sec-sub" style="margin:0">Every object here, one at a time, in your browser. Turn it with a finger, hear its story
+from Nura, save and share it, or put on a headset.</p></div>
+<a class="btn btn-gold" href="explore.html">Explore in 3D</a>
+</div>
 <p class="sec-sub" style="margin:0 0 30px">A free, growing library of 3D scans of Tunisia’s endangered
 heritage, mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored
 interactively, and viewed in augmented reality on your phone.</p>
@@ -3948,7 +4014,15 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 </div>
 </div></section>"""
         page(m["href"], m["title"], body, active="archive.html",
-             desc=m["text"][:150])
+             desc=m["text"][:150],
+             jsonld=[{"@context": "https://schema.org", "@type": "3DModel", "name": m["title"],
+                      "url": SITE_URL + m["href"][:-5] + "/", "isAccessibleForFree": True,
+                      "contentLocation": {"@type": "Place", "name": nice_place(m["place"]) + ", Tunisia"},
+                      "description": re.sub(r"<[^>]+>", " ", m.get("text") or "")[:300].strip() or m["title"],
+                      "creator": {"@type": "Organization", "name": "Tanit XR volunteers"},
+                      "encodingFormat": "model/gltf-binary",
+                      **({"image": SITE_URL + img(m.get("img") or m.get("thumb"), 900)} if (m.get("img") or m.get("thumb")) else {}),
+                      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}])
 
 
 def build_news():
@@ -5162,11 +5236,18 @@ def build_redirects():
     print(f"  {n} legacy-URL redirects written")
 
     # sitemap of canonical pages (all three languages)
-    urls = [f"{CANON}/{p}" for p in sorted(set(SITEMAP))]
+    urls = sorted(set(SITEMAP))
+    today = _dt.date.today().isoformat()
+    def _alts(p):
+        base = p
+        for d in ("fr/", "ar/"):
+            if p.startswith(d): base = p[len(d):]
+        return "".join(f'<xhtml:link rel="alternate" hreflang="{c}" href="{CANON}/{d}{base}"/>'
+                       for c, d in LANG_DIRS.items())
     with open(os.path.join(DOCS, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
-                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                + "".join(f"<url><loc>{esc(u)}</loc></url>\n" for u in urls)
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+                + "".join(f"<url><loc>{esc(CANON + '/' + p)}</loc><lastmod>{today}</lastmod>{_alts(p)}</url>\n" for p in urls)
                 + "</urlset>\n")
     with open(os.path.join(DOCS, "robots.txt"), "w") as f:
         f.write(f"User-agent: *\nAllow: /\nSitemap: {CANON}/sitemap.xml\n")

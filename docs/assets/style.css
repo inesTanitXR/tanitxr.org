@@ -237,6 +237,10 @@ section.pad-sm{padding:56px 0}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:36px 0}
 .shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}
 /* archive index tiles */
+.arch-3d{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+  background:linear-gradient(135deg,#fbf6ec,#efe3cf);border:1px solid rgba(74,53,43,.14);border-radius:14px;
+  padding:26px 30px;margin:0 0 30px}
+.arch-3d .btn{white-space:nowrap;font-size:17px;padding:15px 30px}
 .arch-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:0 0 34px}
 .ix{display:flex;gap:20px;align-items:center;padding:22px 26px;border-radius:12px;background:#fff;
   border:1px solid var(--mist);text-decoration:none;color:var(--ink);transition:.2s}
@@ -936,7 +940,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 @media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
-#walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
+#walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
 .wst{height:105vh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
@@ -1187,7 +1191,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 @media(max-width:760px){#nura-text{font-size:15px}}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
-#walk-scroll a,#walk-scroll .wcard{pointer-events:auto}
+#walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
 .wst{height:105vh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
