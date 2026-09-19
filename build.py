@@ -2144,6 +2144,7 @@ CONTRIBUTORS = [
     ("Kristina Reyes", "3D Generalist"),
     ("Cam Kania", "Creative Director / Experiential Designer"),
     ("Brianne Lehan", "Strategy & Creative Support"),
+    ("Alyssa George", "Illustrator and Designer"),
 ]
 
 
@@ -3925,6 +3926,9 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
     "ana-beatriz-vega-gonzalez": [  # "Bety" on Slack
         ("built", "Scanning & optimization guide for volunteers (with Rachel West and Nick Kaufmann)", "scanning-guide.html", None, "sv-IMG_4213.jpg"),
         ("built", "Social media videos for Tanit XR", "community.html", None, "aug-PXL_0814_112926.jpg"),
+    ],
+    "alyssa-george": [
+        ("made", "An illustration of the Tanit XR mission, shared by the community in July 2026", "https://www.instagram.com/p/DaxeBd9kU8O/", None, None),
     ],
     "cam-kania": [
         ("built", "Virtual museum, narrative and thematic brief, experience design", "museum.html", None, "museum-progress-jan-2026.jpg"),
