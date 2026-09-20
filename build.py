@@ -355,6 +355,15 @@ section.pad-sm{padding:56px 0}
 .art-grid figure{margin:0;background:var(--cloud);border:1px solid var(--mist);border-radius:14px;padding:18px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;transition:.3s}
 .art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 .art-grid img{width:100%;height:100%;object-fit:contain}
+.past-events{max-width:860px;margin:0 auto;display:grid;gap:2px}
+.past-ev{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--mist)}
+.past-ev:last-child{border-bottom:1px solid var(--mist)}
+.past-when{color:var(--gray);font-size:14px;padding-top:2px}
+.past-ev b{font-family:var(--serif);font-size:19px;font-weight:400;display:block}
+.past-where{color:var(--gray);font-size:13.5px;margin-top:3px}
+.past-ev p{color:var(--gray);font-size:14.5px;margin:8px 0 0;line-height:1.7}
+.past-links a{color:var(--gold-dark)}
+@media(max-width:680px){.past-ev{grid-template-columns:1fr;gap:6px}}
 .art-spot{margin:0 auto 22px;width:60vw}.art-spot img{width:100%;height:auto;display:block}
 .art-spot figcaption{font-size:12px;color:var(--gray);margin-top:6px;text-align:center}.art-spot figcaption a{color:var(--gray)}
 .card .ph img.contain{object-fit:contain;padding:12px;background:var(--cloud)}
@@ -2855,6 +2864,7 @@ appearing on a phone, and the murex shell that gave Carthage its purple.</p></di
 </div></section>
 
 {events_block()}
+{past_events_block()}
 <section class="pad"><div class="wrap">
 <div class="center"><div class="eyebrow">Join</div>
 <h2 class="sec-title">How to get in</h2>
@@ -3124,7 +3134,30 @@ EVENTS = [
              "experience from one of our real 3D scans, or create a public history or "
              "communications piece about Tunisian heritage. No coding needed for the second.",
      "links": [("Register on MLH", "https://events.mlh.com/events/14677-citycamp-gainesville-hack-day"),
-               ("Devpost", "https://citycamp-hack-day.devpost.com/")]},
+               ("Devpost", "https://citycamp-hack-day.devpost.com/")],
+     "recap": "Our heritage challenge ran at the official Major League Hacking hack day hosted by "
+              "Florida Community Innovation at the University of Florida, with two tracks: build an "
+              "interactive experience from one of our real 3D scans, or make a public history piece "
+              "with no code needed.",
+     "past_links": [("See the projects on Devpost", "https://citycamp-hack-day.devpost.com/")]},
+    # past events stay on the site, under "Where we have been" on the Community page.
+    # "date" is only used for sorting and for the upcoming/past split, never shown; the
+    # reader sees "when", so an event we only know the month of says just the month.
+    {"date": "2026-04-10", "when": "April 10 to 12, 2026",
+     "city": "Atlanta", "region": "GA", "country": "US", "img": "sv-IMG_1315.jpg",
+     "title": "ImmerseGT at Georgia Tech, sponsored heritage track",
+     "where": "Georgia Tech, Atlanta",
+     "desc": "We sponsored a heritage track and a $300 prize at Georgia Tech's XR hackathon, and "
+             "Dr. Caroline Nickerson led a workshop on citizen science and XR.",
+     "links": [("What we did", "immersegt-2026.html")]},
+    {"date": "2026-04-01", "when": "April 2026",
+     "city": "El Jem", "region": "Mahdia", "country": "TN", "img": "sv-IMG_1232.jpg",
+     "title": "El Jem Conference, our paper presented",
+     "where": "El Jem, Tunisia",
+     "desc": "Our paper on digital documentation, XR and citizen science for community-led heritage "
+             "preservation, presented at the El Jem conference and published here in English, French "
+             "and Tunisian Arabic.",
+     "links": [("Read the paper", "el-jem-conference.html")]},
     {"date": "2026-10-22", "when": "Thursday, October 22",
      "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T21:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
@@ -3135,6 +3168,31 @@ EVENTS = [
              "Young Professionals. Save the date. Details will follow here and in the newsletter.",
      "links": []},
 ]
+
+
+def past_events_block(heading="Where we have been", cloud=True):
+    """Past events stay on the site. Compact rows, newest first, with whatever we published about them."""
+    today = _dt.date.today().isoformat()
+    gone = sorted([e for e in EVENTS if e["date"] < today], key=lambda e: e["date"], reverse=True)
+    if not gone:
+        return ""
+    rows = ""
+    for e in gone:
+        links = " &nbsp;·&nbsp; ".join(
+            f'<a href="{u}"{" target=_blank rel=noopener" if u.startswith("http") else ""}>{esc(t)}</a>'
+            for t, u in e.get("past_links", e.get("links", [])))
+        rows += (f'<div class="past-ev"><div class="past-when">{esc(e["when"])}</div>'
+                 f'<div><b>{esc(e["title"])}</b>'
+                 f'<div class="past-where">{esc(e["where"])}</div>'
+                 f'<p>{esc(e.get("recap") or e["desc"])}</p>'
+                 + (f'<p class="past-links">{links}</p>' if links else "")
+                 + '</div></div>')
+    return f"""
+<section class="pad" id="past-events"{' style="background:var(--cloud)"' if cloud else ''}><div class="wrap">
+<div class="center"><div class="eyebrow">{esc(heading)}</div>
+<h2 class="sec-title">What we have already done</h2></div>
+<div class="past-events">{rows}</div>
+</div></section>"""
 
 
 def event_jsonld():
