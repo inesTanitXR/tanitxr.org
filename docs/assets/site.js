@@ -8,7 +8,7 @@ window.tx = function(name, props){
     const KEYS = ['object', 'net', 'badge', 'ask', 'artist', 'room', 'step', 'person', 'from', 'device', 'on'];
     let dim = '';
     if (props) for (const k of KEYS) { if (props[k] !== undefined && props[k] !== null && props[k] !== '') { dim = String(props[k]); break; } }
-    dim = dim.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    dim = dim.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     const path = name + (dim ? '/' + dim : '');
     if (window.counter && typeof counter.count === 'function') counter.count({path: path});
     if (window.goatcounter && goatcounter.count) goatcounter.count({path: path, event: true});
