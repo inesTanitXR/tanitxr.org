@@ -3856,12 +3856,27 @@ built separately by Patrick, Cam and the team, and every object here will hang i
     for _pre in ("", "fr/", "ar/"):
         _d = os.path.join(DOCS, _pre + "walk")
         os.makedirs(_d, exist_ok=True)
+        _dest = f"/{_pre}explore/"
+        _card = SITE_URL + social_img("explore-og.jpg")
+        _desc = ("Tunisia's heritage in your hands: objects scanned and modelled by volunteers. "
+                 "Turn them, meet Nura, save and share them, in your browser or a headset.")
         with open(os.path.join(_d, "index.html"), "w", encoding="utf-8") as _f:
-            _f.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Explore in 3D</title>'
-                     '<meta http-equiv="refresh" content="0;url=../explore/">'
-                     '<link rel="canonical" href="https://tanitxr.org/explore/">'
-                     '<script>location.replace("../explore/" + location.search + location.hash)</script>'
-                     '</head><body><p>Moved: <a href="../explore/">tanitxr.org/explore</a></p></body></html>')
+            _f.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+                     '<title>Explore in 3D \u2013 TANIT XR</title>'
+                     f'<meta name="description" content="{_desc}">'
+                     f'<link rel="canonical" href="{SITE_URL}{_pre}explore/">'
+                     '<meta property="og:type" content="website">'
+                     '<meta property="og:site_name" content="Tanit XR">'
+                     '<meta property="og:title" content="Explore in 3D \u2013 Tanit XR">'
+                     f'<meta property="og:description" content="{_desc}">'
+                     f'<meta property="og:url" content="{SITE_URL}{_pre}explore/">'
+                     f'<meta property="og:image" content="{_card}">'
+                     '<meta property="og:image:width" content="1200">'
+                     '<meta property="og:image:height" content="630">'
+                     '<meta name="twitter:card" content="summary_large_image">'
+                     f'<meta http-equiv="refresh" content="0;url={_dest}">'
+                     f'<script>location.replace("{_dest}" + location.search + location.hash)</script>'
+                     f'</head><body><p>Moved: <a href="{_dest}">tanitxr.org/explore</a></p></body></html>')
 
 
 # ---------------------------------------------------------------- galleries
