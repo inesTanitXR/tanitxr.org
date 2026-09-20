@@ -15,8 +15,26 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ $30,000 unrestricted award plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas still being tested. Free to apply.
 👉 https://voqalpartners.org/fellowship/
 
+### 💻 Women Who Code Summit 2026
+
+📅 October 6-8, 2026, IPIC Theater, Seaport District, New York
+📍 In person in New York, or online
+👥 Open to all. Virtual Pass free; day pass $499, general $999, executive $1,999
+✏️ Women Who Code closed as an organization in 2024; the summit continues. The free Virtual Pass covers the leadership, AI upskilling and reskilling workshops. Speaker applications are still open and reviewed on a rolling basis, with a virtual-only speaking option, and speakers must hold October 6-8.
+👉 https://events.womenwhocode.com/2026/home
+
+### 🎮 Games for Change Student Challenge 2026-2027
+
+📅 Sign-ups open; themes and submission deadlines for this cycle not published yet
+📍 Remote, worldwide
+👥 Young people aged 10-25, and educators registering a classroom. Free
+✏️ International game design competition: build a digital game inspired by the UN Sustainable Development Goals. Prize categories for ages 10-18 and university age. Educator training and the 2026-2027 themes are announced this fall.
+👉 https://learn.gamesforchange.org/student-challenge
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
 |---|---|
 | Voqal | linkedin.com/company/voqal |
+| Women Who Code | linkedin.com/company/women-who-code |
+| Games for Change | linkedin.com/company/gamesforchange |

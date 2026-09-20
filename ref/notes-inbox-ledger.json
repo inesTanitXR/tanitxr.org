@@ -99,7 +99,33 @@
    "date": "2026-09-17",
    "source": "note",
    "status": "skipped for board: UF-alumni-only award, fails the curation filter — added to ref/ines-shortlist.json instead (40 Gators Under 40 Class of 2027, deadline Oct 5, 2026)"
+  },
+  {
+   "key": "https www instagram com p ddsul4ojidr can you se einstgram posts",
+   "date": "2026-09-20",
+   "source": "note",
+   "status": "unreadable: Instagram requires a login, WebFetch returns an empty page. Line kept in the ADD NEW area; asked Ines to screenshot the post into the iCloud Opportunities Inbox folder instead."
+  },
+  {
+   "key": "https womenwhocode com several speaking oprutnies and stuff like that",
+   "date": "2026-09-20",
+   "source": "note",
+   "status": "added (Women Who Code Summit 2026, New York October 6-8, free Virtual Pass, speaker application open rolling); also added to ref/ines-shortlist.json"
+  },
+  {
+   "key": "ready to create a better world through play register now to get started",
+   "date": "2026-09-20",
+   "source": "note",
+   "raw": "https://lnkd.in/ezzepYry -> https://bit.ly/SCApplication26-27 -> https://ji9lngwnvid.typeform.com/to/q2B6cUHM",
+   "status": "added (Games for Change Student Challenge 2026-2027, sign-ups open, no deadline published yet)"
+  },
+  {
+   "key": "the new opportunities page is here tanitxr org opportunities",
+   "date": "2026-09-20",
+   "source": "slack",
+   "shared_by": "Ines Said",
+   "status": "skipped: Ines's own announcement of the board, not an opportunity"
   }
  ],
- "slack_last_ts": "1789484035.576709"
+ "slack_last_ts": "1789764970.037819"
 }
