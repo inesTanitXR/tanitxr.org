@@ -355,6 +355,7 @@ section.pad-sm{padding:56px 0}
 .art-grid figure{margin:0;background:var(--cloud);border:1px solid var(--mist);border-radius:14px;padding:18px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;transition:.3s}
 .art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 .art-grid img{width:100%;height:100%;object-fit:contain}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .past-events{max-width:860px;margin:0 auto;display:grid;gap:2px}
 .past-ev{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--mist)}
 .past-ev:last-child{border-bottom:1px solid var(--mist)}
@@ -1903,6 +1904,25 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     # LinkedIn and the rest need absolute urls, and a real preview image
     if LANG == "en":
         PAGE_META[fname] = (title, desc, share_img)
+    # BreadcrumbList mirrors the crumb trail people can see, so a search result or an
+    # assistant can say where a page sits instead of quoting a bare URL
+    if fname not in ("index.html", "404.html"):
+        _base = SITE_URL + LANG_DIRS[LANG]
+        _crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": _base}]
+        _dirpart = posixpath.dirname(fname)
+        if _dirpart:
+            _sec = PAGE_META.get(_dirpart + ".html", (_dirpart.replace("-", " ").title(),))[0]
+            _crumbs.append({"@type": "ListItem", "position": 2, "name": _sec,
+                            "item": f"{_base}{_dirpart}/"})
+        _crumbs.append({"@type": "ListItem", "position": len(_crumbs) + 1, "name": title,
+                        "item": f"{_base}{fname[:-5]}/"})
+        _bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": _crumbs}
+        if jsonld is None:
+            jsonld = [_bc]
+        elif isinstance(jsonld, list):
+            jsonld = list(jsonld) + [_bc]
+        else:
+            jsonld = [jsonld, _bc]
     _dir = "" if LANG == "en" else LANG_DIRS[LANG]
     _slug = "" if fname == "index.html" else fname[:-5] + "/"
     page_url = SITE_URL + _dir + _slug
@@ -1974,12 +1994,15 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         return (d + "/" if d else "") + ("" if stem == "index" else stem + "/")
 
     def _link_repl(m):
-        attr, ups, sub, stem, anchor = m.group(1), m.group(2), m.group(3), m.group(4), m.group(5) or ""
+        attr, ups, sub, stem = m.group(1), m.group(2), m.group(3), m.group(4)
+        query, anchor = m.group(5) or "", m.group(6) or ""
         old = posixpath.normpath(posixpath.join(LANG_DIRS[LANG], ups + sub + stem + ".html"))
-        href = P + _pretty_root(old) + anchor
+        href = P + _pretty_root(old) + query + anchor
         return f'{attr}="{href or "./"}"'
 
-    doc = re.sub(r'(href|src)="((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(#[^"]*)?"', _link_repl, doc)
+    # the query string has to be part of the pattern: without it a link like explore.html?tour=1
+    # was left alone and pointed at a page inside the current directory, which does not exist
+    doc = re.sub(r'(href|src)="((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(\?[^"#]*)?(#[^"]*)?"', _link_repl, doc)
     doc = re.sub(r'(href|src|poster)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
     doc = re.sub(r'url\((?:\.\./)*(assets/[^)]*)\)', lambda m: f"url({P}{m.group(1)})", doc)
     doc = re.sub(r"fetch\('(?:\.\./)*profiles-live\.json'\)", f"fetch('{P}profiles-live.json')", doc)
@@ -2833,6 +2856,7 @@ weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Fre
 </div></section>
 """
     page("index.html", "Home", body, transparent=True,
+         desc="Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Dougga and the medinas of Tunis as free 3D models you can turn in your browser, in AR and in VR.",
          jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tanit XR", "url": SITE_URL,
                   "inLanguage": ["en", "fr", "ar"], "publisher": {"@type": "NGO", "name": "Tanit XR"}}]
                 + event_jsonld())
@@ -3677,6 +3701,7 @@ def build_walk():
                            **({"music": music} if music else {}),
                            "items": items}, ensure_ascii=False)
     body = f"""
+<h1 class="sr-only">Explore Tunisia's heritage in 3D</h1>
 <div id="walk-stage"><canvas id="walk-canvas"></canvas>
 <div id="rotate-cue" aria-hidden="true">
 <svg viewBox="0 0 240 150">
@@ -4142,7 +4167,8 @@ technologist to make an impact. Our first scans were made with a phone. Whether 
 helping remotely, every volunteer contributes to preserving history.</p>
 <a class="btn btn-gold" href="volunteer.html">Volunteer</a>
 </div></section>"""
-    page("archive.html", "Archive", body)
+    page("archive.html", "Archive", body,
+         desc="Every 3D scan Tanit XR volunteers have made of Tunisian heritage: mosaics, statues, stelae, columns and doors from Carthage, Dougga, El Jem and the medinas. Free to view, study and explore in 3D.")
 
 
 def volunteer_made_cards(limit=None):
@@ -4293,7 +4319,8 @@ def build_news():
 <section class="pad"><div class="wrap">
 <div class="cards">{cards}</div>
 </div></section>"""
-    page("news.html", "News", body)
+    page("news.html", "News", body,
+         desc="Field notes and history from the Tanit XR community: what we scanned, what we learned about Carthage and Tunisian heritage, and where the project is going next.")
 
     NEWS_AUTHOR = {
         "storm-harry-neapolis-and-a-digital-moment-of-preservation": "Margarita Johnson",
@@ -4319,7 +4346,16 @@ def build_news():
 {content}
 <p style="margin-top:40px"><a class="btn btn-line" href="news.html">← All News</a></p>
 </div></div></section>"""
-        page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150])
+        _art = {"@context": "https://schema.org", "@type": "Article", "headline": n["title"][:110],
+                "description": n["text"][:300], "datePublished": n["date"],
+                "url": SITE_URL + n["href"][:-5] + "/", "inLanguage": LANG,
+                "publisher": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL},
+                "mainEntityOfPage": SITE_URL + n["href"][:-5] + "/"}
+        if author:
+            _art["author"] = {"@type": "Person", "name": author}
+        if n.get("img"):
+            _art["image"] = [SITE_URL + social_img(n["img"])]
+        page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art])
 
 
 def build_people():
@@ -4361,7 +4397,8 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
   }});
 }}).catch(()=>{{}});
 </script>"""
-    page("team.html", "Our People", body)
+    page("team.html", "Our People", body,
+         desc="The volunteers behind Tanit XR, in Tunisia, the United States, Europe and Nigeria: who they are and every scan, 3D model and article each of them has contributed.")
 
     def link_label(u):
         if u.startswith("mailto:"):
@@ -4421,7 +4458,19 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 <section class="pad-sm"><div class="wrap" style="max-width:960px">
 <p><a class="btn btn-gold" href="team.html">← Back to Our People</a></p>
 </div></section>"""
-        page(p["href"], p["name"], body, active="team.html", desc=p["bio"][:150])
+        _person = {"@context": "https://schema.org", "@type": "Person", "name": p["name"],
+                   "url": SITE_URL + p["href"][:-5] + "/",
+                   "description": p["bio"][:300] if p["bio"] else "Volunteer with Tanit XR.",
+                   "memberOf": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL}}
+        if p.get("role"):
+            _person["jobTitle"] = p["role"]
+        if p.get("photo"):
+            _person["image"] = SITE_URL + img(p["photo"], 700)
+        if p.get("links"):
+            _person["sameAs"] = [u for u in p["links"] if isinstance(u, str) and u.startswith("http")]
+        page(p["href"], p["name"], body, active="team.html",
+             desc=(p["bio"][:150] if p["bio"] else f'{p["name"]} volunteers with Tanit XR, preserving Tunisian heritage in 3D.'),
+             jsonld=[_person])
 
 
 def build_opportunities():
@@ -4819,7 +4868,12 @@ Thursday calls and weekend scanning trips. Whatever time you have, there is a pi
 do.</p>
 <a class="btn btn-gold" href="{VOLUNTEER_FORM_URL}" target="_blank" rel="noopener">Volunteer</a>
 </div></section>"""
-    page("volunteer.html", "Volunteer", body)
+    page("volunteer.html", "Volunteer", body,
+         desc="Volunteer with Tanit XR from anywhere: 3D scanning, model cleanup, XR development, history research, writing, translation and design. No archaeology or 3D background needed, all remote friendly.",
+         jsonld=[{"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": _q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", _a)}}
+                                 for _q, _a in faqs]}])
 
 
 def build_create_profile():
@@ -4867,7 +4921,8 @@ page.</p>
 <button class="btn btn-gold" type="submit">Submit Profile</button>
 </form>
 </div></section>"""
-    page("create-profile.html", "Create Your Profile", body, active="volunteer.html")
+    page("create-profile.html", "Create Your Profile", body, active="volunteer.html",
+         desc="Already volunteering with Tanit XR? Send your profile and, once the team approves it, your page appears under Our People with every scan, model and article credited to you.")
 
 
 def build_scanning_guide():
@@ -4965,7 +5020,8 @@ For large files, share a Google Drive, Dropbox, or WeTransfer link.</p>
 <li>Natural daylight is good, but harsh sun causes glare, avoid scanning at noon</li>
 </ul>
 </div></div></section>"""
-    page("scanning-guide.html", "Tanit XR Scanning Guide", body, active="volunteer.html")
+    page("scanning-guide.html", "Tanit XR Scanning Guide", body, active="volunteer.html",
+         desc="How Tanit XR volunteers capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.")
 
 
 def build_splats():
@@ -5011,7 +5067,8 @@ motivation. More details are shared with accepted participants.</p>
 <button class="btn btn-gold" type="submit">Apply</button>
 </form>
 </div></div></section>"""
-    page("splats-with-phones.html", "Splats With Phones", body, active="volunteer.html")
+    page("splats-with-phones.html", "Splats With Phones", body, active="volunteer.html",
+         desc="A free course on capturing places with a phone using Gaussian splatting and photogrammetry, taught through Tanit XR for volunteers documenting heritage.")
 
 
 def build_el_jem():
@@ -5045,7 +5102,8 @@ au patrimoine tunisien.</p>
 <h2>Download the full paper</h2>
 <p>{btns}</p>
 </div></div></section>"""
-    page("el-jem-conference.html", "El Jem Conference", body, active="about.html")
+    page("el-jem-conference.html", "El Jem Conference", body, active="about.html",
+         desc="Our El Jem conference paper, in English, French and Tunisian Arabic: how digital documentation, XR and citizen science support community-led heritage preservation in Tunisia and beyond.")
 
 
 def build_unique_mappers():
@@ -5095,7 +5153,8 @@ rel="noopener">Discovery Museum</a> that we hope to speak with.</li>
 </ul>
 <p><b>We are excited and the best is yet to come!</b></p>
 </div></div></section>"""
-    page("unique-mappers.html", "TanitXR & the Unique Mappers", body, active="about.html")
+    page("unique-mappers.html", "TanitXR & the Unique Mappers", body, active="about.html",
+         desc="The Unique Mappers Network, over 500 citizen scientists in Nigeria, is replicating the Tanit XR model: documenting local heritage in 3D and publishing it free.")
 
 
 def build_immersegt():
@@ -5166,7 +5225,8 @@ involved, sign up through our <a href="volunteer.html">volunteer page</a>.</p>
 <p>We are always excited to work with people who care about heritage, storytelling, participation, and the
 future of immersive technology.</p>
 </div></div></section>"""
-    page("immersegt-2026.html", "ImmerseGT 2026", body, active="immersegt-2026.html")
+    page("immersegt-2026.html", "ImmerseGT 2026", body, active="immersegt-2026.html",
+         desc="Tanit XR sponsored a heritage track and a prize at ImmerseGT, the XR hackathon at Georgia Tech, with a workshop on citizen science and XR by Dr. Caroline Nickerson.")
 
 
 def build_about():
@@ -5222,7 +5282,8 @@ technologist to make an impact. Our first scans were made with a phone. Whether 
 helping remotely, every volunteer contributes to preserving history.</p>
 <a class="btn btn-gold" href="volunteer.html">Volunteer</a>
 </div></section>"""
-    page("about.html", "About", body)
+    page("about.html", "About", body,
+         desc="Why Tanit XR exists, who builds it, and how a volunteer network in Tunisia, the United States, Europe and Nigeria documents endangered heritage in 3D and gives it away free.")
 
 
 def build_contact():
@@ -5264,7 +5325,8 @@ technologist to make an impact. Our first scans were made with a phone. Whether 
 helping remotely, every volunteer contributes to preserving history.</p>
 <a class="btn btn-gold" href="volunteer.html">Apply Now</a>
 </div></section>"""
-    page("contact.html", "Contact", body)
+    page("contact.html", "Contact", body,
+         desc="Reach Tanit XR: write to info@tanitxr.org about volunteering, partnerships, press, speaking, or using our free 3D models of Tunisian heritage in teaching and research.")
 
 
 def build_partners():
@@ -5372,7 +5434,8 @@ target="_blank" rel="noopener">DONATE HERE</a></p>
 <p class="center" style="margin-top:34px;color:var(--gray);font-size:14px">Donations are tax-deductible
 through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3) nonprofit.</p>
 </div></section>"""
-    page("support.html", "Support", body)
+    page("support.html", "Support", body,
+         desc="Support Tanit XR: donations are tax deductible through our fiscal sponsor, Florida Community Innovation, and pay for scanning trips, training and the free 3D archive. Nobody here is paid.")
 
 
 def build_misc():
@@ -5386,7 +5449,8 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
 <a class="btn btn-gold" href="archive.html">Explore the Archive</a> &nbsp;
 <a class="btn btn-line" href="index.html">Back Home</a>
 </div></section>"""
-    page("coming-soon.html", "Coming Soon", body, trending=False)
+    page("coming-soon.html", "Coming Soon", body, trending=False,
+         desc="This part of Tanit XR is still being built. In the meantime, explore the free 3D archive of Tunisian heritage or join the volunteer network.")
 
     # thank-you page the FormSubmit forms return to (?from=contact|opportunity|profile|splats|services)
     body = f"""
@@ -5442,7 +5506,8 @@ Sketchfab, and donations are processed by Tuesday (on behalf of our fiscal spons
 Innovation). Each of these services has its own privacy policy.</p>
 <p>Questions? Contact <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 </div></div></section>"""
-    page("privacy.html", "Privacy Policy", body, trending=False)
+    page("privacy.html", "Privacy Policy", body, trending=False,
+         desc="What tanitxr.org collects, which is almost nothing: no cookies, no advertising, no visitor identification, and the third parties that host the site, the forms and the 3D models.")
 
     # 404 with redirects from old WordPress URLs (root/English only)
     if LANG != "en":
@@ -5478,7 +5543,8 @@ const base=location.pathname.toLowerCase().includes('/tanitxr.org/')?'/tanitxr.o
 const p=location.pathname.replace(/\\/$/,'').toLowerCase();
 for(const k in R){{ if(p===k||p.endsWith(k)){{location.replace(base+R[k]);break}} }}
 </script>"""
-    page("404.html", "Page Not Found", body, trending=False)
+    page("404.html", "Page Not Found", body, trending=False,
+         desc="That page is not here. Browse the 3D archive of Tunisian heritage, the opportunities board, or explore the collection in 3D.")
 
 
 def build_redirects():

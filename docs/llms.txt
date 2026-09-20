@@ -20,9 +20,9 @@ to https://tanitxr.org/. Last updated 2026-09-21.
 
 ## Pages
 
-- [Home](https://tanitxr.org/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [About](https://tanitxr.org/about/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Archive](https://tanitxr.org/archive/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [Home](https://tanitxr.org/): Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Dougga and the medinas of Tunis as free 3D models you can turn in your browser, in AR and in VR.
+- [About](https://tanitxr.org/about/): Why Tanit XR exists, who builds it, and how a volunteer network in Tunisia, the United States, Europe and Nigeria documents endangered heritage in 3D and gives it away free.
+- [Archive](https://tanitxr.org/archive/): Every 3D scan Tanit XR volunteers have made of Tunisian heritage: mosaics, statues, stelae, columns and doors from Carthage, Dougga, El Jem and the medinas. Free to view, study and explore in 3D.
 - [Architectural Fragment with Relief Decoration](https://tanitxr.org/archive/architectural-fragment-with-relief-decoration/): This carved block fragment once formed part of the ornate architectural decoration of the Roman Water Temple at Zaghouan, constructed in the 2nd centu
 - [Architectural Fragments  - Baths of Antoninus](https://tanitxr.org/archive/architectural-fragments-baths-of-antoninus/): These monumental marble fragments come from the Antonine Baths of Carthage, one of the grandest Roman bath complexes in North Africa. The pieces prese
 - [Architectural Fragments with Inscriptions](https://tanitxr.org/archive/architectural-fragments-with-inscriptions/): These monumental marble fragments come from the Antonine Baths of Carthage, one of the grandest Roman bath complexes in North Africa. The pieces prese
@@ -70,16 +70,16 @@ to https://tanitxr.org/. Last updated 2026-09-21.
 - [Underground Passageways](https://tanitxr.org/archive/underground-passageways/): This is a test scan of the underground passageways of the Antonine Baths in Carthage, one of the grandest Roman bath complexes of antiquity. The vault
 - [Wooden Door with Tilework – Zawiya of Sidi Sahbi](https://tanitxr.org/archive/wooden-door-with-tilework-zawiya-of-sidi-sahbi/): This finely preserved doorway combines a heavy wooden door framed by intricate glazed tilework, characteristic of Tunisian Islamic architectural decor
 - [Wooden Door – Zawiya of Sidi Sahib](https://tanitxr.org/archive/wooden-door-zawiya-of-sidi-sahib/): This scan captures a historic wooden door framed by colorful tilework at the Mausoleum of Sidi Sahbi (also known as the Mosque of the Barber) in Kairo
-- [Coming Soon](https://tanitxr.org/coming-soon/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [Coming Soon](https://tanitxr.org/coming-soon/): This part of Tanit XR is still being built. In the meantime, explore the free 3D archive of Tunisian heritage or join the volunteer network.
 - [Community](https://tanitxr.org/community/): Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria, scanning, learning history, mentoring and building a free 3D archive.
-- [Contact](https://tanitxr.org/contact/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Create Your Profile](https://tanitxr.org/create-profile/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [El Jem Conference](https://tanitxr.org/el-jem-conference/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [Contact](https://tanitxr.org/contact/): Reach Tanit XR: write to info@tanitxr.org about volunteering, partnerships, press, speaking, or using our free 3D models of Tunisian heritage in teaching and research.
+- [Create Your Profile](https://tanitxr.org/create-profile/): Already volunteering with Tanit XR? Send your profile and, once the team approves it, your page appears under Our People with every scan, model and article credited to you.
+- [El Jem Conference](https://tanitxr.org/el-jem-conference/): Our El Jem conference paper, in English, French and Tunisian Arabic: how digital documentation, XR and citizen science support community-led heritage preservation in Tunisia and beyond.
 - [Explore in 3D](https://tanitxr.org/explore/): Tunisia's heritage in your hands: 75 objects scanned and modelled by volunteers. Turn them, meet Nura, save and share them, in your browser or a headset.
 - [Galleries](https://tanitxr.org/galleries/): Five halls of Tunisian heritage scanned by Tanit XR volunteers. Turn every object in 3D, from Punic stelae at Carthage to Ottoman tilework in Kairouan.
-- [ImmerseGT 2026](https://tanitxr.org/immersegt-2026/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [ImmerseGT 2026](https://tanitxr.org/immersegt-2026/): Tanit XR sponsored a heritage track and a prize at ImmerseGT, the XR hackathon at Georgia Tech, with a workshop on citizen science and XR by Dr. Caroline Nickerson.
 - [Virtual Museum](https://tanitxr.org/museum/): The first community-led virtual museum of Tunisian heritage, real scans placed in rooms built by volunteers in Unity. Walkthroughs, progress and how to help.
-- [News](https://tanitxr.org/news/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [News](https://tanitxr.org/news/): Field notes and history from the Tanit XR community: what we scanned, what we learned about Carthage and Tunisian heritage, and where the project is going next.
 - [A 2,000-Year-Old Ghost Town on Cape Bon](https://tanitxr.org/news/a-2-000-year-old-ghost-town-on-cape-bon/): By Laura Harrison, Scientific Director, TanitXR. Scientific Director, TanitXR A scruffy brown donkey lowered its eyelids as a merchant filled its wood
 - [A Beginning: Why Tanit XR Exists](https://tanitxr.org/news/a-beginning-why-tanit-xr-exists/): This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by histor
 - [Material and Meaning: Marble Identity, and Cultural Exchange in Ancient Carthage](https://tanitxr.org/news/material-and-meaning-marble-identity-and-cultural-exchange-i/): By: Margarita Johnson The intense light illuminates the plateau of Byrsa Hill in Carthage, and the wind shakes the surviving fragments of an ancient c
@@ -88,12 +88,12 @@ to https://tanitxr.org/. Last updated 2026-09-21.
 - [Art, XR & Impact Opportunities](https://tanitxr.org/opportunities/): A free curated board of grants, residencies, fellowships, open calls and events for artists, XR creators, educators, students and changemakers. Updated regularly by Tanit XR, and sent free by email.
 - [Partner with us](https://tanitxr.org/partners/): For companies and foundations: how to partner with Tanit XR, from teaching your team to scan to adopting a site in the virtual museum.
 - [Press & Recognition](https://tanitxr.org/press/): Awards, talks, podcasts, articles and papers about Tanit XR, including the Auggie Awards 2026 finalist nomination and the Voices of VR interview.
-- [Privacy Policy](https://tanitxr.org/privacy/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Tanit XR Scanning Guide](https://tanitxr.org/scanning-guide/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [Privacy Policy](https://tanitxr.org/privacy/): What tanitxr.org collects, which is almost nothing: no cookies, no advertising, no visitor identification, and the third parties that host the site, the forms and the 3D models.
+- [Tanit XR Scanning Guide](https://tanitxr.org/scanning-guide/): How Tanit XR volunteers capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.
 - [Services](https://tanitxr.org/services/): Work with the Tanit XR team: workshops and training, talks and consulting, sharing opportunities and hackathon tracks, free for grassroots groups, low rates for institutions. Our volunteers’ work is never for sale.
-- [Splats With Phones](https://tanitxr.org/splats-with-phones/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Support](https://tanitxr.org/support/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Our People](https://tanitxr.org/team/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [Splats With Phones](https://tanitxr.org/splats-with-phones/): A free course on capturing places with a phone using Gaussian splatting and photogrammetry, taught through Tanit XR for volunteers documenting heritage.
+- [Support](https://tanitxr.org/support/): Support Tanit XR: donations are tax deductible through our fiscal sponsor, Florida Community Innovation, and pay for scanning trips, training and the free 3D archive. Nobody here is paid.
+- [Our People](https://tanitxr.org/team/): The volunteers behind Tanit XR, in Tunisia, the United States, Europe and Nigeria: who they are and every scan, 3D model and article each of them has contributed.
 - [Alyssa George](https://tanitxr.org/team/alyssa-george/): Alyssa George is an illustrator and designer who provides 2D and 3D design support to Tanit XR. She enjoys playing with vibrant colour and texture to 
 - [Ana Beatriz Vega González](https://tanitxr.org/team/ana-beatriz-vega-gonzalez/): I have always been passionate about art, history, and science. After studying Digital Art, I chose to merge these disciplines through technology, crea
 - [Brianne Lehan](https://tanitxr.org/team/brianne-lehan/): Brianne Lehan is a multimedia storyteller, photographer, and videographer based in Central Florida whose work spans documentary, commercial, conservat
@@ -108,14 +108,14 @@ to https://tanitxr.org/. Last updated 2026-09-21.
 - [Melek Said](https://tanitxr.org/team/melek-said/): Melek is the Regional Manager for Tanit XR and a recent graduate from South Mediterranean University, where she studied Renewable Energy Engineering. 
 - [Nick Kaufmann](https://tanitxr.org/team/nick-kaufmann/): Nick Kaufmann is a community builder and multidisciplinary practitioner working across digital and physical space. He facilitates events, workshops an
 - [Nick Reno](https://tanitxr.org/team/nick-reno/): Nick Reno is an XR developer with a strong background in software engineering who began working with extended reality during his undergraduate and mas
-- [Oussema Ghattassi](https://tanitxr.org/team/oussema-ghattassi/)
+- [Oussema Ghattassi](https://tanitxr.org/team/oussema-ghattassi/): Oussema Ghattassi volunteers with Tanit XR, preserving Tunisian heritage in 3D.
 - [Patrick Molen](https://tanitxr.org/team/patrick-molen/): Currently a Senior Design Engineer at Lockheed Martin, Patrick leads the creation of immersive AR training experiences that change how aircraft mainte
 - [Phil Chacko](https://tanitxr.org/team/phil-chacko/): Phil loves building tools and products that help people create. He is the founder of multiple companies, most recently The Possible Company, which hel
 - [Rachel West](https://tanitxr.org/team/rachel-west/): Rachel West provides both graphic design and 3D asset support to TanitXR. She graduated from the University of Florida with both her Bachelor's and Ma
 - [Ryan George](https://tanitxr.org/team/ryan-george/): 3D Modelor & Web Contributer
 - [Thank you](https://tanitxr.org/thank-you/): Your message to Tanit XR has been received.
-- [TanitXR & the Unique Mappers](https://tanitxr.org/unique-mappers/): Preserving Tunisia's endangered heritage in 3D, AR and VR
-- [Volunteer](https://tanitxr.org/volunteer/): Preserving Tunisia's endangered heritage in 3D, AR and VR
+- [TanitXR & the Unique Mappers](https://tanitxr.org/unique-mappers/): The Unique Mappers Network, over 500 citizen scientists in Nigeria, is replicating the Tanit XR model: documenting local heritage in 3D and publishing it free.
+- [Volunteer](https://tanitxr.org/volunteer/): Volunteer with Tanit XR from anywhere: 3D scanning, model cleanup, XR development, history research, writing, translation and design. No archaeology or 3D background needed, all remote friendly.
 
 ## Also available
 
