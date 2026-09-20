@@ -1833,6 +1833,44 @@ def dedash(html):
     return "".join(parts)
 
 
+PAGE_META = {}   # fname -> (title, description, card image), for the legacy redirect stubs
+
+
+def social_img(name):
+    """A true 1200x630 preview card, cropped to fill. Link scrapers (LinkedIn, Slack, WhatsApp,
+    iMessage, Facebook) want landscape; a portrait image gets shrunk to a thumbnail or dropped."""
+    key = ("__card__", name)
+    if key in _img_cache:
+        return _img_cache[key]
+    src = _source_for(name)
+    stem = slugify(os.path.splitext(os.path.basename(src))[0])
+    out_name = f"{stem}-card.jpg"
+    out_path = os.path.join(IMG_OUT, out_name)
+    rel = f"assets/img/{out_name}"
+    if not os.path.exists(out_path):
+        w = h = 0
+        r = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", src], capture_output=True, text=True)
+        for line in r.stdout.splitlines():
+            if "pixelWidth:" in line:
+                w = int(line.split(":")[1])
+            elif "pixelHeight:" in line:
+                h = int(line.split(":")[1])
+        if w and h:
+            scale = max(1200 / w, 630 / h)
+            nw, nh = max(1200, round(w * scale)), max(630, round(h * scale))
+            tmp = out_path + ".tmp.jpg"
+            subprocess.run(["sips", "--resampleHeightWidth", str(nh), str(nw),
+                            "-s", "format", "jpeg", "-s", "formatOptions", "80", src, "--out", tmp],
+                           capture_output=True, text=True)
+            subprocess.run(["sips", "-c", "630", "1200", tmp, "--out", out_path], capture_output=True, text=True)
+            if os.path.exists(tmp):
+                os.remove(tmp)
+        if not os.path.exists(out_path):
+            return img(name, 1200, as_jpeg=True)
+    _img_cache[key] = rel
+    return rel
+
+
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
          share_img="aug-20260813_124249.jpg", jsonld=None):
     # like the original site, the menu floats over the page hero photo wherever there is one
@@ -1848,10 +1886,12 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         fonts = FONTS_LATIN
         font_fix = ""
     # LinkedIn and the rest need absolute urls, and a real preview image
+    if LANG == "en":
+        PAGE_META[fname] = (title, desc, share_img)
     _dir = "" if LANG == "en" else LANG_DIRS[LANG]
     _slug = "" if fname == "index.html" else fname[:-5] + "/"
     page_url = SITE_URL + _dir + _slug
-    share_url = SITE_URL + img(share_img, 1200, as_jpeg=True)
+    share_url = SITE_URL + social_img(share_img)
     # the same page in the other languages, so search engines show the right one
     hreflang = "".join(f'<link rel="alternate" hreflang="{c}" href="{SITE_URL}{d}{_slug}">'
                        for c, d in LANG_DIRS.items()) + f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{_slug}">'
@@ -4540,7 +4580,9 @@ if(RX){{
   fetch(RX+'/stats').then(r=>r.json()).then(s=>{{STATS=s&&typeof s==='object'?s:{{}};render();}}).catch(()=>{{}});
 }}
 </script>"""
-    page("opportunities.html", "Art, XR & Impact Opportunities", body, active="opportunities.html")
+    page("opportunities.html", "Art, XR & Impact Opportunities", body, active="opportunities.html",
+         desc="A free curated board of grants, residencies, fellowships, open calls and events for artists, "
+              "XR creators, educators, students and changemakers. Updated regularly by Tanit XR, and sent free by email.")
 
 
 def build_volunteer():
@@ -5347,11 +5389,24 @@ def build_redirects():
         canon_file = target.split("#")[0]
         out_dir = os.path.join(DOCS, path)
         os.makedirs(out_dir, exist_ok=True)
+        meta_t, meta_d, meta_i = PAGE_META.get(targets[path].split("#")[0],
+                                                ("Tanit XR", TAGLINE, "aug-20260813_124249.jpg"))
+        card = SITE_URL + social_img(meta_i)
         with open(os.path.join(out_dir, "index.html"), "w") as f:
             f.write(f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<title>Tanit XR</title>
+<title>{esc(meta_t)} – TANIT XR</title>
+<meta name="description" content="{esc(meta_d)}">
 <link rel="canonical" href="{CANON}/{canon_file}">
-<meta http-equiv="refresh" content="0;url={rel}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tanit XR">
+<meta property="og:title" content="{esc(meta_t)} – Tanit XR">
+<meta property="og:description" content="{esc(meta_d)}">
+<meta property="og:url" content="{CANON}/{canon_file}">
+<meta property="og:image" content="{card}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="refresh" content="1;url={rel}">
 <script>location.replace("{rel}");</script>
 </head><body><p><a href="{rel}">Continue to Tanit XR</a></p></body></html>""")
         n += 1
