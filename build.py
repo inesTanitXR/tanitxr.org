@@ -4288,7 +4288,7 @@ and events for artists, XR creators, educators, students, and changemakers, upda
 Tanit XR team. Also published as our
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
 target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newsletter</a>.</p>
-<div class="subtop">
+<div class="subtop" id="subscribe">
 <div><b style="font-family:var(--serif);font-size:20px;font-weight:400;display:block">Get these in your inbox</b>
 <span style="color:var(--gray);font-size:14px">New opportunities every one to two weeks. Free.</span></div>
 {subscribe_form(dark=False)}
