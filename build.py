@@ -1989,13 +1989,28 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
         stem = fname[:-5]
         alias_path = os.path.join(DOCS, LANG_DIRS[LANG], fname)
         os.makedirs(os.path.dirname(alias_path), exist_ok=True)
-        rel_target = posixpath.basename(stem) + "/"
+        # Absolute, so it cannot resolve to /x/x/ whichever way a client normalises the URL.
+        # The alias carries the real page's preview tags: people share a URL without the
+        # trailing slash all the time, and a scraper that lands here must still get a card.
+        target = f"/{LANG_DIRS[LANG]}{stem}/"
         with open(alias_path, "w") as f:
-            f.write(f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
-                    f'<link rel="canonical" href="https://tanitxr.org/{LANG_DIRS[LANG]}{stem}/">'
-                    f'<meta http-equiv="refresh" content="0;url={rel_target}">'
-                    f'<script>location.replace("{rel_target}"+location.hash);</script></head>'
-                    f'<body><a href="{rel_target}">Continue</a></body></html>')
+            f.write(
+                f'<!DOCTYPE html><html lang="{LANG}"><head><meta charset="utf-8">'
+                f'<title>{esc(title)} \u2013 TANIT XR</title>'
+                f'<meta name="description" content="{esc(desc)}">'
+                f'<link rel="canonical" href="{page_url}">'
+                f'<meta property="og:type" content="website">'
+                f'<meta property="og:site_name" content="Tanit XR">'
+                f'<meta property="og:title" content="{esc(title)} \u2013 Tanit XR">'
+                f'<meta property="og:description" content="{esc(desc)}">'
+                f'<meta property="og:url" content="{page_url}">'
+                f'<meta property="og:image" content="{share_url}">'
+                f'<meta property="og:image:width" content="1200">'
+                f'<meta property="og:image:height" content="630">'
+                f'<meta name="twitter:card" content="summary_large_image">'
+                f'<meta http-equiv="refresh" content="0;url={target}">'
+                f'<script>location.replace("{target}"+location.hash);</script></head>'
+                f'<body><p><a href="{target}">Continue to {esc(title)}</a></p></body></html>')
 
 
 def page_hero(title, crumb=None, bg=None, pos="center"):
