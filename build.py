@@ -2805,12 +2805,7 @@ weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Fre
     page("index.html", "Home", body, transparent=True,
          jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tanit XR", "url": SITE_URL,
                   "inLanguage": ["en", "fr", "ar"], "publisher": {"@type": "NGO", "name": "Tanit XR"}}]
-                + [{"@context": "https://schema.org", "@type": "Event", "name": e["title"], "startDate": e["date"],
-                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-                    "eventStatus": "https://schema.org/EventScheduled",
-                    "location": {"@type": "Place", "name": e["where"]}, "description": e["desc"],
-                    "organizer": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL}}
-                   for e in EVENTS if e["date"] >= _dt.date.today().isoformat()])
+                + event_jsonld())
 
 
 def build_community():
@@ -2887,7 +2882,8 @@ Nigeria. If your community’s heritage is under-documented, we want to hear fro
 &nbsp; <a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a>
 </div></section>"""
     page("community.html", "Community", body, active="volunteer.html",
-         desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria, scanning, learning history, mentoring and building a free 3D archive.")
+         desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria, scanning, learning history, mentoring and building a free 3D archive.",
+         jsonld=event_jsonld())
 
 
 # volunteers building the virtual museum (from Slack #vr-app / #volunteer-updates, Sept 2026) and Julia's recorded lessons
@@ -3118,6 +3114,9 @@ interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="col
 # Upcoming events. Past ones drop off at build time, so nothing on the site goes stale.
 EVENTS = [
     {"date": "2026-09-20", "when": "Sunday, September 20, 10am to 6pm",
+     "start": "2026-09-20T10:00:00-04:00", "end": "2026-09-20T18:00:00-04:00",
+     "city": "Gainesville", "region": "FL", "country": "US",
+     "img": "sv-IMG_1315.jpg", "announced": "2026-08-20",
      "title": "CityCamp Gainesville Hack Day: two Tanit XR tracks",
      "where": "Reitz Union, Room G330, University of Florida",
      "desc": "A six hour hack day, an official Major League Hacking event hosted by Florida "
@@ -3127,12 +3126,47 @@ EVENTS = [
      "links": [("Register on MLH", "https://events.mlh.com/events/14677-citycamp-gainesville-hack-day"),
                ("Devpost", "https://citycamp-hack-day.devpost.com/")]},
     {"date": "2026-10-22", "when": "Thursday, October 22",
+     "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T21:00:00-04:00",
+     "city": "Washington", "region": "DC", "country": "US",
+     "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
      "title": "Tanit XR in person, Washington DC",
      "where": "Washington, DC. Venue to be announced",
      "desc": "An evening with the Tanit XR community, planned with TAYP, the Tunisian American "
              "Young Professionals. Save the date. Details will follow here and in the newsletter.",
      "links": []},
 ]
+
+
+def event_jsonld():
+    """Schema.org Event for each upcoming event, with the fields Google Search Console asks for:
+    a structured address inside location, an image, a performer, an end time and an offer."""
+    today = _dt.date.today().isoformat()
+    out = []
+    for e in EVENTS:
+        if e["date"] < today:
+            continue
+        where = e["where"]
+        offer_url = e["links"][0][1] if e.get("links") else SITE_URL + "community/#events"
+        out.append({
+            "@context": "https://schema.org", "@type": "Event", "name": e["title"],
+            "startDate": e.get("start", e["date"]), "endDate": e.get("end", e["date"]),
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "description": e["desc"],
+            "image": [SITE_URL + social_img(e.get("img") or "aug-20260813_124249.jpg")],
+            "location": {"@type": "Place", "name": where,
+                         "address": {"@type": "PostalAddress",
+                                     "addressLocality": e.get("city", ""),
+                                     "addressRegion": e.get("region", ""),
+                                     "addressCountry": e.get("country", "US")}},
+            "organizer": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL},
+            "performer": {"@type": "Organization", "name": "Tanit XR", "url": SITE_URL},
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD",
+                       "availability": "https://schema.org/InStock",
+                       "validFrom": e.get("announced", e["date"]), "url": offer_url},
+        })
+    return out
 
 
 def events_block(heading="Coming up", cloud=False):
@@ -3155,7 +3189,7 @@ def events_block(heading="Coming up", cloud=False):
 {f'<p class="ev-links">{links}</p>' if links else ''}
 </div></div>"""
     return f"""
-<section class="pad"{' style="background:var(--cloud)"' if cloud else ''}><div class="wrap">
+<section class="pad" id="events"{' style="background:var(--cloud)"' if cloud else ''}><div class="wrap">
 <div class="center"><div class="eyebrow">{esc(heading)}</div>
 <h2 class="sec-title">Where to find us next</h2></div>
 <div class="events">{cards}</div>
