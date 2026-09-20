@@ -774,6 +774,465 @@ FR = {
     ">Get Involved</a>": ">Participer</a>",
     ">Create Your Profile</a>": ">Créer votre profil</a>",
     ">Scanning Guide</a>": ">Guide de numérisation</a>",
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'before recording people, private spaces, ceremonies, sacred practices, or\npersonal stories. Tanit XR is not just preserving objects, we are preserving the worlds, memories, and\nmeanings around them.':
+        'avant d’enregistrer des personnes, des espaces privés, des cérémonies, des pratiques sacrées ou\ndes histoires personnelles. Tanit XR ne préserve pas seulement des objets, nous préservons les mondes, les mémoires et les\nsens qui les entourent.',
+    'The museum is ours to build, room by room. Fund one gallery, from its walls to the objects inside and the stories Nura tells there, and it carries your name in the browser and in the headset.':
+        "Le musée est à nous de bâtir, salle après salle. Financez une galerie, de ses murs aux objets qu'elle abrite et aux histoires que Nura y raconte, et elle portera votre nom dans le navigateur comme dans le casque.",
+    'Unity developers, 3D artists, sound designers and writers are\nbuilding this on Thursday calls. Donations pay for the tools and hosting that get it onto headsets and into classrooms.':
+        'Des développeurs Unity, des artistes 3D, des concepteurs sonores et des rédacteurs\nconstruisent tout cela lors des appels du jeudi. Les dons financent les outils et l’hébergement qui amènent ce travail sur les casques et dans les classes.',
+    'Walls, arches and courtyards are built from a kit of pre-made pieces designed by Patrick Molen, so volunteers can puzzle together a new gallery without starting from scratch.':
+        'Les murs, les arcs et les cours sont construits à partir d’un kit de pièces préfabriquées conçu par Patrick Molen, pour que les bénévoles puissent assembler une nouvelle salle comme un puzzle, sans repartir de zéro.',
+    'Beyond photogrammetry scans, our volunteers model Tunisian objects, pottery, lamps,\ntilework, everyday heritage, from scratch, for our virtual museum and community projects.':
+        'Au-delà des scans par photogrammétrie, nos bénévoles modélisent de zéro des objets tunisiens, poteries, lampes,\ncarreaux de faïence, patrimoine du quotidien, pour notre musée virtuel et nos projets communautaires.',
+    'Five halls of real heritage, scanned on location by volunteers with phones and cameras.\nEvery object here can be turned, zoomed and opened in full. Nothing is behind glass.':
+        'Cinq salles de patrimoine réel, numérisées sur place par des bénévoles avec des téléphones et des appareils photo.\nChaque objet ici peut être tourné, agrandi et ouvert en entier. Rien n’est derrière une vitre.',
+    'The sizes on the labels are the real ones. A full museum you can walk through is being\nbuilt separately by Patrick, Cam and the team, and every object here will hang in it.':
+        "Les dimensions indiquées sur les cartels sont les vraies. Un musée entier dans lequel on peut marcher est\nconstruit à part par Patrick, Cam et l'équipe, et chaque objet présenté ici y trouvera sa place.",
+    'What sets the Unique Mappers apart is their ability to mobilize volunteers from diverse\nbackgrounds, including students, women and youth, for impactful mapping projects.':
+        'Ce qui distingue les Unique Mappers, c’est leur capacité à mobiliser des bénévoles de tous\nhorizons, étudiants, femmes et jeunes, pour des projets de cartographie qui comptent.',
+    'An evening with the Tanit XR community, planned with TAYP, the Tunisian American Young Professionals. Save the date. Details will follow here and in the newsletter.':
+        'Une soirée avec la communauté Tanit XR, organisée avec TAYP, les Tunisian American Young Professionals. Notez la date. Les détails suivront ici et dans la newsletter.',
+    'Everything on this site was made by volunteers, on\nThursday calls and weekend scanning trips. Whatever time you have, there is a piece of this that is yours to\ndo.':
+        'Tout ce qui se trouve sur ce site a été réalisé par des bénévoles, lors des\nappels du jeudi et des sorties de numérisation du week-end. Quel que soit le temps dont vous disposez, il y a ici une part qui vous\nrevient.',
+    'and tell us what you enjoy doing. Someone from the team writes back, adds you to Slack, and you meet everyone on the next Thursday call. That is the whole process.':
+        "et dites-nous ce que vous aimez faire. Quelqu'un de l'équipe vous répond, vous ajoute à Slack, et vous rencontrez tout le monde lors du prochain appel du jeudi. C'est tout le processus.",
+    'Two thousand years ago, families set these stones in the Tophet of Carthage. Many still carry the sign of Tanit, the goddess this whole project is named after':
+        'Il y a deux mille ans, des familles ont dressé ces pierres dans le Tophet de Carthage. Beaucoup portent encore le signe de Tanit, la déesse qui a donné son nom à tout ce projet',
+    'Build out the virtual museum and save toward professional scanning gear such as the XGRIDS PortalCam, so the community can capture more than a phone allows.':
+        'Développer le musée virtuel et mettre de côté pour du matériel de numérisation professionnel comme la XGRIDS PortalCam, afin que la communauté puisse capturer plus que ce que permet un téléphone.',
+    'Volunteers from Tunisia, the US, Europe and Nigeria meet every Thursday at 12 pm Eastern (5 pm Tunisia) to review scans, plan trips and help each other.':
+        "Des bénévoles de Tunisie, des États-Unis, d'Europe et du Nigeria se retrouvent chaque jeudi à 12 h (heure de l'Est), 17 h en Tunisie, pour revoir les numérisations, préparer les sorties et s'entraider.",
+    'Volunteers who have never been to Tunisia learn its history while modeling lamps, pottery and plants for our virtual museum, and we learn about theirs.':
+        'Des bénévoles qui ne sont jamais allés en Tunisie découvrent son histoire en modélisant des lampes, des poteries et des plantes pour notre musée virtuel, et nous découvrons la leur.',
+    'The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.':
+        'Le Unique Mappers Network (plus de 500 scientifiques citoyens) reproduit le modèle Tanit XR au Nigeria grâce à une mini-subvention de notre parrain fiscal.',
+    'Every object here, one at a time, in your browser. Turn it with a finger, hear its story\nfrom Nura, save and share it, or put on a headset.':
+        'Chaque objet ici, un par un, dans votre navigateur. Tournez-le du doigt, écoutez son histoire\nracontée par Nura, enregistrez-le et partagez-le, ou mettez un casque.',
+    'Mosaics from the Roman villas of Carthage. Somebody set every one of these little stones by hand, and people walked over them for centuries':
+        "Des mosaïques des villas romaines de Carthage. Quelqu'un a posé chacune de ces petites pierres à la main, et on a marché dessus pendant des siècles",
+    'Punic stelae, Roman statues and mosaics, doors and tilework from the medina, the same scans you find in our open archive, placed life-size.':
+        'Stèles puniques, statues et mosaïques romaines, portes et carreaux de faïence de la médina, les mêmes scans que dans notre archive ouverte, placés à taille réelle.',
+    'Run a free workshop or course session for the community, Splats With Phones, history lessons, mentoring and interview prep for students.':
+        'Animez un atelier ou un cours gratuit pour la communauté : Splats With Phones, cours d’histoire, mentorat et préparation aux entretiens pour les étudiants.',
+    'Most were captured with a phone. The halls are\nalso being rebuilt as a real space you can walk in VR, room by room, by the same team.':
+        "La plupart ont été capturés avec un téléphone. Les salles sont\naussi reconstruites en un véritable espace où l'on peut marcher en VR, pièce après pièce, par la même équipe.",
+    'Impact you can point at: every gallery, experience and piece your support made possible is public, in 3D, with your name beside it.':
+        'Un impact que vous pouvez montrer du doigt : chaque galerie, chaque expérience et chaque pièce que votre soutien a rendues possibles sont publiques, en 3D, avec votre nom à côté.',
+    'Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and our Scaniverse capture of the amphitheatre of El Jem.':
+        'Nathan Bowser a interviewé Ines Said pour Niantic Spatial au sujet de Tanit XR et de notre capture Scaniverse de l’amphithéâtre d’El Jem.',
+    'Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.':
+        "Notre article sur la documentation numérique, la XR et la science citoyenne au service d'une préservation du patrimoine portée par les communautés, présenté en avril 2026.",
+    'Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.':
+        'Reportage sur la façon dont Tanit XR utilise la photogrammétrie, Scaniverse et le splatting gaussien pour construire une archive ouverte du patrimoine tunisien.',
+    'Tell us about your team and what matters to you. We come back with two or three ways to work together, with real numbers.':
+        'Parlez-nous de votre équipe et de ce qui compte pour vous. Nous revenons vers vous avec deux ou trois façons de travailler ensemble, avec des chiffres concrets.',
+    'Doors and tilework from Tunis and Kairouan that still open and close every day. This is heritage people live inside':
+        "Des portes et des carreaux de faïence de Tunis et de Kairouan qui s'ouvrent et se ferment encore chaque jour. C'est un patrimoine que les gens habitent",
+    'Lamps, pottery and plants modeled by volunteers furnish the rooms. Optimized scans keep it light enough for phones.':
+        "Des lampes, des poteries et des plantes modélisées par des bénévoles meublent les salles. Des scans optimisés gardent l'ensemble assez léger pour les téléphones.",
+    'Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.':
+        'Kent Bye a interviewé Ines Said à l’AWE USA 2026 au sujet de la capture du réel au téléphone, des bénévoles et du patrimoine en danger.',
+    'Tanit XR, Volunteer to help protect global heritage. Cultural memory powered by volunteers and digital technology.':
+        'Tanit XR, devenez bénévole pour aider à protéger le patrimoine mondial. Une mémoire culturelle portée par des bénévoles et par les technologies numériques.',
+    'Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.':
+        "Ines Said est intervenue à l'Augmented World Expo USA 2026, à Long Beach en Californie, sur la XR au service de l'impact social et du patrimoine.",
+    'The technique is the easy part. Our guide also covers asking permission and\ntaking care of the place you are in.':
+        'La technique est la partie facile. Notre guide explique aussi comment demander l’autorisation et\nprendre soin du lieu où vous êtes.',
+    'We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.':
+        'Nous avons parrainé un parcours patrimoine et un prix de 300 $ ; Dr. Caroline Nickerson a animé un atelier sur la science participative et la XR.',
+    'Cover a month of hosting and software for the open archive and the volunteers who optimize and publish models.':
+        'Couvrez un mois d’hébergement et de logiciels pour l’archive ouverte et pour les bénévoles qui optimisent et publient les modèles.',
+    'It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.':
+        "C'est arrivé dans la boîte de réception de Tanit XR et un bénévole le lira bientôt. Nous répondons en général sous quelques jours.",
+    'Sound is on. Tap to mute. Music: Oriental Nights by Ahmad Al-Nakib (CC BY 3.0, via the Internet Archive)':
+        'Le son est activé. Touchez pour couper. Musique : Oriental Nights de Ahmad Al-Nakib (CC BY 3.0, via l’Internet Archive)',
+    'Where Tanit XR has been recognized, featured and heard. For\ninterviews, talks or media requests write to':
+        'Là où Tanit XR a été distinguée, citée et entendue. Pour\nles interviews, les conférences ou les demandes des médias, écrivez à',
+    'Columns and capitals from the temples, baths and villas. The roofs are long gone. These stayed standing':
+        'Colonnes et chapiteaux des temples, des thermes et des villas. Les toits ont disparu depuis longtemps. Ceux-ci sont restés debout',
+    'A member of the team welcomes you, and you meet everyone on the next call, Thursdays at 12 pm Eastern.':
+        "Un membre de l'équipe vous accueille, puis vous rencontrez tout le monde lors du prochain appel, le jeudi à 12 h (heure de l'Est).",
+    'Ambient sound recorded at the real places, wind, footsteps, echoes, so each gallery feels different.':
+        "Des sons d'ambiance enregistrés sur les lieux réels, le vent, les pas, les échos, pour que chaque galerie ait son caractère.",
+    'Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip.':
+        'Optimisez une numérisation, écrivez l’histoire d’un objet, modélisez quelque chose de tunisien ou préparez une sortie de numérisation.',
+    ', bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces':
+        ', boulangeries, ateliers, marchés, lieux de rassemblement, objets de famille, jardins et espaces communautaires',
+    'New Neapolis Site Revealed By Recent Floods(Storm Harry) In Tunisia. Scanned by Youssef Lakdhar!.':
+        'Nouveau site de Neapolis révélé par les récentes inondations (tempête Harry) en Tunisie. Numérisé par Youssef Lakdhar !.',
+    ', pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items':
+        ', poteries, outils, sculptures, statues, carreaux de faïence, bijoux, textiles, inscriptions et objets du quotidien',
+    'Ines Said on why Tanit XR exists and where it is going, published in the Women Write collection.':
+        'Ines Said explique pourquoi Tanit XR existe et où elle va, dans la collection Women Write.',
+    'Medium / Women Write, Tanit XR: Preserving Tunisia&#x27;s Heritage Through Immersive Technology':
+        'Medium / Women Write, Tanit XR : préserver le patrimoine tunisien grâce aux technologies immersives',
+    'The virtual museum in March 2026: a domed hall with striped arches, tiled floors and a fountain':
+        'Le musée virtuel en mars 2026 : une salle à coupole avec des arcs rayés, des sols carrelés et une fontaine',
+    'Portfolio reviews, mock interviews and career advice for students and early-career volunteers.':
+        'Relecture de portfolios, entretiens blancs et conseils de carrière pour les étudiants et les bénévoles en début de parcours.',
+    'The second wing of the virtual museum under construction, a colonnade and galleries in greybox':
+        'La deuxième aile du musée virtuel en construction, une colonnade et des galeries en greybox',
+    'A 6-week course with Mark Jeffcock on capturing 3D models and Gaussian splats with a phone.':
+        'Un cours de 6 semaines avec Mark Jeffcock sur la capture de modèles 3D et de splats gaussiens avec un téléphone.',
+    'Pick one, or shape one with us. We build each partnership around your team and your budget.':
+        'Choisissez-en une, ou façonnons-la ensemble. Nous construisons chaque partenariat autour de votre équipe et de votre budget.',
+    'A loom, a carpet. Nothing grand, just what people used, which is exactly why we kept them':
+        "Un métier à tisser, un tapis. Rien de grandiose, juste ce dont les gens se servaient, et c'est exactement pour cela que nous les avons gardés",
+    'Two hands holding a phone that shows the Draped Statue of Byrsa Hill in augmented reality':
+        'Deux mains tenant un téléphone qui montre la Statue drapée de la colline de Byrsa en réalité augmentée',
+    'Latin and Arabic inscriptions, every letter cut by hand. Some of them can still be read':
+        'Des inscriptions latines et arabes, chaque lettre gravée à la main. Certaines se lisent encore',
+    'What you do, what you are studying, or any communities or projects you are involved in.':
+        'Ce que vous faites, ce que vous étudiez, ou les communautés et les projets auxquels vous participez.',
+    ', patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements':
+        ', motifs, textures, symboles, dégâts, réparations, marques d’artisan ou éléments décoratifs',
+    'Every share helps more people see this. Pick where it goes, the caption comes along.':
+        'Chaque partage permet à plus de monde de le voir. Choisissez où il part, la légende suit.',
+    "Send it our way, if it's a fit, it will appear on this board\nand in the newsletter.":
+        "Envoyez-le nous, si cela correspond, l'annonce apparaîtra sur ce tableau\net dans la newsletter.",
+    'Carthage Magazine, Preserving Tunisia&#x27;s Heritage Through Immersive Technology':
+        'Carthage Magazine, préserver le patrimoine tunisien grâce aux technologies immersives',
+    'Material and Meaning: Marble Identity, and Cultural Exchange in Ancient Carthage':
+        'Matière et sens : marbre, identité et échanges culturels dans la Carthage antique',
+    'A tagine and a plate: the everyday Tunisia our volunteers wanted in the museum':
+        'Un tajine et une assiette : la Tunisie de tous les jours que nos bénévoles voulaient dans le musée',
+    'Music: Oriental Nights by Ahmad Al-Nakib (CC BY 3.0, via the Internet Archive)':
+        "Musique : Oriental Nights d'Ahmad Al-Nakib (CC BY 3.0, via l'Internet Archive)",
+    'Succulents, a cactus, clay pots and palms for the museum&#x27;s courtyards':
+        'Des plantes grasses, un cactus, des pots en terre cuite et des palmiers pour les patios du musée',
+    'The virtual museum courtyard with a pool, terraces and a sculpted canopy':
+        'La cour du musée virtuel avec un bassin, des terrasses et un auvent sculpté',
+    'Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR':
+        'Voices of VR #1728, préserver le patrimoine culturel tunisien avec Tanit XR',
+    'Carved Architectural Blocks with Laurel Motifs, Water Temple, Zaghouan':
+        'Blocs architecturaux sculptés à motifs de laurier, Temple des Eaux, Zaghouan',
+    'Carved Architectural Block with Laurel Motifs, Water Temple, Zaghouan':
+        'Bloc architectural sculpté à motifs de laurier, Temple des Eaux, Zaghouan',
+    'El Jem Conference 2026, Paper in English, French and Tunisian Arabic':
+        'Conférence d’El Jem 2026, article en anglais, français et arabe tunisien',
+    'Second wing under construction, colonnade and galleries in greybox.':
+        'Deuxième aile en construction, colonnade et galeries en greybox.',
+    'Not Your Grandma’s Gallery – Open Call for Artists (The Holy Art)':
+        'Not Your Grandma’s Gallery – Appel ouvert aux artistes (The Holy Art)',
+    'The murex shell whose dye made Carthage rich and its cloth purple':
+        'Le coquillage murex dont la teinture a enrichi Carthage et empourpré ses étoffes',
+    'Used only to contact you about your profile, it is not published.':
+        "Utilisé uniquement pour vous contacter au sujet de votre profil, il n'est pas publié.",
+    'An amphora wearing a graduation cap, with a book titled Carthage':
+        "Une amphore coiffée d'une toque de diplômé, avec un livre intitulé Carthage",
+    'Looking for a specific scan, a\ndownload or the game-ready twins?':
+        'Vous cherchez un scan précis, un\ntéléchargement ou les jumeaux prêts pour le jeu ?',
+    'A globe with Tanit XR volunteers standing on every continent':
+        'Un globe avec des bénévoles Tanit XR sur chaque continent',
+    'VIVERSE Creator Program – Creator Grants for WebXR Worlds':
+        'VIVERSE Creator Program – Bourses pour créateurs de mondes WebXR',
+    'UNESCO Youth Climate Action Network – YoU-CAN Membership':
+        "Réseau des jeunes de l'UNESCO pour l'action climatique – adhésion YoU-CAN",
+    'Inscribed Architectural Fragment – Byrsa Hill, Carthage':
+        'Fragment architectural inscrit – Colline de Byrsa, Carthage',
+    'CityCamp Gainesville Hack Day 2026, heritage challenge':
+        'CityCamp Gainesville Hack Day 2026, défi patrimoine',
+    'Courtyard with pool, terraces and the sculpted canopy.':
+        'Patio avec bassin, terrasses et auvent sculpté.',
+    'TanitXR &amp; the Unique Mappers, expanding to Nigeria':
+        'TanitXR et les Unique Mappers, une extension au Nigeria',
+    'Games for Change 2026 Student Challenge (Competition)':
+        'Games for Change 2026, défi étudiant (concours)',
+    'Mini history lesson 2, Carthage&#x27;s craft quarters':
+        "Mini leçon d'histoire 2, les quartiers artisanaux de Carthage",
+    'Volunteer with Tanit XR, Preserve Heritage in 3D & XR':
+        'Devenez bénévole avec Tanit XR, préservez le patrimoine en 3D et en XR',
+    'Traditional Loom with Woven Carpet – Medina of Tunis':
+        'Métier à tisser traditionnel avec tapis tissé – Médina de Tunis',
+    'ImmerseGT at Georgia Tech, sponsored heritage track':
+        'ImmerseGT à Georgia Tech, parcours patrimoine parrainé',
+    'Morgan-Menil Fellowship 2026-27 (Drawing Institute)':
+        'Bourse Morgan-Menil 2026-27 (Drawing Institute)',
+    'Traditional Loom with Woven Carpet, Medina of Tunis':
+        'Métier à tisser traditionnel avec tapis tissé, Médina de Tunis',
+    'CityCamp Gainesville Hack Day: two Tanit XR tracks':
+        'CityCamp Gainesville Hack Day : deux parcours Tanit XR',
+    'Decorated Bust Fragment – Roman Villas of Carthage':
+        'Fragment de buste décoré – Villas romaines de Carthage',
+    'Bird and Floral Mosaic – Roman Villas of Carthage':
+        'Mosaïque aux oiseaux et aux fleurs – Villas romaines de Carthage',
+    'Decorated Bust Fragment, Roman villas of Carthage':
+        'Fragment de buste décoré, villas romaines de Carthage',
+    'Mihrab Niche – Madrasa Al-Bachia, Medina of Tunis':
+        'Niche du mihrab – Medersa Al-Bachia, Médina de Tunis',
+    'Bird and Floral Mosaic, Roman villas of Carthage':
+        'Mosaïque aux oiseaux et aux fleurs, villas romaines de Carthage',
+    'Decorated Bust Fragment – Roman Villas of Carth…':
+        'Fragment de buste décoré – Villas romaines de Carth…',
+    'Folger Institute Long-Term Fellowships 2026-2027':
+        'Bourses de longue durée du Folger Institute 2026-2027',
+    'Latin Inscription Slab  Water Temple of Zaghouan':
+        'Dalle à inscription latine  Temple des Eaux de Zaghouan',
+    'Roman Mosaic with Bird and Vine Motifs – Villas…':
+        "Mosaïque romaine à motifs d'oiseaux et de vigne – Villas…",
+    'Wooden Door with Tilework – Zawiya of Sidi Sahbi':
+        'Porte en bois aux carreaux de faïence – Zaouïa de Sidi Sahbi',
+    'Punic Stelae Row – Tophet of Salammbo, Carthage':
+        'Rangée de stèles puniques – Tophet de Salammbô, Carthage',
+    'Wooden Door with Tilework, Zawiya of Sidi Sahbi':
+        'Porte en bois aux carreaux de faïence, Zaouïa de Sidi Sahbi',
+    'Bird of Prey Statue – Roman Villas of Carthage':
+        "Statue d'oiseau de proie – Villas romaines de Carthage",
+    'Bobby Anspach Studios Foundation Grant Program':
+        'Programme de bourses de la Bobby Anspach Studios Foundation',
+    'Latin Inscription Slab, Water Temple, Zaghouan':
+        'Dalle à inscription latine, Temple des Eaux, Zaghouan',
+    'Punic Stelae Row, Tophet of Salammbo, Carthage':
+        'Rangée de stèles puniques, Tophet de Salammbô, Carthage',
+    'Reviewing scans together in an immersive space':
+        'Revoir les numérisations ensemble dans un espace immersif',
+    'Water and stone for the museum&#x27;s open air':
+        "De l'eau et de la pierre pour l'espace en plein air du musée",
+    'Architectural Fragments  - Baths of Antoninus': 'Fragments architecturaux  - Thermes d’Antonin',
+    'Bird of Prey Statue, Roman villas of Carthage':
+        "Statue d'oiseau de proie, villas romaines de Carthage",
+    'Carved Architectural Block with Laurel Motifs':
+        'Bloc architectural sculpté à motifs de laurier',
+    'Every one of these was scanned by a volunteer': 'Chacun d’eux a été numérisé par un bénévole',
+    'Fluted Column Fragment – Byrsa Hill, Carthage':
+        'Fragment de colonne cannelée – Colline de Byrsa, Carthage',
+    'Headless Draped Statue – Byrsa Hill, Carthage':
+        'Statue drapée sans tête – Colline de Byrsa, Carthage',
+    "Keep a country's memory, with your name on it":
+        'Préservez la mémoire d’un pays, avec votre nom dessus',
+    'Reitz Union, Room G330, University of Florida':
+        'Reitz Union, salle G330, University of Florida',
+    'Inscribed Architectural Fragment, Byrsa Hill':
+        'Fragment architectural inscrit, colline de Byrsa',
+    'Leadership and Techplomacy Summit Dubai 2026': 'Leadership and Techplomacy Summit Dubaï 2026',
+    'Male Torso Statue – Roman Villas of Carthage': 'Torse masculin – Villas romaines de Carthage',
+    'Punic Stelae – Tophet of Salammbo (Carthage)':
+        'Stèles puniques – Tophet de Salammbô (Carthage)',
+    'Architectural Fragments, Baths of Antoninus': 'Fragments architecturaux, thermes d’Antonin',
+    'First Phoenicians and Tyrian Purple Origins':
+        'Les premiers Phéniciens et les origines de la pourpre de Tyr',
+    'Ornamental Mihrab (Mahram), Medina of Tunis': 'Mihrab ornemental (mahram), Médina de Tunis',
+    'Roman Togatus Statue – Byrsa Hill, Carthage':
+        'Statue romaine de togatus – Colline de Byrsa, Carthage',
+    'Sacred Niche – Roman Water Temple, Zaghouan': 'Niche sacrée – Temple des Eaux romain, Zaghouan',
+    'Marble Calligraphic Panel – Zitouna Mosque':
+        'Panneau calligraphique en marbre – Mosquée Zitouna',
+    'Punic Stela – Tophet of Salammbo, Carthage': 'Stèle punique – Tophet de Salammbô, Carthage',
+    'Punic Stelae, Tophet of Salammbo, Carthage': 'Stèles puniques, tophet de Salammbô, Carthage',
+    'Roman Draped Statue – Byrsa Hill, Carthage':
+        'Statue romaine drapée – Colline de Byrsa, Carthage',
+    'Tanit Stela – Tophet of Salammbo, Carthage': 'Stèle de Tanit – Tophet de Salammbô, Carthage',
+    'Corinthian Capital – Byrsa Hill, Carthage': 'Chapiteau corinthien – Colline de Byrsa, Carthage',
+    'Creative Director / Experiential Designer':
+        "Directrice ou directeur créatif / Conception d'expériences",
+    'Statue Fragment, Roman villas of Carthage': 'Fragment de statue, villas romaines de Carthage',
+    'Tanit XR at CityCamp Gainesville Hack Day': 'Tanit XR au CityCamp Gainesville Hack Day',
+    'Tilework Wall Panel, Zawiya of Sidi Sahbi':
+        'Panneau mural en carreaux de faïence, zaouïa de Sidi Sahbi',
+    'Bust Fragment – Roman Villas of Carthage': 'Fragment de buste – Villas romaines de Carthage',
+    'Photogrammetry, Grants and Opportunities': 'Photogrammétrie, bourses et opportunités',
+    'A 2,000-Year-Old Ghost Town on Cape Bon': 'Une ville fantôme vieille de 2 000 ans au Cap Bon',
+    'Bir (Traditional Well), Medina of Tunis': 'Bir (puits traditionnel), Médina de Tunis',
+    'Bust Fragment, Roman villas of Carthage': 'Fragment de buste, villas romaines de Carthage',
+    'Come and help us keep Tunisia’s history':
+        'Venez nous aider à préserver l’histoire de la Tunisie',
+    'Reclining Figure – Byrsa Hill, Carthage': 'Figure allongée – Colline de Byrsa, Carthage',
+    'Large Azure Stonecrop Succulent in Pot': 'Grande plante grasse bleutée en pot',
+    'Small Azure Stonecrop Succulent in Pot': 'Petite plante grasse bleutée en pot',
+    'Adopt a gallery in the virtual museum': 'Adoptez une salle du musée virtuel',
+    'Do I need to know 3D, or archaeology?': 'Faut-il connaître la 3D ou l’archéologie ?',
+    'Preservation scan and game-ready twin':
+        'Numérisation 3D de conservation et jumeau prêt pour le jeu',
+    'Washington, DC. Venue to be announced': 'Washington, DC. Lieu à annoncer',
+    'Gaussian splat captured with a phone': 'Splat gaussien capturé avec un téléphone',
+    'Sacred Niche, Water Temple, Zaghouan': 'Niche sacrée, temple des Eaux, Zaghouan',
+    'See the whole collection at a glance': "Voir toute la collection d'un coup d'œil",
+    'Your team&#x27;s hours, on real work': 'Les heures de votre équipe, sur du travail réel',
+    'Interior with Tilework and Fountain': 'Intérieur avec carreaux de faïence et fontaine',
+    'Learn to capture in 3D with a phone': 'Apprenez à capturer en 3D avec un téléphone',
+    'Niantic Spatial feature on Tanit XR': 'Article de Niantic Spatial sur Tanit XR',
+    'Roman Column – Byrsa Hill, Carthage': 'Colonne romaine – Colline de Byrsa, Carthage',
+    'Stone Basin, Water Temple, Zaghouan': 'Bassin en pierre, temple des Eaux, Zaghouan',
+    'Headless Draped Statue, Byrsa Hill': 'Statue drapée sans tête, colline de Byrsa',
+    'Niche Wall, Water Temple, Zaghouan': 'Mur à niches, temple des Eaux, Zaghouan',
+    'Press &amp; Recognition – TANIT XR': 'Presse et distinctions – TANIT XR',
+    'The picture you are about to share': "L'image que vous allez partager",
+    'Traditional Loom with Woven Carpet': 'Métier à tisser traditionnel avec tapis tissé',
+    'Reality Hack 2026 Art Grant (MIT)': 'Bourse artistique Reality Hack 2026 (MIT)',
+    'Sunday, September 20, 10am to 6pm': 'Dimanche 20 septembre, de 10h à 18h',
+    'Take the four-minute guided visit': 'Faites la visite guidée de quatre minutes',
+    'Tanit XR in person, Washington DC': 'Tanit XR en personne, Washington DC',
+    'Transparent background, red mark.': 'Fond transparent, marque rouge.',
+    'A Beginning: Why Tanit XR Exists': 'Un début : pourquoi Tanit XR existe',
+    "Explore Tunisia's heritage in 3D": 'Explorez le patrimoine tunisien en 3D',
+    'Inscribed Architectural Fragment': 'Fragment architectural inscrit',
+    'Tunisian Wooden Woven Table Lamp': 'Lampe de table tunisienne en bois tressé',
+    'What a partnership can look like': 'À quoi peut ressembler un partenariat',
+    'Roman Draped Statue, Byrsa Hill': 'Statue romaine drapée, colline de Byrsa',
+    'Domed hall with striped arches': 'Salle à coupole aux arcs rayés',
+    'A care day for a coastal site': "Une journée d'entretien pour un site côtier",
+    'Mihrab Niche, Medina of Tunis': 'Niche de mihrab, Médina de Tunis',
+    'Murex Shell - Murex Brandaris': 'Coquillage murex - Murex brandaris',
+    'Punic and Roman, exposed 2026': 'Punique et romain, mis au jour en 2026',
+    '3D Modeler & Web Contributor': 'Modeleur 3D et contributeur web',
+    'El Jem Conference 2026 paper': "Communication, conférence d'El Jem 2026",
+    'Immerse the Bay XR Hackathon': 'Hackathon XR Immerse the Bay',
+    'Reclining Figure, Byrsa Hill': 'Figure allongée, colline de Byrsa',
+    'Galleries, with the stories': 'Les galeries, avec les histoires',
+    'How much time does it take?': 'Combien de temps faut-il y consacrer ?',
+    'RAY Fellowship Program 2026': 'Programme de bourses RAY 2026',
+    'See the projects on Devpost': 'Voir les projets sur Devpost',
+    'Splats With Phones workshop': 'Atelier Splats With Phones',
+    'Strategy & Creative Support': 'Stratégie et soutien créatif',
+    'Wall with the sign of Tanit': 'Mur au signe de Tanit',
+    'Event · September 20, 2026': 'Événement · 20 septembre 2026',
+    'Mentoring & interview prep': 'Mentorat et préparation aux entretiens',
+    'Ornamental Mihrab (Mahram)': 'Mihrab ornemental (Mahram)',
+    '2D Design & 3D Generalist': 'Design 2D et généraliste 3D',
+    'Courtyard fountain, large': 'Fontaine de cour, grande',
+    'Draped Statue, Byrsa Hill': 'Statue drapée, colline de Byrsa',
+    'Fund the community itself': 'Financez la communauté elle-même',
+    'How do you work together?': 'Comment travaillez-vous ensemble ?',
+    'NEW INC Year 13 Open Call': 'NEW INC, appel à candidatures de la 13e année',
+    'See it in your space (AR)': "Voir l'objet chez vous (RA)",
+    'Splats With Phones course': 'Cours Splats With Phones',
+    'What we have already done': 'Ce que nous avons déjà fait',
+    'Explore in 3D – TANIT XR': 'Explorer en 3D – TANIT XR',
+    'Fountains and courtyards': 'Fontaines et patios',
+    'Illustrator and Designer': 'Illustration et design',
+    'Partnerships & Community': 'Partenariats et communauté',
+    'Press · October 12, 2025': 'Presse · 12 octobre 2025',
+    'Roman Column, Byrsa Hill': 'Colonne romaine, colline de Byrsa',
+    'Roman villas of Carthage': 'Villas romaines de Carthage',
+    'See the experience first': 'Voir l’expérience d’abord',
+    'Bring it to your region': 'Amenez le projet dans votre région',
+    'Browse the full\narchive': "Parcourir l'archive\ncomplète",
+    'Drawn by our volunteers': 'Dessiné par nos bénévoles',
+    'Floors people walked on': 'Des sols que l’on a foulés',
+    'From Mystery to History': "Du mystère à l'histoire",
+    'Open your saved objects': 'Ouvrir vos objets enregistrés',
+    'Water, carried and kept': 'L’eau, portée et gardée',
+    'Architecture and ruins': 'Architecture et ruines',
+    'Assorted Succulent Pot': 'Pot de plantes grasses variées',
+    'Back to the collection': 'Retour à la collection',
+    'Bird and Floral Mosaic': 'Mosaïque aux oiseaux et aux fleurs',
+    'Fluted Column Fragment': 'Fragment de colonne cannelée',
+    'Headless Draped Statue': 'Statue drapée sans tête',
+    'ImmerseGT participants': 'Participants à ImmerseGT',
+    'Podcast · July 2, 2026': 'Podcast · 2 juillet 2026',
+    'Sidi Bou Said, Tunisia': 'Sidi Bou Saïd, Tunisie',
+    'Standing Draped Statue': 'Statue drapée debout',
+    'Start the conversation': 'Lancez la conversation',
+    'The Kyoto Retreat 2026': 'La retraite de Kyoto 2026',
+    'The people of Carthage': 'Les habitants de Carthage',
+    'View this object in 3D': 'Voir cet objet en 3D',
+    'Water Temple, Zaghouan': 'Temple des Eaux, Zaghouan',
+    'AWE USA 2026, Speaker': 'AWE USA 2026, intervenante',
+    'Enter the galleries ↓': 'Entrer dans les salles ↓',
+    'Mini history lesson 3': 'Mini leçon d’histoire 3',
+    'Objects and artifacts': 'Objets et artefacts',
+    'Roman, 2nd century CE': 'Romain, IIe siècle de notre ère',
+    'Where to find us next': 'Où nous retrouver bientôt',
+    'April 10 to 12, 2026': 'Du 10 au 12 avril 2026',
+    'Arch, fourth pattern': 'Arche, quatrième motif',
+    'Arch, second pattern': 'Arc, deuxième motif',
+    'Events & conferences': 'Événements et conférences',
+    'Open the full record': 'Ouvrir la fiche complète',
+    'Paper · دارجة تونسية': 'Article · دارجة تونسية',
+    'Research and Writing': 'Recherche et rédaction',
+    'See it in your space': 'Voyez-le chez vous',
+    'Thursday, October 22': 'Jeudi 22 octobre',
+    'Zawiya of Sidi Sahbi': 'Zaouïa de Sidi Sahbi',
+    'Arch, first pattern': 'Arche, premier motif',
+    'Arch, third pattern': 'Arc, troisième motif',
+    'Medina of Tunis (7)': 'Médina de Tunis (7)',
+    'Rooms of the museum': 'Les salles du musée',
+    'Share my collection': 'Partager ma collection',
+    'Share to protect it': 'Partagez pour le protéger',
+    'Tilework Wall Panel': 'Panneau mural en carreaux de faïence',
+    '7th century onward': 'À partir du VIIe siècle',
+    '8th century onward': 'À partir du VIIIe siècle',
+    'How these are made': 'Comment tout cela est fabriqué',
+    'Lamps and lanterns': 'Lampes et lanternes',
+    'Partnership · 2026': 'Partenariat · 2026',
+    'Scanned in Tunisia': 'Numérisé en Tunisie',
+    'Stained glass lamp': 'Lampe en vitrail',
+    'Where prayer faces': 'Là où la prière se tourne',
+    'Words cut in stone': 'Des mots gravés dans la pierre',
+    'Browse every scan': 'Parcourir toutes les numérisations',
+    'Everyday heritage': 'Le patrimoine du quotidien',
+    'Exhibition · 2026': 'Exposition · 2026',
+    'Male Torso Statue': 'Statue de torse masculin',
+    'Preservation scan': 'Numérisation de préservation',
+    'Roman Column Base': 'Base de colonne romaine',
+    'Volunteer with us': 'Devenez bénévole',
+    'by Claire Natanek': 'par Claire Natanek',
+    '›&nbsp; Thank you': '›  Merci',
+    'At-risk heritage': 'Patrimoine en danger',
+    'Illustrations by': 'Illustrations de',
+    'New Site (Flood)': 'Nouveau site (inondation)',
+    'Podcasts & video': 'Podcasts et vidéos',
+    'Save the picture': 'Enregistrer l’image',
+    'Talk · June 2026': 'Conférence · juin 2026',
+    'The building kit': 'Le kit de construction',
+    '· August 6, 2026': '· 6 août 2026',
+    'El Jem, Tunisia': 'El Jem, Tunisie',
+    'Medina of Tunis': 'Médina de Tunis',
+    'Paper · English': 'Article · anglais',
+    'Previous object': 'Objet précédent',
+    'Read this aloud': 'Lire à voix haute',
+    'Your collection': 'Votre collection',
+    'you can edit it': 'vous pouvez le modifier',
+    '›&nbsp; Contact': '›  Contact',
+    'Carved ceiling': 'Plafond sculpté',
+    'Furnished room': 'Pièce meublée',
+    'Large clay pot': 'Grand pot en terre cuite',
+    'Read the paper': 'Lire l’article',
+    'Talks & events': 'Conférences et événements',
+    'XR Development': 'Développement XR',
+    '3D Generalist': 'Généraliste 3D',
+    'Community art': 'Art de la communauté',
+    'Explore in 3D': 'Explorer en 3D',
+    'Lamps (Unlit)': 'Lampes (éteintes)',
+    'Small details': 'Petits détails',
+    'Years covered': 'Années couvertes',
+    'Badge earned': 'Badge obtenu',
+    'Curved bench': 'Banc courbé',
+    'From the sea': 'Venu de la mer',
+    'Optimized by': 'Optimisé par',
+    'Tell me more': 'En savoir plus',
+    'XR Developer': 'Développeur XR',
+    'August 2026': 'Août 2026',
+    'Fill in the': 'Remplissez le',
+    'How to scan': 'Comment numériser',
+    'Lamps (Lit)': 'Lampes (allumées)',
+    'Open to all': 'Ouvert à tous',
+    'Ottoman era': 'Époque ottomane',
+    'Wall, solid': 'Mur, plein',
+    'Write to us': 'Écrivez-nous',
+    '11 objects': '11 objets',
+    '28 objects': '28 objets',
+    'Contact us': 'Nous contacter',
+    'March 2026': 'Mars 2026',
+    'Share this': 'Partager',
+    '3 objects': '3 objets',
+    '5 objects': '5 objets',
+    '7 objects': '7 objets',
+    '8 objects': '8 objets',
+    'Clay lamp': 'Lampe en terre cuite',
+    'Copy link': 'Copier le lien',
+    'Our story': 'Notre histoire',
+    'Palm tree': 'Palmier',
+    'Small pot': 'Petit pot',
+    'Wall lamp': 'Lampe murale',
+    'HALL III': 'SALLE III',
+    'Share it': 'Partagez-le',
+    'HALL IV': 'SALLE IV',
+    'Got it': 'Compris',
+    'HALL V': 'SALLE V',
+    'Next →': 'Suivant →',
 }
 
 
@@ -1546,5 +2005,448 @@ AR = {
     ">Get Involved</a>": ">شارك معنا</a>",
     ">Create Your Profile</a>": ">أنشئ ملفك الشخصي</a>",
     ">Scanning Guide</a>": ">دليل المسح</a>",
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'before recording people, private spaces, ceremonies, sacred practices, or\npersonal stories. Tanit XR is not just preserving objects, we are preserving the worlds, memories, and\nmeanings around them.':
+        'قبل تصوير الأشخاص أو الفضاءات الخاصة أو المراسم أو الممارسات المقدسة أو\nالقصص الشخصية. Tanit XR لا يحفظ القطع فقط، بل نحفظ العوالم والذكريات\nوالمعاني المحيطة بها.',
+    'The museum is ours to build, room by room. Fund one gallery, from its walls to the objects inside and the stories Nura tells there, and it carries your name in the browser and in the headset.':
+        'المتحف مِلكنا نبنيه قاعة بعد قاعة. مَوِّل قاعة واحدة، من جدرانها إلى القطع التي بداخلها والقصص التي ترويها Nura فيها، وستحمل اسمك في المتصفح وفي نظارة الواقع الافتراضي.',
+    'Unity developers, 3D artists, sound designers and writers are\nbuilding this on Thursday calls. Donations pay for the tools and hosting that get it onto headsets and into classrooms.':
+        'مطورو Unity وفنانو الأبعاد الثلاثة ومصممو الصوت والكتّاب\nيبنون هذا العمل في مكالمات الخميس. التبرعات تغطي الأدوات والاستضافة التي توصله إلى نظارات الواقع الافتراضي وإلى الفصول الدراسية.',
+    'Walls, arches and courtyards are built from a kit of pre-made pieces designed by Patrick Molen, so volunteers can puzzle together a new gallery without starting from scratch.':
+        'تُبنى الجدران والأقواس والأفنية من مجموعة قطع جاهزة صممها Patrick Molen، حتى يتمكن المتطوعون من تركيب قاعة جديدة كأحجية، دون البدء من الصفر.',
+    'Beyond photogrammetry scans, our volunteers model Tunisian objects, pottery, lamps,\ntilework, everyday heritage, from scratch, for our virtual museum and community projects.':
+        'إلى جانب المسوحات بالتصوير المجسّم، يصمّم متطوعونا من الصفر قطعًا تونسية، فخّارًا ومصابيح\nوزليجًا، تراث الحياة اليومية، من أجل متحفنا الافتراضي ومشاريعنا المجتمعية.',
+    'Five halls of real heritage, scanned on location by volunteers with phones and cameras.\nEvery object here can be turned, zoomed and opened in full. Nothing is behind glass.':
+        'خمس قاعات من تراث حقيقي، مسحها متطوعون في الموقع بهواتف وكاميرات.\nكل قطعة هنا يمكن إدارتها وتكبيرها وفتحها كاملة. لا شيء خلف زجاج.',
+    'The sizes on the labels are the real ones. A full museum you can walk through is being\nbuilt separately by Patrick, Cam and the team, and every object here will hang in it.':
+        'المقاسات المذكورة في البطاقات هي المقاسات الحقيقية. أما المتحف الكامل الذي يمكن التجول داخله فيبنيه\nبشكل منفصل Patrick وCam والفريق، وستُعرض فيه كل قطعة من هنا.',
+    'What sets the Unique Mappers apart is their ability to mobilize volunteers from diverse\nbackgrounds, including students, women and youth, for impactful mapping projects.':
+        'ما يميّز Unique Mappers هو قدرتهم على تعبئة متطوعين من خلفيات\nمتنوعة، من طلبة ونساء وشباب، لإنجاز مشاريع خرائط ذات أثر.',
+    'An evening with the Tanit XR community, planned with TAYP, the Tunisian American Young Professionals. Save the date. Details will follow here and in the newsletter.':
+        'أمسية مع مجتمع Tanit XR، بالتعاون مع TAYP، جمعية الشباب المهنيين التونسيين الأمريكيين. احجز التاريخ في مفكرتك. ستتبع التفاصيل هنا وفي النشرة البريدية.',
+    'Everything on this site was made by volunteers, on\nThursday calls and weekend scanning trips. Whatever time you have, there is a piece of this that is yours to\ndo.':
+        'كل ما في هذا الموقع أنجزه متطوعون، في\nمكالمات الخميس ورحلات المسح في عطلة نهاية الأسبوع. مهما كان الوقت المتاح لديك، هناك جزء من هذا العمل\nينتظرك.',
+    'and tell us what you enjoy doing. Someone from the team writes back, adds you to Slack, and you meet everyone on the next Thursday call. That is the whole process.':
+        'وأخبرونا بما تحبون القيام به. يرد عليكم أحد أعضاء الفريق ويضيفكم إلى Slack، فتلتقون بالجميع في مكالمة الخميس القادمة. هذه هي كل الخطوات.',
+    'Two thousand years ago, families set these stones in the Tophet of Carthage. Many still carry the sign of Tanit, the goddess this whole project is named after':
+        'قبل ألفي عام، نصبت عائلات هذه الحجارة في توفة قرطاج. وما زال كثير منها يحمل علامة تانيت، الإلهة التي حمل هذا المشروع كله اسمها',
+    'Build out the virtual museum and save toward professional scanning gear such as the XGRIDS PortalCam, so the community can capture more than a phone allows.':
+        'توسيع المتحف الافتراضي وادخار ما يلزم لاقتناء معدات مسح احترافية مثل XGRIDS PortalCam، حتى يتمكن المجتمع من التقاط ما يتجاوز قدرات الهاتف.',
+    'Volunteers from Tunisia, the US, Europe and Nigeria meet every Thursday at 12 pm Eastern (5 pm Tunisia) to review scans, plan trips and help each other.':
+        'يلتقي متطوعون من تونس والولايات المتحدة وأوروبا ونيجيريا كل خميس على الساعة 12 ظهرا بتوقيت شرق الولايات المتحدة (5 مساء بتوقيت تونس) لمراجعة عمليات المسح والتخطيط للرحلات ومساعدة بعضهم البعض.',
+    'Volunteers who have never been to Tunisia learn its history while modeling lamps, pottery and plants for our virtual museum, and we learn about theirs.':
+        'متطوعون لم يزوروا تونس قط يتعرفون على تاريخها وهم ينمذجون المصابيح والفخار والنباتات لمتحفنا الافتراضي، ونتعرف نحن بدورنا على تاريخهم.',
+    'The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.':
+        'تقوم شبكة Unique Mappers (أكثر من 500 عالم مواطن) باستنساخ نموذج Tanit XR في نيجيريا بمنحة صغيرة من الراعي المالي لمشروعنا.',
+    'Every object here, one at a time, in your browser. Turn it with a finger, hear its story\nfrom Nura, save and share it, or put on a headset.':
+        'كل قطعة هنا، واحدة تلو الأخرى، في متصفحك. أدرها بإصبعك، واستمع إلى قصتها\nمن Nura، واحفظها وشاركها، أو ارتدِ نظارة الواقع الافتراضي.',
+    'Mosaics from the Roman villas of Carthage. Somebody set every one of these little stones by hand, and people walked over them for centuries':
+        'فسيفساء من الفيلات الرومانية بقرطاج. وضع أحدهم كل حجرة صغيرة منها بيده، ومشى الناس فوقها قرونا',
+    'Punic stelae, Roman statues and mosaics, doors and tilework from the medina, the same scans you find in our open archive, placed life-size.':
+        'نُصب بونية وتماثيل وفسيفساء رومانية وأبواب وزليج من المدينة العتيقة بتونس، وهي نفس المسوحات الموجودة في أرشيفنا المفتوح، معروضة بحجمها الطبيعي.',
+    'Run a free workshop or course session for the community, Splats With Phones, history lessons, mentoring and interview prep for students.':
+        'قدّموا ورشة أو حصة تكوين مجانية للمجتمع: Splats With Phones، دروس تاريخ، إرشاد، وتحضير للمقابلات لفائدة الطلبة.',
+    'Most were captured with a phone. The halls are\nalso being rebuilt as a real space you can walk in VR, room by room, by the same team.':
+        'أغلبها التُقط بهاتف. كما يُعاد بناء القاعات\nكفضاء حقيقي يمكنك التجول فيه بالواقع الافتراضي، قاعة بعد قاعة، على يد الفريق نفسه.',
+    'Impact you can point at: every gallery, experience and piece your support made possible is public, in 3D, with your name beside it.':
+        'أثر يمكنك أن تشير إليه: كل قاعة وكل تجربة وكل قطعة أتاحها دعمك متاحة للعموم، بالأبعاد الثلاثة، واسمك إلى جانبها.',
+    'Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and our Scaniverse capture of the amphitheatre of El Jem.':
+        'أجرى Nathan Bowser حوارا مع Ines Said لفائدة Niantic Spatial حول Tanit XR وعملية التقاطنا بـScaniverse لمدرّج الجم.',
+    'Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.':
+        'بحثنا حول التوثيق الرقمي والواقع الممتد والعلوم التشاركية من أجل حفظ التراث بقيادة المجتمعات، قُدّم في أبريل 2026.',
+    'Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.':
+        'تقرير عن كيفية استخدام Tanit XR للمسح التصويري وScaniverse والسبلات الغاوسي لبناء أرشيف مفتوح للتراث التونسي.',
+    'Tell us about your team and what matters to you. We come back with two or three ways to work together, with real numbers.':
+        'حدّثونا عن فريقكم وعمّا يهمّكم. نعود إليكم بطريقتين أو ثلاث للعمل معا، بأرقام حقيقية.',
+    'Doors and tilework from Tunis and Kairouan that still open and close every day. This is heritage people live inside':
+        'أبواب وزليج من تونس والقيروان لا تزال تُفتح وتُغلق كل يوم. هذا تراث يعيش الناس داخله',
+    'Lamps, pottery and plants modeled by volunteers furnish the rooms. Optimized scans keep it light enough for phones.':
+        'مصابيح وفخّار ونباتات صمّمها متطوعون تؤثث القاعات. والمسوحات المحسّنة تبقي التجربة خفيفة بما يكفي للهواتف.',
+    'Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.':
+        'أجرى Kent Bye حوارا مع Ines Said في AWE USA 2026 حول التقاط الواقع بالهاتف، والمتطوعين، والتراث المهدَّد.',
+    'Tanit XR, Volunteer to help protect global heritage. Cultural memory powered by volunteers and digital technology.':
+        'Tanit XR، تطوّع للمساهمة في حماية التراث العالمي. ذاكرة ثقافية يحملها المتطوعون والتقنيات الرقمية.',
+    'Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.':
+        'تحدثت Ines Said في Augmented World Expo USA 2026 بمدينة لونغ بيتش في كاليفورنيا عن الواقع الممتد في خدمة الأثر الاجتماعي والتراث.',
+    'The technique is the easy part. Our guide also covers asking permission and\ntaking care of the place you are in.':
+        'التقنية هي الجزء السهل. دليلنا يشرح أيضا كيف تطلب الإذن وكيف\nتعتني بالمكان الذي أنت فيه.',
+    'We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.':
+        'رعينا مسارا خاصا بالتراث وجائزة قدرها 300 دولار، وقادت Dr. Caroline Nickerson ورشة حول العلوم التشاركية والواقع الممتد.',
+    'Cover a month of hosting and software for the open archive and the volunteers who optimize and publish models.':
+        'غطّوا شهرا من الاستضافة والبرمجيات للأرشيف المفتوح وللمتطوعين الذين يحسّنون النماذج وينشرونها.',
+    'It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.':
+        'وصلت رسالتك إلى بريد Tanit XR وسيقرؤها أحد المتطوعين قريبًا. نردّ عادة في غضون أيام قليلة.',
+    'Sound is on. Tap to mute. Music: Oriental Nights by Ahmad Al-Nakib (CC BY 3.0, via the Internet Archive)':
+        'الصوت مفعّل. انقر لكتمه. الموسيقى: Oriental Nights لـ Ahmad Al-Nakib (CC BY 3.0، عبر Internet Archive)',
+    'Where Tanit XR has been recognized, featured and heard. For\ninterviews, talks or media requests write to':
+        'أين حظيت Tanit XR بالتقدير والتغطية والاهتمام. لطلبات\nالمقابلات أو المحاضرات أو وسائل الإعلام راسلونا على',
+    'Columns and capitals from the temples, baths and villas. The roofs are long gone. These stayed standing':
+        'أعمدة وتيجان أعمدة من المعابد والحمامات والفيلات. السقوف اختفت منذ زمن بعيد. أما هذه فبقيت واقفة',
+    'A member of the team welcomes you, and you meet everyone on the next call, Thursdays at 12 pm Eastern.':
+        'يستقبلك أحد أعضاء الفريق، ثم تلتقي بالجميع في المكالمة القادمة، كل خميس على الساعة 12 ظهرًا بتوقيت شرق الولايات المتحدة.',
+    'Ambient sound recorded at the real places, wind, footsteps, echoes, so each gallery feels different.':
+        'أصوات محيطة مسجلة في الأماكن الحقيقية، الريح والخطوات والأصداء، حتى تبدو كل قاعة مختلفة عن الأخرى.',
+    'Optimize a scan, write the history of an object, model something Tunisian, or plan a scanning trip.':
+        'حسّن عملية مسح، أو اكتب تاريخ قطعة، أو أنجز نموذجا لشيء تونسي، أو خطّط لرحلة مسح.',
+    ', bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces':
+        '، المخابز والورشات والأسواق وأماكن التجمّع وموروثات العائلة والحدائق والفضاءات المشتركة',
+    'New Neapolis Site Revealed By Recent Floods(Storm Harry) In Tunisia. Scanned by Youssef Lakdhar!.':
+        'موقع جديد في نيابوليس كشفت عنه الفيضانات الأخيرة (عاصفة هاري) في تونس. مسحه Youssef Lakdhar!.',
+    ', pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items':
+        '، فخار وأدوات ومنحوتات وتماثيل وزليج وحلي ومنسوجات ونقوش وأدوات منزلية',
+    'Ines Said on why Tanit XR exists and where it is going, published in the Women Write collection.':
+        'Ines Said تتحدث عن سبب وجود Tanit XR وعن وجهتها، ضمن مجموعة Women Write.',
+    'Medium / Women Write, Tanit XR: Preserving Tunisia&#x27;s Heritage Through Immersive Technology':
+        'Medium / Women Write، Tanit XR: صون التراث التونسي بالتقنيات الغامرة',
+    'The virtual museum in March 2026: a domed hall with striped arches, tiled floors and a fountain':
+        'المتحف الافتراضي في مارس 2026: قاعة بقبة وأقواس مخططة وأرضيات مبلطة ونافورة',
+    'Portfolio reviews, mock interviews and career advice for students and early-career volunteers.':
+        'مراجعة الملفات الفنية ومقابلات تجريبية ونصائح مهنية للطلبة والمتطوعين في بداية مسارهم.',
+    'The second wing of the virtual museum under construction, a colonnade and galleries in greybox':
+        'الجناح الثاني من المتحف الافتراضي قيد الإنشاء، رواق أعمدة وقاعات في مرحلة النماذج الأولية',
+    'A 6-week course with Mark Jeffcock on capturing 3D models and Gaussian splats with a phone.':
+        'دورة على مدى 6 أسابيع مع Mark Jeffcock حول التقاط النماذج ثلاثية الأبعاد وسحب غاوس بالهاتف.',
+    'Pick one, or shape one with us. We build each partnership around your team and your budget.':
+        'اختاروا واحدة، أو لنصممها معا. نبني كل شراكة حول فريقكم وميزانيتكم.',
+    'A loom, a carpet. Nothing grand, just what people used, which is exactly why we kept them':
+        'نول وسجادة. لا شيء فخم، مجرد ما كان الناس يستعملونه، ولهذا بالضبط حفظناهما',
+    'Two hands holding a phone that shows the Draped Statue of Byrsa Hill in augmented reality':
+        'يدان تمسكان هاتفا يعرض التمثال المكسوّ بالثوب من تل بيرصا بالواقع المعزّز',
+    'Latin and Arabic inscriptions, every letter cut by hand. Some of them can still be read':
+        'نقوش لاتينية وعربية، كل حرف منها محفور باليد. وبعضها لا يزال مقروءا',
+    'What you do, what you are studying, or any communities or projects you are involved in.':
+        'ما تعملونه، أو ما تدرسونه، أو أي مجتمعات ومشاريع تشاركون فيها.',
+    ', patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements':
+        '، أنماط، ملامس، رموز، أضرار، ترميمات، علامات الصانع، أو عناصر زخرفية',
+    'Every share helps more people see this. Pick where it goes, the caption comes along.':
+        'كل مشاركة تساعد عددًا أكبر من الناس على رؤية هذا. اختر وجهة النشر، والتعليق يرافقه.',
+    "Send it our way, if it's a fit, it will appear on this board\nand in the newsletter.":
+        'أرسلوها إلينا، وإن كانت مناسبة فستظهر على هذه اللوحة\nوفي النشرة البريدية.',
+    'Carthage Magazine, Preserving Tunisia&#x27;s Heritage Through Immersive Technology':
+        'Carthage Magazine، الحفاظ على التراث التونسي عبر التقنيات الغامرة',
+    'Material and Meaning: Marble Identity, and Cultural Exchange in Ancient Carthage':
+        'المادة والمعنى: الرخام والهوية والتبادل الثقافي في قرطاج القديمة',
+    'A tagine and a plate: the everyday Tunisia our volunteers wanted in the museum':
+        'طاجين وصحن: تونس اليومية التي أراد متطوعونا وجودها في المتحف',
+    'Music: Oriental Nights by Ahmad Al-Nakib (CC BY 3.0, via the Internet Archive)':
+        'الموسيقى: Oriental Nights لأحمد النقيب (CC BY 3.0، عبر Internet Archive)',
+    'Succulents, a cactus, clay pots and palms for the museum&#x27;s courtyards':
+        'نباتات عصارية وصبار وأوانٍ فخارية ونخيل لأفنية المتحف',
+    'The virtual museum courtyard with a pool, terraces and a sculpted canopy':
+        'فناء المتحف الافتراضي ببركة وشرفات ومظلة منحوتة',
+    'Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR':
+        'Voices of VR #1728، حفظ التراث الثقافي التونسي مع Tanit XR',
+    'Carved Architectural Blocks with Laurel Motifs, Water Temple, Zaghouan':
+        'كتل معمارية منقوشة بزخارف الغار، معبد المياه، زغوان',
+    'Carved Architectural Block with Laurel Motifs, Water Temple, Zaghouan':
+        'كتلة معمارية منحوتة بزخارف الغار، معبد المياه، زغوان',
+    'El Jem Conference 2026, Paper in English, French and Tunisian Arabic':
+        'مؤتمر الجم 2026، ورقة بالإنجليزية والفرنسية والعربية التونسية',
+    'Second wing under construction, colonnade and galleries in greybox.':
+        'الجناح الثاني قيد الإنشاء، رواق الأعمدة والقاعات في مرحلة النماذج الأولية (greybox).',
+    'Not Your Grandma’s Gallery – Open Call for Artists (The Holy Art)':
+        'Not Your Grandma’s Gallery – دعوة مفتوحة للفنانين (The Holy Art)',
+    'The murex shell whose dye made Carthage rich and its cloth purple':
+        'صدفة الموركس التي أثرت صبغتها قرطاج وصبغت أقمشتها بالأرجوان',
+    'Used only to contact you about your profile, it is not published.':
+        'يُستعمل فقط للتواصل معك بخصوص ملفك الشخصي، ولا يُنشر.',
+    'An amphora wearing a graduation cap, with a book titled Carthage':
+        'جرة أمفورا تعتمر قبعة التخرج، وإلى جانبها كتاب عنوانه قرطاج',
+    'Looking for a specific scan, a\ndownload or the game-ready twins?':
+        'تبحث عن مسح معيّن أو\nملف للتنزيل أو النسخ الجاهزة للألعاب؟',
+    'A globe with Tanit XR volunteers standing on every continent':
+        'كرة أرضية يقف عليها متطوعو Tanit XR في كل قارة',
+    'VIVERSE Creator Program – Creator Grants for WebXR Worlds':
+        'برنامج VIVERSE للمبدعين – منح لصنّاع عوالم WebXR',
+    'UNESCO Youth Climate Action Network – YoU-CAN Membership':
+        'شبكة اليونسكو للعمل المناخي الشبابي – عضوية YoU-CAN',
+    'Inscribed Architectural Fragment – Byrsa Hill, Carthage':
+        'شظية معمارية منقوشة – تل بيرصا، قرطاج',
+    'CityCamp Gainesville Hack Day 2026, heritage challenge':
+        'CityCamp Gainesville Hack Day 2026، تحدي التراث',
+    'Courtyard with pool, terraces and the sculpted canopy.': 'فناء ببركة وشرفات ومظلة منحوتة.',
+    'TanitXR &amp; the Unique Mappers, expanding to Nigeria':
+        'TanitXR وUnique Mappers، التوسّع إلى نيجيريا',
+    'Documentation numérique, XR et science participative.':
+        'التوثيق الرقمي والواقع الممتد والعلوم التشاركية.',
+    'Games for Change 2026 Student Challenge (Competition)':
+        'تحدي الطلبة Games for Change 2026 (مسابقة)',
+    'Mini history lesson 2, Carthage&#x27;s craft quarters':
+        'درس تاريخ مصغر 2، الأحياء الحرفية بقرطاج',
+    'Volunteer with Tanit XR, Preserve Heritage in 3D & XR':
+        'تطوّعوا مع Tanit XR، واحفظوا التراث بالثلاثي الأبعاد وتقنيات XR',
+    'Traditional Loom with Woven Carpet – Medina of Tunis':
+        'نول تقليدي مع سجادة منسوجة – المدينة العتيقة بتونس',
+    'ImmerseGT at Georgia Tech, sponsored heritage track':
+        'ImmerseGT في جورجيا تك، مسار تراثي برعاية',
+    'Morgan-Menil Fellowship 2026-27 (Drawing Institute)':
+        'زمالة Morgan-Menil 2026-27 (Drawing Institute)',
+    'Traditional Loom with Woven Carpet, Medina of Tunis':
+        'منسج تقليدي مع زربية منسوجة، المدينة العتيقة بتونس',
+    'CityCamp Gainesville Hack Day: two Tanit XR tracks':
+        'CityCamp Gainesville Hack Day: مساران لـ Tanit XR',
+    'Decorated Bust Fragment – Roman Villas of Carthage':
+        'شظية تمثال نصفي مزخرف – الفيلات الرومانية بقرطاج',
+    'Bird and Floral Mosaic – Roman Villas of Carthage':
+        'فسيفساء الطيور والزهور – الفيلات الرومانية بقرطاج',
+    'Decorated Bust Fragment, Roman villas of Carthage':
+        'شظية تمثال نصفي مزخرف، الفيلات الرومانية بقرطاج',
+    'Mihrab Niche – Madrasa Al-Bachia, Medina of Tunis':
+        'محراب – المدرسة الباشية، المدينة العتيقة بتونس',
+    'Bird and Floral Mosaic, Roman villas of Carthage':
+        'فسيفساء الطيور والزهور، الفيلات الرومانية بقرطاج',
+    'Decorated Bust Fragment – Roman Villas of Carth…':
+        'شظية تمثال نصفي مزخرف – الفيلات الرومانية بقرط…',
+    'Folger Institute Long-Term Fellowships 2026-2027':
+        'زمالات طويلة المدى من Folger Institute 2026-2027',
+    'Latin Inscription Slab  Water Temple of Zaghouan': 'لوح بنقش لاتيني  معبد المياه بزغوان',
+    'Roman Mosaic with Bird and Vine Motifs – Villas…':
+        'فسيفساء رومانية بزخارف الطيور والكرمة – فيلات…',
+    'Wooden Door with Tilework – Zawiya of Sidi Sahbi': 'باب خشبي بالزليج – زاوية سيدي الصحبي',
+    'Punic Stelae Row – Tophet of Salammbo, Carthage': 'صف نُصب بونية – توفة سلامبو، قرطاج',
+    'Wooden Door with Tilework, Zawiya of Sidi Sahbi': 'باب خشبي بالزليج، زاوية سيدي الصحبي',
+    'Bird of Prey Statue – Roman Villas of Carthage': 'تمثال طائر جارح – الفيلات الرومانية بقرطاج',
+    'Bobby Anspach Studios Foundation Grant Program': 'برنامج منح مؤسسة Bobby Anspach Studios',
+    'Latin Inscription Slab, Water Temple, Zaghouan': 'لوح بنقش لاتيني، معبد المياه، زغوان',
+    'Punic Stelae Row, Tophet of Salammbo, Carthage': 'صف من الأنصاب البونية، توفة سلامبو، قرطاج',
+    'Reviewing scans together in an immersive space': 'مراجعة عمليات المسح معا في فضاء غامر',
+    'Water and stone for the museum&#x27;s open air': 'ماء وحجر لفضاء المتحف المفتوح',
+    'Architectural Fragments  - Baths of Antoninus': 'شظايا معمارية  - حمامات أنطونينوس',
+    'Bird of Prey Statue, Roman villas of Carthage': 'تمثال طائر جارح، الفيلات الرومانية بقرطاج',
+    'Carved Architectural Block with Laurel Motifs': 'كتلة معمارية منقوشة بزخارف الغار',
+    'Every one of these was scanned by a volunteer': 'كل قطعة من هذه مسحها متطوّع',
+    'Fluted Column Fragment – Byrsa Hill, Carthage': 'شظية عمود مضلّع – تل بيرصا، قرطاج',
+    'Headless Draped Statue – Byrsa Hill, Carthage': 'تمثال مدثر بلا رأس – تل بيرصا، قرطاج',
+    "Keep a country's memory, with your name on it": 'احفظوا ذاكرة بلد، باسمكم عليها',
+    'Reitz Union, Room G330, University of Florida': 'Reitz Union، قاعة G330، جامعة فلوريدا',
+    'Inscribed Architectural Fragment, Byrsa Hill': 'شظية معمارية منقوشة، تل بيرصا',
+    'Leadership and Techplomacy Summit Dubai 2026': 'قمة القيادة والدبلوماسية التقنية، دبي 2026',
+    'Male Torso Statue – Roman Villas of Carthage': 'تمثال جذع رجل – الفيلات الرومانية بقرطاج',
+    'Punic Stelae – Tophet of Salammbo (Carthage)': 'نُصُب بونية – توفة سلامبو (قرطاج)',
+    'Architectural Fragments, Baths of Antoninus': 'شظايا معمارية، حمامات أنطونينوس',
+    'First Phoenicians and Tyrian Purple Origins': 'الفينيقيون الأوائل وأصول الأرجوان الصوري',
+    'Ornamental Mihrab (Mahram), Medina of Tunis': 'محراب زخرفي (محرم)، المدينة العتيقة بتونس',
+    'Roman Togatus Statue – Byrsa Hill, Carthage': 'تمثال روماني بالتوغا – تل بيرصا، قرطاج',
+    'Sacred Niche – Roman Water Temple, Zaghouan': 'حنية مقدسة – معبد المياه الروماني، زغوان',
+    'Marble Calligraphic Panel – Zitouna Mosque': 'لوحة خطّية من الرخام – جامع الزيتونة',
+    'Punic Stela – Tophet of Salammbo, Carthage': 'نصب بوني – توفة سلامبو، قرطاج',
+    'Punic Stelae, Tophet of Salammbo, Carthage': 'نصب بونية، توفة سلامبو، قرطاج',
+    'Roman Draped Statue – Byrsa Hill, Carthage': 'تمثال روماني بثوب منسدل – تل بيرصا، قرطاج',
+    'Tanit Stela – Tophet of Salammbo, Carthage': 'نصب تانيت – توفة سلامبو، قرطاج',
+    'Corinthian Capital – Byrsa Hill, Carthage': 'تاج عمود كورنثي – تل بيرصا، قرطاج',
+    'Creative Director / Experiential Designer': 'مدير إبداعي / مصمم تجارب',
+    'Statue Fragment, Roman villas of Carthage': 'شظية تمثال، الفيلات الرومانية بقرطاج',
+    'Tanit XR at CityCamp Gainesville Hack Day': 'Tanit XR في CityCamp Gainesville Hack Day',
+    'Tilework Wall Panel, Zawiya of Sidi Sahbi': 'لوحة جدارية من الزليج، زاوية سيدي الصحبي',
+    'Bust Fragment – Roman Villas of Carthage': 'شظية تمثال نصفي – الفيلات الرومانية بقرطاج',
+    'Photogrammetry, Grants and Opportunities': 'المسح التصويري، المنح والفرص',
+    'A 2,000-Year-Old Ghost Town on Cape Bon': 'مدينة أشباح عمرها 2000 عام في الوطن القبلي',
+    'Bir (Traditional Well), Medina of Tunis': 'بئر تقليدية، المدينة العتيقة بتونس',
+    'Bust Fragment, Roman villas of Carthage': 'شظية تمثال نصفي، الفيلات الرومانية بقرطاج',
+    'Come and help us keep Tunisia’s history': 'تعال وساعدنا في حفظ تاريخ تونس',
+    'Reclining Figure – Byrsa Hill, Carthage': 'تمثال مستلقٍ – تل بيرصا، قرطاج',
+    'Article de la conférence d’El Jem 2026': 'ورقة مؤتمر الجم 2026',
+    'Large Azure Stonecrop Succulent in Pot': 'نبتة عصارية كبيرة زرقاء في أصيص',
+    'Small Azure Stonecrop Succulent in Pot': 'نبتة عصارية زرقاء صغيرة في إناء',
+    'Adopt a gallery in the virtual museum': 'تبنّوا قاعة في المتحف الافتراضي',
+    'Do I need to know 3D, or archaeology?': 'هل يلزمني إتقان الأبعاد الثلاثة أو علم الآثار؟',
+    'Preservation scan and game-ready twin': 'مسح ثلاثي الأبعاد للحفظ ونسخة توأم جاهزة للألعاب',
+    'Washington, DC. Venue to be announced': 'واشنطن العاصمة. سيُعلن عن المكان لاحقًا',
+    'Gaussian splat captured with a phone': 'سبلات غاوسي ملتقط بهاتف',
+    'Sacred Niche, Water Temple, Zaghouan': 'كوّة مقدسة، معبد المياه، زغوان',
+    'See the whole collection at a glance': 'اطّلع على المجموعة كاملة في لمحة',
+    'Your team&#x27;s hours, on real work': 'ساعات فريقك، في عمل حقيقي',
+    'Interior with Tilework and Fountain': 'فضاء داخلي بالزليج ونافورة',
+    'Learn to capture in 3D with a phone': 'تعلّم التقاط النماذج ثلاثية الأبعاد بهاتفك',
+    'Niantic Spatial feature on Tanit XR': 'تقرير Niantic Spatial عن Tanit XR',
+    'Roman Column – Byrsa Hill, Carthage': 'عمود روماني – تل بيرصا، قرطاج',
+    'Stone Basin, Water Temple, Zaghouan': 'حوض حجري، معبد المياه، زغوان',
+    'Headless Draped Statue, Byrsa Hill': 'تمثال مكسو بالثوب بلا رأس، تل بيرصا',
+    'Niche Wall, Water Temple, Zaghouan': 'جدار المحاريب، معبد المياه، زغوان',
+    'Press &amp; Recognition – TANIT XR': 'الصحافة والتقدير – TANIT XR',
+    'The picture you are about to share': 'الصورة التي أنت على وشك مشاركتها',
+    'Traditional Loom with Woven Carpet': 'منسج تقليدي مع زربية منسوجة',
+    'Reality Hack 2026 Art Grant (MIT)': 'منحة Reality Hack 2026 الفنية (MIT)',
+    'Sunday, September 20, 10am to 6pm': 'الأحد 20 سبتمبر، من العاشرة صباحا إلى السادسة مساء',
+    'Take the four-minute guided visit': 'قوموا بالجولة المصحوبة في أربع دقائق',
+    'Tanit XR in person, Washington DC': 'Tanit XR حضوريًا، واشنطن العاصمة',
+    'Transparent background, red mark.': 'خلفية شفافة، علامة حمراء.',
+    'A Beginning: Why Tanit XR Exists': 'البداية: لماذا وُجدت Tanit XR',
+    "Explore Tunisia's heritage in 3D": 'استكشف التراث التونسي بالأبعاد الثلاثة',
+    'Inscribed Architectural Fragment': 'شظية معمارية منقوشة',
+    'Tunisian Wooden Woven Table Lamp': 'مصباح طاولة تونسي من الخشب المضفور',
+    'What a partnership can look like': 'كيف يمكن أن تبدو الشراكة',
+    'Roman Draped Statue, Byrsa Hill': 'تمثال روماني مكسوّ بالثوب، تل بيرصا',
+    'Domed hall with striped arches': 'قاعة مقبّبة بأقواس مخططة',
+    'A care day for a coastal site': 'يوم عناية بموقع ساحلي',
+    'Mihrab Niche, Medina of Tunis': 'حنية محراب، المدينة العتيقة بتونس',
+    'Murex Shell - Murex Brandaris': 'صدفة موركس - Murex brandaris',
+    'Punic and Roman, exposed 2026': 'بوني وروماني، كُشف عنه سنة 2026',
+    '3D Modeler & Web Contributor': 'نمذجة ثلاثية الأبعاد ومساهمة في الويب',
+    'El Jem Conference 2026 paper': 'ورقة بحثية، مؤتمر الجم 2026',
+    'Immerse the Bay XR Hackathon': 'هاكاثون الواقع الممتد Immerse the Bay',
+    'Reclining Figure, Byrsa Hill': 'تمثال مستلقٍ، تل بيرصا',
+    'Creative Capital Award 2027': 'جائزة Creative Capital 2027',
+    'Galleries, with the stories': 'القاعات، مع الحكايات',
+    'How much time does it take?': 'كم من الوقت يتطلب ذلك؟',
+    'RAY Fellowship Program 2026': 'برنامج زمالة RAY 2026',
+    'See the projects on Devpost': 'اطّلع على المشاريع على Devpost',
+    'Splats With Phones workshop': 'ورشة Splats With Phones',
+    'Strategy & Creative Support': 'الاستراتيجية والدعم الإبداعي',
+    'Wall with the sign of Tanit': 'جدار يحمل علامة تانيت',
+    'Event · September 20, 2026': 'فعالية · 20 سبتمبر 2026',
+    'Mentoring & interview prep': 'الإرشاد والتحضير للمقابلات',
+    'Ornamental Mihrab (Mahram)': 'محراب مزخرف (محرم)',
+    '2D Design & 3D Generalist': 'تصميم ثنائي الأبعاد وأعمال ثلاثية الأبعاد',
+    'Courtyard fountain, large': 'نافورة الفناء، كبيرة',
+    'Draped Statue, Byrsa Hill': 'تمثال مكسوّ بالثوب، تل بيرصا',
+    'Fund the community itself': 'موّل المجتمع نفسه',
+    'How do you work together?': 'كيف تعملون معا؟',
+    'NEW INC Year 13 Open Call': 'NEW INC، دعوة مفتوحة للسنة الثالثة عشرة',
+    'See it in your space (AR)': 'شاهدوها في مكانكم (الواقع المعزز)',
+    'Splats With Phones course': 'دورة Splats With Phones',
+    'What we have already done': 'ما أنجزناه حتى الآن',
+    'Explore in 3D – TANIT XR': 'استكشف بالأبعاد الثلاثة – TANIT XR',
+    'Fountains and courtyards': 'النوافير والأفنية',
+    'Illustrator and Designer': 'الرسم والتصميم',
+    'Partnerships & Community': 'الشراكات والمجتمع',
+    'Press · October 12, 2025': 'صحافة · 12 أكتوبر 2025',
+    'Roman Column, Byrsa Hill': 'عمود روماني، تل بيرصا',
+    'Roman villas of Carthage': 'الفيلات الرومانية بقرطاج',
+    'See the experience first': 'شاهدوا التجربة أولا',
+    'Bring it to your region': 'انقل المشروع إلى منطقتك',
+    'Browse the full\narchive': 'تصفحوا الأرشيف\nكاملا',
+    'Drawn by our volunteers': 'من رسم متطوعينا',
+    'Floors people walked on': 'أرضيات مشى عليها الناس',
+    'From Mystery to History': 'من الغموض إلى التاريخ',
+    'Open your saved objects': 'افتح قطعك المحفوظة',
+    'Water, carried and kept': 'الماء، محمولا ومحفوظا',
+    'Architecture and ruins': 'العمارة والأطلال',
+    'Assorted Succulent Pot': 'إناء نباتات عصارية متنوعة',
+    'Back to the collection': 'العودة إلى المجموعة',
+    'Bird and Floral Mosaic': 'فسيفساء بطيور وزخارف نباتية',
+    'Fluted Column Fragment': 'شظية عمود مضلّع',
+    'Headless Draped Statue': 'تمثال مدثر بلا رأس',
+    'ImmerseGT participants': 'المشاركون في ImmerseGT',
+    'Podcast · July 2, 2026': 'بودكاست · 2 جويلية 2026',
+    'Sidi Bou Said, Tunisia': 'سيدي بوسعيد، تونس',
+    'Standing Draped Statue': 'تمثال مدثر واقف',
+    'Start the conversation': 'ابدأ المحادثة',
+    'The Kyoto Retreat 2026': 'خلوة كيوتو 2026',
+    'The people of Carthage': 'أهل قرطاج',
+    'View this object in 3D': 'شاهد هذه القطعة ثلاثية الأبعاد',
+    'Water Temple, Zaghouan': 'معبد المياه، زغوان',
+    'AWE USA 2026, Speaker': 'AWE USA 2026، متحدثة',
+    'Enter the galleries ↓': 'ادخلوا القاعات ↓',
+    'Mini history lesson 3': 'درس تاريخ مصغّر 3',
+    'Objects and artifacts': 'القطع والآثار',
+    'Roman, 2nd century CE': 'روماني، القرن الثاني الميلادي',
+    'Where to find us next': 'أين تجدوننا قريبا',
+    'April 10 to 12, 2026': 'من 10 إلى 12 أبريل 2026',
+    'Arch, fourth pattern': 'قوس، النقش الرابع',
+    'Arch, second pattern': 'قوس، الزخرفة الثانية',
+    'Events & conferences': 'فعاليات ومؤتمرات',
+    'Open the full record': 'فتح السجل الكامل',
+    'Paper · دارجة تونسية': 'ورقة بحثية · دارجة تونسية',
+    'Research and Writing': 'البحث والكتابة',
+    'See it in your space': 'شاهدوه في مكانكم',
+    'Thursday, October 22': 'الخميس 22 أكتوبر',
+    'Zawiya of Sidi Sahbi': 'زاوية سيدي الصحبي',
+    'Arch, first pattern': 'قوس، النقش الأول',
+    'Arch, third pattern': 'قوس، الزخرفة الثالثة',
+    'Medina of Tunis (7)': 'المدينة العتيقة بتونس (7)',
+    'Rooms of the museum': 'قاعات المتحف',
+    'Share my collection': 'مشاركة مجموعتي',
+    'Share to protect it': 'شارِك لتحميه',
+    'Tilework Wall Panel': 'لوحة جدارية من الزليج',
+    '7th century onward': 'من القرن السابع فصاعدا',
+    '8th century onward': 'من القرن الثامن فصاعدًا',
+    'Contact – TANIT XR': 'اتصلوا بنا – TANIT XR',
+    'How these are made': 'كيف تُصنع هذه الأعمال',
+    'Lamps and lanterns': 'مصابيح وفوانيس',
+    'Partnership · 2026': 'شراكة · 2026',
+    'Scanned in Tunisia': 'مسح في تونس',
+    'Stained glass lamp': 'مصباح من الزجاج الملوّن',
+    'Where prayer faces': 'حيث تتّجه الصلاة',
+    'Words cut in stone': 'كلمات محفورة في الحجر',
+    'Browse every scan': 'تصفّح كل عمليات المسح',
+    'Everyday heritage': 'تراث الحياة اليومية',
+    'Exhibition · 2026': 'معرض · 2026',
+    'Male Torso Statue': 'تمثال جذع رجل',
+    'Preservation scan': 'مسح من أجل الحفظ',
+    'Roman Column Base': 'قاعدة عمود روماني',
+    'Volunteer with us': 'تطوّع معنا',
+    'by Claire Natanek': 'من إنجاز Claire Natanek',
+    '›&nbsp; Thank you': '›  شكرًا لك',
+    'At-risk heritage': 'تراث مهدَّد',
+    'Illustrations by': 'الرسوم التوضيحية من إنجاز',
+    'Logo, horizontal': 'الشعار، أفقي',
+    'New Site (Flood)': 'موقع جديد (فيضان)',
+    'Podcasts & video': 'بودكاست وفيديو',
+    'Save the picture': 'حفظ الصورة',
+    'Talk · June 2026': 'محاضرة · يونيو 2026',
+    'The building kit': 'مجموعة عناصر البناء',
+    '· August 6, 2026': '· 6 أوت 2026',
+    'El Jem, Tunisia': 'الجم، تونس',
+    'Medina of Tunis': 'المدينة العتيقة بتونس',
+    'Paper · English': 'ورقة بحثية · بالإنجليزية',
+    'Previous object': 'القطعة السابقة',
+    'Read this aloud': 'استمعوا إلى النص',
+    'Your collection': 'مجموعتك',
+    'you can edit it': 'يمكنكم تعديلها',
+    '›&nbsp; Contact': '›  اتصلوا بنا',
+    'Article · 2026': 'مقال · 2026',
+    'Carved ceiling': 'سقف منقوش',
+    'Furnished room': 'غرفة مؤثثة',
+    'Large clay pot': 'إناء فخاري كبير',
+    'Logo, vertical': 'الشعار، عمودي',
+    'Read the paper': 'اقرأوا الورقة البحثية',
+    'Talks & events': 'محاضرات وفعاليات',
+    'XR Development': 'تطوير الواقع الممتد',
+    '3D Generalist': 'مصمّم ثلاثي الأبعاد متعدّد المهام',
+    'Community art': 'فن المجتمع',
+    'Explore in 3D': 'استكشاف ثلاثي الأبعاد',
+    'Lamps (Unlit)': 'مصابيح (غير مضاءة)',
+    'Small details': 'تفاصيل صغيرة',
+    'Years covered': 'السنوات المشمولة',
+    'Badge earned': 'تم الحصول على الشارة',
+    'Curved bench': 'مقعد منحني',
+    'From the sea': 'من البحر',
+    'Kairouan (4)': 'القيروان (4)',
+    'Neapolis (1)': 'نابوليس (1)',
+    'Optimized by': 'تحسين بواسطة',
+    'Tell me more': 'أخبروني أكثر',
+    'XR Developer': 'مطوّر XR',
+    'Zaghouan (7)': 'زغوان (7)',
+    'August 2026': 'أغسطس 2026',
+    'Fill in the': 'املأوا',
+    'How to scan': 'كيفية المسح الثلاثي الأبعاد',
+    'Lamps (Lit)': 'مصابيح (مضاءة)',
+    'Open to all': 'مفتوح للجميع',
+    'Ottoman era': 'العهد العثماني',
+    'Wall, solid': 'جدار مصمت',
+    'Write to us': 'راسلونا',
+    '11 objects': '11 قطعة',
+    '28 objects': '28 قطعة',
+    'Contact us': 'اتصلوا بنا',
+    'March 2026': 'مارس 2026',
+    'Share this': 'شارك هذا',
+    '3 objects': '3 قطع',
+    '5 objects': '5 قطع',
+    '7 objects': '7 قطع',
+    '8 objects': '8 قطع',
+    'Clay lamp': 'مصباح من الطين',
+    'Copy link': 'نسخ الرابط',
+    'Our story': 'قصتنا',
+    'Palm tree': 'نخلة',
+    'Small pot': 'إناء صغير',
+    'Wall lamp': 'مصباح حائطي',
+    'HALL III': 'القاعة الثالثة',
+    'Share it': 'شاركوها',
+    'HALL IV': 'القاعة الرابعة',
+    'Got it': 'فهمت',
+    'HALL V': 'القاعة الخامسة',
+    'Next →': 'التالي →',
 }
 
