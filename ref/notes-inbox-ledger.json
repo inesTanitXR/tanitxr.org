@@ -104,7 +104,8 @@
    "key": "https www instagram com p ddsul4ojidr can you se einstgram posts",
    "date": "2026-09-20",
    "source": "note",
-   "status": "unreadable: Instagram requires a login, WebFetch returns an empty page. Line kept in the ADD NEW area; asked Ines to screenshot the post into the iCloud Opportunities Inbox folder instead."
+   "status": "resolved 2026-09-20: opened the post in the built-in browser (WebFetch and the embed endpoint both return the logged-out shell, a real browser renders the caption). Post is by @acm_chi: CHI 2027 Call for Meet-ups, due Thursday October 1, 2026, chi2027.acm.org/authors/meet-ups. Added to the board, edition 19 and the shortlist.",
+   "resolved_via": "built-in browser (logged out); use it for future instagram.com/p/ links instead of WebFetch"
   },
   {
    "key": "https womenwhocode com several speaking oprutnies and stuff like that",

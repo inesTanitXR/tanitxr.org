@@ -1783,6 +1783,11 @@ with open(os.path.join(HERE, "ref", "analytics.json")) as _f:
     ANALYTICS = json.load(_f)
 
 
+def thanks_next(kind):
+    """FormSubmit needs an absolute URL to send people back to after the captcha."""
+    return f'<input type="hidden" name="_next" value="{SITE_URL}{LANG_DIRS[LANG]}thank-you/?from={kind}">'
+
+
 def analytics_tag():
     """Privacy-friendly visitor counting, only if a code is configured. No cookies either way."""
     cf = (ANALYTICS.get("cloudflare_token") or "").strip()
@@ -2973,6 +2978,7 @@ scanning days.</p></div>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Services inquiry, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
+{thanks_next("services")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="sv-name">Name</label><input id="sv-name" type="text" name="name" required>
@@ -4329,6 +4335,7 @@ and in the newsletter.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Opportunity submission, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
+{thanks_next("opportunity")}
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="oname">Opportunity name</label>
 <input id="oname" name="opportunity" required>
@@ -4587,6 +4594,7 @@ page.</p>
 <form class="nice" action="{PROFILE_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="New volunteer profile submission, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
+{thanks_next("profile")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="pname">Your Name</label>
@@ -4742,6 +4750,7 @@ motivation. More details are shared with accepted participants.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Splats With Phones application, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
+{thanks_next("splats")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="sp-name">Full Name</label><input id="sp-name" type="text" name="name" required>
@@ -4987,6 +4996,7 @@ def build_contact():
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Contact form, tanitxr.org">
 <input type="hidden" name="_captcha" value="true">
+{thanks_next("contact")}
 <input type="text" name="_honey" style="display:none">
 <label class="req" for="cname">Full Name</label>
 <input id="cname" name="name" required>
@@ -5136,6 +5146,34 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
 <a class="btn btn-line" href="index.html">Back Home</a>
 </div></section>"""
     page("coming-soon.html", "Coming Soon", body, trending=False)
+
+    # thank-you page the FormSubmit forms return to (?from=contact|opportunity|profile|splats|services)
+    body = f"""
+{page_hero("Thank you", "Thank you", bg="sv-IMG_1315.jpg", pos="center 35%")}
+<section class="pad"><div class="wrap center" style="max-width:640px">
+<h2 class="sec-title" id="ty-title">Your message is on its way.</h2>
+<p class="sec-sub" id="ty-text">It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.</p>
+<p style="margin-top:6px"><a class="btn btn-gold" href="explore.html">Explore in 3D</a> &nbsp;
+<a class="btn btn-line" href="index.html">Back home</a></p>
+<p style="margin-top:36px;color:var(--gray);font-size:14.5px">While you wait, the weekly opportunity digest is free:
+<a href="opportunities.html#subscribe" style="color:var(--gold-dark)">subscribe to Opportunities</a>.</p>
+</div></section>
+<script>
+(function(){{
+  var from = new URLSearchParams(location.search).get('from') || 'contact';
+  var copy = {{
+    contact: ["Your message is on its way.", "It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days."],
+    opportunity: ["Thank you for the tip.", "We check every submission and add the good ones to the Opportunities board and the weekly digest, with your name if you asked for it."],
+    profile: ["Your profile has been received.", "A member of the team reviews it, and once approved your page appears under Our People with your scans, models and articles credited to you."],
+    splats: ["Your application is in.", "We read every application and reply to everyone. Keep an eye on your inbox, and on Slack if you are already with us."],
+    services: ["Your request is on its way.", "We will read it and get back to you within a few days."]
+  }}[from];
+  if (copy) {{ document.getElementById('ty-title').textContent = copy[0]; document.getElementById('ty-text').textContent = copy[1]; }}
+  if (window.tx) tx('form-sent/' + from);
+}})();
+</script>"""
+    page("thank-you.html", "Thank you", body, trending=False,
+         desc="Your message to Tanit XR has been received.")
 
     # privacy (the old site's page was placeholder text, this is a real minimal policy)
     body = f"""

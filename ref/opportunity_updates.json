@@ -802,6 +802,21 @@
    "desc": "International game design competition inviting young people aged 10 to 25 to build digital games inspired by the UN Sustainable Development Goals, with prize categories for ages 10 to 18 and university age. Educators sign up classrooms and students worldwide can submit; participation is free. Sign-ups for the 2026-2027 cycle are open, and the themes, educator training dates and submission deadlines for this cycle have not been published yet.",
    "deadline_type": "Open",
    "published": "2026-09-20"
+  },
+  {
+   "title": "ACM CHI 2027, Call for Meet-ups",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Open to all",
+    "Researchers"
+   ],
+   "deadline_date": "2026-10-01",
+   "url": "https://chi2027.acm.org/authors/meet-ups/",
+   "desc": "Meet-ups at CHI 2027 are informal, participant-driven networking sessions, separate from the workshops track, in formats such as World Cafe, speed networking, think-pair-share or any interactive session the organizers propose. Proposals are a maximum of three pages plus two pages of supplementary material, submitted through PCS by October 1, 2026; there is no submission fee, and the organizers are preferably at least two people from two different organizations. At least one organizer must register and attend in person at the David L. Lawrence Convention Center in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled.",
+   "deadline_type": null,
+   "published": "2026-09-20"
   }
  ],
  "featured": {

@@ -31,6 +31,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ International game design competition: build a digital game inspired by the UN Sustainable Development Goals. Prize categories for ages 10-18 and university age. Educator training and the 2026-2027 themes are announced this fall.
 👉 https://learn.gamesforchange.org/student-challenge
 
+### 🎤 ACM CHI 2027, Call for Meet-ups
+
+📅 Deadline: October 1, 2026 (24-hour grace period for edits only)
+📍 In person, David L. Lawrence Convention Center, Pittsburgh, May 10-14, 2027
+👥 Open to all, no academic affiliation required. Free to submit; preferably two or more organizers from two different organizations
+✏️ Meet-ups are the informal, participant-driven side of CHI, separate from the workshops track: World Cafe, speed networking, think-pair-share or any interactive format you propose. Three-page proposal plus two pages of supplementary material via PCS. At least one organizer has to register and attend in person or the meet-up is cancelled, so count the registration and travel before you submit.
+👉 https://chi2027.acm.org/authors/meet-ups/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -38,3 +46,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Voqal | linkedin.com/company/voqal |
 | Women Who Code | linkedin.com/company/women-who-code |
 | Games for Change | linkedin.com/company/gamesforchange |
+| ACM SIGCHI | linkedin.com/company/acm-sigchi |

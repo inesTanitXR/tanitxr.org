@@ -5,10 +5,11 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
-| **19** | **Fri Sept 25** | Oct 1 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 23 — 14 blocks after the Nov 1–3 items moved to edition 20 |
-| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 17 blocks, trim or split when assembling |
+| **19** | **Fri Sept 25** | Oct 1 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 23 — 14 blocks (CHI meet-ups added, NatGeo RFP moved to 20, both Sept 20) |
+| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 18 blocks, trim or split when assembling |
 
 ## Edition 19 (send Sept 25) — items
+- 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
 - 🎨 Slamdance 2027 DIG — Oct 6 — $90 — slamdance.com/festival-submit
 - 🎨 Djerassi 2027 incl. Leonardo@Djerassi (art+science, one month, all costs) — Oct 9 — djerassi.org/apply/2027residency
 - 🏅 Aesthetica Art Prize (£10,000; digital/installation) — Oct 11 (late Oct 18) — £25 — aestheticamagazine.com/artprize/submit
@@ -20,7 +21,6 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🎬 Tribeca 2027 early — Oct 22 — ⚠ verify official page first
 - 🇹🇳 Institut français × Cité internationale des arts (Paris residency; digital creation; nominated via Institut français de Tunisie) — Oct 8 — ifprog.emundus.fr
 - 🇹🇳 Culture Resource Production Awards — Oct 19 (reminder)
-- 📝 NatGeo "The Human Thread" RFP — opens Oct 1, closes Dec 1 — funding.nationalgeographic.org
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
@@ -28,6 +28,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🌍 MIT Solve 2027 Global Learning Challenge — Nov 2 — solve.mit.edu/challenges/2027-global-learning-challenge ★ Tanit _(moved from 19 on Sept 20)_
 - 🎬 CPH:DOX 2027 INTER:ACTIVE (VR/AR/installations; fee waived for Tunisia) — Nov 3 — cphdox.dk/rules-and-regulations _(moved from 19 on Sept 20)_
 - 🎮 Games for Change Student Challenge 2026-2027 (ages 10-25 + educators; free; SDG game design) — no deadline published yet — learn.gamesforchange.org/student-challenge (added by the Sept 20 sweep)
+- 📝 NatGeo "The Human Thread" RFP (opens Oct 1, closes Dec 1) — funding.nationalgeographic.org _(moved from 19 on Sept 20: the RFP is not live until Oct 1, so it lands better in an Oct 9 edition, and it made room for the CHI meet-ups deadline)_
 - 🎨 EMAP European Media Art Platform residencies (€4k + €4k + travel; Tunisia-resident artists eligible via Creative Europe — verify list) — Nov 6 — call.emare.eu 🇹🇳
 - 🏛 Awesome Foundation Conservation & Climate — Nov 27 (reminder)
 - 🔬 IEEE VR 2027 Posters (Dec 2/7), Research Demos (Dec 7), 3DUI Contest (Dec 11/16) — free — ieeevr.org/2027/contribute
