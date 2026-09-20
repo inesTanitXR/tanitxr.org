@@ -1733,7 +1733,7 @@ def trending_html():
     rows = []
     for title, href, thumb in TRENDING:
         t = img(thumb, 300) if thumb else None
-        timg = f'<img src="{t}" alt="">' if t else ""
+        timg = f'<img src="{t}" alt="{esc(title)}">' if t else ""
         rows.append(f'<a href="{href}">{timg}<span>{esc(title)}</span></a>')
     return f"""<section class="trend pad-sm"><div class="wrap">
 <h3>Trending now</h3><div class="row">{''.join(rows)}</div></div></section>"""
@@ -2653,7 +2653,7 @@ def build_home():
          "TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
     ]
     pillar_html = "".join(
-        f'<div class="pillar"><img src="{img(p[0], 400, as_jpeg=False)}" alt="">'
+        f'<div class="pillar"><img src="{img(p[0], 400, as_jpeg=False)}" alt="{esc(p[1])}">'
         f'<h3>{p[1]}</h3><p>{p[2]}</p><a href="{p[4]}">{p[3]} →</a></div>'
         for p in pillars)
 
@@ -3000,10 +3000,10 @@ src="{vid('museum-walkthrough-06.mp4')}"></video>
 <div class="center"><div class="eyebrow">Progress</div>
 <h2 class="sec-title">From greybox to galleries</h2></div>
 <div class="timeline">
-<div><img src="{img('museum-progress-jan-2026.jpg', 800)}" alt="" loading="lazy"><b>January 2026</b><p>First courtyard and corridor blocked out; scanned statues placed.</p></div>
-<div><img src="{img('museum-hall-arches.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Domed hall with striped arches, tiled floors, fountain and lighting.</p></div>
-<div><img src="{img('museum-courtyard-pool.jpg', 800)}" alt="" loading="lazy"><b>March 2026</b><p>Courtyard with pool, terraces and the sculpted canopy.</p></div>
-<div><img src="{img('museum-second-room-greybox.jpg', 800)}" alt="" loading="lazy"><b>August 2026</b><p>Second wing under construction, colonnade and galleries in greybox.</p></div>
+<div><img src="{img('museum-progress-jan-2026.jpg', 800)}" alt="The virtual museum in January 2026: first courtyard and corridor with scanned statues placed" loading="lazy"><b>January 2026</b><p>First courtyard and corridor blocked out; scanned statues placed.</p></div>
+<div><img src="{img('museum-hall-arches.jpg', 800)}" alt="The virtual museum in March 2026: a domed hall with striped arches, tiled floors and a fountain" loading="lazy"><b>March 2026</b><p>Domed hall with striped arches, tiled floors, fountain and lighting.</p></div>
+<div><img src="{img('museum-courtyard-pool.jpg', 800)}" alt="The virtual museum courtyard with a pool, terraces and a sculpted canopy" loading="lazy"><b>March 2026</b><p>Courtyard with pool, terraces and the sculpted canopy.</p></div>
+<div><img src="{img('museum-second-room-greybox.jpg', 800)}" alt="The second wing of the virtual museum under construction, a colonnade and galleries in greybox" loading="lazy"><b>August 2026</b><p>Second wing under construction, colonnade and galleries in greybox.</p></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:34px">
 <div><video class="vid" controls preload="none" playsinline poster="{img('museum-hall-arches.jpg', 1000)}" src="{vid('museum-walkthrough-03.mp4')}"></video>
@@ -4011,7 +4011,7 @@ def build_galleries():
 
         # ---- directory tile
         dirtiles += (f'<a href="#hall-{slugify(site)}">'
-                     f'<img src="{img(feat["img"], 700)}" alt="" loading="lazy">'
+                     f'<img src="{img(feat["img"], 700)}" alt="{esc(feat["title"])}" loading="lazy">'
                      f'<div class="cap"><div class="rn">HALL {rn}</div><h3>{esc(name)}</h3>'
                      f'<div class="n">{len(items)} object{"s" if len(items) != 1 else ""}</div>'
                      f'</div></a>')
@@ -4052,7 +4052,7 @@ def build_galleries():
             i = len(objs) - 1
             gr = '<span class="gr">GAME READY</span>' if m.get("gameready") else ""
             plinths += (f'<button class="plinth" data-i="{i}">'
-                        f'<div class="ph"><img src="{img(m["img"], 600)}" alt="" loading="lazy">{gr}</div>'
+                        f'<div class="ph"><img src="{img(m["img"], 600)}" alt="{esc(m["title"])}" loading="lazy">{gr}</div>'
                         f'<div class="tx"><b>{esc(m["title"])}</b><span>{esc(m["place"])}</span></div></button>')
         plinth_block = f'<div class="plinths">{plinths}</div>' if plinths else ""
 
@@ -4065,7 +4065,7 @@ def build_galleries():
 </div></section>"""
 
     # ---- entrance: a wall of the objects themselves, dimmed
-    wall = "".join(f'<img src="{img(m["img"], 320)}" alt="" loading="lazy">'
+    wall = "".join(f'<img src="{img(m["img"], 320)}" alt="{esc(m["title"])}, a 3D scan by Tanit XR" loading="lazy">'
                    for m in (MODELS * 3)[:40] if m.get("img"))
     gal_json = json.dumps(objs, ensure_ascii=False)
 
@@ -4311,7 +4311,7 @@ def build_news():
         date = n["date"]
         excerpt = esc(n["text"][:220]) + "…"
         cards += f"""<a class="card" href="{n['href']}">
-<div class="ph"><img src="{img(n['img'], 800)}" alt="" loading="lazy"></div>
+<div class="ph"><img src="{img(n['img'], 800)}" alt="{esc(n['title'])}" loading="lazy"></div>
 <div class="tx"><div class="meta">{date}</div><h3>{esc(n['title'])}</h3>
 <p style="color:var(--gray);font-size:14.5px;margin-top:8px">{excerpt}</p></div></a>"""
     body = f"""
@@ -4389,7 +4389,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
     const a=document.createElement('a');a.className='member';
     a.href=p.linkedin||p.website||p.instagram||'#';
     if(a.href!=='#')a.target='_blank';
-    const ph=p.photo?'<div class="ph"><img src="'+p.photo.replace(/"/g,'')+'" alt="" loading="lazy"></div>'
+    const ph=p.photo?'<div class="ph"><img src="'+p.photo.replace(/"/g,'')+'" alt="'+(p.name||'Tanit XR volunteer')+'" loading="lazy"></div>'
       :'<div class="ph blank">'+p.name[0]+'</div>';
     const escT=s=>{{const d=document.createElement('span');d.textContent=s||'';return d.innerHTML}};
     a.innerHTML=ph+'<h3>'+escT(p.name)+'</h3><div class="role">'+escT(p.role||'Volunteer')+'</div>';
@@ -5237,10 +5237,10 @@ def build_about():
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
 and neglect. Together, we’re building a digital archive to protect it for generations.</p>
 <div class="stats icons" style="margin-top:14px">
-<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
-<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
-<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
-<div><img src="{img('global.png', 200, as_jpeg=False)}" alt=""><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
+<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
+<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
+<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
+<div><img src="{img('global.png', 200, as_jpeg=False)}" alt="Global reach"><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
 </div>
 </div></section>
 <section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
