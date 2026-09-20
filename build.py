@@ -355,6 +355,8 @@ section.pad-sm{padding:56px 0}
 .art-grid figure{margin:0;background:var(--cloud);border:1px solid var(--mist);border-radius:14px;padding:18px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;transition:.3s}
 .art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 .art-grid img{width:100%;height:100%;object-fit:contain}
+.art-spot{margin:0 auto 22px;width:60vw}.art-spot img{width:100%;height:auto;display:block}
+.art-spot figcaption{font-size:12px;color:var(--gray);margin-top:6px;text-align:center}.art-spot figcaption a{color:var(--gray)}
 .card .ph img.contain{object-fit:contain;padding:12px;background:var(--cloud)}
 .card{background:#fff;border:1px solid var(--mist);border-radius:10px;overflow:hidden;
   text-decoration:none;display:flex;flex-direction:column;transition:.2s}
@@ -2478,6 +2480,12 @@ ALYSSA_ART = [
 ]
 
 
+def art_spot(f, alt, size=230):
+    """One of Alyssa's illustrations as a centred spot, with her credit underneath."""
+    return (f'<figure class="art-spot" style="max-width:{size}px"><img src="{img(f, 600)}" alt="{esc(alt)}" loading="lazy">'
+            f'<figcaption>Illustration: <a href="team/alyssa-george.html">Alyssa George</a></figcaption></figure>')
+
+
 def community_art():
     return '<div class="art-grid">' + "".join(
         f'<figure><img src="{img(f, 900)}" alt="{esc(alt)}" loading="lazy"></figure>'
@@ -4574,6 +4582,7 @@ def build_volunteer():
 {page_hero("Volunteer", "Volunteer", bg="sv-IMG_8547.jpg", pos="center 22%")}
 <section class="pad"><div class="wrap" style="max-width:880px">
 <div class="center">
+{art_spot("alyssa-illustration-3.png", "Two hands holding a phone that shows the Draped Statue of Byrsa Hill in augmented reality")}
 <h2 class="sec-title">Want to join our team of volunteers?</h2>
 <p class="sec-sub">Fill out our volunteer interest form and we will connect with you about available
 opportunities.</p>
@@ -5089,6 +5098,7 @@ def build_partners():
 {page_hero("Partner with us", "Partner with us", bg="sv-IMG_0511.jpg")}
 <section class="pad"><div class="wrap">
 <div class="center" style="max-width:760px;margin:0 auto 44px">
+{art_spot("alyssa-illustration-2.png", "A globe with Tanit XR volunteers standing on every continent")}
 <div class="eyebrow">For companies and foundations</div>
 <h2 class="sec-title">Keep a country's memory, with your name on it</h2>
 <p class="sec-sub">Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage
@@ -5171,6 +5181,7 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
     body = f"""
 {page_hero("Thank you", "Thank you", bg="sv-IMG_1315.jpg", pos="center 35%")}
 <section class="pad"><div class="wrap center" style="max-width:640px">
+{art_spot("alyssa-illustration-1.png", "An amphora wearing a graduation cap, with a book titled Carthage", 200)}
 <h2 class="sec-title" id="ty-title">Your message is on its way.</h2>
 <p class="sec-sub" id="ty-text">It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.</p>
 <p style="margin-top:6px"><a class="btn btn-gold" href="explore.html">Explore in 3D</a> &nbsp;
