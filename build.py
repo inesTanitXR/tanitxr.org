@@ -121,10 +121,11 @@ def load(name):
 
 # ---------------------------------------------------------------- images
 
+WEBP_DIRS = ("alyssa",)
 _media_files = {}
 for fn in os.listdir(MEDIA):
     _media_files[fn.lower()] = os.path.join(MEDIA, fn)
-for _sub in ("extra", "drive"):
+for _sub in ("extra", "drive", "alyssa"):
     _d = os.path.join(MEDIA, _sub)
     if os.path.isdir(_d):
         for fn in os.listdir(_d):
@@ -175,12 +176,22 @@ def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
     if as_jpeg is None:
         as_jpeg = ext in (".jpg", ".jpeg", ".webp")
     out_ext = ".jpg" if as_jpeg else (ext if ext in (".png", ".svg", ".gif") else ".jpg")
+    # transparent artwork (media/alyssa) ships as WebP with alpha: a quarter of the PNG weight
+    webp = (not as_jpeg and ext == ".png" and os.path.basename(os.path.dirname(src)) in WEBP_DIRS
+            and shutil.which("cwebp"))
+    if webp:
+        out_ext = ".webp"
     out_name = f"{slugify(stem)}-{max_px}{out_ext}"
     out_path = os.path.join(IMG_OUT, out_name)
     rel = f"assets/img/{out_name}"
     if not os.path.exists(out_path):
         if ext == ".svg":
             shutil.copy(src, out_path)
+        elif webp:
+            r = subprocess.run(["cwebp", "-quiet", "-q", "82", "-resize", str(max_px), "0", src, "-o", out_path],
+                               capture_output=True, text=True)
+            if r.returncode != 0:
+                print(f"  !! cwebp failed for {base}: {r.stderr.strip()[:120]}")
         else:
             cmd = ["sips", "-Z", str(max_px)]
             if as_jpeg:
@@ -340,6 +351,11 @@ section.pad-sm{padding:56px 0}
 
 /* cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:26px}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
+.art-grid figure{margin:0;background:var(--cloud);border:1px solid var(--mist);border-radius:14px;padding:18px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;transition:.3s}
+.art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.art-grid img{width:100%;height:100%;object-fit:contain}
+.card .ph img.contain{object-fit:contain;padding:12px;background:var(--cloud)}
 .card{background:#fff;border:1px solid var(--mist);border-radius:10px;overflow:hidden;
   text-decoration:none;display:flex;flex-direction:column;transition:.2s}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(17,21,24,.12)}
@@ -2050,7 +2066,7 @@ CONTRIB = {}
 def _add_contrib(slug, kind, label, href, uid=None, thumb=None):
     if not slug:
         return
-    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "wrote": [], "built": []})
+    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "drew": [], "wrote": [], "built": []})
     CONTRIB[slug][kind].append({"label": label, "href": href, "uid": uid, "thumb": thumb})
 
 
@@ -2060,7 +2076,8 @@ def model_card(title, thumb, href, meta="", uid=None, external=False, cls=""):
     tgt = ' target="_blank" rel="noopener"' if external else ""
     play = (f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>' if uid else "")
     if thumb:
-        ph = (f'<div class="ph"><a href="{href}"{tgt}><img src="{img(thumb, 800)}" alt="{esc(title)}" loading="lazy"></a>'
+        fit = ' class="contain"' if str(thumb).startswith("alyssa-") else ""
+        ph = (f'<div class="ph"><a href="{href}"{tgt}><img src="{img(thumb, 800)}"{fit} alt="{esc(title)}" loading="lazy"></a>'
               f'{play}</div>')
     else:
         ph = f'<div class="ph blank">{play}</div>'
@@ -2428,6 +2445,20 @@ def recognition_strip():
     return f'<div class="logos">{out}</div>'
 
 
+ALYSSA_ART = [
+    ("alyssa-illustration-1.png", "An amphora wearing a graduation cap, with a book titled Carthage"),
+    ("alyssa-illustration-2.png", "A globe with Tanit XR volunteers standing on every continent"),
+    ("alyssa-illustration-3.png", "Two hands holding a phone that shows the Draped Statue of Byrsa Hill in augmented reality"),
+    ("alyssa-murex-shell.png", "A purple murex shell"),
+]
+
+
+def community_art():
+    return '<div class="art-grid">' + "".join(
+        f'<figure><img src="{img(f, 900)}" alt="{esc(alt)}" loading="lazy"></figure>'
+        for f, alt in ALYSSA_ART) + '</div>'
+
+
 def community_mosaic():
     return '<div class="mosaic">' + "".join(
         f'<img src="{img(f, 1200 if i == 0 else 700)}" alt="Tanit XR volunteers" loading="lazy">'
@@ -2739,6 +2770,20 @@ Everything we make is free and open.</p></div>
 <p style="color:var(--gray);font-size:14.5px;margin:6px 0 12px">Julia records a short lesson each week so volunteers in any time zone can follow along and pick a task.</p>
 <ul style="padding-left:20px;line-height:1.9;color:var(--ink)">{"".join(f'<li><a href="{u}" target="_blank" rel="noopener" style="color:var(--gold-dark)">{esc(t)}</a> <span style="color:var(--gray);font-size:13px">· {d}</span></li>' for t, d, u in HISTORY_LESSONS)}</ul>
 </div>
+</div></section>
+
+<section class="pad" id="community-art"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 34px">
+<div class="eyebrow">Community art</div>
+<h2 class="sec-title">Drawn by our volunteers</h2>
+<p class="sec-sub" style="margin:0">Alyssa George, illustrator and designer from the University of South Florida, draws
+the Tanit XR story: an amphora heading to class, volunteers on every continent, the Draped Statue of Byrsa Hill
+appearing on a phone, and the murex shell that gave Carthage its purple.</p></div>
+{community_art()}
+<p class="center" style="margin-top:26px;color:var(--gray);font-size:14.5px">Illustrations by
+<a href="team/alyssa-george.html" style="color:var(--gold-dark)">Alyssa George</a> ·
+<a href="https://www.instagram.com/alyssumsinbloom/" target="_blank" rel="noopener" style="color:var(--gold-dark)">@alyssumsinbloom</a>
+&nbsp; <a class="btn btn-line" href="team/alyssa-george.html" style="margin-left:10px">See her profile</a></p>
 </div></section>
 
 {events_block()}
@@ -3928,7 +3973,10 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
         ("built", "Social media videos for Tanit XR", "community.html", None, "aug-PXL_0814_112926.jpg"),
     ],
     "alyssa-george": [
-        ("made", "An illustration of the Tanit XR mission, shared by the community in July 2026", "https://www.instagram.com/p/DaxeBd9kU8O/", None, None),
+        ("drew", "Carthage goes to class: an amphora in a graduation cap", "community.html#community-art", None, "alyssa-illustration-1.png"),
+        ("drew", "One archive, volunteers on every continent", "community.html#community-art", None, "alyssa-illustration-2.png"),
+        ("drew", "The Draped Statue of Byrsa Hill, in your hand", "community.html#community-art", None, "alyssa-illustration-3.png"),
+        ("drew", "The murex shell, source of Tyrian purple", "community.html#community-art", None, "alyssa-murex-shell.png"),
     ],
     "cam-kania": [
         ("built", "Virtual museum, narrative and thematic brief, experience design", "museum.html", None, "museum-progress-jan-2026.jpg"),
@@ -4138,6 +4186,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
                                     ("scanned", "🏛 3D scans captured", "Photogrammetry scan"),
                                     ("optimized", "🎮 Models optimized for game/VR", "Game-ready optimization"),
                                     ("made", "🏺 Models made by hand", "Modeled for the virtual museum"),
+                                    ("drew", "🎨 Illustrations", "Illustration"),
                                     ("wrote", "✍️ Articles written", "Article")):
             seen, cards = set(), ""
             for it in c.get(kind, []):
