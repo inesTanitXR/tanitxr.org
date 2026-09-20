@@ -1,3 +1,54 @@
+# tanitxr.org, a volunteer nonprofit preserving Tunisian heritage in 3D.
+# Everything here is free to read, quote and link. Please credit Tanit XR and link back.
+
 User-agent: *
 Allow: /
+
+# Search engines and AI assistants are explicitly welcome. We want people asking about
+# Tunisian heritage, 3D scanning or open calls for artists to be sent here.
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: Timpibot
+Allow: /
+
 Sitemap: https://tanitxr.org/sitemap.xml

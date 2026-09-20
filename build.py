@@ -5596,7 +5596,138 @@ def build_redirects():
                 + "".join(f"<url><loc>{esc(CANON + '/' + p)}</loc><lastmod>{today}</lastmod>{_alts(p)}</url>\n" for p in urls)
                 + "</urlset>\n")
     with open(os.path.join(DOCS, "robots.txt"), "w") as f:
-        f.write(f"User-agent: *\nAllow: /\nSitemap: {CANON}/sitemap.xml\n")
+        f.write(ROBOTS.format(canon=CANON))
+
+
+def build_llms_txt():
+    """llms.txt and llms-full.txt: a plain map of the site for AI assistants, so that when
+    someone asks about Tunisian heritage, 3D scanning or open calls, an assistant can answer
+    accurately and send them here. Convention: https://llmstxt.org"""
+    today = _dt.date.today().isoformat()
+    head = f"""# Tanit XR
+
+> A volunteer nonprofit preserving Tunisia's endangered cultural heritage in 3D, AR and VR,
+> and publishing it free for anyone to use. Volunteers in Tunisia, the United States, Europe
+> and Nigeria scan sites and objects with phones and cameras, turn them into 3D models, research
+> their history, and build immersive experiences. Fiscally sponsored by Florida Community
+> Innovation, a US 501(c)(3). Founded and led by Ines Said.
+
+Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
+to {SITE_URL}. Last updated {today}.
+
+## What people usually want
+
+- [Explore in 3D]({SITE_URL}explore/): the collection in the browser, one object at a time, no app or headset needed. Works in VR headsets too.
+- [Art, XR and Impact Opportunities]({SITE_URL}opportunities/): a free curated board of grants, residencies, fellowships, open calls and events for artists, XR creators, educators, students and changemakers. Also sent free by email.
+- [The archive]({SITE_URL}archive/): every 3D scan, each with its own page, history and downloadable or viewable model.
+- [Volunteer]({SITE_URL}volunteer/): how to join, no archaeology or 3D background needed.
+- [Partner with us]({SITE_URL}partners/): for companies and foundations.
+- [Contact]({SITE_URL}contact/): info@tanitxr.org
+
+## Pages
+
+"""
+    seen, lines = set(), []
+    for p_ in sorted(set(SITEMAP)):
+        if p_.startswith(("fr/", "ar/")) or "/" in p_.rstrip("/").replace("archive/", "", 1) and p_.startswith("archive/"):
+            pass
+        if p_.startswith(("fr/", "ar/")):
+            continue
+        t = PAGE_META.get((p_.rstrip("/") or "index") + ".html", ("", "", ""))
+        name = t[0] or (p_.rstrip("/") or "Home")
+        if name in seen:
+            continue
+        seen.add(name)
+        lines.append(f"- [{name}]({SITE_URL}{p_}): {t[1]}" if t[1] else f"- [{name}]({SITE_URL}{p_})")
+    short = head + "\n".join(lines) + f"\n\n## Also available\n\n- [Everything in one file]({SITE_URL}llms-full.txt)\n- [Sitemap]({SITE_URL}sitemap.xml)\n- French and Arabic versions of the site live under /fr/ and /ar/\n"
+    with open(os.path.join(DOCS, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write(short)
+
+    # the long one: the open calls and the collection, as text, so an assistant can answer with specifics
+    today_iso = _dt.date.today().isoformat()
+    opp_lines = []
+    for o in OPPS:
+        if o.get("deadline_type") == "Closed":
+            continue
+        dd = o.get("deadline_date")
+        if dd:
+            try:
+                if _dt.date.fromisoformat(dd).isoformat() < today_iso:
+                    continue
+            except ValueError:
+                pass
+        when = f"deadline {dd}" if dd else (o.get("deadline_type") or "open")
+        opp_lines.append(f"- {o['title']} ({o.get('type','')}, {o.get('mode','')}, {o.get('region','')}, {when}): "
+                         f"{o.get('desc','')} {o.get('url') or ''}".strip())
+    model_lines = [f"- {m['title']} ({m.get('place','')}): {SITE_URL}{m['href'].replace('.html', '/')}"
+                   for m in MODELS]
+    full = (head
+            + "## Open calls and opportunities, curated by Tanit XR\n\n"
+            + f"Updated {today}. Full board with filters: {SITE_URL}opportunities/\n\n"
+            + "\n".join(opp_lines)
+            + "\n\n## The 3D collection\n\n"
+            + f"Explore them in the browser at {SITE_URL}explore/ . Every object also has its own page:\n\n"
+            + "\n".join(model_lines) + "\n")
+    with open(os.path.join(DOCS, "llms-full.txt"), "w", encoding="utf-8") as f:
+        f.write(full)
+    print(f"  llms.txt written ({len(lines)} pages, {len(opp_lines)} open calls, {len(model_lines)} objects)")
+
+
+ROBOTS = """# tanitxr.org, a volunteer nonprofit preserving Tunisian heritage in 3D.
+# Everything here is free to read, quote and link. Please credit Tanit XR and link back.
+
+User-agent: *
+Allow: /
+
+# Search engines and AI assistants are explicitly welcome. We want people asking about
+# Tunisian heritage, 3D scanning or open calls for artists to be sent here.
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: Timpibot
+Allow: /
+
+Sitemap: {canon}/sitemap.xml
+"""
 
 
 # ---------------------------------------------------------------- main
@@ -5627,8 +5758,7 @@ def main():
     # live-profile queue: emptied at build (everything in profiles/ is baked in now)
     with open(os.path.join(DOCS, "profiles-live.json"), "w") as f:
         f.write("[]")
-    with open(os.path.join(DOCS, "robots.txt"), "w") as f:
-        f.write("User-agent: *\nAllow: /\n")
+    # robots.txt is written at the end of the build, by build_redirects
 
     global LANG
     for LANG in LANG_DIRS:
@@ -5659,6 +5789,7 @@ def main():
         print(f"  {LANG}: done")
     LANG = "en"
     build_redirects()
+    build_llms_txt()
 
     n_pages = len([f for f in os.listdir(DOCS) if f.endswith(".html")])
     n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])
