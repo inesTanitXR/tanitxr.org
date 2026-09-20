@@ -39,7 +39,7 @@ CONFIDENTIAL = [r"\bconfidential\b", r"\binternal (?:only|use)\b", r"\bdo not (?
                 r"\bnda\b", r"\boff the record\b", r"\bunpublished\b"]
 PENDING_HANDLES = ["danielgo257", "georgealyssa85"]
 # a person's private life, the thing that must never land on the site by accident (health, family, money, legal, status)
-PRIVATE_LIFE = [r"\b(?:sick|ill(?:ness)?|hospital(?:ized)?|surgery|diagnos\w*|cancer|therapy|depress\w*|anxiety|burn(?:ed)? ?out|mental health|disab\w*|medication|pregnan\w*|miscarriage)\b",
+PRIVATE_LIFE = [r"\b(?:sick|ill(?:ness)?|hospital(?:ized)?|surgery|diagnos\w*|cancer|therapy|depress\w*|anxiety|burn(?:ed)? ?out|mental health|disability|medication|pregnan\w*|miscarriage)\b",
                 r"\b(?:passed away|funeral|died|death in the family|grie\w+|mourning|condolences)\b",
                 r"\b(?:divorce|break ?up|boyfriend|girlfriend|husband|wife|partner's|my kids|my children|custody|wedding)\b",
                 r"\b(?:fired|laid off|lost (?:my|her|his|their) job|unemployed|quit(?:ting)? (?:my|her|his) job|resign\w*|salary|paycheck|broke|debt|can't afford|evict\w*|rent is)\b",
