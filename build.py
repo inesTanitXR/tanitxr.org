@@ -16,6 +16,7 @@ import re
 import hashlib
 import shutil
 import subprocess
+import sys
 import unicodedata
 import urllib.request
 import html as htmod
@@ -5916,6 +5917,14 @@ def main():
     n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])
     n_ar = len([f for f in os.listdir(os.path.join(DOCS, "ar")) if f.endswith(".html")])
     size = subprocess.run(["du", "-sh", DOCS], capture_output=True, text=True).stdout.split()[0]
+    # say out loud when the French and Arabic pages have fallen behind the English ones
+    try:
+        _st = subprocess.run([sys.executable, os.path.join(HERE, "tools", "translation_status.py"), "--quiet"],
+                             capture_output=True, text=True, timeout=60).stdout.strip()
+        if _st and not _st.startswith("0 "):
+            print(f"  translations: {_st}. See: python3 tools/translation_status.py --list")
+    except Exception:
+        pass
     # last pass: whichever path wrote a page, no em dash survives outside its script blocks
     for _dp, _, _fs in os.walk(DOCS):
         for _fn in _fs:
