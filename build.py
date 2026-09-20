@@ -567,6 +567,12 @@ section.pad-sm{padding:56px 0}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
 #board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
+.board-fallback{grid-column:1/-1;list-style:none;padding:0;margin:0;display:grid;gap:18px}
+.board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}
+.board-fallback h3{font-size:18px;margin:0 0 4px}
+.board-fallback a{color:var(--ink)}
+.board-fallback .bf-meta{color:var(--gold-dark);font-size:13px;margin:0 0 8px}
+.board-fallback p{color:var(--gray);font-size:14.5px;margin:0;line-height:1.7}
 #closed .opp.hid{display:none}
 .closed-h{margin:44px 0 16px;font-size:20px;color:var(--gray);font-weight:400}
 .subtop{background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:18px 22px;margin:0 0 24px;display:grid;grid-template-columns:minmax(200px,.8fr) 1.6fr;gap:22px;align-items:center}
@@ -4461,6 +4467,46 @@ def build_opportunities():
         "ty": "Volunteer", "el": ["Open to all"], "rg": "Global", "co": "", "md": "Remote",
         "dt": "Rolling", "dd": None, "pub": _dt.date.today().isoformat(), "u": "../volunteer/",
     })
+    # Everything below is built by JavaScript in the browser, which means an AI crawler or any
+    # client that does not run scripts sees an empty page. So the open calls are also written into
+    # the HTML here. render() replaces this the instant the script runs, so nobody sees it twice.
+    _today = _dt.date.today().isoformat()
+
+    def _deadline(r):
+        if r["dd"]:
+            try:
+                return "Deadline " + _dt.date.fromisoformat(r["dd"]).strftime("%d %B %Y")
+            except ValueError:           # a few older records carry a written-out date
+                return "Deadline " + str(r["dd"])
+        return r["dt"] or "Open"
+
+    def _past(r):
+        try:
+            return bool(r["dd"]) and _dt.date.fromisoformat(r["dd"]).isoformat() < _today
+        except ValueError:
+            return False
+
+    _open = [r for r in data if r["dt"] != "Closed" and not _past(r)]
+    _open.sort(key=lambda r: (r["dd"] is None, str(r["dd"] or ""), r["t"]))
+    _rows = "".join(
+        f'<li><h3><a href="{esc(r["u"] or "#opp-" + r["id"])}">{esc(r["t"])}</a></h3>'
+        f'<p class="bf-meta">{esc(r["ty"])} · {esc(r["md"])} · {esc(r["rg"])} · {esc(_deadline(r))}'
+        f' · for {esc(", ".join(r["el"]))}</p>'
+        f'<p>{esc(r["d"])}</p></li>' for r in _open)
+    board_fallback = (f'<ol class="board-fallback">{_rows}</ol>' if _rows else "")
+    opp_jsonld = [{
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": "Art, XR and Impact Opportunities, curated by Tanit XR",
+        "description": "Grants, residencies, fellowships, open calls and events for artists, XR creators, "
+                       "educators, students and changemakers. Free, updated regularly.",
+        "url": SITE_URL + "opportunities/", "numberOfItems": len(_open),
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": r["t"],
+             "description": r["d"][:300], "url": r["u"] or (SITE_URL + "opportunities/#opp-" + r["id"])}
+            for i, r in enumerate(_open)],
+    }]
+
     types = sorted({o["type"] for o in OPPS if o["type"]})
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
@@ -4499,7 +4545,7 @@ target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newslette
 </div>
 <div id="active" class="active"></div>
 <div id="featured"></div>
-<div id="board"></div>
+<div id="board">{board_fallback}</div>
 <div id="closedwrap" hidden><h3 class="closed-h"></h3><div id="closed"></div>
 <p style="margin-top:18px"><button id="moreclosed" class="btn btn-line" type="button"></button></p></div>
 
@@ -4703,6 +4749,7 @@ if(RX){{
 }}
 </script>"""
     page("opportunities.html", "Art, XR & Impact Opportunities", body, active="opportunities.html",
+         jsonld=opp_jsonld,
          desc="A free curated board of grants, residencies, fellowships, open calls and events for artists, "
               "XR creators, educators, students and changemakers. Updated regularly by Tanit XR, and sent free by email.")
 

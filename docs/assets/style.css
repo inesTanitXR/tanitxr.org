@@ -358,6 +358,12 @@ section.pad-sm{padding:56px 0}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
 #board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
+.board-fallback{grid-column:1/-1;list-style:none;padding:0;margin:0;display:grid;gap:18px}
+.board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}
+.board-fallback h3{font-size:18px;margin:0 0 4px}
+.board-fallback a{color:var(--ink)}
+.board-fallback .bf-meta{color:var(--gold-dark);font-size:13px;margin:0 0 8px}
+.board-fallback p{color:var(--gray);font-size:14.5px;margin:0;line-height:1.7}
 #closed .opp.hid{display:none}
 .closed-h{margin:44px 0 16px;font-size:20px;color:var(--gray);font-weight:400}
 .subtop{background:var(--cloud);border:1px solid var(--mist);border-radius:12px;padding:18px 22px;margin:0 0 24px;display:grid;grid-template-columns:minmax(200px,.8fr) 1.6fr;gap:22px;align-items:center}
