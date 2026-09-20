@@ -4065,7 +4065,9 @@ def build_galleries():
 </div></section>"""
 
     # ---- entrance: a wall of the objects themselves, dimmed
-    wall = "".join(f'<img src="{img(m["img"], 320)}" alt="{esc(m["title"])}, a 3D scan by Tanit XR" loading="lazy">'
+    _scan_by = {"en": ", a 3D scan by Tanit XR", "fr": ", une numérisation 3D par Tanit XR",
+                "ar": "، مسح ثلاثي الأبعاد من إنجاز Tanit XR"}[LANG]
+    wall = "".join(f'<img src="{img(m["img"], 320)}" alt="{esc(m["title"])}{_scan_by}" loading="lazy">'
                    for m in (MODELS * 3)[:40] if m.get("img"))
     gal_json = json.dumps(objs, ensure_ascii=False)
 
@@ -4485,13 +4487,13 @@ def build_opportunities():
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
                "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins", "open": "ouvertes", "closedl": "clôturées", "clear": "Tout effacer",
-               "terms": {"Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer"}},
+               "terms": TERMS["fr"]},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
                "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل", "open": "مفتوحة", "closedl": "منتهية", "clear": "مسح الكل",
-               "terms": {"Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "سيُعلن لاحقًا"}},
+               "terms": TERMS["ar"]},
     }[LANG]
     data = []
     for o in OPPS:
@@ -4521,26 +4523,38 @@ def build_opportunities():
     # the HTML here. render() replaces this the instant the script runs, so nobody sees it twice.
     _today = _dt.date.today().isoformat()
 
+    _dl_word = {"en": "Deadline ", "fr": "Date limite ", "ar": "الموعد النهائي "}[LANG]
+
+    def _parse_date(v):
+        for fmt in ("%Y-%m-%d", "%B %d, %Y", "%d %B %Y", "%b %d, %Y"):
+            try:
+                return _dt.datetime.strptime(str(v).strip(), fmt).date()
+            except ValueError:
+                continue
+        return None
+
     def _deadline(r):
         if r["dd"]:
-            try:
-                return "Deadline " + _dt.date.fromisoformat(r["dd"]).strftime("%d %B %Y")
-            except ValueError:           # a few older records carry a written-out date
-                return "Deadline " + str(r["dd"])
-        return r["dt"] or "Open"
+            d = _parse_date(r["dd"])
+            return _dl_word + (long_date(d) if d else str(r["dd"]))
+        return term(r["dt"]) if r["dt"] else term("Open")
 
     def _past(r):
-        try:
-            return bool(r["dd"]) and _dt.date.fromisoformat(r["dd"]).isoformat() < _today
-        except ValueError:
-            return False
+        d = _parse_date(r["dd"]) if r["dd"] else None
+        return bool(d) and d.isoformat() < _today
 
     _open = [r for r in data if r["dt"] != "Closed" and not _past(r)]
     _open.sort(key=lambda r: (r["dd"] is None, str(r["dd"] or ""), r["t"]))
+    _for_word = {"en": "for", "fr": "pour", "ar": "لـ"}[LANG]
+
+    def _meta(r):
+        bits = [term(r["ty"]), term(r["md"]), term(r["rg"]), _deadline(r)]
+        if r["el"]:
+            bits.append(f'{_for_word} ' + ", ".join(term(e) for e in r["el"]))
+        return " · ".join(b for b in bits if b and b.strip())
     _rows = "".join(
         f'<li><h3><a href="{esc(r["u"] or "#opp-" + r["id"])}">{esc(r["t"])}</a></h3>'
-        f'<p class="bf-meta">{esc(r["ty"])} · {esc(r["md"])} · {esc(r["rg"])} · {esc(_deadline(r))}'
-        f' · for {esc(", ".join(r["el"]))}</p>'
+        f'<p class="bf-meta">{esc(_meta(r))}</p>'
         f'<p>{esc(r["d"])}</p></li>' for r in _open)
     board_fallback = (f'<ol class="board-fallback">{_rows}</ol>' if _rows else "")
     opp_jsonld = [{
@@ -4560,7 +4574,7 @@ def build_opportunities():
     eligs = sorted({e for o in OPPS for e in o["eligibility"]})
     modes = sorted({o["mode"] for o in OPPS if o["mode"]})
     def fdrop(key, label, values):
-        boxes = "".join(f'<label><input type="checkbox" data-key="{key}" value="{esc(v)}"> {esc(v)} <span class="n" data-n="{esc(v)}"></span></label>' for v in values)
+        boxes = "".join(f'<label><input type="checkbox" data-key="{key}" value="{esc(v)}"> {esc(term(v))} <span class="n" data-n="{esc(v)}"></span></label>' for v in values)
         return (f'<details class="fdrop" data-key="{key}"><summary>{label} <span class="car">▾</span></summary>'
                 f'<div class="panel">{boxes}</div></details>')
     def opts(vals):
@@ -5663,6 +5677,47 @@ def build_redirects():
                 + "</urlset>\n")
     with open(os.path.join(DOCS, "robots.txt"), "w") as f:
         f.write(ROBOTS.format(canon=CANON))
+
+
+TERMS = {
+    "fr": {"Award": "Prix", "Challenge": "Défi", "Conference": "Conférence", "Fellowship": "Bourse de résidence",
+           "Grant": "Subvention", "Open Call": "Appel à candidatures", "Program": "Programme",
+           "Residency": "Résidence", "Volunteer": "Bénévolat", "Event": "Événement", "Job": "Emploi",
+           "Remote": "À distance", "In-person": "En présentiel", "Hybrid": "Hybride",
+           "Global": "International", "Africa": "Afrique", "Europe": "Europe", "MENA": "MENA",
+           "Middle East": "Moyen-Orient", "North America": "Amérique du Nord",
+           "Artists": "Artistes", "Educators": "Enseignants", "Non-profits": "Associations",
+           "Open to all": "Ouvert à tous", "Researchers": "Chercheurs", "Students": "Étudiants",
+           "XR Creators": "Créateurs XR", "Youth": "Jeunes",
+           "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé"},
+    "ar": {"Award": "جائزة", "Challenge": "تحدٍّ", "Conference": "مؤتمر", "Fellowship": "زمالة",
+           "Grant": "منحة", "Open Call": "دعوة مفتوحة", "Program": "برنامج",
+           "Residency": "إقامة فنية", "Volunteer": "تطوّع", "Event": "فعالية", "Job": "وظيفة",
+           "Remote": "عن بعد", "In-person": "حضوريًا", "Hybrid": "مختلط",
+           "Global": "عالمي", "Africa": "أفريقيا", "Europe": "أوروبا", "MENA": "الشرق الأوسط وشمال أفريقيا",
+           "Middle East": "الشرق الأوسط", "North America": "أمريكا الشمالية",
+           "Artists": "الفنانون", "Educators": "المعلمون", "Non-profits": "الجمعيات",
+           "Open to all": "مفتوح للجميع", "Researchers": "الباحثون", "Students": "الطلبة",
+           "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
+           "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق"},
+}
+MONTHS = {
+    "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
+           "septembre", "octobre", "novembre", "décembre"],
+    "ar": ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان", "جويلية", "أوت",
+           "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+}
+
+
+def term(word):
+    return TERMS.get(LANG, {}).get(word, word)
+
+
+def long_date(d):
+    """A date in the language of the page. Tunisian month names in Arabic."""
+    if LANG == "en":
+        return d.strftime("%d %B %Y")
+    return f"{d.day} {MONTHS[LANG][d.month - 1]} {d.year}"
 
 
 def build_llms_txt():
