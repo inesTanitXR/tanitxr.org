@@ -322,6 +322,7 @@ function start() {
       return;
     }
     expanded = !expanded;
+    if (expanded && window.tx) tx('nura_more', { object: slots[shown] && slots[shown].it.slug });
     if (bubbleLong) bubbleLong.hidden = !expanded;
     moreBtn.textContent = expanded ? 'Thanks, Nura' : 'Tell me more';
     // she reads the longer line too, in her own voice where it has been recorded
@@ -589,6 +590,7 @@ function start() {
       if (it.real && it.place && !p.places.includes(it.place)) p.places.push(it.place);
     });
     if (window.tx) tx('collection_view', { object: it.slug });
+    window.dispatchEvent(new CustomEvent('tanitxr:view', { detail: it.slug }));
     history.replaceState(null, '', '#' + it.slug);
     maybeNudge(it);
   }
@@ -1120,7 +1122,7 @@ function start() {
     beHappy(); flare = 1;
     sayLine(step.line, { voice: null });
     if (window.tx) tx('tour_step', { step: tourStep });
-    if (step.act === 'end') { try { sessionStorage.setItem('tanitxr.tour', 'done'); } catch (e) { /* private mode */ } }
+    if (step.act === 'end') { if (window.tx) tx('tour_done'); try { sessionStorage.setItem('tanitxr.tour', 'done'); } catch (e) { /* private mode */ } }
   }
   function tourGo(k) {
     clearTimeout(tourTimer);
@@ -1637,7 +1639,7 @@ function start() {
     xrCursor = xrTarget = Math.max(0, shown);
     xrLabelSlug = null;
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
-    if (window.tx) tx('xr_entered', { from: slots[shown] && slots[shown].it.slug });
+    if (window.tx) tx('xr_entered', { object: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
     xrMode = false; arMode = false; xrRoomFocus = null;
@@ -2248,6 +2250,33 @@ function start() {
   }, 4200);
 
   const wanted = decodeURIComponent(location.hash.slice(1));
+  // --- the numbers a grant asks for: who came, how long they stayed, how deep they went ---
+  if (window.tx) {
+    const ua = navigator.userAgent;
+    const device = /OculusBrowser|Quest|Pico|VisionOS|Vision Pro/i.test(ua) ? 'headset'
+      : /Mobi|Android|iPhone|iPad/i.test(ua) ? 'phone' : 'desktop';
+    tx('explore_open', { device });
+    if (wanted && !wanted.startsWith('saved=') && !/^tour/.test(wanted)) tx('share_landing', { object: wanted });
+    if (wanted.startsWith('saved=')) tx('share_landing', { object: 'saved-collection' });
+    if (TOUR_ON) tx('tour_start');
+    // minutes spent, as milestones (reliable, unlike a beacon at exit); the clock pauses in another tab
+    const MARKS = [[60, '1-min'], [180, '3-min'], [600, '10-min'], [1200, '20-min']];
+    let active = 0, last = performance.now(), mi = 0;
+    setInterval(() => {
+      const now = performance.now();
+      if (document.visibilityState === 'visible') active += (now - last) / 1000;
+      last = now;
+      while (mi < MARKS.length && active >= MARKS[mi][0]) { tx('dwell', { step: MARKS[mi][1] }); mi++; }
+    }, 5000);
+    // distinct objects looked at in this visit, as milestones
+    const DEPTH = [3, 10, 25, 50];
+    const seenNow = new Set(); let di = 0;
+    window.addEventListener('tanitxr:view', e => {
+      seenNow.add(e.detail);
+      while (di < DEPTH.length && seenNow.size >= DEPTH[di]) { tx('depth', { step: DEPTH[di] + '-objects' }); di++; }
+      if (seenNow.size === CFG.items.length) tx('depth', { step: 'everything' });
+    });
+  }
   if (wanted.startsWith('saved=')) {              // someone shared their collection
     const list = wanted.slice(6).split(',').filter(sl => CFG.items.some(x => x.slug === sl));
     if (list.length) {

@@ -3,8 +3,13 @@
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
   try{
-    // an object's slug becomes part of the path, so counts exist per object as well as in total
-    const path = name + (props && props.object ? '/' + props.object : '');
+    // the thing that matters becomes part of the path (object slug, share network, badge, ask, gallery,
+    // tour step, device), so counts exist per item as well as in total; GoatCounter drops everything else
+    const KEYS = ['object', 'net', 'badge', 'ask', 'artist', 'room', 'step', 'person', 'from', 'device', 'on'];
+    let dim = '';
+    if (props) for (const k of KEYS) { if (props[k] !== undefined && props[k] !== null && props[k] !== '') { dim = String(props[k]); break; } }
+    dim = dim.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const path = name + (dim ? '/' + dim : '');
     if (window.counter && typeof counter.count === 'function') counter.count({path: path});
     if (window.goatcounter && goatcounter.count) goatcounter.count({path: path, event: true});
     if (typeof gtag === 'function') gtag('event', name, props || {});
@@ -12,8 +17,23 @@ window.tx = function(name, props){
 };
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
-  if (a) window.tx('donate_click');
+  if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
 });
+document.addEventListener('submit', e => {
+  const f = e.target;
+  if (f && /kit\.com\/forms/.test(f.action || '')) window.tx('newsletter_signup', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+  else if (f && /formsubmit\.co/.test(f.action || '')) window.tx('form_submit', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+});
+// first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
+(function(){
+  try {
+    if (sessionStorage.getItem('tanitxr.counted')) return;
+    sessionStorage.setItem('tanitxr.counted', '1');
+    const back = localStorage.getItem('tanitxr.seen');
+    localStorage.setItem('tanitxr.seen', String(Date.now()));
+    window.tx('visit', { from: back ? 'returning' : 'first' });
+  } catch (e) { /* private mode */ }
+})();
 
 const hd=document.querySelector('header.site');
 addEventListener('scroll',()=>{hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
