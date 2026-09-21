@@ -1681,6 +1681,13 @@ FR = {
     '3D Modeler &amp; Web Contributor': 'Modeleur 3D et contributrice web',
     'Strategy &amp; Creative Support': 'Stratégie et soutien créatif',
     'The museum&#x27;s main hall': 'La salle principale du musée',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Save &#9825;': 'Enregistrer &#9825;',
+
+    # ---- added 2026-09-21: roles that were only half translated ----
+    'Partnerships &amp; Community': 'Partenariats et communauté',
+    '2D Design &amp; 3D Generalist': 'Design 2D et généraliste 3D',
 }
 
 
@@ -3359,5 +3366,12 @@ AR = {
     '3D Modeler &amp; Web Contributor': 'نمذجة ثلاثية الأبعاد ومساهمة في الويب',
     'Strategy &amp; Creative Support': 'الاستراتيجية والدعم الإبداعي',
     'The museum&#x27;s main hall': 'القاعة الرئيسية للمتحف',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Save &#9825;': 'حفظ &#9825;',
+
+    # ---- added 2026-09-21: roles that were only half translated ----
+    'Partnerships &amp; Community': 'الشراكات والمجتمع',
+    '2D Design &amp; 3D Generalist': 'تصميم ثنائي الأبعاد ومصمّم ثلاثي الأبعاد متعدّد المهام',
 }
 
