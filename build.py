@@ -2377,10 +2377,27 @@ if os.path.isdir(PROFILE_DIR):
             slug = slugify(d["name"])
             COMMUNITY.append({
                 "name": d["name"], "role": d.get("role", "Volunteer"), "slug": slug,
-                "bio": d.get("bio", ""), "photo": d.get("photo"),
+                "bio": d.get("bio", ""), "photo": d.get("photo") or d.get("photo_url"),
                 "links": [d[k] for k in ("linkedin", "instagram", "website", "github", "sketchfab", "other_link") if d.get(k)] + ([f"mailto:{d['public_email']}"] if d.get("public_email") else []),
                 "href": f"team/{slug}.html",
             })
+
+# A photo URL comes from whatever someone typed into the profile form, and a link can 404, expire
+# or be a typo. One of those must not stop the whole site from building: drop the photo and the
+# card falls back to the person's initial, exactly as it does when no photo was given.
+def _photo_reachable(person):
+    if not person.get("photo"):
+        return
+    try:
+        _source_for(person["photo"])
+    except Exception as e:
+        print(f"  ! {person['name']}: photo could not be fetched ({str(e)[:60]}). "
+              f"Showing their initial instead. Fix or clear \"photo\" in ref/people.json.")
+        person["photo"] = None
+
+
+for _p in TEAM + COMMUNITY:
+    _photo_reachable(_p)
 
 # opportunities
 TERMS = load("terms.json")
