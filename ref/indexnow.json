@@ -1,0 +1,4 @@
+{
+ "_what": "IndexNow tells Bing (and so ChatGPT and Copilot) the moment a page changes, without waiting to be crawled. The key is public by design: it is proved by hosting <key>.txt at the site root, which build.py writes.",
+ "key": "4e5627b48b54efda286b1db9892eff6d"
+}

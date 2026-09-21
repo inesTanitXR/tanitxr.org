@@ -5787,6 +5787,16 @@ def build_redirects():
     with open(os.path.join(DOCS, "robots.txt"), "w") as f:
         f.write(ROBOTS.format(canon=CANON))
 
+    # IndexNow: Bing accepts a change notification from anyone who can prove they own the site,
+    # and ownership is proved by serving this file. Bing's index is what several AI assistants
+    # search, so this is the shortest path from "published" to "an assistant can find it".
+    _ixn = os.path.join(HERE, "ref", "indexnow.json")
+    if os.path.exists(_ixn):
+        _key = json.load(open(_ixn)).get("key", "")
+        if _key:
+            with open(os.path.join(DOCS, _key + ".txt"), "w") as f:
+                f.write(_key)
+
 
 TERMS = {
     "fr": {"Award": "Prix", "Challenge": "Défi", "Conference": "Conférence", "Fellowship": "Bourse de résidence",
