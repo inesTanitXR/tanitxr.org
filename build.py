@@ -2017,7 +2017,15 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     if not (is_index or is_404):
         # flat alias (archive.html -> archive/) so links shared before the rename keep working
         stem = fname[:-5]
-        alias_path = os.path.join(DOCS, LANG_DIRS[LANG], fname)
+        # The alias is written as a DIRECTORY named "archive.html", not a file. GitHub Pages
+        # tries a file of that name first, so a file here would swallow the bare path
+        # /archive and serve this stub. As a directory it does not, and /archive gets a real
+        # 301 to /archive/, which every crawler follows. /archive.html still works, through
+        # its own 301 to /archive.html/.
+        alias_file = os.path.join(DOCS, LANG_DIRS[LANG], fname)
+        if os.path.isfile(alias_file):
+            os.remove(alias_file)
+        alias_path = os.path.join(alias_file, "index.html")
         os.makedirs(os.path.dirname(alias_path), exist_ok=True)
         # Absolute, so it cannot resolve to /x/x/ whichever way a client normalises the URL.
         # The alias carries the real page's preview tags: people share a URL without the
