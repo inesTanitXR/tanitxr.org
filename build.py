@@ -5263,7 +5263,7 @@ and neglect. Together, we’re building a digital archive to protect it for gene
 <div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
 <div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
 <div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
-<div><img src="{img('global.png', 200, as_jpeg=False)}" alt="Global reach"><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">Global Reach</span></div>
+<div><img src="{img('global.png', 200, as_jpeg=False)}" alt="People reached online"><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">People reached online</span></div>
 </div>
 </div></section>
 <section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
