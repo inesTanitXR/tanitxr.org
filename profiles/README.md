@@ -20,4 +20,6 @@ Example — save as `firstname-lastname.json`:
 
 - `photo` can be any image URL (it is downloaded, resized, and self-hosted at build time),
   or a filename that exists in `media/`.
-- Set `"approved": false` to keep a submission out of the site without deleting it.
+- `"approved"` must be `true` for the card to appear. A file with the flag missing or false is
+  held back, so nothing reaches Our People until a human says so. That is the approval step:
+  read the submission, then flip the flag and rebuild.

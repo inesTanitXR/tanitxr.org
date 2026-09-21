@@ -2328,7 +2328,9 @@ if os.path.isdir(PROFILE_DIR):
         if fn.endswith(".json"):
             with open(os.path.join(PROFILE_DIR, fn)) as f:
                 d = json.load(f)
-            if not d.get("approved", True):
+            # fails closed: a submission is only published once someone sets approved to true,
+            # so a file dropped in here by mistake cannot put a stranger on Our People
+            if not d.get("approved", False):
                 continue
             slug = slugify(d["name"])
             COMMUNITY.append({
