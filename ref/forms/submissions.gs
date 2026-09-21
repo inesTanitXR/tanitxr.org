@@ -28,14 +28,29 @@
 const SHEET_ID = '1bboWu3dxD_KRhSZooK39Bc1kYhuY2IsjNftF9lr04wc';
 
 // Fields the forms use for their own plumbing, not worth a column.
-const SKIP = ['_captcha', '_template', '_next', '_subject', '_honey', '_form'];
+const SKIP = ['_captcha', '_template', '_next', '_subject', '_honey', '_form', 'url', '_t', '_js'];
+
+// A real person loads the page, spends a few seconds, and their browser fills _t and _js.
+// A script that posts the form without opening it fills neither, and often fills the hidden
+// "url" trap. Anything failing these is dropped: no row, no notification.
+const MIN_SECONDS_ON_PAGE = 2.5;
+
+function looksLikeABot(d) {
+  if (d._honey) return true;                       // the old trap
+  if (d.url) return true;                          // the tempting one
+  if (!d._js) return true;                         // no JavaScript ran
+  const ms = Number(d._t);
+  if (!isFinite(ms) || ms < MIN_SECONDS_ON_PAGE * 1000) return true;   // too fast to have read it
+  if (ms > 24 * 60 * 60 * 1000) return true;                           // a page left open for a day
+  return false;
+}
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);          // two people submitting at once must not collide
   try {
     const data = readBody(e);
-    if (data._honey) return reply('ignored');          // the hidden field only bots fill in
+    if (looksLikeABot(data)) return reply('ignored');
     const name = String(data._form || 'other').replace(/[^a-z0-9-]/gi, '').slice(0, 40) || 'other';
     const sheet = tabFor(name);
     const fields = Object.keys(data).filter(k => SKIP.indexOf(k) === -1);

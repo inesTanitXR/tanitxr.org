@@ -20,8 +20,18 @@ document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
   if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
 });
+const PAGE_OPENED = Date.now();
 document.addEventListener('submit', e => {
   const f = e.target;
+  // Two things a real visitor produces and a script posting the form does not: time spent on
+  // the page, and a value written by JavaScript. The submissions sheet drops anything missing
+  // them, which keeps the bots that fill this form out of the approval queue.
+  try {
+    const t = f.querySelector('input[name="_t"]');
+    const j = f.querySelector('input[name="_js"]');
+    if (t) t.value = String(Date.now() - PAGE_OPENED);
+    if (j) j.value = String(Date.now()).split('').reverse().join('').slice(0, 8);
+  } catch (err) { /* never block a real person from sending the form */ }
   if (f && /kit\.com\/forms/.test(f.action || '')) window.tx('newsletter_signup', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   else if (f && /formsubmit\.co/.test(f.action || '')) window.tx('form_submit', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   // Send a copy of the submission to the submissions sheet, so it can be reviewed and approved

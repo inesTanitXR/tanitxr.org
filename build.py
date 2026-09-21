@@ -357,6 +357,7 @@ section.pad-sm{padding:56px 0}
 .art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 .art-grid img{width:100%;height:100%;object-fit:contain}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .past-events{max-width:860px;margin:0 auto;display:grid;gap:2px}
 .past-ev{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--mist)}
 .past-ev:last-child{border-bottom:1px solid var(--mist)}
@@ -1514,8 +1515,18 @@ document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
   if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
 });
+const PAGE_OPENED = Date.now();
 document.addEventListener('submit', e => {
   const f = e.target;
+  // Two things a real visitor produces and a script posting the form does not: time spent on
+  // the page, and a value written by JavaScript. The submissions sheet drops anything missing
+  // them, which keeps the bots that fill this form out of the approval queue.
+  try {
+    const t = f.querySelector('input[name="_t"]');
+    const j = f.querySelector('input[name="_js"]');
+    if (t) t.value = String(Date.now() - PAGE_OPENED);
+    if (j) j.value = String(Date.now()).split('').reverse().join('').slice(0, 8);
+  } catch (err) { /* never block a real person from sending the form */ }
   if (f && /kit\\.com\\/forms/.test(f.action || '')) window.tx('newsletter_signup', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   else if (f && /formsubmit\\.co/.test(f.action || '')) window.tx('form_submit', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   // Send a copy of the submission to the submissions sheet, so it can be reviewed and approved
@@ -3184,6 +3195,8 @@ scanning days.</p></div>
 {thanks_next("services")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <label class="req" for="sv-name">Name</label><input id="sv-name" type="text" name="name" required>
 <label class="req" for="sv-org">Organization</label><input id="sv-org" type="text" name="organization" required>
 <label class="req" for="sv-email">Email</label><input id="sv-email" type="email" name="email" required>
@@ -4721,6 +4734,8 @@ and in the newsletter.</p>
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("opportunity")}
 <input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <label class="req" for="oname">Opportunity name</label>
 <input id="oname" name="opportunity" required>
 <label class="req" for="olink">Link</label>
@@ -4991,6 +5006,8 @@ page.</p>
 {thanks_next("profile")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <label class="req" for="pname">Your Name</label>
 <input id="pname" name="name" required>
 <label class="req" for="prole">Your Role / What you do</label>
@@ -5150,6 +5167,8 @@ motivation. More details are shared with accepted participants.</p>
 {thanks_next("splats")}
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <label class="req" for="sp-name">Full Name</label><input id="sp-name" type="text" name="name" required>
 <label class="req" for="sp-email">Email</label><input id="sp-email" type="email" name="email" required>
 <label class="req" for="sp-tz">Time Zone</label><input id="sp-tz" type="text" name="time_zone" placeholder="Example: EST, GMT+1, Tunisia time" required>
@@ -5401,6 +5420,8 @@ def build_contact():
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("contact")}
 <input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <label class="req" for="cname">Full Name</label>
 <input id="cname" name="name" required>
 <label class="req" for="cemail">Email Address</label>
