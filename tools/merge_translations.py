@@ -37,13 +37,14 @@ BLOB = "".join(open(f, encoding="utf-8").read()
 
 
 def as_in_html(k):
-    for cand in (k,
-                 k.replace("&", "&amp;").replace("'", "&#x27;"),
-                 k.replace("\xa0", "&nbsp;"),
-                 k.replace("&", "&amp;").replace("'", "&#x27;").replace("\xa0", "&nbsp;")):
+    """The key as it appears in the file. build.py matches whitespace loosely, so we do too."""
+    esc = k.replace("&", "&amp;").replace("'", "&#x27;").replace('"', "&quot;")
+    for cand in (k, esc, k.replace("\xa0", "&nbsp;"), esc.replace("\xa0", "&nbsp;"),
+                 k.replace('"', "&quot;"), k.replace("'", "&#x27;")):
         if cand in BLOB:
             return cand
-    return None
+    loose = re.compile(r"\s+".join(re.escape(w) for w in k.split()))
+    return k if loose.search(BLOB) else None
 
 
 fr, ar, skipped, dupes, unmatched = {}, {}, 0, 0, 0

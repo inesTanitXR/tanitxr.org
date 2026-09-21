@@ -1454,6 +1454,221 @@ FR = {
     '1 object': '1 objet',
     'HALL II': 'SALLE II',
     'HALL I': 'SALLE I',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Tanit XR is run entirely by volunteers. So far most costs, travel to\nsites, tools, hosting, hackathon prizes, have been paid out of pocket by our founders, plus a few individual donations\nthrough our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).\nWe are applying for grants and building partnerships to change that. Donations keep the community running: hosting,\nvolunteer hours, optimizing and publishing models, the virtual museum, scanning and site clean-up days, our free course\nand workshops, and better equipment. Here is what a donation does:':
+        'Tanit XR fonctionne entièrement grâce à des bénévoles. Jusqu’ici, la plupart des frais, les déplacements vers les sites, les outils, l’hébergement, les prix du hackathon, ont été payés de leur poche par nos fondateurs, avec quelques dons de particuliers passés par notre parrain fiscal, la Florida Community Innovation Foundation (une organisation américaine 501(c)(3), les dons sont donc déductibles des impôts). Nous demandons des subventions et construisons des partenariats pour que cela change. Les dons font vivre la communauté : hébergement, heures de bénévolat, optimisation et publication des modèles, musée virtuel, journées de numérisation et de nettoyage des sites, notre cours gratuit et nos ateliers, et du meilleur matériel. Voici ce que fait un don :',
+    'Phoenician settlers founded Carthage and it grew into the capital of an empire that ran the western Mediterranean. Rome destroyed it in 146 BCE, then rebuilt it as the capital of Roman Africa. What stands today is layered. Punic stelae raised to Tanit and Baal Hammon sit a short walk from Roman columns, villa mosaics and the largest bath complex Rome built in Africa. Our volunteers scanned across four areas of the site.':
+        'Des colons phéniciens ont fondé Carthage, qui est devenue la capitale d’un empire maîtrisant la Méditerranée occidentale. Rome l’a détruite en 146 av. J.-C., puis l’a rebâtie comme capitale de l’Afrique romaine. Ce qui subsiste aujourd’hui est fait de couches. Des stèles puniques dressées à Tanit et Baal Hammon se trouvent à quelques pas de colonnes romaines, de mosaïques de villas et du plus grand complexe de thermes que Rome ait bâti en Afrique. Nos bénévoles ont numérisé quatre zones du site.',
+    'The Holy Art Gallery’s “Not Your Grandma’s Gallery” is an ongoing open call series for artists worldwide, positioned as high-energy, contemporary exhibitions across different cities. Listings typically note exhibition dates and a deadline to apply that may be marked as TBC depending on the edition. Check the current call page/post for the specific city, exhibition dates, and the latest submission deadline.':
+        '« Not Your Grandma’s Gallery » de la Holy Art Gallery est une série d’appels à candidatures ouverte aux artistes du monde entier, pensée comme des expositions contemporaines et pleines d’énergie dans différentes villes. Les annonces indiquent en général les dates d’exposition et une date limite de candidature parfois notée « à confirmer » selon l’édition. Consultez la page ou la publication de l’appel en cours pour connaître la ville, les dates d’exposition et la date limite la plus récente.',
+    'In early 2026 Storm Harry stripped sand off the seabed near Nabeul and exposed part of Neapolis, a Punic and later Roman city that collapsed into the sea after a tsunami in the 4th century CE. Stone blocks and wall lines were visible for a few days before the sediment returned. Tanit XR captured the newly exposed area inside that window. This hall holds one object, and it is the reason we work quickly.':
+        'Début 2026, la tempête Harry a arraché le sable du fond marin près de Nabeul et mis au jour une partie de Neapolis, une cité punique puis romaine engloutie par un tsunami au IVe siècle de notre ère. Des blocs de pierre et des lignes de murs sont restés visibles quelques jours avant le retour des sédiments. Tanit XR a documenté la zone dégagée pendant cette fenêtre. Cette salle ne contient qu’un seul objet, et c’est la raison pour laquelle nous travaillons vite.',
+    "Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage\ninto 3D and publish it free, for anyone, working alongside the institutions that look after the sites. Everything on\nthis site was built without a single paid person. A partnership pays for the museum, the experiences, the training and\nthe care of the places, and gives your team a real part in it.":
+        'Tanit XR, ce sont quatre-vingt-cinq bénévoles sur quatre continents qui font passer le patrimoine tunisien en danger en 3D et le publient gratuitement, pour tout le monde, en travaillant aux côtés des institutions qui veillent sur les sites. Tout ce qui se trouve sur ce site a été construit sans une seule personne rémunérée. Un partenariat finance le musée, les expériences, la formation et l’entretien des lieux, et donne à votre équipe une vraie place dans tout cela.',
+    'Under Hadrian, Rome built a temple around a mountain spring at Zaghouan. From here an aqueduct carried water more than 90 kilometres to Carthage, one of the longest in the Roman world. The temple is the monumental head of that system. Niches once held statues of water deities, laurel friezes ran along the cornices, and a Latin slab recorded who paid for it.':
+        'Sous Hadrien, Rome a bâti un temple autour d’une source de montagne à Zaghouan. De là, un aqueduc portait l’eau sur plus de 90 kilomètres jusqu’à Carthage, l’un des plus longs du monde romain. Le temple est la tête monumentale de ce système. Des niches abritaient autrefois des statues de divinités des eaux, des frises de laurier couraient le long des corniches, et une dalle latine gardait la mémoire de ceux qui l’avaient financé.',
+    'The first community-led virtual museum of Tunisian heritage. Every artifact inside was\nscanned in Tunisia by our volunteers and optimized by volunteers around the world; the rooms are modeled by hand so\nanyone in the community can build a new one. Built in Unity with photogrammetry and Gaussian splats. Still in\nprogress, this is what it looks like today.':
+        'Le premier musée virtuel du patrimoine tunisien porté par une communauté. Chaque objet à l’intérieur a été numérisé en Tunisie par nos bénévoles et optimisé par des bénévoles partout dans le monde ; les salles sont modélisées à la main pour que n’importe qui dans la communauté puisse en construire une nouvelle. Réalisé avec Unity, en photogrammétrie et en splats gaussiens. Toujours en chantier, voici à quoi il ressemble aujourd’hui.',
+    'The medina grew around the Zitouna Mosque and became one of the great cities of the Islamic world under the Almohads and the Hafsids. It is not a ruin. People live and work here now. These scans are doors, wells, looms and prayer niches recorded in streets that are still in daily use, including the Madrasa Al Bachia of 1752 and the Medersa Slimanya.':
+        'La médina s’est développée autour de la mosquée Zitouna et est devenue l’une des grandes villes du monde islamique sous les Almohades et les Hafsides. Ce n’est pas une ruine. Des gens y vivent et y travaillent aujourd’hui. Ces numérisations sont des portes, des puits, des métiers à tisser et des niches de prière enregistrés dans des rues encore utilisées tous les jours, dont la Madrasa Al Bachia de 1752 et la Medersa Slimanya.',
+    'Tanit XR is volunteers in Tunisia, the United States, Europe and Nigeria who meet\nevery week. We scan on the ground and optimize remotely, learn the history behind every object, run workshops,\nmentor students, attend events together, and share Tunisian culture with people who had never heard of Carthage.\nEverything we make is free and open.':
+        'Tanit XR, ce sont des bénévoles en Tunisie, aux États-Unis, en Europe et au Nigéria qui se retrouvent chaque semaine. Nous numérisons sur le terrain et optimisons à distance, nous apprenons l’histoire derrière chaque objet, nous animons des ateliers, accompagnons des étudiants, participons à des événements ensemble et faisons connaître la culture tunisienne à des gens qui n’avaient jamais entendu parler de Carthage. Tout ce que nous faisons est gratuit et ouvert.',
+    "A donation goes straight into the work: a volunteer's bus fare and mobile data for a day of scanning, a\nmonth of hosting for the free archive, a workshop that teaches someone in Tunisia to capture their own\nheritage, and one day a proper scanner so the community can record more than a phone allows. Here is what\neach amount does.":
+        'Un don va directement au travail : le ticket de bus et les données mobiles d’un bénévole pour une journée de numérisation, un mois d’hébergement pour l’archive gratuite, un atelier qui apprend à quelqu’un en Tunisie à documenter son propre patrimoine, et un jour un vrai scanner pour que la communauté puisse enregistrer plus que ce que permet un téléphone. Voici ce que fait chaque montant.',
+    'Mostly on Slack, across four continents and as many time zones. Once a week we meet on a call, Thursdays at 12 pm Eastern, 5 pm in Tunisia, to look at new scans, learn the history behind them and help each other with whatever is stuck. Julia records a short history lesson each week for anyone who cannot make it.':
+        'Surtout sur Slack, sur quatre continents et autant de fuseaux horaires. Une fois par semaine, nous nous retrouvons en visio, le jeudi à midi heure de l’Est, 17 h en Tunisie, pour regarder les nouvelles numérisations, apprendre l’histoire qui va avec et s’entraider sur ce qui bloque. Julia enregistre chaque semaine une courte leçon d’histoire pour celles et ceux qui ne peuvent pas venir.',
+    'Skills-based volunteering with a clear task: optimise a scan for the web, research an object&#x27;s history, translate a label into French or Arabic, build a piece of the virtual museum. Half a day or a season, online, with a volunteer of ours alongside. Everything your team makes is published under their names.':
+        'Du bénévolat de compétences avec une tâche claire : optimiser une numérisation pour le web, faire des recherches sur l’histoire d’un objet, traduire une notice en français ou en arabe, construire une partie du musée virtuel. Une demi-journée ou une saison, en ligne, avec l’un de nos bénévoles à vos côtés. Tout ce que votre équipe produit est publié à son nom.',
+    'Your work is credited to you, on your own page here and on every model you touch. You learn photogrammetry, 3D and XR by doing them on real heritage. Students get portfolio reviews, mock interviews and mentoring from people working in the field. And you become part of a community that genuinely likes each other.':
+        'Votre travail est crédité à votre nom, sur votre propre page ici et sur chaque modèle que vous touchez. Vous apprenez la photogrammétrie, la 3D et le XR en les pratiquant sur du vrai patrimoine. Les étudiants bénéficient de relectures de portfolio, d’entretiens blancs et du mentorat de personnes qui travaillent dans le domaine. Et vous entrez dans une communauté dont les membres s’apprécient vraiment.',
+    "Every object our volunteers have scanned in Tunisia, one at a\ntime, in 3D, in your browser. Turn each one with a finger. Nura, our guide, floats beside you and\ntells you what you are looking at. Save the ones you love, share them, collect badges, step into\neach maker's own gallery, or put on a headset.":
+        'Chaque objet que nos bénévoles ont numérisé en Tunisie, un par un, en 3D, dans votre navigateur. Faites-le tourner du doigt. Nura, notre guide, flotte à côté de vous et vous raconte ce que vous regardez. Gardez ceux que vous aimez, partagez-les, collectionnez des badges, entrez dans la galerie de chaque créateur, ou mettez un casque.',
+    "No. Our first scans were made with a phone by someone who had never scanned anything. People here write, design, research, teach, translate, organise trips, model objects, clean up scans, apply for grants and run our social media. If you are curious about Tunisia's history, there is a place for you.":
+        'Non. Nos premières numérisations ont été faites au téléphone par quelqu’un qui n’avait jamais rien numérisé. Ici, des gens écrivent, conçoivent, font des recherches, enseignent, traduisent, organisent des sorties, modélisent des objets, nettoient des numérisations, déposent des demandes de subvention et animent nos réseaux sociaux. Si l’histoire de la Tunisie vous intrigue, il y a une place pour vous.',
+    'Not yet. Everyone at Tanit XR is a volunteer, including the founders, and most costs so far have come out of our own pockets. We will never ask volunteers to work so that someone else earns; when funding arrives, the first people we want to pay are the volunteers on the ground in Tunisia.':
+        'Pas encore. Tout le monde à Tanit XR est bénévole, y compris les fondateurs, et la plupart des frais sont jusqu’ici sortis de nos propres poches. Nous ne demanderons jamais à des bénévoles de travailler pour que quelqu’un d’autre gagne de l’argent ; quand des financements arriveront, les premières personnes que nous voulons payer sont les bénévoles sur le terrain en Tunisie.',
+    'This intricately designed niche is part of the Roman Water Temple in Zaghouan, constructed during the reign of Emperor Hadrian in the 2nd century CE. The temple marked the starting point of the massive aqueduct that carried fresh water over 90 kilometers to the city of Carthage.':
+        'Cette niche finement travaillée fait partie du Temple des Eaux romain de Zaghouan, construit sous le règne de l’empereur Hadrien au IIe siècle de notre ère. Le temple marquait le point de départ de l’immense aqueduc qui portait l’eau douce sur plus de 90 kilomètres jusqu’à la ville de Carthage.',
+    'Our heritage challenge ran at the official Major League Hacking hack day hosted by Florida Community Innovation at the University of Florida, with two tracks: build an interactive experience from one of our real 3D scans, or make a public history piece with no code needed.':
+        'Notre défi patrimoine s’est tenu lors du hack day officiel de la Major League Hacking organisé par Florida Community Innovation à l’University of Florida, avec deux parcours : construire une expérience interactive à partir de l’une de nos vraies numérisations 3D, ou réaliser un projet d’histoire publique sans écrire une ligne de code.',
+    'Alyssa George, illustrator and designer from the University of South Florida, draws\nthe Tanit XR story: an amphora heading to class, volunteers on every continent, the Draped Statue of Byrsa Hill\nappearing on a phone, and the murex shell that gave Carthage its purple.':
+        'Alyssa George, illustratrice et designer de l’University of South Florida, dessine l’histoire de Tanit XR : une amphore qui part en cours, des bénévoles sur tous les continents, la Statue drapée de la colline de Byrsa qui apparaît sur un téléphone, et le coquillage murex qui a donné à Carthage sa pourpre.',
+    'As much as you can give. Tasks are small and self-contained: one scan to clean up, one object to research, one article to write. Some people come to the Thursday call every week, some appear once a month. You set the pace and you can pause whenever life gets busy.':
+        'Autant que vous pouvez donner. Les tâches sont petites et autonomes : une numérisation à nettoyer, un objet à documenter, un article à écrire. Certaines personnes viennent à l’appel du jeudi chaque semaine, d’autres apparaissent une fois par mois. Vous fixez le rythme et vous pouvez faire une pause dès que la vie devient chargée.',
+    'Our founder and team speak on community XR, phone 3D capture and heritage at risk: AWE, Voices of VR, Georgia Tech, the El Jem conference. Or we bring the 3D experience and a headset to your conference or office, with a volunteer to guide people through it.':
+        'Notre fondatrice et notre équipe interviennent sur le XR communautaire, la capture 3D au téléphone et le patrimoine en danger : AWE, Voices of VR, Georgia Tech, la conférence d’El Jem. Ou nous apportons l’expérience 3D et un casque à votre conférence ou à votre bureau, avec un bénévole pour guider les gens.',
+    'Open call presented by the XR Women Museum inviting submissions around the theme “Vibrancy as Practice.” Submit via the official form linked from the call announcement. Check the external link for the most current submission requirements and timeline.':
+        'Appel à candidatures lancé par le XR Women Museum autour du thème « Vibrancy as Practice ». Les envois se font via le formulaire officiel indiqué dans l’annonce de l’appel. Consultez le lien externe pour connaître les conditions et le calendrier les plus à jour.',
+    "Tanit XR is run entirely by volunteers. Nobody is paid, and most of what you see here, the scanning\ntrips, the tools, the hosting, the hackathon prizes, has so far been paid out of our founders' own pockets.\nThat cannot last, and it should not.":
+        'Tanit XR fonctionne entièrement grâce à des bénévoles. Personne n’est payé, et la plus grande partie de ce que vous voyez ici, les sorties de numérisation, les outils, l’hébergement, les prix du hackathon, a jusqu’ici été payée par nos fondateurs de leur propre poche. Cela ne peut pas durer, et cela ne devrait pas durer.',
+    'That is honestly most of it. Walk a full circle around the object with your phone, then\nanother circle a little higher, then one lower, so every photo overlaps the last. We use\nScaniverse, which is free. Nura is showing you the path right now.':
+        'C’est franchement l’essentiel. Faites un tour complet autour de l’objet avec votre téléphone, puis un autre un peu plus haut, puis un autre plus bas, pour que chaque photo chevauche la précédente. Nous utilisons Scaniverse, qui est gratuit. Nura vous montre le chemin en ce moment même.',
+    'Tanit XR is powered by volunteers: 3D scanning, model cleanup, XR development, historical research, writing, translation, and storytelling. Join from Tunisia or anywhere in the world, all experience levels welcome, fully remote friendly.':
+        'Tanit XR fonctionne grâce à des bénévoles : numérisation 3D, nettoyage de modèles, développement XR, recherche historique, rédaction, traduction et récit. Rejoignez-nous depuis la Tunisie ou de n’importe où dans le monde, tous les niveaux d’expérience sont les bienvenus, et tout peut se faire à distance.',
+    'Global network connecting youth-led organizations working on climate action, education, heritage, science, and communication. Members collaborate, access capacity-building, share knowledge, and participate in UNESCO climate initiatives.':
+        'Réseau mondial qui relie des organisations dirigées par des jeunes et travaillant sur le climat, l’éducation, le patrimoine, la science et la communication. Les membres collaborent, accèdent à des formations, partagent leurs connaissances et participent aux initiatives climat de l’UNESCO.',
+    'With the authorities who look after the sites, a day of cleaning and care at a coastal site with local volunteers: travel, meals, gloves and bags, and a modest fee for the locals who show up. The sea is the clock we work against.':
+        'Avec les autorités qui veillent sur les sites, une journée de nettoyage et d’entretien sur un site côtier avec des bénévoles locaux : déplacement, repas, gants et sacs, et une petite indemnité pour les habitants qui viennent. La mer est l’horloge contre laquelle nous travaillons.',
+    'A free, growing library of 3D scans of Tunisia’s endangered\nheritage, mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored\ninteractively, and viewed in augmented reality on your phone.':
+        'Une bibliothèque gratuite et grandissante de numérisations 3D du patrimoine tunisien en danger : mosaïques, statues, stèles et ruines capturées par nos bénévoles. Chaque modèle peut être exploré de façon interactive et vu en réalité augmentée sur votre téléphone.',
+    'Al Jazeera&#x27;s culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia&#x27;s sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.':
+        'Le service culture d’Al Jazeera a consacré un portrait à Tanit XR en arabe : une association à but non lucratif qui construit une bibliothèque numérique précise des sites et des objets tunisiens grâce à la photogrammétrie et aux splats gaussiens, avant que le temps et l’abandon ne les effacent.',
+    'Tanit XR&#x27;s heritage challenge at the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.':
+        'Le défi patrimoine de Tanit XR lors du Hack Day officiel MLH organisé par Florida Community Innovation à l’University of Florida : construire quelque chose d’utilisable à partir de nos numérisations 3D, ou un projet d’histoire publique qui ne demande aucun code.',
+    'By Laura Harrison, Scientific Director, TanitXR. Scientific Director, TanitXR A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like…':
+        'Par Laura Harrison, directrice scientifique, TanitXR. Directrice scientifique, TanitXR Un âne brun et hirsute a baissé les paupières pendant qu’un marchand remplissait sa charrette en bois de caisses empilées de maïs et de melons. Nous en avons vu plusieurs autres comme…',
+    'By: Margarita Johnson The intense light illuminates the plateau of Byrsa Hill in Carthage, and the wind shakes the surviving fragments of an ancient city that once stood as a rival to Rome itself. Corinthian columns rise…':
+        'Par : Margarita Johnson La lumière intense éclaire le plateau de la colline de Byrsa à Carthage, et le vent secoue les fragments survivants d’une cité antique qui fut un jour la rivale de Rome elle-même. Des colonnes corinthiennes s’élèvent…',
+    'By: Margarita Johnson The new year began with Storm Harry sweeping across Tunisia’s Mediterranean coastline, reshaping the coastline and disturbing layers of sand that had settled undisturbed for centuries. Local observe…':
+        'Par : Margarita Johnson La nouvelle année a commencé avec la tempête Harry qui a balayé le littoral méditerranéen de la Tunisie, redessinant la côte et remuant des couches de sable posées là sans bouger depuis des siècles. Des observateurs locaux…',
+    'Tanit XR is taking part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge: build som…':
+        'Tanit XR participe au CityCamp Gainesville Hack Day le dimanche 20 septembre 2026, au Reitz Union de l’University of Florida, un hack day officiel MLH organisé par Florida Community Innovation. Notre défi : construire quelque…',
+    'This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by history. Walking past the ruins of Carthage felt ordinary, almost casual. An…':
+        'C’est le tout premier article de Tanit XR, et il nous semble juste de commencer par une histoire. Grandir parmi les ruines J’ai grandi en Tunisie entourée d’histoire. Passer devant les ruines de Carthage paraissait ordinaire, presque banal. Un…',
+    'Date/Period: 18th century (Husainid period) Material/Technique: Marble, carved plaster, qallaline ceramic tiles Description: This architectural element is a mahram, an ornamental niche inspired by the form of the mihrab.':
+        'Date/Période : XVIIIe siècle (période husseinite) Matériau/Technique : marbre, plâtre sculpté, carreaux de faïence de Qallaline Description : cet élément architectural est un mahram, une niche ornementale inspirée de la forme du mihrab.',
+    'Please write. We work with universities, museums, mapping communities and nonprofits, in Tunisia and beyond. The Unique Mappers in Nigeria are the first community bringing the model to a second country. Reach us at':
+        'Écrivez-nous. Nous travaillons avec des universités, des musées, des communautés de cartographie et des associations, en Tunisie et ailleurs. Les Unique Mappers au Nigéria sont la première communauté à porter ce modèle dans un deuxième pays. Contactez-nous à',
+    'Courses, mentoring for students, hosting and tools, the weekly call across four continents. The unglamorous part that keeps eighty-five volunteers working, and the first paid coordinator when we can afford one.':
+        'Des cours, du mentorat pour les étudiants, l’hébergement et les outils, l’appel hebdomadaire sur quatre continents. La partie ingrate qui permet à quatre-vingt-cinq bénévoles de travailler, et le premier poste de coordination rémunéré quand nous pourrons nous le permettre.',
+    'One promise we keep whatever the partnership: the archive stays free and open,\nand our volunteers are never made to work so that someone else earns. We sell training, events and our time, never the heritage.':
+        'Une promesse que nous tenons quel que soit le partenariat : l’archive reste gratuite et ouverte, et nos bénévoles ne sont jamais mis à contribution pour que quelqu’un d’autre gagne de l’argent. Nous vendons de la formation, des événements et notre temps, jamais le patrimoine.',
+    'A workshop for your team on phone photogrammetry, on objects and places we are free to scan, with the method our volunteers use. A skill people keep, and a new way to look at the street they walk every day.':
+        'Un atelier pour votre équipe sur la photogrammétrie au téléphone, sur des objets et des lieux que nous sommes libres de numériser, avec la méthode qu’utilisent nos bénévoles. Une compétence que les gens gardent, et une nouvelle façon de regarder la rue qu’ils empruntent tous les jours.',
+    'A curated board of grants, residencies, fellowships, open calls,\nand events for artists, XR creators, educators, students, and changemakers, updated regularly by the\nTanit XR team. Also published as our':
+        'Un tableau sélectionné de bourses, résidences, programmes de recherche, appels à candidatures et événements pour les artistes, les créateurs XR, les enseignants, les étudiants et les porteurs de changement, mis à jour régulièrement par l’équipe de Tanit XR. Également publié dans notre',
+    'Your developers and designers, our volunteers and our published scans, one weekend or one quarter: an AR lesson, a VR room, a piece for your own event. The kind of project your team asks to be part of.':
+        'Vos développeurs et vos designers, nos bénévoles et nos numérisations publiées, le temps d’un week-end ou d’un trimestre : une leçon en réalité augmentée, une salle en VR, une pièce pour votre propre événement. Le genre de projet auquel votre équipe demande à participer.',
+    'Remote volunteers turn raw scans into game-ready models, AR lessons and our virtual museum.':
+        'À distance, des bénévoles transforment les numérisations brutes en modèles prêts pour le jeu, en leçons de réalité augmentée et en notre musée virtuel.',
+    'The Tanit Stela in 3D, with Nura the guide floating beside it':
+        'La Stèle de Tanit en 3D, avec Nura la guide qui flotte à côté',
+    "A maker's gallery: pieces on plinths in a round room":
+        'La galerie d’un créateur : des pièces sur des socles dans une salle ronde',
+    'The museum&#x27;s main hall, Made by volunteers':
+        'La grande salle du musée, réalisé par des bénévoles',
+    'Al Jazeera, Al Jazeera · Culture feature': 'Al Jazeera, Al Jazeera · Reportage culturel',
+    'Hall III &nbsp;·&nbsp; feature object': 'Salle III  ·  objet phare',
+    'Hall II &nbsp;·&nbsp; feature object': 'Salle II  ·  objet phare',
+    'Hall IV &nbsp;·&nbsp; feature object': 'Salle IV  ·  objet phare',
+    'The museum&#x27;s main hall 3D model': 'La grande salle du musée, modèle 3D',
+    'Hall I &nbsp;·&nbsp; feature object': 'Salle I  ·  objet phare',
+    'Hall V &nbsp;·&nbsp; feature object': 'Salle V  ·  objet phare',
+    'Ceramic Plate, Made by volunteers': 'Assiette en céramique, réalisé par des bénévoles',
+    'Modern Tagine, Made by volunteers': 'Tajine moderne, réalisé par des bénévoles',
+    'Underground Passageways 3D model': 'Passages souterrains, modèle 3D',
+    'Murex Shell, Made by volunteers': 'Coquillage murex, réalisé par des bénévoles',
+    'Splats With Phones – TANIT XR': 'Des splats au téléphone – TANIT XR',
+    'Wall Lamp, Made by volunteers': 'Applique murale, réalisé par des bénévoles',
+    'Al Jazeera · Culture feature': 'Al Jazeera · Reportage culturel',
+    'Ruins on the Tunisian coast': 'Des ruines sur la côte tunisienne',
+    'Walk through the collection': 'Parcourez la collection',
+    'Bamboo, Made by volunteers': 'Bambou, réalisé par des bénévoles',
+    'Pillar, Made by volunteers': 'Pilier, réalisé par des bénévoles',
+    '›&nbsp; Splats With Phones': '›  Des splats au téléphone',
+    'Optimize &amp;amp; Build': 'Optimiser &amp; construire',
+    'Research &amp;amp; Share': 'Rechercher &amp; partager',
+    'Architectural Fragments': 'Fragments architecturaux',
+    'Rug, Made by volunteers': 'Tapis, réalisé par des bénévoles',
+    'Scan &amp;amp; Preserve': 'Numériser &amp; préserver',
+    'Underground Passageways': 'Passages souterrains',
+    'Ceramic Plate 3D model': 'Assiette en céramique, modèle 3D',
+    'Modern Tagine 3D model': 'Tajine moderne, modèle 3D',
+    '›&nbsp; ImmerseGT 2026': '›  ImmerseGT 2026',
+    'Mentor &amp;amp; Grow': 'Encadrer &amp; faire grandir',
+    'Press & Recognition': 'Presse et distinctions',
+    'Corinthian Capital': 'Chapiteau corinthien',
+    'Made by volunteers': 'Réalisé par des bénévoles',
+    'Splats With Phones': 'Des splats au téléphone',
+    'Wall Lamp 3D model': 'Applique murale, modèle 3D',
+    'Community Liaison': 'Liaison communautaire',
+    'Makers’ galleries': 'Galeries des créateurs',
+    'A lasting record': 'Une trace durable',
+    'Reclining Figure': 'Figure allongée',
+    'Regional Manager': 'Responsable régional',
+    'Traditional Door': 'Porte traditionnelle',
+    'Bamboo 3D model': 'Bambou, modèle 3D',
+    'Chief Scientist': 'Responsable scientifique',
+    'Pillar 3D model': 'Pilier, modèle 3D',
+    'Project Manager': 'Chef de projet',
+    'Statue Fragment': 'Fragment de statue',
+    'Turn any object': 'Faites tourner n’importe quel objet',
+    'Save and share': 'Enregistrer et partager',
+    'Bust Fragment': 'Fragment de buste',
+    'Ceramic Plate': 'Assiette en céramique',
+    'Draped Statue': 'Statue drapée',
+    'Illustration:': 'Illustration :',
+    'Medium Object': 'Objet moyen',
+    'Modern Tagine': 'Tajine moderne',
+    'Mihrab Niche': 'Niche du mihrab',
+    'Punic Stelae': 'Stèles puniques',
+    'Roman Column': 'Colonne romaine',
+    'Rug 3D model': 'Tapis, modèle 3D',
+    'Sacred Niche': 'Niche sacrée',
+    'Small Object': 'Petit objet',
+    'Murex Shell': 'Coquillage murex',
+    'Punic Stela': 'Stèle punique',
+    'Stone Basin': 'Bassin en pierre',
+    'Tanit Stela': 'Stèle de Tanit',
+    'Works in VR': 'Fonctionne en VR',
+    'Byrsa Hill': 'Colline de Byrsa',
+    'Large Area': 'Grande zone',
+    'Newsletter': 'Infolettre',
+    'Niche Wall': 'Mur à niches',
+    'Community': 'Communauté',
+    'Galleries': 'Galeries',
+    'Meet Nura': 'Rencontrez Nura',
+    'Volunteer': 'Bénévolat',
+    'Wall Lamp': 'Applique murale',
+    'project.': 'projet.',
+    'Caption': 'Légende',
+    'English': 'Anglais',
+    'Explore': 'Explorer',
+    'Founder': 'Fondatrice',
+    'Gallery': 'Galerie',
+    'Objects': 'Objets',
+    'Bamboo': 'Bambou',
+    'Choose': 'Choisir',
+    'Period': 'Période',
+    'Pillar': 'Pilier',
+    'Record': 'Enregistrer',
+    'Share…': 'Partager…',
+    '“Mesh”': '« Mesh »',
+    'Clear': 'Effacer',
+    'Close': 'Fermer',
+    'Email': 'E-mail',
+    'Halls': 'Salles',
+    'Logon': 'Connexion',
+    'Punic': 'Punique',
+    'Saved': 'Enregistré',
+    'Sound': 'Son',
+    'saved': 'enregistré',
+    'Join': 'Rejoindre',
+    'More': 'Plus',
+    'Map': 'Carte',
+    'New': 'Nouveau',
+    'Oct': 'oct.',
+    'Rug': 'Tapis',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Our mission is to preserve Tunisia’s endangered heritage through digital scans, immersive technology, and\neducation. With every artifact we scan and every volunteer we train, we are proving that heritage can be\nsafeguarded for future generations, no matter the threats of climate change and neglect.':
+        'Notre mission est de préserver le patrimoine tunisien menacé grâce à la numérisation, aux technologies\nimmersives et à l’éducation. Chaque objet numérisé et chaque bénévole formé prouvent que le patrimoine peut\nêtre sauvegardé pour les générations futures, malgré le changement climatique et l’abandon.',
+    'Ines scanning at Carthage': 'Ines en train de numériser à Carthage',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    '›\xa0 ImmerseGT 2026': '›  ImmerseGT 2026',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Tanit XR&#x27;s work was shown in the XR Women Museum, including its &quot;Garden: In Full Bloom&quot; exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.':
+        'Le travail de Tanit XR a été présenté au XR Women Museum, notamment dans son exposition « Garden: In Full Bloom », un musée immersif de plus de 30 mondes-galeries dirigé par Paige Dansinger.',
+    'Al Jazeera, &quot;Tanit XR&quot;: a non-profit platform documenting Tunisian heritage digitally (Arabic)':
+        'Al Jazeera, « Tanit XR » : une plateforme à but non lucratif qui documente le patrimoine tunisien en numérique (en arabe)',
+    '&quot;Apteranthes europaea&quot; cactus': 'Cactus "Apteranthes europaea"',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    "Get new grants, residencies, and open calls for art, XR &amp; impact in your\ninbox, free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is\ngoing.":
+        'Recevez gratuitement les nouvelles subventions, résidences et appels à candidatures en art, XR &amp; impact,\ndirectement de l’équipe Tanit XR. Vous serez aussi les premiers informés de l’avancée de notre travail de\npréservation du patrimoine.',
 }
 
 
@@ -2886,5 +3101,239 @@ AR = {
     '1 object': 'قطعة واحدة',
     'HALL II': 'القاعة الثانية',
     'HALL I': 'القاعة الأولى',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Tanit XR is run entirely by volunteers. So far most costs, travel to\nsites, tools, hosting, hackathon prizes, have been paid out of pocket by our founders, plus a few individual donations\nthrough our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).\nWe are applying for grants and building partnerships to change that. Donations keep the community running: hosting,\nvolunteer hours, optimizing and publishing models, the virtual museum, scanning and site clean-up days, our free course\nand workshops, and better equipment. Here is what a donation does:':
+        'يُدار Tanit XR بالكامل بجهود المتطوّعين. وحتى الآن، دفع مؤسّسونا معظم المصاريف من جيوبهم، من تنقّلات إلى المواقع وأدوات واستضافة وجوائز الهاكاثون، إلى جانب بعض تبرّعات الأفراد عبر راعينا المالي، مؤسسة Florida Community Innovation Foundation (وهي جمعية أمريكية بصفة 501(c)(3)، أي أنّ التبرّعات قابلة للخصم الضريبي). ونحن نتقدّم بطلبات منح ونبني شراكات لتغيير ذلك. التبرّعات هي ما يُبقي المجموعة تعمل: الاستضافة، وساعات التطوّع، وتحسين النماذج ونشرها، والمتحف الافتراضي، وأيام المسح وتنظيف المواقع، ودورتنا المجانية وورشاتنا، ومعدّات أفضل. وهذا ما يفعله التبرّع:',
+    'Cet article a été présenté à la conférence d’El Jem en avril 2026. Il explore comment la documentation\nnumérique, la réalité étendue (XR) et la science participative peuvent soutenir une préservation du\npatrimoine évolutive et portée par les communautés, en Tunisie et au-delà. À travers l’exemple de Tanit XR,\nl’article montre comment des technologies accessibles et la formation de bénévoles permettent d’élargir les\nefforts de documentation, d’inclure des sites sous-représentés et de connecter des publics du monde entier\nau patrimoine tunisien.':
+        'قُدّم هذا المقال في مؤتمر الجم في أفريل 2026. وهو يبحث كيف يمكن للتوثيق الرقمي والواقع الممتد (XR) والعلم التشاركي أن تدعم صيانة للتراث قابلة للتوسّع وتقودها المجتمعات المحلية، في تونس وخارجها. ومن خلال مثال Tanit XR، يبيّن المقال كيف تتيح التقنيات المتاحة وتكوين المتطوّعين توسيع جهود التوثيق، وإدراج مواقع ممثّلة تمثيلًا ناقصًا، وربط جمهور من مختلف أنحاء العالم بالتراث التونسي.',
+    'Phoenician settlers founded Carthage and it grew into the capital of an empire that ran the western Mediterranean. Rome destroyed it in 146 BCE, then rebuilt it as the capital of Roman Africa. What stands today is layered. Punic stelae raised to Tanit and Baal Hammon sit a short walk from Roman columns, villa mosaics and the largest bath complex Rome built in Africa. Our volunteers scanned across four areas of the site.':
+        'أسّس مستوطنون فينيقيون قرطاج، فصارت عاصمة إمبراطورية تسيطر على غرب المتوسّط. دمّرتها روما سنة 146 قبل الميلاد، ثم أعادت بناءها عاصمة لإفريقية الرومانية. وما يقف اليوم هو طبقات فوق طبقات: نصب بونية رُفعت لتانيت وبعل حمون تبعد خطوات عن أعمدة رومانية وفسيفساء الفيلات وأكبر مجمّع حمّامات بنته روما في إفريقيا. وقد مسح متطوّعونا أربع مناطق من الموقع.',
+    'The Holy Art Gallery’s “Not Your Grandma’s Gallery” is an ongoing open call series for artists worldwide, positioned as high-energy, contemporary exhibitions across different cities. Listings typically note exhibition dates and a deadline to apply that may be marked as TBC depending on the edition. Check the current call page/post for the specific city, exhibition dates, and the latest submission deadline.':
+        'سلسلة "Not Your Grandma’s Gallery" من Holy Art Gallery هي دعوة مفتوحة متواصلة للفنانين من كل أنحاء العالم، تُقدَّم بوصفها معارض معاصرة مفعمة بالحيوية في مدن مختلفة. وتذكر الإعلانات عادةً تواريخ المعرض وأجل التقديم، وقد يكون هذا الأجل غير مؤكّد حسب الدورة. راجع صفحة الدعوة الحالية لمعرفة المدينة وتواريخ المعرض وآخر أجل للتقديم.',
+    'In early 2026 Storm Harry stripped sand off the seabed near Nabeul and exposed part of Neapolis, a Punic and later Roman city that collapsed into the sea after a tsunami in the 4th century CE. Stone blocks and wall lines were visible for a few days before the sediment returned. Tanit XR captured the newly exposed area inside that window. This hall holds one object, and it is the reason we work quickly.':
+        'في مطلع 2026، أزاحت عاصفة هاري الرمل عن قاع البحر قرب نابل فكشفت جزءًا من نيابوليس، وهي مدينة بونية ثم رومانية ابتلعها البحر بعد تسونامي في القرن الرابع الميلادي. ظلّت كتل الحجارة وخطوط الجدران ظاهرة أيامًا قليلة قبل أن تعود الرواسب. وثّقت Tanit XR المنطقة المكشوفة حديثًا خلال تلك النافذة الزمنية. تضمّ هذه القاعة قطعة واحدة، وهي سبب عملنا بسرعة.',
+    "Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage\ninto 3D and publish it free, for anyone, working alongside the institutions that look after the sites. Everything on\nthis site was built without a single paid person. A partnership pays for the museum, the experiences, the training and\nthe care of the places, and gives your team a real part in it.":
+        'Tanit XR هي خمسة وثمانون متطوّعًا في أربع قارّات ينقلون التراث التونسي المهدّد إلى ثلاثة أبعاد وينشرونه مجّانًا للجميع، بالعمل إلى جانب المؤسسات التي ترعى المواقع. كل ما في هذا الموقع أُنجز دون أي شخص بأجر. والشراكة تموّل المتحف والتجارب والتكوين والعناية بالأماكن، وتمنح فريقكم دورًا حقيقيًا فيها.',
+    'Under Hadrian, Rome built a temple around a mountain spring at Zaghouan. From here an aqueduct carried water more than 90 kilometres to Carthage, one of the longest in the Roman world. The temple is the monumental head of that system. Niches once held statues of water deities, laurel friezes ran along the cornices, and a Latin slab recorded who paid for it.':
+        'في عهد هادريان، بنت روما معبدًا حول منبع جبلي في زغوان. ومن هناك حملت قناة مائية الماء أكثر من 90 كيلومترًا إلى قرطاج، وهي من أطول القنوات في العالم الروماني. والمعبد هو الرأس الضخم لذلك النظام. كانت الحنايا تحتضن تماثيل لآلهة المياه، وتمتدّ أفاريز الغار على الكرانيش، وسجّلت لوحة لاتينية أسماء من موّلوا البناء.',
+    'The first community-led virtual museum of Tunisian heritage. Every artifact inside was\nscanned in Tunisia by our volunteers and optimized by volunteers around the world; the rooms are modeled by hand so\nanyone in the community can build a new one. Built in Unity with photogrammetry and Gaussian splats. Still in\nprogress, this is what it looks like today.':
+        'أوّل متحف افتراضي للتراث التونسي يقوده مجتمع من المتطوّعين. كل قطعة بداخله مسحها متطوّعونا في تونس وحسّنها متطوّعون من مختلف أنحاء العالم؛ أمّا القاعات فمُنمذجة يدويًا حتى يتمكّن أي شخص في المجموعة من بناء قاعة جديدة. بُني بمحرّك Unity بالمسح التصويري والسحابات الغاوسية. وما زال العمل جاريًا، وهذا شكله اليوم.',
+    'The medina grew around the Zitouna Mosque and became one of the great cities of the Islamic world under the Almohads and the Hafsids. It is not a ruin. People live and work here now. These scans are doors, wells, looms and prayer niches recorded in streets that are still in daily use, including the Madrasa Al Bachia of 1752 and the Medersa Slimanya.':
+        'نمت المدينة حول جامع الزيتونة وصارت من كبرى مدن العالم الإسلامي في عهد الموحّدين والحفصيين. وهي ليست أطلالًا؛ فالناس يعيشون ويعملون فيها اليوم. هذه العمليات وثّقت أبوابًا وآبارًا وأنوالًا ومحاريب في شوارع ما زالت مستعملة يوميًا، ومنها المدرسة الباشية لسنة 1752 والمدرسة السليمانية.',
+    'Tanit XR is volunteers in Tunisia, the United States, Europe and Nigeria who meet\nevery week. We scan on the ground and optimize remotely, learn the history behind every object, run workshops,\nmentor students, attend events together, and share Tunisian culture with people who had never heard of Carthage.\nEverything we make is free and open.':
+        'Tanit XR هم متطوّعون في تونس والولايات المتحدة وأوروبا ونيجيريا يلتقون كل أسبوع. نمسح على الأرض ونحسّن النماذج عن بُعد، ونتعلّم تاريخ كل قطعة، وننظّم ورشات، ونرافق الطلبة، ونحضر الفعاليات معًا، ونعرّف بالثقافة التونسية أشخاصًا لم يسمعوا بقرطاج من قبل. وكل ما ننجزه مجاني ومفتوح.',
+    "A donation goes straight into the work: a volunteer's bus fare and mobile data for a day of scanning, a\nmonth of hosting for the free archive, a workshop that teaches someone in Tunisia to capture their own\nheritage, and one day a proper scanner so the community can record more than a phone allows. Here is what\neach amount does.":
+        'يذهب التبرّع مباشرة إلى العمل: تذكرة الحافلة وباقة الإنترنت لمتطوّع في يوم مسح، وشهر من الاستضافة للأرشيف المجاني، وورشة تعلّم شخصًا في تونس كيف يوثّق تراثه بنفسه، ويومًا ما ماسحًا حقيقيًا حتى تتمكّن المجموعة من تسجيل أكثر ممّا يتيحه الهاتف. وهذا ما يفعله كل مبلغ.',
+    'Mostly on Slack, across four continents and as many time zones. Once a week we meet on a call, Thursdays at 12 pm Eastern, 5 pm in Tunisia, to look at new scans, learn the history behind them and help each other with whatever is stuck. Julia records a short history lesson each week for anyone who cannot make it.':
+        'أساسًا على سلاك، عبر أربع قارّات وأربع مناطق زمنية. ومرّة في الأسبوع نلتقي في مكالمة، يوم الخميس على منتصف النهار بتوقيت شرق الولايات المتحدة، أي الخامسة مساءً في تونس، لنشاهد عمليات المسح الجديدة ونتعلّم تاريخها ويساعد بعضنا بعضًا فيما تعثّر. وتسجّل جوليا كل أسبوع درسًا تاريخيًا قصيرًا لمن لا يستطيع الحضور.',
+    'Skills-based volunteering with a clear task: optimise a scan for the web, research an object&#x27;s history, translate a label into French or Arabic, build a piece of the virtual museum. Half a day or a season, online, with a volunteer of ours alongside. Everything your team makes is published under their names.':
+        'تطوّع بالمهارات ومهمّة واضحة: تحسين مسح للويب، أو البحث في تاريخ قطعة، أو ترجمة بطاقة تعريفية إلى الفرنسية أو العربية، أو بناء جزء من المتحف الافتراضي. نصف يوم أو موسم كامل، عبر الإنترنت، ومعك أحد متطوّعينا. وكل ما ينجزه فريقك يُنشر بأسمائهم.',
+    'Your work is credited to you, on your own page here and on every model you touch. You learn photogrammetry, 3D and XR by doing them on real heritage. Students get portfolio reviews, mock interviews and mentoring from people working in the field. And you become part of a community that genuinely likes each other.':
+        'يُنسب عملك إليك، على صفحتك الخاصة هنا وعلى كل نموذج تشارك فيه. تتعلّم المسح التصويري والتصميم ثلاثي الأبعاد والواقع الممتد بممارستها على تراث حقيقي. ويحصل الطلبة على مراجعة لأعمالهم ومقابلات تجريبية ومرافقة من أشخاص يعملون في المجال. وتصبح جزءًا من مجموعة يحبّ أفرادها بعضهم فعلًا.',
+    "Every object our volunteers have scanned in Tunisia, one at a\ntime, in 3D, in your browser. Turn each one with a finger. Nura, our guide, floats beside you and\ntells you what you are looking at. Save the ones you love, share them, collect badges, step into\neach maker's own gallery, or put on a headset.":
+        'كل قطعة مسحها متطوّعونا في تونس، واحدة تلو الأخرى، بثلاثة أبعاد، داخل متصفّحك. أدِرها بإصبعك. تحوم نورا، دليلتنا، إلى جانبك وتحدّثك عمّا تراه. احفظ ما يعجبك، وشاركه، واجمع الأوسمة، وادخل معرض كل صانع، أو ارتدِ نظّارة الواقع الافتراضي.',
+    "No. Our first scans were made with a phone by someone who had never scanned anything. People here write, design, research, teach, translate, organise trips, model objects, clean up scans, apply for grants and run our social media. If you are curious about Tunisia's history, there is a place for you.":
+        'لا. أوّل عمليات مسح قمنا بها كانت بهاتف، وأنجزها شخص لم يسبق له أن مسح أي شيء. هنا يكتب الناس ويصمّمون ويبحثون ويعلّمون ويترجمون وينظّمون الرحلات ويصنعون النماذج وينقّحون عمليات المسح ويقدّمون طلبات المنح ويديرون حساباتنا على وسائل التواصل. إن كان تاريخ تونس يثير فضولك، فلك مكان بيننا.',
+    'Not yet. Everyone at Tanit XR is a volunteer, including the founders, and most costs so far have come out of our own pockets. We will never ask volunteers to work so that someone else earns; when funding arrives, the first people we want to pay are the volunteers on the ground in Tunisia.':
+        'ليس بعد. كل من في Tanit XR متطوّع، بمن فيهم المؤسّسون، ومعظم المصاريف حتى الآن جاءت من جيوبنا الخاصة. ولن نطلب يومًا من المتطوّعين أن يعملوا ليكسب غيرهم؛ وحين يصل التمويل، فإنّ أوّل من نريد أن ندفع لهم هم المتطوّعون العاملون على الأرض في تونس.',
+    'This intricately designed niche is part of the Roman Water Temple in Zaghouan, constructed during the reign of Emperor Hadrian in the 2nd century CE. The temple marked the starting point of the massive aqueduct that carried fresh water over 90 kilometers to the city of Carthage.':
+        'هذه الحنيّة الدقيقة الزخرفة جزء من معبد المياه الروماني في زغوان، الذي بُني في عهد الإمبراطور هادريان في القرن الثاني الميلادي. وكان المعبد نقطة انطلاق القناة المائية الضخمة التي حملت الماء العذب أكثر من 90 كيلومترًا إلى مدينة قرطاج.',
+    'Our heritage challenge ran at the official Major League Hacking hack day hosted by Florida Community Innovation at the University of Florida, with two tracks: build an interactive experience from one of our real 3D scans, or make a public history piece with no code needed.':
+        'أُقيم تحدّي التراث الذي نظّمناه ضمن يوم الهاكاثون الرسمي لـ Major League Hacking الذي استضافته Florida Community Innovation في جامعة فلوريدا، بمسارين: بناء تجربة تفاعلية انطلاقًا من أحد نماذجنا ثلاثية الأبعاد الحقيقية، أو إنجاز عمل في التاريخ العام لا يحتاج أي برمجة.',
+    'Alyssa George, illustrator and designer from the University of South Florida, draws\nthe Tanit XR story: an amphora heading to class, volunteers on every continent, the Draped Statue of Byrsa Hill\nappearing on a phone, and the murex shell that gave Carthage its purple.':
+        'أليسا جورج، رسّامة ومصمّمة من جامعة جنوب فلوريدا، ترسم قصة Tanit XR: جرّة تتّجه إلى الدرس، ومتطوّعون في كل القارّات، والتمثال المكسوّ بالثوب من تل بيرصا يظهر على شاشة هاتف، وصدفة الموركس التي منحت قرطاج لونها الأرجواني.',
+    'As much as you can give. Tasks are small and self-contained: one scan to clean up, one object to research, one article to write. Some people come to the Thursday call every week, some appear once a month. You set the pace and you can pause whenever life gets busy.':
+        'بقدر ما تستطيع أن تعطي. المهام صغيرة ومستقلّة: مسح يحتاج تنقيحًا، قطعة تحتاج بحثًا، مقال يحتاج كتابة. بعضهم يحضر مكالمة الخميس كل أسبوع، وبعضهم يظهر مرّة في الشهر. أنت من يحدّد الإيقاع، ويمكنك التوقّف مؤقّتًا كلّما انشغلت الحياة.',
+    'Our founder and team speak on community XR, phone 3D capture and heritage at risk: AWE, Voices of VR, Georgia Tech, the El Jem conference. Or we bring the 3D experience and a headset to your conference or office, with a volunteer to guide people through it.':
+        'تتحدّث مؤسِّستنا وفريقنا عن الواقع الممتد المجتمعي والتقاط النماذج ثلاثية الأبعاد بالهاتف والتراث المهدّد: في AWE وVoices of VR وجورجيا تك ومؤتمر الجم. أو نأتي بالتجربة ثلاثية الأبعاد ونظّارة إلى مؤتمركم أو مكتبكم، مع متطوّع يرافق الحاضرين خلالها.',
+    'Open call presented by the XR Women Museum inviting submissions around the theme “Vibrancy as Practice.” Submit via the official form linked from the call announcement. Check the external link for the most current submission requirements and timeline.':
+        'دعوة مفتوحة يطلقها XR Women Museum لتقديم الأعمال حول موضوع "Vibrancy as Practice". تُقدَّم المشاركات عبر الاستمارة الرسمية المرفقة بإعلان الدعوة. راجع الرابط الخارجي للاطّلاع على أحدث شروط التقديم والمواعيد.',
+    "Tanit XR is run entirely by volunteers. Nobody is paid, and most of what you see here, the scanning\ntrips, the tools, the hosting, the hackathon prizes, has so far been paid out of our founders' own pockets.\nThat cannot last, and it should not.":
+        'يُدار Tanit XR بالكامل بجهود المتطوّعين. لا أحد يتقاضى أجرًا، ومعظم ما ترونه هنا، من رحلات المسح والأدوات والاستضافة وجوائز الهاكاثون، دفعه المؤسّسون حتى الآن من جيوبهم. هذا لا يمكن أن يستمرّ، ولا ينبغي له أن يستمرّ.',
+    'That is honestly most of it. Walk a full circle around the object with your phone, then\nanother circle a little higher, then one lower, so every photo overlaps the last. We use\nScaniverse, which is free. Nura is showing you the path right now.':
+        'هذا هو الجزء الأكبر منها بصراحة. دُر دورة كاملة حول القطعة بهاتفك، ثم دورة أخرى أعلى قليلًا، ثم دورة أدنى، بحيث تتداخل كل صورة مع التي قبلها. نحن نستعمل Scaniverse، وهو مجاني. ونورا تريك المسار الآن.',
+    'Tanit XR is powered by volunteers: 3D scanning, model cleanup, XR development, historical research, writing, translation, and storytelling. Join from Tunisia or anywhere in the world, all experience levels welcome, fully remote friendly.':
+        'يقوم Tanit XR على المتطوّعين: مسح ثلاثي الأبعاد، وتنقيح النماذج، وتطوير الواقع الممتد، والبحث التاريخي، والكتابة، والترجمة، وسرد القصص. انضمّ من تونس أو من أي مكان في العالم، وكل المستويات مرحّب بها، والعمل عن بُعد ممكن بالكامل.',
+    'Global network connecting youth-led organizations working on climate action, education, heritage, science, and communication. Members collaborate, access capacity-building, share knowledge, and participate in UNESCO climate initiatives.':
+        'شبكة عالمية تجمع منظمات يقودها شباب وتعمل في مجالات العمل المناخي والتعليم والتراث والعلوم والاتصال. يتعاون الأعضاء، ويستفيدون من بناء القدرات، ويتبادلون المعرفة، ويشاركون في مبادرات اليونسكو المناخية.',
+    'With the authorities who look after the sites, a day of cleaning and care at a coastal site with local volunteers: travel, meals, gloves and bags, and a modest fee for the locals who show up. The sea is the clock we work against.':
+        'بالتعاون مع السلطات التي ترعى المواقع، يوم تنظيف وعناية في موقع ساحلي مع متطوّعين محلّيين: التنقّل، والوجبات، والقفازات والأكياس، ومنحة بسيطة لأهل المنطقة الذين يحضرون. البحر هو الساعة التي نسابقها.',
+    'A free, growing library of 3D scans of Tunisia’s endangered\nheritage, mosaics, statues, stelae, and ruins captured by our volunteers. Every model can be explored\ninteractively, and viewed in augmented reality on your phone.':
+        'مكتبة مجانية ومتنامية من عمليات المسح ثلاثي الأبعاد للتراث التونسي المهدّد: فسيفساء وتماثيل ونصب وأطلال وثّقها متطوّعونا. يمكن استكشاف كل نموذج بشكل تفاعلي ومشاهدته بالواقع المعزّز على هاتفك.',
+    'Al Jazeera&#x27;s culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia&#x27;s sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.':
+        'خصّص القسم الثقافي في الجزيرة تقريرًا عن Tanit XR بالعربية: جمعية غير ربحية تبني مكتبة رقمية دقيقة للمواقع والقطع التونسية بالمسح التصويري والسحابات الغاوسية، قبل أن يمحوها الزمن والإهمال.',
+    'Tanit XR&#x27;s heritage challenge at the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.':
+        'تحدّي التراث من Tanit XR في يوم الهاكاثون الرسمي لـ MLH الذي تستضيفه Florida Community Innovation في جامعة فلوريدا: ابنِ شيئًا قابلًا للاستعمال انطلاقًا من نماذجنا ثلاثية الأبعاد، أو أنجز مشروعًا في التاريخ العام لا يحتاج أي برمجة.',
+    'By Laura Harrison, Scientific Director, TanitXR. Scientific Director, TanitXR A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like…':
+        'بقلم لورا هاريسون، المديرة العلمية، TanitXR. المديرة العلمية، TanitXR خفض حمار بنّي أشعث جفنيه بينما كان تاجر يملأ عربته الخشبية بصناديق مكدّسة من الذرة والبطّيخ. ورأينا عدّة حمير أخرى مثله…',
+    'By: Margarita Johnson The intense light illuminates the plateau of Byrsa Hill in Carthage, and the wind shakes the surviving fragments of an ancient city that once stood as a rival to Rome itself. Corinthian columns rise…':
+        'بقلم: مارغريتا جونسون يغمر الضوء الساطع هضبة تل بيرصا في قرطاج، وتهزّ الريح ما تبقّى من شظايا مدينة قديمة كانت يومًا منافسة لروما نفسها. وترتفع أعمدة كورنثية…',
+    'By: Margarita Johnson The new year began with Storm Harry sweeping across Tunisia’s Mediterranean coastline, reshaping the coastline and disturbing layers of sand that had settled undisturbed for centuries. Local observe…':
+        'بقلم: مارغريتا جونسون بدأت السنة الجديدة بعاصفة هاري التي اجتاحت الساحل المتوسطي التونسي، فأعادت تشكيل الشاطئ وحرّكت طبقات من الرمل ظلّت ساكنة قرونًا. ويلاحظ سكان المنطقة…',
+    'Tanit XR is taking part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge: build som…':
+        'يشارك Tanit XR في يوم الهاكاثون CityCamp Gainesville يوم الأحد 20 سبتمبر 2026، في قاعة رايتز يونيون بجامعة فلوريدا، وهو يوم هاكاثون رسمي من MLH تستضيفه Florida Community Innovation. تحدّينا: أن تبنوا شيئًا…',
+    'This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by history. Walking past the ruins of Carthage felt ordinary, almost casual. An…':
+        'هذا أوّل مقال إخباري لـ Tanit XR، ويبدو من المناسب أن نبدأ بحكاية. النشأة بين الأطلال نشأت في تونس محاطة بالتاريخ. كان المرور بجانب أطلال قرطاج أمرًا عاديًا، بل شبه عابر. و…',
+    'Date/Period: 18th century (Husainid period) Material/Technique: Marble, carved plaster, qallaline ceramic tiles Description: This architectural element is a mahram, an ornamental niche inspired by the form of the mihrab.':
+        'التاريخ/الحقبة: القرن الثامن عشر (العهد الحسيني) المادة/التقنية: رخام، جبس منحوت، زليج قلّالين الوصف: هذا العنصر المعماري هو محرم، وهو حنيّة زخرفية مستوحاة من شكل المحراب.',
+    'Please write. We work with universities, museums, mapping communities and nonprofits, in Tunisia and beyond. The Unique Mappers in Nigeria are the first community bringing the model to a second country. Reach us at':
+        'راسلنا من فضلك. نحن نعمل مع الجامعات والمتاحف ومجموعات رسم الخرائط والجمعيات، في تونس وخارجها. ومجموعة Unique Mappers في نيجيريا هي أوّل مجتمع ينقل هذه التجربة إلى بلد ثانٍ. تواصل معنا على',
+    'Courses, mentoring for students, hosting and tools, the weekly call across four continents. The unglamorous part that keeps eighty-five volunteers working, and the first paid coordinator when we can afford one.':
+        'دروس، ومرافقة للطلبة، واستضافة وأدوات، والمكالمة الأسبوعية عبر أربع قارّات. هذا هو الجانب غير اللامع الذي يبقي خمسة وثمانين متطوّعًا في العمل، وأوّل منسّق بأجر حين نقدر على ذلك.',
+    'One promise we keep whatever the partnership: the archive stays free and open,\nand our volunteers are never made to work so that someone else earns. We sell training, events and our time, never the heritage.':
+        'وعد واحد نحفظه مهما كانت الشراكة: يبقى الأرشيف مجانيًا ومفتوحًا، ولا يُطلب من متطوّعينا أبدًا أن يعملوا ليكسب غيرهم. نحن نبيع التكوين والفعاليات ووقتنا، ولا نبيع التراث أبدًا.',
+    'A workshop for your team on phone photogrammetry, on objects and places we are free to scan, with the method our volunteers use. A skill people keep, and a new way to look at the street they walk every day.':
+        'ورشة لفريقك حول المسح التصويري بالهاتف، على قطع وأماكن يُسمح لنا بمسحها، بالطريقة نفسها التي يستعملها متطوّعونا. مهارة تبقى مع أصحابها، ونظرة جديدة إلى الشارع الذي يمرّون به كل يوم.',
+    'A curated board of grants, residencies, fellowships, open calls,\nand events for artists, XR creators, educators, students, and changemakers, updated regularly by the\nTanit XR team. Also published as our':
+        'لوحة منتقاة من المنح والإقامات الفنية والزمالات والدعوات المفتوحة والفعاليات، موجّهة للفنانين وصنّاع الواقع الممتد والمعلّمين والطلبة وصنّاع التغيير، يحدّثها فريق Tanit XR بانتظام. ويُنشر أيضًا في إطار',
+    'Your developers and designers, our volunteers and our published scans, one weekend or one quarter: an AR lesson, a VR room, a piece for your own event. The kind of project your team asks to be part of.':
+        'مطوّروكم ومصمّموكم، ومتطوّعونا ونماذجنا المنشورة، في عطلة أسبوع واحدة أو في فصل كامل: درس بالواقع المعزّز، أو قاعة بالواقع الافتراضي، أو عمل خاص بفعاليتكم. هذا هو نوع المشاريع التي يطلب فريقكم أن يكون جزءًا منها.',
+    'Remote volunteers turn raw scans into game-ready models, AR lessons and our virtual museum.':
+        'يحوّل المتطوّعون عن بُعد عمليات المسح الخام إلى نماذج جاهزة للألعاب ودروس بالواقع المعزّز ومتحفنا الافتراضي.',
+    'The Tanit Stela in 3D, with Nura the guide floating beside it':
+        'نصب تانيت بثلاثة أبعاد، وإلى جانبه نورا الدليلة تحوم',
+    "A maker's gallery: pieces on plinths in a round room":
+        'معرض أحد الصنّاع: قطع على قواعد في قاعة مستديرة',
+    'The museum&#x27;s main hall, Made by volunteers': 'القاعة الرئيسية للمتحف، من إنجاز المتطوّعين',
+    'Al Jazeera, Al Jazeera · Culture feature': 'الجزيرة، الجزيرة · تقرير ثقافي',
+    'Hall III &nbsp;·&nbsp; feature object': 'القاعة الثالثة  ·  القطعة البارزة',
+    'Hall II &nbsp;·&nbsp; feature object': 'القاعة الثانية  ·  القطعة البارزة',
+    'Hall IV &nbsp;·&nbsp; feature object': 'القاعة الرابعة  ·  القطعة البارزة',
+    'The museum&#x27;s main hall 3D model': 'القاعة الرئيسية للمتحف، نموذج ثلاثي الأبعاد',
+    'Hall I &nbsp;·&nbsp; feature object': 'القاعة الأولى  ·  القطعة البارزة',
+    'Hall V &nbsp;·&nbsp; feature object': 'القاعة الخامسة  ·  القطعة البارزة',
+    'Ceramic Plate, Made by volunteers': 'طبق خزفي، من إنجاز المتطوّعين',
+    'Modern Tagine, Made by volunteers': 'طاجين حديث، من إنجاز المتطوّعين',
+    'Underground Passageways 3D model': 'ممرّات تحت الأرض، نموذج ثلاثي الأبعاد',
+    'Murex Shell, Made by volunteers': 'صدفة الموركس، من إنجاز المتطوّعين',
+    'Splats With Phones – TANIT XR': 'السحابات الغاوسية بالهاتف – TANIT XR',
+    'Wall Lamp, Made by volunteers': 'مصباح حائط، من إنجاز المتطوّعين',
+    'Al Jazeera · Culture feature': 'الجزيرة · تقرير ثقافي',
+    'Ruins on the Tunisian coast': 'أطلال على الساحل التونسي',
+    'Walk through the collection': 'تجوّل في المجموعة',
+    'Bamboo, Made by volunteers': 'خيزران، من إنجاز المتطوّعين',
+    'Pillar, Made by volunteers': 'عمود، من إنجاز المتطوّعين',
+    '›&nbsp; Splats With Phones': '›  السحابات الغاوسية بالهاتف',
+    'Optimize &amp;amp; Build': 'التحسين &amp; البناء',
+    'Research &amp;amp; Share': 'البحث &amp; المشاركة',
+    'Architectural Fragments': 'شظايا معمارية',
+    'Rug, Made by volunteers': 'زربية، من إنجاز المتطوّعين',
+    'Scan &amp;amp; Preserve': 'المسح &amp; الحفظ',
+    'Underground Passageways': 'ممرّات تحت الأرض',
+    'Ceramic Plate 3D model': 'طبق خزفي، نموذج ثلاثي الأبعاد',
+    'Modern Tagine 3D model': 'طاجين حديث، نموذج ثلاثي الأبعاد',
+    '›&nbsp; ImmerseGT 2026': '›  ImmerseGT 2026',
+    'Mentor &amp;amp; Grow': 'الإرشاد &amp; النموّ',
+    'Press & Recognition': 'الصحافة والتكريمات',
+    'Corinthian Capital': 'تاج عمود كورنثي',
+    'Made by volunteers': 'من إنجاز المتطوّعين',
+    'Splats With Phones': 'السحابات الغاوسية بالهاتف',
+    'Wall Lamp 3D model': 'مصباح حائط، نموذج ثلاثي الأبعاد',
+    'Community Liaison': 'منسّق العلاقات المجتمعية',
+    'Makers’ galleries': 'معارض الصنّاع',
+    'A lasting record': 'سجلّ يدوم',
+    'Reclining Figure': 'تمثال مستلقٍ',
+    'Regional Manager': 'المسؤول الإقليمي',
+    'Traditional Door': 'باب تقليدي',
+    'Bamboo 3D model': 'خيزران، نموذج ثلاثي الأبعاد',
+    'Chief Scientist': 'المسؤول العلمي',
+    'Pillar 3D model': 'عمود، نموذج ثلاثي الأبعاد',
+    'Project Manager': 'مدير المشروع',
+    'Statue Fragment': 'شظية تمثال',
+    'Turn any object': 'أدِر أي قطعة',
+    'Save and share': 'احفظ وشارك',
+    'Bust Fragment': 'شظية تمثال نصفي',
+    'Ceramic Plate': 'طبق خزفي',
+    'Draped Statue': 'تمثال مكسوّ بالثوب',
+    'Illustration:': 'الرسوم:',
+    'Medium Object': 'قطعة متوسطة',
+    'Modern Tagine': 'طاجين حديث',
+    'Mihrab Niche': 'حنيّة محراب',
+    'Publications': 'المنشورات',
+    'Punic Stelae': 'نصب بونية',
+    'Roman Column': 'عمود روماني',
+    'Rug 3D model': 'زربية، نموذج ثلاثي الأبعاد',
+    'Sacred Niche': 'حنيّة مقدّسة',
+    'Small Object': 'قطعة صغيرة',
+    'Murex Shell': 'صدفة الموركس',
+    'Punic Stela': 'نصب بوني',
+    'Stone Basin': 'حوض حجري',
+    'Tanit Stela': 'نصب تانيت',
+    'Works in VR': 'يعمل بالواقع الافتراضي',
+    'Al Jazeera': 'الجزيرة',
+    'Byrsa Hill': 'تل بيرصا',
+    'Large Area': 'مساحة كبيرة',
+    'Newsletter': 'النشرة البريدية',
+    'Niche Wall': 'جدار الحنايا',
+    'Community': 'المجتمع',
+    'Galleries': 'المعارض',
+    'Meet Nura': 'تعرّف على نورا',
+    'Volunteer': 'التطوّع',
+    'Wall Lamp': 'مصباح حائط',
+    'Articles': 'مقالات',
+    'Carthage': 'قرطاج',
+    'Français': 'الفرنسية',
+    'Kairouan': 'القيروان',
+    'Neapolis': 'نيابوليس',
+    'Services': 'الخدمات',
+    'project.': 'مشروع.',
+    'Caption': 'التعليق',
+    'Contact': 'اتصل بنا',
+    'English': 'الإنجليزية',
+    'Explore': 'استكشف',
+    'Founder': 'المؤسِّسة',
+    'Gallery': 'معرض',
+    'Message': 'الرسالة',
+    'Objects': 'القطع',
+    'Badges': 'الأوسمة',
+    'Bamboo': 'خيزران',
+    'Choose': 'اختر',
+    'Period': 'الحقبة',
+    'Pillar': 'عمود',
+    'Record': 'تسجيل',
+    'Share…': 'مشاركة…',
+    'Clear': 'مسح',
+    'Close': 'إغلاق',
+    'Email': 'البريد الإلكتروني',
+    'Halls': 'القاعات',
+    'Logon': 'تسجيل الدخول',
+    'Punic': 'بوني',
+    'Saved': 'محفوظ',
+    'Sound': 'الصوت',
+    'saved': 'محفوظ',
+    'Join': 'انضمّ',
+    'Menu': 'القائمة',
+    'Mode': 'الوضع',
+    'More': 'المزيد',
+    'Site': 'الموقع',
+    'Type': 'النوع',
+    'Map': 'خريطة',
+    'New': 'جديد',
+    'Oct': 'أكتوبر',
+    'Rug': 'زربية',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Our mission is to preserve Tunisia’s endangered heritage through digital scans, immersive technology, and\neducation. With every artifact we scan and every volunteer we train, we are proving that heritage can be\nsafeguarded for future generations, no matter the threats of climate change and neglect.':
+        'مهمتنا هي حفظ التراث التونسي المهدّد عبر المسح الرقمي والتقنيات الغامرة والتعليم. مع كل قطعة نمسحها وكل\nمتطوّع ندرّبه، نثبت أن التراث يمكن صونه للأجيال القادمة، رغم تغيّر المناخ والإهمال.',
+    'Ana Beatriz Vega González': 'آنا بياتريث فيغا غونثاليث',
+    'Ines scanning at Carthage': 'إيناس تقوم بالمسح في قرطاج',
+    'Caroline Nickerson, PhD': 'د. كارولين نيكرسون',
+    'Dr. Caroline Nickerson': 'د. كارولين نيكرسون',
+    'Dr. Laura Harrison': 'د. لورا هاريسون',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    '›\xa0 ImmerseGT 2026': '›  ImmerseGT 2026',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Tanit XR&#x27;s work was shown in the XR Women Museum, including its &quot;Garden: In Full Bloom&quot; exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.':
+        'عُرض عمل Tanit XR في XR Women Museum، ضمن معرضه "Garden: In Full Bloom"، وهو متحف غامر يضمّ أكثر من 30 عالمًا معرضيًا تديره بيج دانسينجر.',
+    'Al Jazeera, &quot;Tanit XR&quot;: a non-profit platform documenting Tunisian heritage digitally (Arabic)':
+        'الجزيرة، "Tanit XR": منصّة غير ربحية توثّق التراث التونسي رقميًا (بالعربية)',
+    '&quot;Apteranthes europaea&quot; cactus': 'صبّار "Apteranthes europaea"',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    "Get new grants, residencies, and open calls for art, XR &amp; impact in your\ninbox, free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is\ngoing.":
+        'احصلوا مجانًا على المنح والإقامات الفنية والدعوات المفتوحة في الفن والواقع الممتد والأثر الاجتماعي،\nمباشرة من فريق Tanit XR. وستكونون أول من يعرف أخبار عملنا في حفظ التراث.',
 }
 
