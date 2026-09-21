@@ -62,7 +62,7 @@ def hits(start, end):
 def side(kind, start, end, limit=15):
     try:
         d = get(f"stats/{kind}", start=start.isoformat(), end=end.isoformat(), limit=limit)
-        return [(s.get("name") or s.get("id") or "?", s.get("count", 0)) for s in d.get("stats", [])]
+        return [(s.get("name") or s.get("id") or "", s.get("count", 0)) for s in d.get("stats", [])]
     except Exception:
         return []
 
@@ -205,8 +205,8 @@ if a.grant:
     for kind, title in (("locations", "Countries"), ("toprefs", "Where visitors came from"), ("campaigns", "Campaigns (links with ?ref=)")):
         rows = side(kind, start, end, 25)
         if rows:
-            P(f"\n## {title}\n"); P("| | Visitors |"); P("|---|---|")
-            for n, c in rows: P(f"| {n or '(direct)'} | {c:,} |")
+            P(f"\n## {title}\n"); P("| | Page views and actions |"); P("|---|---|")
+            for n, c in rows: P(f"| {n or ('(direct)' if kind == 'toprefs' else '(unknown)')} | {c:,} |")
     event_tables(cur, top=15)
     tot, rows = sketchfab_totals()
     if tot:
@@ -261,8 +261,8 @@ else:
                         ("browsers", "Browsers"), ("systems", "Devices and systems")):
         rows = side(kind, start, end)
         if rows:
-            P(f"\n## {title}\n"); P("| | Visitors |"); P("|---|---|")
-            for n, c in rows: P(f"| {n or '(direct)'} | {c:,} |")
+            P(f"\n## {title}\n"); P("| | Page views and actions |"); P("|---|---|")
+            for n, c in rows: P(f"| {n or ('(direct)' if kind == 'toprefs' else '(unknown)')} | {c:,} |")
     event_tables(cur, prev)
     if TRUNCATED[0]:
         P("\nThe page and event tables show the 100 busiest paths, which is all the API returns at once. "

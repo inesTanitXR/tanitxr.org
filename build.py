@@ -1487,7 +1487,7 @@ window.tx = function(name, props){
   try{
     // the thing that matters becomes part of the path (object slug, share network, badge, ask, gallery,
     // tour step, device), so counts exist per item as well as in total; GoatCounter drops everything else
-    const KEYS = ['object', 'net', 'badge', 'ask', 'artist', 'room', 'step', 'person', 'from', 'device', 'on'];
+    const KEYS = ['net', 'object', 'badge', 'ask', 'artist', 'room', 'step', 'person', 'from', 'device', 'on'];
     let dim = '';
     if (props) for (const k of KEYS) { if (props[k] !== undefined && props[k] !== null && props[k] !== '') { dim = String(props[k]); break; } }
     dim = dim.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

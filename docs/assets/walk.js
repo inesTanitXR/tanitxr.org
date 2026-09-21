@@ -989,7 +989,6 @@ function start() {
       picture: pic,
     });
     bump(p => { p.shared++; });
-    if (window.tx) tx('collection_share', { object: s0.it.slug });
   });
 
   // She offers the demo once, after you have turned a few things, and never nags again.
