@@ -1,5 +1,5 @@
 
-const SHEET = "";
+const SHEET = "https://script.google.com/macros/s/AKfycbwS1EdGOzYjIOJ7DlM0JhKBfZ3IWpD_4cWp8e5x56ckd7WR3tK03bqgiw6nOfmgIVNI0w/exec";
 // One place to record what people do, so the numbers exist when a grant asks for them.
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
