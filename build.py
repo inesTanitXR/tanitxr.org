@@ -1155,8 +1155,8 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
   color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
 #nura-close:hover{color:#4a3527}
-#nura-text{margin:0 14px 0 0;font-size:17px;line-height:1.45;color:#241a10;
-  font-family:var(--serif)}
+#nura-text{margin:0 22px 0 0;font-size:17px;line-height:1.45;color:#241a10;
+  font-family:var(--serif);overflow-wrap:anywhere;hyphens:auto}
 #nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
   border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
 #nura-long[hidden]{display:none}
@@ -1406,8 +1406,8 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
   color:#a3907a;font-size:19px;line-height:1;cursor:pointer;padding:2px 4px}
 #nura-close:hover{color:#4a3527}
-#nura-text{margin:0 14px 0 0;font-size:17px;line-height:1.45;color:#241a10;
-  font-family:var(--serif)}
+#nura-text{margin:0 22px 0 0;font-size:17px;line-height:1.45;color:#241a10;
+  font-family:var(--serif);overflow-wrap:anywhere;hyphens:auto}
 #nura-long{margin-top:9px;font-size:13px;line-height:1.55;color:#5d4c3c;
   border-top:1px solid rgba(74,53,43,.12);padding-top:9px}
 #nura-long[hidden]{display:none}

@@ -2524,8 +2524,15 @@ function start() {
       if (bubble && !bubble.hidden) {
         const bw = bubble.offsetWidth || 290;
         const lx = clamp(sx, r.left + bw / 2 + 12, r.right - bw / 2 - 12);
+        // Keep the whole bubble clear of the fixed header. Its transform anchors the bottom
+        // edge, so the floor is the header's bottom plus the bubble's own height. Without this
+        // the bubble slides under the header on a short window and the Donate button covers
+        // the text, which is what it looked like on a 14 inch screen.
+        const hdr = document.querySelector('header.site');
+        const hb = (hdr && !hdr.hidden) ? hdr.getBoundingClientRect().bottom : 0;
+        const floor = Math.max(r.top, hb) + bubble.offsetHeight + 12;
         bubble.style.left = Math.round(lx) + 'px';
-        bubble.style.top = Math.round(Math.max(sy - 10, r.top + bubble.offsetHeight + 16)) + 'px';
+        bubble.style.top = Math.round(Math.max(sy - 10, floor)) + 'px';
       }
       if (dot) {
         dot.style.left = Math.round(sx) + 'px';
