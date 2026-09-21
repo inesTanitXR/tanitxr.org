@@ -1480,6 +1480,7 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 """
 
 JS = """
+const SHEET = "{FORM_SHEET}";
 // One place to record what people do, so the numbers exist when a grant asks for them.
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
@@ -1504,6 +1505,15 @@ document.addEventListener('submit', e => {
   const f = e.target;
   if (f && /kit\\.com\\/forms/.test(f.action || '')) window.tx('newsletter_signup', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   else if (f && /formsubmit\\.co/.test(f.action || '')) window.tx('form_submit', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+  // Send a copy of the submission to the submissions sheet, so it can be reviewed and approved
+  // rather than living only in an inbox. sendBeacon is used because the page is about to
+  // navigate away and a normal fetch would be cancelled. The email still goes out as before,
+  // and if this copy fails the form is unaffected.
+  try {
+    if (SHEET && f && /formsubmit\\.co/.test(f.action || '')) {
+      navigator.sendBeacon(SHEET, new URLSearchParams(new FormData(f)));
+    }
+  } catch (err) { /* never let the copy break the form */ }
 });
 // first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
 (function(){
@@ -1817,6 +1827,13 @@ _domain_file = os.path.join(HERE, "ref", "domain.txt")
 CUSTOM_DOMAIN = open(_domain_file).read().strip() if os.path.exists(_domain_file) else ""
 if CUSTOM_DOMAIN:
     SITE_URL = f"https://{CUSTOM_DOMAIN}/"
+
+# Where a copy of every form submission goes, so a submission can be reviewed and approved
+# instead of living only in an inbox. Empty until the Apps Script web app is deployed, and the
+# site then behaves exactly as before. See ref/forms/submissions.gs.
+_forms_file = os.path.join(HERE, "ref", "forms.json")
+FORMS_CFG = json.load(open(_forms_file)) if os.path.exists(_forms_file) else {}
+FORM_SHEET = (FORMS_CFG.get("sheet_endpoint") or "").strip()
 
 with open(os.path.join(HERE, "ref", "analytics.json")) as _f:
     ANALYTICS = json.load(_f)
@@ -3132,6 +3149,7 @@ scanning days.</p></div>
 <h2 class="sec-title">Partner with us</h2>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Services inquiry, tanitxr.org">
+<input type="hidden" name="_form" value="services">
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("services")}
 <input type="hidden" name="_template" value="table">
@@ -4669,6 +4687,7 @@ target="_blank" rel="noopener" style="color:var(--gold)">LinkedIn</a>.</p>
 and in the newsletter.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Opportunity submission, tanitxr.org">
+<input type="hidden" name="_form" value="opportunity">
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("opportunity")}
 <input type="text" name="_honey" style="display:none">
@@ -4937,6 +4956,7 @@ approved by the team, it will appear on our <a href="team.html" style="color:var
 page.</p>
 <form class="nice" action="{PROFILE_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="New volunteer profile submission, tanitxr.org">
+<input type="hidden" name="_form" value="profile">
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("profile")}
 <input type="hidden" name="_template" value="table">
@@ -5095,6 +5115,7 @@ motivation. More details are shared with accepted participants.</p>
 <h2>Apply for the next cohort</h2>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Splats With Phones application, tanitxr.org">
+<input type="hidden" name="_form" value="splats">
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("splats")}
 <input type="hidden" name="_template" value="table">
@@ -5346,6 +5367,7 @@ def build_contact():
 <p style="color:var(--gray)">We’ll get back to you as soon as we can.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Contact form, tanitxr.org">
+<input type="hidden" name="_form" value="contact">
 <input type="hidden" name="_captcha" value="true">
 {thanks_next("contact")}
 <input type="text" name="_honey" style="display:none">
@@ -5904,7 +5926,9 @@ def main():
     with open(os.path.join(DOCS, "assets", "walk.js"), "w") as f:
         f.write(WALK_JS)
     with open(os.path.join(DOCS, "assets", "site.js"), "w") as f:
-        f.write(JS)
+        # JS is a plain string on purpose (it is full of braces), so the one value it needs
+        # is substituted here rather than by an f-string
+        f.write(JS.replace("{FORM_SHEET}", FORM_SHEET))
     for pdf in ["El-Jem-2026-Paper_English.pdf", "El-Jem-2026-Paper_French.pdf",
                 "El-Jem-2026-Paper_Arabic.pdf", "TanitXR_One-Pager_English-French-Arabic.pdf"]:
         src = os.path.join(MEDIA, pdf)

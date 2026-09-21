@@ -1,4 +1,5 @@
 
+const SHEET = "";
 // One place to record what people do, so the numbers exist when a grant asks for them.
 // Works with whatever analytics is configured in ref/analytics.json, and does nothing if none is.
 window.tx = function(name, props){
@@ -23,6 +24,15 @@ document.addEventListener('submit', e => {
   const f = e.target;
   if (f && /kit\.com\/forms/.test(f.action || '')) window.tx('newsletter_signup', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
   else if (f && /formsubmit\.co/.test(f.action || '')) window.tx('form_submit', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+  // Send a copy of the submission to the submissions sheet, so it can be reviewed and approved
+  // rather than living only in an inbox. sendBeacon is used because the page is about to
+  // navigate away and a normal fetch would be cancelled. The email still goes out as before,
+  // and if this copy fails the form is unaffected.
+  try {
+    if (SHEET && f && /formsubmit\.co/.test(f.action || '')) {
+      navigator.sendBeacon(SHEET, new URLSearchParams(new FormData(f)));
+    }
+  } catch (err) { /* never let the copy break the form */ }
 });
 // first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
 (function(){

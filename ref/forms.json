@@ -1,0 +1,5 @@
+{
+ "_what": "Where a copy of every form submission goes, so submissions can be approved instead of living only in an inbox. Paste ref/forms/submissions.gs into script.google.com, deploy it as a web app, and put the /exec URL here. Empty means the site only emails, as before.",
+ "sheet_endpoint": "",
+ "sheet_id": "1bboWu3dxD_KRhSZooK39Bc1kYhuY2IsjNftF9lr04wc"
+}
