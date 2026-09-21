@@ -724,7 +724,7 @@ body.first-loaded #walk-stage:before{opacity:0;animation:none}
 .wf-round:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
 .wf-l{inset-inline-start:26px}
 .wf-r{inset-inline-end:26px}
-.wf-panel{position:fixed;inset-inline-start:34px;bottom:34px;max-width:min(430px,calc(100vw - 68px))}
+.wf-panel{position:fixed;z-index:5;inset-inline-start:34px;bottom:34px;max-width:min(430px,calc(100vw - 68px))}
 .wf-id{color:#8a735c;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 #walk-label h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);color:#2e2118;
   font-weight:400;margin:7px 0 15px;line-height:1.1}
@@ -964,7 +964,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
-.wst{height:105vh}
+.wst{height:105vh;height:105dvh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
 #scan-panel[hidden]{display:none}
@@ -974,10 +974,10 @@ body.demoing #walk-label,body.demoing #saved-chip,body.demoing #rotate-cue,
 body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
   transition:opacity .4s}
 .wsr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.wst-intro,.wst-end{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:80px 26px;text-align:center}
-.warea{height:68vh;display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:0 26px}
+.wst-intro,.wst-end{min-height:100vh;min-height:100dvh;display:flex;align-items:center;
+  justify-content:center;padding:80px 26px;text-align:center}
+.warea{height:68vh;height:68dvh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:0 26px}
 .warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s;
   background:rgba(253,248,240,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   padding:22px 34px 20px;border-radius:20px;box-shadow:0 12px 40px rgba(60,40,26,.08);max-width:min(640px,88vw)}
@@ -1048,6 +1048,11 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   body #vc-link{display:none}
   body #vol-cameo .vc-room{margin:2px 0 0;font-size:12.5px}
   .warea>div{padding:16px 20px 14px}
+  /* the object's label is a sheet across the bottom here, so a story block centred in the screen
+     landed right on top of it. Sit the story above the sheet and let the section grow instead. */
+  .warea{height:auto;min-height:68dvh;align-items:flex-start;
+    padding-top:calc(96px + env(safe-area-inset-top,0px));
+    padding-bottom:calc(252px + env(safe-area-inset-bottom,0px))}
 }
 
 /* the label stays put; only its text changes as you scroll */
@@ -1060,7 +1065,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
 .wf-round:hover{background:#4a3527;color:#fdf8f0;border-color:#4a3527}
 .wf-l{inset-inline-start:26px}
 .wf-r{inset-inline-end:26px}
-.wf-panel{position:fixed;inset-inline-start:34px;bottom:34px;max-width:min(430px,calc(100vw - 68px))}
+.wf-panel{position:fixed;z-index:5;inset-inline-start:34px;bottom:34px;max-width:min(430px,calc(100vw - 68px))}
 .wf-id{color:#8a735c;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 #walk-label h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);color:#2e2118;
   font-weight:400;margin:7px 0 15px;line-height:1.1}
@@ -1215,7 +1220,7 @@ body.walk-fallback #nura-bubble,body.walk-fallback #nura-dot{display:none}
 
 #walk-scroll{position:relative;z-index:2;pointer-events:none}
 #walk-scroll a,#walk-scroll .wcard,#walk-scroll .room-open{pointer-events:auto}
-.wst{height:105vh}
+.wst{height:105vh;height:105dvh}
 #scan-panel{position:fixed;inset-inline-start:34px;top:50%;transform:translateY(-50%);z-index:6;
   max-width:min(400px,calc(100vw - 68px))}
 #scan-panel[hidden]{display:none}
@@ -1225,10 +1230,10 @@ body.demoing #walk-label,body.demoing #saved-chip,body.demoing #rotate-cue,
 body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
   transition:opacity .4s}
 .wsr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.wst-intro,.wst-end{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:80px 26px;text-align:center}
-.warea{height:68vh;display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:0 26px}
+.wst-intro,.wst-end{min-height:100vh;min-height:100dvh;display:flex;align-items:center;
+  justify-content:center;padding:80px 26px;text-align:center}
+.warea{height:68vh;height:68dvh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:0 26px}
 .warea>div{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s;
   background:rgba(253,248,240,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   padding:22px 34px 20px;border-radius:20px;box-shadow:0 12px 40px rgba(60,40,26,.08);max-width:min(640px,88vw)}
@@ -1267,3 +1272,11 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
   .wcard.wide{padding:26px 22px 24px}
 }
 @media(prefers-reduced-motion:reduce){.warea>div{transition:none;opacity:1;transform:none}}
+/* Phones: the object's label is a sheet across the bottom, so a story block centred in the
+   screen landed on top of it. Sit the story above the sheet and let the section grow. This
+   comes last on purpose: the rules above are declared twice and the later copy wins. */
+@media(max-width:760px){
+  .warea{height:auto;min-height:68dvh;align-items:flex-start;
+    padding-top:calc(96px + env(safe-area-inset-top,0px));
+    padding-bottom:calc(252px + env(safe-area-inset-bottom,0px))}
+}
