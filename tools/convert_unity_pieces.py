@@ -2,6 +2,11 @@
 """Turn the volunteer-built pieces in the Unity museum project into web-ready glb files.
 
 Usage:  python3 tools/convert_unity_pieces.py [/path/to/VRApp]
+        python3 tools/convert_unity_pieces.py [/path/to/VRApp] --sketchfab DIR
+
+With --sketchfab the pieces are written to DIR without meshopt compression, without mesh
+quantization and with the textures left in their original PNG form instead of WebP. Sketchfab's converter rejects all three
+of those, which is why the first upload of every piece failed to process there.
 
 Needs Blender (found in /Applications) and node. For each piece in ref/made-pieces.json:
 import the FBX, attach the textures the Unity materials point at (the FBX files themselves
@@ -14,6 +19,10 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VRAPP = sys.argv[1] if len(sys.argv) > 1 else os.path.expanduser("~/Documents/GitHub/VRApp")
 BLENDER = "/Applications/Blender.app/Contents/MacOS/Blender"
 pieces = json.load(open(os.path.join(HERE, "ref", "made-pieces.json")))["pieces"]
+SKFB = ""
+if "--sketchfab" in sys.argv:
+    SKFB = sys.argv[sys.argv.index("--sketchfab") + 1]
+    os.makedirs(SKFB, exist_ok=True)
 out_dir = os.path.join(HERE, "media", "models")
 os.makedirs(out_dir, exist_ok=True)
 
@@ -95,7 +104,14 @@ with tempfile.TemporaryDirectory() as tmp:
     if r.returncode:
         sys.exit(r.stdout[-2000:] + r.stderr[-2000:])
     for p in pieces:
-        src = os.path.join(raw, p["slug"] + ".glb"); dst = os.path.join(out_dir, p["slug"] + ".glb")
-        subprocess.run(["npx", "--yes", "@gltf-transform/cli@4", "optimize", src, dst, "--compress", "meshopt",
-                        "--texture-compress", "webp", "--texture-size", "2048"], check=True, capture_output=True)
+        src = os.path.join(raw, p["slug"] + ".glb")
+        if SKFB:
+            dst = os.path.join(SKFB, p["slug"] + ".glb")
+            subprocess.run(["npx", "--yes", "@gltf-transform/cli@4", "optimize", src, dst,
+                            "--compress", "false", "--texture-compress", "auto", "--texture-size", "2048"],
+                           check=True, capture_output=True)
+        else:
+            dst = os.path.join(out_dir, p["slug"] + ".glb")
+            subprocess.run(["npx", "--yes", "@gltf-transform/cli@4", "optimize", src, dst, "--compress", "meshopt",
+                            "--texture-compress", "webp", "--texture-size", "2048"], check=True, capture_output=True)
         print(f"{os.path.getsize(dst)/1e6:5.2f} MB  {p['slug']}")

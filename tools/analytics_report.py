@@ -47,16 +47,16 @@ def get(path, **q):
         return json.load(r)
 
 
+TRUNCATED = [False]
+
+
 def hits(start, end):
-    out, after = [], None
-    while True:
-        page = get("stats/hits", start=start.isoformat(), end=end.isoformat(), limit=100, daily="true",
-                   **({"after": after} if after else {}))
-        out += page.get("hits", [])
-        if not page.get("more") or not out:
-            break
-        after = out[-1]["path_id"]
-    return out
+    """GoatCounter caps this endpoint at 100 rows and has no pagination for it, so this is the
+    100 busiest paths and events in the window. Totals come from stats/total, which is exact."""
+    page = get("stats/hits", start=start.isoformat(), end=end.isoformat(), limit=100, daily="true")
+    if page.get("more"):
+        TRUNCATED[0] = True
+    return page.get("hits", [])
 
 
 def side(kind, start, end, limit=15):
@@ -105,6 +105,11 @@ def pretty(kind, key):
     return key.replace("-", " ")
 
 
+def look(pg, path):
+    """GoatCounter stores /opportunities, the site links /opportunities/. Accept either."""
+    return pg.get(path, pg.get(path.rstrip("/"), pg.get(path.rstrip("/") + "/", 0))) or 0
+
+
 def summarise(start, end):
     total = get("stats/total", start=start.isoformat(), end=end.isoformat())
     hs = hits(start, end)
@@ -120,7 +125,8 @@ def summarise(start, end):
     for p in pages:
         for d in p.get("stats", []):
             daily[d["day"]] += d.get("daily", 0)
-    return {"visits": total.get("total", 0), "unique": total.get("total_unique", total.get("total_utc", 0)),
+    ev = total.get("total_events", 0)
+    return {"visits": total.get("total", 0) - ev, "events_total": ev, "unique": total.get("total", 0),
             "pages": sorted(((p["path"], p.get("count", 0)) for p in pages), key=lambda x: -x[1]),
             "events": fam, "per": per, "daily": dict(sorted(daily.items()))}
 
@@ -189,9 +195,9 @@ if a.grant:
     P(f"# Tanit XR online, {start.strftime('%d %B %Y')} to {end.strftime('%d %B %Y')}\n")
     P("Website numbers from GoatCounter (no cookies, no personal data). Sketchfab numbers are lifetime, from its public API.\n")
     P("| | Total |"); P("|---|---|")
-    P(f"| Visits | {cur['visits']:,} |"); P(f"| Unique visitors | {cur['unique']:,} |")
+    P(f"| Page views | {cur['visits']:,} |"); P(f"| Actions recorded | {cur['events_total']:,} |")
     pg = dict(cur["pages"])
-    P(f"| Explore in 3D sessions | {cur['events'].get('explore_open', pg.get('/explore/', 0)):,} |")
+    P(f"| Explore in 3D sessions | {cur['events'].get('explore_open', look(pg, '/explore/')):,} |")
     P(f"| Objects looked at | {cur['events'].get('collection_view', 0):,} |")
     P(f"| Objects saved | {cur['events'].get('collection_save', 0):,} |"); P(f"| Shares | {cur['events'].get('collection_share', 0):,} |")
     P(f"| VR, AR and Quick Look sessions | {cur['events'].get('xr_entered', 0) + cur['events'].get('ar_entered', 0) + cur['events'].get('ar_quicklook', 0):,} |")
@@ -212,7 +218,7 @@ if a.grant:
     P("\nNumbers the site cannot count (volunteers, hours, scans, workshops) live in ref/metrics-for-grants.md, section 5.")
 elif a.months:
     P(f"# tanitxr.org, month by month\n")
-    P("| Month | Visits | Unique visitors | Opportunities page | Explore in 3D | Objects viewed | Saved | Shared | VR or AR | Sign-ups | Donate clicks |")
+    P("| Month | Page views | Actions | Opportunities page | Explore in 3D | Objects viewed | Saved | Shared | VR or AR | Sign-ups | Donate clicks |")
     P("|---|---|---|---|---|---|---|---|---|---|---|")
     m = (today.replace(day=1) - dt.timedelta(days=31 * (a.months - 1))).replace(day=1)
     while m <= today:
@@ -220,7 +226,7 @@ elif a.months:
         end = min(nxt - dt.timedelta(days=1), today)
         s = summarise(m, end)
         pg, ev = dict(s["pages"]), s["events"]
-        P(f"| {m.strftime('%B %Y')} | {s['visits']:,} | {s['unique']:,} | {pg.get('/opportunities/', 0):,} | {pg.get('/explore/', 0):,} | "
+        P(f"| {m.strftime('%B %Y')} | {s['visits']:,} | {s['events_total']:,} | {look(pg, '/opportunities/'):,} | {look(pg, '/explore/'):,} | "
           f"{ev.get('collection_view', 0):,} | {ev.get('collection_save', 0):,} | {ev.get('collection_share', 0):,} | "
           f"{ev.get('xr_entered', 0) + ev.get('ar_entered', 0) + ev.get('ar_quicklook', 0):,} | {ev.get('newsletter_signup', 0):,} | {ev.get('donate_click', 0):,} |")
         m = nxt
@@ -236,13 +242,13 @@ else:
     P(f"Compared with the {a.days} days before.\n")
     P("| | This period | Before | Change |")
     P("|---|---|---|---|")
-    P(f"| Visits | {cur['visits']:,} | {prev['visits']:,} | {delta(cur['visits'], prev['visits'])} |")
-    P(f"| Unique visitors | {cur['unique']:,} | {prev['unique']:,} | {delta(cur['unique'], prev['unique'])} |")
+    P(f"| Page views | {cur['visits']:,} | {prev['visits']:,} | {delta(cur['visits'], prev['visits'])} |")
+    P(f"| Actions recorded | {cur['events_total']:,} | {prev['events_total']:,} | {delta(cur['events_total'], prev['events_total'])} |")
     pg, ppg = dict(cur["pages"]), dict(prev["pages"])
     for path, label in (("/opportunities/", "Opportunities page"), ("/explore/", "Explore in 3D"), ("/", "Home page"),
                         ("/community/", "Community"), ("/volunteer/", "Volunteer"), ("/support/", "Support"),
                         ("/partners/", "Partner with us"), ("/museum/", "Virtual Museum"), ("/thank-you/", "Thank-you page (forms completed)")):
-        P(f"| {label} | {pg.get(path, 0):,} | {ppg.get(path, 0):,} | {delta(pg.get(path, 0), ppg.get(path, 0))} |")
+        P(f"| {label} | {look(pg, path):,} | {look(ppg, path):,} | {delta(look(pg, path), look(ppg, path))} |")
     P("\n## Day by day\n")
     P("| Day | Page views |"); P("|---|---|")
     for d, n in cur["daily"].items():
@@ -258,6 +264,9 @@ else:
             P(f"\n## {title}\n"); P("| | Visitors |"); P("|---|---|")
             for n, c in rows: P(f"| {n or '(direct)'} | {c:,} |")
     event_tables(cur, prev)
+    if TRUNCATED[0]:
+        P("\nThe page and event tables show the 100 busiest paths, which is all the API returns at once. "
+          "Visits and unique visitors above are exact.")
     P("\nDashboard with everything, live: https://tanitxr.goatcounter.com")
 
 report = "\n".join(lines)
