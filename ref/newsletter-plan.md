@@ -5,11 +5,12 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
-| **19** | **Fri Sept 25** | Oct 1 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 23 — 14 blocks (CHI meet-ups added, NatGeo RFP moved to 20, both Sept 20) |
-| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 18 blocks, trim or split when assembling |
+| **19** | **Fri Sept 25** | Oct 1 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 23 — 14 blocks, now at the cap (iLRN Academic Stream Oct 4 added Sept 21) |
+| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 19 blocks, trim or split when assembling |
 
 ## Edition 19 (send Sept 25) — items
 - 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
+- 🎤 iLRN 2027 Academic Stream (full/short papers, 4-7pp extended abstract for a poster; Daegu, Korea + online; no submission fee) — Oct 4 — immersivelrn.org/ilrn2027/call-for-proposals (added by the Sept 21 sweep, from Ines's note)
 - 🎨 Slamdance 2027 DIG — Oct 6 — $90 — slamdance.com/festival-submit
 - 🎨 Djerassi 2027 incl. Leonardo@Djerassi (art+science, one month, all costs) — Oct 9 — djerassi.org/apply/2027residency
 - 🏅 Aesthetica Art Prize (£10,000; digital/installation) — Oct 11 (late Oct 18) — £25 — aestheticamagazine.com/artprize/submit
@@ -38,9 +39,10 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🎨 Bogliasco Fellowship Fall 2027 (Italy, one month, board) — Dec 1 — $30 — bfny.org/en/apply
 - 🎓 CURE Fellowships (PhD holders) — Nov 30 — skip unless readers ask (too academic)
 - 🎮 Global Game Jam 2027 — register a Tunisian site by Nov 1; jam Jan 25–31 — globalgamejam.org 🇹🇳
+- 🇹🇳 Wijhat (Culture Resource) mobility grants — up to €7,000 for travel to a fair, residency or conference; year-round, next cut-off Jan 16 — mawred.org/artistic-creativity/wijhat ★ Tanit 👤 (added by the Sept 21 sweep, from Ines's note)
 - 🕶 Laval Virtual 2027 ReVolution #Experiences / #StartUps / #Research (free booth) — Jan 15 — laval-virtual.com ★ Tanit
 - 🎬 Tribeca 2027 regular/late — Nov 19 / Dec 17 (if verified)
-- 🎤 iLRN 2027 practitioner track (hybrid) — Jan 12 — ⚠ verify CFP page
+- 🎤 iLRN 2027 iLEAD practitioner stream (2-5pp extended abstract → talk, poster, workshop, panel or demo; hybrid) — Jan 12 — immersivelrn.org/ilrn2027/call-for-proposals _(deadline verified Sept 21, 2026 on the official CFP; the Academic Stream's Oct 4 deadline went to edition 19)_
 - 🇹🇳 Barakat Trust 2027 (Islamic art/archaeology incl. digitisation) — opens Jan 1 — barakat.org/grants ★ Tanit
 
 ## Rolling (mention once, keep on the board)

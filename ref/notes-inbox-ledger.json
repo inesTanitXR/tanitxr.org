@@ -126,6 +126,40 @@
    "source": "slack",
    "shared_by": "Ines Said",
    "status": "skipped: Ines's own announcement of the board, not an opportunity"
+  },
+  {
+   "key": "deadline october 4 2026 1159pm aoe submit here httpslnkdingncnteks",
+   "date": "2026-09-21",
+   "source": "note",
+   "raw": "https://lnkd.in/gNCnteKs -> https://codex.immersivelrn.org/books/instructions-for-authors/page/academic-stream-submissions",
+   "status": "added (iLRN 2027 Academic Stream, deadline Oct 4, 2026 verified on the official CFP; iLEAD practitioner stream Jan 12, 2027 also verified and corrected in the plan)"
+  },
+  {
+   "key": "wijhat culture resource al mawred up to eur 7000 for airfare visa lodging partial living costs for tunisian artists",
+   "date": "2026-09-21",
+   "source": "note",
+   "status": "added (Wijhat mobility grants; verified at mawred.org — three rounds a year, next cut-off January 16, 2027 at 16:00 Beirut, not Jan 15; also added to ref/ines-shortlist.json)"
+  },
+  {
+   "key": "habibi tech summit 2026 volunteer call nyc september 26 2026",
+   "date": "2026-09-21",
+   "source": "screenshot",
+   "raw": "https://www.instagram.com/p/DdAtw6sjSkl/ (@habibidottech) -> habibi.tech/volunteers",
+   "status": "held for Ines: borderline editorial (a volunteer call at a MENA tech summit, not a grant/CFP). Raised in the hold queue as 'habibi-tech-summit-volunteers'; not published."
+  },
+  {
+   "key": "natgeomuseum trade the ordinary happy hour for an evening of exploration in washington dc",
+   "date": "2026-09-21",
+   "source": "screenshot",
+   "raw": "https://www.instagram.com/p/DctKCWVMcJ0/ (@natgeomuseum)",
+   "status": "not an opportunity: a DC museum after-hours social evening, no application and no deadline. File deliberately left in the inbox root for the Thursday DC digest."
+  },
+  {
+   "key": "dmv pym yalla run fundraiser bazaar detour coffee arlington october 4 2026",
+   "date": "2026-09-21",
+   "source": "screenshot",
+   "raw": "https://www.instagram.com/p/Dc8foqYMx6o/ (@dmvpym)",
+   "status": "not an opportunity: a local DC-area fundraiser event, no application and no deadline, and political. File deliberately left in the inbox root for the Thursday DC digest."
   }
  ],
  "slack_last_ts": "1789764970.037819"

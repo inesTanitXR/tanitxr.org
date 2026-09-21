@@ -39,6 +39,22 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Meet-ups are the informal, participant-driven side of CHI, separate from the workshops track: World Cafe, speed networking, think-pair-share or any interactive format you propose. Three-page proposal plus two pages of supplementary material via PCS. At least one organizer has to register and attend in person or the meet-up is cancelled, so count the registration and travel before you submit.
 👉 https://chi2027.acm.org/authors/meet-ups/
 
+### 🎤 iLRN 2027, 13th Immersive Learning Research Network Conference
+
+📅 Academic Stream deadline: October 4, 2026 · practitioner iLEAD stream: January 12, 2027
+📍 Online June 11-13, 2027; in person June 26-29, 2027, Kyungpook National University, Daegu, Republic of Korea
+👥 Researchers, educators, designers and practitioners. No submission fee; accepted authors must register
+✏️ Theme is "XR + AI Collaboration". The Academic Stream takes full papers (12-15 pages, Scopus-indexed Springer CCIS), short papers (8-11 pages), 4-7 page extended abstracts for a poster, and doctoral colloquium papers. The iLEAD stream is the practitioner route: a 2-5 page extended abstract gets you a talk, poster, workshop, panel, guided virtual adventure or product demo, and it closes January 12. Online presenters record a 3-5 minute video.
+👉 https://www.immersivelrn.org/ilrn2027/call-for-proposals/
+
+### 🇹🇳 Wijhat (Destinations), Culture Resource Mobility Grants
+
+📅 Applications accepted year-round; next cut-off January 16, 2027, 16:00 Beirut time (results February 28)
+📍 Travel to or from a country in the Arab region
+👥 Artists of all disciplines and cultural actors from the Arab region, individuals or groups. Free to apply
+✏️ Up to 7,000 euros for flights, visas, accommodation, internal transport and partial living costs, to attend a fair, residency, conference, seminar or training workshop. 25 to 30 grants a year across three rounds (cut-offs January 16, May 29, September 17). Culture Resource can send a supporting letter to the embassy for your visa once the contract is signed. Your travel has to happen after the results date of the round you apply to.
+👉 https://mawred.org/artistic-creativity/wijhat/?lang=en
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -47,3 +63,5 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Women Who Code | linkedin.com/company/women-who-code |
 | Games for Change | linkedin.com/company/gamesforchange |
 | ACM SIGCHI | linkedin.com/company/acm-sigchi |
+| Immersive Learning Research Network (iLRN) | linkedin.com/company/immersive-learning-research-network |
+| Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
