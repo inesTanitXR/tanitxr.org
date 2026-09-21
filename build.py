@@ -2317,9 +2317,34 @@ def person_record(name, role):
     }
 
 
-TEAM = [person_record(n, r) for n, r in CORE_TEAM]
-COMMUNITY = [person_record(n, r) for n, r in CONTRIBUTORS]
+# Everyone on Our People comes from one file, ref/people.json, in the same shape the volunteer
+# profile form produces. It was generated once from the old sources (a name list here plus the
+# WordPress bios, photos and links) with `python3 build.py --dump-people`. Edit that file, or let
+# an approved form submission add to it; nothing about people is spread across the code any more.
+PEOPLE_FILE = os.path.join(HERE, "ref", "people.json")
+if os.path.exists(PEOPLE_FILE):
+    _people = json.load(open(PEOPLE_FILE))["people"]
+    _live = [p for p in _people if p.get("approved", False)]
+    TEAM = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")} | {"href": f"team/{p['slug']}.html"}
+            for p in _live if p.get("group") == "core"]
+    COMMUNITY = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")} | {"href": f"team/{p['slug']}.html"}
+                 for p in _live if p.get("group") != "core"]
+else:                                    # first run, before the file exists
+    TEAM = [person_record(n, r) for n, r in CORE_TEAM]
+    COMMUNITY = [person_record(n, r) for n, r in CONTRIBUTORS]
 TEAM_BY_SLUG = {p["slug"]: p for p in TEAM + COMMUNITY}
+
+if "--dump-people" in sys.argv:   # one-off: write the consolidated list, then stop
+    _out = []
+    for _p, _grp in [(x, "core") for x in TEAM] + [(x, "community") for x in COMMUNITY]:
+        _out.append({"name": _p["name"], "role": _p["role"], "slug": _p["slug"], "group": _grp,
+                     "bio": _p["bio"], "photo": _p["photo"], "links": _p["links"], "approved": True})
+    json.dump({"_what": "Everyone shown on Our People. One record per person, the same shape the "
+                        "volunteer profile form produces. approved must be true to appear.",
+               "people": _out}, open(os.path.join(HERE, "ref", "people.json"), "w"),
+              indent=1, ensure_ascii=False)
+    print(f"wrote ref/people.json with {len(_out)} people")
+    raise SystemExit(0)
 
 # volunteer profiles submitted through the new site (profiles/*.json)
 PROFILE_DIR = os.path.join(HERE, "profiles")
