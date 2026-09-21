@@ -1,6 +1,7 @@
 {
- "_what": "Where a copy of every form submission goes, so submissions can be approved instead of living only in an inbox. Paste ref/forms/submissions.gs into script.google.com, deploy it as a web app, and put the /exec URL here. Empty means the site only emails, as before.",
+ "_what": "Where a copy of every form submission goes, so submissions can be approved instead of living only in an inbox. Paste ref/forms/submissions.gs into script.google.com, deploy it as a web app, and put the /exec URL here. Empty means the site only emails, as before. Ines approves people by tapping on the approval page, whose rows mirror ref/people.json.",
  "sheet_endpoint": "https://script.google.com/macros/s/AKfycbwS1EdGOzYjIOJ7DlM0JhKBfZ3IWpD_4cWp8e5x56ckd7WR3tK03bqgiw6nOfmgIVNI0w/exec",
  "sheet_id": "1bboWu3dxD_KRhSZooK39Bc1kYhuY2IsjNftF9lr04wc",
- "_deployed": "Deployed 2026-09-21 as the web app 'site forms' on the Apps Script project 'Tanit XR site submissions', executing as inessaid88@gmail.com with access set to Anyone. If submissions.gs changes, redeploy with Manage deployments and Version: New version, or the old code keeps running."
+ "_deployed": "Deployed 2026-09-21 as the web app 'site forms' on the Apps Script project 'Tanit XR site submissions', executing as inessaid88@gmail.com with access set to Anyone. If submissions.gs changes, redeploy with Manage deployments and Version: New version, or the old code keeps running.",
+ "approval_page": "https://claude.ai/artifact/2L7TD7wymeB5nJXeRXinbd"
 }
