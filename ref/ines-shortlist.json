@@ -66,7 +66,7 @@
    "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
    "deadline": "October 19, 2026",
    "status": "new",
-   "reason": "Up to €8,500 production grant for visual arts (XR qualifies) or €13,000 for cinema, open to Arab artists in the region and the diaspora — a direct fit for a Tunisian heritage XR piece. ⚠ Eligibility check: applicants must be under 35 (born January 1991 or later); skip if Ines is outside that window."
+   "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window."
   },
   {
    "slug": "sxsw-2027-xr-experience",
@@ -78,7 +78,7 @@
    "slug": "fivars-2027-festival-of-international-virtual-augmented-real",
    "deadline": "January 24, 2027",
    "status": "new",
-   "reason": "Festival of VR/AR stories (VR, 360°, WebXR, installation) submitting via FilmFreeway — a cheap route to exhibit an XR heritage piece. Earlybird September 24, 2026 is the lowest fee; regular November 24, late December 24, extended January 24, 2027."
+   "reason": "Festival of VR/AR stories (VR, 360°, WebXR, live and spatial performance, installation) submitting via FilmFreeway — a cheap route to exhibit an XR heritage piece, and WebXR is accepted so there is no headset distribution to solve. Deadlines re-verified September 21, 2026 on fivars.net: earlybird September 24, 2026 (the lowest fee, 3 days away), regular November 24, late December 24, extended January 24, 2027; notifications February 7, festival February 22 to March 9, 2027 in Los Angeles and online."
   },
   {
    "slug": "voqal-partners-fellowship-2027",
@@ -109,6 +109,12 @@
    "deadline": "January 16, 2027",
    "status": "new",
    "reason": "You flagged this yourself. Up to EUR 7,000 for travel, free to apply, and you are exactly who it is for: a Tunisian artist whose professional travel runs between the US and Tunisia. Either the departure or the arrival country has to be in the Arab region, which your trips satisfy. Deadline verified September 21, 2026 at mawred.org: three rounds a year, cut-offs 16:00 Beirut time on January 16 (results February 28), May 29 and September 17 — the September round closed four days ago, so January 16 is the next one. Plan it around a specific trip: the activity you travel for must take place after the results date of the round you apply to, so a January application only covers travel from March 2027 on."
+  },
+  {
+   "slug": "xr-women-museum-community-garden",
+   "deadline": null,
+   "status": "new",
+   "reason": "Lowest-effort item on this list. The XR Women Museum is taking rolling contributions to its Community Garden: 3D and XR-ready objects, interactive “pollinators”, botanical or spatial fragments, world-building elements. It is explicitly not a juried selection, so a Tanit XR scan — a Kerkouane fragment, a piece of the building kit — goes straight into a standing XR ecosystem in front of the XR Women audience. Free, remote, a Google form, no deadline. Verified on xrwomen.com/museum September 21, 2026."
   }
  ]
 }

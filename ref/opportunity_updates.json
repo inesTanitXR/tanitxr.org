@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities', editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29). Scraped 2026-09-08. Edition-18 raw list researched & added 2026-09-09 (draft in ref/newsletter-edition-18-draft.md). Checked 2026-09-16: the newsletter's public edition list still ends at Edition 17 (Edition 18 not yet posted), so nothing new to harvest. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls.",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 18 (posted 2026-09-18, read 2026-09-21): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18). Edition 18 matched ref/newsletter-edition-18.md; the only item in it that was missing from the board was the NASA Space Apps Challenge, added 2026-09-21. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 1,946 subscribers on 2026-09-21.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -94,6 +94,27 @@
   },
   "awesome-foundation-conservation-climate-1-000-micro-grants": {
    "desc": "$1,000 micro-grants for conservation and climate projects, no strings attached. The chapter reviews on a fixed bi-monthly cycle rather than rolling: the next application deadlines are September 25, 2026 and November 27, 2026, then January 29, 2027."
+  },
+  "third-wave-fund-artist-in-residence-2026": {
+   "deadline_type": "Closed",
+   "url": "https://www.thirdwavefund.org/third-wave-funds-artist-in-residence-program",
+   "desc": "Applications for the 2026 Artist-in-Residence closed on May 13, 2026. Third Wave Fund's application page states the next opportunity will be posted in early 2027."
+  },
+  "xr-women-museum-open-call-vibrancy-as-practice": {
+   "deadline_type": "Closed",
+   "url": "https://www.xrwomen.com/museum",
+   "desc": "“Vibrancy as Praxis” is now on view at the XR Women Museum with fifteen selected artists working across XR, virtual worlds, sound, video and hybrid forms, and is no longer taking submissions. The museum's current open call is the Community Garden, listed separately; a further event, COSMOS, is announced for the winter cycle with submission details still to come."
+  },
+  "unesco-youth-climate-action-network-you-can-membership": {
+   "url": "https://www.unesco.org/en/youth/climate-action-network",
+   "desc": "Global network launched at COP25 connecting youth-led organizations working on climate action across education, sciences, culture and communication. UNESCO states that calls for membership are open to youth-led organizations; membership is applied for through the form on the network page, and there is no published closing date."
+  },
+  "not-your-grandmas-gallery-open-call-for-artists-the-holy-art": {
+   "url": "https://www.theholyart.com/open-calls",
+   "desc": "The Holy Art Gallery runs a rolling series of open calls for physical and digital exhibitions in London and other cities, with the current editions and their closing dates listed on the open-calls page. Submitting is free, but selected artists pay an exhibition fee, published as £280 for one physical work and £380 for two, or £95 to £150 for one to three digital works. Budget for that fee before applying."
+  },
+  "games-for-change-student-challenge-2026-2027": {
+   "desc": "International game design competition inviting young people aged 10 to 25 to build digital games inspired by the UN Sustainable Development Goals, with prize categories for ages 10 to 18 and university age. Educators sign up classrooms and students worldwide can submit; participation is free. Sign-ups for the 2026-2027 cycle are open and the two themes are published: “Everyone Belongs Here”, on fostering belonging, and “Bounce Back”, on building resilience. The submission deadlines for this cycle have not been published yet."
   }
  },
  "new": [
@@ -847,6 +868,51 @@
    "deadline_type": null,
    "url": "https://mawred.org/artistic-creativity/wijhat/?lang=en",
    "desc": "Up to 7,000 euros for artists and cultural actors from the Arab region to travel for professional purposes: fairs, artistic residencies, forums, conferences, seminars and training or capacity-building workshops. The grant covers flights, visa costs, accommodation, internal transport and partial living expenses, and Culture Resource can write a supporting letter to the relevant embassy after the contract is signed. Either the departure or the arrival country must be in the Arab region; individuals and groups may apply, and there is no application fee. Applications are accepted year-round and judged in three rounds, with cut-offs at 16:00 Beirut time on January 16 (results February 28), May 29 (results July 1) and September 17 (results October 31); the activity you are travelling for must fall after the results date of the round you apply to.",
+   "published": "2026-09-21"
+  },
+  {
+   "title": "XR Women Museum, Community Garden",
+   "type": "Open Call",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": null,
+   "deadline_type": "Rolling",
+   "url": "https://www.xrwomen.com/museum",
+   "desc": "Ongoing call from the XR Women Museum for contributions to its Community Garden: 3D and XR-ready objects, animated or interactive “pollinators”, botanical or spatial fragments, and conceptual world-building elements. The museum describes it as a living relational system rather than a submission pool for selection, so contributions join an evolving XR ecosystem that outlasts any single exhibition. Submissions go through a Google form linked from the museum page and there is no fee or published closing date.",
+   "published": "2026-09-21"
+  },
+  {
+   "title": "NASA Space Apps Challenge 2026",
+   "type": "Challenge",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "Open to all",
+    "Students",
+    "Youth"
+   ],
+   "deadline_date": "2026-11-14",
+   "deadline_type": null,
+   "url": "https://www.spaceappschallenge.org/",
+   "desc": "The world's largest annual space and science hackathon, run by NASA with 17 partner space agencies, held November 14 to 15, 2026. Registration is open and free, and the site lists 14 challenges plus local in-person events by city alongside a fully remote option; teams form on the platform. Open to anyone interested in space and science, at any age, skill level or professional background.",
+   "published": "2026-09-18"
+  },
+  {
+   "title": "Habibi Tech Summit 2026, Volunteer Call",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Open to all"
+   ],
+   "deadline_date": "2026-09-25",
+   "deadline_type": null,
+   "url": "https://habibi.tech/volunteers",
+   "desc": "Volunteer at the Habibi Tech Summit, held September 25 and 26, 2026 across three New York City venues in Brooklyn, Manhattan and Queens. Six roles are open: guests and registration, content creation, program and stage, exhibitors and sponsors, setup and logistics, and flexible assignment. Volunteers work one shift and attend the rest of the day as a guest at no cost. No experience is required and sign-up is through the form on the volunteers page; shifts close once they fill.",
    "published": "2026-09-21"
   }
  ],

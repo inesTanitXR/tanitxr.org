@@ -1669,6 +1669,18 @@ FR = {
     # ---- added 2026-09-21: pages that were still English ----
     "Get new grants, residencies, and open calls for art, XR &amp; impact in your\ninbox, free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is\ngoing.":
         'Recevez gratuitement les nouvelles subventions, résidences et appels à candidatures en art, XR &amp; impact,\ndirectement de l’équipe Tanit XR. Vous serez aussi les premiers informés de l’avancée de notre travail de\npréservation du patrimoine.',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Artifacts scanned': 'Objets numérisés',
+    'Sites documented': 'Sites documentés',
+    'Global reach': 'Portée mondiale',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Continue to Press &amp; Recognition': 'Continuer vers Presse et distinctions',
+    'Press &amp; Recognition – Tanit XR': 'Presse et distinctions – Tanit XR',
+    '3D Modeler &amp; Web Contributor': 'Modeleur 3D et contributrice web',
+    'Strategy &amp; Creative Support': 'Stratégie et soutien créatif',
+    'The museum&#x27;s main hall': 'La salle principale du musée',
 }
 
 
@@ -3335,5 +3347,17 @@ AR = {
     # ---- added 2026-09-21: pages that were still English ----
     "Get new grants, residencies, and open calls for art, XR &amp; impact in your\ninbox, free, from the Tanit XR team. You'll also be first to hear how our heritage-preservation work is\ngoing.":
         'احصلوا مجانًا على المنح والإقامات الفنية والدعوات المفتوحة في الفن والواقع الممتد والأثر الاجتماعي،\nمباشرة من فريق Tanit XR. وستكونون أول من يعرف أخبار عملنا في حفظ التراث.',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Artifacts scanned': 'قطع أثرية ممسوحة',
+    'Sites documented': 'مواقع موثّقة',
+    'Global reach': 'امتداد عالمي',
+
+    # ---- added 2026-09-21: pages that were still English ----
+    'Continue to Press &amp; Recognition': 'المتابعة إلى الصحافة والتقدير',
+    'Press &amp; Recognition – Tanit XR': 'الصحافة والتقدير – Tanit XR',
+    '3D Modeler &amp; Web Contributor': 'نمذجة ثلاثية الأبعاد ومساهمة في الويب',
+    'Strategy &amp; Creative Support': 'الاستراتيجية والدعم الإبداعي',
+    'The museum&#x27;s main hall': 'القاعة الرئيسية للمتحف',
 }
 
