@@ -1688,6 +1688,11 @@ FR = {
     # ---- added 2026-09-21: roles that were only half translated ----
     'Partnerships &amp; Community': 'Partenariats et communauté',
     '2D Design &amp; 3D Generalist': 'Design 2D et généraliste 3D',
+
+    # ---- added 2026-09-22: pages that were still English ----
+    'Press &amp; Recognition': 'Presse et reconnaissance',
+    'Logo, horizontal': 'Logo horizontal',
+    'Logo, vertical': 'Logo vertical',
 }
 
 
@@ -3373,5 +3378,8 @@ AR = {
     # ---- added 2026-09-21: roles that were only half translated ----
     'Partnerships &amp; Community': 'الشراكات والمجتمع',
     '2D Design &amp; 3D Generalist': 'تصميم ثنائي الأبعاد ومصمّم ثلاثي الأبعاد متعدّد المهام',
+
+    # ---- added 2026-09-22: pages that were still English ----
+    'Press &amp; Recognition': 'الصحافة والتقدير',
 }
 
