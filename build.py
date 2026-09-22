@@ -4420,6 +4420,66 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
 }
 
 
+def check_credits():
+    """Say out loud when a credit was meant for someone and reached nobody.
+
+    Every attribution on the site passes through a lookup keyed on a name, a slug or a
+    Sketchfab username, and each of those lookups fails quietly: the page simply builds
+    without the byline and the person's profile never mentions the work. Margarita's
+    Material and Meaning article sat uncredited for months that way. These checks turn
+    every one of those silences into a line in the build output."""
+    said = []
+    def warn(line):
+        said.append(line)
+
+    # a map pointing at a person who is not on the site
+    for src, m in (("creators-map authors", CREATORS.get("authors", {})),
+                   ("creators-map sketchfab", CREATORS.get("sketchfab", {}))):
+        for k, slug in m.items():
+            if slug and slug not in TEAM_BY_SLUG:
+                warn(f"{src}: {k!r} points at {slug!r}, who is not in ref/people.json")
+    for slug in MANUAL_CONTRIB:
+        if slug not in TEAM_BY_SLUG:
+            warn(f"MANUAL_CONTRIB: {slug!r} is not in ref/people.json, so that work shows nowhere")
+
+    # an uploader nobody recognises: neither a member nor a named pending volunteer
+    pending = CREATORS.get("pending", {})
+    known = CREATORS.get("sketchfab", {})   # a username mapped to null is the org account, on purpose
+    seen = {}
+    for m in MODELS:
+        for field in ("scanned_by", "optimized_by"):
+            u = m.get(field)
+            if u and not member_slug(u) and u not in pending and u not in known:
+                seen.setdefault(u, 0)
+                seen[u] += 1
+    for vm in VOLUNTEER_MADE:
+        u = vm.get("by")
+        if u and not member_slug(u) and u not in pending and u not in known:
+            seen.setdefault(u, 0)
+            seen[u] += 1
+    for u, n in sorted(seen.items(), key=lambda kv: -kv[1]):
+        warn(f"Sketchfab user {u!r} made {n} thing(s) and is credited to nobody. "
+             f"Add them to creators-map.json under 'sketchfab' or 'pending'.")
+
+    # an override written for a model title that does not exist
+    titles = [m["title"].lower() for m in MODELS]
+    for k in CREATORS.get("model_overrides", {}):
+        if k.startswith("_"):
+            continue
+        if not any(k.lower() in t for t in titles):
+            warn(f"model_overrides: no model title contains {k!r}, so that reassignment does nothing")
+
+    # someone on the site whose work the site never mentions
+    silent = [p["name"] for slug, p in TEAM_BY_SLUG.items()
+              if not any(CONTRIB.get(slug, {}).values())]
+    if said or silent:
+        print("\n  credits:")
+        for line in said:
+            print(f"    !! {line}")
+        if silent:
+            print(f"    ·  no work listed on the profile of: {', '.join(sorted(silent))}")
+
+
 def build_model_pages():
     CONTRIB.clear()  # rebuilt each language pass
     for slug, items in MANUAL_CONTRIB.items():
@@ -4530,22 +4590,48 @@ def build_news():
         "material-and-meaning-marble-identity-and-cultural-exchange-in-ancient-carthage": "Margarita Johnson",
         "a-beginning-why-tanit-xr-exists": "Ines Said",
         "a-2-000-year-old-ghost-town-on-cape-bon": "Laura Harrison",
+        # an announcement from the organisation, deliberately unsigned
+        "tanit-xr-at-citycamp-gainesville-hack-day": None,
     }
+    def _author_of(n):
+        """Find the author even when the title was long enough to be cut.
+
+        slugify() stops at 60 characters, so a long headline gets a shorter folder name than
+        the one written here. Matching on either being the start of the other means a credit
+        can no longer vanish because of where a title happened to be trimmed."""
+        s = n["clean_slug"]
+        if s in NEWS_AUTHOR:
+            return True, NEWS_AUTHOR[s]
+        for k, v in NEWS_AUTHOR.items():
+            if k.startswith(s) or s.startswith(k):
+                return True, v
+        return False, None
+
+    _slugs = [n["clean_slug"] for n in NEWS]
+    for k in NEWS_AUTHOR:
+        if not any(k.startswith(s) or s.startswith(k) for s in _slugs):
+            print(f"  !! NEWS_AUTHOR has {k!r}, which is not any article. Nobody is credited.")
+    for n in NEWS:
+        if not _author_of(n)[0]:
+            print(f"  !  no author for {n['clean_slug']!r}: the page carries no byline and the "
+                  f"writer's profile will not list it. Add it to NEWS_AUTHOR, with None if "
+                  f"the post is meant to be unsigned.")
+
     for n in NEWS:
         content = _clean_wp_content(n["content"])
-        author = NEWS_AUTHOR.get(n["clean_slug"])
+        author = _author_of(n)[1]
         a_slug = author_slug(author) if author else None
         if a_slug:
             _add_contrib(a_slug, "wrote", n["title"], n["href"], thumb=n.get("img"))
-            byline = (f'By <a href="{TEAM_BY_SLUG[a_slug]["href"]}" '
+            byline = (f'{term("By")} <a href="{TEAM_BY_SLUG[a_slug]["href"]}" '
                       f'style="color:var(--gold-dark);font-weight:700">{esc(author)}</a> · ') \
-                if a_slug in TEAM_BY_SLUG else f"By {esc(author)} · "
+                if a_slug in TEAM_BY_SLUG else f'{term("By")} {esc(author)} · '
         else:
-            byline = f"By {esc(author)} · " if author else ""
+            byline = f'{term("By")} {esc(author)} · ' if author else ""
         body = f"""
 {page_hero(esc(n["title"]), f'<a href="news.html">News</a> &nbsp;›&nbsp; {esc(n["title"][:50])}', bg=n.get("img") or None)}
 <section class="pad"><div class="wrap"><div class="prose">
-<p style="color:var(--gray);font-size:14px">{byline}Published {n['date']}</p>
+<p style="color:var(--gray);font-size:14px">{byline}{term("Published")} {n['date']}</p>
 {content}
 <p style="margin-top:40px"><a class="btn btn-line" href="news.html">← All News</a></p>
 </div></div></section>"""
@@ -5913,7 +5999,8 @@ TERMS = {
            "Artists": "Artistes", "Educators": "Enseignants", "Non-profits": "Associations",
            "Open to all": "Ouvert à tous", "Researchers": "Chercheurs", "Students": "Étudiants",
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
-           "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé"},
+           "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
+           "By": "Par", "Published": "Publié le"},
     "ar": {"Award": "جائزة", "Challenge": "تحدٍّ", "Conference": "مؤتمر", "Fellowship": "زمالة",
            "Grant": "منحة", "Open Call": "دعوة مفتوحة", "Program": "برنامج",
            "Residency": "إقامة فنية", "Volunteer": "تطوّع", "Event": "فعالية", "Job": "وظيفة",
@@ -5923,7 +6010,8 @@ TERMS = {
            "Artists": "الفنانون", "Educators": "المعلمون", "Non-profits": "الجمعيات",
            "Open to all": "مفتوح للجميع", "Researchers": "الباحثون", "Students": "الطلبة",
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
-           "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق"},
+           "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
+           "By": "بقلم", "Published": "نُشر في"},
 }
 MONTHS = {
     "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
@@ -6137,6 +6225,7 @@ def main():
     LANG = "en"
     build_redirects()
     build_llms_txt()
+    check_credits()
 
     n_pages = len([f for f in os.listdir(DOCS) if f.endswith(".html")])
     n_fr = len([f for f in os.listdir(os.path.join(DOCS, "fr")) if f.endswith(".html")])

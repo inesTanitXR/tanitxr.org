@@ -1,35 +1,36 @@
 {
- "_what": "Maps Sketchfab usernames + article-author names to team-member profile slugs, so contributions show on volunteer profiles. 'pending' = volunteers confirmed by Ines (2026-09-10) who have not made their volunteer profile yet: they are credited by name (no link). When one of them submits a profile (profiles/ or create-profile form), move them into 'sketchfab' with their new slug and rebuild.",
- "sketchfab": {
-  "rachel_west": "rachel-west",
-  "nickkauf": "nick-kaufmann",
-  "BetyVega03": "ana-beatriz-vega-gonzalez",
-  "TanitXROrg": null,
-  "juliamorenomolen": "julia-moreno-molen"
- },
- "pending": {
-  "clairee123": "Claire Natanek",
-  "EunjeongYu": "Eunjeong Yu",
-  "danielgo257": "Daniel Gómez",
-  "georgealyssa85": "Alyssa George"
- },
- "model_overrides": {
-  "_how": "Reassign credit per model when the Sketchfab uploader is not the person who did the work. Key = any unique part of the model title (case-insensitive); value = {\"scanned\": slug} and/or {\"optimized\": slug}. Example: \"Corinthian Capital\": {\"optimized\": \"nick-kaufmann\"}"
- },
- "pending_note": "danielgo257 and georgealyssa85 have no public display name on Sketchfab - ask Ines for their real names, or they will appear as their usernames.",
- "authors": {
-  "Margarita Johnson": "margarita-johnson",
-  "inessaid88": "ines-said",
-  "Ines Said": "ines-said",
-  "Laura Harrison": "dr-laura-harrison",
-  "Bety Vega": "ana-beatriz-vega-gonzalez",
-  "Ana Beatriz Vega González": "ana-beatriz-vega-gonzalez"
- },
- "_names": {
-  "Bety Vega": "= Ana Beatriz Vega González (Slack display name)"
- },
- "_notes": {
-  "juliamorenomolen": "Julia Moreno-Molen uploads under this account. Her one org-only upload, \"Architectural Element - Created by Ala Zgarni\", was modeled by Ala Zgarni, not by Julia. It is not public, so nothing is credited today; if it is ever made public, credit Ala Zgarni (no profile slug yet) rather than the uploader.",
-  "andrew.maneri": "New creator found 2026-09-18: optimized one public artifact (Byrsa Hill) plus one 'bad upload'. No public display name on Sketchfab. Probably Andrew Maneri (media/AndrewManeri.webp exists from the old site) but NOT confirmed, so he is left uncredited rather than credited with a guessed name. Ask Ines, then add to 'pending' or 'sketchfab'."
- }
+  "_what": "Maps Sketchfab usernames + article-author names to team-member profile slugs, so contributions show on volunteer profiles. 'pending' = volunteers confirmed by Ines (2026-09-10) who have not made their volunteer profile yet: they are credited by name (no link). When one of them submits a profile (profiles/ or create-profile form), move them into 'sketchfab' with their new slug and rebuild.",
+  "sketchfab": {
+    "rachel_west": "rachel-west",
+    "nickkauf": "nick-kaufmann",
+    "BetyVega03": "ana-beatriz-vega-gonzalez",
+    "TanitXROrg": null,
+    "juliamorenomolen": "julia-moreno-molen"
+  },
+  "pending": {
+    "clairee123": "Claire Natanek",
+    "EunjeongYu": "Eunjeong Yu",
+    "danielgo257": "Daniel Gómez",
+    "georgealyssa85": "Alyssa George",
+    "andrew.maneri": "andrew.maneri"
+  },
+  "model_overrides": {
+    "_how": "Reassign credit per model when the Sketchfab uploader is not the person who did the work. Key = any unique part of the model title (case-insensitive); value = {\"scanned\": slug} and/or {\"optimized\": slug}. Example: \"Corinthian Capital\": {\"optimized\": \"nick-kaufmann\"}"
+  },
+  "pending_note": "danielgo257 and georgealyssa85 have no public display name on Sketchfab - ask Ines for their real names, or they will appear as their usernames.",
+  "authors": {
+    "Margarita Johnson": "margarita-johnson",
+    "inessaid88": "ines-said",
+    "Ines Said": "ines-said",
+    "Laura Harrison": "dr-laura-harrison",
+    "Bety Vega": "ana-beatriz-vega-gonzalez",
+    "Ana Beatriz Vega González": "ana-beatriz-vega-gonzalez"
+  },
+  "_names": {
+    "Bety Vega": "= Ana Beatriz Vega González (Slack display name)"
+  },
+  "_notes": {
+    "juliamorenomolen": "Julia Moreno-Molen uploads under this account. Her one org-only upload, \"Architectural Element - Created by Ala Zgarni\", was modeled by Ala Zgarni, not by Julia. It is not public, so nothing is credited today; if it is ever made public, credit Ala Zgarni (no profile slug yet) rather than the uploader.",
+    "andrew.maneri": "New creator found 2026-09-18: optimized one public artifact (Byrsa Hill) plus one 'bad upload'. No public display name on Sketchfab. Probably Andrew Maneri (media/AndrewManeri.webp exists from the old site) but NOT confirmed, so he is left uncredited rather than credited with a guessed name. Ask Ines, then add to 'pending' or 'sketchfab'."
+  }
 }
