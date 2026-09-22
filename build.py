@@ -1605,6 +1605,18 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 .df-say.bad{color:#a4442f}
 .df-say.good{color:#1f7a54}
 .df-note{margin:10px 0 0;font-size:13.5px;color:var(--gray)}
+/* while the closing card is up, the object HUD gets out of its way */
+body.at-end .wf-panel,body.at-end #track-switch,body.at-end #vol-cameo,body.at-end #saved-chip,
+body.at-end #rotate-cue{opacity:0;pointer-events:none;transition:opacity .35s}
+/* the Collection's own numbers, at the end of the walk */
+.wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
+  margin-top:30px;padding-top:24px;border-top:1px solid rgba(74,53,43,.16)}
+.wnums div{display:flex;flex-direction:column;gap:3px}
+.wnums b{font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold-dark);
+  line-height:1}
+.wnums span{font-size:13.5px;line-height:1.35;color:#5d4c3c}
+.wnums-when{margin:16px 0 0;font-size:12px;color:#8a735c}
+@media(max-width:560px){.wnums{gap:14px 16px}.wnums b{font-size:25px}.wnums span{font-size:12.5px}}
 /* ---- Nura around the rest of the site ------------------------------------------------
    She is the companion from the Collection, dropping in on ordinary pages the way a chat
    widget would, except she wants nothing. Nothing is drawn until she has something to say,
@@ -3302,6 +3314,12 @@ _MADE_PIECES_FILE = os.path.join(HERE, "ref", "made-pieces.json")
 MADE_PIECES = (json.load(open(_MADE_PIECES_FILE))["pieces"]
                if os.path.exists(_MADE_PIECES_FILE) else [])
 
+# What the Collection has actually been used for, counted by tools/collection_stats.py from
+# the public counters. Shown on the page itself: the people who made this deserve to see that
+# somebody is looking, and a funder asking about reach can read it off the site.
+_STATS_FILE = os.path.join(HERE, "ref", "collection-stats.json")
+COLLECTION_STATS = json.load(open(_STATS_FILE)) if os.path.exists(_STATS_FILE) else {}
+
 
 def _piece_uid(pc):
     m = re.search(r"3d-models/([a-f0-9]{32})", pc.get("sketchfab") or "")
@@ -4737,6 +4755,32 @@ def human_size(d):
     return f"{h:.2f} m tall"
 
 
+def collection_numbers():
+    """The Collection's own numbers, in public, at the end of the walk.
+
+    Counted by tools/collection_stats.py from the public counters, so they are as fresh as the
+    last run of it rather than live. A date is shown for that reason: a number with no date is
+    a claim, a number with a date is a fact."""
+    st = COLLECTION_STATS
+    if not st or not st.get("object_views"):
+        return ""
+    # views, because that is the number a funder or a sponsor asks about. Saves are counted
+    # but not shown: a save lives in one browser until that browser is cleared.
+    rows = [(st["objects"], term("objects, scanned and modelled by volunteers")),
+            (st["object_views"], term("views of those objects")),
+            (st["experience_views"], term("visits to this Collection")),
+            (st.get("per_visit"), term("objects looked at in an average visit"))]
+    cells = "".join(f'<div><b>{n:,g}</b><span>{esc(w)}</span></div>' for n, w in rows if n)
+    try:
+        import datetime as _d
+        when = long_date(_d.date.fromisoformat(st["as_of"]))
+    except Exception:
+        when = st.get("as_of", "")
+    return (f'<div class="wnums">{cells}</div>'
+            f'<p class="wnums-when">{term("Counted to")} {esc(when)}. '
+            f'{term("From a counter that uses no cookies and follows nobody.")}</p>')
+
+
 def build_walk():
     """The simple one: one artifact at a time, scroll to move, drag to turn."""
     models_dir = os.path.join(HERE, "media", "models")
@@ -5073,6 +5117,7 @@ taking care of the place you are in.</p>
 built separately by Patrick, Cam and the team, and every object here will hang in it.</p>
 <p><a class="btn btn-gold" href="galleries.html">Browse with descriptions</a>
 &nbsp;<a class="wmore" href="volunteer.html">Volunteer with us</a></p>
+{collection_numbers()}
 </div><p class="music-credit"><a href="{MUSIC["href"]}" target="_blank" rel="noopener">{MUSIC["credit"]}</a></p></section>
 </div>
 
@@ -7426,6 +7471,16 @@ TERMS = {
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
+           "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
+           "views of those objects": "vues de ces objets",
+           "objects looked at in an average visit": "objets regardés lors d’une visite type",
+           "visits to this Collection": "visites de cette Collection",
+           "people have walked through this Collection": "personnes ont parcouru cette Collection",
+           "times somebody has opened one of them": "fois qu’un de ces objets a été ouvert",
+           "saved by somebody into their own collection": "enregistrés par quelqu’un dans sa propre collection",
+           "Counted to": "Compté jusqu’au",
+           "From a counter that uses no cookies and follows nobody.":
+               "Depuis un compteur sans cookies, qui ne suit personne.",
            "Read": "Lire", "Back": "Précédent", "Next": "Suivant",
            "Send us your model": "Envoyez-nous votre modèle",
            "Made by volunteers": "Faits par des bénévoles", "See all": "Voir les",
@@ -7478,6 +7533,16 @@ TERMS = {
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
+           "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
+           "views of those objects": "مشاهدة لهذه القطع",
+           "objects looked at in an average visit": "قطعة يُنظر إليها في الزيارة الواحدة",
+           "visits to this Collection": "زيارة لهذه المجموعة",
+           "people have walked through this Collection": "شخصًا تجوّلوا في هذه المجموعة",
+           "times somebody has opened one of them": "مرة فُتحت فيها إحدى هذه القطع",
+           "saved by somebody into their own collection": "قطعة حفظها أحدهم في مجموعته الخاصة",
+           "Counted to": "محسوب حتى",
+           "From a counter that uses no cookies and follows nobody.":
+               "من عدّاد بلا كوكيز، لا يتعقّب أحدًا.",
            "Read": "اقرأ", "Back": "السابق", "Next": "التالي",
            "Send us your model": "أرسل لنا نموذجك",
            "Made by volunteers": "من صنع المتطوّعين", "See all": "شاهد الـ",

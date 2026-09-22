@@ -1394,6 +1394,18 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 .df-say.bad{color:#a4442f}
 .df-say.good{color:#1f7a54}
 .df-note{margin:10px 0 0;font-size:13.5px;color:var(--gray)}
+/* while the closing card is up, the object HUD gets out of its way */
+body.at-end .wf-panel,body.at-end #track-switch,body.at-end #vol-cameo,body.at-end #saved-chip,
+body.at-end #rotate-cue{opacity:0;pointer-events:none;transition:opacity .35s}
+/* the Collection's own numbers, at the end of the walk */
+.wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
+  margin-top:30px;padding-top:24px;border-top:1px solid rgba(74,53,43,.16)}
+.wnums div{display:flex;flex-direction:column;gap:3px}
+.wnums b{font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold-dark);
+  line-height:1}
+.wnums span{font-size:13.5px;line-height:1.35;color:#5d4c3c}
+.wnums-when{margin:16px 0 0;font-size:12px;color:#8a735c}
+@media(max-width:560px){.wnums{gap:14px 16px}.wnums b{font-size:25px}.wnums span{font-size:12.5px}}
 /* ---- Nura around the rest of the site ------------------------------------------------
    She is the companion from the Collection, dropping in on ordinary pages the way a chat
    widget would, except she wants nothing. Nothing is drawn until she has something to say,

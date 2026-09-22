@@ -521,6 +521,9 @@ function start() {
   // page itself shows the numbers a report would ask for. Silent until analytics is on.
   const statsEl = document.getElementById('wf-stats');
   const statCache = {};
+  // count, the total number of views, not count_unique. "Seen 8 times" was ambiguous, so the
+  // label says views outright. Saves are not shown: a save lives in one browser's storage
+  // until it is cleared, so it measures nothing anybody should be judged on.
   function counter(path) {
     if (!CFG.gc) return Promise.resolve(null);
     if (!statCache[path]) {
@@ -534,15 +537,11 @@ function start() {
   function paintStats(it) {
     if (!statsEl) return;
     if (!CFG.gc) { statsEl.hidden = true; return; }
-    Promise.all([counter('collection_view/' + it.slug), counter('collection_save/' + it.slug)])
-      .then(([v, sv]) => {
-        if (!slots[shown] || slots[shown].it.slug !== it.slug) return;
-        const bits = [];
-        if (v) bits.push('seen ' + v.toLocaleString() + (v === 1 ? ' time' : ' times'));
-        if (sv) bits.push('saved by ' + sv.toLocaleString());
-        statsEl.textContent = bits.join(' · ');
-        statsEl.hidden = !bits.length;
-      });
+    counter('collection_view/' + it.slug).then((v) => {
+      if (!slots[shown] || slots[shown].it.slug !== it.slug) return;
+      statsEl.textContent = v ? (v === 1 ? 'viewed once' : 'viewed ' + v.toLocaleString() + ' times') : '';
+      statsEl.hidden = !v;
+    });
   }
 
   // ---- paint(): everything that has to change when a different object comes to the front.
@@ -2560,8 +2559,17 @@ function start() {
   });
 
 
-  const io = new IntersectionObserver(es => es.forEach(e =>
-    e.target.classList.toggle('on', e.isIntersecting && e.intersectionRatio > 0.5)),
-    { threshold: [0, 0.5, 1] });
+  // The closing card sits over the scene, so while it is up the object's own label and the
+  // track switch step out of the way: two sets of words in the same place read as neither.
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const on = e.isIntersecting && e.intersectionRatio > 0.5;
+    e.target.classList.toggle('on', on);
+    if (e.target.classList.contains('wst-end')) {
+      // measured against the screen, not against the card: the card is taller than the
+      // screen, so "half of the card is showing" can never be true on a short window
+      const fills = e.intersectionRect.height / Math.min(innerHeight, e.boundingClientRect.height || 1);
+      document.body.classList.toggle('at-end', e.isIntersecting && fills > 0.6);
+    }
+  }), { threshold: [0, 0.25, 0.5, 0.75, 1] });
   document.querySelectorAll('.wst-intro,.wst-end,.warea').forEach(s => io.observe(s));
 }
