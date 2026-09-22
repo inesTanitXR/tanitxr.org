@@ -37,6 +37,7 @@ DONATE_URL_SUPPORT = "https://donors.tuesday.app/campaign/CMLPDTO"
 VOLUNTEER_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSegO7smO5VyQSpSSaamKni4RPD4q_yDytd5TCK3jOH6LTML6w/viewform"
 INSTAGRAM = "https://www.instagram.com/tanitxr/"
 LINKEDIN = "https://www.linkedin.com/company/tanit-xr/"
+FACEBOOK = "https://www.facebook.com/profile.php?id=61580920450463"
 SKETCHFAB = "https://sketchfab.com/TanitXR"
 FORM_ENDPOINT = "https://formsubmit.co/" + EMAIL
 # Kit (newsletter), account tanit-xr.kit.com, form "tanitxr.org sign-up" (uid f2587d8800). Tag IDs: fill in once
@@ -500,6 +501,10 @@ section.pad-sm{padding:56px 0}
 .ix.gold{background:var(--ink);color:#fff;border-color:var(--ink)}
 .ix.gold span{color:rgba(255,255,255,.72)}.ix.gold span strong{color:#fff}.ix.gold b{color:var(--gold)}
 .filters a.fbtn{text-decoration:none;display:inline-block}
+/* the one pill that jumps somewhere instead of filtering in place */
+.fbtn.jump{background:var(--gold);font-weight:700;color:#241a10}
+.fbtn.jump:hover{background:var(--gold-dark);color:#fff}
+.ix-go{display:inline-block;margin-top:8px;font-style:normal;font-weight:700;color:var(--gold)}
 .chip{display:inline-block;background:var(--mist);border-radius:20px;padding:3px 12px;font-size:12.5px;
   color:var(--ink);margin:0 6px 6px 0}
 .chip.gold{background:var(--gold);font-weight:700}
@@ -1267,8 +1272,16 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   body #scan-panel p{font-size:13.5px;line-height:1.45;margin:0 0 8px}
   body #scan-panel p.tiny{display:none}
   body #scan-panel .btn{padding:8px 14px;font-size:13px}
-  /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
-  body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
+  /* phones: the object first. Four top buttons fold into one, the label keeps three actions.
+     The track switch stays out on its own: half the Collection is the volunteer-made models,
+     and folded into the "more" sheet nobody on a phone ever found them. */
+  body #scan-entry,body #map-toggle,body #sound-toggle{display:none}
+  body #track-switch{display:flex;top:78px;bottom:auto;inset-inline-start:50%;
+    transform:translateX(-50%);z-index:6;padding:3px}
+  /* only the track you are not on: one pill saying where it takes you, which is all the room
+     a phone has between the menu button and the saved count */
+  body .tsw.on{display:none}
+  .tsw{padding:8px 12px;font-size:11.5px}
   body #more-toggle{display:flex}
   body #wf-map,body #ar-button{display:none}
   .wf-row2{margin-top:2px}
@@ -1549,7 +1562,45 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
   .gsteps>li{padding-inline-start:44px}
   .gsteps>li:before{width:30px;height:30px;font-size:15px}
 }
-@media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}}
+.gmove{display:flex;justify-content:space-between;gap:14px;margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--line,#e6e3dd)}
+.gm{display:flex;flex-direction:column;gap:2px;text-decoration:none;max-width:47%;
+  border:1px solid rgba(74,53,43,.18);border-radius:12px;padding:11px 16px;background:#fff}
+.gm:hover{border-color:var(--gold-dark);background:#fdf9f2}
+.gm span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.gm b{font-family:var(--serif);font-weight:400;font-size:16.5px;color:#241a10;line-height:1.2}
+.gm.on{text-align:end;margin-inline-start:auto}
+@media(max-width:640px){.gm{padding:10px 13px}.gm b{font-size:15px}}
+@media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}.gmove{display:none}}
+/* ---- submit a model: one form, three ways to send the thing ------------------------- */
+.ways{border:0;padding:0;margin:26px 0 6px}
+.ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
+.waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.way{font:inherit;font-size:14.5px;cursor:pointer;border:1px solid rgba(74,53,43,.18);
+  background:#fff;color:#4a3527;border-radius:999px;padding:9px 16px}
+.way:hover{border-color:var(--gold-dark)}
+.way[aria-selected="true"]{background:#241a10;border-color:#241a10;color:#fdf8f0}
+.way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
+.wayp{display:none}
+.wayp.on{display:block}
+.drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
+  padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--gold-dark);background:#fdf6e6}
+.drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+.drop-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
+.drop-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
+.drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
+.df-row{display:flex;align-items:center;gap:10px}
+.df-row b{font-weight:500;overflow-wrap:anywhere}
+.df-size{color:var(--gray);font-size:13.5px;white-space:nowrap;margin-inline-start:auto}
+.df-x{border:0;background:none;color:#a3907a;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}
+.df-x:hover{color:#4a3527}
+.bar{height:7px;border-radius:999px;background:#eee7dc;margin-top:12px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+.df-say{margin:10px 0 0;font-size:14px;color:var(--gray);min-height:1.2em}
+.df-say.bad{color:#a4442f}
+.df-say.good{color:#1f7a54}
+.df-note{margin:10px 0 0;font-size:13.5px;color:var(--gray)}
 /* ---- Nura around the rest of the site ------------------------------------------------
    She is the companion from the Collection, dropping in on ordinary pages the way a chat
    widget would, except she wants nothing. Nothing is drawn until she has something to say,
@@ -1685,6 +1736,171 @@ const PAGE_OPENED = Date.now();
   }
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
+})();
+// Sending us a model: the file itself, a link to it, or a Sketchfab address.
+// A scan is anything from under a megabyte to well over a hundred, and a web app can only
+// accept about fifty in one request, so the file goes up in pieces against a resumable Drive
+// session. The browser tries to send the pieces straight to Drive, which is fast; where the
+// browser is not allowed to talk to Drive directly it sends them through our script instead,
+// which is slower but always works. Either way nothing is held whole in memory.
+(function () {
+  const form = document.getElementById('send-model');
+  if (!form) return;
+  const CHUNK = 5 * 1024 * 1024;                  // a multiple of 256 KB, as Drive requires
+  const MAX = 2 * 1024 * 1024 * 1024;
+  const drop = document.getElementById('drop');
+  const input = document.getElementById('dropin');
+  const card = document.getElementById('drop-file');
+  const bar = document.getElementById('df-bar');
+  const fill = document.getElementById('df-fill');
+  const say = document.getElementById('df-say');
+  const out = document.getElementById('sm-say');
+  const go = document.getElementById('sm-go');
+  let chosen = null, sending = false;
+
+  function which() {
+    const on = form.querySelector('.way[aria-selected="true"]');
+    return on ? on.dataset.way : 'file';
+  }
+  form.querySelectorAll('.way').forEach((b) => b.addEventListener('click', () => {
+    form.querySelectorAll('.way').forEach((o) => o.setAttribute('aria-selected', String(o === b)));
+    form.querySelectorAll('.wayp').forEach((p) => p.classList.toggle('on', p.dataset.way === b.dataset.way));
+    tell(out, '', '');
+  }));
+
+  function tell(el, text, kind) {
+    el.textContent = text;
+    el.className = 'df-say' + (kind ? ' ' + kind : '');
+  }
+  function size(n) {
+    return n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB';
+  }
+
+  function take(file) {
+    if (!file) return;
+    if (file.size > MAX) { tell(out, 'That file is over 2 GB. Send us a link to it instead.', 'bad'); return; }
+    chosen = file;
+    document.getElementById('df-name').textContent = file.name;
+    document.getElementById('df-size').textContent = size(file.size);
+    card.hidden = false;
+    drop.hidden = true;
+    tell(say, '', '');
+  }
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
+  });
+  input.addEventListener('change', () => take(input.files[0]));
+  ['dragenter', 'dragover'].forEach((n) => drop.addEventListener(n, (e) => {
+    e.preventDefault(); drop.classList.add('over');
+  }));
+  ['dragleave', 'drop'].forEach((n) => drop.addEventListener(n, (e) => {
+    e.preventDefault(); drop.classList.remove('over');
+  }));
+  drop.addEventListener('drop', (e) => {
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    take(f);
+  });
+  document.getElementById('df-drop').addEventListener('click', () => {
+    if (sending) return;
+    chosen = null; input.value = ''; card.hidden = true; drop.hidden = false;
+    bar.hidden = true; fill.style.width = '0';
+  });
+
+  const b64 = (buf) => {
+    let s = '';
+    const b = new Uint8Array(buf);
+    for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+    return btoa(s);
+  };
+  async function ask(fields) {
+    const body = new URLSearchParams(fields);
+    const r = await fetch(SHEET, { method: 'POST', body: body });
+    return r.json();
+  }
+
+  async function sendFile(file, meta) {
+    const start = await ask(Object.assign({
+      action: 'upload-start', name: file.name, size: file.size,
+      mime: file.type || 'application/octet-stream', _js: '1', _t: String(Date.now() - PAGE_OPENED),
+    }, meta));
+    if (start.result !== 'ready') throw new Error(start.result || 'no session');
+
+    let sent = 0, direct = start.direct;
+    while (sent < file.size) {
+      const end = Math.min(sent + CHUNK, file.size);
+      const buf = await file.slice(sent, end).arrayBuffer();
+      let done = null;
+
+      if (direct) {
+        // the quick way: the piece goes to Drive itself
+        try {
+          const r = await fetch(direct, {
+            method: 'PUT',
+            headers: { 'Content-Range': 'bytes ' + sent + '-' + (end - 1) + '/' + file.size },
+            body: buf,
+          });
+          if (r.status === 308) { sent = end; tick(sent, file.size); continue; }
+          if (r.status === 200 || r.status === 201) { done = await r.json(); }
+          else { throw new Error('drive said ' + r.status); }
+        } catch (e) {
+          direct = null;                      // not allowed to talk to Drive: go the long way
+          tell(say, 'Sending it through our server instead, this takes a little longer.', '');
+          continue;
+        }
+      } else {
+        const r = await ask({ action: 'upload-chunk', key: start.key, offset: sent, data: b64(buf) });
+        if (r.result === 'more') { sent = r.received; tick(sent, file.size); continue; }
+        if (r.result === 'saved') return r.url;
+        throw new Error(r.detail || r.result || 'upload failed');
+      }
+
+      if (done) {
+        const fin = await ask({ action: 'upload-done', key: start.key, fileId: done.id });
+        if (fin.result !== 'saved') throw new Error(fin.result);
+        tick(file.size, file.size);
+        return fin.url;
+      }
+    }
+    throw new Error('upload ended early');
+  }
+  function tick(sent, total) {
+    bar.hidden = false;
+    fill.style.width = Math.round((sent / total) * 100) + '%';
+    tell(say, 'Sending, ' + Math.round((sent / total) * 100) + '% of ' + size(total) + '.', '');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    const way = which();
+    if (way === 'link' || way === 'sketchfab') {
+      const f = form.querySelector(way === 'link' ? '#sm-link' : '#sm-sf');
+      if (!f.value.trim()) { e.preventDefault(); tell(out, 'Put the link in first.', 'bad'); f.focus(); }
+      return;                                   // the ordinary form post handles these
+    }
+    e.preventDefault();
+    if (sending) return;
+    if (!chosen) { tell(out, 'Choose a file, or switch to pasting a link.', 'bad'); return; }
+    if (!form.reportValidity()) return;
+    sending = true;
+    go.disabled = true;
+    tell(out, '', '');
+    try {
+      const url = await sendFile(chosen, {
+        who: form.name.value, email: form.email.value,
+        about: [form.title.value, form.place.value, form.about.value, form.captured.value]
+          .filter(Boolean).join(' | '),
+        place: form.place.value,
+      });
+      tell(say, 'Sent. Thank you.', 'good');
+      if (window.tx) tx('model_uploaded', { from: 'submit' });
+      location.href = new URL('thank-you/?from=model', document.baseURI).href;
+    } catch (err) {
+      sending = false;
+      go.disabled = false;
+      tell(out, 'That did not go through (' + err.message + '). Paste a link to the file instead, '
+        + 'or email it to info@tanitxr.org.', 'bad');
+    }
+  });
 })();
 // The scanning guide is one long document split across tabs. The panels are all in the page
 // already: this only hides the ones you are not reading, and only once it is running, so a
@@ -2142,6 +2358,7 @@ def link_icon(u):
 
 
 ICO_SEARCH = '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9"/></svg>'
+ICO_FB = '<svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12"/></svg>'
 ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5M.2 8h4.6v14.8H.2zm7.6 0h4.4v2h.1c.6-1.2 2.1-2.4 4.4-2.4 4.7 0 5.5 3.1 5.5 7.1v8.1h-4.6v-7.2c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8v7.3H7.8z"/></svg>'
 
 # ---------------------------------------------------------------- shell
@@ -2212,6 +2429,7 @@ def header_html(active, transparent, fname="index.html"):
     socials = f"""<div class="socials">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
+<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{ICO_FB}</a>
 </div>"""
     donate = f'<a class="donate" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>'
     cls = "site" if transparent else "site solid"
@@ -2247,6 +2465,7 @@ public everywhere.</p>
 <div class="fsoc">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
+<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{ICO_FB}</a>
 </div></div>
 <div><h4>Explore</h4>
 <a href="archive.html">Archive</a>
@@ -2826,7 +3045,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
             "logo": SITE_URL + img("tanitxr-logo_red_vertical.png", 300, as_jpeg=False),
             "description": "A volunteer community that 3D-scans Tunisia's endangered heritage with phones and publishes it free in 3D, AR and VR.",
             "foundingDate": "2025", "areaServed": "Tunisia", "email": EMAIL,
-            "sameAs": [INSTAGRAM, LINKEDIN, "https://sketchfab.com/TanitXR"]}
+            "sameAs": [INSTAGRAM, LINKEDIN, FACEBOOK, "https://sketchfab.com/TanitXR"]}
     _ld = [_org] + (jsonld or [])
     ldjson = "".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>' for x in _ld)
 
@@ -5083,7 +5302,9 @@ archive</a>.</p>
 
 def build_archive():
     sites = sorted({m["site"] for m in MODELS})
-    fbtns = '<button class="fbtn on" data-f="*">All ({})</button>'.format(len(MODELS)) + "".join(
+    fbtns = ('<button class="fbtn on" data-f="*">All ({})</button>'.format(len(MODELS))
+             + f'<a class="fbtn jump" href="#volunteer-made">\U0001f3fa {term("Made by volunteers")}'
+               f' ({len(VOLUNTEER_MADE)}) \u2193</a>') + "".join(
         f'<button class="fbtn" data-f="{esc(s)}">{esc(s)} ({sum(1 for m in MODELS if m["site"] == s)})</button>'
         for s in sites)
     cards = "".join(
@@ -5109,9 +5330,10 @@ interactively, and viewed in augmented reality on your phone.</p>
 <a class="ix" href="#grid"><b>{len(MODELS)}</b><span><strong>heritage scans</strong>
 Photogrammetry records of statues, mosaics, stelae and ruins, preservation quality, with game-ready twins.</span></a>
 <a class="ix gold" href="#volunteer-made"><b>{len(VOLUNTEER_MADE)}</b><span><strong>models made by our volunteers</strong>
-Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum. Click to explore in 3D.</span></a>
+Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum.
+<em class="ix-go">{term("See all")} {len(VOLUNTEER_MADE)} \u2192</em></span></a>
 </div>
-<div class="filters">{fbtns}<a class="fbtn" href="#volunteer-made">🏺 Made by volunteers ({len(VOLUNTEER_MADE)})</a></div>
+<div class="filters">{fbtns}</div>
 <div class="cards" id="grid">{cards}</div>
 </div></section>
 <script>
@@ -6301,6 +6523,7 @@ takes a few minutes per scan; older devices may take longer.</li>
 <li><h3>Share Your Model</h3>
 <p>Upload your file, below, and then email description and other details to
 <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+<p><a class="btn" href="submit-a-model.html">{term("Send us your model")}</a></p>
 </li>
 </ol>"""
 
@@ -6358,9 +6581,25 @@ scan.</label>
 
     panels = {"ethics": ethics, "what": what, "setup": setup, "scan": scan,
               "process": process, "tips": tips, "consent": consent}
+
+    def move(i):
+        """Forward and back at the foot of every section: a guide is read in order, and the
+        tabs alone give you no idea what comes next."""
+        out = '<nav class="gmove">'
+        if i > 0:
+            out += (f'<a class="gm back" href="#{tabs[i - 1][0]}" data-go="{tabs[i - 1][0]}">'
+                    f'<span>{esc(term("Back"))}</span><b>{esc(tabs[i - 1][1])}</b></a>')
+        else:
+            out += "<span></span>"
+        if i < len(tabs) - 1:
+            out += (f'<a class="gm on" href="#{tabs[i + 1][0]}" data-go="{tabs[i + 1][0]}">'
+                    f'<span>{esc(term("Next"))}</span><b>{esc(tabs[i + 1][1])}</b></a>')
+        return out + "</nav>"
+
     body_panels = "".join(
-        f'<section class="gpanel prose" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">{panels[k]}</section>'
-        for k, _ in tabs)
+        f'<section class="gpanel prose" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">'
+        f'{panels[k]}{move(i)}</section>'
+        for i, (k, _) in enumerate(tabs))
 
     body = f"""
 {page_hero("Tanit XR Scanning Guide", "Scanning Guide", bg="sv-IMG_4213.jpg")}
@@ -6391,6 +6630,95 @@ Guide incorporates these standards into field practice.</p>
          desc="How Tanit XR volunteers capture heritage in 3D with a phone: the ethics we work by, what to "
               "scan and what to leave alone, and Scaniverse step by step from setup to export.",
          read_badge=None)
+
+
+def build_submit_model():
+    """One page for sending us a model, however the volunteer has it.
+
+    Until now the guide said to email the file, which meant a 130 MB attachment nobody can
+    send, and the description arriving in a different message from the file. Here the three
+    real cases are the same form: the file itself, a link to it somewhere, or a model already
+    on Sketchfab, with the information about the object filled in beside it."""
+    body = f"""
+{page_hero(term("Submit your model"), term("Submit your model"), bg="sv-IMG_4213.jpg")}
+<section class="pad"><div class="wrap" style="max-width:820px">
+<div class="prose">
+<p>{term("Send us a scan. You can upload the file here, paste a link to it, or point us at it on Sketchfab. Tell us what it is while you are at it, so it does not arrive as an object with no story.")}</p>
+<p style="color:var(--gray);font-size:14.5px">{term("Not scanned anything yet?")}
+<a href="scanning-guide.html">{term("Read the scanning guide first")}</a>.</p>
+</div>
+
+<form class="nice send" id="send-model" action="{FORM_ENDPOINT}" method="POST">
+<input type="hidden" name="_subject" value="New model submitted, tanitxr.org">
+<input type="hidden" name="_form" value="model">
+<input type="hidden" name="_captcha" value="true">
+{thanks_next("model")}
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
+
+<label class="req" for="sm-name">{term("Your name")}</label>
+<input id="sm-name" type="text" name="name" required autocomplete="name">
+<label class="req" for="sm-email">{term("Email")}</label>
+<input id="sm-email" type="email" name="email" required autocomplete="email">
+
+<label class="req" for="sm-title">{term("What is it")}</label>
+<input id="sm-title" type="text" name="title" required placeholder="{term("Carved door, Sidi Bou Said")}">
+<label class="req" for="sm-place">{term("Where is it")}</label>
+<input id="sm-place" type="text" name="place" required placeholder="{term("The site, town or address")}">
+<label for="sm-about">{term("Anything you know about it")}</label>
+<textarea id="sm-about" name="about" rows="4" placeholder="{term("What it is, how old, who looks after it, what is happening to it, who told you about it.")}"></textarea>
+<label for="sm-when">{term("When you captured it")}</label>
+<input id="sm-when" type="date" name="captured">
+
+<fieldset class="ways">
+<legend>{term("How are you sending it?")}</legend>
+<div class="waybar" role="tablist">
+<button type="button" class="way" data-way="file" aria-selected="true">{term("Upload the file")}</button>
+<button type="button" class="way" data-way="link" aria-selected="false">{term("Paste a link")}</button>
+<button type="button" class="way" data-way="sketchfab" aria-selected="false">{term("It is on Sketchfab")}</button>
+</div>
+
+<div class="wayp on" data-way="file">
+<div id="drop" class="drop" tabindex="0" role="button"
+     aria-label="{esc(term("Choose a file, or drag one here"))}">
+<input type="file" id="dropin" accept=".fbx,.glb,.gltf,.obj,.ply,.usdz,.zip" hidden>
+<p class="drop-big">{term("Drag your file here")}</p>
+<p class="drop-small">{term("or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.")}</p>
+</div>
+<div id="drop-file" class="drop-file" hidden>
+<div class="df-row"><b id="df-name"></b><span id="df-size" class="df-size"></span>
+<button type="button" id="df-drop" class="df-x" aria-label="{esc(term("Remove"))}">&times;</button></div>
+<div class="bar" hidden id="df-bar"><span id="df-fill"></span></div>
+<p id="df-say" class="df-say"></p>
+</div>
+<p class="df-note" id="drop-off" hidden>{term("Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.")}</p>
+</div>
+
+<div class="wayp" data-way="link">
+<label for="sm-link">{term("Link to the file")}</label>
+<input id="sm-link" type="url" name="file_link" placeholder="https://drive.google.com/...">
+<p class="df-note">{term("Google Drive, Dropbox, WeTransfer, anything we can download from. Check that we are allowed to open it.")}</p>
+</div>
+
+<div class="wayp" data-way="sketchfab">
+<label for="sm-sf">{term("Sketchfab link")}</label>
+<input id="sm-sf" type="url" name="sketchfab" placeholder="https://sketchfab.com/3d-models/...">
+<p class="df-note">{term("If it is already published, this is all we need.")}</p>
+</div>
+</fieldset>
+
+<label class="gcheck"><input type="checkbox" name="rights" value="yes" required>
+{term("I captured this myself, or I have permission to share it, and it is not sacred, private or restricted material.")}</label>
+
+<button class="btn" type="submit" id="sm-go">{term("Send it")}</button>
+<p id="sm-say" class="df-say" role="status"></p>
+</form>
+</div></section>"""
+    page("submit-a-model.html", term("Submit your model"), body, active="volunteer.html",
+         desc="Send Tanit XR a 3D scan: upload the file, paste a link to it, or give us a "
+              "Sketchfab address, with what the object is and where it came from.")
 
 
 def build_splats():
@@ -7062,7 +7390,37 @@ TERMS = {
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
-           "Read": "Lire", "Ethics": "Éthique", "What to scan": "Quoi numériser",
+           "Read": "Lire", "Back": "Précédent", "Next": "Suivant",
+           "Send us your model": "Envoyez-nous votre modèle",
+           "Made by volunteers": "Faits par des bénévoles", "See all": "Voir les",
+           'Submit your model': 'Envoyez votre modèle',
+           'Send us a scan. You can upload the file here, paste a link to it, or point us at it on Sketchfab. Tell us what it is while you are at it, so it does not arrive as an object with no story.': 'Envoyez-nous une numérisation. Vous pouvez déposer le fichier ici, coller un lien vers celui-ci, ou nous indiquer son adresse sur Sketchfab. Dites-nous au passage ce que c’est, pour qu’il n’arrive pas comme un objet sans histoire.',
+           'Not scanned anything yet?': 'Vous n’avez encore rien numérisé ?',
+           'Read the scanning guide first': 'Lisez d’abord le guide de numérisation',
+           'Your name': 'Votre nom',
+           'Email': 'E-mail',
+           'What is it': 'Qu’est-ce que c’est',
+           'Carved door, Sidi Bou Said': 'Porte sculptée, Sidi Bou Saïd',
+           'Where is it': 'Où est-ce',
+           'The site, town or address': 'Le site, la ville ou l’adresse',
+           'Anything you know about it': 'Tout ce que vous savez à son sujet',
+           'What it is, how old, who looks after it, what is happening to it, who told you about it.': 'Ce que c’est, son âge, qui s’en occupe, ce qui lui arrive, qui vous en a parlé.',
+           'When you captured it': 'Quand vous l’avez numérisé',
+           'How are you sending it?': 'Comment nous l’envoyez-vous ?',
+           'Upload the file': 'Déposer le fichier',
+           'Paste a link': 'Coller un lien',
+           'It is on Sketchfab': 'C’est sur Sketchfab',
+           'Choose a file, or drag one here': 'Choisissez un fichier, ou faites-en glisser un ici',
+           'Drag your file here': 'Faites glisser votre fichier ici',
+           'or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.': 'ou appuyez pour en choisir un. FBX, GLB, OBJ, PLY, USDZ ou un zip, jusqu’à 2 Go.',
+           'Remove': 'Retirer',
+           'Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.': 'Le dépôt direct n’est pas encore activé. Collez plutôt un lien et nous irons le chercher.',
+           'Link to the file': 'Lien vers le fichier',
+           'Google Drive, Dropbox, WeTransfer, anything we can download from. Check that we are allowed to open it.': 'Google Drive, Dropbox, WeTransfer, tout ce que nous pouvons télécharger. Vérifiez que nous avons le droit de l’ouvrir.',
+           'Sketchfab link': 'Lien Sketchfab',
+           'If it is already published, this is all we need.': 'S’il est déjà publié, cela nous suffit.',
+           'I captured this myself, or I have permission to share it, and it is not sacred, private or restricted material.': 'Je l’ai numérisé moi-même, ou j’ai l’autorisation de le partager, et il ne s’agit pas de matériel sacré, privé ou protégé.',
+           'Send it': 'Envoyer', "Ethics": "Éthique", "What to scan": "Quoi numériser",
            "Set up the app": "Installer l’application", "Scan it": "Numériser",
            "Process and send": "Traiter et envoyer", "Tips and support": "Conseils et aide",
            "Sign the consent form": "Signer le formulaire de consentement",
@@ -7084,7 +7442,37 @@ TERMS = {
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
-           "Read": "اقرأ", "Ethics": "الأخلاقيات", "What to scan": "ماذا تمسح",
+           "Read": "اقرأ", "Back": "السابق", "Next": "التالي",
+           "Send us your model": "أرسل لنا نموذجك",
+           "Made by volunteers": "من صنع المتطوّعين", "See all": "شاهد الـ",
+           'Submit your model': 'أرسل نموذجك',
+           'Send us a scan. You can upload the file here, paste a link to it, or point us at it on Sketchfab. Tell us what it is while you are at it, so it does not arrive as an object with no story.': 'أرسل لنا عملية مسح. يمكنك رفع الملف هنا، أو لصق رابط إليه، أو إرشادنا إليه على Sketchfab. وأخبرنا ما هو، حتى لا يصل كقطعة بلا حكاية.',
+           'Not scanned anything yet?': 'لم تمسح شيئًا بعد؟',
+           'Read the scanning guide first': 'اقرأ دليل المسح أولًا',
+           'Your name': 'اسمك',
+           'Email': 'البريد الإلكتروني',
+           'What is it': 'ما هي القطعة',
+           'Carved door, Sidi Bou Said': 'باب منحوت، سيدي بوسعيد',
+           'Where is it': 'أين توجد',
+           'The site, town or address': 'الموقع أو المدينة أو العنوان',
+           'Anything you know about it': 'أي شيء تعرفه عنها',
+           'What it is, how old, who looks after it, what is happening to it, who told you about it.': 'ما هي، وكم عمرها، ومن يعتني بها، وماذا يحدث لها، ومن أخبرك عنها.',
+           'When you captured it': 'متى قمت بمسحها',
+           'How are you sending it?': 'كيف سترسلها؟',
+           'Upload the file': 'رفع الملف',
+           'Paste a link': 'لصق رابط',
+           'It is on Sketchfab': 'موجودة على Sketchfab',
+           'Choose a file, or drag one here': 'اختر ملفًا، أو اسحب ملفًا إلى هنا',
+           'Drag your file here': 'اسحب ملفك إلى هنا',
+           'or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.': 'أو اضغط لاختيار ملف. FBX أو GLB أو OBJ أو PLY أو USDZ أو ملف مضغوط، حتى 2 غيغابايت.',
+           'Remove': 'إزالة',
+           'Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.': 'الرفع المباشر غير مفعّل بعد. الصق رابطًا بدلًا من ذلك وسنتكفّل بجلبه.',
+           'Link to the file': 'رابط الملف',
+           'Google Drive, Dropbox, WeTransfer, anything we can download from. Check that we are allowed to open it.': 'غوغل درايف أو دروب بوكس أو وي ترانسفر، أي مكان يمكننا التنزيل منه. تأكد من أنه مسموح لنا بفتحه.',
+           'Sketchfab link': 'رابط Sketchfab',
+           'If it is already published, this is all we need.': 'إن كان منشورًا بالفعل، فهذا كل ما نحتاجه.',
+           'I captured this myself, or I have permission to share it, and it is not sacred, private or restricted material.': 'لقد مسحتها بنفسي، أو لدي إذن بمشاركتها، وهي ليست مادة مقدسة أو خاصة أو مقيّدة.',
+           'Send it': 'أرسل', "Ethics": "الأخلاقيات", "What to scan": "ماذا تمسح",
            "Set up the app": "إعداد التطبيق", "Scan it": "المسح",
            "Process and send": "المعالجة والإرسال", "Tips and support": "نصائح ومساعدة",
            "Sign the consent form": "توقيع استمارة الموافقة",
@@ -7295,6 +7683,7 @@ def main():
         build_volunteer()
         build_create_profile()
         build_scanning_guide()
+        build_submit_model()
         build_splats()
         build_el_jem()
         build_unique_mappers()

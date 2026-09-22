@@ -290,6 +290,10 @@ section.pad-sm{padding:56px 0}
 .ix.gold{background:var(--ink);color:#fff;border-color:var(--ink)}
 .ix.gold span{color:rgba(255,255,255,.72)}.ix.gold span strong{color:#fff}.ix.gold b{color:var(--gold)}
 .filters a.fbtn{text-decoration:none;display:inline-block}
+/* the one pill that jumps somewhere instead of filtering in place */
+.fbtn.jump{background:var(--gold);font-weight:700;color:#241a10}
+.fbtn.jump:hover{background:var(--gold-dark);color:#fff}
+.ix-go{display:inline-block;margin-top:8px;font-style:normal;font-weight:700;color:var(--gold)}
 .chip{display:inline-block;background:var(--mist);border-radius:20px;padding:3px 12px;font-size:12.5px;
   color:var(--ink);margin:0 6px 6px 0}
 .chip.gold{background:var(--gold);font-weight:700}
@@ -1057,8 +1061,16 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   body #scan-panel p{font-size:13.5px;line-height:1.45;margin:0 0 8px}
   body #scan-panel p.tiny{display:none}
   body #scan-panel .btn{padding:8px 14px;font-size:13px}
-  /* phones: the object first. Four top buttons fold into one, the label keeps three actions */
-  body #scan-entry,body #map-toggle,body #sound-toggle,body #track-switch{display:none}
+  /* phones: the object first. Four top buttons fold into one, the label keeps three actions.
+     The track switch stays out on its own: half the Collection is the volunteer-made models,
+     and folded into the "more" sheet nobody on a phone ever found them. */
+  body #scan-entry,body #map-toggle,body #sound-toggle{display:none}
+  body #track-switch{display:flex;top:78px;bottom:auto;inset-inline-start:50%;
+    transform:translateX(-50%);z-index:6;padding:3px}
+  /* only the track you are not on: one pill saying where it takes you, which is all the room
+     a phone has between the menu button and the saved count */
+  body .tsw.on{display:none}
+  .tsw{padding:8px 12px;font-size:11.5px}
   body #more-toggle{display:flex}
   body #wf-map,body #ar-button{display:none}
   .wf-row2{margin-top:2px}
@@ -1339,7 +1351,45 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
   .gsteps>li{padding-inline-start:44px}
   .gsteps>li:before{width:30px;height:30px;font-size:15px}
 }
-@media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}}
+.gmove{display:flex;justify-content:space-between;gap:14px;margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--line,#e6e3dd)}
+.gm{display:flex;flex-direction:column;gap:2px;text-decoration:none;max-width:47%;
+  border:1px solid rgba(74,53,43,.18);border-radius:12px;padding:11px 16px;background:#fff}
+.gm:hover{border-color:var(--gold-dark);background:#fdf9f2}
+.gm span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.gm b{font-family:var(--serif);font-weight:400;font-size:16.5px;color:#241a10;line-height:1.2}
+.gm.on{text-align:end;margin-inline-start:auto}
+@media(max-width:640px){.gm{padding:10px 13px}.gm b{font-size:15px}}
+@media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}.gmove{display:none}}
+/* ---- submit a model: one form, three ways to send the thing ------------------------- */
+.ways{border:0;padding:0;margin:26px 0 6px}
+.ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
+.waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.way{font:inherit;font-size:14.5px;cursor:pointer;border:1px solid rgba(74,53,43,.18);
+  background:#fff;color:#4a3527;border-radius:999px;padding:9px 16px}
+.way:hover{border-color:var(--gold-dark)}
+.way[aria-selected="true"]{background:#241a10;border-color:#241a10;color:#fdf8f0}
+.way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
+.wayp{display:none}
+.wayp.on{display:block}
+.drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
+  padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--gold-dark);background:#fdf6e6}
+.drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+.drop-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
+.drop-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
+.drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
+.df-row{display:flex;align-items:center;gap:10px}
+.df-row b{font-weight:500;overflow-wrap:anywhere}
+.df-size{color:var(--gray);font-size:13.5px;white-space:nowrap;margin-inline-start:auto}
+.df-x{border:0;background:none;color:#a3907a;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}
+.df-x:hover{color:#4a3527}
+.bar{height:7px;border-radius:999px;background:#eee7dc;margin-top:12px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+.df-say{margin:10px 0 0;font-size:14px;color:var(--gray);min-height:1.2em}
+.df-say.bad{color:#a4442f}
+.df-say.good{color:#1f7a54}
+.df-note{margin:10px 0 0;font-size:13.5px;color:var(--gray)}
 /* ---- Nura around the rest of the site ------------------------------------------------
    She is the companion from the Collection, dropping in on ordinary pages the way a chat
    widget would, except she wants nothing. Nothing is drawn until she has something to say,

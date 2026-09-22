@@ -84,6 +84,171 @@ const PAGE_OPENED = Date.now();
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
 })();
+// Sending us a model: the file itself, a link to it, or a Sketchfab address.
+// A scan is anything from under a megabyte to well over a hundred, and a web app can only
+// accept about fifty in one request, so the file goes up in pieces against a resumable Drive
+// session. The browser tries to send the pieces straight to Drive, which is fast; where the
+// browser is not allowed to talk to Drive directly it sends them through our script instead,
+// which is slower but always works. Either way nothing is held whole in memory.
+(function () {
+  const form = document.getElementById('send-model');
+  if (!form) return;
+  const CHUNK = 5 * 1024 * 1024;                  // a multiple of 256 KB, as Drive requires
+  const MAX = 2 * 1024 * 1024 * 1024;
+  const drop = document.getElementById('drop');
+  const input = document.getElementById('dropin');
+  const card = document.getElementById('drop-file');
+  const bar = document.getElementById('df-bar');
+  const fill = document.getElementById('df-fill');
+  const say = document.getElementById('df-say');
+  const out = document.getElementById('sm-say');
+  const go = document.getElementById('sm-go');
+  let chosen = null, sending = false;
+
+  function which() {
+    const on = form.querySelector('.way[aria-selected="true"]');
+    return on ? on.dataset.way : 'file';
+  }
+  form.querySelectorAll('.way').forEach((b) => b.addEventListener('click', () => {
+    form.querySelectorAll('.way').forEach((o) => o.setAttribute('aria-selected', String(o === b)));
+    form.querySelectorAll('.wayp').forEach((p) => p.classList.toggle('on', p.dataset.way === b.dataset.way));
+    tell(out, '', '');
+  }));
+
+  function tell(el, text, kind) {
+    el.textContent = text;
+    el.className = 'df-say' + (kind ? ' ' + kind : '');
+  }
+  function size(n) {
+    return n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB';
+  }
+
+  function take(file) {
+    if (!file) return;
+    if (file.size > MAX) { tell(out, 'That file is over 2 GB. Send us a link to it instead.', 'bad'); return; }
+    chosen = file;
+    document.getElementById('df-name').textContent = file.name;
+    document.getElementById('df-size').textContent = size(file.size);
+    card.hidden = false;
+    drop.hidden = true;
+    tell(say, '', '');
+  }
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
+  });
+  input.addEventListener('change', () => take(input.files[0]));
+  ['dragenter', 'dragover'].forEach((n) => drop.addEventListener(n, (e) => {
+    e.preventDefault(); drop.classList.add('over');
+  }));
+  ['dragleave', 'drop'].forEach((n) => drop.addEventListener(n, (e) => {
+    e.preventDefault(); drop.classList.remove('over');
+  }));
+  drop.addEventListener('drop', (e) => {
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    take(f);
+  });
+  document.getElementById('df-drop').addEventListener('click', () => {
+    if (sending) return;
+    chosen = null; input.value = ''; card.hidden = true; drop.hidden = false;
+    bar.hidden = true; fill.style.width = '0';
+  });
+
+  const b64 = (buf) => {
+    let s = '';
+    const b = new Uint8Array(buf);
+    for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+    return btoa(s);
+  };
+  async function ask(fields) {
+    const body = new URLSearchParams(fields);
+    const r = await fetch(SHEET, { method: 'POST', body: body });
+    return r.json();
+  }
+
+  async function sendFile(file, meta) {
+    const start = await ask(Object.assign({
+      action: 'upload-start', name: file.name, size: file.size,
+      mime: file.type || 'application/octet-stream', _js: '1', _t: String(Date.now() - PAGE_OPENED),
+    }, meta));
+    if (start.result !== 'ready') throw new Error(start.result || 'no session');
+
+    let sent = 0, direct = start.direct;
+    while (sent < file.size) {
+      const end = Math.min(sent + CHUNK, file.size);
+      const buf = await file.slice(sent, end).arrayBuffer();
+      let done = null;
+
+      if (direct) {
+        // the quick way: the piece goes to Drive itself
+        try {
+          const r = await fetch(direct, {
+            method: 'PUT',
+            headers: { 'Content-Range': 'bytes ' + sent + '-' + (end - 1) + '/' + file.size },
+            body: buf,
+          });
+          if (r.status === 308) { sent = end; tick(sent, file.size); continue; }
+          if (r.status === 200 || r.status === 201) { done = await r.json(); }
+          else { throw new Error('drive said ' + r.status); }
+        } catch (e) {
+          direct = null;                      // not allowed to talk to Drive: go the long way
+          tell(say, 'Sending it through our server instead, this takes a little longer.', '');
+          continue;
+        }
+      } else {
+        const r = await ask({ action: 'upload-chunk', key: start.key, offset: sent, data: b64(buf) });
+        if (r.result === 'more') { sent = r.received; tick(sent, file.size); continue; }
+        if (r.result === 'saved') return r.url;
+        throw new Error(r.detail || r.result || 'upload failed');
+      }
+
+      if (done) {
+        const fin = await ask({ action: 'upload-done', key: start.key, fileId: done.id });
+        if (fin.result !== 'saved') throw new Error(fin.result);
+        tick(file.size, file.size);
+        return fin.url;
+      }
+    }
+    throw new Error('upload ended early');
+  }
+  function tick(sent, total) {
+    bar.hidden = false;
+    fill.style.width = Math.round((sent / total) * 100) + '%';
+    tell(say, 'Sending, ' + Math.round((sent / total) * 100) + '% of ' + size(total) + '.', '');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    const way = which();
+    if (way === 'link' || way === 'sketchfab') {
+      const f = form.querySelector(way === 'link' ? '#sm-link' : '#sm-sf');
+      if (!f.value.trim()) { e.preventDefault(); tell(out, 'Put the link in first.', 'bad'); f.focus(); }
+      return;                                   // the ordinary form post handles these
+    }
+    e.preventDefault();
+    if (sending) return;
+    if (!chosen) { tell(out, 'Choose a file, or switch to pasting a link.', 'bad'); return; }
+    if (!form.reportValidity()) return;
+    sending = true;
+    go.disabled = true;
+    tell(out, '', '');
+    try {
+      const url = await sendFile(chosen, {
+        who: form.name.value, email: form.email.value,
+        about: [form.title.value, form.place.value, form.about.value, form.captured.value]
+          .filter(Boolean).join(' | '),
+        place: form.place.value,
+      });
+      tell(say, 'Sent. Thank you.', 'good');
+      if (window.tx) tx('model_uploaded', { from: 'submit' });
+      location.href = new URL('thank-you/?from=model', document.baseURI).href;
+    } catch (err) {
+      sending = false;
+      go.disabled = false;
+      tell(out, 'That did not go through (' + err.message + '). Paste a link to the file instead, '
+        + 'or email it to info@tanitxr.org.', 'bad');
+    }
+  });
+})();
 // The scanning guide is one long document split across tabs. The panels are all in the page
 // already: this only hides the ones you are not reading, and only once it is running, so a
 // browser with no JavaScript, a printout and anything crawling the site still get the lot.

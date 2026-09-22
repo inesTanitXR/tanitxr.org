@@ -28,7 +28,7 @@
 const SHEET_ID = '1bboWu3dxD_KRhSZooK39Bc1kYhuY2IsjNftF9lr04wc';
 
 // Fields the forms use for their own plumbing, not worth a column.
-const SKIP = ['_captcha', '_template', '_next', '_subject', '_honey', '_form', 'url', '_t', '_js'];
+const SKIP = ['_captcha', '_template', '_next', '_subject', '_honey', '_form', 'url', '_t', '_js', 'action', 'data', 'key', 'offset'];
 
 // A real person loads the page, spends a few seconds, and their browser fills _t and _js.
 // A script that posts the form without opening it fills neither, and often fills the hidden
@@ -46,10 +46,19 @@ function looksLikeABot(d) {
 }
 
 function doPost(e) {
+  const data0 = readBody(e);
+  // A scan upload arrives in pieces and each piece is its own request, so it goes straight
+  // to the upload handler: no lock (pieces of one file are already in order, and two people
+  // uploading at once are two separate Drive sessions) and no bot check past the first step.
+  if (typeof handleUpload === 'function' && String(data0.action || '').indexOf('upload-') === 0) {
+    if (data0.action === 'upload-start' && looksLikeABot(data0)) return reply('ignored');
+    const r = handleUpload(data0);
+    if (r) return r;
+  }
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);          // two people submitting at once must not collide
   try {
-    const data = readBody(e);
+    const data = data0;
     if (looksLikeABot(data)) return reply('ignored');
     const name = String(data._form || 'other').replace(/[^a-z0-9-]/gi, '').slice(0, 40) || 'other';
     const sheet = tabFor(name);
@@ -114,7 +123,9 @@ function growHeader(sheet, fields) {
   return header;
 }
 
-function reply(word) {
-  return ContentService.createTextOutput(JSON.stringify({ result: word }))
+function reply(word, extra) {
+  const out = { result: word };
+  if (extra) for (const k in extra) out[k] = extra[k];
+  return ContentService.createTextOutput(JSON.stringify(out))
     .setMimeType(ContentService.MimeType.JSON);
 }
