@@ -127,7 +127,7 @@ WEBP_DIRS = ("alyssa", "nura")   # artwork with transparency: WebP keeps the alp
 _media_files = {}
 for fn in os.listdir(MEDIA):
     _media_files[fn.lower()] = os.path.join(MEDIA, fn)
-for _sub in ("extra", "drive", "alyssa", "nura"):
+for _sub in ("extra", "drive", "alyssa", "nura", "thumbs"):
     _d = os.path.join(MEDIA, _sub)
     if os.path.isdir(_d):
         for fn in os.listdir(_d):
@@ -3292,6 +3292,28 @@ for n in NEWS:
 _ARCH_ALL = json.load(open(os.path.join(HERE, "ref", "archive-data.json")))
 _ARCH = _ARCH_ALL["artifacts"]
 VOLUNTEER_MADE = _ARCH_ALL.get("volunteer_made", [])
+
+# Volunteers made two different kinds of thing and the site only ever counted one of them.
+# Twelve models went up on Sketchfab; twenty two more are the pieces of the virtual museum
+# itself, modelled in Unity by Patrick Molen and Kristina Reyes and converted for the web.
+# The Collection has always shown both, which is why it said 33 while the archive said 12.
+_MADE_PIECES_FILE = os.path.join(HERE, "ref", "made-pieces.json")
+MADE_PIECES = (json.load(open(_MADE_PIECES_FILE))["pieces"]
+               if os.path.exists(_MADE_PIECES_FILE) else [])
+
+
+def _piece_uid(pc):
+    m = re.search(r"3d-models/([a-f0-9]{32})", pc.get("sketchfab") or "")
+    return m.group(1) if m else None
+
+
+# everything a volunteer made by hand, in one list, so one number can be told everywhere
+MADE_ALL = ([{"title": v["title"], "thumb": v.get("thumb"), "uid": v.get("uid"),
+              "by": v.get("by"), "href": f"https://sketchfab.com/models/{v['uid']}"}
+             for v in VOLUNTEER_MADE]
+            + [{"title": pc["title"], "thumb": pc["slug"] + ".png", "uid": _piece_uid(pc),
+                "name": pc["by"], "href": pc.get("href", "museum.html"), "piece": True}
+               for pc in MADE_PIECES])
 CREATORS = json.load(open(os.path.join(HERE, "ref", "creators-map.json")))
 
 
@@ -3969,7 +3991,7 @@ each maker's own gallery, or put on a headset.</p>
 <p class="sec-sub">Beyond scanning, our volunteers model Tunisian lamps, pottery and plants from scratch for our
 virtual museum. Press <b>View in 3D</b> to spin one around right here.</p>
 <div class="cards" style="text-align:left">{volunteer_made_cards(4)}</div>
-<p style="margin-top:34px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a>
+<p style="margin-top:34px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a>
 &nbsp; <a class="btn btn-gold" href="volunteer.html">Make one with us</a></p>
 </div></section>
 
@@ -4107,7 +4129,7 @@ appearing on a phone, and the murex shell that gave Carthage its purple.</p></di
 <div class="eyebrow">🏺 Made by our volunteers</div>
 <h2 class="sec-title">What comes out of the weekly calls</h2>
 <div class="cards" style="text-align:left">{volunteer_made_cards(3)}</div>
-<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a></p>
+<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a></p>
 </div></section>
 
 <section class="band pad"><div class="bg" style="background-image:url({img('sv-IMG_1232.jpg', 1800)})"></div>
@@ -4200,7 +4222,7 @@ src="{vid('museum-walkthrough-06.mp4')}"></video>
 <div class="eyebrow">🏺 Inside the museum</div>
 <h2 class="sec-title">Objects made by our volunteers</h2>
 <div class="cards" style="text-align:left">{volunteer_made_cards(3)}</div>
-<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a>
+<p style="margin-top:30px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a>
 &nbsp; <a class="btn btn-line" href="archive.html">Browse the scans on display</a></p>
 </div></section>
 
@@ -5307,7 +5329,7 @@ def build_archive():
     sites = sorted({m["site"] for m in MODELS})
     fbtns = ('<button class="fbtn on" data-f="*">All ({})</button>'.format(len(MODELS))
              + f'<a class="fbtn jump" href="#volunteer-made">\U0001f3fa {term("Made by volunteers")}'
-               f' ({len(VOLUNTEER_MADE)}) \u2193</a>') + "".join(
+               f' ({len(MADE_ALL)}) \u2193</a>') + "".join(
         f'<button class="fbtn" data-f="{esc(s)}">{esc(s)} ({sum(1 for m in MODELS if m["site"] == s)})</button>'
         for s in sites)
     cards = "".join(
@@ -5332,9 +5354,9 @@ interactively, and viewed in augmented reality on your phone.</p>
 <div class="arch-index">
 <a class="ix" href="#grid"><b>{len(MODELS)}</b><span><strong>heritage scans</strong>
 Photogrammetry records of statues, mosaics, stelae and ruins, preservation quality, with game-ready twins.</span></a>
-<a class="ix gold" href="#volunteer-made"><b>{len(VOLUNTEER_MADE)}</b><span><strong>models made by our volunteers</strong>
+<a class="ix gold" href="#volunteer-made"><b>{len(MADE_ALL)}</b><span><strong>models made by our volunteers</strong>
 Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum.
-<em class="ix-go">{term("See all")} {len(VOLUNTEER_MADE)} \u2192</em></span></a>
+<em class="ix-go">{term("See all")} {len(MADE_ALL)} \u2192</em></span></a>
 </div>
 <div class="filters">{fbtns}</div>
 <div class="cards" id="grid">{cards}</div>
@@ -5364,17 +5386,23 @@ helping remotely, every volunteer contributes to preserving history.</p>
 
 def volunteer_made_cards(limit=None):
     cards = ""
-    for vm in VOLUNTEER_MADE[:limit]:
-        byname, byhref = creator_credit(vm.get("by"))
+    for vm in MADE_ALL[:limit]:
+        # a Sketchfab upload names its uploader; a museum piece carries the maker's own name
+        if vm.get("name"):
+            byname = vm["name"]
+            byslug = author_slug(byname) or slugify(byname)
+            byhref = TEAM_BY_SLUG[byslug]["href"] if byslug in TEAM_BY_SLUG else None
+        else:
+            byname, byhref = creator_credit(vm.get("by"))
         credit = ("by " + (f'<a href="{byhref}" style="color:var(--gold-dark);font-weight:700">{esc(byname)}</a>'
                   if byhref else esc(byname))) if byname else ""
-        cards += model_card(vm["title"], vm.get("thumb"), f"https://sketchfab.com/models/{vm['uid']}",
-                            meta=credit, uid=vm["uid"], external=True)
+        cards += model_card(vm["title"], vm.get("thumb"), vm["href"], meta=credit,
+                            uid=vm.get("uid"), external=vm["href"].startswith("http"))
     return cards
 
 
 def _volunteer_made_section():
-    if not VOLUNTEER_MADE:
+    if not MADE_ALL:
         return ""
     cards = volunteer_made_cards()
     return f"""
@@ -5505,6 +5533,10 @@ def build_model_pages():
     for vm in VOLUNTEER_MADE:  # decorative props → "made" contribution
         _add_contrib(member_slug(vm.get("by")), "made", vm["title"],
                      f"https://sketchfab.com/models/{vm['uid']}", uid=vm["uid"], thumb=vm.get("thumb"))
+    for pc in MADE_PIECES:     # the museum itself, modelled piece by piece
+        _slug = author_slug(pc["by"]) or slugify(pc["by"])
+        _add_contrib(_slug if _slug in TEAM_BY_SLUG else None, "made", pc["title"],
+                     pc.get("href", "museum.html"), uid=_piece_uid(pc), thumb=pc["slug"] + ".png")
     for i, m in enumerate(MODELS):
         prev_m = MODELS[i - 1] if i > 0 else MODELS[-1]
         next_m = MODELS[(i + 1) % len(MODELS)]
@@ -6226,7 +6258,7 @@ alt="Tanit XR, Volunteer to help protect global heritage. Cultural memory powere
 <p class="sec-sub">Volunteers scan sites on the ground, optimize models for VR, write articles, and model heritage
 objects by hand, like these.</p></div>
 <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">{volunteer_made_cards(3)}</div>
-<p class="center" style="margin-top:26px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(VOLUNTEER_MADE)} volunteer-made models</a></p>
+<p class="center" style="margin-top:26px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a></p>
 <h2 class="sec-title" style="margin-top:70px">Frequently Asked Questions</h2>
 <div class="faq" style="margin-top:28px">{faq_html}</div>
 </div></section>
