@@ -1312,22 +1312,23 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
   display:flex;align-items:flex-end;gap:10px;flex-direction:row-reverse;
   padding-bottom:env(safe-area-inset-bottom,0px)}
 #nura[hidden]{display:none}
-#nura-tab{flex:0 0 auto;width:56px;height:56px;border-radius:50%;cursor:pointer;
-  padding:5px 5px 10px;   /* her chin sits at the very bottom of the artwork, so lift it off the curve */
-  border:1px solid rgba(74,53,43,.18);background:#fdf9f2;box-shadow:0 10px 26px rgba(60,40,26,.22);
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-  opacity:0;transform:translateY(8px) scale(.9);transition:opacity .4s,transform .4s}
+#nura-tab{flex:0 0 auto;width:86px;height:111px;cursor:pointer;padding:0;border:0;
+  background:none;position:relative;display:block;
+  filter:drop-shadow(0 8px 12px rgba(60,40,26,.26));
+  opacity:0;transform:translateY(10px) scale(.94);transition:opacity .45s,transform .45s}
+#nura-tab:hover{transform:translateY(-2px)}
 #nura.in #nura-tab{opacity:1;transform:none}
-#nura-tab img{width:100%;height:100%;object-fit:contain;display:block}
-#nura-tab:hover{border-color:var(--gold)}
-#nura-tab:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
-#nura-say{width:min(300px,calc(100vw - 108px));background:rgba(253,249,242,.98);
+#nura-face{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .5s}
+#nura-live{position:absolute;inset:0;width:100%;height:100%;display:block}
+#nura-live[hidden]{display:none}
+#nura-tab:focus-visible{outline:2px solid var(--gold-dark);outline-offset:4px;border-radius:12px}
+#nura-say{width:min(300px,calc(100vw - 132px));margin-bottom:52px;background:rgba(253,249,242,.98);
   border:1px solid rgba(74,53,43,.16);border-radius:16px;padding:14px 16px 13px;position:relative;
   box-shadow:0 16px 40px rgba(60,40,26,.2);
   opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
 #nura.say #nura-say{opacity:1;transform:none}
 #nura-say[hidden]{display:none}
-#nura-say:after{content:"";position:absolute;bottom:16px;inset-inline-end:-7px;width:13px;height:13px;
+#nura-say:after{content:"";position:absolute;bottom:14px;inset-inline-end:-7px;width:13px;height:13px;
   background:inherit;border-top:1px solid rgba(74,53,43,.16);
   border-inline-end:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
 #nura-hush{position:absolute;top:5px;inset-inline-end:7px;border:0;background:none;color:#a3907a;
@@ -1341,9 +1342,9 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 #nura-do[hidden]{display:none}
 /* the reading badge lands across the bottom of a phone, so she waits her turn there */
 @media(max-width:560px){
-  #nura{inset-inline-end:12px;bottom:12px}
-  #nura-tab{width:50px;height:50px;padding:4px 4px 9px}
-  #nura-say{width:calc(100vw - 96px);font-size:15px}
+  #nura{inset-inline-end:10px;bottom:10px}
+  #nura-tab{width:66px;height:85px}
+  #nura-say{width:calc(100vw - 104px);font-size:15px;margin-bottom:34px}
 }
 @media(prefers-reduced-motion:reduce){
   #nura-tab,#nura-say{transition:none}

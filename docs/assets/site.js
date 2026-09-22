@@ -167,10 +167,126 @@ const PAGE_OPENED = Date.now();
     void box.offsetWidth;            // let the browser paint the hidden state, so it animates
     box.classList.add('in');
     box.classList.add('say');
+    wake();
+  }
+
+  // ---- Nura in three dimensions, once somebody has stayed long enough to meet her.
+  // The picture in the button is only a poster. When she has actually spoken, and the visitor
+  // is on a connection and a device that can take it, the real model loads and takes over:
+  // the same figure, the same float, breathing rather than printed. Nothing is downloaded for
+  // somebody who leaves in the first half minute, and if any of it fails the poster stays.
+  const face = document.getElementById('nura-face');
+  const canvas = document.getElementById('nura-live');
+  const MODEL = '/assets/models/nura.glb';
+  let woke = false, frame = null, mixer = null, clips = null, glance = 0, lastT = 0;
+
+  function tiny() {
+    const c = navigator.connection || {};
+    if (c.saveData) return true;                                  // they asked for less data
+    if (/(^|-)2g$/.test(c.effectiveType || '')) return true;      // it would never arrive
+    if ((navigator.deviceMemory || 4) < 1) return true;
+    return matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  async function wake() {
+    if (woke || !canvas || tiny()) return;
+    woke = true;
+    try {
+      const THREE = await import('three');
+      const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+      const { MeshoptDecoder } = await import('three/addons/libs/meshopt_decoder.module.js');
+      const box0 = face.getBoundingClientRect();
+      const wide = Math.max(40, box0.width), tall = Math.max(40, box0.height);
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true,
+                                                 powerPreference: 'low-power' });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setSize(wide, tall, false);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+      const scene = new THREE.Scene();
+      scene.add(new THREE.AmbientLight(0xf3ece0, 1.15));
+      const key = new THREE.DirectionalLight(0xfff3e0, 1.9); key.position.set(-4, 5, 6);
+      const fill = new THREE.DirectionalLight(0xe8f0f6, .8); fill.position.set(5, 1, -3);
+      const under = new THREE.DirectionalLight(0xfff6ea, .5); under.position.set(0, -4, 4);
+      scene.add(key); scene.add(fill); scene.add(under);
+      // all of her, standing, the same crop as the poster: crescent at the top, feet at the
+      // bottom, and room at the sides for her arms as she turns
+      const TOP = 1.03, BOT = -0.03, DIST = 5.5, MID = (TOP + BOT) / 2;
+      const cam = new THREE.PerspectiveCamera(30, wide / tall, .01, 100);
+      cam.position.set(0, MID, DIST);
+      cam.lookAt(0, MID, 0);
+      cam.fov = 2 * Math.atan(((TOP - BOT) / 2) / DIST) * 180 / Math.PI;
+      cam.updateProjectionMatrix();
+
+      const gltf = await new Promise((ok, fail) => new GLTFLoader()
+        .setMeshoptDecoder(MeshoptDecoder).load(MODEL, ok, undefined, fail));
+      const o = gltf.scene;
+      o.updateMatrixWorld(true);
+      const bb = new THREE.Box3().setFromObject(o);
+      const sz = bb.getSize(new THREE.Vector3());
+      const mid = bb.getCenter(new THREE.Vector3());
+      o.position.set(-mid.x, -bb.min.y, -mid.z);
+      const her = new THREE.Group();
+      her.add(o);
+      her.scale.setScalar(1 / (sz.y || 1));           // she is exactly one unit tall
+      her.rotation.y = Math.PI;                        // facing the visitor
+      scene.add(her);
+      if (gltf.animations && gltf.animations.length) {
+        mixer = new THREE.AnimationMixer(o);
+        clips = {};
+        gltf.animations.forEach(a => { clips[a.name.toLowerCase()] = a; });
+        const float = gltf.animations.find(a => /float|idle/i.test(a.name)) || gltf.animations[0];
+        mixer.clipAction(float).play();
+      }
+
+      // she looks towards the pointer, the way she does in the Collection
+      let want = 0;
+      addEventListener('pointermove', (e) => {
+        want = Math.max(-1, Math.min(1, (e.clientX / innerWidth - .5) * 2)) * 0.34;
+      }, { passive: true });
+
+      // She breathes while somebody is with her and holds still when they are not: a WebGL
+      // loop running on every page of the site for as long as a tab stays open would be a
+      // real cost on a phone, and a resting render looks exactly like the picture it replaced.
+      const clock = new THREE.Clock();
+      let until = 0;
+      function tick() {
+        if (Date.now() > until) { frame = null; return; }
+        frame = requestAnimationFrame(tick);
+        const d = clock.getDelta();
+        if (mixer) mixer.update(d);
+        glance += (want - glance) * Math.min(1, d * 3);
+        her.rotation.y = Math.PI + glance;
+        renderer.render(scene, cam);
+      }
+      function run(ms) {
+        until = Math.max(until, Date.now() + (ms || 22000));
+        if (!frame && !document.hidden) { clock.getDelta(); tick(); }
+      }
+      function rest() { if (frame) { cancelAnimationFrame(frame); frame = null; } }
+      document.addEventListener('visibilitychange', () => document.hidden ? rest() : run(8000));
+      box.addEventListener('pointerenter', () => run(14000));
+      box.addEventListener('pointermove', () => run(14000), { passive: true });
+      window.nuraStir = run;                            // opening her bubble wakes her too
+      canvas.hidden = false;
+      run();
+      face.style.opacity = '0';                        // cross-fade the poster out under her
+      window.nuraHappy = () => {                       // a small flourish when she is tapped
+        if (!mixer || !clips || !clips['happy']) return;
+        const a = mixer.clipAction(clips['happy']);
+        a.setLoop(THREE.LoopOnce, 1);
+        a.reset().fadeIn(.15).play();
+      };
+    } catch (e) {
+      woke = false;                                    // the poster is a perfectly good Nura
+    }
   }
   document.getElementById('nura-hush').addEventListener('click', () => shut(true));
   go.addEventListener('click', () => { if (window.tx) tx('nura_cta', { ask: pick }); });
   tab.addEventListener('click', () => {
+    if (window.nuraStir) window.nuraStir(22000);
+    if (window.nuraHappy) window.nuraHappy();
     if (open) { shut(false); return; }
     say.hidden = false;
     show();
