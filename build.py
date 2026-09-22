@@ -1890,6 +1890,11 @@ with open(os.path.join(HERE, "ref", "museum-3d.json")) as _f:
     WALK_CFG = json.load(_f)
 THREE_V = "0.169.0"
 THREE_CDN = f"https://cdn.jsdelivr.net/npm/three@{THREE_V}"
+# Nura loads herself in three dimensions once a visitor has settled on a page, so every page
+# needs to know where "three" is. Declared in the head because an import map has to come
+# before the first module import, and only once per document.
+THREE_MAP = ('<script type="importmap">{"imports":{"three":"' + THREE_CDN + '/build/three.module.js",'
+             '"three/addons/":"' + THREE_CDN + '/examples/jsm/"}}</script>')
 
 
 ASSET_V = hashlib.md5((CSS + JS + WALK_JS).encode()).hexdigest()[:8]
@@ -2291,6 +2296,13 @@ def nura_html(fname):
 </div>"""
 
 
+def first_name(full):
+    """Dr. Caroline Nickerson is called Caroline, not Dr."""
+    parts = [w for w in str(full).split()
+             if w.rstrip(".").lower() not in ("dr", "prof", "mr", "ms", "mrs", "mx", "eng")]
+    return parts[0] if parts else str(full)
+
+
 def read_badge_html(kind):
     """The end-of-reading badge, for pages that are actually read to the end: an article and an
     object's page. Google Arts & Culture gives one when you finish a story, and it works because
@@ -2397,6 +2409,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{fonts}" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css?v={ASSET_V}">{font_fix}
+{'' if 'type="importmap"' in body else THREE_MAP}
 </head>
 <body>
 {header_html(active or fname, transparent, fname)}
@@ -5085,7 +5098,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
                               f'<div class="cards">{cards}</div>')
         contrib_html = (f'<section class="pad" style="background:var(--cloud);padding-top:56px"><div class="wrap">'
                         f'<div class="eyebrow">Contributions to Tanit XR</div>'
-                        f'<h2 class="sec-title" style="font-size:32px">What {esc(p["name"].split()[0])} has made with us</h2>'
+                        f'<h2 class="sec-title" style="font-size:32px">Some of what {esc(first_name(p["name"]))} has made with us</h2>'
                         f'<p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to explore it right here.</p>'
                         f'{"".join(blocks)}</div></section>') if blocks else ""
         body = f"""
