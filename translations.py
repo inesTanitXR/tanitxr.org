@@ -1700,6 +1700,23 @@ FR = {
     'You read it to the end': 'Vous l’avez lu jusqu’au bout',
     'Ten objects studied': 'Dix objets étudiés',
     'Three stories read': 'Trois articles lus',
+
+    # ---- profiles: talks, events and hand-recorded work ----
+    '🎤 Talks, workshops and events': '🎤 Conférences, ateliers et événements',
+    'Talk or event': 'Conférence ou événement',
+    'Workshop on citizen science and XR at ImmerseGT 2026': 'Atelier sur la science citoyenne et la XR à ImmerseGT 2026',
+    'Hosting and mentoring at both of our hackathons': 'Animation et mentorat lors de nos deux hackathons',
+    'Speaking for Tanit XR at several events': 'Intervenante pour Tanit XR lors de plusieurs événements',
+    'AWE USA 2026: From Scans to XR, a practical pipeline for cultural heritage': 'AWE USA 2026 : des scans à la XR, une chaîne de production concrète pour le patrimoine',
+    'Voices of VR #1728, on preserving Tunisian heritage': 'Voices of VR #1728, sur la préservation du patrimoine tunisien',
+    'El Jem Conference 2026 paper, in English, French and Tunisian Arabic': 'Communication de la conférence d’El Jem 2026, en anglais, français et arabe tunisien',
+    'At the El Jem conference in person, April 2026': 'Présente à la conférence d’El Jem, avril 2026',
+    'Photogrammetry scans of artifacts in the collection': 'Numérisations photogrammétriques d’objets de la collection',
+    'Community lead: coordinating the volunteers': 'Responsable de la communauté : coordination des bénévoles',
+    'The spring sprint, where volunteers modelled the museum&#x27;s props': 'Le sprint du printemps, où les bénévoles ont modélisé les décors du musée',
+    'Running the history sessions': 'Animation des sessions d’histoire',
+    'AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage': 'AWE USA 2026, des scans à la XR : une chaîne de production concrète pour le patrimoine',
+    "Ines Said and Margarita Johnson presented Tanit XR&#x27;s pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.": 'Ines Said et Margarita Johnson ont présenté la chaîne de production de Tanit XR à l’Augmented World Expo USA 2026, à Long Beach en Californie, le 18 juin.',
 }
 
 
@@ -3395,5 +3412,22 @@ AR = {
     'You read it to the end': 'قرأتموه حتى النهاية',
     'Ten objects studied': 'عشر قطع تمت دراستها',
     'Three stories read': 'ثلاثة مقالات مقروءة',
+
+    # ---- profiles: talks, events and hand-recorded work ----
+    '🎤 Talks, workshops and events': '🎤 محاضرات وورشات وفعاليات',
+    'Talk or event': 'محاضرة أو فعالية',
+    'Workshop on citizen science and XR at ImmerseGT 2026': 'ورشة حول العلوم التشاركية والواقع الممتد في ImmerseGT 2026',
+    'Hosting and mentoring at both of our hackathons': 'الاستضافة والإرشاد في الهاكاثونين معًا',
+    'Speaking for Tanit XR at several events': 'متحدثة باسم تانيت إكس آر في عدة فعاليات',
+    'AWE USA 2026: From Scans to XR, a practical pipeline for cultural heritage': 'AWE USA 2026: من المسح إلى الواقع الممتد، مسار عملي للتراث الثقافي',
+    'Voices of VR #1728, on preserving Tunisian heritage': 'Voices of VR #1728، حول حفظ التراث التونسي',
+    'El Jem Conference 2026 paper, in English, French and Tunisian Arabic': 'ورقة مؤتمر الجم 2026، بالإنجليزية والفرنسية والعربية التونسية',
+    'At the El Jem conference in person, April 2026': 'حضور مؤتمر الجم شخصيًا، أفريل 2026',
+    'Photogrammetry scans of artifacts in the collection': 'عمليات مسح فوتوغرامتري لقطع من المجموعة',
+    'Community lead: coordinating the volunteers': 'قيادة المجتمع: تنسيق عمل المتطوعين',
+    'The spring sprint, where volunteers modelled the museum&#x27;s props': 'سباق الربيع، حيث نمذج المتطوعون عناصر المتحف',
+    'Running the history sessions': 'إدارة جلسات التاريخ',
+    'AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage': 'AWE USA 2026، من المسح إلى الواقع الممتد: مسار عملي للتراث الثقافي',
+    "Ines Said and Margarita Johnson presented Tanit XR&#x27;s pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.": 'قدّمت إيناس سعيد ومارغريتا جونسون مسار عمل تانيت إكس آر في Augmented World Expo USA 2026 بلونغ بيتش، كاليفورنيا، يوم 18 جوان.',
 }
 

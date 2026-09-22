@@ -2340,7 +2340,8 @@ CONTRIB = {}
 def _add_contrib(slug, kind, label, href, uid=None, thumb=None):
     if not slug:
         return
-    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "drew": [], "wrote": [], "built": []})
+    CONTRIB.setdefault(slug, {"scanned": [], "optimized": [], "made": [], "drew": [], "wrote": [],
+                              "built": [], "spoke": []})
     CONTRIB[slug][kind].append({"label": label, "href": href, "uid": uid, "thumb": thumb})
 
 
@@ -2682,8 +2683,8 @@ PRESS = [
     {"k": "Podcast", "t": "Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR",
      "d": "Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.",
      "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices"},
-    {"k": "Talk", "t": "AWE USA 2026, Speaker",
-     "d": "Ines Said spoke at Augmented World Expo USA 2026 in Long Beach, California, on XR for social impact and heritage.",
+    {"k": "Talk", "t": "AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage",
+     "d": "Ines Said and Margarita Johnson presented Tanit XR's pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.",
      "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe"},
     {"k": "Video", "t": "Niantic Spatial, video interview with Nathan Bowser",
      "d": "Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and the Scaniverse capture of the amphitheatre of El Jem; Niantic published the video on its channels.",
@@ -4409,6 +4410,32 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
         ("drew", "The Draped Statue of Byrsa Hill, in your hand", "community.html#community-art", None, "alyssa-illustration-3.png"),
         ("drew", "The murex shell, source of Tyrian purple", "community.html#community-art", None, "alyssa-murex-shell.png"),
     ],
+    "dr-caroline-nickerson": [
+        ("spoke", "Workshop on citizen science and XR at ImmerseGT 2026", "immersegt-2026.html", None, "IMG_6884.jpg"),
+        ("built", "Hosting and mentoring at both of our hackathons", "immersegt-2026.html", None, "sv-IMG_1315.jpg"),
+        ("spoke", "Speaking for Tanit XR at several events", "press.html", None, "sv-IMG_1232.jpg"),
+    ],
+    "margarita-johnson": [
+        ("spoke", "AWE USA 2026: From Scans to XR, a practical pipeline for cultural heritage",
+         "press.html#awe", None, "sv-IMG_1232.jpg"),
+    ],
+    "ines-said": [
+        ("spoke", "AWE USA 2026: From Scans to XR, a practical pipeline for cultural heritage",
+         "press.html#awe", None, "sv-IMG_1232.jpg"),
+        ("spoke", "Voices of VR #1728, on preserving Tunisian heritage", "press.html#voices", None, "aug-PXL_0814_112926.jpg"),
+        ("built", "El Jem Conference 2026 paper, in English, French and Tunisian Arabic",
+         "el-jem-conference.html", None, "el-jem.jpg"),
+    ],
+    "melek-said": [
+        ("spoke", "At the El Jem conference in person, April 2026", "el-jem-conference.html", None, "el-jem.jpg"),
+        ("built", "Photogrammetry scans of artifacts in the collection", "archive.html", None, "sv-IMG_4213.jpg"),
+    ],
+    "julia-moreno-molen": [
+        ("built", "Community lead: coordinating the volunteers", "community.html", None, "aug-PXL_0814_112926.jpg"),
+        ("built", "The spring sprint, where volunteers modelled the museum's props",
+         "archive.html#volunteer-made", None, "museum-progress-jan-2026.jpg"),
+        ("spoke", "Running the history sessions", "community.html", None, "sv-IMG_1315.jpg"),
+    ],
     "cam-kania": [
         ("built", "Virtual museum, narrative and thematic brief, experience design", "museum.html", None, "museum-progress-jan-2026.jpg"),
     ],
@@ -4711,7 +4738,8 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
         c = CONTRIB.get(p["slug"], {})
         blocks = []
         total = 0
-        for kind, heading, meta in (("built", "🏗 Built for the community", "Community"),
+        for kind, heading, meta in (("spoke", "🎤 Talks, workshops and events", "Talk or event"),
+                                    ("built", "🏗 Built for the community", "Community"),
                                     ("scanned", "🏛 3D scans captured", "Photogrammetry scan"),
                                     ("optimized", "🎮 Models optimized for game/VR", "Game-ready optimization"),
                                     ("made", "🏺 Models made by hand", "Modeled for the virtual museum"),
