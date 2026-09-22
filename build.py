@@ -1671,10 +1671,11 @@ const PAGE_OPENED = Date.now();
   keep(st);
   if (st.hushed) return;                        // closed twice already: not this visit
 
-  // what she has to say here, in order of how much it has been earned
+  // what she has to say here, in order of how much it has been earned. Thanks come before
+  // the ask, and "a few of these" has to be true when she says it
   let pick = 'hello';
-  if (lines.ask && st.pages >= 3 && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
-  else if (lines.praise && st.pages >= 2 && !st.praised) pick = 'praise';
+  if (lines.ask && st.pages >= 5 && st.praised && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
+  else if (lines.praise && st.pages >= 3 && !st.praised) pick = 'praise';
   const line = lines[pick];
 
   const words = document.getElementById('nura-words');
