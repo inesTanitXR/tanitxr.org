@@ -5,11 +5,12 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
-| **19** | **Fri Sept 25** | Oct 1 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 23 — 15 blocks, over the cap (iLRN Academic Stream and the Habibi Tech volunteer call added Sept 21; the Habibi block is dated Sept 25-26 so it has to lead or be dropped) |
+| **19** | **Fri Sept 25** | Sept 28 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 24 — 16 blocks, over the cap. At assembly: drop the Habibi Tech volunteer block (the summit runs Sept 25-26, the same day the edition sends, so it is moot by arrival) and consider moving Immerse the Bay's Oct 16 reminder to edition 20. The CHI Workshops block has to stay in 19: jurors close Sept 28, three days after send. |
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 21 blocks, trim or split when assembling |
 
 ## Edition 19 (send Sept 25) — items
 - 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
+- 🎤 ACM CHI 2027 Workshops — juror applications Sept 28, workshop proposals Oct 1 (free both ways; Pittsburgh May 10-14, 2027) — chi2027.acm.org/authors/workshops _(added by the Sept 22 sweep: both calls had been listed in Ines's note as live on the website since Sept 20 but were never actually on the board. Verified at the source Sept 22 and published. Combined into ONE block with the two deadlines so the edition does not carry three separate CHI items.)_
 - 🎤 iLRN 2027 Academic Stream (full/short papers, 4-7pp extended abstract for a poster; Daegu, Korea + online; no submission fee) — Oct 4 — immersivelrn.org/ilrn2027/call-for-proposals (added by the Sept 21 sweep, from Ines's note)
 - 🎨 Slamdance 2027 DIG — Oct 6 — $90 — slamdance.com/festival-submit
 - 🎨 Djerassi 2027 incl. Leonardo@Djerassi (art+science, one month, all costs) — Oct 9 — djerassi.org/apply/2027residency

@@ -79,6 +79,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ The largest annual space hackathon, run by NASA with 17 partner space agencies: 14 challenges published, teams formed on the platform, 48 hours. Mentioned in edition 18 as still open; here it is in full, because the Tunisian local events are worth planning a team around.
 👉 https://www.spaceappschallenge.org/
 
+### 🎤 ACM CHI 2027, Workshops: Propose One or Judge Them
+
+📅 Juror applications: September 28, 2026 · Workshop proposals: October 1, 2026
+📍 In person, David L. Lawrence Convention Center, Pittsburgh, May 10-14, 2027
+👥 Researchers, educators and practitioners with prior conference or reviewing experience. Free, both routes
+✏️ Two ways into the CHI workshops track, separate from the meet-ups call above. To organize: a proposal of up to six pages excluding references, ACM single-column template, submitted through PCS with a 250-word call for participation. To judge: email your name, affiliation, CV and a 150-word statement of interest to workshops@chi2027.acm.org, for about eight hours of reviewing across October and November. The juror route asks for regular CHI attendance.
+👉 https://chi2027.acm.org/authors/workshops/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |

@@ -160,6 +160,18 @@
    "source": "screenshot",
    "raw": "https://www.instagram.com/p/Dc8foqYMx6o/ (@dmvpym)",
    "status": "not an opportunity: a local DC-area fundraiser event, no application and no deadline, and political. File deliberately left in the inbox root for the Thursday DC digest."
+  },
+  {
+   "key": "ilrns 13th annual conference carries the theme xr ai collaboration cocreating knowledge through globally situated communities of practice online june 1113 2027 and in person june 2629 at kyungpook national university in daegu south korea",
+   "date": "2026-09-22",
+   "source": "note",
+   "status": "duplicate: same conference as the iLRN 2027 entry added Sept 21. The theme, the online dates (June 11-13, 2027), the in-person dates (June 26-29, 2027) and the Kyungpook National University venue are already in the board description, so nothing was added. Academic Stream still closes Oct 4, 2026; iLEAD Jan 12, 2027."
+  },
+  {
+   "key": "acm chi 2027 call for workshop jurors and call for workshop proposals",
+   "date": "2026-09-22",
+   "source": "note",
+   "status": "added (both CHI 2027 workshop calls). Gap found this run: the note had listed both as LIVE ON THE WEBSITE since Sept 20 but neither was ever on the board. Verified at chi2027.acm.org/authors/workshops Sept 22: jurors close September 28, 2026 (email name, affiliation, CV and a ~150-word statement to workshops@chi2027.acm.org, ~8 hours reviewing Oct-Nov), workshop proposals close October 1, 2026 (6 pages excluding references, ACM single-column, via PCS). Both free. CHI 2027 is Pittsburgh, May 10-14, 2027. Published to the board and added to edition 19 as one combined block."
   }
  ],
  "slack_last_ts": "1789764970.037819"
