@@ -2580,9 +2580,22 @@ def _clean_model_text(txt):
     return re.sub(r"\s+", " ", txt).strip(" .|-–—") + "."
 
 
+def _drop_byline(txt):
+    """Take the writer's name off the front of the prose.
+
+    Every one of these posts opens by naming its author, because on the old site there was
+    nowhere else to put it. The page prints a proper byline now, so the same name arriving
+    twice reads as a mistake, and it made the excerpt on the news page start with a name
+    instead of the story."""
+    txt = re.sub(r"^\s*By[:\s][^.\n]{0,80}?(?:\.|\n|$)", "", txt, count=1, flags=re.I)
+    # the role on its own line, left behind under the old byline
+    txt = re.sub(r"^\s*[A-Z][A-Za-z ]{0,40},\s*Tanit\s?XR\.?\s*", "", txt, count=1)
+    return txt.lstrip(" .\u00a0")
+
+
 for n in NEWS:
     n["title"] = fix_mojibake(n["title"]).strip().rstrip(".")
-    n["text"] = fix_mojibake(n["text"])
+    n["text"] = _drop_byline(fix_mojibake(n["text"]))
     n["clean_slug"] = slugify(n["title"])
     n["href"] = f"news/{n['clean_slug']}.html"
 
@@ -4879,58 +4892,88 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
                       "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}])
 
 
+# Who wrote what, and which posts are pieces of writing rather than announcements from the
+# organisation. Two different things were sitting in one list: four stories by volunteers and
+# a notice about a hack day.
+NEWS_AUTHOR = {
+    "storm-harry-neapolis-and-a-digital-moment-of-preservation": "Margarita Johnson",
+    "material-and-meaning-marble-identity-and-cultural-exchange-in-ancient-carthage": "Margarita Johnson",
+    "a-beginning-why-tanit-xr-exists": "Ines Said",
+    "a-2-000-year-old-ghost-town-on-cape-bon": "Laura Harrison",
+    # an announcement from the organisation, deliberately unsigned
+    "tanit-xr-at-citycamp-gainesville-hack-day": None,
+}
+
+# posts that announce something rather than tell you something
+NEWS_NOTES = {"tanit-xr-at-citycamp-gainesville-hack-day"}
+
+
+def _news_match(slug, table):
+    """slugify() stops at sixty characters, so a long headline gets a shorter folder name than
+    the one written here. Matching on either being the start of the other means a credit can no
+    longer vanish because of where a title happened to be trimmed."""
+    if slug in table:
+        return True, (table[slug] if isinstance(table, dict) else True)
+    for k in table:
+        if k.startswith(slug) or slug.startswith(k):
+            return True, (table[k] if isinstance(table, dict) else True)
+    return False, None
+
+
+def news_author(n):
+    """(is there an entry for this post, the author or None)"""
+    return _news_match(n["clean_slug"], NEWS_AUTHOR)
+
+
+def is_note(n):
+    return _news_match(n["clean_slug"], NEWS_NOTES)[0]
+
+
 def build_news():
-    cards = ""
-    for n in sorted(NEWS, key=lambda x: x["date"], reverse=True):
-        date = n["date"]
+    def card(n):
+        # the date alone said nothing about which of the two things a post was, so each card
+        # now says who wrote it, or that it is an announcement
+        who = news_author(n)[1]
+        meta = f'{n["date"]} · {term("Announcement")}' if is_note(n) else (
+            f'{n["date"]} · {esc(who)}' if who else n["date"])
         excerpt = esc(n["text"][:220]) + "…"
-        cards += f"""<a class="card" href="{n['href']}">
+        return f"""<a class="card" href="{n['href']}">
 <div class="ph"><img src="{img(n['img'], 800)}" alt="{esc(n['title'])}" loading="lazy"></div>
-<div class="tx"><div class="meta">{date}</div><h3>{esc(n['title'])}</h3>
+<div class="tx"><div class="meta">{meta}</div><h3>{esc(n['title'])}</h3>
 <p style="color:var(--gray);font-size:14.5px;margin-top:8px">{excerpt}</p></div></a>"""
+
+    newest = sorted(NEWS, key=lambda x: x["date"], reverse=True)
+    stories = [n for n in newest if not is_note(n)]
+    notes = [n for n in newest if is_note(n)]
+
+    def section(title, blurb, items):
+        if not items:
+            return ""
+        return f"""<h2 class="sec-title" style="text-align:start;margin-top:8px">{title}</h2>
+<p style="color:var(--gray);max-width:62ch;margin:6px 0 26px">{blurb}</p>
+<div class="cards">{"".join(card(n) for n in items)}</div>"""
+
     body = f"""
-{page_hero("News", "News", bg="aug-PXL_0811_150055.jpg")}
+{page_hero(term("News and stories"), "News", bg="aug-PXL_0811_150055.jpg")}
 <section class="pad"><div class="wrap">
-<div class="cards">{cards}</div>
+{section(term("Stories"), term("Written by our volunteers: what they scanned, and what they found out about it."), stories)}
+<div style="height:54px"></div>
+{section(term("Announcements"), term("What we are doing and where we will be."), notes)}
 </div></section>"""
-    page("news.html", "News", body,
-         desc="Field notes and history from the Tanit XR community: what we scanned, what we learned about Carthage and Tunisian heritage, and where the project is going next.")
-
-    NEWS_AUTHOR = {
-        "storm-harry-neapolis-and-a-digital-moment-of-preservation": "Margarita Johnson",
-        "material-and-meaning-marble-identity-and-cultural-exchange-in-ancient-carthage": "Margarita Johnson",
-        "a-beginning-why-tanit-xr-exists": "Ines Said",
-        "a-2-000-year-old-ghost-town-on-cape-bon": "Laura Harrison",
-        # an announcement from the organisation, deliberately unsigned
-        "tanit-xr-at-citycamp-gainesville-hack-day": None,
-    }
-    def _author_of(n):
-        """Find the author even when the title was long enough to be cut.
-
-        slugify() stops at 60 characters, so a long headline gets a shorter folder name than
-        the one written here. Matching on either being the start of the other means a credit
-        can no longer vanish because of where a title happened to be trimmed."""
-        s = n["clean_slug"]
-        if s in NEWS_AUTHOR:
-            return True, NEWS_AUTHOR[s]
-        for k, v in NEWS_AUTHOR.items():
-            if k.startswith(s) or s.startswith(k):
-                return True, v
-        return False, None
-
-    _slugs = [n["clean_slug"] for n in NEWS]
-    for k in NEWS_AUTHOR:
-        if not any(k.startswith(s) or s.startswith(k) for s in _slugs):
-            print(f"  !! NEWS_AUTHOR has {k!r}, which is not any article. Nobody is credited.")
-    for n in NEWS:
-        if not _author_of(n)[0]:
-            print(f"  !  no author for {n['clean_slug']!r}: the page carries no byline and the "
-                  f"writer's profile will not list it. Add it to NEWS_AUTHOR, with None if "
-                  f"the post is meant to be unsigned.")
+    page("news.html", term("News and stories"), body, active="news.html",
+         desc="Stories written by Tanit XR volunteers about Carthage and Tunisian heritage, "
+              "and announcements about where the project will be next.")
 
     for n in NEWS:
         content = _clean_wp_content(n["content"])
-        author = _author_of(n)[1]
+        # the first paragraph of these posts is usually the old byline, which the page now
+        # prints properly just above it
+        content = re.sub(r"^\s*<p[^>]*>\s*(?:<[^>]+>\s*)*By[:\s][^<]{0,90}</p>", "", content,
+                         count=1, flags=re.I)
+        content = re.sub(r"^\s*<p[^>]*>\s*(?:<(?:em|i|strong|b)>\s*)?"
+                         r"[A-Z][A-Za-z ]{0,40},\s*Tanit\s?XR\.?\s*"
+                         r"(?:</(?:em|i|strong|b)>\s*)?</p>", "", content, count=1)
+        author = news_author(n)[1]
         a_slug = author_slug(author) if author else None
         if a_slug:
             _add_contrib(a_slug, "wrote", n["title"], n["href"], thumb=n.get("img"))
@@ -4956,7 +4999,7 @@ def build_news():
         if n.get("img"):
             _art["image"] = [SITE_URL + social_img(n["img"])]
         page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art],
-             read_badge="story")
+             read_badge=None if is_note(n) else "story")
 
 
 def build_people():
@@ -6312,7 +6355,13 @@ TERMS = {
            "Open to all": "Ouvert à tous", "Researchers": "Chercheurs", "Students": "Étudiants",
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
-           "By": "Par", "Published": "Publié le"},
+           "By": "Par", "Published": "Publié le",
+           "News and stories": "Actualités et récits", "Stories": "Récits",
+           "Announcements": "Annonces", "Announcement": "Annonce",
+           "Written by our volunteers: what they scanned, and what they found out about it.":
+               "Écrits par nos bénévoles : ce qu’ils ont numérisé, et ce qu’ils en ont appris.",
+           "What we are doing and where we will be.":
+               "Ce que nous faisons et où nous serons."},
     "ar": {"Award": "جائزة", "Challenge": "تحدٍّ", "Conference": "مؤتمر", "Fellowship": "زمالة",
            "Grant": "منحة", "Open Call": "دعوة مفتوحة", "Program": "برنامج",
            "Residency": "إقامة فنية", "Volunteer": "تطوّع", "Event": "فعالية", "Job": "وظيفة",
@@ -6323,7 +6372,13 @@ TERMS = {
            "Open to all": "مفتوح للجميع", "Researchers": "الباحثون", "Students": "الطلبة",
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
-           "By": "بقلم", "Published": "نُشر في"},
+           "By": "بقلم", "Published": "نُشر في",
+           "News and stories": "أخبار وحكايات", "Stories": "حكايات",
+           "Announcements": "إعلانات", "Announcement": "إعلان",
+           "Written by our volunteers: what they scanned, and what they found out about it.":
+               "كتبها متطوّعونا: ما مسحوه، وما عرفوه عنه.",
+           "What we are doing and where we will be.":
+               "ما نقوم به وأين سنكون."},
 }
 MONTHS = {
     "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
