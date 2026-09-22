@@ -934,18 +934,25 @@ function start() {
       const who = document.getElementById('vc-who');
       if (who) who.textContent = p.name;
       cameoLink.href = linkUrl(p.href);
-      // a direct route into that artist's own room, where they have one
+      // Two ways on from here, and they are not the same kind of thing at all: the room keeps
+      // you inside the Collection with everything of theirs around you, the profile leaves it
+      // for a page on the website. Said in the same words and the same weight, as they were,
+      // nobody could tell which was which, and the quieter one was the one that ended the
+      // visit. So the room is the button, the profile is a plain link, and each says where it
+      // goes. No "what else they made" either: this one optimized the object, she did not
+      // make it, which is a distinction the rest of the site is careful about.
       const roomBtn = document.getElementById('vc-room');
+      const first = p.name.split(' ')[0];
       if (roomBtn) {
         const n = CFG.items.filter(x => inRoomOf(x, p.name)).length;
         roomBtn.hidden = n < 2;
-        roomBtn.textContent = 'Visit ' + p.name.split(' ')[0] + "'s gallery (" + n + ')';
+        roomBtn.textContent = 'See all ' + n + ' in one room';
         roomBtn.onclick = () => {
           cameo.hidden = true;
           openRoom(p.name);            // the real room: everything of theirs in one space
         };
       }
-      cameoLink.textContent = 'See what else ' + p.name.split(' ')[0] + ' has made';
+      cameoLink.textContent = first + "'s page";
       cameo.hidden = false;
       if (narrow()) { clearTimeout(cameoTimer); cameoTimer = setTimeout(() => { cameo.hidden = true; }, 6500); }
       if (window.tx) tx('volunteer_cameo', { person: p.name });

@@ -1097,12 +1097,15 @@ body.in-room #vr-button,body.in-room #saved-chip{display:none}
   background:#e6dbc6;border:2px solid var(--gold)}
 #vc-line{margin:0;font-size:14px;line-height:1.4;color:#2e2118;font-family:var(--serif)}
 #vc-who{display:block;font-size:12px;color:#8a735c;font-weight:600;margin-top:2px}
-#vc-link{display:inline-block;margin-top:4px;font-size:12.5px;color:#a35f3f;font-weight:700;
-  text-decoration:none;border-bottom:1px solid rgba(163,95,63,.4)}
-.vc-room{display:inline-block;margin:4px 0 0 10px;border:0;background:none;padding:0;
-  font:inherit;font-size:12.5px;color:#a35f3f;font-weight:700;cursor:pointer;
-  border-bottom:1px solid rgba(163,95,63,.4)}
-.vc-room:hover,#vc-link:hover{border-bottom-color:#a35f3f}
+.vc-room{display:block;margin-top:9px;border:0;background:var(--gold);color:#241a10;
+  border-radius:999px;padding:8px 14px;font:inherit;font-size:12.5px;font-weight:700;
+  cursor:pointer;width:fit-content}
+.vc-room:hover{filter:brightness(.94)}
+.vc-room[hidden]{display:none}
+#vc-link{display:inline-block;margin-top:8px;font-size:12px;color:#8a735c;font-weight:600;
+  text-decoration:none;border-bottom:1px solid rgba(138,115,92,.4)}
+#vc-link:after{content:" \2197"}
+#vc-link:hover{color:#4a3527;border-bottom-color:#4a3527}
 #vc-close{position:absolute;top:5px;inset-inline-end:8px;border:0;background:none;color:#a3907a;
   font-size:18px;line-height:1;cursor:pointer}
 #vc-close:hover{color:#4a3527}
@@ -1289,7 +1292,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
     padding:8px 12px;gap:10px;align-items:center;border-radius:14px}
   body #vol-cameo img{width:38px;height:38px}
   body #vol-cameo p{font-size:13.5px;margin:0}
-  body #vol-cameo b{display:none}
+  body #vol-cameo b{display:block;font-size:11.5px;margin-top:1px}
   body #vc-link{display:none}
   body #vol-cameo .vc-room{margin:2px 0 0;font-size:12.5px}
   .warea>div{padding:16px 20px 14px}
@@ -1595,8 +1598,8 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 .df-size{color:var(--gray);font-size:13.5px;white-space:nowrap;margin-inline-start:auto}
 .df-x{border:0;background:none;color:#a3907a;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}
 .df-x:hover{color:#4a3527}
-.bar{height:7px;border-radius:999px;background:#eee7dc;margin-top:12px;overflow:hidden}
-.bar span{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+#df-bar{height:7px;border-radius:999px;background:#eee7dc;margin-top:12px;overflow:hidden}
+#df-bar span{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
 .df-say{margin:10px 0 0;font-size:14px;color:var(--gray);min-height:1.2em}
 .df-say.bad{color:#a4442f}
 .df-say.good{color:#1f7a54}
@@ -4996,8 +4999,8 @@ taking care of the place you are in.</p>
 <div id="vol-cameo" hidden>
 <img id="vc-photo" src="" alt="">
 <div><p id="vc-line"></p><b id="vc-who"></b>
-<a id="vc-link" href="team.html">Their profile</a>
-<button id="vc-room" class="vc-room" hidden>See their room</button></div>
+<button id="vc-room" class="vc-room" hidden>See their room</button>
+<a id="vc-link" href="team.html">Their page</a></div>
 <button id="vc-close" aria-label="Close">&times;</button>
 </div>
 
@@ -6690,7 +6693,7 @@ def build_submit_model():
 <div id="drop-file" class="drop-file" hidden>
 <div class="df-row"><b id="df-name"></b><span id="df-size" class="df-size"></span>
 <button type="button" id="df-drop" class="df-x" aria-label="{esc(term("Remove"))}">&times;</button></div>
-<div class="bar" hidden id="df-bar"><span id="df-fill"></span></div>
+<div hidden id="df-bar"><span id="df-fill"></span></div>
 <p id="df-say" class="df-say"></p>
 </div>
 <p class="df-note" id="drop-off" hidden>{term("Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.")}</p>
