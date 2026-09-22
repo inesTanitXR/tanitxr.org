@@ -122,11 +122,11 @@ def load(name):
 
 # ---------------------------------------------------------------- images
 
-WEBP_DIRS = ("alyssa",)
+WEBP_DIRS = ("alyssa", "nura")   # artwork with transparency: WebP keeps the alpha at a quarter the weight
 _media_files = {}
 for fn in os.listdir(MEDIA):
     _media_files[fn.lower()] = os.path.join(MEDIA, fn)
-for _sub in ("extra", "drive", "alyssa"):
+for _sub in ("extra", "drive", "alyssa", "nura"):
     _d = os.path.join(MEDIA, _sub)
     if os.path.isdir(_d):
         for fn in os.listdir(_d):
@@ -1512,6 +1512,54 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
     padding-top:calc(96px + env(safe-area-inset-top,0px));
     padding-bottom:calc(252px + env(safe-area-inset-bottom,0px))}
 }
+
+/* ---- Nura around the rest of the site ------------------------------------------------
+   She is the companion from the Collection, dropping in on ordinary pages the way a chat
+   widget would, except she wants nothing. Nothing is drawn until she has something to say,
+   she says one thing per page at most, and two dismissals end her visit. Same warm paper
+   as her bubble in the Collection, so she is recognisably the same person. */
+#nura{position:fixed;inset-inline-end:16px;bottom:16px;z-index:60;
+  display:flex;align-items:flex-end;gap:10px;flex-direction:row-reverse;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+#nura[hidden]{display:none}
+#nura-tab{flex:0 0 auto;width:56px;height:56px;border-radius:50%;cursor:pointer;
+  padding:5px 5px 10px;   /* her chin sits at the very bottom of the artwork, so lift it off the curve */
+  border:1px solid rgba(74,53,43,.18);background:#fdf9f2;box-shadow:0 10px 26px rgba(60,40,26,.22);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  opacity:0;transform:translateY(8px) scale(.9);transition:opacity .4s,transform .4s}
+#nura.in #nura-tab{opacity:1;transform:none}
+#nura-tab img{width:100%;height:100%;object-fit:contain;display:block}
+#nura-tab:hover{border-color:var(--gold)}
+#nura-tab:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+#nura-say{width:min(300px,calc(100vw - 108px));background:rgba(253,249,242,.98);
+  border:1px solid rgba(74,53,43,.16);border-radius:16px;padding:14px 16px 13px;position:relative;
+  box-shadow:0 16px 40px rgba(60,40,26,.2);
+  opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+#nura.say #nura-say{opacity:1;transform:none}
+#nura-say[hidden]{display:none}
+#nura-say:after{content:"";position:absolute;bottom:16px;inset-inline-end:-7px;width:13px;height:13px;
+  background:inherit;border-top:1px solid rgba(74,53,43,.16);
+  border-inline-end:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
+#nura-hush{position:absolute;top:5px;inset-inline-end:7px;border:0;background:none;color:#a3907a;
+  font-size:18px;line-height:1;cursor:pointer;padding:2px 4px}
+#nura-hush:hover{color:#4a3527}
+#nura-words{margin:0 20px 0 0;font-size:15.5px;line-height:1.45;color:#241a10;
+  font-family:var(--serif);overflow-wrap:anywhere}
+#nura-do{display:inline-block;margin-top:11px;font-size:13px;text-decoration:none;
+  background:var(--gold);color:#241a10;border-radius:999px;padding:7px 15px;font-weight:500}
+#nura-do:hover{filter:brightness(.95)}
+#nura-do[hidden]{display:none}
+/* the reading badge lands across the bottom of a phone, so she waits her turn there */
+@media(max-width:560px){
+  #nura{inset-inline-end:12px;bottom:12px}
+  #nura-tab{width:50px;height:50px;padding:4px 4px 9px}
+  #nura-say{width:calc(100vw - 96px);font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  #nura-tab,#nura-say{transition:none}
+  #nura.in #nura-tab,#nura.say #nura-say{opacity:1;transform:none}
+}
+@media print{#nura{display:none}}
 """
 
 JS = """
@@ -1555,6 +1603,10 @@ const PAGE_OPENED = Date.now();
   let done = false;
   function earn() {
     if (done) return;
+    if (document.hidden) {         // a page left open in another tab has not been read yet
+      document.addEventListener('visibilitychange', () => setTimeout(earn, 1500), { once: true });
+      return;
+    }
     done = true;
     const state = read();
     const seen = Array.isArray(state[id]) ? state[id] : [];
@@ -1569,7 +1621,8 @@ const PAGE_OPENED = Date.now();
       toast.querySelector('.rt-more').hidden = false;
     }
     toast.hidden = false;
-    requestAnimationFrame(() => toast.classList.add('on'));
+    void toast.offsetWidth;        // not requestAnimationFrame: it never runs in a background
+    toast.classList.add('on');     // tab, which would award the badge and show nothing
     if (window.tx) tx('badge_earned', { badge: hit ? id + '-' + MILESTONE : id });
     setTimeout(hide, 11000);
   }
@@ -1594,6 +1647,112 @@ const PAGE_OPENED = Date.now();
   }
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
+})();
+// Nura, wandering the rest of the site. The whole design here is restraint: she says one
+// thing per page at most, never in the first seconds, never while the reading badge is on
+// screen, and she stops for the visit the second time somebody closes her. The donation ask
+// waits until they have been through a few pages, and then keeps away for a month.
+(function () {
+  const box = document.getElementById('nura');
+  if (!box) return;
+  let lines = {};
+  try { lines = JSON.parse(box.dataset.lines || '{}'); } catch (e) { return; }
+  if (!lines.hello) return;
+
+  const SKEY = 'tanitxr.nura', LKEY = 'tanitxr.nura.ask';
+  const MONTH = 30 * 24 * 60 * 60 * 1000;
+  const sess = () => { try { return JSON.parse(sessionStorage.getItem(SKEY) || '{}'); } catch (e) { return {}; } };
+  const keep = (v) => { try { sessionStorage.setItem(SKEY, JSON.stringify(v)); } catch (e) { /* private mode */ } };
+  const asked = () => { try { return Number(localStorage.getItem(LKEY) || 0); } catch (e) { return Date.now(); } };
+  const noteAsk = () => { try { localStorage.setItem(LKEY, String(Date.now())); } catch (e) { /* private mode */ } };
+
+  const st = sess();
+  st.pages = (st.pages || 0) + 1;
+  keep(st);
+  if (st.hushed) return;                        // closed twice already: not this visit
+
+  // what she has to say here, in order of how much it has been earned
+  let pick = 'hello';
+  if (lines.ask && st.pages >= 3 && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
+  else if (lines.praise && st.pages >= 2 && !st.praised) pick = 'praise';
+  const line = lines[pick];
+
+  const words = document.getElementById('nura-words');
+  const say = document.getElementById('nura-say');
+  const tab = document.getElementById('nura-tab');
+  const go = document.getElementById('nura-do');
+  words.textContent = line.t;
+  if (line.cta && line.cta[0] && line.cta[1]) {
+    go.textContent = line.cta[0];
+    go.href = line.cta[1];
+    if (/^https?:/.test(line.cta[1])) { go.target = '_blank'; go.rel = 'noopener'; }
+    go.hidden = false;
+  }
+
+  let open = false, spoken = false;
+  function speak() {
+    if (spoken) return;
+    // somebody with the page open in a background tab is not reading it, and she has only
+    // one thing to say per page: she waits until they are actually looking
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', () => setTimeout(speak, 3000), { once: true });
+      return;
+    }
+    // the reading badge owns the bottom of the screen while it is up, and on a phone they
+    // would sit on top of each other
+    const toast = document.getElementById('read-toast');
+    if (toast && !toast.hidden) { setTimeout(speak, 6000); return; }
+    spoken = true;
+    box.hidden = false;
+    say.hidden = false;
+    show();
+    open = true;
+    const s2 = sess();
+    if (pick === 'ask') { s2.asked = 1; noteAsk(); }
+    if (pick === 'praise') s2.praised = 1;
+    keep(s2);
+    if (window.tx) tx('nura_said', { ask: pick });
+    setTimeout(() => { if (open) shut(false); }, pick === 'ask' ? 20000 : 14000);
+  }
+  function shut(byHand) {
+    open = false;
+    box.classList.remove('say');
+    setTimeout(() => { say.hidden = true; }, 400);
+    if (byHand) {
+      const s2 = sess();
+      s2.shut = (s2.shut || 0) + 1;
+      if (s2.shut >= 2) { s2.hushed = 1; box.hidden = true; }
+      keep(s2);
+      if (window.tx) tx('nura_closed', { ask: pick });
+    }
+  }
+  function show() {
+    void box.offsetWidth;            // let the browser paint the hidden state, so it animates
+    box.classList.add('in');
+    box.classList.add('say');
+  }
+  document.getElementById('nura-hush').addEventListener('click', () => shut(true));
+  go.addEventListener('click', () => { if (window.tx) tx('nura_cta', { ask: pick }); });
+  tab.addEventListener('click', () => {
+    if (open) { shut(false); return; }
+    say.hidden = false;
+    show();
+    open = true;
+  });
+
+  // She waits: long enough that she is never the first thing that happens on a page, and
+  // she comes sooner for somebody who is clearly reading than for somebody passing through.
+  const WAIT = pick === 'hello' ? 26000 : 18000;
+  setTimeout(speak, WAIT);
+  function onScroll() {
+    const h = document.documentElement;
+    const seen = (h.scrollTop + window.innerHeight) / (h.scrollHeight || 1);
+    if (seen > 0.55 && Date.now() - PAGE_OPENED > 9000) {
+      window.removeEventListener('scroll', onScroll);
+      speak();
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
 })();
 document.addEventListener('submit', e => {
   const f = e.target;
@@ -2008,6 +2167,129 @@ def social_img(name):
     return rel
 
 
+# ---- Nura around the site -------------------------------------------------------------
+# One line per page at most, in her own voice: short, warm, second person. She says something
+# about where the visitor actually is, thanks them once they have been through a few pages,
+# and asks for a donation only after that, at most once a month. The lines live in a data
+# attribute rather than the stylesheet or the script because a JSON blob is invisible to the
+# link rewriter: every href here is written from the site root, with the language in it.
+NURA_LINES = {
+    "en": {
+        "home": ("Everything here was scanned by a volunteer with a phone. Start anywhere.",
+                 "Have a look", "explore/"),
+        "archive": ("Pick one and turn it around. That is the whole reason we scan them.", None, None),
+        "object": ("You can turn this one with your finger. Most people never try.", None, None),
+        "news": ("These were written by volunteers, in between everything else.", None, None),
+        "article": ("Take your time with this one. It was written slowly.", None, None),
+        "people": ("Every person on this page is a volunteer. Nobody here is paid.", None, None),
+        "museum": ("This room is built piece by piece, by people who do it after work.", None, None),
+        "join": ("You do not need a good camera. A phone and an afternoon is how most of this was made.",
+                 None, None),
+        "support": ("Thank you for even opening this page.", None, None),
+        "other": ("I am Nura. I live in the Collection, but I wander.", "Come and see", "explore/"),
+        "praise": ("You have been through a few of these now. Thank you for looking properly.", None, None),
+        "ask": ("None of this sits behind a paywall, and it never will. A small gift keeps the scanning going.",
+                "Donate", DONATE_URL),
+        "hush": "Close",
+        "tab": "Nura has something to say",
+    },
+    "fr": {
+        "home": ("Tout ici a été numérisé par un bénévole, avec un téléphone. Commencez où vous voulez.",
+                 "Jeter un œil", "explore/"),
+        "archive": ("Choisissez un objet et faites-le tourner. C’est pour cela qu’on les numérise.", None, None),
+        "object": ("Vous pouvez faire tourner celui-ci avec le doigt. Peu de gens essaient.", None, None),
+        "news": ("Ces textes ont été écrits par des bénévoles, entre deux autres choses.", None, None),
+        "article": ("Prenez votre temps. Ce texte a été écrit lentement.", None, None),
+        "people": ("Chaque personne sur cette page est bénévole. Personne n’est payé ici.", None, None),
+        "museum": ("Cette salle se construit pièce par pièce, par des gens qui s’y mettent après le travail.",
+                   None, None),
+        "join": ("Pas besoin d’un bon appareil photo. Un téléphone et un après-midi : c’est ainsi que "
+                 "presque tout cela s’est fait.", None, None),
+        "support": ("Merci rien que d’avoir ouvert cette page.", None, None),
+        "other": ("Je suis Nura. J’habite la Collection, mais je me promène.", "Venez voir", "explore/"),
+        "praise": ("Vous en avez déjà parcouru plusieurs. Merci de regarder vraiment.", None, None),
+        "ask": ("Rien de tout cela n’est payant, et ne le sera jamais. Un petit don permet de continuer "
+                "à numériser.", "Faire un don", DONATE_URL),
+        "hush": "Fermer",
+        "tab": "Nura a quelque chose à dire",
+    },
+    "ar": {
+        "home": ("كل ما هنا مسحه متطوّع بهاتفه. ابدأ من حيث شئت.", "ألق نظرة", "explore/"),
+        "archive": ("اختر قطعة وأدرها. لهذا نمسحها أصلًا.", None, None),
+        "object": ("يمكنك إدارة هذه القطعة بإصبعك. قليلون من يجرّبون.", None, None),
+        "news": ("كتب هذه النصوص متطوّعون، بين مشاغلهم.", None, None),
+        "article": ("خذ وقتك. كُتب هذا النص على مهل.", None, None),
+        "people": ("كل شخص في هذه الصفحة متطوّع. لا أحد هنا يتقاضى أجرًا.", None, None),
+        "museum": ("تُبنى هذه القاعة قطعة قطعة، بأيدي أناس يعملون عليها بعد دوامهم.", None, None),
+        "join": ("لا تحتاج كاميرا جيدة. هاتف وبعض الوقت بعد الظهر: هكذا صُنع أغلب هذا.", None, None),
+        "support": ("شكرًا لك لمجرّد فتحك هذه الصفحة.", None, None),
+        "other": ("أنا نورا. أعيش في المجموعة، لكنني أتجوّل.", "تعال وانظر", "explore/"),
+        "praise": ("لقد تصفّحت عدة صفحات. شكرًا لأنك تنظر بعناية.", None, None),
+        "ask": ("لا شيء من هذا خلف حاجز مدفوع، ولن يكون. تبرّع صغير يُبقي المسح مستمرًا.",
+                "تبرّع", DONATE_URL),
+        "hush": "إغلاق",
+        "tab": "نورا لديها ما تقوله",
+    },
+}
+
+
+def nura_kind(fname):
+    """Which of her lines fits this page."""
+    if fname.startswith("archive/"):
+        return "object"
+    if fname.startswith("news/"):
+        return "article"
+    if fname.startswith("team/"):
+        return "people"
+    return {"index.html": "home", "archive.html": "archive", "galleries.html": "archive",
+            "news.html": "news", "team.html": "people", "museum.html": "museum",
+            "volunteer.html": "join", "opportunities.html": "join",
+            "create-profile.html": "join", "scanning-guide.html": "join",
+            "support.html": "support", "donate.html": "support"}.get(fname, "other")
+
+
+# pages where a companion would be in the way, or where she already exists in person
+NURA_SKIP = {"explore.html", "404.html", "coming-soon.html", "thank-you.html", "privacy.html"}
+
+# pages where she still has something to say, but asking for money would be rude: the page
+# where they are already giving, and every page built around a form to fill in
+NURA_NO_ASK = {"support.html", "donate.html", "contact.html", "volunteer.html",
+               "create-profile.html", "partners.html", "services.html", "team.html"}
+
+
+def nura_html(fname):
+    if fname in NURA_SKIP:
+        return ""
+    L = NURA_LINES.get(LANG, NURA_LINES["en"])
+    root = "/" + LANG_DIRS[LANG]
+
+    def one(key):
+        t, label, href = L[key]
+        if href and not href.startswith("http"):
+            href = root + href
+        return {"t": t, "cta": [label, href]} if label else {"t": t}
+
+    kind = nura_kind(fname)
+    lines = {"hello": one(kind), "praise": one("praise")}
+    # no asking for money on the page where they are already giving it, or over a form
+    # somebody is in the middle of filling in
+    if kind != "support" and fname not in NURA_NO_ASK:
+        lines["ask"] = one("ask")
+    blob = esc(json.dumps(lines, ensure_ascii=False))
+    face = img("nura-companion.png", 192, as_jpeg=False)
+    return f"""
+<div id="nura" hidden data-lines="{blob}">
+  <button id="nura-tab" type="button" aria-label="{esc(L['tab'])}">
+    <img src="{face}" alt="" width="50" height="50" loading="lazy" decoding="async">
+  </button>
+  <div id="nura-say" role="status" hidden>
+    <button id="nura-hush" type="button" aria-label="{esc(L['hush'])}">&times;</button>
+    <p id="nura-words"></p>
+    <a id="nura-do" href="#" hidden></a>
+  </div>
+</div>"""
+
+
 def read_badge_html(kind):
     """The end-of-reading badge, for pages that are actually read to the end: an article and an
     object's page. Google Arts & Culture gives one when you finish a story, and it works because
@@ -2119,6 +2401,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 {header_html(active or fname, transparent, fname)}
 {body}
 {read_badge_html(read_badge) if read_badge else ''}
+{nura_html(fname)}
 {trending_html() if trending else ''}
 {footer_html()}
 <script src="assets/site.js?v={ASSET_V}"></script>

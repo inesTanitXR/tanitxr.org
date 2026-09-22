@@ -39,6 +39,10 @@ const PAGE_OPENED = Date.now();
   let done = false;
   function earn() {
     if (done) return;
+    if (document.hidden) {         // a page left open in another tab has not been read yet
+      document.addEventListener('visibilitychange', () => setTimeout(earn, 1500), { once: true });
+      return;
+    }
     done = true;
     const state = read();
     const seen = Array.isArray(state[id]) ? state[id] : [];
@@ -53,7 +57,8 @@ const PAGE_OPENED = Date.now();
       toast.querySelector('.rt-more').hidden = false;
     }
     toast.hidden = false;
-    requestAnimationFrame(() => toast.classList.add('on'));
+    void toast.offsetWidth;        // not requestAnimationFrame: it never runs in a background
+    toast.classList.add('on');     // tab, which would award the badge and show nothing
     if (window.tx) tx('badge_earned', { badge: hit ? id + '-' + MILESTONE : id });
     setTimeout(hide, 11000);
   }
@@ -78,6 +83,112 @@ const PAGE_OPENED = Date.now();
   }
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
+})();
+// Nura, wandering the rest of the site. The whole design here is restraint: she says one
+// thing per page at most, never in the first seconds, never while the reading badge is on
+// screen, and she stops for the visit the second time somebody closes her. The donation ask
+// waits until they have been through a few pages, and then keeps away for a month.
+(function () {
+  const box = document.getElementById('nura');
+  if (!box) return;
+  let lines = {};
+  try { lines = JSON.parse(box.dataset.lines || '{}'); } catch (e) { return; }
+  if (!lines.hello) return;
+
+  const SKEY = 'tanitxr.nura', LKEY = 'tanitxr.nura.ask';
+  const MONTH = 30 * 24 * 60 * 60 * 1000;
+  const sess = () => { try { return JSON.parse(sessionStorage.getItem(SKEY) || '{}'); } catch (e) { return {}; } };
+  const keep = (v) => { try { sessionStorage.setItem(SKEY, JSON.stringify(v)); } catch (e) { /* private mode */ } };
+  const asked = () => { try { return Number(localStorage.getItem(LKEY) || 0); } catch (e) { return Date.now(); } };
+  const noteAsk = () => { try { localStorage.setItem(LKEY, String(Date.now())); } catch (e) { /* private mode */ } };
+
+  const st = sess();
+  st.pages = (st.pages || 0) + 1;
+  keep(st);
+  if (st.hushed) return;                        // closed twice already: not this visit
+
+  // what she has to say here, in order of how much it has been earned
+  let pick = 'hello';
+  if (lines.ask && st.pages >= 3 && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
+  else if (lines.praise && st.pages >= 2 && !st.praised) pick = 'praise';
+  const line = lines[pick];
+
+  const words = document.getElementById('nura-words');
+  const say = document.getElementById('nura-say');
+  const tab = document.getElementById('nura-tab');
+  const go = document.getElementById('nura-do');
+  words.textContent = line.t;
+  if (line.cta && line.cta[0] && line.cta[1]) {
+    go.textContent = line.cta[0];
+    go.href = line.cta[1];
+    if (/^https?:/.test(line.cta[1])) { go.target = '_blank'; go.rel = 'noopener'; }
+    go.hidden = false;
+  }
+
+  let open = false, spoken = false;
+  function speak() {
+    if (spoken) return;
+    // somebody with the page open in a background tab is not reading it, and she has only
+    // one thing to say per page: she waits until they are actually looking
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', () => setTimeout(speak, 3000), { once: true });
+      return;
+    }
+    // the reading badge owns the bottom of the screen while it is up, and on a phone they
+    // would sit on top of each other
+    const toast = document.getElementById('read-toast');
+    if (toast && !toast.hidden) { setTimeout(speak, 6000); return; }
+    spoken = true;
+    box.hidden = false;
+    say.hidden = false;
+    show();
+    open = true;
+    const s2 = sess();
+    if (pick === 'ask') { s2.asked = 1; noteAsk(); }
+    if (pick === 'praise') s2.praised = 1;
+    keep(s2);
+    if (window.tx) tx('nura_said', { ask: pick });
+    setTimeout(() => { if (open) shut(false); }, pick === 'ask' ? 20000 : 14000);
+  }
+  function shut(byHand) {
+    open = false;
+    box.classList.remove('say');
+    setTimeout(() => { say.hidden = true; }, 400);
+    if (byHand) {
+      const s2 = sess();
+      s2.shut = (s2.shut || 0) + 1;
+      if (s2.shut >= 2) { s2.hushed = 1; box.hidden = true; }
+      keep(s2);
+      if (window.tx) tx('nura_closed', { ask: pick });
+    }
+  }
+  function show() {
+    void box.offsetWidth;            // let the browser paint the hidden state, so it animates
+    box.classList.add('in');
+    box.classList.add('say');
+  }
+  document.getElementById('nura-hush').addEventListener('click', () => shut(true));
+  go.addEventListener('click', () => { if (window.tx) tx('nura_cta', { ask: pick }); });
+  tab.addEventListener('click', () => {
+    if (open) { shut(false); return; }
+    say.hidden = false;
+    show();
+    open = true;
+  });
+
+  // She waits: long enough that she is never the first thing that happens on a page, and
+  // she comes sooner for somebody who is clearly reading than for somebody passing through.
+  const WAIT = pick === 'hello' ? 26000 : 18000;
+  setTimeout(speak, WAIT);
+  function onScroll() {
+    const h = document.documentElement;
+    const seen = (h.scrollTop + window.innerHeight) / (h.scrollHeight || 1);
+    if (seen > 0.55 && Date.now() - PAGE_OPENED > 9000) {
+      window.removeEventListener('scroll', onScroll);
+      speak();
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
 })();
 document.addEventListener('submit', e => {
   const f = e.target;

@@ -1302,3 +1302,51 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
     padding-top:calc(96px + env(safe-area-inset-top,0px));
     padding-bottom:calc(252px + env(safe-area-inset-bottom,0px))}
 }
+
+/* ---- Nura around the rest of the site ------------------------------------------------
+   She is the companion from the Collection, dropping in on ordinary pages the way a chat
+   widget would, except she wants nothing. Nothing is drawn until she has something to say,
+   she says one thing per page at most, and two dismissals end her visit. Same warm paper
+   as her bubble in the Collection, so she is recognisably the same person. */
+#nura{position:fixed;inset-inline-end:16px;bottom:16px;z-index:60;
+  display:flex;align-items:flex-end;gap:10px;flex-direction:row-reverse;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+#nura[hidden]{display:none}
+#nura-tab{flex:0 0 auto;width:56px;height:56px;border-radius:50%;cursor:pointer;
+  padding:5px 5px 10px;   /* her chin sits at the very bottom of the artwork, so lift it off the curve */
+  border:1px solid rgba(74,53,43,.18);background:#fdf9f2;box-shadow:0 10px 26px rgba(60,40,26,.22);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  opacity:0;transform:translateY(8px) scale(.9);transition:opacity .4s,transform .4s}
+#nura.in #nura-tab{opacity:1;transform:none}
+#nura-tab img{width:100%;height:100%;object-fit:contain;display:block}
+#nura-tab:hover{border-color:var(--gold)}
+#nura-tab:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+#nura-say{width:min(300px,calc(100vw - 108px));background:rgba(253,249,242,.98);
+  border:1px solid rgba(74,53,43,.16);border-radius:16px;padding:14px 16px 13px;position:relative;
+  box-shadow:0 16px 40px rgba(60,40,26,.2);
+  opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+#nura.say #nura-say{opacity:1;transform:none}
+#nura-say[hidden]{display:none}
+#nura-say:after{content:"";position:absolute;bottom:16px;inset-inline-end:-7px;width:13px;height:13px;
+  background:inherit;border-top:1px solid rgba(74,53,43,.16);
+  border-inline-end:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
+#nura-hush{position:absolute;top:5px;inset-inline-end:7px;border:0;background:none;color:#a3907a;
+  font-size:18px;line-height:1;cursor:pointer;padding:2px 4px}
+#nura-hush:hover{color:#4a3527}
+#nura-words{margin:0 20px 0 0;font-size:15.5px;line-height:1.45;color:#241a10;
+  font-family:var(--serif);overflow-wrap:anywhere}
+#nura-do{display:inline-block;margin-top:11px;font-size:13px;text-decoration:none;
+  background:var(--gold);color:#241a10;border-radius:999px;padding:7px 15px;font-weight:500}
+#nura-do:hover{filter:brightness(.95)}
+#nura-do[hidden]{display:none}
+/* the reading badge lands across the bottom of a phone, so she waits her turn there */
+@media(max-width:560px){
+  #nura{inset-inline-end:12px;bottom:12px}
+  #nura-tab{width:50px;height:50px;padding:4px 4px 9px}
+  #nura-say{width:calc(100vw - 96px);font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  #nura-tab,#nura-say{transition:none}
+  #nura.in #nura-tab,#nura.say #nura-say{opacity:1;transform:none}
+}
+@media print{#nura{display:none}}
