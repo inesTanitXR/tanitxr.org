@@ -21,6 +21,64 @@ document.addEventListener('click', e => {
   if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
 });
 const PAGE_OPENED = Date.now();
+
+// A badge for reaching the end of something worth finishing: an article, or an object's page.
+// It marks finishing, never arriving, which is why there is none on the home page or a form.
+// Earned badges live in this browser only, so treat them as a small pleasure, not a record.
+(function () {
+  const end = document.getElementById('read-end');
+  const toast = document.getElementById('read-toast');
+  if (!end || !toast) return;
+  const KEY = 'tanitxr.read';
+  const id = end.dataset.badge || 'read';
+  const here = location.pathname;
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const write = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* private mode */ } };
+  const MILESTONE = id === 'read-story' ? 3 : 10;
+
+  let done = false;
+  function earn() {
+    if (done) return;
+    done = true;
+    const state = read();
+    const seen = Array.isArray(state[id]) ? state[id] : [];
+    const first = seen.length === 0;
+    if (seen.indexOf(here) === -1) seen.push(here);
+    state[id] = seen;
+    const hit = seen.length === MILESTONE;
+    write(state);
+    if (!first && !hit) return;                       // only the first, and the milestone
+    if (hit) {
+      toast.querySelector('.rt-first').hidden = true;
+      toast.querySelector('.rt-more').hidden = false;
+    }
+    toast.hidden = false;
+    requestAnimationFrame(() => toast.classList.add('on'));
+    if (window.tx) tx('badge_earned', { badge: hit ? id + '-' + MILESTONE : id });
+    setTimeout(hide, 11000);
+  }
+  function hide() {
+    toast.classList.remove('on');
+    setTimeout(() => { toast.hidden = true; }, 400);
+  }
+  const closer = document.getElementById('rt-close');
+  if (closer) closer.addEventListener('click', hide);
+
+  // Reaching the end counts only if enough time passed to have actually read it. A scroll check
+  // rather than an observer, because the end marker sits above the footer and a jump to the
+  // bottom of the page can pass straight over it without the observer ever firing.
+  function look() {
+    if (done) return;
+    if (Date.now() - PAGE_OPENED < 20000) return;     // jumped to the bottom, or just landed
+    const r = end.getBoundingClientRect();
+    if (r.top <= window.innerHeight) {
+      window.removeEventListener('scroll', look);
+      earn();
+    }
+  }
+  window.addEventListener('scroll', look, { passive: true });
+  setTimeout(look, 20500);                            // already at the end and simply reading
+})();
 document.addEventListener('submit', e => {
   const f = e.target;
   // Two things a real visitor produces and a script posting the form does not: time spent on

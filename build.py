@@ -357,6 +357,27 @@ section.pad-sm{padding:56px 0}
 .art-grid figure:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
 .art-grid img{width:100%;height:100%;object-fit:contain}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* the badge for finishing an article or an object's page, same look as Nura's */
+#read-toast{position:fixed;inset-inline-start:50%;bottom:26px;transform:translateX(-50%) translateY(10px);
+  z-index:70;display:flex;align-items:center;gap:12px;background:rgba(46,33,24,.96);color:#fdf8f0;
+  border-radius:12px;padding:13px 16px;box-shadow:0 18px 44px rgba(40,26,14,.35);
+  max-width:min(460px,calc(100vw - 28px));opacity:0;transition:opacity .35s,transform .35s}
+#read-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+#read-toast[hidden]{display:none}
+#read-toast .rt-icon{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#241a10;
+  display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 auto}
+#read-toast b{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+#read-toast p{margin:2px 0 0;font-size:14.5px;font-family:var(--serif);line-height:1.25}
+#read-toast .rt-go{color:#fdf8f0;font-size:12.5px;white-space:nowrap;border:1px solid rgba(253,248,240,.35);
+  border-radius:999px;padding:7px 13px;text-decoration:none}
+#read-toast .rt-go:hover{background:var(--gold);border-color:var(--gold);color:#241a10}
+#rt-close{border:0;background:none;color:rgba(253,248,240,.6);font-size:19px;cursor:pointer;
+  line-height:1;margin-inline-start:auto;padding:4px}
+@media(prefers-reduced-motion:reduce){#read-toast{transition:none}}
+@media(max-width:560px){#read-toast{inset-inline:14px;inset-inline-start:14px;transform:none;
+    max-width:none;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  #read-toast.on{transform:none}
+  #read-toast .rt-go{display:none}}
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .past-events{max-width:860px;margin:0 auto;display:grid;gap:2px}
 .past-ev{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--mist)}
@@ -1516,6 +1537,64 @@ document.addEventListener('click', e => {
   if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
 });
 const PAGE_OPENED = Date.now();
+
+// A badge for reaching the end of something worth finishing: an article, or an object's page.
+// It marks finishing, never arriving, which is why there is none on the home page or a form.
+// Earned badges live in this browser only, so treat them as a small pleasure, not a record.
+(function () {
+  const end = document.getElementById('read-end');
+  const toast = document.getElementById('read-toast');
+  if (!end || !toast) return;
+  const KEY = 'tanitxr.read';
+  const id = end.dataset.badge || 'read';
+  const here = location.pathname;
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const write = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* private mode */ } };
+  const MILESTONE = id === 'read-story' ? 3 : 10;
+
+  let done = false;
+  function earn() {
+    if (done) return;
+    done = true;
+    const state = read();
+    const seen = Array.isArray(state[id]) ? state[id] : [];
+    const first = seen.length === 0;
+    if (seen.indexOf(here) === -1) seen.push(here);
+    state[id] = seen;
+    const hit = seen.length === MILESTONE;
+    write(state);
+    if (!first && !hit) return;                       // only the first, and the milestone
+    if (hit) {
+      toast.querySelector('.rt-first').hidden = true;
+      toast.querySelector('.rt-more').hidden = false;
+    }
+    toast.hidden = false;
+    requestAnimationFrame(() => toast.classList.add('on'));
+    if (window.tx) tx('badge_earned', { badge: hit ? id + '-' + MILESTONE : id });
+    setTimeout(hide, 11000);
+  }
+  function hide() {
+    toast.classList.remove('on');
+    setTimeout(() => { toast.hidden = true; }, 400);
+  }
+  const closer = document.getElementById('rt-close');
+  if (closer) closer.addEventListener('click', hide);
+
+  // Reaching the end counts only if enough time passed to have actually read it. A scroll check
+  // rather than an observer, because the end marker sits above the footer and a jump to the
+  // bottom of the page can pass straight over it without the observer ever firing.
+  function look() {
+    if (done) return;
+    if (Date.now() - PAGE_OPENED < 20000) return;     // jumped to the bottom, or just landed
+    const r = end.getBoundingClientRect();
+    if (r.top <= window.innerHeight) {
+      window.removeEventListener('scroll', look);
+      earn();
+    }
+  }
+  window.addEventListener('scroll', look, { passive: true });
+  setTimeout(look, 20500);                            // already at the end and simply reading
+})();
 document.addEventListener('submit', e => {
   const f = e.target;
   // Two things a real visitor produces and a script posting the form does not: time spent on
@@ -1929,8 +2008,32 @@ def social_img(name):
     return rel
 
 
+def read_badge_html(kind):
+    """The end-of-reading badge, for pages that are actually read to the end: an article and an
+    object's page. Google Arts & Culture gives one when you finish a story, and it works because
+    it marks finishing something, not arriving. The words live here rather than in the script so
+    they get translated with the rest of the page."""
+    if kind == "story":
+        first = "You read it to the end"
+        more = "Three stories read"
+        icon, bid, back = "\u2726", "read-story", "news.html"
+    else:
+        first = "You gave this one your time"
+        more = "Ten objects studied"
+        icon, bid, back = "\u25c8", "read-object", "archive.html"
+    return f"""
+<span id="read-end" aria-hidden="true" data-badge="{bid}" style="display:block;height:1px"></span>
+<div id="read-toast" hidden>
+<span class="rt-icon" aria-hidden="true">{icon}</span>
+<div><b>Badge earned</b>
+<p class="rt-first">{first}</p>
+<p class="rt-more" hidden>{more}</p></div>
+<a class="rt-go" href="{back}">More like this</a>
+<button id="rt-close" type="button" aria-label="Close">&times;</button></div>"""
+
+
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
-         share_img="aug-20260813_124249.jpg", jsonld=None):
+         share_img="aug-20260813_124249.jpg", jsonld=None, read_badge=None):
     # like the original site, the menu floats over the page hero photo wherever there is one
     transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
@@ -2015,6 +2118,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <body>
 {header_html(active or fname, transparent, fname)}
 {body}
+{read_badge_html(read_badge) if read_badge else ''}
 {trending_html() if trending else ''}
 {footer_html()}
 <script src="assets/site.js?v={ASSET_V}"></script>
@@ -4393,7 +4497,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 </div>
 </div></section>"""
         page(m["href"], m["title"], body, active="archive.html",
-             desc=m["text"][:150],
+             desc=m["text"][:150], read_badge="object",
              jsonld=[{"@context": "https://schema.org", "@type": "3DModel", "name": m["title"],
                       "url": SITE_URL + m["href"][:-5] + "/", "isAccessibleForFree": True,
                       "contentLocation": {"@type": "Place", "name": nice_place(m["place"]) + ", Tunisia"},
@@ -4454,7 +4558,8 @@ def build_news():
             _art["author"] = {"@type": "Person", "name": author}
         if n.get("img"):
             _art["image"] = [SITE_URL + social_img(n["img"])]
-        page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art])
+        page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art],
+             read_badge="story")
 
 
 def build_people():

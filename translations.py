@@ -5,6 +5,7 @@
 # intentionally stay in English for now.
 
 FR = {
+    'More like this': 'D’autres comme celui-ci',
     # ---- navigation / header ----
     ">Home</a>": ">Accueil</a>",
     ">Archive</a>": ">Archives</a>",
@@ -1693,10 +1694,17 @@ FR = {
     'Press &amp; Recognition': 'Presse et reconnaissance',
     'Logo, horizontal': 'Logo horizontal',
     'Logo, vertical': 'Logo vertical',
+
+    # ---- added 2026-09-22: pages that were still English ----
+    'You gave this one your time': 'Vous avez pris le temps pour celui-ci',
+    'You read it to the end': 'Vous l’avez lu jusqu’au bout',
+    'Ten objects studied': 'Dix objets étudiés',
+    'Three stories read': 'Trois articles lus',
 }
 
 
 AR = {
+    'More like this': 'المزيد من هذا',
     # ---- navigation / header ----
     ">Home</a>": ">الرئيسية</a>",
     ">Archive</a>": ">الأرشيف</a>",
@@ -3381,5 +3389,11 @@ AR = {
 
     # ---- added 2026-09-22: pages that were still English ----
     'Press &amp; Recognition': 'الصحافة والتقدير',
+
+    # ---- added 2026-09-22: pages that were still English ----
+    'You gave this one your time': 'منحتم هذه القطعة وقتكم',
+    'You read it to the end': 'قرأتموه حتى النهاية',
+    'Ten objects studied': 'عشر قطع تمت دراستها',
+    'Three stories read': 'ثلاثة مقالات مقروءة',
 }
 
