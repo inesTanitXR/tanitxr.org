@@ -1513,6 +1513,43 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
     padding-bottom:calc(252px + env(safe-area-inset-bottom,0px))}
 }
 
+/* ---- the scanning guide: one long document, reachable in pieces ----------------------
+   Every panel is in the page whether the tabs work or not. Without JavaScript they simply
+   stack, one after another, in the order of the document, so the guide still reads whole
+   for a printout, a search engine or an assistant. */
+.guide{margin-top:34px;scroll-margin-top:96px}  /* the header is sticky and was covering the tabs */
+.gtabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin;
+  border-bottom:1px solid var(--line, #e6e3dd);margin-bottom:8px;
+  -webkit-overflow-scrolling:touch}
+.gtab{flex:0 0 auto;font:inherit;font-size:14.5px;cursor:pointer;white-space:nowrap;
+  border:1px solid rgba(74,53,43,.18);background:#fff;color:#4a3527;border-radius:999px;
+  padding:9px 16px;transition:background .15s,color .15s,border-color .15s}
+.gtab:hover{border-color:var(--gold-dark)}
+.gtab[aria-selected="true"]{background:#241a10;border-color:#241a10;color:#fdf8f0}
+.gtab:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
+.guide[data-tabs] .gpanel{display:none}
+.guide[data-tabs] .gpanel.on{display:block}
+.gpanel{padding-top:10px}
+.gpanel h2:first-child{margin-top:18px}
+.gsteps{list-style:none;counter-reset:gstep;padding:0;margin:0}
+.gsteps>li{counter-increment:gstep;position:relative;padding-inline-start:52px;
+  padding-bottom:10px;margin-top:26px}
+.gsteps>li:before{content:counter(gstep);position:absolute;inset-inline-start:0;top:2px;
+  width:34px;height:34px;border-radius:50%;background:var(--gold);color:#241a10;
+  font-family:var(--serif);font-size:17px;display:flex;align-items:center;justify-content:center}
+.gsteps>li>h3{margin:4px 0 8px}
+.gnote{background:#fdf6e6;border:1px solid rgba(185,143,0,.35);border-radius:12px;
+  padding:14px 16px;margin-top:22px}
+.gcheck{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:16px 0 4px;
+  line-height:1.45}
+.gcheck input{margin-top:4px;flex:0 0 auto}
+@media(max-width:640px){
+  .gtabs{margin-inline:-20px;padding-inline:20px}
+  .gtab{font-size:14px;padding:8px 14px}
+  .gsteps>li{padding-inline-start:44px}
+  .gsteps>li:before{width:30px;height:30px;font-size:15px}
+}
+@media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}}
 /* ---- Nura around the rest of the site ------------------------------------------------
    She is the companion from the Collection, dropping in on ordinary pages the way a chat
    widget would, except she wants nothing. Nothing is drawn until she has something to say,
@@ -1648,6 +1685,62 @@ const PAGE_OPENED = Date.now();
   }
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
+})();
+// The scanning guide is one long document split across tabs. The panels are all in the page
+// already: this only hides the ones you are not reading, and only once it is running, so a
+// browser with no JavaScript, a printout and anything crawling the site still get the lot.
+(function () {
+  const guide = document.getElementById('guide');
+  if (!guide) return;
+  const tabs = [].slice.call(guide.querySelectorAll('.gtab'));
+  const panels = [].slice.call(guide.querySelectorAll('.gpanel'));
+  if (!tabs.length || tabs.length !== panels.length) return;
+  guide.setAttribute('data-tabs', 'on');
+
+  function open(key, push) {
+    let found = false;
+    tabs.forEach((t, i) => {
+      const on = t.id === 't-' + key;
+      if (on) found = true;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      panels[i].classList.toggle('on', on);
+    });
+    if (!found) { open(tabs[0].id.slice(2), false); return; }
+    if (push && history.replaceState) history.replaceState(null, '', '#' + key);
+    if (window.tx) tx('guide_tab', { step: key });
+  }
+
+  tabs.forEach((t) => t.addEventListener('click', () => {
+    open(t.id.slice(2), true);
+    guide.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }));
+
+  // arrow keys move along the row, the way a set of tabs is expected to behave
+  guide.querySelector('.gtabs').addEventListener('keydown', (e) => {
+    const i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    let j = -1;
+    if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+    if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+    if (e.key === 'Home') j = 0;
+    if (e.key === 'End') j = tabs.length - 1;
+    if (j < 0) return;
+    e.preventDefault();
+    tabs[j].focus();
+    open(tabs[j].id.slice(2), true);
+  });
+
+  // a link into a panel, from the page itself or from somebody else's bookmark
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-go]');
+    if (!a) return;
+    e.preventDefault();
+    open(a.dataset.go, true);
+    guide.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  });
+  addEventListener('hashchange', () => open(location.hash.slice(1), false));
+  open((location.hash || '#').slice(1) || tabs[0].id.slice(2), false);
 })();
 // Nura, wandering the rest of the site. The whole design here is restraint: she says one
 // thing per page at most, never in the first seconds, never while the reading badge is on
@@ -5721,102 +5814,323 @@ page.</p>
 
 
 def build_scanning_guide():
-    body = f"""
-{page_hero("Tanit XR Scanning Guide", "Scanning Guide", bg="sv-IMG_4213.jpg")}
-<section class="pad"><div class="wrap"><div class="prose">
-<h2>Using Scaniverse to Preserve Heritage</h2>
-<h3>📲 Getting Started</h3>
+    """The scanning guide, word for word from the document Rachel and Bety maintain.
+
+    The document runs to several thousand words, which nobody reads on a phone in a
+    courtyard. Nothing here is rewritten or shortened: the text is split across tabs so a
+    volunteer can reach the part they need, and every panel is in the HTML whether or not
+    the tabs are working, so a search engine, an assistant, a printout and a browser with
+    no JavaScript all get the whole guide."""
+    tabs = [
+        ("ethics", term("Ethics")),
+        ("what", term("What to scan")),
+        ("setup", term("Set up the app")),
+        ("scan", term("Scan it")),
+        ("process", term("Process and send")),
+        ("tips", term("Tips and support")),
+        ("consent", term("Sign the consent form")),
+    ]
+    nav = "".join(
+        f'<button type="button" class="gtab" role="tab" id="t-{k}" aria-controls="p-{k}" '
+        f'aria-selected="{"true" if i == 0 else "false"}">{esc(label)}</button>'
+        for i, (k, label) in enumerate(tabs))
+
+    ethics = f"""
+<h2>Our Ethical Commitments</h2>
+<p>As a TanitXR Heritage Scout, you are part of a global community that is dedicated to upholding the
+highest standards in ethical digital heritage. Our core pillars are:</p>
 <ul>
-<li><b>App:</b> Download Scaniverse from the iOS App Store (iPhone 12 Pro or newer recommended for LiDAR support).</li>
-<li><b>Goal:</b> Create detailed 3D scans of historical landmarks, ruins, pottery, architecture, and cultural
-artifacts for a global digital heritage archive.</li>
+<li><b>People and communities first.</b> We document heritage with communities, not just about them. The
+people who hold, use, and remember a place or object have the first and final say in how it is documented
+and shared.</li>
+<li><b>Consent where it counts.</b> For publicly visible heritage — building exteriors, monuments,
+facades, ruins, and public art — public visibility is generally a sound basis to document, subject to
+local rules and any permit requirements. For living or community heritage we seek free, prior, and informed
+consent from the relevant owners, caretakers, or cultural authorities first. This process requires the
+involvement of the TanitXR Leadership Team.</li>
+<li><b>Community authority and data sovereignty.</b> Communities decide whether their heritage is scanned,
+what is captured, and whether the result is shared openly, shared conditionally, or kept restricted. This
+authority continues after the scan is made.</li>
+<li><b>Do no harm.</b> We do not scan sacred, ceremonial, funerary, or human remains, private interiors, or
+objects of contested or unclear ownership without explicit authorization from the right people.</li>
+<li><b>Transparency and authenticity.</b> We always document where a scan came from, and how it was
+made.</li>
+<li><b>Reciprocity and benefit.</b> Documentation should benefit the community whose heritage it is, for
+example, by offering them a copy of the scan and crediting the knowledge holders who made it possible.</li>
+<li><b>Legal compliance.</b> We respect national and local heritage laws, protected-site designations, and
+permit requirements. When a permit is required, we obtain it before scanning.</li>
 </ul>
-<img src="{img('https://tanitxr.org/wp-content/uploads/2025/09/image.png', 1200)}" alt="Scaniverse scanning example">
-<h2>🧭 Choosing What to Scan</h2>
+<p class="gnote"><b><a href="#consent" data-go="consent">Click here</a> to sign our Ethical Scanning consent
+form before conducting your first scan.</b></p>"""
+
+    what = f"""
+<h2>Digitizing Tangible Heritage (Objects and Sites)</h2>
+<p>Note: Many cultural heritage sites and points of interest are protected and managed by governmental
+organizations. To digitize sites within these areas, formal permission is required.</p>
+<p><b>TanitXR is digitizing heritage sites or archaeological features that are plainly visible in public
+places. This includes what you can see from streets and public plazas.</b></p>
 <p>Not sure where to start? Look for objects, places, and details that carry cultural, historical, artistic,
-or community meaning.</p>
-<p><b>Good things to scan include:</b></p>
+or community meaning. These sites are all around you!</p>
+<p>Good things to scan include:</p>
 <ul>
-<li><b>Architecture and ruins</b>, doors, arches, columns, facades, walls, courtyards, tombs, monuments, and historic homes</li>
-<li><b>Objects and artifacts</b>, pottery, tools, carvings, statues, tiles, jewelry, textiles, inscriptions, and household items</li>
-<li><b>Small details</b>, patterns, textures, symbols, damage, repairs, maker’s marks, or decorative elements</li>
-<li><b>Everyday heritage</b>, bakeries, workshops, markets, gathering places, family heirlooms, gardens, and community spaces</li>
-<li><b>At-risk heritage</b>, places or objects threatened by weather, neglect, development, conflict, theft, or loss of memory</li>
+<li><b>Architecture and ruins</b> — doors, arches, columns, facades, walls, courtyards, monuments, and
+the exterior of historic homes</li>
+<li><b>Objects and artifacts</b> — pottery, tools, carvings, statues, tiles, textiles, inscriptions, and
+household items</li>
+<li><b>Small details</b> — patterns, textures, symbols, damage, repairs, maker's marks, or decorative
+elements</li>
+<li><b>Everyday heritage</b> — bakeries, workshops, markets, gathering places, family heirlooms, gardens,
+and community spaces</li>
+<li><b>At-risk heritage</b> — places or objects threatened by weather, neglect, development, conflict,
+theft, or loss of memory</li>
 </ul>
-<p><b>Before scanning, ask:</b></p>
+<p>What not to scan:</p>
 <ul>
-<li>What story does this object or place tell?</li>
-<li>Who uses it, remembers it, or cares about it?</li>
-<li>Is it connected to a tradition, craft, family, neighborhood, or historic event?</li>
-<li>Is it changing, disappearing, or at risk?</li>
+<li>Shiny or reflective textures (difficult for scanner to pick up)</li>
+<li>Moveable objects (like textiles or tapestries that are blowing in the wind)</li>
+<li>Busy areas (pedestrian and vehicle traffic can add noise to your scan and complicate processing)</li>
 </ul>
-<p><b>Please do not scan sacred, private, restricted, or sensitive objects without permission.</b> When in
-doubt, ask a local caretaker, community member, owner, or cultural authority first.</p>
-<h2>🕯️ Scanning Intangible Heritage</h2>
+<h2>Digitizing Intangible Heritage (Stories and Practices)</h2>
 <p>Some heritage is not just a building or object. It lives in stories, songs, rituals, recipes, crafts,
-dances, languages, memories, and everyday practices. This is called <b>intangible heritage</b>.</p>
+dances, languages, memories, and everyday practices. This is called intangible heritage.</p>
 <p>You cannot always 3D scan intangible heritage directly, but you can document the objects, spaces, and
-people connected to it. Examples:</p>
+people connected to it.</p>
+<p>Examples:</p>
 <ul>
 <li>A traditional bread recipe → scan the oven, tools, table, or bakery space</li>
 <li>A weaving practice → scan the loom, textile patterns, tools, or finished pieces</li>
-<li>A family story → scan the home, courtyard, photograph, object, or place connected to the memory</li>
-<li>A festival or ritual → scan decorations, costumes, instruments, gathering spaces, or symbolic objects</li>
 <li>A disappearing craft → scan the tools, workshop, materials, and finished work</li>
+<li>A family story → scan the home, courtyard, photograph, object, or place connected to the memory.
+Proceed with caution, as homes are private spaces and family memories are personal. Record them only with
+documented consent, and respect any limits that families set on how their story, home, and belongings are
+shared.</li>
+<li>A festival or ritual → scan decorations, costumes, instruments, gathering spaces, or symbolic objects.
+Proceed with caution, as working on ceremonies, sacred practices and objects may be restricted or require
+additional permissions.</li>
 </ul>
-<p>When documenting intangible heritage, include context with your upload: what the tradition is called, who
-practices it, where it happens, how you learned about it, why it matters, and any story, memory, or quote
-that should go with the scan.</p>
-<p><b>Always get permission</b> before recording people, private spaces, ceremonies, sacred practices, or
-personal stories. Tanit XR is not just preserving objects, we are preserving the worlds, memories, and
-meanings around them.</p>
-<h3>🧱 Step-by-Step Scanning Instructions</h3>
-<h4>1. Open Scaniverse</h4>
+<p>When documenting intangible heritage, include context with your upload:</p>
 <ul>
-<li>Tap the “+” button to start a new scan.</li>
-<li>Choose <b>“Mesh”</b> (not “Splat”), this is what we need for Tanit XR.</li>
-<li>Select the size of your object: <b>Small Object</b> (pottery, carvings, statues), <b>Medium Object</b>
-(doors, columns, mosaics), or <b>Large Area</b> (facades, walls, monuments).</li>
+<li>What is this tradition, story, or practice called?</li>
+<li>Who practices it?</li>
+<li>Where does it happen?</li>
+<li>How did you learn about it?</li>
+<li>Why does it matter?</li>
+<li>Is there a story, memory, or quote that should go with the scan?</li>
+</ul>"""
+
+    setup = f"""
+<h2>Getting Started</h2>
+<p><b>App:</b> Download Scaniverse (free, by Niantic Spatial, Inc.) from the
+<a href="https://apps.apple.com/us/app/scaniverse-3d-scanner/id1541433223" target="_blank" rel="noopener">iOS
+App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.scaniverse"
+target="_blank" rel="noopener">Google Play</a>.</p>
+<p><b>Goal:</b> Create detailed 3D scans of historical landmarks, ruins, pottery, architecture, and cultural
+artifacts for a global digital heritage archive.</p>
+<h3>Minimum System Requirements</h3>
+<p><b>iOS (iPhone / iPad)</b></p>
+<ul>
+<li>iOS 16.6 or later</li>
+<li>A device with the A12 Bionic chip or later:
+<ul>
+<li>iPhone XR / XS / XS Max or newer</li>
+<li>iPhone SE (2nd or 3rd generation)</li>
+<li>iPad (8th gen+), iPad Air (4th gen+), iPad Mini (5th gen+), iPad Pro 11" (all), iPad Pro 12.9" (3rd
+gen+)</li>
 </ul>
-<h4>2. Begin the Scan</h4>
+</li>
+<li>Newer iPhones scan faster and more accurately, but any supported device works.</li>
+</ul>
+<p><b>Android</b></p>
 <ul>
-<li>Move slowly around the object while recording a video.</li>
+<li>Android 7.0 (Nougat) or later</li>
+<li>At least 4 GB of RAM</li>
+<li>ARCore with Depth API support</li>
+<li>On Android, Scaniverse builds 3D models from camera footage (photogrammetry). Scans work well but take
+longer to process than on modern iPhones.</li>
+</ul>
+<h3>First Launch: Choose "Classic"</h3>
+<p>When you first open Scaniverse, you'll see a <b>"Choose your experience"</b> screen with two options:
+<b>New</b> and <b>Classic</b>.</p>
+<ul>
+<li><b>Select "Classic."</b> This is the experience Tanit XR uses — it processes scans on your phone,
+supports Mesh mode, and lets you export FBX files directly from the app.</li>
+<li>The "New" experience requires creating an account and is designed for teams using Niantic's cloud-based
+Sites workflow, which uses a monthly credit system. We are not using it at this time.</li>
+<li><b>No account needed in Classic mode.</b> If the app asks you to sign in or create an account, just tap
+<b>"Skip for now"</b> — you can scan, process, and export without one.</li>
+<li>If you accidentally chose "New," you can switch back: go to <b>Library → Settings</b> and select the
+Classic experience.</li>
+</ul>"""
+
+    scan = f"""
+<h2>Step-by-Step Scanning Instructions</h2>
+<ol class="gsteps">
+<li><h3>Open Scaniverse (Classic experience)</h3>
+<ul>
+<li>Tap the <b>"+"</b> button to start a new scan.</li>
+<li>Choose <b>"Mesh"</b> (not "Splat") — this is what we need for Tanit XR.</li>
+<li>Select the size of your object:
+<ul>
+<li><b>Small Object</b> – pottery, carvings, statues</li>
+<li><b>Medium Object</b> – doors, columns, mosaics</li>
+<li><b>Large Area</b> – facades, walls, monuments</li>
+</ul>
+</li>
+<li>The app automatically uses the best scanning method for your device — no extra setup needed on iOS or
+Android.</li>
+</ul>
+</li>
+<li><h3>Begin the Scan</h3>
+<ul>
+<li>Point the camera at the object, then <b>tap</b> the record button to start — no need to hold it down.
+Tap again when you're finished.</li>
+<li><b>Only seeing red lines on screen?</b> Check that the lighting is good, then point the camera directly
+at the object <i>before</i> tapping the record button. As you scan, some areas of your scene will have
+diagonal red lines and others will not — the red-lined areas are the parts you haven't captured yet, so
+keep moving until they're gone.</li>
+<li>Move slowly around the object while recording a video. keep the camera slowly moving at all times; don't
+pause or go too fast, as the camera can get disoriented</li>
 <li>Get multiple angles: walk around, crouch down, raise your phone, etc.</li>
 <li>Avoid fast movements and make sure to capture all sides.</li>
+<li>scans can be completed indoors or outdoors. The most important thing is even lighting (lack of shadows
+or bright lights).</li>
+<li>Pedestrian traffic and/or moveable objects in the area should also be avoided. Aim to capture objects
+with a fixed shape.</li>
 <li>In bright sun, try to scan in partial shade or overcast light.</li>
+<li>Aim for <b>1–3 minutes of scanning</b> — longer scans can actually reduce quality.</li>
+<li>As you scan, blurry areas on screen show where you still need coverage. Keep moving until the whole
+object looks sharp.</li>
+<li><b>Android users:</b> capture extra overlapping angles and passes. Android relies entirely on camera
+footage to build the 3D model, so thorough coverage and good, even light matter even more.</li>
 </ul>
-<h4>3. Save Without Processing (Important!)</h4>
+</li>
+<li><h3>Save Without Processing (Important!)</h3>
 <ul>
-<li>If you’re outside and don’t have strong Wi-Fi or data, tap <b>“Save to process later.”</b></li>
-<li>Processing uses a lot of data, it’s best to wait until you’re home with Wi-Fi.</li>
+<li>When you are done scanning, tap <b>Area</b> or <b>Detail</b> to process the scan immediately, or
+<b>Save Draft</b> to process later.</li>
+<li><b>Note:</b> processing your data can drain your battery, so you may want to save your captures and then
+process them later with your phone plugged in to a power source. This is especially true on Android, where
+processing takes longer than on modern iPhones.</li>
+<li>We recommend processing your scan with the <b>Detail</b> setting, which can take several minutes.</li>
 </ul>
-<h3>🗂️ Processing and Exporting</h3>
-<h4>4. Back at Home: Process Your Scan</h4>
+</li>
+</ol>"""
+
+    process = f"""
+<h2>Processing and Exporting</h2>
+<ol class="gsteps" start="4">
+<li><h3>Back at Home: Process Your Scan</h3>
 <ul>
-<li>Open the Scaniverse Library (bottom menu).</li>
-<li>Tap your saved scan, tap the name, and give it a clear title (e.g., “Ksar Ouled Soltane – Main Door”).</li>
-<li>Tap “Process” and wait for the app to complete the 3D model.</li>
+<li>Open the Scaniverse <b>Library</b> (bottom menu).</li>
+<li>Tap your saved scan.</li>
+<li>Tap the name and give it a clear title (e.g., "Ksar Ouled Soltane – Main Door").</li>
+<li>Tap <b>"Process"</b> and choose the <b>Detail</b> setting, then wait for the app to complete the 3D
+model.</li>
+<li>Keep Scaniverse open in the foreground while it processes. On high-end Android phones this typically
+takes a few minutes per scan; older devices may take longer.</li>
 </ul>
-<h4>5. Export the Model</h4>
+</li>
+<li><h3>Export the Model</h3>
 <ul>
-<li>Once processed, tap “Share” &gt; “Export Model.”</li>
-<li>Select <b>FBX</b> format and keep <b>textures enabled</b>.</li>
-<li>Name it “Scan Title_Location”.</li>
+<li>Once processed, tap <b>"Share" &gt; "Export Model."</b></li>
+<li>Select <b>FBX</b> format.</li>
+<li>Keep textures enabled.</li>
+<li>Name it <b>"Scan Title_Location"</b></li>
 </ul>
-<h4>6. Share Your Model</h4>
-<p>Email your exported file (or a link to it) along with a short description of the model, any historical
-info you know, and your name to <a href="mailto:{EMAIL}?subject=New%20scan%20submission">{EMAIL}</a>.
-For large files, share a Google Drive, Dropbox, or WeTransfer link.</p>
-<h3>✅ Tips for Great Scans</h3>
+</li>
+<li><h3>Share Your Model</h3>
+<p>Upload your file, below, and then email description and other details to
+<a href="mailto:{EMAIL}">{EMAIL}</a></p>
+</li>
+</ol>"""
+
+    tips = f"""
+<h2>✅ Tips for Great Scans</h2>
 <ul>
 <li>Scan slowly and steadily</li>
+<li>Spend 1–3 minutes per scan — longer can reduce quality</li>
 <li>Avoid people or shadows in your scan</li>
-<li>Focus on texture and angles, walk around the object fully</li>
-<li>Natural daylight is good, but harsh sun causes glare, avoid scanning at noon</li>
+<li>Focus on texture and angles — walk around the object fully</li>
+<li>Watch for blurry areas on screen and re-scan them until they sharpen</li>
+<li>Natural daylight is good, but harsh sun causes glare – avoid scanning at noon</li>
+<li>Charge your phone before heading out — scanning and processing use a lot of battery</li>
+<li>Keep Scaniverse open while your scan is processing</li>
 </ul>
-</div></div></section>"""
+<h2>ℹ️ Support</h2>
+<ul>
+<li>Scaniverse FAQ: <a href="https://www.nianticspatial.com/faq/scaniverse" target="_blank"
+rel="noopener">https://www.nianticspatial.com/faq/scaniverse</a></li>
+<li>Personal account FAQ (Classic app help): <a href="https://www.nianticspatial.com/en/faq/scaniverse-personal"
+target="_blank" rel="noopener">https://www.nianticspatial.com/en/faq/scaniverse-personal</a></li>
+<li>TanitXR Support: email <a href="mailto:{EMAIL}">{EMAIL}</a> with your question and a member of the
+Leadership Team will get back to you.</li>
+<li>TanitXR Community: attend a weekly standup meeting.</li>
+</ul>"""
+
+    consent = f"""
+<h2>Ethical Scanning consent form</h2>
+<p>Sign this once, before your first scan. It tells us you have read the ethical commitments and that you
+agree to work by them.</p>
+<form class="nice" action="{FORM_ENDPOINT}" method="POST">
+<input type="hidden" name="_subject" value="Ethical Scanning consent, tanitxr.org">
+<input type="hidden" name="_form" value="scanning-consent">
+<input type="hidden" name="_captcha" value="true">
+{thanks_next("scanning-consent")}
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
+<label class="req" for="cf-name">Full name</label>
+<input id="cf-name" type="text" name="name" required autocomplete="name">
+<label class="req" for="cf-email">Email</label>
+<input id="cf-email" type="email" name="email" required autocomplete="email">
+<label for="cf-where">Where you expect to be scanning</label>
+<input id="cf-where" type="text" name="where" placeholder="City, country">
+<label class="gcheck"><input type="checkbox" name="read_commitments" value="yes" required>
+I have read the ethical commitments on this page and I agree to work by them.</label>
+<label class="gcheck"><input type="checkbox" name="ask_first" value="yes" required>
+For living or community heritage, I will involve the TanitXR Leadership Team and seek consent before I
+scan.</label>
+<label class="req" for="cf-sign">Type your name to sign</label>
+<input id="cf-sign" type="text" name="signature" required>
+<button class="btn" type="submit">Sign and send</button>
+</form>"""
+
+    panels = {"ethics": ethics, "what": what, "setup": setup, "scan": scan,
+              "process": process, "tips": tips, "consent": consent}
+    body_panels = "".join(
+        f'<section class="gpanel prose" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">{panels[k]}</section>'
+        for k, _ in tabs)
+
+    body = f"""
+{page_hero("Tanit XR Scanning Guide", "Scanning Guide", bg="sv-IMG_4213.jpg")}
+<section class="pad"><div class="wrap">
+<div class="prose">
+<h2>Using Scaniverse to Preserve Heritage</h2>
+<p>TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,
+architecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never
+just an object, whether digital or physical. It belongs to living communities, it carries meaning and
+memory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and
+how to do it ethically: with consent, care, and respect for the people whose heritage it is.</p>
+<p>Our practice follows recognized standards in archaeology and digital heritage, including the
+<a href="https://londoncharter.org/introduction.html" target="_blank" rel="noopener"><b>London Charter</b></a>
+and the <a href="http://sevilleprinciples.com/" target="_blank" rel="noopener"><b>Seville Principles</b></a>
+for computer-based visualization of cultural heritage, UNESCO's
+<a href="https://ich.unesco.org/en/convention" target="_blank" rel="noopener"><b>2003 Convention for the
+Safeguarding of Intangible Cultural Heritage</b></a>, and the
+<a href="https://www.gida-global.org/careprinciples" target="_blank" rel="noopener"><b>CARE Principles for
+Indigenous Data Governance</b></a>. You don't need to memorize these, but know that the TanitXR Scanning
+Guide incorporates these standards into field practice.</p>
+</div>
+<div class="guide" id="guide">
+<div class="gtabs" role="tablist" aria-label="{esc(term("Scanning guide sections"))}">{nav}</div>
+{body_panels}
+</div>
+</div></section>"""
     page("scanning-guide.html", "Tanit XR Scanning Guide", body, active="volunteer.html",
-         desc="How Tanit XR volunteers capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.")
+         desc="How Tanit XR volunteers capture heritage in 3D with a phone: the ethics we work by, what to "
+              "scan and what to leave alone, and Scaniverse step by step from setup to export.",
+         read_badge=None)
 
 
 def build_splats():
@@ -6488,6 +6802,11 @@ TERMS = {
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
+           "Ethics": "Éthique", "What to scan": "Quoi numériser",
+           "Set up the app": "Installer l’application", "Scan it": "Numériser",
+           "Process and send": "Traiter et envoyer", "Tips and support": "Conseils et aide",
+           "Sign the consent form": "Signer le formulaire de consentement",
+           "Scanning guide sections": "Sections du guide de numérisation",
            "News and stories": "Actualités et récits", "Stories": "Récits",
            "Announcements": "Annonces", "Announcement": "Annonce",
            "Written by our volunteers: what they scanned, and what they found out about it.":
@@ -6505,6 +6824,11 @@ TERMS = {
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
+           "Ethics": "الأخلاقيات", "What to scan": "ماذا تمسح",
+           "Set up the app": "إعداد التطبيق", "Scan it": "المسح",
+           "Process and send": "المعالجة والإرسال", "Tips and support": "نصائح ومساعدة",
+           "Sign the consent form": "توقيع استمارة الموافقة",
+           "Scanning guide sections": "أقسام دليل المسح",
            "News and stories": "أخبار وحكايات", "Stories": "حكايات",
            "Announcements": "إعلانات", "Announcement": "إعلان",
            "Written by our volunteers: what they scanned, and what they found out about it.":

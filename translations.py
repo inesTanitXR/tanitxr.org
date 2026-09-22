@@ -1718,6 +1718,14 @@ FR = {
     'Running the history sessions': 'Animation des sessions d’histoire',
     'AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage': 'AWE USA 2026, des scans à la XR : une chaîne de production concrète pour le patrimoine',
     "Ines Said and Margarita Johnson presented Tanit XR&#x27;s pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.": 'Ines Said et Margarita Johnson ont présenté la chaîne de production de Tanit XR à l’Augmented World Expo USA 2026, à Long Beach en Californie, le 18 juin.',
+    'Sign this once, before your first scan. It tells us you have read the ethical commitments and that you agree to work by them.': 'À signer une seule fois, avant votre première numérisation. Cela nous indique que vous avez lu les engagements éthiques et que vous acceptez de les respecter.',
+    'Ethical Scanning consent form': 'Formulaire de consentement pour une numérisation éthique',
+    'Where you expect to be scanning': 'Où comptez-vous numériser',
+    'I have read the ethical commitments on this page and I agree to work by them.': 'J’ai lu les engagements éthiques de cette page et j’accepte de les respecter.',
+    'For living or community heritage, I will involve the TanitXR Leadership Team and seek consent before I scan.': 'Pour le patrimoine vivant ou communautaire, je solliciterai l’équipe dirigeante de TanitXR et j’obtiendrai un consentement avant de numériser.',
+    'Type your name to sign': 'Tapez votre nom pour signer',
+    'Sign and send': 'Signer et envoyer',
+    'City, country': 'Ville, pays',
 }
 
 
@@ -3431,5 +3439,13 @@ AR = {
     'Running the history sessions': 'إدارة جلسات التاريخ',
     'AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage': 'AWE USA 2026، من المسح إلى الواقع الممتد: مسار عملي للتراث الثقافي',
     "Ines Said and Margarita Johnson presented Tanit XR&#x27;s pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.": 'قدّمت إيناس سعيد ومارغريتا جونسون مسار عمل تانيت إكس آر في Augmented World Expo USA 2026 بلونغ بيتش، كاليفورنيا، يوم 18 جوان.',
+    'Sign this once, before your first scan. It tells us you have read the ethical commitments and that you agree to work by them.': 'وقّع هذه الاستمارة مرة واحدة قبل أول عملية مسح. تخبرنا أنك قرأت الالتزامات الأخلاقية وتوافق على العمل بها.',
+    'Ethical Scanning consent form': 'استمارة الموافقة على المسح الأخلاقي',
+    'Where you expect to be scanning': 'أين تتوقع أن تمسح',
+    'I have read the ethical commitments on this page and I agree to work by them.': 'قرأت الالتزامات الأخلاقية في هذه الصفحة وأوافق على العمل بها.',
+    'For living or community heritage, I will involve the TanitXR Leadership Team and seek consent before I scan.': 'في حالة التراث الحي أو المجتمعي، سأُشرك فريق قيادة تانيت إكس آر وأطلب الموافقة قبل المسح.',
+    'Type your name to sign': 'اكتب اسمك للتوقيع',
+    'Sign and send': 'وقّع وأرسل',
+    'City, country': 'المدينة، البلد',
 }
 

@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Guide de numérisation – TANIT XR</title>
-<meta name="description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.">
+<meta name="description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
 <link rel="canonical" href="https://tanitxr.org/fr/scanning-guide/">
 <link rel="alternate" hreflang="en" href="https://tanitxr.org/scanning-guide/"><link rel="alternate" hreflang="fr" href="https://tanitxr.org/fr/scanning-guide/"><link rel="alternate" hreflang="ar" href="https://tanitxr.org/ar/scanning-guide/"><link rel="alternate" hreflang="x-default" href="https://tanitxr.org/scanning-guide/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tanit XR">
 <meta property="og:locale" content="fr">
 <meta property="og:title" content="Tanit XR Scanning Guide – Tanit XR">
-<meta property="og:description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.">
+<meta property="og:description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
 <meta property="og:url" content="https://tanitxr.org/fr/scanning-guide/">
 <meta property="og:image" content="https://tanitxr.org/assets/img/aug-20260813-124249-card.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Tanit XR Scanning Guide – Tanit XR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tanit XR Scanning Guide – Tanit XR">
-<meta name="twitter:description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: photogrammetry basics, permission and ethics, and how a scan becomes a model anyone can use.">
+<meta name="twitter:description" content="How Les bénévoles de Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
 <meta name="twitter:image" content="https://tanitxr.org/assets/img/aug-20260813-124249-card.jpg">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Tanit XR", "url": "https://tanitxr.org/", "logo": "https://tanitxr.org/assets/img/tanitxr-logo-red-vertical-300.png", "description": "A volunteer community that 3D-scans Tunisia's endangered heritage with phones and publishes it free in 3D, AR and VR.", "foundingDate": "2025", "areaServed": "Tunisia", "email": "info@tanitxr.org", "sameAs": ["https://www.instagram.com/tanitxr/", "https://www.linkedin.com/company/tanit-xr/", "https://sketchfab.com/TanitXR"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tanitxr.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Tanit XR Scanning Guide", "item": "https://tanitxr.org/fr/scanning-guide/"}]}</script>
 <meta name="theme-color" content="#fdf8f0">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" href="../../assets/img/cropped-tanitxr-logo-red-vertical-180.png">
-<link rel="stylesheet" href="../../assets/style.css?v=e7a0ee21">
+<link rel="stylesheet" href="../../assets/style.css?v=3e018179">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -50,89 +50,269 @@
 <h1>Guide de numérisation Tanit XR</h1>
 <div class="crumb"><a href="../../fr/">Accueil</a> &nbsp;›&nbsp; Guide de numérisation</div>
 </div></div>
-<section class="pad"><div class="wrap"><div class="prose">
+<section class="pad"><div class="wrap">
+<div class="prose">
 <h2>Utiliser Scaniverse pour préserver le patrimoine</h2>
-<h3>📲 Pour commencer</h3>
+<p>TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,
+architecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never
+just an object, whether digital or physical. It belongs to living communities, it carries meaning and
+memory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and
+how to do it ethically: with consent, care, and respect for the people whose heritage it is.</p>
+<p>Our practice follows recognized standards in archaeology and digital heritage, including the
+<a href="https://londoncharter.org/introduction.html" target="_blank" rel="noopener"><b>London Charter</b></a>
+and the <a href="http://sevilleprinciples.com/" target="_blank" rel="noopener"><b>Seville Principles</b></a>
+for computer-based visualization of cultural heritage, UNESCO's
+<a href="https://ich.unesco.org/en/convention" target="_blank" rel="noopener"><b>2003 Convention for the
+Safeguarding of Intangible Cultural Heritage</b></a>, and the
+<a href="https://www.gida-global.org/careprinciples" target="_blank" rel="noopener"><b>CARE Principles for
+Indigenous Data Governance</b></a>. You don't need to memorize these, but know that the TanitXR Scanning
+Guide incorporates these standards into field practice.</p>
+</div>
+<div class="guide" id="guide">
+<div class="gtabs" role="tablist" aria-label="Sections du guide de numérisation"><button type="button" class="gtab" role="tab" id="t-ethics" aria-controls="p-ethics" aria-selected="true">Éthique</button><button type="button" class="gtab" role="tab" id="t-what" aria-controls="p-what" aria-selected="false">Quoi numériser</button><button type="button" class="gtab" role="tab" id="t-setup" aria-controls="p-setup" aria-selected="false">Installer l’application</button><button type="button" class="gtab" role="tab" id="t-scan" aria-controls="p-scan" aria-selected="false">Numériser</button><button type="button" class="gtab" role="tab" id="t-process" aria-controls="p-process" aria-selected="false">Traiter et envoyer</button><button type="button" class="gtab" role="tab" id="t-tips" aria-controls="p-tips" aria-selected="false">Conseils et aide</button><button type="button" class="gtab" role="tab" id="t-consent" aria-controls="p-consent" aria-selected="false">Signer le formulaire de consentement</button></div>
+<section class="gpanel prose" id="p-ethics" role="tabpanel" aria-labelledby="t-ethics">
+<h2>Our Ethical Commitments</h2>
+<p>As a TanitXR Heritage Scout, you are part of a global community that is dedicated to upholding the
+highest standards in ethical digital heritage. Our core pillars are:</p>
 <ul>
-<li><b>Application :</b> téléchargez Scaniverse sur l’App Store iOS (iPhone 12 Pro ou plus récent recommandé pour le LiDAR).</li>
-<li><b>Objectif :</b> créer des numérisations 3D détaillées de monuments historiques, ruines, poteries, architectures et artéfacts culturels pour une archive numérique mondiale du patrimoine.</li>
+<li><b>People and communities first.</b> We document heritage with communities, not just about them. The
+people who hold, use, and remember a place or object have the first and final say in how it is documented
+and shared.</li>
+<li><b>Consent where it counts.</b> For publicly visible heritage, building exteriors, monuments,
+facades, ruins, and public art, public visibility is generally a sound basis to document, subject to
+local rules and any permit requirements. For living or community heritage we seek free, prior, and informed
+consent from the relevant owners, caretakers, or cultural authorities first. This process requires the
+involvement of the TanitXR Leadership Team.</li>
+<li><b>Communauté authority and data sovereignty.</b> Communities decide whether their heritage is scanned,
+what is captured, and whether the result is shared openly, shared conditionally, or kept restricted. This
+authority continues after the scan is made.</li>
+<li><b>Do no harm.</b> We do not scan sacred, ceremonial, funerary, or human remains, private interiors, or
+objects of contested or unclear ownership without explicit authorization from the right people.</li>
+<li><b>Transparency and authenticity.</b> We always document where a scan came from, and how it was
+made.</li>
+<li><b>Reciprocity and benefit.</b> Documentation should benefit the community whose heritage it is, for
+example, by offering them a copy of the scan and crediting the knowledge holders who made it possible.</li>
+<li><b>Legal compliance.</b> We respect national and local heritage laws, protected-site designations, and
+permit requirements. When a permit is required, we obtain it before scanning.</li>
 </ul>
-<img src="../../assets/img/2025-09-image-1200.png" alt="Exemple de numérisation avec Scaniverse">
-<h2>🧭 Choisir quoi numériser</h2>
-<p>Vous ne savez pas par où commencer ? Cherchez des objets, des lieux et des détails porteurs de sens culturel, historique, artistique ou communautaire.</p>
-<p><b>Bonnes choses à numériser :</b></p>
+<p class="gnote"><b><a href="#consent" data-go="consent">Click here</a> to sign our Formulaire de consentement pour une numérisation éthique before conducting your first scan.</b></p></section><section class="gpanel prose" id="p-what" role="tabpanel" aria-labelledby="t-what">
+<h2>Digitizing Tangible Heritage (Objets and Sites)</h2>
+<p>Note: Many cultural heritage sites and points of interest are protected and managed by governmental
+organizations. To digitize sites within these areas, formal permission is required.</p>
+<p><b>TanitXR is digitizing heritage sites or archaeological features that are plainly visible in public
+places. This includes what you can see from streets and public plazas.</b></p>
+<p>Vous ne savez pas par où commencer ? Cherchez des objets, des lieux et des détails porteurs de sens culturel, historique, artistique ou communautaire. These sites are all around you!</p>
+<p>Good things to scan include:</p>
 <ul>
-<li><b>Architecture et ruines</b>, portes, arcs, colonnes, façades, murs, cours, tombeaux, monuments et maisons historiques</li>
-<li><b>Objets et artefacts</b>, poteries, outils, sculptures, statues, carreaux de faïence, bijoux, textiles, inscriptions et objets du quotidien</li>
-<li><b>Petits détails</b>, motifs, textures, symboles, dégâts, réparations, marques d’artisan ou éléments décoratifs</li>
-<li><b>Le patrimoine du quotidien</b>, boulangeries, ateliers, marchés, lieux de rassemblement, objets de famille, jardins et espaces communautaires</li>
-<li><b>Patrimoine en danger</b>, lieux ou objets menacés par les intempéries, l’abandon, l’urbanisation, les conflits, le vol ou l’oubli</li>
+<li><b>Architecture et ruines</b>, doors, arches, columns, facades, walls, courtyards, monuments, and
+the exterior of historic homes</li>
+<li><b>Objets et artefacts</b>, pottery, tools, carvings, statues, tiles, textiles, inscriptions, and
+household items</li>
+<li><b>Petits détails</b>, patterns, textures, symbols, damage, repairs, maker's marks, or decorative
+elements</li>
+<li><b>Patrimoine du quotidien</b>, boulangeries, ateliers, marchés, lieux de rassemblement, objets de famille, jardins et espaces communautaires</li>
+<li><b>Patrimoine en danger</b>, lieux ou objets menacés par les intempéries, la négligence, l’urbanisation, les conflits, le vol ou la perte de mémoire</li>
 </ul>
-<p><b>Avant de numériser, demandez-vous :</b></p>
+<p>What not to scan:</p>
 <ul>
-<li>Quelle histoire cet objet ou ce lieu raconte-t-il ?</li>
-<li>Qui l’utilise, s’en souvient ou y tient ?</li>
-<li>Est-il lié à une tradition, un artisanat, une famille, un quartier ou un événement historique ?</li>
-<li>Est-il en train de changer, de disparaître ou en danger ?</li>
+<li>Shiny or reflective textures (difficult for scanner to pick up)</li>
+<li>Moveable objects (like textiles or tapestries that are blowing in the wind)</li>
+<li>Busy areas (pedestrian and vehicle traffic can add noise to your scan and complicate processing)</li>
 </ul>
-<p><b>Merci de ne pas numériser d’objets sacrés, privés, à accès restreint ou sensibles sans autorisation.</b> En cas de doute, demandez d’abord à un gardien local, un membre de la communauté, un propriétaire ou une autorité culturelle.</p>
-<h2>🕯️ Numériser le patrimoine immatériel</h2>
-<p>Une partie du patrimoine n’est ni un bâtiment ni un objet. Elle vit dans les récits, les chants, les rituels, les recettes, l’artisanat, les danses, les langues, les souvenirs et les pratiques quotidiennes. C’est le <b>patrimoine immatériel</b>.</p>
-<p>On ne peut pas toujours numériser directement le patrimoine immatériel, mais on peut documenter les objets, espaces et personnes qui y sont liés. Exemples :</p>
+<h2>Digitizing Intangible Heritage (Stories and Practices)</h2>
+<p>Some heritage is not just a building or object. It lives in stories, songs, rituals, recipes, crafts,
+dances, languages, memories, and everyday practices. This is called intangible heritage.</p>
+<p>You cannot always 3D scan intangible heritage directly, but you can document the objects, spaces, and
+people connected to it.</p>
+<p>Examples:</p>
 <ul>
 <li>Une recette de pain traditionnelle → numérisez le four, les outils, la table ou la boulangerie</li>
 <li>Un savoir-faire de tissage → numérisez le métier à tisser, les motifs, les outils ou les pièces finies</li>
-<li>Une histoire de famille → numérisez la maison, la cour, la photographie, l’objet ou le lieu liés au souvenir</li>
-<li>Une fête ou un rituel → numérisez les décorations, costumes, instruments, lieux de rassemblement ou objets symboliques</li>
 <li>Un artisanat en voie de disparition → numérisez les outils, l’atelier, les matériaux et les œuvres finies</li>
+<li>Une histoire de famille → numérisez la maison, la cour, la photographie, l’objet ou le lieu liés au souvenir.
+Proceed with caution, as homes are private spaces and family memories are personal. Enregistrer them only with
+documented consent, and respect any limits that families set on how their story, home, and belongings are
+shared.</li>
+<li>Une fête ou un rituel → numérisez les décorations, costumes, instruments, lieux de rassemblement ou objets symboliques.
+Proceed with caution, as working on ceremonies, sacred practices and objects may be restricted or require
+additional permissions.</li>
 </ul>
-<p>Quand vous documentez du patrimoine immatériel, joignez du contexte à votre envoi : le nom de la tradition, qui la pratique, où elle a lieu, comment vous l’avez connue, pourquoi elle compte, et toute histoire, souvenir ou citation qui devrait accompagner la numérisation.</p>
-<p><b>Demandez toujours l’autorisation</b> avant d’enregistrer des personnes, des espaces privés, des cérémonies, des pratiques sacrées ou
-des histoires personnelles. Tanit XR ne préserve pas seulement des objets, nous préservons les mondes, les mémoires et les
-sens qui les entourent.</p>
-<h3>🧱 Instructions de numérisation pas à pas</h3>
-<h4>1. Ouvrez Scaniverse</h4>
+<p>When documenting intangible heritage, include context with your upload:</p>
 <ul>
-<li>Touchez le bouton « + » pour démarrer une nouvelle numérisation.</li>
-<li>Choisir <b>« Mesh »</b> (et non « Splat »), c’est ce dont nous avons besoin pour Tanit XR.</li>
-<li>Sélectionnez la taille de votre objet : <b>Petit objet</b> (poteries, sculptures, statues), <b>Objet moyen</b> (portes, colonnes, mosaïques) ou <b>Grande zone</b> (façades, murs, monuments).</li>
+<li>What is this tradition, story, or practice called?</li>
+<li>Who practices it?</li>
+<li>Where does it happen?</li>
+<li>How did you learn about it?</li>
+<li>Why does it matter?</li>
+<li>Is there a story, memory, or quote that should go with the scan?</li>
+</ul></section><section class="gpanel prose" id="p-setup" role="tabpanel" aria-labelledby="t-setup">
+<h2>Getting Started</h2>
+<p><b>App:</b> Download Scaniverse (free, by Niantic Spatial, Inc.) from the
+<a href="https://apps.apple.com/us/app/scaniverse-3d-scanner/id1541433223" target="_blank" rel="noopener">iOS
+App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.scaniverse"
+target="_blank" rel="noopener">Google Play</a>.</p>
+<p><b>Objectif :</b> créer des numérisations 3D détaillées de monuments historiques, ruines, poteries, architectures et artéfacts culturels pour une archive numérique mondiale du patrimoine.</p>
+<h3>Minimum System Requirements</h3>
+<p><b>iOS (iPhone / iPad)</b></p>
+<ul>
+<li>iOS 16.6 or later</li>
+<li>A device with the A12 Bionic chip or later:
+<ul>
+<li>iPhone XR / XS / XS Max or newer</li>
+<li>iPhone SE (2nd or 3rd generation)</li>
+<li>iPad (8th gen+), iPad Air (4th gen+), iPad Mini (5th gen+), iPad Pro 11" (all), iPad Pro 12.9" (3rd
+gen+)</li>
 </ul>
-<h4>2. Commencez la numérisation</h4>
+</li>
+<li>Nouveauer iPhones scan faster and more accurately, but any supported device works.</li>
+</ul>
+<p><b>Android</b></p>
 <ul>
-<li>Déplacez-vous lentement autour de l’objet pendant l’enregistrement vidéo.</li>
+<li>Android 7.0 (Nougat) or later</li>
+<li>At least 4 GB of RAM</li>
+<li>ARCore with Depth API support</li>
+<li>On Android, Scaniverse builds 3D models from camera footage (photogrammetry). Scans work well but take
+longer to process than on modern iPhones.</li>
+</ul>
+<h3>First Launch: Choisir "Classic"</h3>
+<p>When you first open Scaniverse, you'll see a <b>"Choisir your experience"</b> screen with two options:
+<b>Nouveau</b> and <b>Classic</b>.</p>
+<ul>
+<li><b>Select "Classic."</b> This is the experience Tanit XR uses, it processes scans on your phone,
+supports Mesh mode, and lets you export FBX files directly from the app.</li>
+<li>The "Nouveau" experience requires creating an account and is designed for teams using Niantic's cloud-based
+Sites workflow, which uses a monthly credit system. We are not using it at this time.</li>
+<li><b>No account needed in Classic mode.</b> If the app asks you to sign in or create an account, just tap
+<b>"Skip for now"</b>, you can scan, process, and export without one.</li>
+<li>If you accidentally chose "Nouveau," you can switch back: go to <b>Library → Settings</b> and select the
+Classic experience.</li>
+</ul></section><section class="gpanel prose" id="p-scan" role="tabpanel" aria-labelledby="t-scan">
+<h2>Step-by-Step Scanning Instructions</h2>
+<ol class="gsteps">
+<li><h3>Open Scaniverse (Classic experience)</h3>
+<ul>
+<li>Tap the <b>"+"</b> button to start a new scan.</li>
+<li>Choisir <b>"Mesh"</b> (not "Splat"), this is what we need for Tanit XR.</li>
+<li>Select the size of your object:
+<ul>
+<li><b>Petit objet</b> – pottery, carvings, statues</li>
+<li><b>Objet moyen</b> – doors, columns, mosaics</li>
+<li><b>Grande zone</b> – facades, walls, monuments</li>
+</ul>
+</li>
+<li>The app automatically uses the best scanning method for your device, no extra setup needed on iOS or
+Android.</li>
+</ul>
+</li>
+<li><h3>Begin the Scan</h3>
+<ul>
+<li>Point the camera at the object, then <b>tap</b> the record button to start, no need to hold it down.
+Tap again when you're finished.</li>
+<li><b>Only seeing red lines on screen?</b> Check that the lighting is good, then point the camera directly
+at the object <i>before</i> tapping the record button. As you scan, some areas of your scene will have
+diagonal red lines and others will not, the red-lined areas are the parts you haven't captured yet, so
+keep moving until they're gone.</li>
+<li>Déplacez-vous lentement autour de l’objet pendant l’enregistrement vidéo. keep the camera slowly moving at all times; don't
+pause or go too fast, as the camera can get disoriented</li>
 <li>Multipliez les angles : tournez autour, accroupissez-vous, levez votre téléphone, etc.</li>
 <li>Évitez les mouvements rapides et veillez à capturer toutes les faces.</li>
+<li>scans can be completed indoors or outdoors. The most important thing is even lighting (lack of shadows
+or bright lights).</li>
+<li>Pedestrian traffic and/or moveable objects in the area should also be avoided. Aim to capture objects
+with a fixed shape.</li>
 <li>En plein soleil, essayez de numériser à l’ombre partielle ou par temps couvert.</li>
+<li>Aim for <b>1–3 minutes of scanning</b>, longer scans can actually reduce quality.</li>
+<li>As you scan, blurry areas on screen show where you still need coverage. Keep moving until the whole
+object looks sharp.</li>
+<li><b>Android users:</b> capture extra overlapping angles and passes. Android relies entirely on camera
+footage to build the 3D model, so thorough coverage and good, even light matter even more.</li>
 </ul>
-<h4>3. Enregistrez sans traiter (important !)</h4>
+</li>
+<li><h3>Save Without Processing (Important!)</h3>
 <ul>
-<li>Si vous êtes dehors sans bon Wi-Fi ni données mobiles, touchez <b>« Save to process later »</b>.</li>
-<li>Le traitement consomme beaucoup de données, mieux vaut attendre d’être chez vous avec le Wi-Fi.</li>
+<li>When you are done scanning, tap <b>Area</b> or <b>Detail</b> to process the scan immediately, or
+<b>Save Draft</b> to process later.</li>
+<li><b>Note:</b> processing your data can drain your battery, so you may want to save your captures and then
+process them later with your phone plugged in to a power source. This is especially true on Android, where
+processing takes longer than on modern iPhones.</li>
+<li>We recommend processing your scan with the <b>Detail</b> setting, which can take several minutes.</li>
 </ul>
-<h3>🗂️ Traitement et export</h3>
-<h4>4. De retour chez vous : traitez votre numérisation</h4>
+</li>
+</ol></section><section class="gpanel prose" id="p-process" role="tabpanel" aria-labelledby="t-process">
+<h2>Processing and Exporting</h2>
+<ol class="gsteps" start="4">
+<li><h3>Back at Home: Process Your Scan</h3>
 <ul>
-<li>Ouvrez la bibliothèque Scaniverse (menu du bas).</li>
-<li>Touchez votre scan enregistré, touchez le nom et donnez-lui un titre clair (ex. « Ksar Ouled Soltane – Porte principale »).</li>
-<li>Touchez « Process » et attendez que l’application termine le modèle 3D.</li>
+<li>Open the Scaniverse <b>Library</b> (bottom menu).</li>
+<li>Tap your enregistré scan.</li>
+<li>Tap the name and give it a clear title (e.g., "Ksar Ouled Soltane – Main Door").</li>
+<li>Tap <b>"Process"</b> and choose the <b>Detail</b> setting, then wait for the app to complete the 3D
+model.</li>
+<li>Keep Scaniverse open in the foreground while it processes. On high-end Android phones this typically
+takes a few minutes per scan; older devices may take longer.</li>
 </ul>
-<h4>5. Exportez le modèle</h4>
+</li>
+<li><h3>Export the Model</h3>
 <ul>
-<li>Une fois traité, touchez « Share » &gt; « Export Model ».</li>
-<li>Sélectionnez le format <b>FBX</b> et gardez les <b>textures activées</b>.</li>
-<li>Nommez-le « Titre du scan_Lieu ».</li>
+<li>Once processed, tap <b>"Share" &gt; "Export Model."</b></li>
+<li>Select <b>FBX</b> format.</li>
+<li>Keep textures enabled.</li>
+<li>Name it <b>"Scan Title_Location"</b></li>
 </ul>
-<h4>6. Partagez votre modèle</h4>
-<p>Envoyez votre fichier exporté (ou un lien) accompagné d’une courte description du modèle, des informations historiques que vous connaissez et de votre nom à <a href="mailto:info@tanitxr.org?subject=Nouveau%20scan%20submission">info@tanitxr.org</a>.
-Pour les gros fichiers, partagez un lien Google Drive, Dropbox ou WeTransfer.</p>
-<h3>✅ Conseils pour de belles numérisations</h3>
+</li>
+<li><h3>Share Your Model</h3>
+<p>Upload your file, below, and then email description and other details to
+<a href="mailto:info@tanitxr.org">info@tanitxr.org</a></p>
+</li>
+</ol></section><section class="gpanel prose" id="p-tips" role="tabpanel" aria-labelledby="t-tips">
+<h2>✅ Conseils pour de belles numérisations</h2>
 <ul>
 <li>Numérisez lentement et régulièrement</li>
+<li>Spend 1–3 minutes per scan, longer can reduce quality</li>
 <li>Évitez les personnes et les ombres dans votre scan</li>
-<li>Soignez la texture et les angles, faites le tour complet de l’objet</li>
-<li>La lumière naturelle est idéale, mais le soleil dur crée des reflets, évitez de numériser à midi</li>
+<li>Focus on texture and angles, walk around the object fully</li>
+<li>Watch for blurry areas on screen and re-scan them until they sharpen</li>
+<li>Natural daylight is good, but harsh sun causes glare – avoid scanning at noon</li>
+<li>Charge your phone before heading out, scanning and processing use a lot of battery</li>
+<li>Keep Scaniverse open while your scan is processing</li>
 </ul>
-</div></div></section>
+<h2>ℹ️ Support</h2>
+<ul>
+<li>Scaniverse FAQ: <a href="https://www.nianticspatial.com/faq/scaniverse" target="_blank"
+rel="noopener">https://www.nianticspatial.com/faq/scaniverse</a></li>
+<li>Personal account FAQ (Classic app help): <a href="https://www.nianticspatial.com/en/faq/scaniverse-personal"
+target="_blank" rel="noopener">https://www.nianticspatial.com/en/faq/scaniverse-personal</a></li>
+<li>TanitXR Support: email <a href="mailto:info@tanitxr.org">info@tanitxr.org</a> with your question and a member of the
+Leadership Team will get back to you.</li>
+<li>TanitXR Communauté: attend a weekly standup meeting.</li>
+</ul></section><section class="gpanel prose" id="p-consent" role="tabpanel" aria-labelledby="t-consent">
+<h2>Formulaire de consentement pour une numérisation éthique</h2>
+<p>À signer une seule fois, avant votre première numérisation. Cela nous indique que vous avez lu les engagements éthiques et que vous acceptez de les respecter.</p>
+<form class="nice" action="https://formsubmit.co/info@tanitxr.org" method="POST">
+<input type="hidden" name="_subject" value="Ethical Scanning consent, tanitxr.org">
+<input type="hidden" name="_form" value="scanning-consent">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_next" value="https://tanitxr.org/fr/thank-you/?from=scanning-consent">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none">
+<input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
+<label class="req" for="cf-name">Full name</label>
+<input id="cf-name" type="text" name="name" required autocomplete="name">
+<label class="req" for="cf-email">E-mail</label>
+<input id="cf-email" type="email" name="email" required autocomplete="email">
+<label for="cf-where">Où comptez-vous numériser</label>
+<input id="cf-where" type="text" name="where" placeholder="Ville, pays">
+<label class="gcheck"><input type="checkbox" name="read_commitments" value="yes" required>
+J’ai lu les engagements éthiques de cette page et j’accepte de les respecter.</label>
+<label class="gcheck"><input type="checkbox" name="ask_first" value="yes" required>
+Pour le patrimoine vivant ou communautaire, je solliciterai l’équipe dirigeante de TanitXR et j’obtiendrai un consentement avant de numériser.</label>
+<label class="req" for="cf-sign">Tapez votre nom pour signer</label>
+<input id="cf-sign" type="text" name="signature" required>
+<button class="btn" type="submit">Signer et envoyer</button>
+</form></section>
+</div>
+</div></section>
 
 
 <div id="nura" hidden data-lines="{&quot;hello&quot;: {&quot;t&quot;: &quot;Pas besoin d’un bon appareil photo. Un téléphone et un après-midi : c’est ainsi que presque tout cela s’est fait.&quot;}, &quot;praise&quot;: {&quot;t&quot;: &quot;Vous en avez déjà parcouru plusieurs. Merci de regarder vraiment.&quot;}, &quot;ask&quot;: {&quot;t&quot;: &quot;Rien de tout cela n’est payant, et ne le sera jamais. Un petit don permet de continuer à numériser.&quot;, &quot;cta&quot;: [&quot;Faire un don&quot;, &quot;https://donors.tuesday.app/campaign/CMLPDTO&quot;]}}">
@@ -177,7 +357,7 @@ Pour les gros fichiers, partagez un lien Google Drive, Dropbox ou WeTransfer.</p
 <span>© 2026 Tanit XR. Tous droits réservés.</span>
 <span><a href="../../fr/privacy/">Politique de confidentialité</a></span>
 </div></div></footer>
-<script src="../../assets/site.js?v=e7a0ee21"></script>
+<script src="../../assets/site.js?v=3e018179"></script>
 <script data-goatcounter="https://tanitxr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

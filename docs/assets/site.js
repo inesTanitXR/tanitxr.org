@@ -84,6 +84,62 @@ const PAGE_OPENED = Date.now();
   window.addEventListener('scroll', look, { passive: true });
   setTimeout(look, 20500);                            // already at the end and simply reading
 })();
+// The scanning guide is one long document split across tabs. The panels are all in the page
+// already: this only hides the ones you are not reading, and only once it is running, so a
+// browser with no JavaScript, a printout and anything crawling the site still get the lot.
+(function () {
+  const guide = document.getElementById('guide');
+  if (!guide) return;
+  const tabs = [].slice.call(guide.querySelectorAll('.gtab'));
+  const panels = [].slice.call(guide.querySelectorAll('.gpanel'));
+  if (!tabs.length || tabs.length !== panels.length) return;
+  guide.setAttribute('data-tabs', 'on');
+
+  function open(key, push) {
+    let found = false;
+    tabs.forEach((t, i) => {
+      const on = t.id === 't-' + key;
+      if (on) found = true;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      panels[i].classList.toggle('on', on);
+    });
+    if (!found) { open(tabs[0].id.slice(2), false); return; }
+    if (push && history.replaceState) history.replaceState(null, '', '#' + key);
+    if (window.tx) tx('guide_tab', { step: key });
+  }
+
+  tabs.forEach((t) => t.addEventListener('click', () => {
+    open(t.id.slice(2), true);
+    guide.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }));
+
+  // arrow keys move along the row, the way a set of tabs is expected to behave
+  guide.querySelector('.gtabs').addEventListener('keydown', (e) => {
+    const i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    let j = -1;
+    if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+    if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+    if (e.key === 'Home') j = 0;
+    if (e.key === 'End') j = tabs.length - 1;
+    if (j < 0) return;
+    e.preventDefault();
+    tabs[j].focus();
+    open(tabs[j].id.slice(2), true);
+  });
+
+  // a link into a panel, from the page itself or from somebody else's bookmark
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-go]');
+    if (!a) return;
+    e.preventDefault();
+    open(a.dataset.go, true);
+    guide.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  });
+  addEventListener('hashchange', () => open(location.hash.slice(1), false));
+  open((location.hash || '#').slice(1) || tabs[0].id.slice(2), false);
+})();
 // Nura, wandering the rest of the site. The whole design here is restraint: she says one
 // thing per page at most, never in the first seconds, never while the reading badge is on
 // screen, and she stops for the visit the second time somebody closes her. The donation ask
