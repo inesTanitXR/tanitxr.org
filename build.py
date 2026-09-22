@@ -1586,13 +1586,14 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 .way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
 .wayp{display:none}
 .wayp.on{display:block}
-.drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
+#drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
   padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
-.drop:hover,.drop.over{border-color:var(--gold-dark);background:#fdf6e6}
-.drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
-.drop-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
-.drop-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
-.drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
+#drop:hover,#drop.over{border-color:var(--gold-dark);background:#fdf6e6}
+#drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+#drop[hidden]{display:none}
+.dz-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
+.dz-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
+#drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
 .df-row{display:flex;align-items:center;gap:10px}
 .df-row b{font-weight:500;overflow-wrap:anywhere}
 .df-size{color:var(--gray);font-size:13.5px;white-space:nowrap;margin-inline-start:auto}
@@ -6716,13 +6717,13 @@ def build_submit_model():
 </div>
 
 <div class="wayp on" data-way="file">
-<div id="drop" class="drop" tabindex="0" role="button"
+<div id="drop" tabindex="0" role="button"
      aria-label="{esc(term("Choose a file, or drag one here"))}">
 <input type="file" id="dropin" accept=".fbx,.glb,.gltf,.obj,.ply,.usdz,.zip" hidden>
-<p class="drop-big">{term("Drag your file here")}</p>
-<p class="drop-small">{term("or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.")}</p>
+<p class="dz-big">{term("Drag your file here")}</p>
+<p class="dz-small">{term("or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.")}</p>
 </div>
-<div id="drop-file" class="drop-file" hidden>
+<div id="drop-file" hidden>
 <div class="df-row"><b id="df-name"></b><span id="df-size" class="df-size"></span>
 <button type="button" id="df-drop" class="df-x" aria-label="{esc(term("Remove"))}">&times;</button></div>
 <div hidden id="df-bar"><span id="df-fill"></span></div>

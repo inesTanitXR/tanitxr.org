@@ -1375,13 +1375,14 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 .way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
 .wayp{display:none}
 .wayp.on{display:block}
-.drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
+#drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
   padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
-.drop:hover,.drop.over{border-color:var(--gold-dark);background:#fdf6e6}
-.drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
-.drop-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
-.drop-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
-.drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
+#drop:hover,#drop.over{border-color:var(--gold-dark);background:#fdf6e6}
+#drop:focus-visible{outline:2px solid var(--gold-dark);outline-offset:3px}
+#drop[hidden]{display:none}
+.dz-big{margin:0;font-family:var(--serif);font-size:20px;color:#241a10}
+.dz-small{margin:8px 0 0;font-size:14px;color:var(--gray)}
+#drop-file{border:1px solid rgba(74,53,43,.18);border-radius:14px;padding:14px 16px;background:#fff}
 .df-row{display:flex;align-items:center;gap:10px}
 .df-row b{font-weight:500;overflow-wrap:anywhere}
 .df-size{color:var(--gray);font-size:13.5px;white-space:nowrap;margin-inline-start:auto}
