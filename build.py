@@ -1770,7 +1770,15 @@ const PAGE_OPENED = Date.now();
   let pick = 'hello';
   if (lines.ask && st.pages >= 5 && st.praised && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
   else if (lines.praise && st.pages >= 3 && !st.praised) pick = 'praise';
-  const line = lines[pick];
+
+  // each page has a few things she could say. Pick one she has not already used this visit,
+  // so a second archive page does not get the same sentence back.
+  const said = Array.isArray(st.said) ? st.said : [];
+  const choices = lines[pick] || [];
+  if (!choices.length) return;
+  const fresh = choices.filter((l) => said.indexOf(l.t) === -1);
+  const pool = fresh.length ? fresh : choices;
+  const line = pool[Math.floor(Math.random() * pool.length)];
 
   const words = document.getElementById('nura-words');
   const say = document.getElementById('nura-say');
@@ -1805,6 +1813,7 @@ const PAGE_OPENED = Date.now();
     const s2 = sess();
     if (pick === 'ask') { s2.asked = 1; noteAsk(); }
     if (pick === 'praise') s2.praised = 1;
+    s2.said = (Array.isArray(s2.said) ? s2.said : []).concat([line.t]).slice(-12);
     keep(s2);
     if (window.tx) tx('nura_said', { ask: pick });
     setTimeout(() => { if (open) shut(false); }, pick === 'ask' ? 20000 : 14000);
@@ -2383,66 +2392,284 @@ def social_img(name):
     return rel
 
 
-# ---- Nura around the site -------------------------------------------------------------
-# One line per page at most, in her own voice: short, warm, second person. She says something
-# about where the visitor actually is, thanks them once they have been through a few pages,
-# and asks for a donation only after that, at most once a month. The lines live in a data
-# attribute rather than the stylesheet or the script because a JSON blob is invisible to the
-# link rewriter: every href here is written from the site root, with the language in it.
+# Who she is talking to depends entirely on where they are standing. Somebody on the
+# opportunities board most likely arrived from LinkedIn and has never heard of us, somebody
+# on the flat archive has not realised the objects open in 3D, and somebody at the end of an
+# article is ready for another one. Every line carries somewhere to go. Several lines per
+# page means she does not repeat herself on a second visit, and the ask for a donation can
+# happen anywhere, because it matters more than any of the rest.
+#
+# Each line is (what she says, the button, where the button goes). A destination that is a
+# bare path is resolved against the language the visitor is reading; "{next}" is filled in
+# by the page itself, with the article or object to send them to next.
 NURA_LINES = {
     "en": {
-        "home": ("Everything here was scanned by a volunteer with a phone. Start anywhere.",
-                 "Have a look", "explore/"),
-        "archive": ("Pick one and turn it around. That is the whole reason we scan them.", None, None),
-        "object": ("You can turn this one with your finger. Most people never try.", None, None),
-        "news": ("These were written by volunteers, in between everything else.", None, None),
-        "article": ("Take your time with this one. It was written slowly.", None, None),
-        "people": ("Every person on this page is a volunteer. Nobody here is paid.", None, None),
-        "museum": ("This room is built piece by piece, by people who do it after work.", None, None),
-        "join": ("You do not need a good camera. A phone and an afternoon is how most of this was made.",
-                 None, None),
-        "support": ("Thank you for even opening this page.", None, None),
-        "other": ("I am Nura. I live in the Collection, but I wander.", "Come and see", "explore/"),
-        "praise": ("You have been through a few of these now. Thank you for looking properly.", None, None),
-        "ask": ("None of this sits behind a paywall, and it never will. A small gift keeps the scanning going.",
-                "Donate", DONATE_URL),
+        "home": [
+            ("Everything here was scanned by a volunteer with a phone. Start anywhere.",
+             "Have a look", "explore/"),
+            ("{n} objects, scanned in Tunisia, free for anyone. I can show you around them.",
+             "Walk through them", "explore/"),
+            ("We are a nonprofit. Everything we make stays free, and volunteers make all of it.",
+             "Who we are", "about/"),
+        ],
+        "archive": [
+            ("Every one of these opens in 3D. In the Collection they come one at a time and I tell "
+             "you about them.", "Open the Collection", "explore/"),
+            ("Pick one and turn it around. That is the whole reason we scan them.",
+             "See them in 3D", "explore/"),
+            ("A volunteer walked around each of these with a phone. You can see the marks the tools "
+             "left.", "Start the tour", "explore/"),
+        ],
+        "object": [
+            ("You can turn this one with your finger. Most people never try.",
+             "See it in 3D", "explore/"),
+            ("There is more where this came from, and I can talk you through it.",
+             "Show me another", "{next}"),
+            ("Somebody stood in front of this with a phone so you could see it from here.",
+             "Meet the volunteers", "team/"),
+        ],
+        "news": [
+            ("These were written by volunteers, in between everything else.",
+             "Read the newest one", "{next}"),
+            ("Stories from the people doing the scanning, not a press office.",
+             "Meet them", "team/"),
+        ],
+        "article": [
+            ("Take your time with this one. It was written slowly.",
+             "Read this one next", "{next}"),
+            ("If this one held you, there is another.", "The next story", "{next}"),
+            ("The objects in this story are in the archive, in 3D.",
+             "Go and see them", "explore/"),
+        ],
+        "people": [
+            ("Every person on this page is a volunteer. Nobody here is paid.",
+             "Join them", "volunteer/"),
+            ("Somebody on this page scanned something you can pick up and turn.",
+             "See their work in 3D", "explore/"),
+        ],
+        "person": [
+            ("This one is a volunteer. Nobody here is paid, including them.",
+             "Meet the rest of us", "team/"),
+            ("You can turn the things this person scanned, right here on the site.",
+             "See their work in 3D", "{next}"),
+        ],
+        "museum": [
+            ("This room is built piece by piece, by people who do it after work.",
+             "See what goes inside it", "archive/"),
+            ("Everything in this museum was scanned in Tunisia first.",
+             "Look at the real objects", "explore/"),
+        ],
+        "opportunities": [
+            ("You came for the board. We are Tanit XR: volunteers scanning Tunisian heritage before "
+             "it goes, and giving it away free.", "See what we do", "explore/"),
+            ("This board is free, and so is everything else we make. We are a nonprofit run by "
+             "volunteers.", "Who we are", "about/"),
+            ("While you are here: we scan heritage in 3D and put all of it online for anyone.",
+             "Have a look", "archive/"),
+        ],
+        "join": [
+            ("You do not need a good camera. A phone and an afternoon is how most of this was made.",
+             "How the scanning works", "scanning-guide/"),
+            ("Everyone here started by scanning one thing near them.",
+             "See what they made", "explore/"),
+        ],
+        "support": [
+            ("Thank you for even opening this page. This is what keeps the scanning going.",
+             "See what it pays for", "explore/"),
+        ],
+        "other": [
+            ("I am Nura. I live in the Collection, but I wander.", "Come and see", "explore/"),
+            ("Everything on this site was made by volunteers and costs nothing to use.",
+             "Start with the objects", "explore/"),
+        ],
+        "praise": [
+            ("You have been through a few of these now. Thank you for looking properly.",
+             "There is more in the Collection", "explore/"),
+            ("Most people leave before this. You did not.", "Let me show you the rest", "explore/"),
+        ],
+        "ask": [
+            ("None of this sits behind a paywall, and it never will. A small gift keeps the scanning "
+             "going.", "Donate", "{donate}"),
+            ("Everyone who made this is a volunteer. What money there is goes on scanning, not on us.",
+             "Chip in", "{donate}"),
+            ("If you have got something out of this, that is what a donation is for.",
+             "Give something", "{donate}"),
+        ],
         "hush": "Close",
         "tab": "Nura has something to say",
     },
     "fr": {
-        "home": ("Tout ici a été numérisé par un bénévole, avec un téléphone. Commencez où vous voulez.",
-                 "Jeter un œil", "explore/"),
-        "archive": ("Choisissez un objet et faites-le tourner. C’est pour cela qu’on les numérise.", None, None),
-        "object": ("Vous pouvez faire tourner celui-ci avec le doigt. Peu de gens essaient.", None, None),
-        "news": ("Ces textes ont été écrits par des bénévoles, entre deux autres choses.", None, None),
-        "article": ("Prenez votre temps. Ce texte a été écrit lentement.", None, None),
-        "people": ("Chaque personne sur cette page est bénévole. Personne n’est payé ici.", None, None),
-        "museum": ("Cette salle se construit pièce par pièce, par des gens qui s’y mettent après le travail.",
-                   None, None),
-        "join": ("Pas besoin d’un bon appareil photo. Un téléphone et un après-midi : c’est ainsi que "
-                 "presque tout cela s’est fait.", None, None),
-        "support": ("Merci rien que d’avoir ouvert cette page.", None, None),
-        "other": ("Je suis Nura. J’habite la Collection, mais je me promène.", "Venez voir", "explore/"),
-        "praise": ("Vous en avez déjà parcouru plusieurs. Merci de regarder vraiment.", None, None),
-        "ask": ("Rien de tout cela n’est payant, et ne le sera jamais. Un petit don permet de continuer "
-                "à numériser.", "Faire un don", DONATE_URL),
+        "home": [
+            ("Tout ici a été numérisé par un bénévole, avec un téléphone. Commencez où vous voulez.",
+             "Jeter un œil", "explore/"),
+            ("{n} objets, numérisés en Tunisie, gratuits pour tout le monde. Je peux vous les montrer.",
+             "Les parcourir", "explore/"),
+            ("Nous sommes une association. Tout ce que nous faisons reste gratuit, et ce sont des "
+             "bénévoles qui le font.", "Qui nous sommes", "about/"),
+        ],
+        "archive": [
+            ("Chacun de ces objets s’ouvre en 3D. Dans la Collection, ils arrivent un par un et je "
+             "vous en parle.", "Ouvrir la Collection", "explore/"),
+            ("Choisissez un objet et faites-le tourner. C’est pour cela qu’on les numérise.",
+             "Les voir en 3D", "explore/"),
+            ("Un bénévole a tourné autour de chacun d’eux avec un téléphone. On voit encore les "
+             "traces des outils.", "Commencer la visite", "explore/"),
+        ],
+        "object": [
+            ("Vous pouvez faire tourner celui-ci avec le doigt. Peu de gens essaient.",
+             "Le voir en 3D", "explore/"),
+            ("Il y en a d’autres d’où vient celui-ci, et je peux vous les raconter.",
+             "Montrez-m’en un autre", "{next}"),
+            ("Quelqu’un s’est tenu devant cet objet avec un téléphone pour que vous puissiez le voir "
+             "d’ici.", "Rencontrer les bénévoles", "team/"),
+        ],
+        "news": [
+            ("Ces textes ont été écrits par des bénévoles, entre deux autres choses.",
+             "Lire le plus récent", "{next}"),
+            ("Des récits écrits par celles et ceux qui numérisent, pas par un service de presse.",
+             "Les rencontrer", "team/"),
+        ],
+        "article": [
+            ("Prenez votre temps. Ce texte a été écrit lentement.", "Lire celui-ci ensuite", "{next}"),
+            ("Si celui-ci vous a retenu, il y en a un autre.", "Le récit suivant", "{next}"),
+            ("Les objets de ce récit sont dans les archives, en 3D.", "Allez les voir", "explore/"),
+        ],
+        "people": [
+            ("Chaque personne sur cette page est bénévole. Personne n’est payé ici.",
+             "Les rejoindre", "volunteer/"),
+            ("Quelqu’un sur cette page a numérisé un objet que vous pouvez prendre et faire tourner.",
+             "Voir leur travail en 3D", "explore/"),
+        ],
+        "person": [
+            ("Cette personne est bénévole. Personne n’est payé ici, elle non plus.",
+             "Rencontrer les autres", "team/"),
+            ("Vous pouvez faire tourner ce que cette personne a numérisé, ici même.",
+             "Voir son travail en 3D", "{next}"),
+        ],
+        "museum": [
+            ("Cette salle se construit pièce par pièce, par des gens qui s’y mettent après le travail.",
+             "Voir ce qu’on y met", "archive/"),
+            ("Tout ce que contient ce musée a d’abord été numérisé en Tunisie.",
+             "Regarder les vrais objets", "explore/"),
+        ],
+        "opportunities": [
+            ("Vous êtes venu pour le tableau. Nous sommes Tanit XR : des bénévoles qui numérisent le "
+             "patrimoine tunisien avant qu’il ne disparaisse, et qui le donnent gratuitement.",
+             "Voir ce que nous faisons", "explore/"),
+            ("Ce tableau est gratuit, comme tout ce que nous faisons. Nous sommes une association de "
+             "bénévoles.", "Qui nous sommes", "about/"),
+            ("Puisque vous êtes là : nous numérisons le patrimoine en 3D et nous mettons tout en ligne "
+             "pour tout le monde.", "Jeter un œil", "archive/"),
+        ],
+        "join": [
+            ("Pas besoin d’un bon appareil photo. Un téléphone et un après-midi : c’est ainsi que "
+             "presque tout cela s’est fait.", "Comment on numérise", "scanning-guide/"),
+            ("Tout le monde ici a commencé par numériser une seule chose près de chez soi.",
+             "Voir ce qu’ils ont fait", "explore/"),
+        ],
+        "support": [
+            ("Merci rien que d’avoir ouvert cette page. C’est ce qui permet de continuer à numériser.",
+             "Voir à quoi cela sert", "explore/"),
+        ],
+        "other": [
+            ("Je suis Nura. J’habite la Collection, mais je me promène.", "Venez voir", "explore/"),
+            ("Tout sur ce site a été fait par des bénévoles et ne coûte rien.",
+             "Commencer par les objets", "explore/"),
+        ],
+        "praise": [
+            ("Vous en avez déjà parcouru plusieurs. Merci de regarder vraiment.",
+             "Il y en a d’autres dans la Collection", "explore/"),
+            ("La plupart des gens partent avant. Pas vous.", "Laissez-moi vous montrer la suite",
+             "explore/"),
+        ],
+        "ask": [
+            ("Rien de tout cela n’est payant, et ne le sera jamais. Un petit don permet de continuer "
+             "à numériser.", "Faire un don", "{donate}"),
+            ("Tous ceux qui ont fait cela sont bénévoles. L’argent qu’il y a sert à numériser, pas à "
+             "nous.", "Participer", "{donate}"),
+            ("Si vous y avez trouvé quelque chose, c’est à cela que sert un don.",
+             "Donner quelque chose", "{donate}"),
+        ],
         "hush": "Fermer",
         "tab": "Nura a quelque chose à dire",
     },
     "ar": {
-        "home": ("كل ما هنا مسحه متطوّع بهاتفه. ابدأ من حيث شئت.", "ألق نظرة", "explore/"),
-        "archive": ("اختر قطعة وأدرها. لهذا نمسحها أصلًا.", None, None),
-        "object": ("يمكنك إدارة هذه القطعة بإصبعك. قليلون من يجرّبون.", None, None),
-        "news": ("كتب هذه النصوص متطوّعون، بين مشاغلهم.", None, None),
-        "article": ("خذ وقتك. كُتب هذا النص على مهل.", None, None),
-        "people": ("كل شخص في هذه الصفحة متطوّع. لا أحد هنا يتقاضى أجرًا.", None, None),
-        "museum": ("تُبنى هذه القاعة قطعة قطعة، بأيدي أناس يعملون عليها بعد دوامهم.", None, None),
-        "join": ("لا تحتاج كاميرا جيدة. هاتف وبعض الوقت بعد الظهر: هكذا صُنع أغلب هذا.", None, None),
-        "support": ("شكرًا لك لمجرّد فتحك هذه الصفحة.", None, None),
-        "other": ("أنا نورا. أعيش في المجموعة، لكنني أتجوّل.", "تعال وانظر", "explore/"),
-        "praise": ("لقد تصفّحت عدة صفحات. شكرًا لأنك تنظر بعناية.", None, None),
-        "ask": ("لا شيء من هذا خلف حاجز مدفوع، ولن يكون. تبرّع صغير يُبقي المسح مستمرًا.",
-                "تبرّع", DONATE_URL),
+        "home": [
+            ("كل ما هنا مسحه متطوّع بهاتفه. ابدأ من حيث شئت.", "ألق نظرة", "explore/"),
+            ("{n} قطعة، مُسحت في تونس، متاحة للجميع مجانًا. أستطيع أن أريك إياها.",
+             "تجوّل بينها", "explore/"),
+            ("نحن جمعية غير ربحية. كل ما نصنعه يبقى مجانيًا، ويصنعه متطوّعون.",
+             "من نحن", "about/"),
+        ],
+        "archive": [
+            ("كل قطعة هنا تُفتح بثلاثة أبعاد. في المجموعة تأتي واحدة تلو الأخرى وأحدّثك عنها.",
+             "افتح المجموعة", "explore/"),
+            ("اختر قطعة وأدرها. لهذا نمسحها أصلًا.", "شاهدها بثلاثة أبعاد", "explore/"),
+            ("دار متطوّع حول كل واحدة منها بهاتفه. ما زالت آثار الأدوات ظاهرة.",
+             "ابدأ الجولة", "explore/"),
+        ],
+        "object": [
+            ("يمكنك إدارة هذه القطعة بإصبعك. قليلون من يجرّبون.", "شاهدها بثلاثة أبعاد", "explore/"),
+            ("هناك المزيد من حيث أتت هذه، وأستطيع أن أحدّثك عنها.", "أرني قطعة أخرى", "{next}"),
+            ("وقف أحدهم أمام هذه القطعة بهاتفه لتتمكن أنت من رؤيتها من مكانك.",
+             "تعرّف على المتطوّعين", "team/"),
+        ],
+        "news": [
+            ("كتب هذه النصوص متطوّعون، بين مشاغلهم.", "اقرأ الأحدث", "{next}"),
+            ("حكايات ممن يقومون بالمسح أنفسهم، لا من مكتب صحفي.", "تعرّف عليهم", "team/"),
+        ],
+        "article": [
+            ("خذ وقتك. كُتب هذا النص على مهل.", "اقرأ هذا بعده", "{next}"),
+            ("إن شدّك هذا النص، فهناك غيره.", "الحكاية التالية", "{next}"),
+            ("القطع المذكورة في هذه الحكاية موجودة في الأرشيف بثلاثة أبعاد.",
+             "اذهب وشاهدها", "explore/"),
+        ],
+        "people": [
+            ("كل شخص في هذه الصفحة متطوّع. لا أحد هنا يتقاضى أجرًا.", "انضم إليهم", "volunteer/"),
+            ("أحد من في هذه الصفحة مسح قطعة يمكنك أن تحملها وتديرها.",
+             "شاهد عملهم بثلاثة أبعاد", "explore/"),
+        ],
+        "person": [
+            ("هذا الشخص متطوّع. لا أحد هنا يتقاضى أجرًا، ولا هو.", "تعرّف على البقية", "team/"),
+            ("يمكنك إدارة ما مسحه هذا الشخص، هنا على الموقع.", "شاهد عمله بثلاثة أبعاد", "{next}"),
+        ],
+        "museum": [
+            ("تُبنى هذه القاعة قطعة قطعة، بأيدي أناس يعملون عليها بعد دوامهم.",
+             "شاهد ما يوضع فيها", "archive/"),
+            ("كل ما في هذا المتحف مُسح في تونس أولًا.", "انظر إلى القطع الحقيقية", "explore/"),
+        ],
+        "opportunities": [
+            ("جئت من أجل اللوحة. نحن تانيت إكس آر: متطوّعون يمسحون التراث التونسي قبل أن يزول، "
+             "ويتيحونه مجانًا.", "شاهد ما نقوم به", "explore/"),
+            ("هذه اللوحة مجانية، وكذلك كل ما نصنعه. نحن جمعية يديرها متطوّعون.",
+             "من نحن", "about/"),
+            ("ما دمت هنا: نحن نمسح التراث بثلاثة أبعاد وننشره كاملًا للجميع.",
+             "ألق نظرة", "archive/"),
+        ],
+        "join": [
+            ("لا تحتاج كاميرا جيدة. هاتف وبعض الوقت بعد الظهر: هكذا صُنع أغلب هذا.",
+             "كيف يتم المسح", "scanning-guide/"),
+            ("كل من هنا بدأ بمسح شيء واحد قريب منه.", "شاهد ما صنعوه", "explore/"),
+        ],
+        "support": [
+            ("شكرًا لك لمجرّد فتحك هذه الصفحة. هذا ما يُبقي المسح مستمرًا.",
+             "شاهد إلى أين يذهب", "explore/"),
+        ],
+        "other": [
+            ("أنا نورا. أعيش في المجموعة، لكنني أتجوّل.", "تعال وانظر", "explore/"),
+            ("كل ما في هذا الموقع صنعه متطوّعون ولا يكلّف شيئًا.", "ابدأ بالقطع", "explore/"),
+        ],
+        "praise": [
+            ("لقد تصفّحت عدة صفحات. شكرًا لأنك تنظر بعناية.", "هناك المزيد في المجموعة", "explore/"),
+            ("معظم الناس يغادرون قبل هذا. أنت لم تفعل.", "دعني أريك البقية", "explore/"),
+        ],
+        "ask": [
+            ("لا شيء من هذا خلف حاجز مدفوع، ولن يكون. تبرّع صغير يُبقي المسح مستمرًا.",
+             "تبرّع", "{donate}"),
+            ("كل من صنع هذا متطوّع. ما يوجد من مال يذهب إلى المسح، لا إلينا.",
+             "شارك بتبرّع", "{donate}"),
+            ("إن كنت قد استفدت من هذا، فلهذا يكون التبرّع.", "أعطِ شيئًا", "{donate}"),
+        ],
         "hush": "إغلاق",
         "tab": "نورا لديها ما تقوله",
     },
@@ -2456,10 +2683,10 @@ def nura_kind(fname):
     if fname.startswith("news/"):
         return "article"
     if fname.startswith("team/"):
-        return "people"
+        return "person"
     return {"index.html": "home", "archive.html": "archive", "galleries.html": "archive",
             "news.html": "news", "team.html": "people", "museum.html": "museum",
-            "volunteer.html": "join", "opportunities.html": "join",
+            "volunteer.html": "join", "opportunities.html": "opportunities",
             "create-profile.html": "join", "scanning-guide.html": "join",
             "support.html": "support", "donate.html": "support"}.get(fname, "other")
 
@@ -2473,24 +2700,37 @@ NURA_NO_ASK = {"support.html", "donate.html", "contact.html", "volunteer.html",
                "create-profile.html", "partners.html", "services.html", "team.html"}
 
 
-def nura_html(fname):
+def nura_html(fname, nxt=None):
+    """Her lines for this page. `nxt` is (button, path): the one thing this particular page
+    can send somebody to that no other page can, an article after this article, another
+    object from the same dig, the models a volunteer scanned. Lines that need it are left
+    out when the page has none, so she never offers 3D where there is nothing to turn."""
     if fname in NURA_SKIP:
         return ""
     L = NURA_LINES.get(LANG, NURA_LINES["en"])
     root = "/" + LANG_DIRS[LANG]
 
-    def one(key):
-        t, label, href = L[key]
-        if href and not href.startswith("http"):
-            href = root + href
-        return {"t": t, "cta": [label, href]} if label else {"t": t}
+    def some(key):
+        out = []
+        for t, label, href in L[key]:
+            if href == "{next}":
+                if not nxt:
+                    continue
+                label, href = nxt[0] or label, nxt[1]
+            elif href == "{donate}":
+                href = DONATE_URL
+            elif href and not href.startswith("http"):
+                href = root + href
+            out.append({"t": t.replace("{n}", str(len(MODELS))),
+                        "cta": [label, href]} if label else {"t": t})
+        return out
 
     kind = nura_kind(fname)
-    lines = {"hello": one(kind), "praise": one("praise")}
+    lines = {"hello": some(kind) or some("other"), "praise": some("praise")}
     # no asking for money on the page where they are already giving it, or over a form
     # somebody is in the middle of filling in
     if kind != "support" and fname not in NURA_NO_ASK:
-        lines["ask"] = one("ask")
+        lines["ask"] = some("ask")
     blob = esc(json.dumps(lines, ensure_ascii=False))
     face = img("nura-companion.png", 258, as_jpeg=False)
     return f"""
@@ -2539,7 +2779,7 @@ def read_badge_html(kind):
 
 
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
-         share_img="aug-20260813_124249.jpg", jsonld=None, read_badge=None):
+         share_img="aug-20260813_124249.jpg", jsonld=None, read_badge=None, nura_next=None):
     # like the original site, the menu floats over the page hero photo wherever there is one
     transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
@@ -2627,7 +2867,7 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 {header_html(active or fname, transparent, fname)}
 {body}
 {read_badge_html(read_badge) if read_badge else ''}
-{nura_html(fname)}
+{nura_html(fname, nura_next)}
 {trending_html() if trending else ''}
 {footer_html()}
 <script src="assets/site.js?v={ASSET_V}"></script>
@@ -4958,6 +5198,9 @@ MANUAL_CONTRIB = {  # work Sketchfab can't record, confirmed by Ines
          "archive.html#volunteer-made", None, "museum-progress-jan-2026.jpg"),
         ("spoke", "Running the history sessions", "community.html", None, "sv-IMG_1315.jpg"),
     ],
+    "kristina-reyes": [   # named on the museum page, but her profile listed nothing
+        ("built", "A furnished room in the virtual museum", "museum.html", None, "museum-second-room-greybox.jpg"),
+    ],
     "cam-kania": [
         ("built", "Virtual museum, narrative and thematic brief, experience design", "museum.html", None, "museum-progress-jan-2026.jpg"),
     ],
@@ -5107,6 +5350,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 </div></section>"""
         page(m["href"], m["title"], body, active="archive.html",
              desc=m["text"][:150], read_badge="object",
+             nura_next=(None, "/" + LANG_DIRS[LANG] + next_m["href"][:-5] + "/"),
              jsonld=[{"@context": "https://schema.org", "@type": "3DModel", "name": m["title"],
                       "url": SITE_URL + m["href"][:-5] + "/", "isAccessibleForFree": True,
                       "contentLocation": {"@type": "Place", "name": nice_place(m["place"]) + ", Tunisia"},
@@ -5185,7 +5429,9 @@ def build_news():
 <div style="height:54px"></div>
 {section(term("Announcements"), term("What we are doing and where we will be."), notes)}
 </div></section>"""
-    page("news.html", term("News and stories"), body, active="news.html",
+    _newest = (stories or newest)
+    _nxt_news = ((None, "/" + LANG_DIRS[LANG] + _newest[0]["href"][:-5] + "/") if _newest else None)
+    page("news.html", term("News and stories"), body, active="news.html", nura_next=_nxt_news,
          desc="Stories written by Tanit XR volunteers about Carthage and Tunisian heritage, "
               "and announcements about where the project will be next.")
 
@@ -5223,8 +5469,12 @@ def build_news():
             _art["author"] = {"@type": "Person", "name": author}
         if n.get("img"):
             _art["image"] = [SITE_URL + social_img(n["img"])]
+        # the one thing this page can offer that no other can: the next story to read
+        _others = [o for o in newest if o["clean_slug"] != n["clean_slug"] and not is_note(o)]
+        _nxt = (f'{term("Read")} "{_others[0]["title"][:42]}"', "/" + LANG_DIRS[LANG] + _others[0]["href"][:-5] + "/") \
+            if _others else None
         page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art],
-             read_badge=None if is_note(n) else "story")
+             read_badge=None if is_note(n) else "story", nura_next=_nxt)
 
 
 def build_people():
@@ -5308,10 +5558,15 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
                 total += len(seen)
                 blocks.append(f'<h3 style="margin:38px 0 18px;font-size:22px">{heading}</h3>'
                               f'<div class="cards">{cards}</div>')
+        # the 3D hint only makes sense when there is something on the page to view that way:
+        # a profile of talks and workshops was telling people to press a button that is not there
+        viewable = any(it.get("uid") for items in c.values() for it in items)
+        hint = ('<p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to '
+                'explore it right here.</p>') if viewable else ""
         contrib_html = (f'<section class="pad" style="background:var(--cloud);padding-top:56px"><div class="wrap">'
                         f'<div class="eyebrow">Contributions to Tanit XR</div>'
                         f'<h2 class="sec-title" style="font-size:32px">Some of what {esc(first_name(p["name"]))} has made with us</h2>'
-                        f'<p class="sec-sub" style="margin:0">Press <b>View in 3D</b> on any model to explore it right here.</p>'
+                        f'{hint}'
                         f'{"".join(blocks)}</div></section>') if blocks else ""
         body = f"""
 {page_hero(esc(p["name"]), f'<a href="team.html">Our People</a> &nbsp;›&nbsp; {esc(p["name"])}')}
@@ -5338,7 +5593,12 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
             _person["image"] = SITE_URL + img(p["photo"], 700)
         if p.get("links"):
             _person["sameAs"] = [u for u in p["links"] if isinstance(u, str) and u.startswith("http")]
+        # she offers to show their work in 3D only when they actually have a model on the site
+        _mine = next((it for kind in ("scanned", "optimized", "made") for it in c.get(kind, [])
+                      if it.get("uid")), None)
         page(p["href"], p["name"], body, active="team.html",
+             nura_next=((None, _mine["href"] if _mine["href"].startswith("http")
+                         else "/" + LANG_DIRS[LANG] + _mine["href"][:-5] + "/") if _mine else None),
              desc=(p["bio"][:150] if p["bio"] else f'{p["name"]} volunteers with Tanit XR, preserving Tunisian heritage in 3D.'),
              jsonld=[_person])
 
@@ -6802,7 +7062,7 @@ TERMS = {
            "XR Creators": "Créateurs XR", "Youth": "Jeunes",
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
-           "Ethics": "Éthique", "What to scan": "Quoi numériser",
+           "Read": "Lire", "Ethics": "Éthique", "What to scan": "Quoi numériser",
            "Set up the app": "Installer l’application", "Scan it": "Numériser",
            "Process and send": "Traiter et envoyer", "Tips and support": "Conseils et aide",
            "Sign the consent form": "Signer le formulaire de consentement",
@@ -6824,7 +7084,7 @@ TERMS = {
            "XR Creators": "صنّاع الواقع الممتد", "Youth": "الشباب",
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
-           "Ethics": "الأخلاقيات", "What to scan": "ماذا تمسح",
+           "Read": "اقرأ", "Ethics": "الأخلاقيات", "What to scan": "ماذا تمسح",
            "Set up the app": "إعداد التطبيق", "Scan it": "المسح",
            "Process and send": "المعالجة والإرسال", "Tips and support": "نصائح ومساعدة",
            "Sign the consent form": "توقيع استمارة الموافقة",

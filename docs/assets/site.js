@@ -168,7 +168,15 @@ const PAGE_OPENED = Date.now();
   let pick = 'hello';
   if (lines.ask && st.pages >= 5 && st.praised && !st.asked && Date.now() - asked() > MONTH) pick = 'ask';
   else if (lines.praise && st.pages >= 3 && !st.praised) pick = 'praise';
-  const line = lines[pick];
+
+  // each page has a few things she could say. Pick one she has not already used this visit,
+  // so a second archive page does not get the same sentence back.
+  const said = Array.isArray(st.said) ? st.said : [];
+  const choices = lines[pick] || [];
+  if (!choices.length) return;
+  const fresh = choices.filter((l) => said.indexOf(l.t) === -1);
+  const pool = fresh.length ? fresh : choices;
+  const line = pool[Math.floor(Math.random() * pool.length)];
 
   const words = document.getElementById('nura-words');
   const say = document.getElementById('nura-say');
@@ -203,6 +211,7 @@ const PAGE_OPENED = Date.now();
     const s2 = sess();
     if (pick === 'ask') { s2.asked = 1; noteAsk(); }
     if (pick === 'praise') s2.praised = 1;
+    s2.said = (Array.isArray(s2.said) ? s2.said : []).concat([line.t]).slice(-12);
     keep(s2);
     if (window.tx) tx('nura_said', { ask: pick });
     setTimeout(() => { if (open) shut(false); }, pick === 'ask' ? 20000 : 14000);
