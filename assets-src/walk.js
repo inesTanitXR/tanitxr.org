@@ -534,13 +534,42 @@ function start() {
     }
     return statCache[path];
   }
+  // An exact count next to an object is only worth showing once it is worth reading. Eight
+  // views reads as nobody is looking; a hundred reads as a hundred. So nothing is shown until
+  // the object passes a mark, and then the mark is what is shown, not the exact figure.
+  function milestone(n) {
+    let m = 0;
+    for (const step of [100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000]) {
+      if (n >= step) m = step;
+    }
+    return m;
+  }
+
+  // The Collection's own view count, the way a video has one: every visit, not every visitor,
+  // read live so it is right now rather than right at the last build.
+  (function liveViews() {
+    if (!CFG.gc) return;
+    counter('/explore/').then((v) => {
+      if (!v) return;
+      const end = document.getElementById('wnum-views');
+      if (end) end.textContent = v.toLocaleString();
+      const top = document.getElementById('exp-views');
+      if (top) {
+        top.querySelector('b').textContent = v.toLocaleString();
+        top.querySelector('span').textContent = v === 1 ? 'view' : 'views';
+        top.hidden = false;
+      }
+    });
+  })();
+
   function paintStats(it) {
     if (!statsEl) return;
     if (!CFG.gc) { statsEl.hidden = true; return; }
     counter('collection_view/' + it.slug).then((v) => {
       if (!slots[shown] || slots[shown].it.slug !== it.slug) return;
-      statsEl.textContent = v ? (v === 1 ? 'viewed once' : 'viewed ' + v.toLocaleString() + ' times') : '';
-      statsEl.hidden = !v;
+      const m = milestone(v || 0);
+      statsEl.textContent = m ? 'viewed ' + m.toLocaleString() + '+ times' : '';
+      statsEl.hidden = !m;
     });
   }
 
@@ -778,7 +807,7 @@ function start() {
     { id: 'first-turn', icon: '\u21bb', name: 'First Turn',
       how: 'Turn an object with your cursor', test: p => p.rotated >= 1 },
     { id: 'curator', icon: '\u2665', name: 'Curator',
-      how: 'Save five objects', test: p => p.saved.length >= 5 },
+      how: 'Love five objects', test: p => p.saved.length >= 5 },
     { id: 'listener', icon: '\u25cf', name: 'Good Listener',
       how: 'Ask Nura for more on ten objects', test: p => p.more >= 10 },
     { id: 'surveyor', icon: '\u25c8', name: 'Site Surveyor',
@@ -957,14 +986,17 @@ function start() {
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
-  // ---- the Save button, its label, and the one-time offer of the scan demo.
+  // ---- the Love button, its label, and the one-time offer of the scan demo.
+  // The word is Love, not Save: the heart was always a heart, and Save promises the object
+  // will be waiting later, which is a promise browser storage does not keep. The stored key
+  // and the counted event are still called saved, so the numbers stay comparable.
   // These definitions were lost in an earlier refactor while their call sites survived,
   // which threw ReferenceError and stopped the scene from ever drawing.
   function paintSave(it) {
     if (!uiSave) return;
     const on = it && it.slug ? readSaved().includes(it.slug) : false;
     uiSave.classList.toggle('on', on);
-    uiSave.textContent = on ? 'Saved \u2665' : 'Save \u2661';
+    uiSave.textContent = on ? 'Loved \u2665' : 'Love \u2661';
   }
   if (uiSave) uiSave.addEventListener('click', () => {
     const s0 = slots[shown];
@@ -1039,8 +1071,8 @@ function start() {
     { id: 'newsletter', when: () => true, btn: 'Subscribe',
       line: () => 'Every two weeks we send grants and open calls for artists and XR makers. Want them in your inbox?',
       act: () => { location.href = linkUrl(CFG.links.newsletter); } },
-    { id: 'save', when: () => readSaved().length === 0, btn: 'Save this one',
-      line: () => 'You can keep the ones you love. Tap Save and they wait for you here.',
+    { id: 'save', when: () => readSaved().length === 0, btn: 'Love this one',
+      line: () => 'If one of these gets you, press Love. They gather in one place for you.',
       act: () => { if (uiSave) uiSave.click(); } },
     { id: 'vr', when: () => !!document.getElementById('vr-button'), btn: 'See it in VR',
       line: () => 'You can stand next to this one in your headset.',
@@ -1218,7 +1250,7 @@ function start() {
     if (window.tx && !strip.hidden) tx('map_opened');
   });
 
-  // ---- the saved tray, so saving actually leads somewhere
+  // ---- the tray of loved objects, so pressing the heart leads somewhere
   const chip = document.getElementById('saved-chip');
   const chipCount = document.getElementById('saved-count');
   const tray = document.getElementById('saved-tray');
@@ -1234,7 +1266,7 @@ function start() {
     if (!trayList) return;
     trayList.innerHTML = '';
     if (!list.length) {
-      trayList.innerHTML = '<p>Nothing saved yet. Press Save on any object.</p>';
+      trayList.innerHTML = '<p>Nothing here yet. Press Love on any object.</p>';
       return;
     }
     list.forEach(slug => {

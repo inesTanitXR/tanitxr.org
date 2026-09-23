@@ -1397,6 +1397,23 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 /* while the closing card is up, the object HUD gets out of its way */
 body.at-end .wf-panel,body.at-end #track-switch,body.at-end #vol-cameo,body.at-end #saved-chip,
 body.at-end #rotate-cue{opacity:0;pointer-events:none;transition:opacity .35s}
+/* How many times this whole experience has been opened, at the top, the way a video shows
+   its view count. Read live from the public counter, so it is the number right now. */
+#exp-views{position:fixed;top:96px;inset-inline-end:26px;z-index:5;display:flex;
+  align-items:baseline;gap:5px;background:rgba(253,248,240,.9);
+  border:1px solid rgba(74,53,43,.16);border-radius:999px;padding:7px 14px;
+  font-size:13px;color:#7d6a58;box-shadow:0 8px 22px rgba(60,40,26,.1);pointer-events:none}
+#exp-views[hidden]{display:none}
+#exp-views b{font-size:15px;color:#4a3527;font-weight:700;font-variant-numeric:tabular-nums}
+body.in-xr #exp-views,body.in-room #exp-views,body.demoing #exp-views,
+body.walk-fallback #exp-views,body.at-end #exp-views{opacity:0;pointer-events:none}
+/* the loved chip moves down to sit under it */
+body #saved-chip{top:146px}
+@media(max-width:760px){
+  #exp-views{top:78px;inset-inline-end:12px;padding:5px 11px;font-size:11.5px}
+  #exp-views b{font-size:13px}
+  body #saved-chip{top:120px}
+}
 /* the Collection's own numbers, at the end of the walk */
 .wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
   margin-top:30px;padding-top:24px;border-top:1px solid rgba(74,53,43,.16)}

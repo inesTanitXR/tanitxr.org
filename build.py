@@ -1608,6 +1608,23 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 /* while the closing card is up, the object HUD gets out of its way */
 body.at-end .wf-panel,body.at-end #track-switch,body.at-end #vol-cameo,body.at-end #saved-chip,
 body.at-end #rotate-cue{opacity:0;pointer-events:none;transition:opacity .35s}
+/* How many times this whole experience has been opened, at the top, the way a video shows
+   its view count. Read live from the public counter, so it is the number right now. */
+#exp-views{position:fixed;top:96px;inset-inline-end:26px;z-index:5;display:flex;
+  align-items:baseline;gap:5px;background:rgba(253,248,240,.9);
+  border:1px solid rgba(74,53,43,.16);border-radius:999px;padding:7px 14px;
+  font-size:13px;color:#7d6a58;box-shadow:0 8px 22px rgba(60,40,26,.1);pointer-events:none}
+#exp-views[hidden]{display:none}
+#exp-views b{font-size:15px;color:#4a3527;font-weight:700;font-variant-numeric:tabular-nums}
+body.in-xr #exp-views,body.in-room #exp-views,body.demoing #exp-views,
+body.walk-fallback #exp-views,body.at-end #exp-views{opacity:0;pointer-events:none}
+/* the loved chip moves down to sit under it */
+body #saved-chip{top:146px}
+@media(max-width:760px){
+  #exp-views{top:78px;inset-inline-end:12px;padding:5px 11px;font-size:11.5px}
+  #exp-views b{font-size:13px}
+  body #saved-chip{top:120px}
+}
 /* the Collection's own numbers, at the end of the walk */
 .wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
   margin-top:30px;padding-top:24px;border-top:1px solid rgba(74,53,43,.16)}
@@ -4768,9 +4785,16 @@ def collection_numbers():
     # but not shown: a save lives in one browser until that browser is cleared.
     rows = [(st["objects"], term("objects, scanned and modelled by volunteers")),
             (st["object_views"], term("views of those objects")),
-            (st["experience_views"], term("visits to this Collection")),
+            (st["experience_views"], term("views of this Collection")),
             (st.get("per_visit"), term("objects looked at in an average visit"))]
-    cells = "".join(f'<div><b>{n:,g}</b><span>{esc(w)}</span></div>' for n, w in rows if n)
+    # the Collection's own view count is read live, so it is right now rather than right at
+    # the last build. The built-in number is what shows if the counter cannot be reached.
+    cells = ""
+    for n, w in rows:
+        if not n:
+            continue
+        i = ' id="wnum-views"' if w == term("views of this Collection") else ""
+        cells += f'<div><b{i}>{n:,g}</b><span>{esc(w)}</span></div>' 
     try:
         import datetime as _d
         when = long_date(_d.date.fromisoformat(st["as_of"]))
@@ -4967,14 +4991,15 @@ def build_walk():
 <span class="rc-label">Drag to turn</span>
 </div></div>
 
-<button id="saved-chip" aria-label="Open your saved objects">
+<div id="exp-views" hidden><b>0</b> <span>views</span></div>
+<button id="saved-chip" aria-label="Open the ones you love">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
-<b id="saved-count">0</b> saved <span class="sc-prog"></span></button>
+<b id="saved-count">0</b> loved <span class="sc-prog"></span></button>
 
 <div id="saved-tray" hidden>
 <div class="st-head"><h3>Your collection</h3>
 <button id="saved-close" aria-label="Close">&times;</button></div>
-<div class="st-tabs"><button class="st-tab on" data-tab="saved">Saved</button>
+<div class="st-tabs"><button class="st-tab on" data-tab="saved">Loved</button>
 <button class="st-tab" data-tab="badges">Badges</button></div>
 <div id="saved-list"></div>
 <div id="badge-list" hidden></div>
@@ -7474,7 +7499,7 @@ TERMS = {
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
            "views of those objects": "vues de ces objets",
            "objects looked at in an average visit": "objets regardés lors d’une visite type",
-           "visits to this Collection": "visites de cette Collection",
+           "views of this Collection": "vues de cette Collection",
            "people have walked through this Collection": "personnes ont parcouru cette Collection",
            "times somebody has opened one of them": "fois qu’un de ces objets a été ouvert",
            "saved by somebody into their own collection": "enregistrés par quelqu’un dans sa propre collection",
@@ -7536,7 +7561,7 @@ TERMS = {
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
            "views of those objects": "مشاهدة لهذه القطع",
            "objects looked at in an average visit": "قطعة يُنظر إليها في الزيارة الواحدة",
-           "visits to this Collection": "زيارة لهذه المجموعة",
+           "views of this Collection": "مشاهدة لهذه المجموعة",
            "people have walked through this Collection": "شخصًا تجوّلوا في هذه المجموعة",
            "times somebody has opened one of them": "مرة فُتحت فيها إحدى هذه القطع",
            "saved by somebody into their own collection": "قطعة حفظها أحدهم في مجموعته الخاصة",
