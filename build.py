@@ -2636,6 +2636,37 @@ def analytics_tag():
 # Ines's copy carries no em dashes. Imported text (old posts, model descriptions, scraped
 # bios) arrives full of them, so every page is normalised once, outside its script blocks.
 _SCRIPT_SPLIT = re.compile(r"(<script\b.*?</script>)", re.S)
+_EXT_A = re.compile(r'<a\s+([^>]*?href="(https?://[^"]+)"[^>]*?)>', re.I | re.S)
+
+
+def offsite_opens_away(html):
+    """Any link that leaves tanitxr.org opens in its own tab.
+
+    Somebody reading an article follows a citation and their place in the Collection, the
+    object they were turning and the article they were halfway through are all gone. This is
+    applied to the finished page rather than to each place a link is written, so it covers the
+    article bodies and the opportunity board, which come from elsewhere, and anything added
+    later without anyone having to remember. rel="noopener" goes with it: a page opened this
+    way can otherwise reach back into the one that opened it."""
+    parts = _SCRIPT_SPLIT.split(html)
+
+    def fix(m):
+        attrs, href = m.group(1), m.group(2)
+        if "tanitxr.org" in href or re.search(r"\btarget\s*=", attrs, re.I):
+            return m.group(0)
+        rel = re.search(r'rel="([^"]*)"', attrs, re.I)
+        if rel:
+            vals = sorted(set(rel.group(1).split()) | {"noopener"})
+            attrs = attrs[:rel.start()] + f'rel="{" ".join(vals)}"' + attrs[rel.end():]
+        else:
+            attrs = attrs.rstrip() + ' rel="noopener"'
+        return f'<a {attrs} target="_blank">'
+
+    for i in range(0, len(parts), 2):
+        parts[i] = _EXT_A.sub(fix, parts[i])
+    return "".join(parts)
+
+
 def dedash(html):
     parts = _SCRIPT_SPLIT.split(html)
     for i in range(0, len(parts), 2):
@@ -4514,7 +4545,7 @@ def past_events_block(heading="Where we have been", cloud=True):
     rows = ""
     for e in gone:
         links = " &nbsp;·&nbsp; ".join(
-            f'<a href="{u}"{" target=_blank rel=noopener" if u.startswith("http") else ""}>{esc(t)}</a>'
+            f'<a href="{u}"{' target="_blank" rel="noopener"' if u.startswith("http") else ""}>{esc(t)}</a>'
             for t, u in e.get("past_links", e.get("links", [])))
         rows += (f'<div class="past-ev"><div class="past-when">{esc(e["when"])}</div>'
                  f'<div><b>{esc(e["title"])}</b>'
@@ -7893,14 +7924,15 @@ def main():
             print(f"  translations: {_st}. See: python3 tools/translation_status.py --list")
     except Exception:
         pass
-    # last pass: whichever path wrote a page, no em dash survives outside its script blocks
+    # last pass over every page whichever code path wrote it: no em dash survives outside
+    # a script block, and nothing that leaves the site replaces the page you are on
     for _dp, _, _fs in os.walk(DOCS):
         for _fn in _fs:
             if _fn.endswith(".html"):
                 _p = os.path.join(_dp, _fn)
                 with open(_p, encoding="utf-8") as _f:
                     _h = _f.read()
-                _d = dedash(_h)
+                _d = offsite_opens_away(dedash(_h))
                 if _d != _h:
                     with open(_p, "w", encoding="utf-8") as _f:
                         _f.write(_d)
