@@ -211,7 +211,7 @@ def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
 
 CSS = """
 :root{
-  --gold:#ffcd05; --gold-dark:#f7b500; --ink:#111518; --ink-soft:#1b2126;
+  --gold:#ffcd05; --gold-dark:#f7b500; --gold-text:#8a6200; --ink:#111518; --ink-soft:#1b2126;
   --gray:#687279; --mist:#edeff2; --cloud:#f9fafb; --paper:#ffffff;
   --serif:'Yeseva One',Georgia,serif; --sans:'Roboto',-apple-system,'Helvetica Neue',Arial,sans-serif;
   --slab:'Roboto Slab',Georgia,serif;
@@ -233,7 +233,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
 .btn-line:hover{background:var(--ink);color:#fff}
 .btn-line-light{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
 .btn-line-light:hover{background:#fff;color:var(--ink)}
-.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);font-weight:700;margin-bottom:14px}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-text);font-weight:700;margin-bottom:14px}
 .center{text-align:center}
 
 /* header, nav split around a centered logo, like the original site */
@@ -261,7 +261,7 @@ header.site .donate:hover{background:var(--gold-dark);color:var(--ink)}
 header.site.solid,header.site.scrolled{background:#fff;box-shadow:0 1px 14px rgba(17,21,24,.09)}
 header.site.solid .hlinks a,header.site.scrolled .hlinks a{color:var(--ink)}
 header.site.solid .hlinks a:hover,header.site.scrolled .hlinks a:hover,
-header.site.solid .hlinks a.on,header.site.scrolled .hlinks a.on{color:var(--gold-dark)}
+header.site.solid .hlinks a.on,header.site.scrolled .hlinks a.on{color:var(--gold-text)}
 header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
 @media(max-width:1470px){header.site .socials{display:none}}
 @media(max-width:1320px){.hlinks{gap:24px}.hlinks a{font-size:15px}.hcta{gap:10px}header.site .bar{gap:34px}
@@ -274,7 +274,7 @@ header.site.solid .socials a,header.site.scrolled .socials a{color:var(--gray)}
   box-shadow:0 10px 34px rgba(17,21,24,.16);padding:10px 0;display:none}
 .drop:hover .menu,.drop:focus-within .menu{display:block}
 .drop .menu a{display:block;padding:9px 20px;color:var(--ink)!important;font-size:14.5px}
-.drop .menu a:hover{background:var(--cloud);color:var(--gold-dark)!important}
+.drop .menu a:hover{background:var(--cloud);color:var(--gold-text)!important}
 .langs{display:flex;gap:4px;font-size:12.5px;font-weight:700;align-items:center}
 .langs a{color:inherit;text-decoration:none;opacity:.75;padding:3px 7px;border-radius:4px}
 .langs a:hover{opacity:1}
@@ -301,7 +301,7 @@ header.site.solid #nav-toggle span,header.site.scrolled #nav-toggle span{backgro
   #mobnav .langs a{color:#fff!important}
   #mobnav .langs a.on{color:var(--ink)!important}
   #mobnav a{color:#fff!important;padding:9px 0;font-size:17px;text-decoration:none}
-  #mobnav .donate{padding:10px 22px;margin-top:12px}
+  #mobnav .donate{padding:10px 22px;margin-top:12px;background:var(--gold);color:var(--ink)!important}
   #mobnav .drop .menu{position:static;display:block;background:none;box-shadow:none;padding:0 0 0 16px;min-width:0}
   #mobnav .drop .menu a{color:rgba(255,255,255,.75)!important;padding:7px 0}
   #mobnav .drop>a::after{content:""}
@@ -348,7 +348,7 @@ section.pad-sm{padding:56px 0}
 .pillar img{width:86px;height:86px;object-fit:contain;margin-bottom:20px}
 .pillar h3{font-size:22px;margin-bottom:12px}
 .pillar p{color:var(--gray);font-size:15.5px;flex:1}
-.pillar a{margin-top:18px;color:var(--gold-dark);font-weight:700;text-decoration:none;font-size:15px}
+.pillar a{margin-top:18px;color:var(--gold-text);font-weight:700;text-decoration:none;font-size:15px}
 .pillar a:hover{text-decoration:underline}
 
 /* cards */
@@ -387,7 +387,7 @@ section.pad-sm{padding:56px 0}
 .past-ev b{font-family:var(--serif);font-size:19px;font-weight:400;display:block}
 .past-where{color:var(--gray);font-size:13.5px;margin-top:3px}
 .past-ev p{color:var(--gray);font-size:14.5px;margin:8px 0 0;line-height:1.7}
-.past-links a{color:var(--gold-dark)}
+.past-links a{color:var(--gold-text)}
 @media(max-width:680px){.past-ev{grid-template-columns:1fr;gap:6px}}
 .art-spot{margin:0 auto 22px;width:60vw}.art-spot img{width:100%;height:auto;display:block}
 .art-spot figcaption{font-size:12px;color:var(--gray);margin-top:6px;text-align:center}.art-spot figcaption a{color:var(--gray)}
@@ -401,7 +401,7 @@ section.pad-sm{padding:56px 0}
 .card .tx{padding:20px 22px 22px}
 .card h3{font-size:19px;margin-bottom:8px}
 .card h3 a{color:inherit;text-decoration:none}
-.card h3 a:hover{color:var(--gold-dark)}
+.card h3 a:hover{color:var(--gold-text)}
 .card .meta{font-size:13px;color:var(--gray)}
 /* in-place 3D viewer: the ▶ button swaps the thumbnail for the Sketchfab iframe (site.js) */
 .card .ph{position:relative}
@@ -429,7 +429,7 @@ section.pad-sm{padding:56px 0}
 .logos a:hover img{filter:none;opacity:1}
 .logos a:hover .cap{color:var(--ink)}
 .cream{background:#fbf6ed}
-.stats.light b{color:var(--gold-dark)}.stats.light>div>span{color:var(--gray)}
+.stats.light b{color:var(--gold-text)}.stats.light>div>span{color:var(--gray)}
 /* the original site's impact band: big gold serif numbers over a site photo */
 .band.photo .bg{opacity:.55;background-position:center 35%}
 .band.photo::after{content:"";position:absolute;inset:0;background:rgba(11,14,17,.42)}
@@ -455,7 +455,7 @@ section.pad-sm{padding:56px 0}
 .press{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .press a,.press div.item{display:block;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px;text-decoration:none;color:var(--ink);transition:.2s}
 .press a:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(17,21,24,.1)}
-.press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);font-weight:700}
+.press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:700}
 .press h3{font-size:18px;margin:8px 0 6px}
 .press p{color:var(--gray);font-size:14.5px}
 .vid{width:100%;border-radius:12px;background:#000;display:block;aspect-ratio:16/9}
@@ -473,7 +473,7 @@ section.pad-sm{padding:56px 0}
 .money span{font-size:14.5px;color:rgba(255,255,255,.8)}
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
 .steps div{background:var(--cloud);border-radius:10px;padding:22px;position:relative}
-.steps div::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:34px;color:var(--gold-dark);display:block;margin-bottom:6px}
+.steps div::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:34px;color:var(--gold-text);display:block;margin-bottom:6px}
 /* split section (photo | cream panel), like the original "Why It Matters" */
 .split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
 .split .simg{background-size:cover;background-position:center;min-height:360px}
@@ -495,7 +495,7 @@ section.pad-sm{padding:56px 0}
 .ix{display:flex;gap:20px;align-items:center;padding:22px 26px;border-radius:12px;background:#fff;
   border:1px solid var(--mist);text-decoration:none;color:var(--ink);transition:.2s}
 .ix:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(17,21,24,.12)}
-.ix b{font-family:var(--serif);font-size:44px;line-height:1;color:var(--gold-dark);min-width:74px}
+.ix b{font-family:var(--serif);font-size:44px;line-height:1;color:var(--gold-text);min-width:74px}
 .ix span{font-size:14px;color:var(--gray);line-height:1.45}
 .ix span strong{display:block;color:var(--ink);font-size:17px;margin-bottom:3px}
 .ix.gold{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -511,6 +511,10 @@ section.pad-sm{padding:56px 0}
 
 /* dark band */
 .band{background:var(--ink);color:#fff;position:relative}
+/* the dark sections keep the bright gold: the readable one is for text on white */
+.band .eyebrow,.page-hero .eyebrow,.ix.gold .eyebrow,#mobnav .eyebrow,
+.band a:not(.btn),.band .k,.band .role{color:var(--gold)}
+
 .band .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22}
 .band .wrap{position:relative}
 .band h2{color:#fff}
@@ -530,9 +534,9 @@ section.pad-sm{padding:56px 0}
 .member .ph.blank{display:flex;align-items:center;justify-content:center;font-family:var(--serif);
   font-size:42px;color:var(--gray)}
 .member h3{font-size:19px}
-.member .role{color:var(--gold-dark);font-size:14px;font-weight:700;margin:4px 0 8px}
+.member .role{color:var(--gold-text);font-size:14px;font-weight:700;margin:4px 0 8px}
 .member .more{font-size:13.5px;color:var(--gray)}
-.member:hover .more{color:var(--gold-dark)}
+.member:hover .more{color:var(--gold-text)}
 
 /* quotes */
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
@@ -578,7 +582,7 @@ section.pad-sm{padding:56px 0}
 .active{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:-4px 0 18px}
 .achip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--mist);border-radius:4px;padding:5px 8px 5px 10px;font-size:13.5px;background:#fff}
 .achip button{border:0;background:none;cursor:pointer;color:var(--gray);font-size:16px;line-height:1;padding:0 2px}
-.clearf{border:0;background:none;color:var(--gold-dark);font:700 13px var(--sans);cursor:pointer;text-decoration:underline}
+.clearf{border:0;background:none;color:var(--gold-text);font:700 13px var(--sans);cursor:pointer;text-decoration:underline}
 @media(max-width:760px){.search{width:100%}.tb-right{width:100%}}
 .board-tools select,.board-tools input[type=search]{padding:10px 14px;border:1px solid var(--mist);
   border-radius:6px;font-family:var(--sans);font-size:14.5px;background:#fff;color:var(--ink)}
@@ -600,7 +604,7 @@ section.pad-sm{padding:56px 0}
 .board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}
 .board-fallback h3{font-size:18px;margin:0 0 4px}
 .board-fallback a{color:var(--ink)}
-.board-fallback .bf-meta{color:var(--gold-dark);font-size:13px;margin:0 0 8px}
+.board-fallback .bf-meta{color:var(--gold-text);font-size:13px;margin:0 0 8px}
 .board-fallback p{color:var(--gray);font-size:14.5px;margin:0;line-height:1.7}
 #closed .opp.hid{display:none}
 .closed-h{margin:44px 0 16px;font-size:20px;color:var(--gray);font-weight:400}
@@ -615,7 +619,7 @@ section.pad-sm{padding:56px 0}
 .opp .desc{color:#3c454c;font-size:15px;display:-webkit-box;-webkit-line-clamp:5;
   -webkit-box-orient:vertical;overflow:hidden}
 .opp.x .desc{-webkit-line-clamp:unset}
-.opp .more{background:none;border:none;color:var(--gold-dark);font-weight:700;font-size:13.5px;
+.opp .more{background:none;border:none;color:var(--gold-text);font-weight:700;font-size:13.5px;
   cursor:pointer;padding:6px 0 0;text-align:left;font-family:var(--sans);width:max-content}
 .opp .dl{font-weight:700;font-size:13.5px;color:var(--ink)}
 .opp .dl.soon{color:#c0392b}
@@ -633,7 +637,7 @@ section.pad-sm{padding:56px 0}
 .prose ul,.prose ol{margin:0 0 18px 26px}
 .prose li{margin-bottom:8px}
 .prose img{border-radius:10px;margin:26px 0}
-.prose a{color:var(--gold-dark)}
+.prose a{color:var(--gold-text)}
 .prose blockquote{border-left:4px solid var(--gold);padding:6px 22px;margin:22px 0;color:var(--gray);font-style:italic}
 .prose iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;margin:26px 0}
 
@@ -655,7 +659,7 @@ form.nice .hint{font-size:13px;color:var(--gray);margin-top:5px}
 /* faq */
 .faq details{border:1px solid var(--mist);border-radius:8px;margin-bottom:12px;background:#fff}
 .faq summary{padding:18px 22px;font-weight:700;cursor:pointer;font-size:16.5px;list-style:none;position:relative}
-.faq summary::after{content:"+";position:absolute;right:22px;font-size:22px;color:var(--gold-dark)}
+.faq summary::after{content:"+";position:absolute;right:22px;font-size:22px;color:var(--gold-text)}
 .faq details[open] summary::after{content:"–"}
 .faq .a{padding:0 22px 20px;color:#3c454c}
 
@@ -671,7 +675,7 @@ form.nice .hint{font-size:13px;color:var(--gray);margin-top:5px}
 .trend .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 .trend a{display:flex;gap:12px;align-items:center;text-decoration:none;font-size:14.5px;font-weight:500}
 .trend a img{width:56px;height:56px;border-radius:8px;object-fit:cover;flex:none}
-.trend a:hover{color:var(--gold-dark)}
+.trend a:hover{color:var(--gold-text)}
 
 /* partners */
 .partners{display:flex;flex-wrap:wrap;gap:38px;align-items:center;justify-content:center}
@@ -699,7 +703,7 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
 .ev-date b{display:block;font-family:var(--serif);font-size:42px;line-height:1;color:var(--ink)}
 .ev-date span{display:block;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--gray);margin-top:6px}
-.ev-when{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);
+.ev-when{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);
   font-weight:700}
 .ev h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:6px 0 4px;line-height:1.2}
 .ev-where{color:var(--gray);font-size:14.5px;margin-bottom:10px}
@@ -1629,7 +1633,7 @@ body #saved-chip{top:146px}
 .wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
   margin-top:30px;padding-top:24px;border-top:1px solid rgba(74,53,43,.16)}
 .wnums div{display:flex;flex-direction:column;gap:3px}
-.wnums b{font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold-dark);
+.wnums b{font-family:var(--serif);font-weight:400;font-size:30px;color:var(--gold-text);
   line-height:1}
 .wnums span{font-size:13.5px;line-height:1.35;color:#5d4c3c}
 .wnums-when{margin:16px 0 0;font-size:12px;color:#8a735c}
@@ -3372,7 +3376,7 @@ def creator_credit(sketchfab_user):
 
 
 def credit_link(name, href):
-    return (f'<a href="{href}" style="color:var(--gold-dark);font-weight:700">{esc(name)}</a>' if href
+    return (f'<a href="{href}" style="color:var(--gold-text);font-weight:700">{esc(name)}</a>' if href
             else f'<b>{esc(name)}</b>')
 
 
@@ -4131,7 +4135,7 @@ Everything we make is free and open.</p></div>
 <div style="max-width:820px;margin:40px auto 0;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:24px 28px">
 <b style="font-family:var(--serif);font-size:19px;font-weight:400">Recorded history lessons</b>
 <p style="color:var(--gray);font-size:14.5px;margin:6px 0 12px">Julia records a short lesson each week so volunteers in any time zone can follow along and pick a task.</p>
-<ul style="padding-left:20px;line-height:1.9;color:var(--ink)">{"".join(f'<li><a href="{u}" target="_blank" rel="noopener" style="color:var(--gold-dark)">{esc(t)}</a> <span style="color:var(--gray);font-size:13px">· {d}</span></li>' for t, d, u in HISTORY_LESSONS)}</ul>
+<ul style="padding-left:20px;line-height:1.9;color:var(--ink)">{"".join(f'<li><a href="{u}" target="_blank" rel="noopener" style="color:var(--gold-text)">{esc(t)}</a> <span style="color:var(--gray);font-size:13px">· {d}</span></li>' for t, d, u in HISTORY_LESSONS)}</ul>
 </div>
 </div></section>
 
@@ -4144,8 +4148,8 @@ the Tanit XR story: an amphora heading to class, volunteers on every continent, 
 appearing on a phone, and the murex shell that gave Carthage its purple.</p></div>
 {community_art()}
 <p class="center" style="margin-top:26px;color:var(--gray);font-size:14.5px">Illustrations by
-<a href="team/alyssa-george.html" style="color:var(--gold-dark)">Alyssa George</a> ·
-<a href="https://www.instagram.com/alyssumsinbloom/" target="_blank" rel="noopener" style="color:var(--gold-dark)">@alyssumsinbloom</a>
+<a href="team/alyssa-george.html" style="color:var(--gold-text)">Alyssa George</a> ·
+<a href="https://www.instagram.com/alyssumsinbloom/" target="_blank" rel="noopener" style="color:var(--gold-text)">@alyssumsinbloom</a>
 &nbsp; <a class="btn btn-line" href="team/alyssa-george.html" style="margin-left:10px">See her profile</a></p>
 </div></section>
 
@@ -4306,7 +4310,7 @@ def build_services():
     cards = "".join(
         f'<div class="act" style="display:flex;flex-direction:column"><div class="ic">{ic}</div><b>{t}</b><p>{d}</p>'
         f'<p style="margin-top:10px">{who}</p>'
-        f'<p style="margin-top:auto;padding-top:14px;color:var(--gold-dark);font-weight:700;font-size:13.5px">{price}</p></div>'
+        f'<p style="margin-top:auto;padding-top:14px;color:var(--gold-text);font-weight:700;font-size:13.5px">{price}</p></div>'
         for ic, t, d, who, price in services)
     body = f"""
 {page_hero("Services", '<a href="about.html">About</a> &nbsp;›&nbsp; Services', bg="sv-IMG_4299.jpg", pos="center 40%")}
@@ -4354,7 +4358,7 @@ scanning days.</p></div>
 <label for="sv-msg">Tell us more</label><textarea id="sv-msg" name="message" rows="4" placeholder="Objects, audience, dates, location, budget if you have one."></textarea>
 <button class="btn btn-gold" type="submit">Send</button>
 </form>
-<p style="color:var(--gray);font-size:13.5px;margin-top:12px">Or email <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a>.</p>
+<p style="color:var(--gray);font-size:13.5px;margin-top:12px">Or email <a href="mailto:{EMAIL}" style="color:var(--gold-text)">{EMAIL}</a>.</p>
 </div></div></div></section>
 
 <section class="band pad"><div class="wrap center">
@@ -4379,7 +4383,7 @@ def build_press():
 {page_hero("Press &amp; Recognition", '<a href="about.html">About</a> &nbsp;›&nbsp; Press &amp; Recognition', bg="sv-IMG_1232.jpg", pos="center 30%")}
 <section class="pad"><div class="wrap">
 <p class="sec-sub" style="margin:0 0 10px;max-width:800px">Where Tanit XR has been recognized, featured and heard. For
-interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a>.</p>
+interviews, talks or media requests write to <a href="mailto:{EMAIL}" style="color:var(--gold-text)">{EMAIL}</a>.</p>
 {sections}
 <h2 class="sec-title" id="niantic" style="font-size:30px;margin:46px 0 18px">Featured by Niantic Spatial</h2>
 <p class="sec-sub" style="margin:0 0 18px;max-width:800px">Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and our Scaniverse capture of the amphitheatre of El Jem.</p>
@@ -4853,6 +4857,10 @@ def build_walk():
                 th = os.path.join(HERE, "media", "thumbs", pc["slug"] + ".png")
                 if os.path.exists(th):
                     _media_files[os.path.basename(th).lower()] = th
+                # the building kit stays out of the Collection: an arch alone on a plain
+                # background looks broken, not like a piece of a museum
+                if pc.get("kit"):
+                    continue
                 if pc["slug"] in on_disk and os.path.getsize(gp) <= WALK_MAX_BYTES:
                     made.append({"title": pc["title"], "file_slug": pc["slug"],
                                  "place": "Made by volunteers", "site": "Made by volunteers",
@@ -5470,7 +5478,7 @@ def volunteer_made_cards(limit=None):
             byhref = TEAM_BY_SLUG[byslug]["href"] if byslug in TEAM_BY_SLUG else None
         else:
             byname, byhref = creator_credit(vm.get("by"))
-        credit = ("by " + (f'<a href="{byhref}" style="color:var(--gold-dark);font-weight:700">{esc(byname)}</a>'
+        credit = ("by " + (f'<a href="{byhref}" style="color:var(--gold-text);font-weight:700">{esc(byname)}</a>'
                   if byhref else esc(byname))) if byname else ""
         cards += model_card(vm["title"], vm.get("thumb"), vm["href"], meta=credit,
                             uid=vm.get("uid"), external=vm["href"].startswith("http"))
@@ -5675,7 +5683,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 {gr_html}
 <p style="margin-top:26px;padding:16px 20px;background:var(--cloud);border-radius:10px;font-size:14.5px;color:var(--gray)">
 🤝 This scan exists because of volunteers, from scanning on site to cleanup and research.
-<a href="volunteer.html" style="color:var(--gold-dark);font-weight:700">Join us →</a></p>
+<a href="volunteer.html" style="color:var(--gold-text);font-weight:700">Join us →</a></p>
 <div style="display:flex;justify-content:space-between;margin-top:44px;padding-top:22px;border-top:1px solid var(--mist);font-size:14.5px">
 <a href="{prev_m['href']}" style="text-decoration:none;color:var(--gray)">← {esc(prev_m['title'][:40])}</a>
 <a href="{next_m['href']}" style="text-decoration:none;color:var(--gray);text-align:right">{esc(next_m['title'][:40])} →</a>
@@ -5782,7 +5790,7 @@ def build_news():
         if a_slug:
             _add_contrib(a_slug, "wrote", n["title"], n["href"], thumb=n.get("img"))
             byline = (f'{term("By")} <a href="{TEAM_BY_SLUG[a_slug]["href"]}" '
-                      f'style="color:var(--gold-dark);font-weight:700">{esc(author)}</a> · ') \
+                      f'style="color:var(--gold-text);font-weight:700">{esc(author)}</a> · ') \
                 if a_slug in TEAM_BY_SLUG else f'{term("By")} {esc(author)} · '
         else:
             byline = f'{term("By")} {esc(author)} · ' if author else ""
@@ -5828,7 +5836,7 @@ def build_people():
 <h2 class="sec-title" style="margin-top:70px">Community Contributors</h2>
 <div class="team" style="margin-top:38px">{grid(COMMUNITY)}</div>
 <div class="notice" style="text-align:left;max-width:720px;margin:56px auto 0">
-<b>Are you a Tanit XR volunteer?</b> <a href="create-profile.html" style="color:var(--gold-dark)">Create your
+<b>Are you a Tanit XR volunteer?</b> <a href="create-profile.html" style="color:var(--gold-text)">Create your
 profile</a> and it will appear here once approved.</div>
 </div></section>
 <script>
@@ -6047,7 +6055,7 @@ def build_opportunities():
 and events for artists, XR creators, educators, students, and changemakers, updated regularly by the
 Tanit XR team. Also published as our
 <a href="https://www.linkedin.com/newsletters/art-xr-impact-opportunities-7370189407523454976/"
-target="_blank" rel="noopener" style="color:var(--gold-dark)">LinkedIn newsletter</a>.</p>
+target="_blank" rel="noopener" style="color:var(--gold-text)">LinkedIn newsletter</a>.</p>
 <div class="subtop" id="subscribe">
 <div><b style="font-family:var(--serif);font-size:20px;font-weight:400;display:block">Get these in your inbox</b>
 <span style="color:var(--gray);font-size:14px">New opportunities every one to two weeks. Free.</span></div>
@@ -6359,9 +6367,9 @@ def build_create_profile():
 {page_hero("Create Your Profile", '<a href="volunteer.html">Volunteer</a> &nbsp;›&nbsp; Create Your Profile', bg="sv-IMG_8034.jpg")}
 <section class="pad"><div class="wrap" style="max-width:760px">
 <div class="notice" style="margin:0 0 22px"><b>For accepted Tanit XR volunteers only.</b> Not a volunteer yet? Start with the
-<a href="volunteer.html" style="color:var(--gold-dark)">volunteer interest form</a>, profiles are created after you join.</div>
+<a href="volunteer.html" style="color:var(--gold-text)">volunteer interest form</a>, profiles are created after you join.</div>
 <p class="sec-sub" style="margin:0 0 8px">Already volunteering with Tanit XR? Submit your profile and, once
-approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-dark)">Our People</a>
+approved by the team, it will appear on our <a href="team.html" style="color:var(--gold-text)">Our People</a>
 page.</p>
 <form class="nice" action="{PROFILE_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="New volunteer profile submission, tanitxr.org">
@@ -7048,10 +7056,10 @@ def build_about():
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
 and neglect. Together, we’re building a digital archive to protect it for generations.</p>
 <div class="stats icons" style="margin-top:14px">
-<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-dark)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
-<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-dark)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
-<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-dark)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
-<div><img src="{img('global.png', 200, as_jpeg=False)}" alt="People reached online"><b style="color:var(--gold-dark)">{stat('reach')}</b><span style="color:var(--gray)">People reached online</span></div>
+<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-text)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
+<div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-text)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
+<div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-text)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
+<div><img src="{img('global.png', 200, as_jpeg=False)}" alt="People reached online"><b style="color:var(--gold-text)">{stat('reach')}</b><span style="color:var(--gray)">People reached online</span></div>
 </div>
 </div></section>
 <section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
@@ -7079,7 +7087,7 @@ the story. With 3D scanning, digital archiving, and immersive storytelling, we c
 share it with the world. Each scan is more than just data; it is a memory, a voice from the past, a way of
 saying: we were here, and we matter.</p>
 <p><b>– <a href="https://www.inessaid.com" target="_blank" rel="noopener"
-style="color:var(--gold-dark)">Ines Said</a>, Founder</b></p>
+style="color:var(--gold-text)">Ines Said</a>, Founder</b></p>
 </div>
 <img src="{img('img_4196.jpg', 1000)}" alt="Ines scanning at Carthage" style="border-radius:14px" loading="lazy">
 </div>
@@ -7127,7 +7135,7 @@ def build_contact():
 <div>
 <img src="{img('aug-PXL_0811_174938.jpg', 900)}" alt="Sidi Bou Said, Tunisia"
 style="border-radius:14px" loading="lazy">
-<p style="margin-top:26px"><b>Email:</b> <a href="mailto:{EMAIL}" style="color:var(--gold-dark)">{EMAIL}</a><br>
+<p style="margin-top:26px"><b>Email:</b> <a href="mailto:{EMAIL}" style="color:var(--gold-text)">{EMAIL}</a><br>
 <b>Phone:</b> {PHONE}</p>
 </div></div>
 </div></section>
@@ -7276,7 +7284,7 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
 <p style="margin-top:6px"><a class="btn btn-gold" href="explore.html">Explore in 3D</a> &nbsp;
 <a class="btn btn-line" href="index.html">Back home</a></p>
 <p style="margin-top:36px;color:var(--gray);font-size:14.5px">While you wait, the weekly opportunity digest is free:
-<a href="opportunities.html#subscribe" style="color:var(--gold-dark)">subscribe to Opportunities</a>.</p>
+<a href="opportunities.html#subscribe" style="color:var(--gold-text)">subscribe to Opportunities</a>.</p>
 </div></section>
 <script>
 (function(){{

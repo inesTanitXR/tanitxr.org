@@ -78,7 +78,8 @@
    "by": "Patrick Molen",
    "note": "One of four arch pieces from the modular building kit. Volunteers snap these together to make new galleries without modelling anything from scratch.",
    "hi": "A building block. New rooms are puzzled together from these.",
-   "sketchfab": "https://sketchfab.com/3d-models/e635a954a21e46858bc5126c29af0b03"
+   "sketchfab": "https://sketchfab.com/3d-models/e635a954a21e46858bc5126c29af0b03",
+   "kit": true
   },
   {
    "slug": "patrick-arch-2",
@@ -86,7 +87,8 @@
    "title": "Arch, second pattern",
    "by": "Patrick Molen",
    "note": "Another arch from the kit, with a deeper reveal.",
-   "sketchfab": "https://sketchfab.com/3d-models/9c0a11023df8412ca3365eec04f7b3f5"
+   "sketchfab": "https://sketchfab.com/3d-models/9c0a11023df8412ca3365eec04f7b3f5",
+   "kit": true
   },
   {
    "slug": "patrick-arch-3",
@@ -94,7 +96,8 @@
    "title": "Arch, third pattern",
    "by": "Patrick Molen",
    "note": "The tallest arch in the kit.",
-   "sketchfab": "https://sketchfab.com/3d-models/f29b3f61705949d0b16ac65b99eddc2a"
+   "sketchfab": "https://sketchfab.com/3d-models/f29b3f61705949d0b16ac65b99eddc2a",
+   "kit": true
   },
   {
    "slug": "patrick-arch-4",
@@ -102,7 +105,8 @@
    "title": "Arch, fourth pattern",
    "by": "Patrick Molen",
    "note": "The smallest arch, for passages.",
-   "sketchfab": "https://sketchfab.com/3d-models/6c09c3c73016471db35e3699bb63c694"
+   "sketchfab": "https://sketchfab.com/3d-models/6c09c3c73016471db35e3699bb63c694",
+   "kit": true
   },
   {
    "slug": "patrick-wall-solid",
@@ -110,7 +114,8 @@
    "title": "Wall, solid",
    "by": "Patrick Molen",
    "note": "A plain wall section from the kit.",
-   "sketchfab": "https://sketchfab.com/3d-models/14d6c195acd24aa4ab713103282f2ecc"
+   "sketchfab": "https://sketchfab.com/3d-models/14d6c195acd24aa4ab713103282f2ecc",
+   "kit": true
   },
   {
    "slug": "patrick-pillar",
@@ -118,7 +123,8 @@
    "title": "Pillar",
    "by": "Patrick Molen",
    "note": "A free-standing pillar from the kit.",
-   "sketchfab": "https://sketchfab.com/3d-models/b6969d26eda842b6b071cf094f106374"
+   "sketchfab": "https://sketchfab.com/3d-models/b6969d26eda842b6b071cf094f106374",
+   "kit": true
   },
   {
    "slug": "patrick-bamboo",
@@ -186,5 +192,6 @@
    "note": "A rug for the furnished room.",
    "sketchfab": "https://sketchfab.com/3d-models/b8dcf76fa9014ef29f48a6439577df9b"
   }
- ]
+ ],
+ "_kit": "kit true means a piece of the building itself: an arch, a plain wall, a pillar. They are real work and stay in the archive and on their maker's profile, but they are kept out of the Collection, where an object is shown alone on a plain background and a bare grey arch reads as something broken rather than as a building block."
 }
