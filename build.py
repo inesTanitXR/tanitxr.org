@@ -3764,6 +3764,10 @@ PRESS = [
     {"k": "Award", "t": "Auggie Awards 2026, Finalist, Best Societal Impact",
      "d": "Tanit XR was a finalist in the Best Societal Impact category at Augmented World Expo USA 2026, the XR industry's main awards, selected by public vote and expert review.",
      "u": "https://www.awexr.com/blog/1382-2026-auggie-awards-finalists-announced", "date": "June 2026", "anchor": "auggie"},
+    {"k": "Video", "t": "Spatial Creator Spotlight, Awesome Future",
+     "d": "Volunteers 3D Scanning Tunisia's Endangered Heritage Sites Before the Ocean Takes Them: "
+          "a full episode with Ines Said on how Tanit XR started, how the scanning works and who does it.",
+     "u": "https://youtu.be/CY6u3LGEN3E", "date": "September 24, 2026", "anchor": "spotlight"},
     {"k": "Podcast", "t": "Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR",
      "d": "Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.",
      "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices"},
@@ -4411,7 +4415,7 @@ scanning days.</p></div>
 
 def build_press():
     groups = [("Awards", ["auggie"]), ("Exhibitions", ["xrwomen"]), ("Talks & events", ["awe", "eljem", "immersegt", "citycamp"]),
-              ("Podcasts & video", ["voices", "niantic"]), ("Articles", ["aljazeera", "carthage", "medium"]),
+              ("Podcasts & video", ["spotlight", "voices", "niantic"]), ("Articles", ["aljazeera", "carthage", "medium"]),
               ("Partnerships", ["nigeria"])]
     by = {x["anchor"]: x for x in PRESS}
     sections = ""
@@ -5753,7 +5757,8 @@ NEWS_AUTHOR = {
 }
 
 # posts that announce something rather than tell you something
-NEWS_NOTES = {"tanit-xr-at-citycamp-gainesville-hack-day"}
+NEWS_NOTES = {"tanit-xr-at-citycamp-gainesville-hack-day",
+              "our-episode-of-spatial-creator-spotlight"}
 
 
 def _news_match(slug, table):
