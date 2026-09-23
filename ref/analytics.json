@@ -13,5 +13,12 @@
   "donate_click: someone opened the donate page"
  ],
  "cloudflare_token": "",
- "goatcounter_code": "tanitxr"
+ "goatcounter_code": "tanitxr",
+ "view_counter": {
+  "_what": "A plain hit counter for the Collection: it adds one on every open, reloads included, which is the number Ines asked for and the one GoatCounter cannot give. GoatCounter records one hit per visitor per day by design, so its figure is people, not views.",
+  "_seeded": "Started at 42 on 2026-09-23, the number of separate opens GoatCounter had recorded by then. That is a floor, not a guess: at least that many opens happened.",
+  "_privacy": "Only a name and a key are sent, never anything about the visitor.",
+  "hit": "https://abacus.jasoncameron.dev/hit/tanitxr.org/explore-views",
+  "get": "https://abacus.jasoncameron.dev/get/tanitxr.org/explore-views"
+ }
 }

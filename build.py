@@ -4977,6 +4977,7 @@ def build_walk():
                            # Off until the script knows the action: an older deployment would
                            # file each view ping as a form submission.
                            "sheet": (FORM_SHEET if FORMS_CFG.get("view_counter") else ""),
+                           "views": ANALYTICS.get("view_counter") or {},
                            "links": {"donate": DONATE_URL, "volunteer": "volunteer.html",
                                      "newsletter": "opportunities.html#subscribe"},
                            **({"music": music} if music else {}),

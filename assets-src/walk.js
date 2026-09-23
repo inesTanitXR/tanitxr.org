@@ -561,19 +561,23 @@ function start() {
       top.querySelector('span').textContent = word;
       top.hidden = false;
     };
-    const fallback = () => {
+    // GoatCounter counts people: one hit per visitor per day, so opening this again today
+    // does not move it. This is the view count proper, one up on every open, reloads and all.
+    const vc = CFG.views || {};
+    const num = (j) => {
+      const n = Number(j && (j.value !== undefined ? j.value : j.views));
+      return isFinite(n) && n > 0 ? n : 0;
+    };
+    const ask = (url) => fetch(url).then(r => r.ok ? r.json() : null).then(num);
+    const peopleInstead = () => {
       if (!CFG.gc) return;
       counter('/explore/').then((v) => { if (v) paint(v, v === 1 ? 'person' : 'people'); });
     };
-    if (!CFG.sheet) { fallback(); return; }
-    fetch(CFG.sheet, { method: 'POST',
-                   body: new URLSearchParams({ action: 'view-bump', page: 'explore', _js: '1' }) })
-      .then(r => r.ok ? r.json() : null)
-      .then(j => {
-        if (j && j.result === 'views' && Number(j.views) > 0) paint(Number(j.views), Number(j.views) === 1 ? 'view' : 'views');
-        else fallback();
-      })
-      .catch(fallback);
+    if (!vc.hit) { peopleInstead(); return; }
+    ask(vc.hit)
+      .then((n) => n || (vc.get ? ask(vc.get) : 0))       // rate limited: read without adding
+      .then((n) => { if (n) paint(n, n === 1 ? 'view' : 'views'); else peopleInstead(); })
+      .catch(peopleInstead);
   })();
 
   function paintStats(it) {
