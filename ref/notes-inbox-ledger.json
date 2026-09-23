@@ -172,7 +172,40 @@
    "date": "2026-09-22",
    "source": "note",
    "status": "added (both CHI 2027 workshop calls). Gap found this run: the note had listed both as LIVE ON THE WEBSITE since Sept 20 but neither was ever on the board. Verified at chi2027.acm.org/authors/workshops Sept 22: jurors close September 28, 2026 (email name, affiliation, CV and a ~150-word statement to workshops@chi2027.acm.org, ~8 hours reviewing Oct-Nov), workshop proposals close October 1, 2026 (6 pages excluding references, ACM single-column, via PCS). Both free. CHI 2027 is Pittsburgh, May 10-14, 2027. Published to the board and added to edition 19 as one combined block."
+  },
+  {
+   "key": "technica apply to hack all women hackathon",
+   "date": "2026-09-23",
+   "source": "note",
+   "status": "added (Technica 2026, College Park MD + online, October 17-18, 2026; hacker registration open, no closing date published; verified at gotechnica.org Sept 23). Placed in edition 19."
+  },
+  {
+   "key": "digitalnomadskorea incheon workation songdo october 1226 2026",
+   "date": "2026-09-23",
+   "source": "screenshot",
+   "raw": "shot-6.html -> https://www.instagram.com/p/DdiX1KqCEOO/ (@digitalnomadskorea)",
+   "status": "skipped: two-week digital-nomad workation in Songdo, Incheon (Oct 12-26, 2026; stay covered for eligible participants), but flights to Korea are self-funded and it is not XR, art, heritage or impact. Fails the filter. Moved to done/."
   }
  ],
- "slack_last_ts": "1789764970.037819"
+ "slack_last_ts": "1789764970.037819",
+ "personal_left_in_place": [
+  {
+   "date": "2026-09-23",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/reel/DcsY3teJtxy/ (@wanderwithpandalove)",
+   "what": "NASA Headquarters visit reel, D.C."
+  },
+  {
+   "date": "2026-09-23",
+   "file": "shot-4.html",
+   "raw": "https://www.instagram.com/p/DdfCAVukTuW/ (@georgetownmainst)",
+   "what": "Georgetown Fall Market, Oct 17-18"
+  },
+  {
+   "date": "2026-09-23",
+   "file": "shot-5.html",
+   "raw": "https://www.instagram.com/p/DdWXKmyFipt/ (@turkishfestival)",
+   "what": "Turkish Festival, Sunday Oct 18"
+  }
+ ]
 }

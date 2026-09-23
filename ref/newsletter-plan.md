@@ -16,7 +16,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🎨 Djerassi 2027 incl. Leonardo@Djerassi (art+science, one month, all costs) — Oct 9 — djerassi.org/apply/2027residency
 - 🏅 Aesthetica Art Prize (£10,000; digital/installation) — Oct 11 (late Oct 18) — £25 — aestheticamagazine.com/artprize/submit
 - 🎨 Dome Fest West 2027 (fulldome; VR welcome) — Oct 16 (→ Jan 8) — $15–45 — domefestwest.com
-- 💻 Immerse the Bay final deadline — Oct 16 (reminder)
+- 💻 Technica 2026 (UMD hackathon for underrepresented genders; College Park + online; free, beginner friendly; registration open, no close date published) — hackathon Oct 17-18 — gotechnica.org (added by the Sept 23 sweep, from Ines's note)
 - 💻 Women Who Code Summit 2026 (New York Oct 6-8; Virtual Pass free; speaker call open, rolling) — event Oct 6 — events.womenwhocode.com/2026/home 👤 (added by the Sept 20 sweep)
 - 🎓 One Young World 2026 Leading Scholarship (Cape Town, Nov 3–6; priority Tunisia) — Oct 31 rolling — oneyoungworld.com/scholarship/leading-scholarship-2026
 - 🎮 A MAZE. Berlin 2027 curation call — Oct 31 — ⚠ verify on 2027.amaze-berlin.de when live
@@ -27,6 +27,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 💻 Immerse the Bay final deadline — Oct 16 (reminder) _(moved from 19 on Sept 23 to make room for Technica, whose registration could fill before Oct 9; Oct 9 still leaves a week)_
 - 🏛 AIA Site Preservation Grant (up to $15,000) — Nov 1 — archaeological.org/grant/site-preservation ★ Tanit _(moved from 19 on Sept 20: edition 19 was overflowing at 16 blocks; Oct 9 still leaves 3 weeks)_
 - 🌍 MIT Solve 2027 Global Learning Challenge — Nov 2 — solve.mit.edu/challenges/2027-global-learning-challenge ★ Tanit _(moved from 19 on Sept 20)_
 - 🎬 CPH:DOX 2027 INTER:ACTIVE (VR/AR/installations; fee waived for Tunisia) — Nov 3 — cphdox.dk/rules-and-regulations _(moved from 19 on Sept 20)_

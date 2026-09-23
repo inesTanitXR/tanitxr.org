@@ -87,6 +87,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Two ways into the CHI workshops track, separate from the meet-ups call above. To organize: a proposal of up to six pages excluding references, ACM single-column template, submitted through PCS with a 250-word call for participation. To judge: email your name, affiliation, CV and a 150-word statement of interest to workshops@chi2027.acm.org, for about eight hours of reviewing across October and November. The juror route asks for regular CHI attendance.
 👉 https://chi2027.acm.org/authors/workshops/
 
+### 💻 Technica 2026
+
+📅 Hackathon October 17-18, 2026; hacker registration open, no closing date published
+📍 In person at the College Park Marriott, Maryland, or online in Gather
+👥 Open to all genders, built for underrepresented genders in tech. No coding experience needed
+✏️ The University of Maryland's hackathon for underrepresented genders, 500+ hackers in 2025. Beginner, General, Research and Startup tracks, plus workshops and recruiters on site.
+👉 https://gotechnica.org/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -100,3 +108,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | NASA | linkedin.com/company/nasa |
 | Immersive Learning Research Network (iLRN) | linkedin.com/company/immersive-learning-research-network |
 | Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
+| Technica | linkedin.com/company/gotechnica |
