@@ -551,34 +551,7 @@ function start() {
   // hit per visitor per day by design: opening the Collection again today does not move its
   // number, so it counts people, not views. Where our counter is not reachable the page falls
   // back to GoatCounter's figure and says plainly that it is people, not views.
-  (function liveViews() {
-    const top = document.getElementById('exp-views');
-    const end = document.getElementById('wnum-views');
-    const paint = (n, word) => {
-      if (end) end.textContent = n.toLocaleString();
-      if (!top) return;
-      top.querySelector('b').textContent = n.toLocaleString();
-      top.querySelector('span').textContent = word;
-      top.hidden = false;
-    };
-    // GoatCounter counts people: one hit per visitor per day, so opening this again today
-    // does not move it. This is the view count proper, one up on every open, reloads and all.
-    const vc = CFG.views || {};
-    const num = (j) => {
-      const n = Number(j && (j.value !== undefined ? j.value : j.views));
-      return isFinite(n) && n > 0 ? n : 0;
-    };
-    const ask = (url) => fetch(url).then(r => r.ok ? r.json() : null).then(num);
-    const peopleInstead = () => {
-      if (!CFG.gc) return;
-      counter('/explore/').then((v) => { if (v) paint(v, v === 1 ? 'person' : 'people'); });
-    };
-    if (!vc.hit) { peopleInstead(); return; }
-    ask(vc.hit)
-      .then((n) => n || (vc.get ? ask(vc.get) : 0))       // rate limited: read without adding
-      .then((n) => { if (n) paint(n, n === 1 ? 'view' : 'views'); else peopleInstead(); })
-      .catch(peopleInstead);
-  })();
+
 
   function paintStats(it) {
     if (!statsEl) return;
@@ -2623,3 +2596,38 @@ function start() {
   }), { threshold: [0, 0.25, 0.5, 0.75, 1] });
   document.querySelectorAll('.wst-intro,.wst-end,.warea').forEach(s => io.observe(s));
 }
+
+
+// ---- How many times this page has been opened. Outside start() on purpose: a visitor whose
+// browser cannot run the 3D still opened the page, and was not being counted at all.
+// GoatCounter counts people, one hit per visitor per day, so it can never be this number.
+(function views() {
+  const top = document.getElementById('exp-views');
+  const end = document.getElementById('wnum-views');
+  const paint = (n, word) => {
+    if (end) end.textContent = n.toLocaleString();
+    if (!top) return;
+    top.querySelector('b').textContent = n.toLocaleString();
+    top.querySelector('span').textContent = word;
+    top.hidden = false;
+  };
+  const vc = (CFG && CFG.views) || {};
+  const num = (j) => {
+    const n = Number(j && (j.value !== undefined ? j.value : j.views));
+    return isFinite(n) && n > 0 ? n : 0;
+  };
+  const ask = (url) => fetch(url).then(r => r.ok ? r.json() : null).then(num).catch(() => 0);
+  const peopleInstead = () => {
+    if (!CFG.gc) return;
+    fetch('https://' + CFG.gc + '.goatcounter.com/counter//explore/.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        const n = parseInt(String((j || {}).count_unique).replace(/\D/g, ''), 10) || 0;
+        if (n) paint(n, n === 1 ? 'person' : 'people');
+      }).catch(() => {});
+  };
+  if (!vc.hit) { peopleInstead(); return; }
+  ask(vc.hit)
+    .then((n) => n || (vc.get ? ask(vc.get) : 0))     // rate limited: read without adding
+    .then((n) => { if (n) paint(n, n === 1 ? 'view' : 'views'); else peopleInstead(); });
+})();
