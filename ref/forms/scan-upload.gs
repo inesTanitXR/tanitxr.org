@@ -141,3 +141,44 @@ function handleUpload(data) {
   if (act === 'upload-ping') return reply('uploads-on');
   return null;
 }
+
+
+/**
+ * A plain view counter, because GoatCounter cannot be one.
+ *
+ * GoatCounter records one hit per visitor per day on purpose: it is built to count people,
+ * not visits, and visiting the same page again today does not move its number at all (tested:
+ * two more visits, number unchanged). That makes it the wrong instrument for "how many times
+ * has this been opened", which is the number a video shows and the one Ines asked for.
+ *
+ * So the count is kept here instead, in the script's own properties: one number per page,
+ * one up per load. It counts reloads, because that is what a view is.
+ */
+function pageViews_(d, bump) {
+  var page = String(d.page || '').replace(/[^a-z0-9-]/gi, '').slice(0, 40) || 'explore';
+  var key = 'views_' + page;
+  var props = PropertiesService.getScriptProperties();
+  if (!bump) return reply('views', { page: page, views: Number(props.getProperty(key) || 0) });
+
+  var lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(8000);
+  } catch (e) {
+    return reply('views', { page: page, views: Number(props.getProperty(key) || 0) });
+  }
+  try {
+    var n = Number(props.getProperty(key) || 0) + 1;
+    props.setProperty(key, String(n));
+    return reply('views', { page: page, views: n });
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/** Called by doPost in submissions.gs when the form says it is a view. */
+function handleViews(data) {
+  var act = String(data.action || '');
+  if (act === 'view-bump') return pageViews_(data, true);
+  if (act === 'view-read') return pageViews_(data, false);
+  return null;
+}

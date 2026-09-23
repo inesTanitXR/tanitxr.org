@@ -50,6 +50,10 @@ function doPost(e) {
   // A scan upload arrives in pieces and each piece is its own request, so it goes straight
   // to the upload handler: no lock (pieces of one file are already in order, and two people
   // uploading at once are two separate Drive sessions) and no bot check past the first step.
+  if (typeof handleViews === 'function' && String(data0.action || '').indexOf('view-') === 0) {
+    const v = handleViews(data0);
+    if (v) return v;
+  }
   if (typeof handleUpload === 'function' && String(data0.action || '').indexOf('upload-') === 0) {
     if (data0.action === 'upload-start' && looksLikeABot(data0)) return reply('ignored');
     const r = handleUpload(data0);

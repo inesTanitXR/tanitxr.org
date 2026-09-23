@@ -547,19 +547,33 @@ function start() {
 
   // The Collection's own view count, the way a video has one: every visit, not every visitor,
   // read live so it is right now rather than right at the last build.
+  // How many times this has been opened. Our own counter, because GoatCounter records one
+  // hit per visitor per day by design: opening the Collection again today does not move its
+  // number, so it counts people, not views. Where our counter is not reachable the page falls
+  // back to GoatCounter's figure and says plainly that it is people, not views.
   (function liveViews() {
-    if (!CFG.gc) return;
-    counter('/explore/').then((v) => {
-      if (!v) return;
-      const end = document.getElementById('wnum-views');
-      if (end) end.textContent = v.toLocaleString();
-      const top = document.getElementById('exp-views');
-      if (top) {
-        top.querySelector('b').textContent = v.toLocaleString();
-        top.querySelector('span').textContent = v === 1 ? 'view' : 'views';
-        top.hidden = false;
-      }
-    });
+    const top = document.getElementById('exp-views');
+    const end = document.getElementById('wnum-views');
+    const paint = (n, word) => {
+      if (end) end.textContent = n.toLocaleString();
+      if (!top) return;
+      top.querySelector('b').textContent = n.toLocaleString();
+      top.querySelector('span').textContent = word;
+      top.hidden = false;
+    };
+    const fallback = () => {
+      if (!CFG.gc) return;
+      counter('/explore/').then((v) => { if (v) paint(v, v === 1 ? 'person' : 'people'); });
+    };
+    if (!CFG.sheet) { fallback(); return; }
+    fetch(CFG.sheet, { method: 'POST',
+                   body: new URLSearchParams({ action: 'view-bump', page: 'explore', _js: '1' }) })
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        if (j && j.result === 'views' && Number(j.views) > 0) paint(Number(j.views), Number(j.views) === 1 ? 'view' : 'views');
+        else fallback();
+      })
+      .catch(fallback);
   })();
 
   function paintStats(it) {

@@ -4784,8 +4784,8 @@ def collection_numbers():
     # views, because that is the number a funder or a sponsor asks about. Saves are counted
     # but not shown: a save lives in one browser until that browser is cleared.
     rows = [(st["objects"], term("objects, scanned and modelled by volunteers")),
-            (st["object_views"], term("views of those objects")),
-            (st["experience_views"], term("views of this Collection")),
+            (st["object_views"], term("times one of them has been opened")),
+            (st["experience_views"], term("people have opened this Collection")),
             (st.get("per_visit"), term("objects looked at in an average visit"))]
     # the Collection's own view count is read live, so it is right now rather than right at
     # the last build. The built-in number is what shows if the counter cannot be reached.
@@ -4793,7 +4793,7 @@ def collection_numbers():
     for n, w in rows:
         if not n:
             continue
-        i = ' id="wnum-views"' if w == term("views of this Collection") else ""
+        i = ' id="wnum-views"' if w == term("people have opened this Collection") else ""
         cells += f'<div><b{i}>{n:,g}</b><span>{esc(w)}</span></div>' 
     try:
         import datetime as _d
@@ -4973,6 +4973,10 @@ def build_walk():
         music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
     cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180),
                            "gc": (ANALYTICS.get("goatcounter_code") or "").strip(),
+                           # our own view counter, which counts opens rather than people.
+                           # Off until the script knows the action: an older deployment would
+                           # file each view ping as a form submission.
+                           "sheet": (FORM_SHEET if FORMS_CFG.get("view_counter") else ""),
                            "links": {"donate": DONATE_URL, "volunteer": "volunteer.html",
                                      "newsletter": "opportunities.html#subscribe"},
                            **({"music": music} if music else {}),
@@ -7497,9 +7501,9 @@ TERMS = {
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
-           "views of those objects": "vues de ces objets",
+           "times one of them has been opened": "fois qu’un de ces objets a été ouvert",
            "objects looked at in an average visit": "objets regardés lors d’une visite type",
-           "views of this Collection": "vues de cette Collection",
+           "people have opened this Collection": "personnes ont ouvert cette Collection",
            "people have walked through this Collection": "personnes ont parcouru cette Collection",
            "times somebody has opened one of them": "fois qu’un de ces objets a été ouvert",
            "saved by somebody into their own collection": "enregistrés par quelqu’un dans sa propre collection",
@@ -7559,9 +7563,9 @@ TERMS = {
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
-           "views of those objects": "مشاهدة لهذه القطع",
+           "times one of them has been opened": "مرة فُتحت فيها إحدى هذه القطع",
            "objects looked at in an average visit": "قطعة يُنظر إليها في الزيارة الواحدة",
-           "views of this Collection": "مشاهدة لهذه المجموعة",
+           "people have opened this Collection": "شخصًا فتحوا هذه المجموعة",
            "people have walked through this Collection": "شخصًا تجوّلوا في هذه المجموعة",
            "times somebody has opened one of them": "مرة فُتحت فيها إحدى هذه القطع",
            "saved by somebody into their own collection": "قطعة حفظها أحدهم في مجموعته الخاصة",

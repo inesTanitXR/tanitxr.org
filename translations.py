@@ -1726,6 +1726,15 @@ FR = {
     'Type your name to sign': 'Tapez votre nom pour signer',
     'Sign and send': 'Signer et envoyer',
     'City, country': 'Ville, pays',
+
+    # ---- added 2026-09-23: pages that were still English ----
+    'Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum.':
+        'Lampes, poteries, plantes et objets du quotidien modélisés à la main pour notre musée virtuel.',
+    'Open the ones you love': 'Ouvrir vos coups de cœur',
+    '<span>views</span>': '<span>vues</span>',
+    '</b> loved <span': '</b> coups de cœur <span',
+    '>Loved</button>': '>Coups de cœur</button>',
+    'Their page': 'Voir sa page',
 }
 
 
@@ -3447,5 +3456,14 @@ AR = {
     'Type your name to sign': 'اكتب اسمك للتوقيع',
     'Sign and send': 'وقّع وأرسل',
     'City, country': 'المدينة، البلد',
+
+    # ---- added 2026-09-23: pages that were still English ----
+    'Lamps, pottery, plants and everyday objects modeled by hand for our virtual museum.':
+        'مصابيح وأوانٍ فخارية ونباتات وأغراض من الحياة اليومية، نمذجناها يدويًا لمتحفنا الافتراضي.',
+    'Open the ones you love': 'افتح القطع التي أحببتها',
+    '<span>views</span>': '<span>مشاهدة</span>',
+    '</b> loved <span': '</b> مفضّلة <span',
+    '>Loved</button>': '>المفضّلة</button>',
+    'Their page': 'الصفحة الشخصية',
 }
 
