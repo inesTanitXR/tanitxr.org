@@ -125,7 +125,7 @@ def load(name):
 
 WEBP_DIRS = ("alyssa", "nura")   # artwork with transparency: WebP keeps the alpha at a quarter the weight
 _media_files = {}
-for fn in os.listdir(MEDIA):
+for fn in (os.listdir(MEDIA) if os.path.isdir(MEDIA) else []):
     _media_files[fn.lower()] = os.path.join(MEDIA, fn)
 for _sub in ("extra", "drive", "alyssa", "nura", "thumbs"):
     _d = os.path.join(MEDIA, _sub)
@@ -166,11 +166,44 @@ def _source_for(url):
     return dest
 
 
+def _already_made(url_or_name, max_px, as_jpeg):
+    """The processed file for this image, if it is already in docs/assets/img.
+
+    Worked out from the name alone, without touching the source library: the output is named
+    after the slugified stem and the size, and the extension is one of a small set. The webp
+    variant is checked too, because transparent artwork is written as webp."""
+    base = os.path.basename(str(url_or_name).split("?")[0])
+    stem, ext = os.path.splitext(base)
+    ext = ext.lower()
+    if not stem:
+        return None
+    guesses = []
+    if as_jpeg is None:
+        guesses.append(".jpg" if ext in (".jpg", ".jpeg", ".webp") else
+                       (ext if ext in (".png", ".svg", ".gif") else ".jpg"))
+    else:
+        guesses.append(".jpg" if as_jpeg else (ext if ext in (".png", ".svg", ".gif") else ".jpg"))
+    if ext == ".png":
+        guesses.append(".webp")
+    for g in guesses:
+        name = f"{slugify(stem)}-{max_px}{g}"
+        if os.path.exists(os.path.join(IMG_OUT, name)):
+            return f"assets/img/{name}"
+    return None
+
+
 def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
     """Process an image into docs/assets/img, return relative site path."""
     key = (url_or_name, max_px, as_jpeg)
     if key in _img_cache:
         return _img_cache[key]
+    # If this image has already been processed, the answer is on disk and the original is not
+    # needed at all. That is what lets a build run somewhere other than the laptop holding the
+    # 2 GB source library: nothing new, nothing to fetch.
+    _done = _already_made(url_or_name, max_px, as_jpeg)
+    if _done:
+        _img_cache[key] = _done
+        return _done
     src = _source_for(url_or_name)
     base = os.path.basename(src)
     stem, ext = os.path.splitext(base)
@@ -2618,6 +2651,11 @@ def social_img(name):
     iMessage, Facebook) want landscape; a portrait image gets shrunk to a thumbnail or dropped."""
     key = ("__card__", name)
     if key in _img_cache:
+        return _img_cache[key]
+    # already cropped on an earlier build: the original is not needed to say so
+    _stem = slugify(os.path.splitext(os.path.basename(str(name).split("?")[0]))[0])
+    if _stem and os.path.exists(os.path.join(IMG_OUT, f"{_stem}-card.jpg")):
+        _img_cache[key] = f"assets/img/{_stem}-card.jpg"
         return _img_cache[key]
     src = _source_for(name)
     stem = slugify(os.path.splitext(os.path.basename(src))[0])
