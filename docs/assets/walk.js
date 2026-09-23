@@ -581,6 +581,7 @@ function start() {
     const by = document.getElementById('wf-by');
     if (by) by.textContent = it.credit || '';
     paintSave(it);
+    paintInside(it);
     paintMap(it);
     paintStats(it);
 
@@ -977,6 +978,91 @@ function start() {
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
+
+  // ---- Standing inside a place, rather than looking at it from across the street.
+  // Five of these scans are not objects: the underground passageways are 16 by 20 metres, the
+  // sacred niche at Zaghouan 13 by 11. Shown like everything else they are a grey lump you
+  // orbit. This puts the model at its real size with the camera in the middle of it at eye
+  // height, so dragging looks around instead of turning a thing. Nothing about the camera rig
+  // changes: the model is scaled and moved, which is the same thing seen from inside, and the
+  // walls are made double sided because from within you are looking at their backs.
+  const insideBtn = document.getElementById('wf-inside');
+  const EYE = 1.6;                       // where a person's eyes are, in metres
+  let inside = null;
+
+  function canGoInside(it) {
+    // wide enough to be a place, and tall enough to stand up in. Neapolis is 7 metres across
+    // but only 1.6 high, so standing in it would put your eyes above its walls.
+    return !!(it && it.real && it.dims
+              && Math.max(it.dims[0], it.dims[2]) >= 6 && it.dims[1] >= 2.2);
+  }
+
+  function paintInside(it) {
+    if (!insideBtn) return;
+    insideBtn.hidden = !canGoInside(it);
+    insideBtn.textContent = inside ? 'Come back out' : 'Step inside';
+  }
+
+  function stepInside(s) {
+    if (!s || !s.loaded || inside || !canGoInside(s.it)) return;
+    const it = s.it;
+    // how many metres one unit of the file is: we know the height in both, so divide
+    const tall = new THREE.Box3().setFromObject(s.fit).getSize(new THREE.Vector3()).y / s.fit.scale.y;
+    const perUnit = (it.dims[1] || 1) / (tall || 1);
+    inside = {
+      s,
+      scale: s.fit.scale.x,
+      wrapScale: s.wrap.scale.x,
+      pos: s.wrap.position.clone(),
+      rot: { x: s.pivot.rotation.x, y: s.pivot.rotation.y },
+      fov: camera.fov,
+      shadow: s.shadow.visible,
+      sides: s.mats.map(m => m.side),
+    };
+    s.fit.scale.setScalar(perUnit);
+    s.wrap.scale.setScalar(1);
+    // drop the room so the camera, which never moves, sits at eye height in the middle of it
+    s.wrap.position.set(camera.position.x, camera.position.y - EYE + it.dims[1] / 2, camera.position.z);
+    s.pivot.rotation.set(0, 0, 0);
+    s.shadow.visible = false;
+    s.mats.forEach(m => { m.side = THREE.DoubleSide; m.needsUpdate = true; });
+    camera.fov = 72;                     // an interior needs a wider eye than an object does
+    camera.updateProjectionMatrix();
+    document.body.classList.add('in-place');
+    if (nuraHolder) nuraHolder.visible = false;
+    paintInside(it);
+    if (window.tx) tx('stepped_inside', { object: it.slug });
+  }
+
+  function stepOutside() {
+    if (!inside) return;
+    const { s } = inside;
+    s.fit.scale.setScalar(inside.scale);
+    s.wrap.scale.setScalar(inside.wrapScale);
+    s.wrap.position.copy(inside.pos);
+    s.pivot.rotation.set(inside.rot.x, inside.rot.y, 0);
+    s.shadow.visible = inside.shadow;
+    s.mats.forEach((m, i) => { m.side = inside.sides[i]; m.needsUpdate = true; });
+    camera.fov = inside.fov;
+    camera.updateProjectionMatrix();
+    document.body.classList.remove('in-place');
+    if (nuraHolder) nuraHolder.visible = true;
+    const was = s.it;
+    inside = null;
+    paintInside(was);
+  }
+
+  if (insideBtn) {
+    insideBtn.addEventListener('click', () => {
+      if (inside) { stepOutside(); return; }
+      stepInside(current());
+    });
+  }
+  // scrolling on to another object leaves the room behind
+  addEventListener('scroll', () => { if (inside) stepOutside(); }, { passive: true });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && inside) stepOutside(); });
+  addEventListener('resize', () => { if (inside) stepOutside(); });   // the camera is re-aimed on resize
+
   // ---- the Love button, its label, and the one-time offer of the scan demo.
   // The word is Love, not Save: the heart was always a heart, and Save promises the object
   // will be waiting later, which is a promise browser storage does not keep. The stored key
@@ -2441,6 +2527,14 @@ function start() {
     dimK += ((headingOn ? 0.3 : 1) - dimK) * (reduce ? 1 : 0.1);
 
     slots.forEach(s => {
+      // the room you are standing in is placed by stepInside, not by the layout, or the next
+      // frame would put it back across the street
+      if (inside && inside.s === s) {
+        s.wrap.visible = true;
+        s.mats.forEach(m => { m.opacity = 1; });
+        s.shadow.material.opacity = 0;
+        return;
+      }
       const d = s.i - cursor;                       // 0 = front and centre
       const ad = Math.abs(d);
       const a = Math.max(0, 1 - ad * 1.3);

@@ -5205,6 +5205,7 @@ taking care of the place you are in.</p>
 <span id="wf-stats" class="wf-stats" hidden></span>
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
+<button id="wf-inside" class="wf-btn" hidden>Step inside</button>
 <button id="wf-share" class="wf-btn solid">Share to protect it</button>
 </div>
 <div class="wf-row wf-row2">
