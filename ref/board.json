@@ -1,0 +1,1931 @@
+{
+ "_what": "Every opportunity on the board, written on each build.",
+ "built": "2026-09-24",
+ "items": [
+  {
+   "slug": "the-kyoto-retreat-2026",
+   "title": "The Kyoto Retreat 2026",
+   "desc": "The Kyoto Retreat is a four-week international artist retreat in Kyoto, Japan, open to artists, curators, and writers at all career stages. Selected participants receive a roundtrip flight, private accommodation, and $800 USD for meals and local transport.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "Japan",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 15, 2026",
+   "url": "https://www.kyotoretreat.com"
+  },
+  {
+   "slug": "the-iris-prize-2026-lgbtq-film-festival",
+   "title": "The Iris Prize 2026 – LGBTQ+ Film Festival",
+   "desc": "Submissions for Iris 2026 are closed. The festival runs October 12 to 18, 2026 in Cardiff; the next submission window opens Monday 11 January 2027.",
+   "type": "Award",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "United Kingdom",
+   "mode": "Hybrid",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://irisprize.org/submissions/"
+  },
+  {
+   "slug": "ubs-project-female-founder-2026",
+   "title": "UBS Project Female Founder 2026",
+   "desc": "The 2026 cohort of Project Female Founder started in April 2026. UBS states that applications for the next cohort will be available online from March 2027.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.ubs.com/global/en/wealthmanagement/who-we-serve/women-wealth/female-founders/project-female-founder/application-form.html"
+  },
+  {
+   "slug": "htw-berlin-iuno-ai-xr-artistic-fellowship-2026",
+   "title": "HTW Berlin – IUNO AI + XR Artistic Fellowship 2026",
+   "desc": "HTW Berlin’s IUNO project is an EU-funded research initiative supporting artists at the intersection of AI and XR. The selected artist or team will co-develop a project at HTW Berlin from May 2026 to January 2027, with access to equipment, mentorship, a scientific paper publication, and public networking events.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "Germany",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 31, 2026",
+   "url": "https://www.berlinartlink.com/2026/02/17/open-call-htw-berlin-artistic-fellowship-ai-xr/"
+  },
+  {
+   "slug": "ray-fellowship-program-2026",
+   "title": "RAY Fellowship Program 2026",
+   "desc": "The RAY Fellowship Program places emerging leaders in two-year paid fellowships at conservation and clean energy organisations across the United States. Open to recent graduates within three years of their undergraduate degree who have not yet worked full-time in conservation or clean energy.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Students"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 27, 2026",
+   "url": "https://www.rayfellows.org/apply"
+  },
+  {
+   "slug": "changemakers-for-youth-program-2026",
+   "title": "Changemakers for Youth Program 2026",
+   "desc": "ChangemakerXchange is selecting 20 social entrepreneurs from Egypt, Germany, Jordan, Lebanon, Morocco, Palestine, Switzerland, and Tunisia. Participants receive capacity-building support, an in-person summit, seed funding for cross-border initiatives, and access to a global changemaker network.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 29, 2026",
+   "url": "https://opportunitydesk.org/2026/02/04/changemakers-for-youth-program-2026/"
+  },
+  {
+   "slug": "creative-capital-award-2027",
+   "title": "Creative Capital Award 2027",
+   "desc": "Creative Capital supports bold, experimental artistic projects across all disciplines through grants of $15,000 to $50,000. Open to working artists based in the United States with at least five years of professional practice. Individual artists and collaborative teams may apply.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 2, 2026",
+   "url": "https://creative-capital.org/applicationhandbook"
+  },
+  {
+   "slug": "awe-2026-startup-pitch-competition",
+   "title": "AWE 2026 – Startup Pitch Competition",
+   "desc": "AWE USA 2026 is hosting a Startup Pitch Competition where select AR and VR startups pitch in front of experienced XR investors. The winning startup is honoured on the main stage and receives the Auggie Award for Startup to Watch.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 21, 2026",
+   "url": "https://www.awexr.com/usa-2026/startup_pitch"
+  },
+  {
+   "slug": "awe-2026-call-for-research-posters",
+   "title": "AWE 2026 – Call for Research Posters",
+   "desc": "AWE USA 2026 invites researchers and independent creators to submit XR and spatial AI research for display on the expo floor. Accepted presenters receive daily poster hours and exclusive networking. Standout projects may be invited for lightning talks. Published, under-review, and in-progress work are all welcome.",
+   "type": "Open Call",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 31, 2026",
+   "url": "https://www.awexr.com/call-for-posters"
+  },
+  {
+   "slug": "awe-art-festival-2026-call-for-xr-art",
+   "title": "AWE Art Festival 2026 – Call for XR Art",
+   "desc": "AWE USA 2026 is hosting its first dedicated Art Festival on the expo floor. Submit narrative XR works and immersive videos completed between April 2025 and April 2026. Selected artists are displayed for all four days of the event, invited to speak on stage, and may be eligible for a travel stipend.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 4, 2026",
+   "url": "https://www.awexr.com/art-festival"
+  },
+  {
+   "slug": "xr-guild-nyc-reality-hack-edition",
+   "title": "XR Guild NYC – Reality Hack Edition",
+   "desc": "XR Guild NYC is hosting a special edition event for NYC-based participants from MIT Reality Hack. Attendees can demo hackathon projects and give short presentations to the XR community, followed by networking sessions.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Rolling",
+   "deadline_date": "March 5, 2026",
+   "url": "https://forms.gle/z6E3jixEqenzZx6Q6"
+  },
+  {
+   "slug": "mit-co-creation-studio-worlding-2026",
+   "title": "MIT Co-Creation Studio – Worlding 2026",
+   "desc": "Worlding is an incubation initiative at the intersection of climate storytelling, social XR, and community-based design. Teams are invited for an intensive in-person gathering at MIT centred on Indigenous knowledge and just climate futures.",
+   "type": "Program",
+   "eligibility": [
+    "Artists",
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 16, 2026",
+   "url": "https://cocreationstudio.mit.edu/worlding-2025/"
+  },
+  {
+   "slug": "siggraph-2026-appy-hour",
+   "title": "SIGGRAPH 2026 – Appy Hour",
+   "desc": "SIGGRAPH 2026 Appy Hour invites creators, developers, artists, and experimenters to submit projects for an experimental showcase at the conference in Los Angeles. AR tools, game prototypes, computational art, and mobile-first work are welcome. Presenters must register at the Experience level or above.",
+   "type": "Conference",
+   "eligibility": [
+    "Artists",
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 21, 2026",
+   "url": "https://s2026.siggraph.org/event/appy-hour/"
+  },
+  {
+   "slug": "climate-champions-youth-fellowship-2025",
+   "title": "Climate Champions Youth Fellowship 2025",
+   "desc": "The 2025 Youth Fellowship cohort closed to applications on March 2, 2025.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Youth"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.climatechampions.net/news/climate-champions-youth-fellowship-2025-applications-now-open/"
+  },
+  {
+   "slug": "the-lumen-prize-2026-open-call",
+   "title": "The Lumen Prize 2026 Open Call",
+   "desc": "International award for art created with technology. Open call runs Jan 26–May 23, 2026; see the Lumen Prize site for categories and entry fees.",
+   "type": "Award",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "naaee-2026-call-for-presentations",
+   "title": "NAAEE 2026 Call for Presentations",
+   "desc": "NAAEE seeks proposals for the 55th Annual Conference (Oct 6–9, 2026) and 23rd Research Symposium (Oct 6–7) in Portland, Oregon. Submit via the conference portal.",
+   "type": "Conference",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "immerse-the-bay-xr-hackathon",
+   "title": "Immerse the Bay XR Hackathon",
+   "desc": "Stanford XR hackathon hosted at Caltech (Apr 24–26, 2026). Apply via the official Immerse the Bay site; deadline Feb 13, 2026.",
+   "type": "Challenge",
+   "eligibility": [
+    "Students"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "February 13, 2026",
+   "url": null
+  },
+  {
+   "slug": "meta-ai-glasses-impact-grants",
+   "title": "Meta AI Glasses Impact Grants",
+   "desc": "Grant program supporting organizations using AI glasses for social good (U.S.-based). See Meta’s newsroom post and FAQs for categories, funding, and rules.",
+   "type": "Grant",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "ieee-ismar-2026-call-for-papers",
+   "title": "IEEE ISMAR 2026 Call for Papers",
+   "desc": "IEEE International Symposium on Mixed and Augmented Reality (Bari, Italy, Oct 5–9, 2026). Abstract deadline Mar 9; paper deadline Mar 16 (AoE).",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "Italy",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "starts-prize-2026-open-call",
+   "title": "S+T+ARTS Prize 2026 Open Call",
+   "desc": "European Commission prize celebrating projects at the intersection of science, technology, and the arts. Submit via the official open call; winners present at Ars Electronica Festival.",
+   "type": "Award",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "artists-make-technology-lab",
+   "title": "Artists Make Technology Lab",
+   "desc": "Doris Duke Foundation program awarding project grants (up to $150,000) for performing artists and technologists. Application window is Feb 2–Mar 2 (ET).",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "new-inc-year-13-open-call",
+   "title": "NEW INC Year 13 Open Call",
+   "desc": "Incubator membership open call by the New Museum’s NEW INC. See the open call page for eligibility, fees, and program expectations.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 8, 2026",
+   "url": "https://www.newmuseum.org"
+  },
+  {
+   "slug": "harvard-xr-call-for-speakers",
+   "title": "Harvard XR Call for Speakers",
+   "desc": "Call for speakers for Harvard XR. Submit via the official form; see the form for event context, formats, and requirements.",
+   "type": "Open Call",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "new-america-fellows-program",
+   "title": "New America Fellows Program",
+   "desc": "National fellowship supporting experts working on big questions facing the U.S. See New America site for track details, stipend, and schedule.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Hybrid",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "games-for-change-juror-applications",
+   "title": "Games for Change Juror Applications",
+   "desc": "Apply to serve as a juror for Games for Change awards. Check the official juror application for requirements and time commitment.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "cyark-heritage-documentation-training-grant",
+   "title": "CyArk Heritage Documentation Training Grant",
+   "desc": "Grant supporting documentation training for heritage practitioners. See CyArk page for requirements, funding amount, and timeline.",
+   "type": "Grant",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "cyark-heritage-amplified-grant",
+   "title": "CyArk Heritage Amplified Grant",
+   "desc": "Grant program supporting heritage documentation and storytelling projects. See CyArk page for current cycle details and eligibility.",
+   "type": "Grant",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "unity-for-humanity-grant-2026",
+   "title": "Unity for Humanity Grant 2026",
+   "desc": "Global grant program supporting creators using Unity technologies to drive positive social impact. Selected projects receive funding, technical support, and visibility through Unity channels. Focus areas include education, climate action, accessibility, and social good.",
+   "type": "Grant",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "miami-xr-2026-guest-speaker-and-program-participation",
+   "title": "Miami XR 2026 Guest Speaker and Program Participation",
+   "desc": "Annual XR-focused conference hosted by the University of Miami inviting researchers, artists, and industry professionals to participate as guest speakers or contributors. The program highlights immersive media, spatial computing, and emerging XR research through talks, demos, and panels.",
+   "type": "Conference",
+   "eligibility": [
+    "Educators",
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "future-conservationist-award-2026",
+   "title": "Future Conservationist Award 2026",
+   "desc": "Early-career conservation grant supporting teams working to conserve globally threatened species and ecosystems. Provides project funding, training, and long-term support through the Conservation Leadership Programme. Projects must demonstrate measurable conservation impact and team capacity building.",
+   "type": "Grant",
+   "eligibility": [
+    "Non-profits",
+    "Researchers"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "games-for-change-awards-2026",
+   "title": "Games for Change Awards 2026",
+   "desc": "Annual awards recognizing games and immersive experiences with social impact. Projects are submitted digitally and evaluated across multiple categories, including Best in XR & Emerging Media and Best in Environmental Impact. Submission requires providing playable access and supporting materials for jurors.",
+   "type": "Award",
+   "eligibility": [
+    "Artists",
+    "Open to all",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "United States",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "xr-women-museum-open-call-vibrancy-as-practice",
+   "title": "XR Women Museum Open Call: Vibrancy as Practice",
+   "desc": "“Vibrancy as Praxis” is now on view at the XR Women Museum with fifteen selected artists working across XR, virtual worlds, sound, video and hybrid forms, and is no longer taking submissions. The museum's current open call is the Community Garden, listed separately; a further event, COSMOS, is announced for the winter cycle with submission details still to come.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.xrwomen.com/museum"
+  },
+  {
+   "slug": "anthropic-ai-safety-fellows-program-may-or-july-2026-cohorts",
+   "title": "Anthropic AI Safety Fellows Program (May or July 2026 Cohorts)",
+   "desc": "A four-month, full-time paid research fellowship in empirical AI safety. Fellows receive mentorship, a weekly stipend, and funding for compute and research expenses. Participation is available remotely in the US, UK, or Canada, with optional shared workspaces in Berkeley and London.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "Canada",
+   "mode": "Hybrid",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "ieee-vr-2026-call-for-panels",
+   "title": "IEEE VR 2026 Call for Panels",
+   "desc": "Call for proposals for 90-minute panels at IEEE VR 2026, focused on engaging discussion in VR, AR, MR, and 3D user interfaces. Proposals are submitted by email and should include a title, a short description, and bios for the organizer and panelists from multiple organizations.",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "South Korea",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "climatebase-fellowship-spring-2026-cohort",
+   "title": "Climatebase Fellowship (Spring 2026 Cohort)",
+   "desc": "A part-time fellowship designed to help people transition into climate work through training, mentorship, and a community of climate professionals. The program includes online sessions plus regional in-person meetups (where available). Includes a priority deadline and a final deadline for the cohort.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "osv-fellowship-and-grants-2026-oshaughnessy-fellowships",
+   "title": "OSV Fellowship and Grants 2026 (O’Shaughnessy Fellowships)",
+   "desc": "One-year, equity-free fellowship providing $100,000 to researchers, builders, and creatives pursuing ambitious projects. Applicants are automatically considered for OSV’s grants program (smaller awards) as well. Applications are reviewed on a rolling basis during the application window.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "mit-reality-hack-2026",
+   "title": "MIT Reality Hack 2026",
+   "desc": "Five day in person XR hackathon at MIT for developers, designers and creatives.",
+   "type": "Challenge",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "upg-sustainability-leadership-program-2026",
+   "title": "UPG Sustainability Leadership Program 2026",
+   "desc": "Global sustainability leadership training with a fully funded one week experience in the USA for selected finalists.",
+   "type": "Program",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "forbes-africa-30-under-30-class-of-2026",
+   "title": "Forbes Africa 30 Under 30 – Class of 2026",
+   "desc": "Annual Forbes Africa list highlighting 30 young African innovators, founders and creatives across sectors.",
+   "type": "Program",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Africa",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "canva-africa-design-challenge-2025",
+   "title": "Canva Africa Design Challenge 2025",
+   "desc": "Design challenge for young African creatives to create practical Canva templates for small businesses, with a 10,000 USD prize pool.",
+   "type": "Challenge",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "unesco-youth-climate-action-network-you-can-membership",
+   "title": "UNESCO Youth Climate Action Network – YoU-CAN Membership",
+   "desc": "Global network launched at COP25 connecting youth-led organizations working on climate action across education, sciences, culture and communication. UNESCO states that calls for membership are open to youth-led organizations; membership is applied for through the form on the network page, and there is no published closing date.",
+   "type": "Program",
+   "eligibility": [
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://www.unesco.org/en/youth/climate-action-network"
+  },
+  {
+   "slug": "siggraph-2026-calls-for-submissions",
+   "title": "SIGGRAPH 2026 – Calls for Submissions",
+   "desc": "International conference on computer graphics and interactive techniques with multiple calls including Art Papers, Technical Papers and Talks.",
+   "type": "Program",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "university-of-oxford-institute-for-ethics-in-ai-accelerator-fellowship-programme-2026",
+   "title": "University of Oxford Institute for Ethics in AI Accelerator Fellowship Programme 2026",
+   "desc": "Accelerator fellowship at Oxford’s Institute for Ethics in AI for professionals and academics working on AI ethics.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "UK",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "global-citizen-prize-cisco-youth-leadership-award-2026",
+   "title": "Global Citizen Prize – Cisco Youth Leadership Award 2026",
+   "desc": "Global award recognizing a young leader using technology to end extreme poverty, with a 250,000 USD prize.",
+   "type": "Award",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "youth-future-summit-2026-geneva",
+   "title": "Youth Future Summit 2026 (Geneva)",
+   "desc": "Four day summit in Geneva with fully funded and partially funded places, including visits to UN Geneva and CERN.",
+   "type": "Conference",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Switzerland",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "obama-foundation-leaders-program-2026-2027",
+   "title": "Obama Foundation Leaders Program 2026–2027",
+   "desc": "Six month leadership development program for emerging leaders in Africa, Asia Pacific, Europe and the United States.",
+   "type": "Program",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "oceans-open-call-mit-museum-public-programs",
+   "title": "OCEANS Open Call – MIT Museum (Public Programs)",
+   "desc": "The MIT Museum is seeking proposals for innovative public programs exploring humanity’s relationship with the theme of OCEANS, in support of the museum’s mission to blend art, science, technology, and design. The open call runs from December 5, 2025 to February 5, 2026, alongside the museum’s upcoming OCEANS theme launching in September 2026.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "morgan-menil-fellowship-2026-27-drawing-institute",
+   "title": "Morgan-Menil Fellowship 2026-27 (Drawing Institute)",
+   "desc": "The Morgan Drawing Institute and the Menil Drawing Institute (Houston) offer a 3-9 month research fellowship supporting independent projects on the history, theory, interpretation, or cultural meaning of drawing. The Morgan-Menil Fellow is expected to spend part of the fellowship in residence at The Morgan Library & Museum (New York) and another part at the Menil Collection, with time devoted primarily to the research project and participation in Drawing Institute programs. Stipend is commensurate with experience: $4,000/month (pre-doctoral), $4,850/month (post-doctoral within seven years of PhD), or $5,100/month (mid-career), plus a modest travel allowance. Application deadline: December 15, 2025.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "December 15, 2025",
+   "url": null
+  },
+  {
+   "slug": "bobby-anspach-studios-foundation-grant-program",
+   "title": "Bobby Anspach Studios Foundation Grant Program",
+   "desc": "The Bobby Anspach Studios Foundation invites proposals from visual artists creating work that fosters human connection and climate consciousness. In its inaugural year, the foundation will award two $50,000 major grants and three $8,000 emerging artist grants (unrestricted awards, no application fee). Application deadline: December 30, 2025 (11:59 PM EST).",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "December 30, 2025",
+   "url": null
+  },
+  {
+   "slug": "viverse-creator-program-creator-grants-for-webxr-worlds",
+   "title": "VIVERSE Creator Program – Creator Grants for WebXR Worlds",
+   "desc": "VIVERSE funds creators building web-based 3D worlds, immersive art and games, with funding negotiated per project. Applications are accepted on a rolling basis and no prior WebXR experience is required; Unity WebGL, Three.js, PlayCanvas, Babylon.js, A-Frame and Godot are supported.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "Non-profits",
+    "Researchers",
+    "Students",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "Remote",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://create.viverse.com/creator-grants"
+  },
+  {
+   "slug": "folger-institute-long-term-fellowships-2026-2027",
+   "title": "Folger Institute Long-Term Fellowships 2026-2027",
+   "desc": "The Folger Institute offers long-term fellowships for the 2026-2027 academic year, providing $70,000 for a standard 9-month period to support full-time scholarly work drawing on the Folger’s collections and programs. Fellows may take up to 3 months virtually as part of the fellowship schedule. Applications are due December 15, 2025 (11:59 PM ET).",
+   "type": "Fellowship",
+   "eligibility": [
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "December 15, 2025",
+   "url": null
+  },
+  {
+   "slug": "not-your-grandmas-gallery-open-call-for-artists-the-holy-art",
+   "title": "Not Your Grandma’s Gallery – Open Call for Artists (The Holy Art)",
+   "desc": "The Holy Art Gallery runs a rolling series of open calls for physical and digital exhibitions in London and other cities, with the current editions and their closing dates listed on the open-calls page. Submitting is free, but selected artists pay an exhibition fee, published as £280 for one physical work and £380 for two, or £95 to £150 for one to three digital works. Budget for that fee before applying.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "Non-profits",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "Global",
+   "mode": "In-person",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://www.theholyart.com/open-calls"
+  },
+  {
+   "slug": "newimages-festival-2026-xr-competition-call-for-projects",
+   "title": "NewImages Festival 2026 – XR Competition Call for Projects",
+   "desc": "NewImages Festival (Paris) is calling for XR projects for its XR Competition, open to VR, AR, mixed reality, narrative video games, hybrid performances, and other innovative formats. Eligible works are completed in 2025 or by March 2026 (no premiere required). Selected projects are showcased at the festival and can compete for awards including the Grand Prize (6,000€) and Impact Award (3,000€). Call open until January 8, 2026. Festival runs April 8-12, 2026 at la Cité des sciences et de l’industrie.",
+   "type": "Program",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "France",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": null
+  },
+  {
+   "slug": "games-for-change-2026-student-challenge-competition",
+   "title": "Games for Change 2026 Student Challenge (Competition)",
+   "desc": "The Games for Change Student Challenge 2026 is open for submissions of original games, artwork, and trailers. Winners may receive recognition, inclusion in the Student Challenge Arcade, technology prizes, and a $10,000 scholarship. Submission deadline: March 30, 2026 (11:59 PM PT).",
+   "type": "Challenge",
+   "eligibility": [
+    "Artists",
+    "Students",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "March 30, 2026",
+   "url": null
+  },
+  {
+   "slug": "leadership-and-techplomacy-summit-dubai-2026",
+   "title": "Leadership and Techplomacy Summit Dubai 2026",
+   "desc": "International youth summit in Dubai (UAE), February 11-14, 2026, focused on the intersection of technology and diplomacy, including themes like AI governance, digital diplomacy, and cross-cultural leadership. Participation categories include Fully Funded, Partially Funded, Free Access, and Self-Funded options. Application deadline: December 25, 2025.",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers",
+    "Students"
+   ],
+   "region": "",
+   "country": "UAE",
+   "mode": "In-person",
+   "deadline_type": "Rolling",
+   "deadline_date": "December 25, 2025",
+   "url": null
+  },
+  {
+   "slug": "reality-hack-2026-art-grant-mit",
+   "title": "Reality Hack 2026 Art Grant (MIT)",
+   "desc": "Reality Hack at MIT is accepting applications for the 2026 Art Grant, supporting artists to propose, create, and execute artistic work for Reality Hack 2026 on MIT’s campus. Works are intended to shape the event space and design and be experienced by attendees over the event week. Grant amount ranges from $100 to $3,500. Deadline: December 24, 2025.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "December 24, 2025",
+   "url": null
+  },
+  {
+   "slug": "meaningful-xr-2026-call-for-participation",
+   "title": "Meaningful XR 2026 – Call for Participation",
+   "desc": "Meaningful XR (MXR) invites submissions for its 2026 conference. The event runs May 30-31, 2026 in Portland, Oregon, with hybrid options for posters and remote participation in selected sessions and social events (via headset, computer, or mobile). Physical attendance of at least one author is required for papers, panels, and demos. Submission deadline: February 20, 2026. Decisions announced April 1, 2026.",
+   "type": "Program",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "",
+   "country": "USA",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "February 20, 2026",
+   "url": null
+  },
+  {
+   "slug": "womentech-global-awards-2026",
+   "title": "WomenTech Global Awards 2026",
+   "desc": "Self-nomination is welcome and free. Nominations close October 1, 2026; voting ends November 13, finalists are announced November 19 to 26 and winners on December 3, 2026.",
+   "type": "Award",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "October 1, 2026",
+   "url": "https://www.womentech.net/women-in-tech-awards"
+  },
+  {
+   "slug": "awe-2027-call-for-speakers-early-opportunities",
+   "title": "AWE 2027, Call for Speakers & Early Opportunities",
+   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal. No closing date has been published yet.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Researchers",
+    "Artists"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Open",
+   "deadline_date": null,
+   "url": "https://www.awexr.com/call-for-speakers"
+  },
+  {
+   "slug": "ted-posca-global-artist-residency-visible-mending",
+   "title": "TED × POSCA Global Artist Residency, \"Visible Mending\"",
+   "desc": "A distributed residency from TED and POSCA, curated by Fine Acts. Four artists each receive $15,000 to develop community-rooted public interventions on the theme of repair, resilience, and \"visible mending,\" inspired by kintsugi. Projects run through 2027.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 31, 2026",
+   "url": "https://fineacts.co"
+  },
+  {
+   "slug": "vh-award-7th-edition-emerging-media-artists-engaged-with-asi",
+   "title": "VH AWARD (7th Edition), Emerging Media Artists Engaged with Asia",
+   "desc": "Hyundai Motor Group's global award for emerging media artists of Asian descent, based in Asia, or of the Asian diaspora, working in audiovisual and screen-based art. Five finalists receive a production grant and an online residency developed with Ars Electronica; the Grand Prix winner gets an additional $30,000.",
+   "type": "Award",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 21, 2026",
+   "url": "https://vhaward.com"
+  },
+  {
+   "slug": "unesco-youth-for-peace-intercultural-leadership-programme",
+   "title": "UNESCO Youth for Peace, Intercultural Leadership Programme",
+   "desc": "UNESCO's flagship leadership initiative, with a 2026 theme on human connection and dialogue in the age of AI. 50 selected leaders aged 25–45 receive $10,000 in seed funding for a community initiative, plus training, mentorship, and a global alumni network.",
+   "type": "Program",
+   "eligibility": [
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 19, 2026",
+   "url": "https://www.unesco.org"
+  },
+  {
+   "slug": "new-inc-new-museum-incubator-year-13",
+   "title": "NEW INC, New Museum Incubator (Year 13)",
+   "desc": "The first museum-led incubator, run by the New Museum in New York. Members join a focus track (including Extended Realities, Art & Code, and Creative Science) for a year of mentorship, professional development, workspace, and community.",
+   "type": "Program",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "July 8, 2026",
+   "url": "https://www.newmuseum.org"
+  },
+  {
+   "slug": "global-good-fund-fellowship-2027",
+   "title": "Global Good Fund Fellowship 2027",
+   "desc": "A $10,000 leadership development grant plus one-on-one executive coaching, mentorship, and a global network for social entrepreneurs leading mission-driven enterprises. The fellowship invests in you as a leader, not just your organization.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 30, 2026",
+   "url": "https://globalgoodfund.org"
+  },
+  {
+   "slug": "iso-immersive-media-fund-indigenous-creators",
+   "title": "ISO Immersive Media Fund, Indigenous Creators",
+   "desc": "$500,000 CAD fund supporting Indigenous XR storytellers (Native American, Alaska Native, and Native Hawaiian artists based in the US), presented with Agog.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 30, 2026",
+   "url": "https://iso-bea.ca"
+  },
+  {
+   "slug": "aws-she-builds-mentorship-program-2026",
+   "title": "AWS She Builds Mentorship Program 2026",
+   "desc": "A free 12-week mentorship experience for women in technology, pairing you with a dedicated AWS mentor matched to your goals, location, and experience. Includes a global cohort community and events with senior AWS leaders.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 30, 2026",
+   "url": "https://pulse.aws/survey/QOY68FSB"
+  },
+  {
+   "slug": "global-innovation-challenge-2026-social-shifters",
+   "title": "Global Innovation Challenge 2026, Social Shifters",
+   "desc": "Multiple grant awards of up to $15,000 USD for young changemakers (18–30, worldwide) solving social and environmental problems. Open to early-stage ideas and existing projects alike; finalists join a global community with mentorship and resources.",
+   "type": "Challenge",
+   "eligibility": [
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "August 31, 2026",
+   "url": "https://socialshifters.co"
+  },
+  {
+   "slug": "climate-change-ai-summer-school-2026",
+   "title": "Climate Change AI, Summer School 2026",
+   "desc": "The 2026 Climate Change AI Summer School ran July 19 to August 22, 2026 and is now listed as a past event.",
+   "type": "Program",
+   "eligibility": [
+    "Students",
+    "Researchers"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.climatechange.ai/events"
+  },
+  {
+   "slug": "agog-open-call-2026-climate-futures-immersive-media",
+   "title": "Agog Open Call 2026, Climate Futures + Immersive Media",
+   "desc": "Up to $1 million in total grants for projects using immersive media to engage people on climate, from awareness to action. A huge one for the XR + climate community.",
+   "type": "Grant",
+   "eligibility": [
+    "XR Creators",
+    "Artists",
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 12, 2026",
+   "url": "https://agog.org/opencall2026/"
+  },
+  {
+   "slug": "galaxy-xr-launchpad-100k-to-build-your-first-pilot",
+   "title": "Galaxy XR Launchpad, $100K to Build Your First Pilot",
+   "desc": "Samsung × Rock Paper Reality selects one team and funds a full pilot, $100,000 in RPR build services plus a Samsung Galaxy XR headset, in a two-month sprint to build and ship. Open to teams in the USA, UK, and Canada.",
+   "type": "Challenge",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 28, 2026",
+   "url": "https://launchpad.rpr.to/"
+  },
+  {
+   "slug": "jackson-wild-hollywood-climate-summit-awards-2026",
+   "title": "Jackson Wild × Hollywood Climate Summit Awards 2026",
+   "desc": "Nature film's equivalent of the Oscars, expanded in 2026 into scripted formats including narrative film, TV, video games, digital media, and podcasts, in partnership with Hollywood Climate Summit.",
+   "type": "Award",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 22, 2026",
+   "url": "https://www.jacksonwild.org/2026-media-awards"
+  },
+  {
+   "slug": "third-wave-fund-artist-in-residence-2026",
+   "title": "Third Wave Fund Artist-in-Residence 2026",
+   "desc": "Applications for the 2026 Artist-in-Residence closed on May 13, 2026. Third Wave Fund's application page states the next opportunity will be posted in early 2027.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.thirdwavefund.org/third-wave-funds-artist-in-residence-program"
+  },
+  {
+   "slug": "museum-of-immersivism-the-internet-show",
+   "title": "Museum of Immersivism, The Internet Show",
+   "desc": "The Museum of Immersivism is accepting submissions for a new exhibit about what people think of the internet. Any medium welcome, visual art, video, sound, 3D, mixed media. Free to submit; no AI-generated work.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "June 30, 2026",
+   "url": "https://immersivism.com/internetshow"
+  },
+  {
+   "slug": "unesco-sdg-4-good-practices-open-call",
+   "title": "UNESCO SDG 4, Good Practices Open Call",
+   "desc": "UNESCO is seeking good practices advancing SDG 4, inclusive, equitable quality education and lifelong learning. Selected practices are featured in the SDG 4 Knowledge Hub and shared globally.",
+   "type": "Open Call",
+   "eligibility": [
+    "Educators",
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://www.unesco.org/sdg4education2030/en/articles/open-call-submissions-good-practices-accelerating-progress-towards-sdg-4"
+  },
+  {
+   "slug": "creativity-pioneers-fund-2026",
+   "title": "Creativity Pioneers Fund 2026",
+   "desc": "€5,000 unrestricted micro-grants for nonprofits placing creativity at the core of social transformation, especially those serving youth aged 16–27. Selected organizations also join a global network with mentorship and visibility.",
+   "type": "Grant",
+   "eligibility": [
+    "Non-profits",
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 24, 2026",
+   "url": "https://creativitypioneersfund.org/opencall"
+  },
+  {
+   "slug": "unesco-international-fund-for-cultural-diversity-ifcd-2026",
+   "title": "UNESCO International Fund for Cultural Diversity (IFCD) 2026",
+   "desc": "Up to $100,000 for 12–24 month projects strengthening cultural and creative sectors in developing countries, focused on policy development and institutional capacity building.",
+   "type": "Grant",
+   "eligibility": [
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 6, 2026",
+   "url": "https://www.unesco.org/creativity/en/ifcd/apply"
+  },
+  {
+   "slug": "xr-women-museum-garden-in-full-bloom",
+   "title": "XR Women Museum, Garden: In Full Bloom",
+   "desc": "A virtual XR exhibition turning the entire XR Women Museum into a living garden. Immersive works across XR, AR, AI, virtual worlds, 3D sculpture, video, animation, sound, and experimental forms.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 15, 2026",
+   "url": "https://framevr.io/xrwomenmuseum"
+  },
+  {
+   "slug": "blue-ridge-labs-founder-fellowship-2026",
+   "title": "Blue Ridge Labs Founder Fellowship 2026",
+   "desc": "20-week venture-building fellowship from idea to MVP, backed by Robin Hood Foundation. About 25 founders advance to an in-person phase in Brooklyn with a $20,000 stipend, mentorship, and MVP development support.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 3, 2026",
+   "url": "https://robinhood.org/our-work/blue-ridge-labs/founder-fellowship/"
+  },
+  {
+   "slug": "phi-immersive-residency-xr-for-impact",
+   "title": "PHI Immersive Residency, XR for Impact",
+   "desc": "A 4-week intensive residency at PHI Studio in Montreal developing a new immersive XR project, with tailored creative, technical, and strategic support. Open to artists and collectives residing in North America.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 3, 2026",
+   "url": "https://phi.ca/en/phi-residencies/phi-immersive/"
+  },
+  {
+   "slug": "phi-montreal-residency-2026",
+   "title": "PHI Montréal Residency 2026",
+   "desc": "Collaborative residency to develop a public engagement project with PHI, in partnership with CALQ. Selected projects receive $13,000 CAD. For one artist residing in Montreal and one in Quebec outside Greater Montreal.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 7, 2026",
+   "url": "https://phi.ca/en/phi-residencies/phi-montreal/"
+  },
+  {
+   "slug": "natgeo-nature-conservancy-marine-conservation-externship",
+   "title": "NatGeo × Nature Conservancy Marine Conservation Externship",
+   "desc": "8-week, part-time, fully remote externship for ages 18–25 exploring marine conservation challenges and community-based solutions. $500 stipend upon successful completion; no prior conservation experience required.",
+   "type": "Program",
+   "eligibility": [
+    "Youth",
+    "Students"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 17, 2026",
+   "url": "https://www.nature.org/en-us/about-us/who-we-are/how-we-work/youth-engagement/externships/"
+  },
+  {
+   "slug": "stanford-venture-fellowship-2026",
+   "title": "Stanford Venture Fellowship 2026",
+   "desc": "Only 10 fellows selected worldwide for a fully funded one-week immersive experience inside the Stanford and Silicon Valley ecosystem, sessions, workshops, and direct access to founders, faculty, and researchers.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Students",
+    "Youth"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 4, 2026",
+   "url": "https://www.svfellow.com"
+  },
+  {
+   "slug": "national-geographic-the-climate-pledge-storytelling-rfp",
+   "title": "National Geographic × The Climate Pledge, Storytelling RFP",
+   "desc": "NatGeo and The Climate Pledge are funding a global portfolio of climate resilience and solutions stories. Grants up to $100,000 for storytellers, journalists, filmmakers, and explorers.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "Researchers"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 25, 2026",
+   "url": "https://www.nationalgeographic.org/society/grants-and-investments/rfp-the-climate-pledge/"
+  },
+  {
+   "slug": "immensiva-residency-2026-collective-cartographies",
+   "title": "Immensiva Residency 2026, Collective Cartographies",
+   "desc": "The world's first residency for artists working with VR, AR, and AI, at ESPRONCEDA in Barcelona. The 2026 theme: transforming heritage into shared multiuser experiences. Teams retain full IP rights.",
+   "type": "Residency",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "April 17, 2026",
+   "url": "https://www.immensiva.com/immensiva-residency-open-call-2026/"
+  },
+  {
+   "slug": "xr-women-awards-2026-nominations",
+   "title": "XR Women Awards 2026, Nominations",
+   "desc": "The 6th Annual XR Women Awards were presented on June 17, 2026 at AWE USA in Long Beach. Nominations for the 2027 awards open in the new year at xrwomen.com.",
+   "type": "Award",
+   "eligibility": [
+    "XR Creators",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://www.xrwomen.com/2026-awards"
+  },
+  {
+   "slug": "unesco-prize-for-girls-and-women-s-education-2026",
+   "title": "UNESCO Prize for Girls' and Women's Education 2026",
+   "desc": "A $50,000 prize honoring outstanding and innovative contributions to advancing girls' and women's education. Nominations via governments and UNESCO partner organizations.",
+   "type": "Award",
+   "eligibility": [
+    "Non-profits",
+    "Educators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "May 12, 2026",
+   "url": "https://www.unesco.org/en/prize-girls-women-education"
+  },
+  {
+   "slug": "acm-chi-2027-call-for-papers",
+   "title": "ACM CHI 2027, Call for Papers",
+   "desc": "The flagship human–computer interaction conference (Pittsburgh, spring 2027). Full papers due September 10; the Late-Breaking Work track usually opens later with a January deadline, a friendlier route for early-stage research.",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "September 10, 2026",
+   "url": "https://chi2027.acm.org/authors/papers/"
+  },
+  {
+   "slug": "art-worker-artist-grant-2026-artist-engineering",
+   "title": "Art Worker Artist Grant 2026, ARTIST ENGINEERING",
+   "desc": "A biennial $5,000 AUD grant supporting the artistic practice of art workers, people whose livelihood is connected to museums, galleries, studios, fabrication, framing, conservation, art logistics, and more. No required outcomes; closes September 14 or at the first 500 applications.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Fixed",
+   "deadline_date": "September 14, 2026",
+   "url": "https://artistengineering.co/pages/awa"
+  },
+  {
+   "slug": "ieee-vr-2027-xr-gallery-sharing-realities",
+   "title": "IEEE VR 2027, XR Gallery: “Sharing Realities”",
+   "desc": "IEEE VR's immersive-art exhibition (Melbourne, Feb 27 – Mar 3, 2027), themed “Sharing Realities: Immersive Experiences Across Boundaries.” Previously unexhibited works only; accepted artists get a free full conference registration and select works receive $500 awards. Underrepresented and Indigenous artists especially encouraged.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Researchers"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Fixed",
+   "deadline_date": "November 3, 2026",
+   "url": "https://ieeevr.org/2027/contribute/xrgallery/"
+  },
+  {
+   "slug": "naaee-2026-conference-financial-aid",
+   "title": "NAAEE 2026 Conference, Financial Aid",
+   "desc": "Financial aid applications for the 2026 NAAEE conference closed on September 11, 2026; scholarship applications closed August 7, 2026.",
+   "type": "Program",
+   "eligibility": [
+    "Educators",
+    "Students"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Closed",
+   "deadline_date": null,
+   "url": "https://conference.naaee.org/scholarships"
+  },
+  {
+   "slug": "games-for-change-turkiye-festival-2026-calls-for-speakers-ar",
+   "title": "Games for Change Türkiye Festival 2026, Calls for Speakers & Arcade",
+   "desc": "G4C Türkiye's 2026 festival theme is “PLAY BEYOND, play to recover, reconnect, reimagine,” exploring resilience through games. The Call for Speakers and Call for Arcade are both open now; deadlines to be announced.",
+   "type": "Open Call",
+   "eligibility": [
+    "Open to all",
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": "Open",
+   "deadline_date": null,
+   "url": "https://turkiye.gamesforchange.org/"
+  },
+  {
+   "slug": "unitedxr-europe-2026-booster-programs-narratives-games-build",
+   "title": "UnitedXR Europe 2026, Booster Programs (Narratives, Games, Builders, Startups)",
+   "desc": "Four acceleration tracks ahead of UnitedXR Europe (Brussels, 7–9 Dec 2026): Narratives (early-stage immersive narrative, artistic or documentary XR), Games (indie AR/VR studios with a prototype), Builders (developers with an MVP, pre-revenue) and Startups (XR+AI ventures with traction). Selected projects get online masterclasses in mid-November, a live stage pitch, 3 guaranteed 1:1 meetings with decision-makers, mentorship and a full pass. Free to apply; participation fees only if selected (€300 / €200 / €100 for team members 1–3, excl. VAT). Acceptance confirmed 15 October.",
+   "type": "Program",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "September 15, 2026",
+   "url": "https://unitedxr.eu/booster-programs"
+  },
+  {
+   "slug": "fast-forward-accelerator-2027-25k-for-tech-nonprofits",
+   "title": "Fast Forward Accelerator 2027, $25K+ for Tech Nonprofits",
+   "desc": "The only accelerator dedicated to tech and AI-powered nonprofits: a $25K+ unrestricted grant, a mid-February to early-June 2027 program (virtual Tue/Thu sessions plus in-person kickoff and Demo Day in San Francisco), mentors and a funder network. Two hard requirements: a nonprofit model and a working MVP. Fiscally sponsored teams and nonprofits registered outside the US are eligible. Interviews October–December; decisions by year end.",
+   "type": "Program",
+   "eligibility": [
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "September 18, 2026",
+   "url": "https://www.ffwd.org/accelerator"
+  },
+  {
+   "slug": "ars-biologica-artxscience-residency-20272028-ars-electronica",
+   "title": "Ars Biologica ArtXScience Residency 2027–2028 (Ars Electronica × ECoC 2028)",
+   "desc": "Two fully funded art-science positions worth €24,000 each, €6,000 artist fee, up to €15,000 production, up to €3,000 travel plus accommodation, running January 2027 to April 2028 with three stays in České Budějovice (European Capital of Culture 2028). Open to artists, designers and collectives of any nationality with 5+ years of practice who can travel in the EU; the call explicitly wants spatial, installation and immersive work rather than screen-based pieces. Deadline midnight CET.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "September 28, 2026",
+   "url": "https://ars.electronica.art/export/en/ecoc2028-ars-biologica-art-science-residency/"
+  },
+  {
+   "slug": "world-summit-awards-2026-culture-heritage-learning-inclusion",
+   "title": "World Summit Awards 2026, Culture & Heritage, Learning, Inclusion",
+   "desc": "The UN-affiliated World Summit Awards recognise launched digital solutions with measurable social impact in eight categories including Culture & Heritage, Learning & Education and Inclusion & Empowerment, from all UN member states (Tunisia included). Free to enter; 40 global winners get the WSA Global Congress (spring 2027), mentoring, pitching and international media exposure. Under-26 founders can also enter the Young Innovators track (reported deadline October 15).",
+   "type": "Award",
+   "eligibility": [
+    "Open to all",
+    "Non-profits",
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "September 30, 2026",
+   "url": "https://wsa-global.org/contest-global-award/"
+  },
+  {
+   "slug": "ieee-vr-2027-call-for-workshop-proposals",
+   "title": "IEEE VR 2027, Call for Workshop Proposals",
+   "desc": "Propose a half-day workshop for IEEE VR 2027 in Melbourne (workshops February 27–28, 2027) with a 3-page proposal and a public call, no submission fee, and workshop papers can optionally be published in IEEE Xplore. A realistic route to a program-committee credential for practitioners: themes like XR for cultural heritage, community-driven documentation or XR in the Global South would fit. Notification October 12; camera-ready papers January 12, 2027.",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers",
+    "XR Creators",
+    "Educators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 28, 2026",
+   "url": "https://ieeevr.org/2027/contribute/workshops/"
+  },
+  {
+   "slug": "sxsw-2027-xr-experience",
+   "title": "SXSW 2027, XR Experience",
+   "desc": "Submit VR, MR and AR work, immersive performance, projection installations, immersive audio or AI installations to the XR Experience exhibition at SXSW Film & TV (Austin, March 15–21, 2027). Second deadline September 15 ($70), final deadline October 1 ($90, 11:59 pm PT); you need a streamable 360 or 2D playthrough link. Selections are notified by February 9, 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 1, 2026",
+   "url": "https://sxsw.com/film-submissions/"
+  },
+  {
+   "slug": "sundance-film-festival-2027-feature-films-late-deadline",
+   "title": "Sundance Film Festival 2027, Feature Films (late deadline)",
+   "desc": "Sundance moves to Boulder, Colorado for January 21–31, 2027. Feature films (50+ minutes, world or international premiere) can still be submitted until the late deadline of September 21 ($125); shorts and episodic deadlines have passed. Experimental and documentary features are also considered for the New Frontier section, note there is no longer a separate XR/immersive submission category.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 21, 2026",
+   "url": "https://www.sundance.org/festivals/sundance-film-festival/submit/"
+  },
+  {
+   "slug": "fivars-2027-festival-of-international-virtual-augmented-real",
+   "title": "FIVARS 2027, Festival of International Virtual & Augmented Reality Stories",
+   "desc": "A long-running, artist-friendly festival for VR and MR stories, 360° cinema, live and spatial performance, WebXR and installation work, held in Los Angeles and online February 22 – March 9, 2027. Rolling deadlines: earlybird September 24, regular November 24, late December 24, extended January 24, 2027 (fees on FilmFreeway). Notifications February 7.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "January 24, 2027",
+   "url": "https://fivars.net/"
+  },
+  {
+   "slug": "awesome-foundation-conservation-climate-1-000-micro-grants",
+   "title": "Awesome Foundation, Conservation & Climate $1,000 Micro-Grants",
+   "desc": "$1,000 micro-grants for conservation and climate projects, no strings attached. The chapter reviews on a fixed bi-monthly cycle rather than rolling: the next application deadlines are September 25, 2026 and November 27, 2026, then January 29, 2027.",
+   "type": "Grant",
+   "eligibility": [
+    "Open to all",
+    "Artists",
+    "Non-profits"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "November 27, 2026",
+   "url": "https://www.awesomefoundation.org/en/chapters/conservationandclimate"
+  },
+  {
+   "slug": "immerse-the-bay-2026-stanford-xr-hackathon",
+   "title": "Immerse the Bay 2026, Stanford XR Hackathon",
+   "desc": "A 36-hour XR hackathon at Stanford, November 13–15, 2026, with around 400 hackers, $300k+ of loaned headsets and hardware, industry workshops and a prize pool that topped $30k last year. Open to all skill levels and non-Stanford participants; the application takes under 10 minutes. Priority deadline October 2 (decisions October 9), final deadline October 16 (decisions October 23).",
+   "type": "Challenge",
+   "eligibility": [
+    "Students",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 16, 2026",
+   "url": "https://portal.immersethebay.org/"
+  },
+  {
+   "slug": "chevening-scholarships-2027-28-tunisia",
+   "title": "Chevening Scholarships 2027/28, Tunisia",
+   "desc": "The UK government's fully funded one-year master's for Tunisian citizens with a degree and at least two years of work experience, tuition, living stipend, flights and visa covered, no upper age limit. UK programmes in digital heritage, HCI, game design and immersive media are all eligible. Deadline October 6, 2026 at 11:00 UTC.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Students",
+    "Youth"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 6, 2026",
+   "url": "https://www.chevening.org/scholarship/tunisia/"
+  },
+  {
+   "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
+   "title": "Culture Resource (Al Mawred) Production Awards 2027, Arab Artists Under 35",
+   "desc": "Twenty-five production grants a year for artists and writers under 35 who originate from an Arab country, living in the region or in the diaspora: up to €8,500 for visual arts, music and sound art, performing arts and literature, up to €13,000 for cinema. XR and new-media projects fit under visual arts or cinema; the work must take place in or benefit the Arab region. Deadline October 19, 2026, 16:00 Beirut time; results end of March 2027.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists",
+    "Youth"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "October 19, 2026",
+   "url": "https://mawred.org/artistic-creativity/production-awards/?lang=en"
+  },
+  {
+   "slug": "unitedxr-europe-2026-startup-pitch-competition",
+   "title": "UnitedXR Europe 2026, Startup Pitch Competition",
+   "desc": "Free to enter: AR/VR startups pitch to a panel of XR investors on stage at UnitedXR Europe in Brussels (pitch December 8, winner announced December 9, 2026) in front of 2,500+ attendees; the winner takes the 'Startup to Watch' award. Same September 15 deadline as the Booster Programs.",
+   "type": "Challenge",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 15, 2026",
+   "url": "https://unitedxr.eu/startup-pitch-competition"
+  },
+  {
+   "slug": "voqal-partners-fellowship-2027",
+   "title": "Voqal Partners Fellowship 2027",
+   "desc": "Six-month fellowship (April to September 2027) for early-stage social justice changemakers testing a new idea. Fellows receive a $30,000 unrestricted award, a $1,000 healthcare stipend, covered travel to three in-person convenings, coaching and mentorship; a childcare stipend is available. Applicants must be 18 or older and based in the United States (no visa sponsorship); no organization, finished product or business plan is required. Free to apply, deadline October 31, 2026, 11:59 pm ET.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "October 31, 2026",
+   "url": "https://voqalpartners.org/fellowship/"
+  },
+  {
+   "slug": "women-who-code-summit-2026",
+   "title": "Women Who Code Summit 2026",
+   "desc": "Women Who Code, which closed as an organization in 2024, is holding a summit at the IPIC Theater in New York on October 6 to 8, 2026. The Virtual Pass is free and gives access to the leadership, AI upskilling and reskilling workshops; in-person passes are $499 for a day pass, $999 general and $1,999 executive. Speaker applications are open and reviewed on a rolling basis with no published cut-off, sessions are in person in New York with a virtual-only option, and applicants must hold October 6 to 8.",
+   "type": "Conference",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "October 6, 2026",
+   "url": "https://events.womenwhocode.com/2026/home"
+  },
+  {
+   "slug": "games-for-change-student-challenge-2026-2027",
+   "title": "Games for Change Student Challenge 2026-2027",
+   "desc": "International game design competition inviting young people aged 10 to 25 to build digital games inspired by the UN Sustainable Development Goals, with prize categories for ages 10 to 18 and university age. Educators sign up classrooms and students worldwide can submit; participation is free. Sign-ups for the 2026-2027 cycle are open and the two themes are published: “Everyone Belongs Here”, on fostering belonging, and “Bounce Back”, on building resilience. The submission deadlines for this cycle have not been published yet.",
+   "type": "Challenge",
+   "eligibility": [
+    "Students",
+    "Educators",
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Open",
+   "deadline_date": null,
+   "url": "https://learn.gamesforchange.org/student-challenge"
+  },
+  {
+   "slug": "acm-chi-2027-call-for-meet-ups",
+   "title": "ACM CHI 2027, Call for Meet-ups",
+   "desc": "Meet-ups at CHI 2027 are informal, participant-driven networking sessions, separate from the workshops track, in formats such as World Cafe, speed networking, think-pair-share or any interactive session the organizers propose. Proposals are a maximum of three pages plus two pages of supplementary material, submitted through PCS by October 1, 2026; there is no submission fee, and the organizers are preferably at least two people from two different organizations. At least one organizer must register and attend in person at the David L. Lawrence Convention Center in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled.",
+   "type": "Open Call",
+   "eligibility": [
+    "Open to all",
+    "Researchers"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 1, 2026",
+   "url": "https://chi2027.acm.org/authors/meet-ups/"
+  },
+  {
+   "slug": "ilrn-2027-13th-immersive-learning-research-network-conferenc",
+   "title": "iLRN 2027, 13th Immersive Learning Research Network Conference",
+   "desc": "Annual conference on immersive learning, themed \"XR + AI Collaboration\", held online June 11-13, 2027 and in person June 26-29, 2027 at Kyungpook National University in Daegu, Republic of Korea. The Academic Stream closes October 4, 2026 and takes full papers (12-15 pages, published in Scopus-indexed Springer CCIS), short papers (8-11 pages), extended abstracts of 4-7 pages for a poster, and doctoral colloquium papers. The practitioner iLEAD stream, which takes 2-5 page extended abstracts for talks, posters, workshops, panels, guided virtual adventures and product demos, closes January 12, 2027; accepted authors must register, and online presenters submit a 3-5 minute pre-recorded video.",
+   "type": "Conference",
+   "eligibility": [
+    "Open to all",
+    "Researchers",
+    "Educators",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "October 4, 2026",
+   "url": "https://www.immersivelrn.org/ilrn2027/call-for-proposals/"
+  },
+  {
+   "slug": "wijhat-destinations-culture-resource-mobility-grants",
+   "title": "Wijhat (Destinations), Culture Resource Mobility Grants",
+   "desc": "Up to 7,000 euros for artists and cultural actors from the Arab region to travel for professional purposes: fairs, artistic residencies, forums, conferences, seminars and training or capacity-building workshops. The grant covers flights, visa costs, accommodation, internal transport and partial living expenses, and Culture Resource can write a supporting letter to the relevant embassy after the contract is signed. Either the departure or the arrival country must be in the Arab region; individuals and groups may apply, and there is no application fee. Applications are accepted year-round and judged in three rounds, with cut-offs at 16:00 Beirut time on January 16 (results February 28), May 29 (results July 1) and September 17 (results October 31); the activity you are travelling for must fall after the results date of the round you apply to.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 16, 2027",
+   "url": "https://mawred.org/artistic-creativity/wijhat/?lang=en"
+  },
+  {
+   "slug": "xr-women-museum-community-garden",
+   "title": "XR Women Museum, Community Garden",
+   "desc": "Ongoing call from the XR Women Museum for contributions to its Community Garden: 3D and XR-ready objects, animated or interactive “pollinators”, botanical or spatial fragments, and conceptual world-building elements. The museum describes it as a living relational system rather than a submission pool for selection, so contributions join an evolving XR ecosystem that outlasts any single exhibition. Submissions go through a Google form linked from the museum page and there is no fee or published closing date.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://www.xrwomen.com/museum"
+  },
+  {
+   "slug": "nasa-space-apps-challenge-2026",
+   "title": "NASA Space Apps Challenge 2026",
+   "desc": "The world's largest annual space and science hackathon, run by NASA with 17 partner space agencies, held November 14 to 15, 2026. Registration is open and free, and the site lists 14 challenges plus local in-person events by city alongside a fully remote option; teams form on the platform. Open to anyone interested in space and science, at any age, skill level or professional background.",
+   "type": "Challenge",
+   "eligibility": [
+    "Open to all",
+    "Students",
+    "Youth"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "November 14, 2026",
+   "url": "https://www.spaceappschallenge.org/"
+  },
+  {
+   "slug": "habibi-tech-summit-2026-volunteer-call",
+   "title": "Habibi Tech Summit 2026, Volunteer Call",
+   "desc": "Volunteer at the Habibi Tech Summit, held September 25 and 26, 2026 across three New York City venues in Brooklyn, Manhattan and Queens. Six roles are open: guests and registration, content creation, program and stage, exhibitors and sponsors, setup and logistics, and flexible assignment. Volunteers work one shift and attend the rest of the day as a guest at no cost. No experience is required and sign-up is through the form on the volunteers page; shifts close once they fill.",
+   "type": "Open Call",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 25, 2026",
+   "url": "https://habibi.tech/volunteers"
+  },
+  {
+   "slug": "acm-chi-2027-call-for-workshop-proposals",
+   "title": "ACM CHI 2027, Call for Workshop Proposals",
+   "desc": "Propose a workshop at ACM CHI 2027, held May 10 to 14, 2027 at the David L. Lawrence Convention Center in Pittsburgh. Proposals run up to six pages excluding references, use the ACM Master Article single-column template, and go through the PCS system with an abstract, motivation, organizer information, planned activities and a 250-word call for participation. Free to submit. Organizers are expected to have prior conference or reviewing experience, and selection is competitive.",
+   "type": "Conference",
+   "eligibility": [
+    "Researchers",
+    "Educators",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 1, 2026",
+   "url": "https://chi2027.acm.org/authors/workshops/"
+  },
+  {
+   "slug": "acm-chi-2027-call-for-workshop-jurors",
+   "title": "ACM CHI 2027, Call for Workshop Jurors",
+   "desc": "CHI 2027 is recruiting jurors to review workshop proposals. Apply by emailing your name, affiliation, CV and a roughly 150-word statement of interest to workshops@chi2027.acm.org. The commitment is about eight hours of reviewing between October and November 2026. Free. They ask for previous conference involvement or reviewing experience and regular CHI attendance as a speaker, author or attendee.",
+   "type": "Open Call",
+   "eligibility": [
+    "Researchers",
+    "Educators",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "September 28, 2026",
+   "url": "https://chi2027.acm.org/authors/workshops/"
+  },
+  {
+   "slug": "technica-2026-hackathon-celebrating-underrepresented-genders",
+   "title": "Technica 2026, Hackathon Celebrating Underrepresented Genders",
+   "desc": "The largest hackathon for underrepresented genders in tech, hosted by the University of Maryland on October 17 to 18, 2026, at the College Park Marriott and online in Gather. People of all genders are welcome and no coding experience is needed; there are Beginner, General, Research and Startup tracks. Hacker registration is open with no closing date published.",
+   "type": "Challenge",
+   "eligibility": [
+    "Open to all",
+    "Students",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "October 17, 2026",
+   "url": "https://gotechnica.org/"
+  },
+  {
+   "slug": "xr-guild-fall-mentorship-program-2026",
+   "title": "XR Guild Fall Mentorship Program 2026",
+   "desc": "Free one-to-one mentorship matching XR and AI professionals with people earlier on the path, with sessions every couple of weeks from October to the end of the year. You must be an XR Guild member to take part; membership is free (sign up at xrguild.org/join). Sign-up form closes September 25, 2026.",
+   "type": "Program",
+   "eligibility": [
+    "XR Creators",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "September 25, 2026",
+   "url": "https://forms.gle/2YXMz2uFKpXnSVe8A"
+  },
+  {
+   "slug": "slamdance-2027-dig-digital-interactive-gallery",
+   "title": "Slamdance 2027, DIG (Digital Interactive Gallery)",
+   "desc": "Slamdance's category for VR and AR, interactive documentaries, genre-bending games, live performance, AI-driven work and installations. Extended deadline October 6, 2026, 11:59 pm PST, $90 fee. The festival runs February 18 to 24, 2027 in Los Angeles; selected artists attend and handle their own setup.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 6, 2026",
+   "url": "https://slamdance.com/festival-submit/"
+  },
+  {
+   "slug": "institut-francais-x-cite-internationale-des-arts-residencies",
+   "title": "Institut français x Cité internationale des arts Residencies 2027-2028",
+   "desc": "Residencies in Paris between April 2027 and April 2028 for artists and cultural professionals living outside France, for research and creative projects. Apply on the Institut français eMundus platform by October 8, 2026, 23:59 Paris time.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 8, 2026",
+   "url": "https://ifprog.emundus.fr/"
+  },
+  {
+   "slug": "djerassi-resident-artists-program-2027-incl-leonardo-djerass",
+   "title": "Djerassi Resident Artists Program 2027, incl. Leonardo@Djerassi",
+   "desc": "One-month residencies in the Santa Cruz Mountains, California, at no cost to artists, open to national and international applicants; media arts and technology-driven work are a listed discipline. Five cohorts from February to November 2027, one of them the Leonardo@Djerassi art and science cohort (June 22 to July 27). Applications close October 9, 2026.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 9, 2026",
+   "url": "https://djerassi.org/apply/2027residency/"
+  },
+  {
+   "slug": "aesthetica-art-prize-2026",
+   "title": "Aesthetica Art Prize 2026",
+   "desc": "£10,000 Main Prize and £1,000 Emerging Prize (students and graduates of the last three years), any discipline and any theme, two works per entry. Entry £25 until October 11, 2026, late entries £35 until October 18. Shortlisted work is exhibited in autumn 2027.",
+   "type": "Award",
+   "eligibility": [
+    "Artists",
+    "Students"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "October 11, 2026",
+   "url": "https://aestheticamagazine.com/artprize/submit/"
+  },
+  {
+   "slug": "dome-fest-west-2027",
+   "title": "Dome Fest West 2027",
+   "desc": "Festival for fulldome and immersive cinema at Fiske Planetarium, University of Colorado Boulder, April 21 to 25, 2027. Categories: feature and short dome films, live dome experiences, interactive dome experiences, completed after January 1, 2025. Regular deadline October 16, 2026, then December 4 and January 8, 2027; fees on FilmFreeway.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 16, 2026",
+   "url": "https://domefestwest.com/"
+  },
+  {
+   "slug": "one-young-world-summit-2026-leading-scholarship",
+   "title": "One Young World Summit 2026, Leading Scholarship",
+   "desc": "Full delegate access and meals at the One Young World Summit in Cape Town, November 3 to 6, 2026, for people aged 18 to 35 working on positive change; travel and accommodation are decided case by case and visa fees are the scholar's own. Free to apply, reviewed on a rolling basis until October 31, 2026, with priority for countries less represented at past summits.",
+   "type": "Program",
+   "eligibility": [
+    "Youth",
+    "Open to all"
+   ],
+   "region": "Africa",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 31, 2026",
+   "url": "https://www.oneyoungworld.com/scholarship/leading-scholarship-2026"
+  }
+ ]
+}

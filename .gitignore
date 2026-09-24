@@ -13,3 +13,6 @@ ref/decks/*.pdf
 ref/decks/slide-*.jpg
 ref/decks/*.pptx
 ref/decks/ig-*/
+
+# generated social images, remade from the board whenever they are needed
+social/

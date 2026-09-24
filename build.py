@@ -6019,6 +6019,19 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
              jsonld=[_person])
 
 
+def dump_board():
+    """The board as plain data, so other things can use it without running a whole build.
+
+    tools/opportunity_cards.py reads this to make the Instagram cards."""
+    out = [{k: o.get(k) for k in ("slug", "title", "desc", "type", "eligibility", "region",
+                                  "country", "mode", "deadline_type", "deadline_date", "url")}
+           for o in OPPS]
+    with open(os.path.join(HERE, "ref", "board.json"), "w", encoding="utf-8") as f:
+        json.dump({"_what": "Every opportunity on the board, written on each build.",
+                   "built": _dt.date.today().isoformat(), "items": out}, f,
+                  indent=1, ensure_ascii=False)
+
+
 def build_opportunities():
     LBL = {
         "en": {"dl": "Deadline: ", "closed": "Closed", "days": " days left", "day": " day left",
@@ -7894,6 +7907,7 @@ def main():
         build_news()
         build_people()
         build_opportunities()
+        dump_board()
         build_volunteer()
         build_create_profile()
         build_scanning_guide()
