@@ -142,8 +142,8 @@ This one covers deadlines from Sept 28 to Oct 31: residencies, festival calls fo
 - 🏆 WomenTech Global Awards, October 1. womentech.net
 - 🕶 SXSW 2027 XR Experience, October 1. sxsw.com/film-submissions
 - 🎓 Chevening Scholarships, Tunisia, October 6. chevening.org/scholarship/tunisia
-- 🎨 Culture Resource (Al Mawred) Production Awards, up to €8,500 for Arab artists under 35, October 19. mawred.org
 - 💻 Immerse the Bay, Stanford XR hackathon, final deadline October 16. portal.immersethebay.org
+- 🎨 Culture Resource (Al Mawred) Production Awards, up to €8,500 for Arab artists under 35, October 19. mawred.org
 - 🎨 IEEE VR 2027 XR Gallery, November 3. ieeevr.org/2027/contribute/xrgallery
 - 🚀 NASA Space Apps Challenge (local events in Tunisia), November 14–15. spaceappschallenge.org
 - 🌍 Awesome Foundation climate micro-grants, $1,000, November 27. awesomefoundation.org
