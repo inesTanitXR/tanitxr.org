@@ -185,6 +185,34 @@
    "source": "screenshot",
    "raw": "shot-6.html -> https://www.instagram.com/p/DdiX1KqCEOO/ (@digitalnomadskorea)",
    "status": "skipped: two-week digital-nomad workation in Songdo, Incheon (Oct 12-26, 2026; stay covered for eligible participants), but flights to Korea are self-funded and it is not XR, art, heritage or impact. Fails the filter. Moved to done/."
+  },
+  {
+   "key": "weve got just 5 mentee spots left in the xr guild fall mentorship program if youre looking to learn from someone whos already navigated the path youre on this is your chance",
+   "date": "2026-09-24",
+   "source": "note",
+   "raw": "https://lnkd.in/gT5MwyKs -> https://forms.gle/2YXMz2uFKpXnSVe8A",
+   "status": "added (XR Guild Fall Mentorship Program 2026: free, XR Guild membership required and free, sign-up closes Sept 25, sessions Oct to year-end; verified on the Google form Sept 24). On the board; closes on edition 19's send day, so only in the draft."
+  },
+  {
+   "key": "world bank small ai hackathon 2026 thekoreanacademy",
+   "date": "2026-09-24",
+   "source": "screenshot",
+   "raw": "shot-8.html -> https://www.instagram.com/p/DdnZHTWTgNJ/ (@thekoreanacademy)",
+   "status": "skipped: World Bank Small AI for Development Hackathon (ages 18-35, virtual Oct 3-4, winners flown to Seoul). Applications close Sept 26, two days out, too late to reach readers; AI for health/agriculture/tourism, not XR or art; the post withholds the official link behind their Instagram channel."
+  },
+  {
+   "key": "outcome beauty global korean beauty food brands seoul nov 2426 flight hotel interpreter covered",
+   "date": "2026-09-24",
+   "source": "screenshot",
+   "raw": "shot-7.html -> https://www.instagram.com/p/DdjOYtbs01M/ (@outcome.beauty.global)",
+   "status": "skipped: buyer trip to meet Korean beauty and food brands in Seoul. Off-topic for Tanit XR readers."
+  },
+  {
+   "key": "belfer center fellowships open october 1 20272028 academic year",
+   "date": "2026-09-24",
+   "source": "share",
+   "raw": "shot.txt + shot-2.txt -> https://lnkd.in/p/efNqMej3 -> linkedin.com/posts/belfercenter_mark-your-calendars-our-fellowships-open-activity-7508178836552085504-Xjcv",
+   "status": "skipped: Harvard Kennedy School Belfer Center fellowships for 2027-2028 open Oct 1. Academic policy research fellowships, fails the elite/academic-only filter."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -206,6 +234,12 @@
    "file": "shot-5.html",
    "raw": "https://www.instagram.com/p/DdWXKmyFipt/ (@turkishfestival)",
    "what": "Turkish Festival, Sunday Oct 18"
+  },
+  {
+   "date": "2026-09-24",
+   "file": "shot-6.html",
+   "raw": "https://www.instagram.com/p/DdoqmqTjWIn/ (@secret.washington.dc)",
+   "what": "Western Maryland Scenic Railroad fall foliage trip"
   }
  ]
 }

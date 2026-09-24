@@ -5,6 +5,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 <!-- new items appended below by the inbox sweep -->
 
+<!-- Edition 19 assembled 2026-09-24 → ref/newsletter-edition-19.md (Voqal, Women Who Code, CHI meet-ups, iLRN, CHI workshops, Technica went there; Habibi dropped as moot). Blocks below that are not in edition 19 belong to edition 20. -->
+
 <!-- Edition 18 assembled 2026-09-11 → ref/newsletter-edition-18.md (UnitedXR Booster moved there). Edition 19 items are listed in ref/newsletter-plan.md; append new sweep finds below. -->
 
 ### 💸 Voqal Partners Fellowship 2027
@@ -95,6 +97,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ The University of Maryland's hackathon for underrepresented genders, 500+ hackers in 2025. Beginner, General, Research and Startup tracks, plus workshops and recruiters on site.
 👉 https://gotechnica.org/
 
+### 🧭 XR Guild Fall Mentorship Program 2026
+
+📅 Sign-up closes September 25, 2026; sessions start in October
+📍 Remote, one-to-one, every couple of weeks until year-end
+👥 XR Guild members (membership is free at xrguild.org/join), as mentees or mentors
+✏️ Free mentorship matching people building in XR and AI with people earlier on the path. Five mentee spots were left on Sept 24. On the board; closes on edition 19's send day, so it is not carried into an edition.
+👉 https://forms.gle/2YXMz2uFKpXnSVe8A
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -109,3 +119,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Immersive Learning Research Network (iLRN) | linkedin.com/company/immersive-learning-research-network |
 | Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
 | Technica | linkedin.com/company/gotechnica |
+| XR Guild | linkedin.com/company/xr-guild |

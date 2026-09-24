@@ -5,7 +5,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
-| **19** | **Fri Sept 25** | Sept 28 → Oct 31 (+ Women Who Code Summit Oct 6-8) | to assemble ~Sept 24 — 16 blocks, over the cap. At assembly: drop the Habibi Tech volunteer block (the summit runs Sept 25-26, the same day the edition sends, so it is moot by arrival) and consider moving Immerse the Bay's Oct 16 reminder to edition 20. The CHI Workshops block has to stay in 19: jurors close Sept 28, three days after send. |
+| **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 21 blocks, trim or split when assembling |
 
 ## Edition 19 (send Sept 25) — items
@@ -27,6 +27,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 🧭 XR Guild Fall Mentorship (free, members; sign-up closes Sept 25) — on the board since Sept 24, from Ines's note; closes before any edition can carry it, kept only in the draft _(do not carry into 20)_
 - 💻 Immerse the Bay final deadline — Oct 16 (reminder) _(moved from 19 on Sept 23 to make room for Technica, whose registration could fill before Oct 9; Oct 9 still leaves a week)_
 - 🏛 AIA Site Preservation Grant (up to $15,000) — Nov 1 — archaeological.org/grant/site-preservation ★ Tanit _(moved from 19 on Sept 20: edition 19 was overflowing at 16 blocks; Oct 9 still leaves 3 weeks)_
 - 🌍 MIT Solve 2027 Global Learning Challenge — Nov 2 — solve.mit.edu/challenges/2027-global-learning-challenge ★ Tanit _(moved from 19 on Sept 20)_
@@ -65,4 +66,4 @@ _Checked 2026-09-21: no new cycle open that passes the filter. Games for Change 
 
 _Checked 2026-09-16: no new cycle open yet. MIT Reality Hack 2027 (moving to AWE USA, May/June 2027) has no application date announced; Unity for Humanity 2027 not yet open (2026 round ran Jan 7 to Feb 20, 2026); US Embassy Tunis AFCP has published no 2027 call (most recent was the Freedom 250 special edition, closed March 31, 2026); Prince Claus Seed Awards 2027 not yet announced (2026 closed January 8, 2026). Nothing added to the board from the watch list this week._
 
-AFAC 2027 (Feb–Apr) 🇹🇳 · Prince Claus Seed Awards 🇹🇳 · Venice Immersive & Cannes Immersive (Jan–Feb) · Prix Ars Electronica (Jan) · Lumen Prize (late Jan) · SIGGRAPH 2027 Immersive Pavilion (Jan) · Games for Change Festival & Awards 2027 (Dec) · MIT Reality Hack 2027 · Echoing Green 2027 · Anna Lindh Foundation 🇹🇳 · US Embassy Tunis AFCP 2027 🇹🇳 · Europa Nostra 2028 (June) · Kamel Lazaar Foundation 🇹🇳 · Creative Capital 2028 · Sundance funds (early 2027) · Unity for Humanity 2027 · Epic MegaGrants 2027.
+A MAZE. Berlin 2027 curation call (festival May 5-8, 2027; no official call found Sept 24) · Tribeca 2027 (only 2026 deadlines on tribecafilm.com Sept 24) · AFAC 2027 (Feb–Apr) 🇹🇳 · Prince Claus Seed Awards 🇹🇳 · Venice Immersive & Cannes Immersive (Jan–Feb) · Prix Ars Electronica (Jan) · Lumen Prize (late Jan) · SIGGRAPH 2027 Immersive Pavilion (Jan) · Games for Change Festival & Awards 2027 (Dec) · MIT Reality Hack 2027 · Echoing Green 2027 · Anna Lindh Foundation 🇹🇳 · US Embassy Tunis AFCP 2027 🇹🇳 · Europa Nostra 2028 (June) · Kamel Lazaar Foundation 🇹🇳 · Creative Capital 2028 · Sundance funds (early 2027) · Unity for Humanity 2027 · Epic MegaGrants 2027.
