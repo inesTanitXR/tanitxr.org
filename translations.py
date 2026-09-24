@@ -1735,6 +1735,23 @@ FR = {
     '</b> loved <span': '</b> coups de cœur <span',
     '>Loved</button>': '>Coups de cœur</button>',
     'Their page': 'Voir sa page',
+
+    # ---- added 2026-09-24: pages that were still English ----
+    # set by hand: the episode title stays in English, and its V and S are written as character references
+    # so the short Volunteer and Sites rows further down cannot rewrite it (see translation-table-substring-bug)
+    'Volunteers 3D Scanning Tunisia&#x27;s Endangered Heritage Sites Before the Ocean Takes Them: a full episode with Ines Said on how Tanit XR started, how the scanning works and who does it.':
+        '&#86;olunteers 3D Scanning Tunisia&#x27;s Endangered Heritage &#83;ites Before the Ocean Takes Them : un épisode complet avec Ines Said sur les débuts de Tanit XR, le fonctionnement de la numérisation et les personnes qui s’en chargent.',
+    ', from Awesome Future. The episode is called "Volunteers 3D Scanning Tunisia\'s Endangered Heritage Sites Before the Ocean Takes Them", and it covers how Tanit XR started, how the scanning actually works, and who does it.':
+        ", l’émission d’Awesome Future. L’épisode s’intitule « &#86;olunteers 3D Scanning Tunisia's Endangered Heritage &#83;ites Before the Ocean Takes Them » et raconte les débuts de Tanit XR, le fonctionnement concret de la numérisation, et qui s’en charge.",
+    'It premieres on 24 September at 8:30am Pacific time, which is 5:30pm in Tunis, and it stays on YouTube afterwards. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
+        'La première a lieu le 24 septembre à 8 h 30, heure du Pacifique, soit 17 h 30 à Tunis, et l’épisode reste ensuite disponible sur YouTube. Si vous cherchiez comment expliquer ce projet à quelqu’un, c’est ce qu’il faut lui envoyer.',
+    'Ines Said is the guest on this week&#x27;s Spatial Creator Spotlight, from Awesome Future. The episode premieres on 24 September at 8:30am Pacific, and stays up afterwards.…':
+        'Ines Said est l’invitée de Spatial Creator Spotlight cette semaine, l’émission d’Awesome Future. L’épisode sera diffusé en avant-première le 24 septembre à 8 h 30, heure du Pacifique, et restera en ligne ensuite.…',
+    'Our episode of Spatial Creator Spotlight': 'Notre épisode de Spatial Creator Spotlight',
+    "Ines Said is the guest on this week's ": 'Ines Said est l’invitée cette semaine de',
+    'Video · September 24, 2026': 'Vidéo · 24 septembre 2026',
+    'Watch the episode': 'Regarder l’épisode',
+    'Step inside': 'Entrer',
 }
 
 
@@ -3465,5 +3482,22 @@ AR = {
     '</b> loved <span': '</b> مفضّلة <span',
     '>Loved</button>': '>المفضّلة</button>',
     'Their page': 'الصفحة الشخصية',
+
+    # ---- added 2026-09-24: pages that were still English ----
+    # set by hand: the episode title stays in English, and its V and S are written as character references
+    # so the short Volunteer and Sites rows further down cannot rewrite it (see translation-table-substring-bug)
+    'Volunteers 3D Scanning Tunisia&#x27;s Endangered Heritage Sites Before the Ocean Takes Them: a full episode with Ines Said on how Tanit XR started, how the scanning works and who does it.':
+        '&#86;olunteers 3D Scanning Tunisia&#x27;s Endangered Heritage &#83;ites Before the Ocean Takes Them: حلقة كاملة مع إيناس سعيد عن بدايات Tanit XR، وكيف يجري المسح، ومن يقوم به.',
+    ', from Awesome Future. The episode is called "Volunteers 3D Scanning Tunisia\'s Endangered Heritage Sites Before the Ocean Takes Them", and it covers how Tanit XR started, how the scanning actually works, and who does it.':
+        '، البرنامج الذي تقدمه Awesome Future. عنوان الحلقة "&#86;olunteers 3D Scanning Tunisia\'s Endangered Heritage &#83;ites Before the Ocean Takes Them"، وهي تتناول كيف بدأت Tanit XR، وكيف يجري المسح فعليًا، ومن يقوم به.',
+    'It premieres on 24 September at 8:30am Pacific time, which is 5:30pm in Tunis, and it stays on YouTube afterwards. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
+        'يُعرض العرض الأول يوم 24 سبتمبر الساعة 8:30 صباحًا بتوقيت المحيط الهادئ، أي 5:30 مساءً بتوقيت تونس، وتبقى الحلقة على YouTube بعد ذلك. إن كنت تبحث عن طريقة تشرح بها هذا المشروع لأحد، فهذا ما ترسله إليه.',
+    'Ines Said is the guest on this week&#x27;s Spatial Creator Spotlight, from Awesome Future. The episode premieres on 24 September at 8:30am Pacific, and stays up afterwards.…':
+        'إيناس سعيد ضيفة حلقة هذا الأسبوع من Spatial Creator Spotlight، البرنامج الذي تقدمه Awesome Future. يُعرض العرض الأول للحلقة يوم 24 سبتمبر الساعة 8:30 صباحًا بتوقيت المحيط الهادئ، وتبقى متاحة بعد ذلك.…',
+    'Our episode of Spatial Creator Spotlight': 'حلقتنا في Spatial Creator Spotlight',
+    "Ines Said is the guest on this week's ": 'إيناس سعيد ضيفة حلقة هذا الأسبوع من',
+    'Video · September 24, 2026': 'فيديو · 24 سبتمبر 2026',
+    'Watch the episode': 'شاهد الحلقة',
+    'Step inside': 'ادخل',
 }
 
