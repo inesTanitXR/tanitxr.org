@@ -1,6 +1,6 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 19
 
-*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
@@ -132,14 +132,6 @@ This one covers deadlines from Sept 28 to Oct 31: residencies, festival calls fo
 ✏️ Residencies at the Cité internationale des arts for research and creative projects. Apply on the Institut français eMundus platform.
 👉 https://ifprog.emundus.fr/
 
-### 🎨 Culture Resource (Al Mawred): Production Awards 2027
-
-📅 Deadline: October 19, 2026, 16:00 Beirut time
-📍 Arab region, diaspora included
-👥 Artists born between January 1991 and December 2010, from an Arab country
-✏️ Up to €8,500 for visual arts (XR fits here) or €13,000 for cinema. Free to apply. Results end of March.
-👉 https://mawred.org/artistic-creativity/production-awards/?lang=en
-
 ───────────────────────────────────────
 
 ## ⏰ STILL OPEN FROM PAST EDITIONS
@@ -150,6 +142,7 @@ This one covers deadlines from Sept 28 to Oct 31: residencies, festival calls fo
 - 🏆 WomenTech Global Awards, October 1. womentech.net
 - 🕶 SXSW 2027 XR Experience, October 1. sxsw.com/film-submissions
 - 🎓 Chevening Scholarships, Tunisia, October 6. chevening.org/scholarship/tunisia
+- 🎨 Culture Resource (Al Mawred) Production Awards, up to €8,500 for Arab artists under 35, October 19. mawred.org
 - 💻 Immerse the Bay, Stanford XR hackathon, final deadline October 16. portal.immersethebay.org
 - 🎨 IEEE VR 2027 XR Gallery, November 3. ieeevr.org/2027/contribute/xrgallery
 - 🚀 NASA Space Apps Challenge (local events in Tunisia), November 14–15. spaceappschallenge.org
@@ -174,7 +167,7 @@ Edition 19 of Art, XR & Impact Opportunities is out. Deadlines from Sept 28 to O
 🏔 @Djerassi Resident Artists Program, one-month residency at no cost: Oct 9
 💸 @Voqal Partners Fellowship, $30,000 unrestricted: Oct 31
 
-Also: @Slamdance DIG for XR and interactive work, @Aesthetica Magazine Art Prize, @Dome Fest West, @One Young World scholarships, @Women Who Code and @Technica, and for Tunisians and North Africans, Paris residencies with @Institut français and @Cité internationale des arts, plus @Culture Resource (Al Mawred Al Thaqafy) production awards.
+Also: @Slamdance DIG for XR and interactive work, @Aesthetica Magazine Art Prize, @Dome Fest West, @One Young World scholarships, @Women Who Code and @Technica, and for Tunisians and North Africans, Paris residencies with @Institut français and @Cité internationale des arts.
 
 Only things I'd apply to myself. Link below 👇
 
@@ -196,4 +189,3 @@ Only things I'd apply to myself. Link below 👇
 | Technica | linkedin.com/company/gotechnica |
 | Institut français | linkedin.com/company/ifparis |
 | Cité internationale des arts | linkedin.com/company/cite-internationale-des-arts |
-| Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
