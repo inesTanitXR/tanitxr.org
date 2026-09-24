@@ -160,16 +160,58 @@ If you apply to any of these, tell me. And if you want to help preserve Tunisian
 
 # 📣 LinkedIn post (profile)
 
-Edition 19 of Art, XR & Impact Opportunities is out. Deadlines from Sept 28 to Oct 31:
+_Format: ref/linkedin-post-format.md. Colours by days left from the Sept 25 send: 🔴 within a week · 🟠 8 to 14 days · 🟡 15 to 21 days · 🟢 later. Sorted by date inside each colour. Tag the names in the table below as you type them._
 
-🎤 @ACM SIGCHI CHI 2027 workshops (judge by Sept 28, propose by Oct 1) and meet-ups (Oct 1)
-🎤 @Immersive Learning Research Network (iLRN) 2027: Oct 4
-🏔 @Djerassi Resident Artists Program, one-month residency at no cost: Oct 9
-💸 @Voqal Partners Fellowship, $30,000 unrestricted: Oct 31
+🎯 Opportunities for XR creators, artists & impact makers
 
-Also: @Slamdance DIG for XR and interactive work, @Aesthetica Magazine Art Prize, @Dome Fest West, @One Young World scholarships, @Women Who Code and @Technica, and for Tunisians and North Africans, Paris residencies with @Institut français and @Cité internationale des arts.
+Edition 19 is out: residencies, festival calls for XR and dome work, and four ways to get on the program at a conference.
 
-Only things I'd apply to myself. Link below 👇
+🔴 Sept 28: ACM CHI 2027 — Workshop Jurors
+Free. Email your CV and a 150-word statement to help judge the CHI workshops, about 8 hours of reviewing in Oct and Nov
+
+🔴 Oct 1: ACM CHI 2027 — Workshop Proposals
+Free. Propose your own workshop at CHI in Pittsburgh, May 2027: up to six pages
+
+🔴 Oct 1: ACM CHI 2027 — Meet-ups
+Free, no academic affiliation needed. Run an informal, participant-driven session at CHI
+
+🟠 Oct 4: iLRN 2027 — Immersive Learning Research Network
+Papers and posters on XR + AI in learning, online and in Daegu, Korea. No submission fee
+
+🟠 Oct 6: Slamdance 2027 — DIG (Digital Interactive Gallery)
+VR/AR, interactive documentaries, games, performance and installations, Los Angeles, Feb 2027
+
+🟠 Oct 6: Women Who Code Summit 2026
+Free Virtual Pass for the New York summit, and speaker applications still open
+
+🟠 Oct 9: Djerassi Resident Artists Program 2027
+One-month residency in California at no cost to artists, media arts included, with an art + science cohort
+
+🟡 Oct 11: Aesthetica Art Prize 2026
+£10,000 main prize, any discipline, plus a £1,000 prize for students and recent graduates
+
+🟡 Oct 16: Dome Fest West 2027
+Festival for fulldome and immersive cinema at Fiske Planetarium, Boulder
+
+🟡 Oct 17: Technica 2026
+Free hackathon for underrepresented genders in tech, in Maryland or online, no coding experience needed
+
+🟢 Oct 31: Voqal Partners Fellowship 2027
+$30,000 unrestricted + healthcare stipend for early-stage social justice ideas, US-based
+
+🟢 Oct 31: One Young World Summit 2026 — Leading Scholarship
+Delegate pass to the Cape Town summit for ages 18 to 35, reviewed on a rolling basis
+
+🇹🇳 For Tunisians & North Africans
+
+🗼 Oct 8: Institut français x Cité internationale des arts
+Paris residencies in 2027-2028 for artists living outside France
+
+🔗 The link to the opportunities page is in the comments.
+
+Full details + links to all opportunities are there 👇
+
+♻️ Repost to help someone in your network find their next opportunity 🌟
 
 #XR #ImmersiveArt #Residency #VR #CreativeTech #SocialImpact #Tunisia
 
