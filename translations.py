@@ -1752,6 +1752,10 @@ FR = {
     'Video · September 24, 2026': 'Vidéo · 24 septembre 2026',
     'Watch the episode': 'Regarder l’épisode',
     'Step inside': 'Entrer',
+
+    # ---- added 2026-09-25: pages that were still English ----
+    'A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like it as we crawled through chaotic Friday traffic and pressed toward the tip of…':
+        'Un âne brun hirsute baissa les paupières tandis qu’un marchand remplissait sa charrette en bois de caisses empilées de maïs et de melons. Nous en avons croisé plusieurs autres en avançant au pas dans la circulation chaotique du vendredi, en direction de la pointe de…',
 }
 
 
@@ -3499,5 +3503,9 @@ AR = {
     'Video · September 24, 2026': 'فيديو · 24 سبتمبر 2026',
     'Watch the episode': 'شاهد الحلقة',
     'Step inside': 'ادخل',
+
+    # ---- added 2026-09-25: pages that were still English ----
+    'A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like it as we crawled through chaotic Friday traffic and pressed toward the tip of…':
+        'أرخى حمار بنّي أشعث جفنيه بينما كان تاجر يملأ عربته الخشبية بصناديق مكدّسة من الذرة والبطيخ. رأينا حميرًا أخرى مثله ونحن نشقّ طريقنا ببطء وسط زحمة يوم الجمعة الفوضوية، متّجهين نحو طرف…',
 }
 
