@@ -1028,17 +1028,16 @@ function start() {
 
 
   // ---- the one thing nothing told anybody: that this page scrolls.
-  // Shown a few seconds after the first object has settled, only to somebody who has not
-  // scrolled yet and has not been through the Collection before, and taken away for good the
-  // moment they do scroll. It never comes back in that visit.
+  // Shown a few seconds after the first object has settled, to anybody who has not scrolled
+  // yet, and taken away for good the moment they do. It never comes back in that visit.
+  // It used to skip anybody who had been through the Collection before, which made it
+  // invisible to Ines and to every returning visitor. That check earned nothing: you only
+  // see this by sitting still for nearly four seconds, and somebody who knows the page
+  // scrolls has scrolled long before then.
   (function scrollCue() {
     const cue = document.getElementById('scroll-cue');
     if (!cue) return;
     if (location.hash && location.hash.length > 1) return;   // arrived at a particular object
-    try {
-      const been = JSON.parse(localStorage.getItem(PROG) || '{}');
-      if (been && Array.isArray(been.seen) && been.seen.length > 1) return;   // knows already
-    } catch (e) { /* private mode: show it */ }
     // on a phone the label is a sheet across the bottom and the object fills the middle, so
     // the cue is placed in the band between them rather than at a guessed height
     const place = () => {
