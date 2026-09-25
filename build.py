@@ -1661,7 +1661,15 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 body.has-vr #scroll-cue{bottom:96px}
 body #walk-stage{touch-action:pan-y pinch-zoom}
 #nura-bubble{left:50%;top:46%}
-.wf-btn.wf-link{background:none;border:0;color:#8a6a1a;text-decoration:underline;text-underline-offset:3px;padding:8px 6px}
+.nb-ask{display:block;width:100%;margin-top:10px;border:1px solid rgba(74,53,43,.18);border-radius:999px;background:#fff;
+  color:#4a3527;font:inherit;font-size:12.5px;padding:7px 12px;box-sizing:border-box}
+.nb-ask:focus{outline:2px solid var(--gold);outline-offset:1px}
+.nb-picks{display:flex;gap:8px;margin:10px 0 2px}
+.nb-pick{flex:1;min-width:0;border:1px solid rgba(74,53,43,.18);background:#fff;border-radius:10px;padding:6px;
+  font:inherit;font-size:11px;line-height:1.25;cursor:pointer;color:#4a3527;text-align:center}
+.nb-pick img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block;margin-bottom:5px;background:#f3ede2}
+.nb-pick:hover,.nb-pick:focus-visible{border-color:#4a3527;outline:none}
+body.in-xr .nb-ask,body.demoing .nb-ask{display:none}
 body.classroom .wf-btn.gold,body.classroom .nb-offer[data-offer="donate"],body.classroom #vol-cameo{display:none}
 .weekly-wrap{display:flex;gap:34px;align-items:center;max-width:900px;margin:0 auto}
 .weekly-wrap img{width:180px;height:180px;object-fit:cover;border-radius:14px;background:#f3ede2;flex:0 0 auto}
@@ -4138,7 +4146,7 @@ under-represented regions.</p>
 <section class="band photo statsband"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
 <div class="wrap">
 <div class="stats big">
-<div><b>{stat('artifacts')}</b><span>Artifacts scanned by volunteers</span></div>
+<div><b>{stat('artifacts')}</b><span>3D models published, free to download</span></div>
 <div><b>{stat('sites')}</b><span>Heritage sites documented</span></div>
 <div><b>{stat('volunteers')}</b><span>Volunteers on four continents</span></div>
 <div><b>{stat('reach')}</b><span>People reached online</span></div>
@@ -4852,6 +4860,16 @@ def nura_hi(slug):
     return None
 
 
+_openers_path = os.path.join(HERE, "ref", "nura-openers.json")
+NURA_OPENERS_BY_SLUG = (json.load(open(_openers_path)).get("openers", {})
+                        if os.path.exists(_openers_path) else {})
+
+
+def nura_opener(slug):
+    o = NURA_OPENERS_BY_SLUG.get(slug)
+    return (o.get(LANG) or o.get("en")) if o else None
+
+
 _notes_path = os.path.join(HERE, "ref", "nura-notes.json")
 NURA_NOTES = json.load(open(_notes_path)).get("notes", {}) if os.path.exists(_notes_path) else {}
 
@@ -5159,7 +5177,7 @@ def build_walk():
                           "person": walk_person(m),
                           "thumb": img(m.get("img") or m.get("thumb"), 260)
                                    if (m.get("img") or m.get("thumb")) else "",
-                          "hi": (m.get("hi") or nura_hi(m["file_slug"]) or NURA_OPENERS.get(label)
+                          "hi": (m.get("hi") or nura_opener(m["file_slug"]) or nura_hi(m["file_slug"]) or NURA_OPENERS.get(label)
                                  or (NURA_OPENERS[WALK_MADE[0]] if m.get("made") else "Have a look at this one."))
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_note(m["file_slug"], nura_line(m) if measured else
@@ -5211,6 +5229,8 @@ def build_walk():
     if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
         music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
     global WEEKLY
+    if COLLECTION_STATS:
+        COLLECTION_STATS["objects"] = len(items)      # the band under the walk counts this page
     if items:
         import datetime as _dt
         _wk = _dt.date.today().isocalendar()
@@ -5362,6 +5382,7 @@ taking care of the place you are in.</p>
 <button id="nura-close" aria-label="Close">&times;</button>
 <p id="nura-text" aria-live="polite"></p>
 <div id="nura-long" hidden></div>
+<input id="nura-ask" class="nb-ask" type="text" autocomplete="off" enterkeyhint="send" placeholder="{term("Ask Nura about this one")}" aria-label="{term("Ask Nura about this one")}">
 <div class="nb-row">
 <button id="nura-more" class="nb-more">Tell me more</button>
 <button id="nura-speak" class="nb-speak" aria-label="Read this aloud">
@@ -5387,7 +5408,6 @@ taking care of the place you are in.</p>
 </div>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
-<button id="wf-poster" class="wf-btn wf-link">Make a poster</button>
 <a id="wf-record" class="wf-link" href="archive.html">Read more</a>
 <button id="ar-button" class="wf-btn" hidden title="Passthrough on a headset, camera AR on a phone">See it in your space</button>
 <a id="wf-map" class="wf-map" href="#" target="_blank" rel="noopener" hidden title="Where this was scanned">
@@ -7325,7 +7345,7 @@ def build_about():
 <p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
 and neglect. Together, we’re building a digital archive to protect it for generations.</p>
 <div class="stats icons" style="margin-top:14px">
-<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-text)">{stat('artifacts')}</b><span style="color:var(--gray)">Artifacts Scanned</span></div>
+<div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-text)">{stat('artifacts')}</b><span style="color:var(--gray)">3D models published</span></div>
 <div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-text)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
 <div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-text)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
 <div><img src="{img('global.png', 200, as_jpeg=False)}" alt="People reached online"><b style="color:var(--gold-text)">{stat('reach')}</b><span style="color:var(--gray)">People reached online</span></div>
@@ -7841,7 +7861,7 @@ TERMS = {
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
-           "How to cite": "Pour citer", "3D scan": "numérisation 3D",
+           "How to cite": "Pour citer", "3D scan": "numérisation 3D", "Ask Nura about this one": "Demandez à Nura",
            "Free to view and study; credit Tanit XR when you reuse it.": "Libre de consultation et d’étude ; créditez Tanit XR si vous le réutilisez.",
            "Object of the week": "L’objet de la semaine", "Turn it in 3D": "Le faire tourner en 3D",
            "times one of them has been opened": "fois qu’un de ces objets a été ouvert",
@@ -7907,7 +7927,7 @@ TERMS = {
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
-           "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد",
+           "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد", "Ask Nura about this one": "اسأل نورا عن هذه القطعة",
            "Free to view and study; credit Tanit XR when you reuse it.": "متاح للعرض والدراسة مجانًا؛ انسب الفضل إلى Tanit XR عند إعادة الاستخدام.",
            "Object of the week": "قطعة الأسبوع", "Turn it in 3D": "أدِرها بالأبعاد الثلاثة",
            "times one of them has been opened": "مرة فُتحت فيها إحدى هذه القطع",

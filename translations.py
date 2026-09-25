@@ -1837,7 +1837,6 @@ FR = {
     'History lessons on the sites we scan': 'Leçons d’histoire sur les sites que nous numérisons',
     'The Unique Mappers are replicating it in Nigeria. If your community’s heritage is under-documented, we want to hear from you.':
         'Les Unique &#77;appers le reproduisent au Nigeria. Si le patrimoine de votre communauté est sous-documenté, nous voulons vous entendre.',
-    '>Make a poster</button>': '>Créer une affiche</button>',
     'Impact in numbers': 'L’impact en chiffres',
 
 }
@@ -3673,7 +3672,6 @@ AR = {
     'The Unique Mappers are replicating it in Nigeria. If your community’s heritage is under-documented, we want to hear from you.':
         'شبكة Unique &#77;appers تكرّرها في نيجيريا. إن كان تراث مجتمعك ناقص التوثيق، فنحن نريد أن نسمع منك.',
 
-    '>Make a poster</button>': '>أنشئ ملصقًا</button>',
     'Impact in numbers': 'الأثر بالأرقام',
 
 }

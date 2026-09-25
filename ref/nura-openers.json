@@ -1,0 +1,350 @@
+{
+  "_what": "Nura's opening line per object, one sentence, three languages. build.py appends the measured size. Edit here, rebuild.",
+  "openers": {
+    "tanit-stela-tophet-of-salammbo-carthage": {
+      "en": "A triangle, a bar, a circle: that little sign gave this whole project its name, and here it is in stone.",
+      "fr": "Un triangle, une barre, un cercle : ce petit signe a donné son nom à tout ce projet, et le voici dans la pierre.",
+      "ar": "مثلث، خط، دائرة: هذه العلامة الصغيرة أعطت هذا المشروع كله اسمه، وها هي أمامك في الحجر."
+    },
+    "punic-stela-tophet-of-salammbo-carthag": {
+      "en": "Step closer and let your eyes adjust; the marks on this stone are faint, but they are there.",
+      "fr": "Approche-toi et laisse tes yeux s'habituer : les marques sur cette pierre sont pâles, mais elles sont là.",
+      "ar": "اقترب ودع عينيك تعتادان الضوء، فالعلامات على هذا الحجر باهتة، لكنها موجودة."
+    },
+    "punic-stelae-row-tophet-of-salammbo-ca": {
+      "en": "Not one stone but a whole line of them, standing shoulder to shoulder the way they were found.",
+      "fr": "Pas une pierre mais toute une rangée, épaule contre épaule, comme on les a trouvées.",
+      "ar": "ليس حجراً واحداً بل صفّ كامل منها، كتفاً إلى كتف كما وُجدت."
+    },
+    "punic-stelae-tophet-of-salammbo-carthage": {
+      "en": "Which of these stones would you have chosen to stand over someone you loved?",
+      "fr": "Laquelle de ces pierres aurais-tu choisie pour veiller sur quelqu'un que tu aimais ?",
+      "ar": "أيّ هذه الأحجار كنت ستختار ليقف فوق شخص أحببته؟"
+    },
+    "bird-of-prey-statue-roman-villas-of-car": {
+      "en": "Wings tucked tight, head turned: a bird has been keeping watch over this garden for a very long time.",
+      "fr": "Ailes serrées, tête tournée : un oiseau veille sur ce jardin depuis très longtemps.",
+      "ar": "جناحان مضمومان ورأس ملتفت: طائر يحرس هذه الحديقة منذ زمن طويل جداً."
+    },
+    "bust-fragment-roman-villas-of-carthage": {
+      "en": "What is left of a person when the face is gone? Here, a shoulder, a neck, and a little of what they wore.",
+      "fr": "Que reste-t-il d'une personne quand le visage a disparu ? Ici, une épaule, un cou, et un peu de ce qu'elle portait.",
+      "ar": "ماذا يبقى من إنسان حين يضيع وجهه؟ هنا كتف، وعنق، وقليل مما كان يرتديه."
+    },
+    "decorated-bust-fragment-roman-villas-of": {
+      "en": "Get close to the shoulders before anything else; there is more going on there than on most whole statues.",
+      "fr": "Regarde d'abord les épaules : il s'y passe plus de choses que sur bien des statues entières.",
+      "ar": "اقترب من الكتفين قبل أي شيء آخر، ففيهما ما يفوق ما تحمله تماثيل كاملة كثيرة."
+    },
+    "draped-statue-byrsa-hill-carthage": {
+      "en": "Imagine a face on this, then a name, then a whole life on the hill above Carthage.",
+      "fr": "Imagine-lui un visage, puis un nom, puis toute une vie sur la colline au-dessus de Carthage.",
+      "ar": "تخيّل لهذا التمثال وجهاً، ثم اسماً، ثم حياة كاملة على التلة فوق قرطاج."
+    },
+    "headless-draped-statue-byrsa-hill-cart": {
+      "en": "The head went missing long ago, but the way the cloth hangs still tells you how this person carried themselves.",
+      "fr": "La tête a disparu depuis longtemps, mais la chute de l'étoffe dit encore comment cette personne se tenait.",
+      "ar": "ضاع الرأس منذ زمن بعيد، لكن طريقة انسدال القماش ما زالت تخبرك كيف كان هذا الشخص يحمل نفسه."
+    },
+    "male-torso-statue-roman-villas-of-carth": {
+      "en": "Run your eye along the ribs and the belly; a sculptor spent weeks getting that to look effortless.",
+      "fr": "Suis des yeux les côtes et le ventre : un sculpteur a passé des semaines pour que cela paraisse facile.",
+      "ar": "مرّر نظرك على الأضلاع والبطن، فقد أمضى نحّات أسابيع ليجعل ذلك يبدو بلا جهد."
+    },
+    "reclining-figure-byrsa-hill-carthage": {
+      "en": "Someone is lying down here, propped on one elbow, and does not look like they intend to get up.",
+      "fr": "Quelqu'un est allongé ici, appuyé sur un coude, et n'a pas l'air de vouloir se relever.",
+      "ar": "شخص ما مستلقٍ هنا، متكئ على مرفقه، ولا يبدو أنه ينوي النهوض."
+    },
+    "roman-draped-statue-byrsa-hill-carthage": {
+      "en": "Take a step back first; a statue this size was meant to be seen from a distance, with you looking up.",
+      "fr": "Recule d'un pas d'abord : une statue de cette taille était faite pour être vue de loin, en levant les yeux.",
+      "ar": "تراجع خطوة أولاً، فتمثال بهذا الحجم صُنع ليُرى من بعيد وأنت ترفع نظرك إليه."
+    },
+    "roman-togatus-statue-byrsa-hill-cartha": {
+      "en": "Could you wear a garment like that all day in the Carthage heat, and still look this composed?",
+      "fr": "Pourrais-tu porter un vêtement pareil toute la journée sous la chaleur de Carthage, et garder cette allure ?",
+      "ar": "هل تستطيع أن ترتدي ثوباً كهذا طوال اليوم في حرّ قرطاج، وتبقى بهذا الرزانة؟"
+    },
+    "standing-draped-statue-roman-villas-of": {
+      "en": "Taller than you, and it was made to stand in a garden where the sun moved across it all day.",
+      "fr": "Plus grande que toi, et faite pour se tenir dans un jardin où le soleil la parcourait toute la journée.",
+      "ar": "أطول منك، وقد صُنع ليقف في حديقة تتحرك عليه الشمس طوال النهار."
+    },
+    "statue-fragment-roman-villas-of-carthage": {
+      "en": "Sometimes a fragment is enough; give it a moment and see whether you can picture the rest.",
+      "fr": "Parfois un fragment suffit : accorde-lui un instant et vois si tu peux imaginer le reste.",
+      "ar": "أحياناً تكفي قطعة صغيرة، فامنحها لحظة وانظر إن كنت تستطيع تخيّل الباقي."
+    },
+    "corinthian-capital-byrsa-hill-carthage": {
+      "en": "Turn it slowly and watch the leaves catch the light; they were carved to be seen from far below.",
+      "fr": "Tourne-le lentement et regarde les feuilles accrocher la lumière : elles ont été taillées pour être vues d'en bas.",
+      "ar": "أدره ببطء وراقب الأوراق وهي تلتقط الضوء، فقد نُحتت لتُرى من الأسفل البعيد."
+    },
+    "fluted-column-fragment-byrsa-hill-cart": {
+      "en": "Run a finger down one of the grooves in your mind; does it feel straight to you, or does it wander a little?",
+      "fr": "Suis une rainure du doigt, en pensée : te semble-t-elle droite, ou dévie-t-elle un peu ?",
+      "ar": "مرّر إصبعك في خيالك على أحد الأخاديد، هل يبدو لك مستقيماً، أم أنه ينحرف قليلاً؟"
+    },
+    "roman-column-base-byrsa-hill-carthage": {
+      "en": "Nothing to hold up any more, and yet it still sits square and level on the hill.",
+      "fr": "Plus rien à porter, et pourtant elle repose encore, droite et d'aplomb, sur la colline.",
+      "ar": "لم يعد لديها ما تحمله، ومع ذلك ما زالت جاثمة مستوية متينة على التلة."
+    },
+    "roman-column-byrsa-hill-carthage": {
+      "en": "Let your eye climb it from the ground to the top, the way people did when a roof still sat up there.",
+      "fr": "Laisse ton regard grimper du sol au sommet, comme le faisaient les gens quand un toit reposait encore là-haut.",
+      "ar": "دع نظرك يتسلقه من الأرض إلى القمة، كما فعل الناس حين كان سقف ما زال يستقر هناك في الأعلى."
+    },
+    "bird-and-floral-mosaic-roman-villas-of-cartha": {
+      "en": "Somebody's floor, and they chose to have a bird on it; would you have?",
+      "fr": "Le sol de quelqu'un, et il a voulu un oiseau dessus : tu aurais fait pareil ?",
+      "ar": "أرضية بيت أحدهم، وقد اختار أن يكون عليها طائر، فهل كنت ستفعل مثله؟"
+    },
+    "roman-mosaic-with-bird-and-vine-motifs": {
+      "en": "Look down, the way its owners did every morning, and find the bird before you find the vine.",
+      "fr": "Baisse les yeux, comme ses propriétaires chaque matin, et trouve l'oiseau avant de trouver la vigne.",
+      "ar": "انظر إلى الأسفل كما كان أصحابه يفعلون كل صباح، وجِد الطائر قبل أن تجد الكرمة."
+    },
+    "test-scan-interior-with-tilework-and-fountain": {
+      "en": "Step inside and turn all the way round; there is not a bare patch of wall anywhere.",
+      "fr": "Entre et fais un tour complet sur toi-même : il n'y a pas un coin de mur laissé nu.",
+      "ar": "ادخل ودُر دورة كاملة، فلا توجد رقعة جدار عارية في أي مكان."
+    },
+    "ornamental-wooden-door-with-studded-patterns": {
+      "en": "Would you knock, or would you stand here a while first, counting the nails?",
+      "fr": "Frapperais-tu, ou resterais-tu d'abord un moment ici, à compter les clous ?",
+      "ar": "هل كنت ستطرق الباب، أم تقف هنا قليلاً أولاً تعدّ المسامير؟"
+    },
+    "tilework-wall-panel-mausolegt-of-sidi-sahbi": {
+      "en": "Stand back until the pattern blurs into colour, then come close until it breaks into single tiles.",
+      "fr": "Recule jusqu'à ce que le motif se fonde en couleur, puis approche jusqu'à ce qu'il se défasse en carreaux.",
+      "ar": "ابتعد حتى يذوب النقش في اللون، ثم اقترب حتى يتفكك إلى بلاطات مفردة."
+    },
+    "traditional-door-medina-of-tunis": {
+      "en": "Imagine coming home to this door every evening, hand reaching for the knocker without looking.",
+      "fr": "Imagine rentrer chaque soir devant cette porte, la main cherchant le heurtoir sans même regarder.",
+      "ar": "تخيّل أنك تعود كل مساء إلى هذا الباب، ويدك تمتد إلى المطرقة دون أن تنظر."
+    },
+    "wooden-door-with-tilework-zawiya-of-sid": {
+      "en": "Wood and tile have stood next to each other here so long they seem to belong to one design.",
+      "fr": "Le bois et la faïence se côtoient ici depuis si longtemps qu'ils semblent ne faire qu'un seul dessin.",
+      "ar": "وقف الخشب والزليج جنباً إلى جنب هنا زمناً طويلاً حتى بدا أنهما من تصميم واحد."
+    },
+    "mihrab-niche-madrasa-al-bachia-medina-of-tun": {
+      "en": "A niche cut into a wall, and generations of students have turned to face it before anything else.",
+      "fr": "Une niche creusée dans un mur, et des générations d'étudiants se sont tournées vers elle avant toute chose.",
+      "ar": "محراب محفور في جدار، وأجيال من الطلبة اتجهت إليه قبل أي شيء آخر."
+    },
+    "niche-wall-water-temple-zaghouan": {
+      "en": "Somewhere behind this wall a spring rises, and the Romans thought that deserved a temple.",
+      "fr": "Quelque part derrière ce mur jaillit une source, et les Romains ont jugé qu'elle méritait un temple.",
+      "ar": "في مكان ما خلف هذا الجدار يتدفق نبع، ورأى الرومان أنه يستحق معبداً."
+    },
+    "ornamental-mihrab-mahram-medersa-slimanya": {
+      "en": "Not every niche is for praying; this one was made to be beautiful and nothing else.",
+      "fr": "Toutes les niches ne servent pas à prier : celle-ci a été faite pour être belle, rien de plus.",
+      "ar": "ليس كل محراب للصلاة، فهذا صُنع ليكون جميلاً ولا شيء غير ذلك."
+    },
+    "sacred-niche-roman-water-temple-zaghouan": {
+      "en": "Step under the vault and listen; a place built for a spring is never quite silent.",
+      "fr": "Passe sous la voûte et écoute : un lieu bâti pour une source n'est jamais tout à fait silencieux.",
+      "ar": "ادخل تحت القبو وأنصت، فمكان بُني من أجل نبع لا يصمت تماماً أبداً."
+    },
+    "architectural-fragment-with-relief-decoration": {
+      "en": "Small enough to lift, and somebody still took the trouble to carve it; can you tell what the pattern was?",
+      "fr": "Assez petit pour être soulevé, et quelqu'un a pourtant pris la peine de le sculpter : devines-tu le motif ?",
+      "ar": "صغير بما يكفي لترفعه، ومع ذلك تكلّف أحدهم عناء نحته، فهل تستطيع تمييز ما كان النقش؟"
+    },
+    "architectural-fragments-baths-of-antoninus": {
+      "en": "Pieces of a bath building so large that even its broken bits are taller than you.",
+      "fr": "Des morceaux de thermes si vastes que même leurs débris sont plus hauts que toi.",
+      "ar": "قطع من حمّامات بلغت من الضخامة أن حتى شظاياها المكسورة أطول منك."
+    },
+    "carved-architectural-block-with-laurel-motifs": {
+      "en": "One block, one band of leaves, repeating until the stone runs out; how far did it once go on?",
+      "fr": "Un bloc, une bande de feuilles, qui se répète jusqu'au bout de la pierre : jusqu'où allait-elle autrefois ?",
+      "ar": "كتلة واحدة وشريط واحد من الأوراق يتكرر حتى ينتهي الحجر، فإلى أي مدى كان يمتد يوماً؟"
+    },
+    "carved-architectural-blocks-with-laurel-motifs": {
+      "en": "Lay them end to end in your mind and the pattern begins to make sense.",
+      "fr": "Mets-les bout à bout en pensée, et le motif commence à prendre sens.",
+      "ar": "ضعها طرفاً إلى طرف في خيالك، وسيبدأ النقش يتخذ معنى."
+    },
+    "inscribed-architectural-fragment-byrsa": {
+      "en": "Words and ornament on the same stone; which do you think the carver was prouder of?",
+      "fr": "Des mots et un décor sur la même pierre : de quoi le tailleur était-il le plus fier, à ton avis ?",
+      "ar": "كلمات وزخرفة على الحجر نفسه، فبأيّهما كان النحّات أكثر فخراً برأيك؟"
+    },
+    "latin-inscription-slab-water-temple-of-zaghouan": {
+      "en": "Line after line of capital letters, and every one of them was meant to be read by people like you.",
+      "fr": "Ligne après ligne de capitales, et chacune d'elles était faite pour être lue par des gens comme toi.",
+      "ar": "سطر بعد سطر من الحروف الكبيرة، وكل واحد منها كُتب ليقرأه أناس مثلك."
+    },
+    "marble-calligraphic-panel-zitouna-mosque": {
+      "en": "Do you read Arabic? Even if you do not, let the letters lead your eye the way they lead a reader's.",
+      "fr": "Lis-tu l'arabe ? Même si ce n'est pas le cas, laisse les lettres guider ton regard comme elles guident un lecteur.",
+      "ar": "هل تقرأ العربية؟ حتى إن كنت لا تقرأها، دع الحروف تقود عينك كما تقود عين القارئ."
+    },
+    "bir-traditional-well-medina-of-tunis": {
+      "en": "Lean over, in your mind, and look down; how deep do you think the water was?",
+      "fr": "Penche-toi, en pensée, et regarde au fond : à quelle profondeur était l'eau, à ton avis ?",
+      "ar": "انحنِ في خيالك وانظر إلى الأسفل، كم كان عمق الماء برأيك؟"
+    },
+    "stone-basin-water-temple-zaghouan": {
+      "en": "Not every Roman stone was carved to impress; this one had a job, and you can still work out what.",
+      "fr": "Toutes les pierres romaines n'étaient pas taillées pour impressionner : celle-ci avait un rôle, et tu peux encore le deviner.",
+      "ar": "لم يُنحت كل حجر روماني ليبهر، فهذا كانت له مهمة، وما زال بوسعك أن تستنتج ما هي."
+    },
+    "neapolis-site-revealed-by-floods-in-tunisia": {
+      "en": "Sand covered this for centuries, and by the time you read this it may have covered it again.",
+      "fr": "Le sable a recouvert ceci pendant des siècles, et au moment où tu lis ces mots, il l'a peut-être déjà recouvert à nouveau.",
+      "ar": "غطّى الرمل هذا المكان قروناً، وربما يكون قد غطّاه من جديد حين تقرأ هذه الكلمات."
+    },
+    "test-scan-underground-passageways": {
+      "en": "Nobody was meant to see this part; it was the working underside of a very grand building.",
+      "fr": "Personne n'était censé voir cette partie : c'était l'envers laborieux d'un bâtiment très grandiose.",
+      "ar": "لم يكن مقدّراً لأحد أن يرى هذا الجزء، فقد كان الوجه الخفي العامل لمبنى شديد الفخامة."
+    },
+    "traditional-loom-with-woven-carpet-medina-of": {
+      "en": "Would you know where to put your hands to make the next row?",
+      "fr": "Saurais-tu où poser les mains pour tisser la rangée suivante ?",
+      "ar": "هل كنت ستعرف أين تضع يديك لتنسج الصف التالي؟"
+    },
+    "patrick-clay-lamp": {
+      "en": "Patrick Molen shaped this lamp on a screen rather than a wheel, but it wants to hang from a ceiling just the same.",
+      "fr": "Patrick Molen a façonné cette lampe sur un écran plutôt que sur un tour, mais elle demande tout autant à pendre d'un plafond.",
+      "ar": "شكّل باتريك مولن هذا المصباح على شاشة لا على دولاب الفخّار، لكنه يريد أن يتدلى من سقف مثل أي مصباح."
+    },
+    "patrick-wall-lamp": {
+      "en": "Half of a lamp's job is the shadow it throws; look at the shape this one would cast on a wall.",
+      "fr": "La moitié du travail d'une lampe, c'est l'ombre qu'elle projette : regarde la forme que celle-ci dessinerait sur un mur.",
+      "ar": "نصف عمل المصباح هو الظل الذي يلقيه، فانظر إلى الشكل الذي سيرسمه هذا على الجدار."
+    },
+    "kristina-stained-glass-lamp": {
+      "en": "Colour first, shape second: that is how Kristina Reyes's lamp meets you, and how a real one does in the souk.",
+      "fr": "La couleur d'abord, la forme ensuite : c'est ainsi que la lampe de Kristina Reyes t'accueille, comme une vraie dans le souk.",
+      "ar": "اللون أولاً ثم الشكل: هكذا يستقبلك مصباح كريستينا رييس، وهكذا يستقبلك مصباح حقيقي في السوق."
+    },
+    "lamps-lit": {
+      "en": "Rachel West switched these on for you; which one would you carry into a dark room?",
+      "fr": "Rachel West les a allumées pour toi : laquelle emporterais-tu dans une pièce sombre ?",
+      "ar": "أضاءتها لك رايتشل ويست، فأيّها كنت ستحمل معك إلى غرفة مظلمة؟"
+    },
+    "lamps-unlit": {
+      "en": "Now they are dark, and they look like different objects altogether; do you prefer them like this?",
+      "fr": "Les voilà éteintes, et elles semblent devenues d'autres objets : les préfères-tu ainsi ?",
+      "ar": "الآن هي مطفأة، وتبدو أشياء مختلفة تماماً، فهل تفضّلها هكذا؟"
+    },
+    "ornate-tunisian-hanging-lamp": {
+      "en": "Claire Natanek made this to hang above your head; tilt your view up and see it the way it wants to be seen.",
+      "fr": "Claire Natanek l'a faite pour pendre au-dessus de ta tête : lève les yeux et regarde-la comme elle veut être vue.",
+      "ar": "صنعت كلير ناتانيك هذا ليتدلى فوق رأسك، فارفع نظرك وانظر إليه كما يريد أن يُرى."
+    },
+    "tunisian-wooden-woven-table-lamp": {
+      "en": "Claire Natanek's table lamp is the kind you would put on a low table and forget to switch off.",
+      "fr": "La lampe de table de Claire Natanek est de celles qu'on pose sur une table basse et qu'on oublie d'éteindre.",
+      "ar": "مصباح الطاولة الذي صنعته كلير ناتانيك من النوع الذي تضعه على طاولة منخفضة وتنسى إطفاءه."
+    },
+    "wall-lamp": {
+      "en": "You would walk past a lamp like this without a second look; give it one now.",
+      "fr": "Tu passerais devant une lampe comme celle-ci sans un second regard : accorde-le-lui maintenant.",
+      "ar": "كنت ستمرّ بمصباح كهذا دون أن تلتفت إليه ثانية، فالتفت إليه الآن."
+    },
+    "patrick-palm-tree": {
+      "en": "Look up through the fronds; Patrick Molen put this here so the courtyard would have somewhere shady.",
+      "fr": "Lève les yeux à travers les palmes : Patrick Molen l'a mis là pour que la cour ait un coin d'ombre.",
+      "ar": "ارفع نظرك عبر السعف، فقد وضع باتريك مولن هذه النخلة هنا ليكون في الفناء مكان ظليل."
+    },
+    "patrick-bamboo": {
+      "en": "Green, tall and a little untidy, the way bamboo always is; stand in front of it and feel the room soften.",
+      "fr": "Vert, haut et un peu désordonné, comme le bambou l'est toujours : place-toi devant et sens la pièce s'adoucir.",
+      "ar": "أخضر، طويل، وغير مرتب قليلاً كما هو الخيزران دائماً، فقف أمامه واشعر كيف تلين الغرفة."
+    },
+    "patrick-large-pot": {
+      "en": "Something has to hold the greenery in a courtyard, and Patrick Molen gave the museum this.",
+      "fr": "Il faut bien quelque chose pour tenir la verdure d'une cour, et Patrick Molen a offert ceci au musée.",
+      "ar": "لا بد من شيء يحمل الخضرة في الفناء، وقد أعطى باتريك مولن المتحف هذا."
+    },
+    "patrick-small-pot": {
+      "en": "Little things make a place feel lived in; Patrick Molen knew that when he made this.",
+      "fr": "Ce sont les petites choses qui rendent un lieu habité : Patrick Molen le savait en faisant celle-ci.",
+      "ar": "الأشياء الصغيرة هي التي تجعل المكان مسكوناً، وقد عرف باتريك مولن ذلك حين صنع هذا."
+    },
+    "assorted-succulent-pot": {
+      "en": "Rachel West grew a whole pot of these without watering once; how many kinds can you count?",
+      "fr": "Rachel West a fait pousser tout ce pot sans l'arroser une seule fois : combien d'espèces comptes-tu ?",
+      "ar": "أنبتت رايتشل ويست هذا الأصيص كله دون أن تسقيه مرة واحدة، فكم نوعاً تستطيع أن تعدّ؟"
+    },
+    "large-azure-stonecrop-succulent-in-pot": {
+      "en": "Look at the blue in the leaves; Claire Natanek picked a plant that looks cool even in August.",
+      "fr": "Regarde le bleu des feuilles : Claire Natanek a choisi une plante qui semble fraîche même en août.",
+      "ar": "انظر إلى الزرقة في الأوراق، فقد اختارت كلير ناتانيك نبتة تبدو باردة حتى في أغسطس."
+    },
+    "small-azure-stonecrop-succulent-in-pot": {
+      "en": "The little sister of the big pot nearby; would you keep this one on a windowsill or a step?",
+      "fr": "La petite sœur du grand pot d'à côté : la mettrais-tu sur un rebord de fenêtre ou sur une marche ?",
+      "ar": "الأخت الصغرى للأصيص الكبير المجاور، فهل كنت ستضعها على حافة نافذة أم على درجة سلّم؟"
+    },
+    "ceramic-plate": {
+      "en": "Alyssa George painted this plate with pixels instead of glaze; does it still make you hungry?",
+      "fr": "Alyssa George a peint cette assiette avec des pixels plutôt qu'avec de l'émail : te donne-t-elle quand même faim ?",
+      "ar": "رسمت أليسا جورج هذا الطبق بالبكسل بدل الطلاء الزجاجي، فهل ما زال يفتح شهيتك؟"
+    },
+    "modern-tagine": {
+      "en": "Rachel West made the pot and left the cooking to you; what would you put in it?",
+      "fr": "Rachel West a fait le plat et t'a laissé la cuisine : qu'y mettrais-tu ?",
+      "ar": "صنعت رايتشل ويست الإناء وتركت لك الطبخ، فماذا كنت ستضع فيه؟"
+    },
+    "murex-shell-murex-brandaris": {
+      "en": "Small, spiky and worth a fortune once; Rachel West modelled it spine by spine.",
+      "fr": "Petit, hérissé, et qui valait une fortune autrefois : Rachel West l'a modelé épine par épine.",
+      "ar": "صغيرة شائكة وكانت تساوي ثروة يوماً، وقد نمذجتها رايتشل ويست شوكة شوكة."
+    },
+    "patrick-fountain-large": {
+      "en": "Water at the centre, everything else arranged around it; Patrick Molen built the hall to work that way.",
+      "fr": "L'eau au centre, tout le reste disposé autour : Patrick Molen a conçu le hall pour fonctionner ainsi.",
+      "ar": "الماء في الوسط وكل شيء آخر مرتّب حوله، فهكذا بنى باتريك مولن القاعة لتعمل."
+    },
+    "patrick-fountain-small": {
+      "en": "Not every court needs a grand fountain; Patrick Molen made this one to fit a quieter corner.",
+      "fr": "Toutes les cours n'ont pas besoin d'une grande fontaine : Patrick Molen a fait celle-ci pour un coin plus calme.",
+      "ar": "ليس كل فناء بحاجة إلى نافورة كبيرة، فقد صنع باتريك مولن هذه لتناسب ركناً أهدأ."
+    },
+    "patrick-curved-bench": {
+      "en": "Curved so that people end up facing each other; who would you want at the other end?",
+      "fr": "Courbé pour que les gens finissent face à face : qui voudrais-tu à l'autre bout ?",
+      "ar": "منحنٍ حتى ينتهي الجالسون متقابلين، فمن كنت تريد في الطرف الآخر؟"
+    },
+    "patrick-museum-main-hall": {
+      "en": "You are looking at the whole museum at once; every other volunteer piece here has a place in it.",
+      "fr": "Tu regardes le musée tout entier d'un coup : chaque autre pièce des bénévoles a sa place dedans.",
+      "ar": "أنت تنظر إلى المتحف كله دفعة واحدة، وكل قطعة أخرى صنعها المتطوعون هنا لها مكان فيه."
+    },
+    "kristina-furnished-room": {
+      "en": "Walk in and sit down, in your mind; Kristina Reyes made a room you are allowed to get comfortable in.",
+      "fr": "Entre et assieds-toi, en pensée : Kristina Reyes a fait une pièce où tu as le droit de te mettre à l'aise.",
+      "ar": "ادخل واجلس في خيالك، فقد صنعت كريستينا رييس غرفة يُسمح لك أن ترتاح فيها."
+    },
+    "kristina-display-plinth": {
+      "en": "The least noticed object in the museum, and one of the most used; Kristina Reyes made it to be ignored.",
+      "fr": "L'objet le moins remarqué du musée, et l'un des plus utilisés : Kristina Reyes l'a fait pour qu'on l'oublie.",
+      "ar": "أقل قطعة يلاحظها أحد في المتحف وواحدة من أكثرها استعمالاً، وقد صنعتها كريستينا رييس لتُتجاهَل."
+    },
+    "kristina-rug": {
+      "en": "Spread out flat and waiting for feet; would you take your shoes off before stepping on it?",
+      "fr": "Étalé à plat, il attend des pas : enlèverais-tu tes chaussures avant de marcher dessus ?",
+      "ar": "مفروش مسطّحاً وينتظر الأقدام، فهل كنت ستخلع حذاءك قبل أن تخطو عليه؟"
+    },
+    "patrick-wall-tanit": {
+      "en": "The goddess's sign has travelled a long way: from a Carthage stone to a wall Patrick Molen built.",
+      "fr": "Le signe de la déesse a fait un long chemin : d'une pierre de Carthage à un mur bâti par Patrick Molen.",
+      "ar": "قطعت علامة الإلهة طريقاً طويلاً: من حجر في قرطاج إلى جدار بناه باتريك مولن."
+    },
+    "patrick-carved-ceiling": {
+      "en": "Ceilings get the least attention in any building; Patrick Molen gave this one a great deal anyway.",
+      "fr": "Les plafonds sont ce qu'on regarde le moins dans un bâtiment : Patrick Molen a pourtant beaucoup soigné celui-ci.",
+      "ar": "السقوف أقل ما يلتفت إليه أحد في أي مبنى، ومع ذلك أولى باتريك مولن هذا السقف عناية كبيرة."
+    }
+  }
+}

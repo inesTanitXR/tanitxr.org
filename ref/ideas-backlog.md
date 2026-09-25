@@ -11,12 +11,16 @@ Status words: **live** (built and deployed), **built** (in the repo, not yet che
 
 | Idea | Status | Notes |
 |---|---|---|
-| "Make a poster" button on the label | built 2026-09-25 | handler existed, button did not |
+| Every object has its own Nura opener, 69 distinct lines, en/fr/ar | live 2026-09-25 | `ref/nura-openers.json` |
+| Ask Nura: a text box under her line, answers from the label (size, place, who, when, material, share, save, VR, donate) and says when it does not know | live 2026-09-25 | keyword matching, en/fr/ar; no server, no AI model |
+| Nura reacts when you turn things (2nd, 6th and 14th object turned) | live 2026-09-25 | three lines, gone by themselves |
+| Scaniverse import, including splats | needs Ines | no API: export PLY/SPZ/GLB from the app to Drive, or send share links to try |
+| "Make a poster" button on the label | dropped 2026-09-25 | Ines: Share already makes the picture |
 | Museum page links the hall preview (`/explore/?hall=1`, scans inside Patrick's hall) | built 2026-09-25 | |
 | Classroom mode `/explore/?class=1`: no asks, no donate button, quiet Nura | built 2026-09-25 | for teachers; five-object route still to do |
 | Object of the week on the home page, changes every ISO week | built 2026-09-25 | gives the newsletter and Instagram a fixed beat |
 | Nura's "Tell me more" rewritten in her voice, 69 objects, en/fr/ar | built 2026-09-25 | `ref/nura-notes.json`; edit there, rebuild |
-| Nura ends one line in three with a question | built 2026-09-25 | in the notes above |
+| Nura ends one line in three with a question | live 2026-09-25 | in the notes and the openers |
 | Screen readers hear the object change and Nura's line (`aria-live`) | built 2026-09-25 | |
 | Before-and-after slider: the phone photo next to the model | next | needs the source photos per object in Drive |
 | "Then and now" on the map chip: street photo, distance, "go there" | next | 16 objects have GPS |
@@ -24,7 +28,7 @@ Status words: **live** (built and deployed), **built** (in the repo, not yet che
 | Neapolis landing page: the storm, the press, the only 3D record | next | strongest single story on the site |
 | Object comparisons: the four stelae side by side at real scale | next | gallery-room code does most of it |
 | Splats, "see it in its environment" | needs Ines | .ply/.spz exports from Scaniverse |
-| Nura asks a question back ("which one should I show your friend?") | next | three thumbnails, the pick becomes a share |
+| Nura asks a question back ("which one should I show your friend?") | live 2026-09-25 | three thumbnails of objects you saw; the pick opens the share card |
 | Nura's real voice on all 69 objects and the 69 long lines | needs Ines | ElevenLabs key; `tools/nura_script.py --record` |
 | Wave and point animations for Nura | parked | only if the GLB has the clips |
 | Phone track switch showing both pills | parked | the one-pill design was deliberate; revisit with a screenshot |
@@ -45,7 +49,7 @@ Status words: **live** (built and deployed), **built** (in the repo, not yet che
 | French gender and role fixes, "Fiche" for Record, generic "par" by-lines | built 2026-09-25 | |
 | Arabic brand written one way ("Tanit XR") | built 2026-09-25, partly | "TanitXR" and "تانيت إكس آر" are gone; about 36 values still say "تانيت XR", Ines to choose |
 | Images over 600 KB re-encoded (27 files, 22 MB) | live 2026-09-25 | every photo is WebP now; 50 MB of referenced images became 23 MB; the volunteer-page PNG hero (1.4 MB) is the one left |
-| One number for "objects" across home, About, archive, galleries, Explore | needs Ines | 100+ / 86+ / 47 / 69 / 75 / 102 today |
+| One number for "objects" across home, About, archive, galleries, Explore | built 2026-09-25 | home and About say "3D models published" (Sketchfab public count in ref/stats.json, refreshed weekly); the Collection band counts the Collection (69); archive and galleries count what they list |
 | Object name drift (Sidi Sahib vs Sahbi, Zawiya vs Mausoleum, Neapolis title) | next | `ref/models.json` |
 | Duplicate Explore CSS block in build.py | next | remove on a quiet day, check the home header after |
 | Sitemap lastmod per page, localised titles for the 21 identical groups | parked | |

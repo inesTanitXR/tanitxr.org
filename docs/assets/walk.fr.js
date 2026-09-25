@@ -499,6 +499,7 @@ function start() {
       if (window.tx) tx('collection_rotate');
       bump(p => { p.rotated++; });
       maybeOfferDemo();
+      maybeReact();
     }
     const s = roomMode ? roomFocus : current();
     if (s) {
@@ -1237,10 +1238,102 @@ function start() {
   }
 
 
+  // ---- she notices you turning things: a word at the second and the sixth object you turn,
+  // gone by itself, never over a line she is already saying
+  const REACTIONS = [
+    'Regarde l’arrière maintenant. Un bénévole en a fait tout le tour avec un téléphone.',
+    'Prends le temps des détails. La texture, ce sont les photos du téléphone, assemblées.',
+    'Chaque face est vraie. Rien ici n’a été inventé pour combler un trou.',
+  ];
+  let reactTimer = null;
+  function maybeReact() {
+    if (CLASS_MODE || !bubble || bubbleOpen || demoOn || roomMode || xrMode || tourStep >= 0) return;
+    let n = 0;
+    try { n = +(sessionStorage.getItem('tanitxr.turned') || 0) + 1; sessionStorage.setItem('tanitxr.turned', n); }
+    catch (e) { return; }
+    const idx = n === 2 ? 0 : n === 6 ? 1 : n === 14 ? 2 : -1;
+    if (idx < 0) return;
+    bubbleOpen = true;
+    bubble.hidden = false;
+    if (dot) dot.classList.remove('in');
+    if (bubbleText) bubbleText.textContent = REACTIONS[idx];
+    if (bubbleLong) bubbleLong.hidden = true;
+    if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
+    beHappy(); flare = 1;
+    clearTimeout(reactTimer);
+    reactTimer = setTimeout(() => { if (bubbleOpen && bubbleText && REACTIONS.includes(bubbleText.textContent)) closeBubble(); }, 7000);
+  }
+
+  // ---- ask her something. She only knows what the label knows, and says so.
+  const askBox = document.getElementById('nura-ask');
+  function answer(q) {
+    const s = slots[shown];
+    if (!s) return '';
+    const it = s.it, t = q.toLowerCase();
+    const has = re => re.test(t);
+    if (has(/\b(size|big|tall|high|height|wide|long|measure|taille|grand|haut|large|mesure|حجم|طول|ارتفاع|كبير|عرض)\b/))
+      return it.size ? it.title + ': ' + it.size + '. ' + 'Mesuré sur la numérisation elle-même, pas estimé.'
+                     : 'Il a été modélisé à la main, donc sans mesure réelle. Au musée il est à hauteur confortable.';
+    if (has(/\b(where|place|site|found|from|location|où|lieu|endroit|trouvé|أين|مكان|موقع|من أين)\b/))
+      return it.place + (it.gps ? '. ' + 'L’endroit exact est sur la puce carte sous l’étiquette.' : '.');
+    if (has(/\b(who|scan|scanned|made|model|modelled|volunteer|qui|numéris|bénévole|من|مسح|صنع|متطوع)\b/))
+      return it.credit || 'Un bénévole de Tanit XR.';
+    if (has(/\b(when|old|age|date|century|year|period|era|quand|ancien|siècle|époque|متى|قديم|قرن|تاريخ|عصر)\b/))
+      return /\d{3,4}|century|siècle|قرن|BCE|CE\b/.test(it.note || '') ? it.note
+           : 'L’étiquette ne donne pas de date pour celui-ci. La page d’archive a la description complète.';
+    if (has(/\b(material|stone|marble|wood|clay|bronze|made of|matière|pierre|marbre|bois|argile|مادة|حجر|رخام|خشب|طين)\b/))
+      return /marble|stone|wood|clay|bronze|plaster|tile|marbre|pierre|bois|argile|رخام|حجر|خشب|طين|جص/i.test(it.note || '') ? it.note
+           : 'L’étiquette ne nomme pas la matière. Tourne-le et regarde la surface : la numérisation garde chaque grain.';
+    if (has(/\b(share|send|friend|partag|envoyer|ami|شارك|أرسل|صديق)\b/)) {
+      const sh = document.getElementById('wf-share'); if (sh) setTimeout(() => sh.click(), 300);
+      return 'J’ouvre la carte de partage.';
+    }
+    if (has(/\b(love|save|keep|garder|enregistr|aimer|حفظ|أحب)\b/)) {
+      if (uiSave) setTimeout(() => uiSave.click(), 300);
+      return 'Gardé. Il est dans ta collection, en haut à droite.';
+    }
+    if (has(/\b(vr|headset|casque|ar|quest|نظارة|افتراضي)\b/))
+      return document.getElementById('vr-button') ? 'Appuie sur Le voir en VR en bas de la page.'
+           : 'Sur un casque, cette page a un bouton Le voir en VR. Sur un téléphone, Partager te donne une image à garder.';
+    if (has(/\b(help|donate|give|support|money|don|soutenir|aider|تبرع|دعم|مساعدة)\b/))
+      return 'Tout ici est gratuit et fait par des bénévoles. Le bouton Faire un don sous l’étiquette permet que ça continue.';
+    return (it.note ? it.note + ' ' : '') + 'C’est tout ce que sait l’étiquette. La page d’archive a la description complète, et le bénévole qui l’a faite en sait peut-être plus.';
+  }
+  if (askBox) {
+    askBox.addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      const q = askBox.value.trim();
+      if (!q) return;
+      e.preventDefault();
+      const a = answer(q);
+      askBox.value = '';
+      if (bubbleText) bubbleText.textContent = a;
+      if (bubbleLong) bubbleLong.hidden = true;
+      if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
+      expanded = false;
+      beHappy(); flare = 1;
+      if (soundOn) sayLine(a, { voice: null });
+      if (window.tx) tx('nura_asked', { q: q.slice(0, 40) });
+    });
+    askBox.addEventListener('keydown', e => e.stopPropagation());
+  }
+
   // ---- Nura asks, now and then: share, donate, join, subscribe, save, a gallery, a headset.
   // Never before you have seen a few objects, never two asks close together, never the same
   // ask twice in a visit, and at most four in a visit. One line, one button.
+  function friendThumbs() {
+    const cur = slots[shown] && slots[shown].it.slug;
+    const picks = readProg().seen.slice().reverse().filter(s => s !== cur)
+      .map(s => CFG.items.find(i => i.slug === s)).filter(i => i && i.thumb).slice(0, 3);
+    if (picks.length < 2) return '';
+    return '<div class="nb-picks">' + picks.map(i =>
+      '<button class="nb-pick" data-slug="' + i.slug + '"><img src="' + assetUrl(i.thumb) + '" alt="">'
+      + '<span>' + i.title.replace(/[<>&]/g, '') + '</span></button>').join('') + '</div>';
+  }
   const NUDGES = [
+    { id: 'friend', when: () => friendThumbs() !== '', btn: null, html: friendThumbs,
+      line: () => 'Lequel dois-je montrer à ton ami ? Touche-le et je prépare la carte.',
+      act: () => {} },
     { id: 'share', when: () => true, btn: 'Partager',
       line: () => 'Vous connaissez quelqu’un qui aimerait celui-ci ? Partagez-le. Chaque partage le garde vivant.',
       act: () => { const b = document.getElementById('wf-share'); if (b) b.click(); } },
@@ -1281,12 +1374,24 @@ function start() {
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');
     if (bubbleText) bubbleText.textContent = n.line(it);
-    if (bubbleLong) bubbleLong.hidden = true;
+    if (bubbleLong) {
+      bubbleLong.hidden = true;
+      if (n.html) {
+        bubbleLong.innerHTML = n.html();
+        bubbleLong.hidden = false;
+        bubbleLong.querySelectorAll('.nb-pick').forEach(b => b.addEventListener('click', () => {
+          if (window.tx) tx('nura_ask_yes', { ask: n.id });
+          closeBubble();
+          goTo(b.dataset.slug);
+          setTimeout(() => { const sh = document.getElementById('wf-share'); if (sh) sh.click(); }, 1100);
+        }));
+      }
+    }
     if (moreBtn) {
-      moreBtn.textContent = n.btn;
-      moreBtn.hidden = false;
-      moreBtn.classList.add('nb-offer');
-      moreBtn.dataset.offer = n.id;
+      moreBtn.textContent = n.btn || '';
+      moreBtn.hidden = !n.btn;
+      moreBtn.classList.toggle('nb-offer', !!n.btn);
+      moreBtn.dataset.offer = n.btn ? n.id : '';
     }
     beHappy(); flare = 1; sfx('pop');
     if (window.tx) tx('nura_ask', { ask: n.id });
