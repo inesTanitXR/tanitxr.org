@@ -685,7 +685,6 @@ FR = {
 
     # ---- contact ----
     "<title>Contact – TANIT XR</title>": "<title>Contact – TANIT XR</title>",
-    "Send us your Questions/Feedback": "Envoyez-nous vos questions et retours",
     "We’ll get back to you as soon as we can.": "Nous vous répondrons dès que possible.",
     ">Email Address</label>": ">Adresse e-mail</label>",
     ">Subject</label>": ">Objet</label>",
@@ -1759,6 +1758,29 @@ FR = {
     # ---- added 2026-09-25: pages that were still English ----
     'A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like it as we crawled through chaotic Friday traffic and pressed toward the tip of…':
         'Un âne brun hirsute baissa les paupières tandis qu’un marchand remplissait sa charrette en bois de caisses empilées de maïs et de melons. Nous en avons croisé plusieurs autres en avançant au pas dans la circulation chaotique du vendredi, en direction de la pointe de…',
+    # ---- added 2026-09-25: whole-word matching needs these; names that must never change ----
+    'Volunteers': 'Bénévoles',
+    'Florida Community Innovation': 'Florida &#67;ommunity Innovation',
+    'New Mexico': 'Nouveau-Mexique',
+    'Unique Mappers': 'Unique &#77;appers',
+    'Send us your questions or feedback': 'Envoyez-nous vos questions et retours',
+    '(you can edit it)': '(vous pouvez la modifier)',
+    "<li><b>Volunteer profiles:</b> if you submit a profile for the Our People page, the name, role, bio, photo, and links you provide are published on this website after review. Email us at":
+        "<li><b>Profils de bénévoles :</b> si vous soumettez un profil pour la page Notre équipe, le nom, le rôle, la bio, la photo et les liens que vous fournissez sont publiés sur ce site après relecture. Écrivez-nous à",
+    'Your message is on its way.': 'Votre message est en route.',
+    'It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.': 'Il est arrivé dans la boîte de Tanit XR et un bénévole le lira bientôt. Nous répondons en général sous quelques jours.',
+    'Thank you for the tip.': 'Merci pour la piste.',
+    'We check every submission and add the good ones to the Opportunities board and the weekly digest, with your name if you asked for it.': 'Nous vérifions chaque proposition et ajoutons les bonnes au tableau des opportunités et à la lettre hebdomadaire, avec votre nom si vous l’avez demandé.',
+    'Your profile has been received.': 'Votre profil a bien été reçu.',
+    'A member of the team reviews it, and once approved your page appears under Our People with your scans, models and articles credited to you.': 'Un membre de l’équipe le relit, et une fois approuvé votre page apparaît dans Notre équipe avec vos numérisations, modèles et articles à votre nom.',
+    'Your application is in.': 'Votre candidature est enregistrée.',
+    'We read every application and reply to everyone. Keep an eye on your inbox, and on Slack if you are already with us.': 'Nous lisons chaque candidature et répondons à tout le monde. Surveillez votre boîte mail, et Slack si vous êtes déjà des nôtres.',
+    'Your request is on its way.': 'Votre demande est en route.',
+    'We will read it and get back to you within a few days.': 'Nous la lirons et vous répondrons sous quelques jours.',
+    'Your model is on its way.': 'Votre modèle est en route.',
+    'A volunteer checks every file, then it joins the archive with your name on it. We will write to you when it is up.': 'Un bénévole vérifie chaque fichier, puis il rejoint l’archive à votre nom. Nous vous écrirons quand il sera en ligne.',
+    'Your consent is recorded. Your scans can now be published with your name on them.': 'Votre accord est enregistré. Vos numérisations peuvent maintenant être publiées à votre nom.',
+
 }
 
 
@@ -2443,7 +2465,6 @@ AR = {
 
     # ---- contact ----
     "<title>Contact – TANIT XR</title>": "<title>اتصل بنا – TANIT XR</title>",
-    "Send us your Questions/Feedback": "أرسل لنا أسئلتك وملاحظاتك",
     "We’ll get back to you as soon as we can.": "سنرد عليك في أقرب وقت ممكن.",
     ">Email Address</label>": ">البريد الإلكتروني</label>",
     ">Subject</label>": ">الموضوع</label>",
@@ -3513,5 +3534,28 @@ AR = {
     # ---- added 2026-09-25: pages that were still English ----
     'A scruffy brown donkey lowered its eyelids as a merchant filled its wooden cart with stacked bins of corn and melons. We saw several more like it as we crawled through chaotic Friday traffic and pressed toward the tip of…':
         'أرخى حمار بنّي أشعث جفنيه بينما كان تاجر يملأ عربته الخشبية بصناديق مكدّسة من الذرة والبطيخ. رأينا حميرًا أخرى مثله ونحن نشقّ طريقنا ببطء وسط زحمة يوم الجمعة الفوضوية، متّجهين نحو طرف…',
+    # ---- added 2026-09-25: whole-word matching needs these; names that must never change ----
+    'Volunteers': 'المتطوعون',
+    'Florida Community Innovation': 'Florida &#67;ommunity Innovation',
+    'New Mexico': 'نيو مكسيكو',
+    'Unique Mappers': 'Unique &#77;appers',
+    'Send us your questions or feedback': 'أرسل لنا أسئلتك وملاحظاتك',
+    '(you can edit it)': '(يمكنك تعديله)',
+    "<li><b>Volunteer profiles:</b> if you submit a profile for the Our People page, the name, role, bio, photo, and links you provide are published on this website after review. Email us at":
+        "<li><b>ملفات المتطوعين:</b> إذا أرسلت ملفًا لصفحة فريقنا، فإن الاسم والدور والنبذة والصورة والروابط التي تقدّمها تُنشر على هذا الموقع بعد المراجعة. راسلنا على",
+    'Your message is on its way.': 'رسالتك في طريقها.',
+    'It has landed in the Tanit XR inbox and a volunteer will read it soon. We usually reply within a few days.': 'وصلت إلى بريد Tanit XR وسيقرأها متطوع قريبًا. نردّ عادةً خلال أيام قليلة.',
+    'Thank you for the tip.': 'شكرًا على الاقتراح.',
+    'We check every submission and add the good ones to the Opportunities board and the weekly digest, with your name if you asked for it.': 'نراجع كل اقتراح ونضيف الجيد منها إلى لوحة الفرص والنشرة الأسبوعية، مع اسمك إن طلبت ذلك.',
+    'Your profile has been received.': 'وصل ملفك.',
+    'A member of the team reviews it, and once approved your page appears under Our People with your scans, models and articles credited to you.': 'يراجعه أحد أعضاء الفريق، وبعد الموافقة تظهر صفحتك ضمن فريقنا مع مسوحاتك ونماذجك ومقالاتك منسوبة إليك.',
+    'Your application is in.': 'وصل طلبك.',
+    'We read every application and reply to everyone. Keep an eye on your inbox, and on Slack if you are already with us.': 'نقرأ كل الطلبات ونردّ على الجميع. راقب بريدك، وسلاك إن كنت معنا بالفعل.',
+    'Your request is on its way.': 'طلبك في طريقه.',
+    'We will read it and get back to you within a few days.': 'سنقرأه ونردّ عليك خلال أيام قليلة.',
+    'Your model is on its way.': 'نموذجك في طريقه.',
+    'A volunteer checks every file, then it joins the archive with your name on it. We will write to you when it is up.': 'يفحص متطوع كل ملف، ثم ينضم إلى الأرشيف باسمك. سنراسلك عند نشره.',
+    'Your consent is recorded. Your scans can now be published with your name on them.': 'سُجّلت موافقتك. يمكن الآن نشر مسوحاتك باسمك.',
+
 }
 

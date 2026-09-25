@@ -31,8 +31,13 @@ function useFallback() {
   document.querySelectorAll('.wst-fallback').forEach(el => { el.hidden = false; });
 }
 let gl = null;
-try { gl = canvas.getContext('webgl2') || canvas.getContext('webgl'); } catch (e) { gl = null; }
-if (!gl || !CFG.items.length) { useFallback(); } else { start(); }
+// three r169 draws with WebGL2 only; a WebGL1 device gets the Sketchfab players instead
+try { gl = canvas.getContext('webgl2'); } catch (e) { gl = null; }
+if (!gl || !CFG.items.length) { useFallback(); }
+else {
+  try { window.WALK_STARTED = true; start(); }
+  catch (e) { console.error('walk: could not start', e); useFallback(); }
+}
 
 function start() {
   // Every object is shown at one comfortable size; the real measurement is in the label.
@@ -156,7 +161,12 @@ function start() {
     }, undefined, () => {
       s.loading = false;
       const fb = sections[s.i] && sections[s.i].querySelector('.wst-fallback');
-      if (fb) fb.hidden = false;
+      if (fb) {
+        const f = fb.querySelector('iframe[data-src]');
+        if (f && !f.src) f.src = f.dataset.src;
+        fb.hidden = false;
+        fb.style.pointerEvents = 'auto';
+      }
     });
   }
 
@@ -266,6 +276,7 @@ function start() {
     if (!('speechSynthesis' in window) || !text) return;
     const u = new SpeechSynthesisUtterance(text);
     u.rate = 0.98; u.pitch = 1.08;
+    u.lang = document.documentElement.lang || 'en';
     u.onend = () => { speaking = false; duckMusic(false); if (speakBtn) speakBtn.classList.remove('on'); };
     speaking = true;
     if (speakBtn) speakBtn.classList.add('on');
@@ -335,7 +346,8 @@ function start() {
     if (speaking) { hushNura(); return; }
     const s = slots[shown];
     if (!s) return;
-    sayLine(expanded ? (s.it.hi + ' ' + s.it.note) : (s.it.hi || s.it.title));
+    sayLine(expanded ? (s.it.hi + ' ' + s.it.note) : (s.it.hi || s.it.title),
+            expanded ? { voice: s.it.voiceMore } : undefined);
   });
 
   // ---- the closing demo: how a scan is actually made, three circles around the object
@@ -402,7 +414,10 @@ function start() {
   }
   // a persistent switch between the two bodies of work, not a gate in front of them
   document.querySelectorAll('.tsw').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('.tsw').forEach(o => o.classList.toggle('on', o === b));
+    document.querySelectorAll('.tsw').forEach(o => {
+      o.classList.toggle('on', o === b);
+      o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+    });
     const made = b.dataset.track === 'made';
     jumpTo(it => made ? !it.real : it.real);
     if (window.tx) tx(made ? 'track_made' : 'track_scans');
@@ -422,6 +437,23 @@ function start() {
     }
     const c = Math.round(target);
     for (let i = c - 1; i <= c + 2; i++) load(slots[i]);
+  }
+
+  // A model far from where you are is let go, geometry and textures, and loads again on
+  // the way back. Without this a phone that scrolled the whole collection held every model.
+  function unload(s) {
+    if (!s || !s.loaded || !s.fit) return;
+    s.pivot.remove(s.fit);
+    s.fit.traverse(n => {
+      if (!n.isMesh) return;
+      if (n.geometry) n.geometry.dispose();
+      (Array.isArray(n.material) ? n.material : [n.material]).forEach(m => {
+        if (!m) return;
+        for (const k in m) { const v = m[k]; if (v && v.isTexture) v.dispose(); }
+        m.dispose();
+      });
+    });
+    s.fit = null; s.mats = []; s.loaded = false; s.loading = false;
   }
 
   // ---- drag to turn whichever object is in front
@@ -611,7 +643,7 @@ function start() {
     });
     if (window.tx) tx('collection_view', { object: it.slug });
     window.dispatchEvent(new CustomEvent('tanitxr:view', { detail: it.slug }));
-    history.replaceState(null, '', '#' + it.slug);
+    try { history.replaceState(null, '', '#' + it.slug); } catch (e) { /* Safari rate limit */ }
     maybeNudge(it);
   }
 
@@ -689,7 +721,7 @@ function start() {
         track.play().then(() => {
           let v = 0.0001;
           const up = setInterval(() => { v = Math.min(0.26, v + 0.012); track.volume = v; if (v >= 0.26) clearInterval(up); }, 120);
-        }).catch(() => { track = null; });
+        }).catch(() => { track = null; music = null; });   // refused now, try again on the next tap
         music = { stop() { const t = track; track = null; if (!t) return;
                            const down = setInterval(() => { t.volume = Math.max(0, t.volume - 0.02); if (t.volume <= 0.001) { clearInterval(down); t.pause(); } }, 80); } };
       } catch (e) { music = null; track = null; }
@@ -813,9 +845,15 @@ function start() {
   // only the places we scanned on location count as sites; the hand-made shelf is not one
   const PLACES = Array.from(new Set(CFG.items.filter(i => i.real).map(i => i.place).filter(Boolean)));
   const blank = { seen: [], places: [], saved: [], rotated: 0, more: 0, shared: 0, badges: [] };
+  const KNOWN = new Set(CFG.items.map(i => i.slug));
   function readProg() {
-    try { return Object.assign({}, blank, JSON.parse(localStorage.getItem(PROG) || '{}')); }
-    catch (e) { return Object.assign({}, blank); }
+    let p;
+    try { p = Object.assign({}, blank, JSON.parse(localStorage.getItem(PROG) || '{}')); }
+    catch (e) { p = Object.assign({}, blank); }
+    // objects renamed or retired since an earlier visit must not count towards the total
+    if (Array.isArray(p.seen)) p.seen = p.seen.filter(s => KNOWN.has(s));
+    if (Array.isArray(p.saved)) p.saved = p.saved.filter(s => KNOWN.has(s));
+    return p;
   }
   function writeProg(p) {
     try { localStorage.setItem(PROG, JSON.stringify(p)); } catch (e) { /* private mode */ }
@@ -897,8 +935,9 @@ function start() {
   document.querySelectorAll('.st-tab').forEach(tb => tb.addEventListener('click', () => {
     document.querySelectorAll('.st-tab').forEach(o => o.classList.toggle('on', o === tb));
     const badges = tb.dataset.tab === 'badges';
-    document.getElementById('saved-list').hidden = badges;
-    document.getElementById('badge-list').hidden = !badges;
+    const sl = document.getElementById('saved-list'), bl = document.getElementById('badge-list');
+    if (sl) sl.hidden = badges;
+    if (bl) bl.hidden = !badges;
     if (badges) paintBadges();
   }));
   const btClose = document.getElementById('bt-close');
@@ -992,7 +1031,7 @@ function start() {
     if (!cue) return;
     if (location.hash && location.hash.length > 1) return;   // arrived at a particular object
     try {
-      const been = JSON.parse(localStorage.getItem('tanitxr.walk') || '{}');
+      const been = JSON.parse(localStorage.getItem(PROG) || '{}');
       if (been && Array.isArray(been.seen) && been.seen.length > 1) return;   // knows already
     } catch (e) { /* private mode: show it */ }
     // on a phone the label is a sheet across the bottom and the object fills the middle, so
@@ -1276,7 +1315,10 @@ function start() {
       line: 'The volunteers are building a whole museum for these objects, room by room, in their free time. Patrick modelled this hall; others are furnishing it.',
       btn: 'Next', act: 'next' },
     { pick: it => it.slug.startsWith('tanit-stela'),
-      line: 'Ninety-nine scans, eight sites, eighty-five volunteers on four continents, and not one paid person. Everything you saw is free, forever. This is what your support does.',
+      line: (CFG.stats ? CFG.stats.scans + ' scans, ' + CFG.stats.sites + ' sites, ' + CFG.stats.volunteers
+              + ' volunteers on four continents, and not one paid person. '
+            : 'Scans, sites, volunteers on four continents, and not one paid person. ')
+            + 'Everything you saw is free, forever. This is what your support does.',
       btn: null, act: 'end' },
   ];
   function tourBubble(step) {
@@ -1384,6 +1426,9 @@ function start() {
     const on = strip.querySelector('.fs-item.on');
     if (on) on.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
   }
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && strip && !strip.hidden && stripBtn) stripBtn.click();
+  });
   if (stripBtn && strip) stripBtn.addEventListener('click', () => {
     buildStrip();
     strip.hidden = !strip.hidden;
@@ -1419,7 +1464,7 @@ function start() {
       b.innerHTML = (it.thumb ? '<img src="' + assetUrl(it.thumb) + '" alt="">' : '<img alt="">')
         + '<span><b>' + it.title.replace(/[<>&]/g, '') + '</b>'
         + '<span>' + (it.place || '').replace(/[<>&]/g, '') + '</span></span>';
-      b.addEventListener('click', () => { tray.hidden = true; goTo(slug); });
+      b.addEventListener('click', () => { if (tray) tray.hidden = true; goTo(slug); });
       trayList.appendChild(b);
     });
   }
@@ -1461,6 +1506,14 @@ function start() {
   bindClick('wf-prev', () => jump(-1));
   bindClick('wf-next', () => jump(1));
   addEventListener('keydown', e => {
+    const t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    if (sheet && !sheet.hidden) return;
+    if (XR_PREVIEW) {
+      if (e.key === 'ArrowLeft') xrStep(-1);
+      if (e.key === 'ArrowRight') xrStep(1);
+      return;
+    }
     if (e.key === 'ArrowLeft') jump(-1);
     if (e.key === 'ArrowRight') jump(1);
   });
@@ -1784,7 +1837,6 @@ function start() {
   const xrCurrent = () => slots[Math.round(clamp(xrCursor, 0, slots.length - 1))];
   function xrStep(n) {
     xrTarget = clamp(Math.round(xrTarget) + n, 0, slots.length - 1);
-    if (window.tx) tx('xr_step', { dir: n });
   }
   let xrStickCool = 0;
   function xrPollInput(dt) {
@@ -2052,6 +2104,7 @@ function start() {
         readyXR();
         const btn = mod.VRButton.createButton(renderer);
         btn.id = 'vr-button';
+        document.body.classList.add('has-vr');
         btn.textContent = 'See it in VR';
         document.body.appendChild(btn);
         renderer.xr.addEventListener('sessionstart', () => { btn.textContent = arMode ? 'See it in VR' : 'Leave VR'; });
@@ -2087,7 +2140,7 @@ function start() {
       document.head.appendChild(sc);
       mv = document.createElement('model-viewer');
       mv.setAttribute('ar', ''); mv.setAttribute('ar-modes', 'quick-look');
-      mv.setAttribute('ar-scale', 'auto');
+      mv.setAttribute('ar-scale', 'auto'); mv.setAttribute('loading', 'eager');
       mv.style.cssText = 'position:fixed;width:1px;height:1px;left:-10px;top:-10px;opacity:0';
       document.body.appendChild(mv);
       return mv;
@@ -2428,7 +2481,8 @@ function start() {
     flare = 1;
   }, 4200);
 
-  const wanted = decodeURIComponent(location.hash.slice(1));
+  let wanted = '';
+  try { wanted = decodeURIComponent(location.hash.slice(1)); } catch (e) { wanted = ''; }
   // --- the numbers a grant asks for: who came, how long they stayed, how deep they went ---
   if (window.tx) {
     const ua = navigator.userAgent;
@@ -2473,6 +2527,7 @@ function start() {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let dimK = 1;
   const clock = new THREE.Clock();
+  let headingWas = false, unloadTick = 0;
   function frame() {
     const dt = Math.min(clock.getDelta(), 0.05);
     if (xrMode) {                                   // the headset owns the camera
@@ -2589,7 +2644,15 @@ function start() {
     if (!dragging) idle += dt;
     paint(Math.round(clamp(cursor, 0, slots.length - 1)));
     const headingOn = !!document.querySelector('.warea.on');
+    if (headingOn !== headingWas) {
+      headingWas = headingOn;
+      document.body.classList.toggle('heading-on', headingOn);   // phones: the chips step aside
+    }
     dimK += ((headingOn ? 0.3 : 1) - dimK) * (reduce ? 1 : 0.1);
+    if (!roomMode && !xrMode && !inside && (++unloadTick % 90) === 0) {
+      const c0 = Math.round(cursor);
+      slots.forEach(s => { if (s.loaded && Math.abs(s.i - c0) > 8) unload(s); });
+    }
 
     slots.forEach(s => {
       // the room you are standing in is placed by stepInside, not by the layout, or the next

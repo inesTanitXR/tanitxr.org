@@ -1389,6 +1389,15 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 @media(max-width:640px){.gm{padding:10px 13px}.gm b{font-size:15px}}
 @media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}.gmove{display:none}}
 /* ---- submit a model: one form, three ways to send the thing ------------------------- */
+@media(max-width:760px){
+  body.heading-on #track-switch,body.heading-on #exp-views,body.heading-on #saved-chip,
+  body.heading-on #sound-toggle{opacity:0;pointer-events:none;transition:opacity .3s}
+  body #badge-toast{bottom:auto;top:176px;width:min(340px,calc(100vw - 28px))}
+}
+@media(min-width:761px) and (max-width:1100px){body #vol-cameo{bottom:auto;top:168px}}
+body.has-vr #scroll-cue{bottom:96px}
+body #walk-stage{touch-action:pan-y pinch-zoom}
+#nura-bubble{left:50%;top:46%}
 .ways{border:0;padding:0;margin:26px 0 6px}
 .ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
 .waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}

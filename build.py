@@ -1633,6 +1633,15 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 @media(max-width:640px){.gm{padding:10px 13px}.gm b{font-size:15px}}
 @media print{.guide[data-tabs] .gpanel{display:block}.gtabs{display:none}.gmove{display:none}}
 /* ---- submit a model: one form, three ways to send the thing ------------------------- */
+@media(max-width:760px){
+  body.heading-on #track-switch,body.heading-on #exp-views,body.heading-on #saved-chip,
+  body.heading-on #sound-toggle{opacity:0;pointer-events:none;transition:opacity .3s}
+  body #badge-toast{bottom:auto;top:176px;width:min(340px,calc(100vw - 28px))}
+}
+@media(min-width:761px) and (max-width:1100px){body #vol-cameo{bottom:auto;top:168px}}
+body.has-vr #scroll-cue{bottom:96px}
+body #walk-stage{touch-action:pan-y pinch-zoom}
+#nura-bubble{left:50%;top:46%}
 .ways{border:0;padding:0;margin:26px 0 6px}
 .ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
 .waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
@@ -1983,7 +1992,8 @@ const PAGE_OPENED = Date.now();
       });
       tell(say, 'Sent. Thank you.', 'good');
       if (window.tx) tx('model_uploaded', { from: 'submit' });
-      location.href = new URL('thank-you/?from=model', document.baseURI).href;
+      const nx = form.querySelector('input[name=_next]');
+      location.href = nx && nx.value ? nx.value : new URL('../thank-you/?from=model', location.href).href;
     } catch (err) {
       sending = false;
       go.disabled = false;
@@ -2590,23 +2600,58 @@ def _tr_patterns(lang):
         table = translations.FR if lang == "fr" else translations.AR
         pats = []
         for k in sorted(table, key=len, reverse=True):
-            pat = re.compile(r"\s+".join(re.escape(w) for w in k.split()))
-            pats.append((pat, table[k]))
+            body = r"\s+".join(re.escape(w) for w in k.split())
+            # a key that starts or ends in a letter matches whole words only: 'Explore' must
+            # not eat the front of 'Explorer', nor 'Map' the middle of 'Mappers'
+            if k[:1].isalnum():
+                body = r"(?<![A-Za-z0-9\u00C0-\u024F])" + body
+            if k[-1:].isalnum():
+                body = body + r"(?![A-Za-z0-9\u00C0-\u024F])"
+            v = table[k]
+            if lang == "ar":
+                v = _arabic_typography(v)
+            pats.append((re.compile(body), v))
         _tr_cache[lang] = pats
     return _tr_cache[lang]
+
+
+_AR_MONTHS = {"يناير": "جانفي", "فبراير": "فيفري", "أبريل": "أفريل", "مايو": "ماي",
+              "يونيو": "جوان", "يوليو": "جويلية", "أغسطس": "أوت"}
+
+
+def _arabic_typography(v):
+    """Arabic comma and question mark between Arabic words, Tunisian month names."""
+    v = re.sub(r"(?<=[\u0600-\u06FF])\s*,\s*(?=[\u0600-\u06FF0-9])", "، ", v)
+    v = re.sub(r"(?<=[\u0600-\u06FF])\?", "؟", v)
+    for a, b in _AR_MONTHS.items():
+        v = re.sub(r"(?<![\u0600-\u06FF])" + a + r"(?![\u0600-\u06FF])", b, v)
+    return v
+
+
+# attributes the table must never rewrite: ids and classes are looked up by scripts, links
+# and file names must stay what they are
+_ATTR_SKIP = re.compile(
+    r"""(\s(?:id|class|name|for|href|src|srcset|style|type|rel|hreflang|lang|dir|action|method
+       |enctype|target|role|itemprop|property|aria-controls|aria-labelledby|aria-describedby
+       |data-tab|data-track|data-i|data-artist|data-slug)=(?:"[^"]*"|'[^']*'))""", re.X)
 
 
 def _translate(doc):
     """Apply the current language's string table to everything outside <script> blocks."""
     if LANG == "en":
         return doc
+    pats = _tr_patterns(LANG)
     parts = re.split(r"(<script.*?</script>)", doc, flags=re.S)
     for i, part in enumerate(parts):
         if part.startswith("<script"):
             continue
-        for pat, repl in _tr_patterns(LANG):
-            part = pat.sub(lambda m, v=repl: v, part)
-        parts[i] = part
+        bits = _ATTR_SKIP.split(part)
+        for j in range(0, len(bits), 2):
+            b = bits[j]
+            for pat, repl in pats:
+                b = pat.sub(lambda m, v=repl: v, b)
+            bits[j] = b
+        parts[i] = "".join(bits)
     return "".join(parts)
 
 
@@ -3249,6 +3294,11 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 
     out_dir = os.path.join(DOCS, out_dir_rel)
     os.makedirs(out_dir, exist_ok=True)
+    if is_404:
+        doc = doc.replace("<head>\n", f'<head>\n<base href="/{LANG_DIRS[LANG]}">\n'
+                          '<meta name="robots" content="noindex">\n', 1)
+        doc = re.sub(r'<link rel="canonical"[^>]*>\n?', "", doc, count=1)
+        doc = re.sub(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">', "", doc)
     with open(os.path.join(out_dir, "index.html" if not (is_index or is_404) else fname), "w") as f:
         f.write(dedash(doc))
     if not is_404:
@@ -4746,6 +4796,30 @@ NURA_OPENERS = {
     "The building kit": "A building block. Volunteers snap these together into new galleries.",
 }
 
+# where the area's line is wrong for one object (an eagle is not a portrait, a well is not
+# the aqueduct), the object gets its own. Keyed by file slug prefix.
+NURA_HI = {
+    "bird-of-prey-statue": "Not a person this time. An eagle, wings folded, from a Roman villa in Carthage. Weather has softened the feathers.",
+    "carved-architectural-block": "Laurel leaves, cut in stone. Romans gave laurel to winners and emperors. No letters here, just the pattern.",
+    "carved-architectural-blocks": "Laurel leaves, cut in stone. Romans gave laurel to winners and emperors. No letters here, just the pattern.",
+    "architectural-fragment-with-relief": "Laurel leaves, cut in stone. Romans gave laurel to winners and emperors. No letters here, just the pattern.",
+    "niche-wall-water-temple": "This niche held a statue of a water spirit. The spring behind it fed an aqueduct that ran over 90 km to Carthage.",
+    "sacred-niche-roman-water-temple": "This niche held a statue of a water spirit. The spring behind it fed an aqueduct that ran over 90 km to Carthage.",
+    "bir-traditional-well": "A household well in the medina. Families drew their own water here long before pipes.",
+    "interior-with-tilework": "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.",
+    "tilework-wall-panel": "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.",
+    "neapolis-site": "This is a piece of a drowned city. A storm pulled the sand back and volunteers scanned it before the sea covered it again.",
+    "tanit-stela": "Look for the sign of Tanit: a triangle, a bar, a circle. Families carved it on stones like this two thousand years ago.",
+}
+
+
+def nura_hi(slug):
+    for k, v in NURA_HI.items():
+        if slug.startswith(k):
+            return v
+    return None
+
+
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
     MODEL_DIMS = json.load(_f)
 # where each scan was made, recovered from the location links the phone app wrote into the
@@ -5021,7 +5095,7 @@ def build_walk():
                           "person": walk_person(m),
                           "thumb": img(m.get("img") or m.get("thumb"), 260)
                                    if (m.get("img") or m.get("thumb")) else "",
-                          "hi": (m.get("hi") or NURA_OPENERS.get(label)
+                          "hi": (m.get("hi") or nura_hi(m["file_slug"]) or NURA_OPENERS.get(label)
                                  or (NURA_OPENERS[WALK_MADE[0]] if m.get("made") else "Have a look at this one."))
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_line(m) if measured else
@@ -5072,7 +5146,19 @@ def build_walk():
     music = None
     if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
         music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
+    if LANG != "en":
+        import walk_i18n
+        for it in items:
+            it["title"] = _translate(it["title"])
+            it["place"] = _translate(it["place"])
+            it["size"] = walk_i18n.size(it["size"], LANG)
+            it["credit"] = walk_i18n.credit(it["credit"], LANG)
+            it["hi"] = walk_i18n.opener(it["hi"], LANG)
+            if it.get("person") and it["person"].get("verb"):
+                it["person"]["verb"] = walk_i18n.VERB[LANG].get(it["person"]["verb"], it["person"]["verb"])
     cfg_json = json.dumps({"nuraYaw": WALK_CFG.get("nura_yaw", 180),
+                           "stats": {"scans": _stats["artifacts"], "sites": _stats["sites"],
+                                     "volunteers": _stats["volunteers"]},
                            "gc": (ANALYTICS.get("goatcounter_code") or "").strip(),
                            # our own view counter, which counts opens rather than people.
                            # Off until the script knows the action: an older deployment would
@@ -5121,8 +5207,8 @@ def build_walk():
 <button id="bt-close" aria-label="Close">&times;</button></div>
 
 <div id="track-switch">
-<button class="tsw on" data-track="scans">Scanned in Tunisia <b>{sum(1 for i in items if i.get("real"))}</b></button>
-<button class="tsw" data-track="made">Made by volunteers <b>{sum(1 for i in items if not i.get("real"))}</b></button>
+<button class="tsw on" data-track="scans" aria-pressed="true">Scanned in Tunisia <b>{sum(1 for i in items if i.get("real"))}</b></button>
+<button class="tsw" data-track="made" aria-pressed="false">Made by volunteers <b>{sum(1 for i in items if not i.get("real"))}</b></button>
 </div>
 
 <button id="map-toggle" title="See the whole collection at a glance">
@@ -5177,7 +5263,7 @@ taking care of the place you are in.</p>
 <div class="ss-left"><img id="ss-preview" alt="The picture you are about to share">
 <button class="ss-mini" data-net="save">Save the picture</button></div>
 <div class="ss-right">
-<label class="ss-lab" for="ss-caption">Caption <span>you can edit it</span></label>
+<label class="ss-lab" for="ss-caption">Caption <span>(you can edit it)</span></label>
 <textarea id="ss-caption" rows="4" spellcheck="false"></textarea>
 <div class="ss-nets">
 <button class="ss-net" data-net="native" hidden><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M12 3l4 4h-3v8h-2V7H8l4-4zm-7 9h2v7h10v-7h2v9H5v-9z"/></svg></span><span>Share…</span></button>
@@ -5259,7 +5345,7 @@ built separately by Patrick, Cam and the team, and every object here will hang i
 {{"imports":{{"three":"{THREE_CDN}/build/three.module.js","three/addons/":"{THREE_CDN}/examples/jsm/"}}}}
 </script>
 <script>window.WALK_CFG={cfg_json}</script>
-<script type="module" src="assets/walk.js?v={ASSET_V}"></script>"""
+<script type="module" src="assets/walk{'' if LANG == 'en' else '.' + LANG}.js?v={ASSET_V}"></script>"""
 
     page("explore.html", "Explore in 3D", body, active="explore.html", transparent=True,
          trending=False,
@@ -5358,6 +5444,8 @@ def _gal_blurb(m, n=340):
     t = re.split(r"📌|This model is part of the Tanit XR", t)[0]
     t = re.sub(r"\s*[—–]\s*", ", ", t)  # Ines's copy carries no em dashes
     t = re.sub(r"\s+", " ", t).strip()
+    if len(t) < 40 or "](" in t:          # a broken or empty source text: let the caller fall back
+        return ""
     if len(t) <= n:
         return t
     cut = t[:n]
@@ -5786,7 +5874,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 </div>
 </div></section>"""
         page(m["href"], m["title"], body, active="archive.html",
-             desc=m["text"][:150], read_badge="object",
+             desc=_desc(m["text"]) or f'{m["title"]}: a 3D scan made by Tanit XR volunteers in Tunisia, free to view, turn and download.', read_badge="object",
              nura_next=(None, "/" + LANG_DIRS[LANG] + next_m["href"][:-5] + "/"),
              jsonld=[{"@context": "https://schema.org", "@type": "3DModel", "name": m["title"],
                       "url": SITE_URL + m["href"][:-5] + "/", "isAccessibleForFree": True,
@@ -5911,7 +5999,7 @@ def build_news():
         _others = [o for o in newest if o["clean_slug"] != n["clean_slug"] and not is_note(o)]
         _nxt = (f'{term("Read")} "{_others[0]["title"][:42]}"', "/" + LANG_DIRS[LANG] + _others[0]["href"][:-5] + "/") \
             if _others else None
-        page(n["href"], n["title"], body, active="news.html", desc=n["text"][:150], jsonld=[_art],
+        page(n["href"], n["title"], body, active="news.html", desc=_desc(n["text"]) or f'{n["title"]}, from the Tanit XR news.', jsonld=[_art],
              read_badge=None if is_note(n) else "story", nura_next=_nxt)
 
 
@@ -6037,7 +6125,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
         page(p["href"], p["name"], body, active="team.html",
              nura_next=((None, _mine["href"] if _mine["href"].startswith("http")
                          else "/" + LANG_DIRS[LANG] + _mine["href"][:-5] + "/") if _mine else None),
-             desc=(p["bio"][:150] if p["bio"] else f'{p["name"]} volunteers with Tanit XR, preserving Tunisian heritage in 3D.'),
+             desc=(_desc(p["bio"]) or f'{p["name"]}, {p.get("role") or "volunteer"} with Tanit XR, preserving Tunisian heritage in 3D.'),
              jsonld=[_person])
 
 
@@ -7221,7 +7309,7 @@ def build_contact():
 <section class="pad"><div class="wrap">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px">
 <div>
-<h2 class="sec-title">Send us your Questions/Feedback</h2>
+<h2 class="sec-title">Send us your questions or feedback</h2>
 <p style="color:var(--gray)">We’ll get back to you as soon as we can.</p>
 <form class="nice" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="Contact form, tanitxr.org">
@@ -7404,7 +7492,9 @@ volunteer network helping to preserve Tunisia’s heritage.</p>
     opportunity: ["Thank you for the tip.", "We check every submission and add the good ones to the Opportunities board and the weekly digest, with your name if you asked for it."],
     profile: ["Your profile has been received.", "A member of the team reviews it, and once approved your page appears under Our People with your scans, models and articles credited to you."],
     splats: ["Your application is in.", "We read every application and reply to everyone. Keep an eye on your inbox, and on Slack if you are already with us."],
-    services: ["Your request is on its way.", "We will read it and get back to you within a few days."]
+    services: ["Your request is on its way.", "We will read it and get back to you within a few days."],
+    model: ["Your model is on its way.", "A volunteer checks every file, then it joins the archive with your name on it. We will write to you when it is up."],
+    'scanning-consent': ["Thank you.", "Your consent is recorded. Your scans can now be published with your name on them."]
   }}[from];
   if (copy) {{ document.getElementById('ty-title').textContent = copy[0]; document.getElementById('ty-text').textContent = copy[1]; }}
   if (window.tx) tx('form-sent/' + from);
@@ -7423,7 +7513,7 @@ information as possible.</p>
 <ul>
 <li><b>Contact &amp; volunteer forms:</b> the name, email address, and message details you choose to send us.
 We use them only to reply to you and to coordinate volunteer work, and we don’t sell or share them.</li>
-<li><b>Volunteer profiles:</b> if you submit a profile for our Our People page, the name, role, bio, photo,
+<li><b>Volunteer profiles:</b> if you submit a profile for the Our People page, the name, role, bio, photo,
 and links you provide are published on this website after review. Email us at
 <a href="mailto:{EMAIL}">{EMAIL}</a> any time to update or remove your profile.</li>
 </ul>
@@ -7747,6 +7837,24 @@ def term(word):
     return TERMS.get(LANG, {}).get(word, word)
 
 
+def _desc(text, n=155):
+    """A meta description: plain text, cut at a sentence or a word, never mid-word."""
+    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text or "")     # markdown links
+    t = re.sub(r"<[^>]+>", "", t)
+    t = re.sub(r"[\U0001F300-\U0001FAFF\u2600-\u27BF]", "", t)   # emoji
+    t = re.sub(r"\s+", " ", t).strip()
+    if len(t) < 40 or "](" in t:          # a broken or empty source text: let the caller fall back
+        return ""
+    if len(t) <= n:
+        return t
+    cut = t[:n]
+    end = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    if end > 70:
+        return cut[:end + 1]
+    sp = cut.rfind(" ")
+    return (cut[:sp] if sp > 70 else cut).rstrip(",;:") + "…"
+
+
 def long_date(d):
     """A date in the language of the page. Tunisian month names in Arabic."""
     if LANG == "en":
@@ -7816,13 +7924,30 @@ to {SITE_URL}. Last updated {today}.
                          f"{o.get('desc','')} {o.get('url') or ''}".strip())
     model_lines = [f"- {m['title']} ({m.get('place','')}): {SITE_URL}{m['href'].replace('.html', '/')}"
                    for m in MODELS]
+    # every top-level English page as plain text, so an assistant that reads one file has
+    # the substance of the site, not only its map
+    import html as _html
+    page_texts = []
+    for p_ in sorted(set(SITEMAP)):
+        if p_.count("/") > 1 or p_.startswith(("fr/", "ar/", "archive/", "team/", "news/")):
+            continue
+        fp = os.path.join(DOCS, p_, "index.html") if p_ else os.path.join(DOCS, "index.html")
+        if not os.path.exists(fp):
+            continue
+        h = open(fp, encoding="utf-8").read()
+        h = re.sub(r"<(script|style|nav|header|footer|svg)[^>]*>.*?</\1>", " ", h, flags=re.S | re.I)
+        t = re.sub(r"<[^>]+>", " ", h)
+        t = re.sub(r"\s+", " ", _html.unescape(t)).strip()
+        if len(t) > 200:
+            page_texts.append(f"### {SITE_URL}{p_}\n\n{t[:7000]}\n")
     full = (head
             + "## Open calls and opportunities, curated by Tanit XR\n\n"
             + f"Updated {today}. Full board with filters: {SITE_URL}opportunities/\n\n"
             + "\n".join(opp_lines)
             + "\n\n## The 3D collection\n\n"
             + f"Explore them in the browser at {SITE_URL}explore/ . Every object also has its own page:\n\n"
-            + "\n".join(model_lines) + "\n")
+            + "\n".join(model_lines) + "\n"
+            + "\n## The pages, in full\n\n" + "\n".join(page_texts))
     with open(os.path.join(DOCS, "llms-full.txt"), "w", encoding="utf-8") as f:
         f.write(full)
     print(f"  llms.txt written ({len(lines)} pages, {len(opp_lines)} open calls, {len(model_lines)} objects)")
@@ -7899,8 +8024,11 @@ def main():
     # static assets
     with open(os.path.join(DOCS, "assets", "style.css"), "w") as f:
         f.write(CSS)
-    with open(os.path.join(DOCS, "assets", "walk.js"), "w") as f:
-        f.write(WALK_JS)
+    import walk_i18n
+    for _lang in ("en", "fr", "ar"):
+        _fn = "walk.js" if _lang == "en" else f"walk.{_lang}.js"
+        with open(os.path.join(DOCS, "assets", _fn), "w") as f:
+            f.write(walk_i18n.script(WALK_JS, _lang))
     with open(os.path.join(DOCS, "assets", "site.js"), "w") as f:
         # JS is a plain string on purpose (it is full of braces), so the one value it needs
         # is substituted here rather than by an f-string

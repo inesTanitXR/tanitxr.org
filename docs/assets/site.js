@@ -240,7 +240,8 @@ const PAGE_OPENED = Date.now();
       });
       tell(say, 'Sent. Thank you.', 'good');
       if (window.tx) tx('model_uploaded', { from: 'submit' });
-      location.href = new URL('thank-you/?from=model', document.baseURI).href;
+      const nx = form.querySelector('input[name=_next]');
+      location.href = nx && nx.value ? nx.value : new URL('../thank-you/?from=model', location.href).href;
     } catch (err) {
       sending = false;
       go.disabled = false;
