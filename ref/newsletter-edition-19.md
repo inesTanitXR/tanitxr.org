@@ -6,7 +6,7 @@
 
 Hi everyone 👋
 
-This one covers deadlines from Sept 27 to Oct 31, starting with two that close this week: residencies, festival calls for XR and dome work, and four ways to get on the program at a conference. As always, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
+This one covers deadlines from Sept 27 to Oct 31, and two of them close this week. Residencies, festival calls for XR and dome work, a climate-art prize, and four ways to get on the program at a conference. As always, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
 
 ## 🔥 HIGHLIGHTS
 
