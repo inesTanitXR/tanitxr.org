@@ -1524,8 +1524,8 @@ FR = {
         'Par : Margarita Johnson La lumière intense éclaire le plateau de la colline de Byrsa à Carthage, et le vent secoue les fragments survivants d’une cité antique qui fut un jour la rivale de Rome elle-même. Des colonnes corinthiennes s’élèvent…',
     'By: Margarita Johnson The new year began with Storm Harry sweeping across Tunisia’s Mediterranean coastline, reshaping the coastline and disturbing layers of sand that had settled undisturbed for centuries. Local observe…':
         'Par : Margarita Johnson La nouvelle année a commencé avec la tempête Harry qui a balayé le littoral méditerranéen de la Tunisie, redessinant la côte et remuant des couches de sable posées là sans bouger depuis des siècles. Des observateurs locaux…',
-    'Tanit XR is taking part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge: build som…':
-        'Tanit XR participe au CityCamp Gainesville Hack Day le dimanche 20 septembre 2026, au Reitz Union de l’University of Florida, un hack day officiel MLH organisé par Florida Community Innovation. Notre défi : construire quelque…',
+    'Tanit XR took part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge asked people to…':
+        'Tanit XR a participé au CityCamp Gainesville Hack Day le dimanche 20 septembre 2026, au Reitz Union de l’University of Florida, un hack day officiel MLH organisé par Florida Community Innovation. Notre défi invitait à construire…',
     'This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by history. Walking past the ruins of Carthage felt ordinary, almost casual. An…':
         'C’est le tout premier article de Tanit XR, et il nous semble juste de commencer par une histoire. Grandir parmi les ruines J’ai grandi en Tunisie entourée d’histoire. Passer devant les ruines de Carthage paraissait ordinaire, presque banal. Un…',
     'Date/Period: 18th century (Husainid period) Material/Technique: Marble, carved plaster, qallaline ceramic tiles Description: This architectural element is a mahram, an ornamental niche inspired by the form of the mihrab.':
@@ -1626,6 +1626,9 @@ FR = {
     'project.': 'projet.',
     'Caption': 'Légende',
     'English': 'Anglais',
+    # PDF filenames contain the word English; keep the browser-decoded filename intact
+    '_English-French-Arabic.pdf': '_&#69;nglish-French-Arabic.pdf',
+    '_English.pdf': '_&#69;nglish.pdf',
     'Explore': 'Explorer',
     'Founder': 'Fondatrice',
     'Gallery': 'Galerie',
@@ -1743,12 +1746,12 @@ FR = {
         '&#86;olunteers 3D Scanning Tunisia&#x27;s Endangered Heritage &#83;ites Before the Ocean Takes Them : un épisode complet avec Ines Said sur les débuts de Tanit XR, le fonctionnement de la numérisation et les personnes qui s’en chargent.',
     ', from Awesome Future. The episode is called "Volunteers 3D Scanning Tunisia\'s Endangered Heritage Sites Before the Ocean Takes Them", and it covers how Tanit XR started, how the scanning actually works, and who does it.':
         ", l’émission d’Awesome Future. L’épisode s’intitule « &#86;olunteers 3D Scanning Tunisia's Endangered Heritage &#83;ites Before the Ocean Takes Them » et raconte les débuts de Tanit XR, le fonctionnement concret de la numérisation, et qui s’en charge.",
-    'It premieres on 24 September at 8:30am Pacific time, which is 5:30pm in Tunis, and it stays on YouTube afterwards. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
-        'La première a lieu le 24 septembre à 8 h 30, heure du Pacifique, soit 17 h 30 à Tunis, et l’épisode reste ensuite disponible sur YouTube. Si vous cherchiez comment expliquer ce projet à quelqu’un, c’est ce qu’il faut lui envoyer.',
-    'Ines Said is the guest on this week&#x27;s Spatial Creator Spotlight, from Awesome Future. The episode premieres on 24 September at 8:30am Pacific, and stays up afterwards.…':
-        'Ines Said est l’invitée de Spatial Creator Spotlight cette semaine, l’émission d’Awesome Future. L’épisode sera diffusé en avant-première le 24 septembre à 8 h 30, heure du Pacifique, et restera en ligne ensuite.…',
+    'It premiered on 24 September and is on YouTube to watch any time. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
+        'L’épisode a été diffusé le 24 septembre et reste disponible sur YouTube. Si vous cherchiez comment expliquer ce projet à quelqu’un, c’est ce qu’il faut lui envoyer.',
+    'Ines Said was the guest on Spatial Creator Spotlight, from Awesome Future. The episode premiered on 24 September and is on YouTube to watch any time.…':
+        'Ines Said était l’invitée de Spatial Creator Spotlight, l’émission d’Awesome Future. L’épisode a été diffusé le 24 septembre et reste disponible sur YouTube.…',
     'Our episode of Spatial Creator Spotlight': 'Notre épisode de Spatial Creator Spotlight',
-    "Ines Said is the guest on this week's ": 'Ines Said est l’invitée cette semaine de',
+    "Ines Said was the guest on the 24 September episode of ": 'Ines Said était l’invitée de l’épisode du 24 septembre de ',
     'Video · September 24, 2026': 'Vidéo · 24 septembre 2026',
     'Watch the episode': 'Regarder l’épisode',
     'Step inside': 'Entrer',
@@ -3260,8 +3263,8 @@ AR = {
         'بقلم: مارغريتا جونسون يغمر الضوء الساطع هضبة تل بيرصا في قرطاج، وتهزّ الريح ما تبقّى من شظايا مدينة قديمة كانت يومًا منافسة لروما نفسها. وترتفع أعمدة كورنثية…',
     'By: Margarita Johnson The new year began with Storm Harry sweeping across Tunisia’s Mediterranean coastline, reshaping the coastline and disturbing layers of sand that had settled undisturbed for centuries. Local observe…':
         'بقلم: مارغريتا جونسون بدأت السنة الجديدة بعاصفة هاري التي اجتاحت الساحل المتوسطي التونسي، فأعادت تشكيل الشاطئ وحرّكت طبقات من الرمل ظلّت ساكنة قرونًا. ويلاحظ سكان المنطقة…',
-    'Tanit XR is taking part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge: build som…':
-        'يشارك Tanit XR في يوم الهاكاثون CityCamp Gainesville يوم الأحد 20 سبتمبر 2026، في قاعة رايتز يونيون بجامعة فلوريدا، وهو يوم هاكاثون رسمي من MLH تستضيفه Florida Community Innovation. تحدّينا: أن تبنوا شيئًا…',
+    'Tanit XR took part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day hosted by Florida Community Innovation. Our challenge asked people to…':
+        'شارك Tanit XR في يوم الهاكاثون CityCamp Gainesville يوم الأحد 20 سبتمبر 2026، في قاعة رايتز يونيون بجامعة فلوريدا، وهو يوم هاكاثون رسمي من MLH استضافته Florida Community Innovation. دعا تحدّينا إلى بناء…',
     'This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by history. Walking past the ruins of Carthage felt ordinary, almost casual. An…':
         'هذا أوّل مقال إخباري لـ Tanit XR، ويبدو من المناسب أن نبدأ بحكاية. النشأة بين الأطلال نشأت في تونس محاطة بالتاريخ. كان المرور بجانب أطلال قرطاج أمرًا عاديًا، بل شبه عابر. و…',
     'Date/Period: 18th century (Husainid period) Material/Technique: Marble, carved plaster, qallaline ceramic tiles Description: This architectural element is a mahram, an ornamental niche inspired by the form of the mihrab.':
@@ -3370,6 +3373,9 @@ AR = {
     'Caption': 'التعليق',
     'Contact': 'اتصل بنا',
     'English': 'الإنجليزية',
+    # PDF filenames contain the word English; keep the browser-decoded filename intact
+    '_English-French-Arabic.pdf': '_&#69;nglish-French-Arabic.pdf',
+    '_English.pdf': '_&#69;nglish.pdf',
     'Explore': 'استكشف',
     'Founder': 'المؤسِّسة',
     'Gallery': 'معرض',
@@ -3494,12 +3500,12 @@ AR = {
         '&#86;olunteers 3D Scanning Tunisia&#x27;s Endangered Heritage &#83;ites Before the Ocean Takes Them: حلقة كاملة مع إيناس سعيد عن بدايات Tanit XR، وكيف يجري المسح، ومن يقوم به.',
     ', from Awesome Future. The episode is called "Volunteers 3D Scanning Tunisia\'s Endangered Heritage Sites Before the Ocean Takes Them", and it covers how Tanit XR started, how the scanning actually works, and who does it.':
         '، البرنامج الذي تقدمه Awesome Future. عنوان الحلقة "&#86;olunteers 3D Scanning Tunisia\'s Endangered Heritage &#83;ites Before the Ocean Takes Them"، وهي تتناول كيف بدأت Tanit XR، وكيف يجري المسح فعليًا، ومن يقوم به.',
-    'It premieres on 24 September at 8:30am Pacific time, which is 5:30pm in Tunis, and it stays on YouTube afterwards. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
-        'يُعرض العرض الأول يوم 24 سبتمبر الساعة 8:30 صباحًا بتوقيت المحيط الهادئ، أي 5:30 مساءً بتوقيت تونس، وتبقى الحلقة على YouTube بعد ذلك. إن كنت تبحث عن طريقة تشرح بها هذا المشروع لأحد، فهذا ما ترسله إليه.',
-    'Ines Said is the guest on this week&#x27;s Spatial Creator Spotlight, from Awesome Future. The episode premieres on 24 September at 8:30am Pacific, and stays up afterwards.…':
-        'إيناس سعيد ضيفة حلقة هذا الأسبوع من Spatial Creator Spotlight، البرنامج الذي تقدمه Awesome Future. يُعرض العرض الأول للحلقة يوم 24 سبتمبر الساعة 8:30 صباحًا بتوقيت المحيط الهادئ، وتبقى متاحة بعد ذلك.…',
+    'It premiered on 24 September and is on YouTube to watch any time. If you have been meaning to explain to somebody what this project is, this is the thing to send them.':
+        'عُرضت الحلقة يوم 24 سبتمبر وهي متاحة على YouTube في أي وقت. إن كنت تبحث عن طريقة تشرح بها هذا المشروع لأحد، فهذا ما ترسله إليه.',
+    'Ines Said was the guest on Spatial Creator Spotlight, from Awesome Future. The episode premiered on 24 September and is on YouTube to watch any time.…':
+        'كانت إيناس سعيد ضيفة Spatial Creator Spotlight، البرنامج الذي تقدمه Awesome Future. عُرضت الحلقة يوم 24 سبتمبر وهي متاحة على YouTube في أي وقت.…',
     'Our episode of Spatial Creator Spotlight': 'حلقتنا في Spatial Creator Spotlight',
-    "Ines Said is the guest on this week's ": 'إيناس سعيد ضيفة حلقة هذا الأسبوع من',
+    "Ines Said was the guest on the 24 September episode of ": 'كانت إيناس سعيد ضيفة حلقة 24 سبتمبر من ',
     'Video · September 24, 2026': 'فيديو · 24 سبتمبر 2026',
     'Watch the episode': 'شاهد الحلقة',
     'Step inside': 'ادخل',

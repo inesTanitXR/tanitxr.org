@@ -1,14 +1,14 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
- "last_run": "2026-09-18",
+ "last_run": "2026-09-25",
  "last_ts": {
-  "C0983LHM7K8": "1789677054.742009",
-  "C0983L047V4": "1789266670.767275",
+  "C0983LHM7K8": "1790265672.757169",
+  "C0983L047V4": "1789781310.000000",
   "C09CZV4B0SW": "1789266670.767275",
   "C0AD71FAT7Y": "1789266670.767275",
-  "C09F84HV8J1": "1789187278.487179",
+  "C09F84HV8J1": "1789737745.000000",
   "C09JATYDLF7": "1789266670.767275",
-  "C0B89BWR5S9": "1789716753.547009",
+  "C0B89BWR5S9": "1789833413.012879",
   "C09FKJWCVKJ": "1789266670.767275"
  },
  "_channels": {
@@ -71,6 +71,26 @@
    "id": "F0C2FRMD6JV",
    "what": "OutlineDraft.mp4 (Bety Vega, scanning-session video cut, #volunteer-updates 2026-09-16)",
    "action": "Slack-hosted attachment, cannot be fetched by the Drive connector - listed for manual filing in the 2026-09-14 digest"
+  },
+  {
+   "id": "1op3EJUVZLc_573i6HAKAlpGgi1UYYAIL",
+   "what": "Sept. 16, 2026 - Standup (recording, mp4)",
+   "action": "already in Tanit tree (Stand Up Recordings) - left in place"
+  },
+  {
+   "id": "1pJk3phC_9lgZZfJ_SK198-2h5A7_kVkkTlrbKcNUv7A",
+   "what": "TanitXR Volunteer Tasks (sheet)",
+   "action": "already in Tanit tree (02 Tasks) - left in place"
+  },
+  {
+   "id": "1VLnas9E0RWSmwybTFcBZyF4yAH6JaCKo",
+   "what": "tanit_xr_client_approvals.xlsx (Julia's reviewed copy, #vr-app 2026-09-18)",
+   "action": "already in Tanit tree (08 XR Apps > VR) - left in place"
+  },
+  {
+   "id": "F0C40DQE50D",
+   "what": "ScanningSession.mp4 (Bety Vega, final scanning-session video, #volunteer-updates 2026-09-24, 59 MB)",
+   "action": "Slack-hosted attachment - listed for manual filing in the 2026-09-21 digest"
   }
  ],
  "digests": [
@@ -84,6 +104,11 @@
    "doc_id": "1Z9o47hqEZ62eB3vbTuc0FBJJtM3i6wmN_CBVZcFnxUI",
    "url": "https://docs.google.com/document/d/1Z9o47hqEZ62eB3vbTuc0FBJJtM3i6wmN_CBVZcFnxUI/edit",
    "note": "A first attempt, 1s1zTv8oBJEEnbB5NATqvajAYpkNrD2GEAOJMuBtyLxM, was left in 01 Notes renamed '(superseded, formatting error)'. Same text, ugly escaping. Ines can delete it."
+  },
+  {
+   "week": "2026-09-21",
+   "doc_id": "1_jkY80vEHBjWRNOEK1MZ4wP6eTblxkjJheIEYHHKfIY",
+   "url": "https://docs.google.com/document/d/1_jkY80vEHBjWRNOEK1MZ4wP6eTblxkjJheIEYHHKfIY/edit"
   }
  ]
 }

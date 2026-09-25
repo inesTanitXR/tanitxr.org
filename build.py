@@ -4377,7 +4377,7 @@ def build_services():
          "We design and judge heritage tracks for hackathons and student challenges, bringing our open 3D archive and "
          "a real problem to your participants.",
          "For universities, hackathon organizers and companies. We sponsored a track at ImmerseGT 2026 at Georgia "
-         "Tech and are planning one for CityCamp Gainesville.",
+         "Tech and ran one at CityCamp Gainesville in September 2026.",
          "Co-sponsored"),
     ]
     cards = "".join(
