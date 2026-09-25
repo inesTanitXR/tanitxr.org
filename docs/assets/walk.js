@@ -1005,13 +1005,14 @@ function start() {
       cue.style.top = 'auto';
       cue.style.bottom = gap + 'px';
     };
-    let done = false, ro = null;
+    let done = false, ro = null, tick = 0;
     const go = () => {
       if (done) return;
       done = true;
       cue.classList.remove('in');
       setTimeout(() => { cue.hidden = true; }, 700);
       if (ro) { ro.disconnect(); ro = null; }
+      if (tick) { clearInterval(tick); tick = 0; }
       removeEventListener('scroll', go);
       removeEventListener('wheel', go);
       removeEventListener('keydown', onKey);
@@ -1025,13 +1026,17 @@ function start() {
       void cue.offsetWidth;
       cue.classList.add('in');
       addEventListener('resize', place);
-      // the label sheet grows after this runs, when a longer credit line or the Arabic text
-      // wraps to another row, and it grows upwards. Without this the cue is left sitting
-      // underneath it: measured once at 687, swallowed when the panel rose to 621.
+      // The label sheet does not hold still. It grows upwards when a longer credit line or
+      // the Arabic text wraps to another row, and on a slow connection that lands well after
+      // this runs: measured once against a panel starting at 687, then the panel rose to 621
+      // and sat on top of the cue. Rather than guess at every cause, the cue simply keeps
+      // checking for the few seconds it is on screen. It is one rect read, four times a
+      // second, for fourteen seconds.
       if (window.ResizeObserver && document.querySelector('.wf-panel')) {
         ro = new ResizeObserver(place);
         ro.observe(document.querySelector('.wf-panel'));
       }
+      tick = setInterval(place, 250);
       setTimeout(go, 14000);                                  // it says its piece and leaves
     }, 3800);
     addEventListener('scroll', go, { passive: true });
