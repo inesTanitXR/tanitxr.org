@@ -224,7 +224,23 @@ Edition 19 is out: 16 open calls, three closing within a week.
 🗼 Oct 8: Institut français x Cité internationale des arts, Paris residencies
 ✍️ Rolling: Africa No Filter Kekere Fund, up to $3,000
 
+⏰ Still open from past editions
+Sept 28: IEEE VR 2027 workshops
+Sept 28: Ars Electronica ArtXScience Residency, €24,000
+Sept 30: World Summit Awards, Culture & Heritage, free
+Oct 1: WomenTech Global Awards, free
+Oct 1: SXSW 2027 XR Experience
+Oct 6: Chevening Scholarships, Tunisia
+Oct 16: Immerse the Bay, Stanford XR hackathon
+Oct 19: Al Mawred Production Awards, Arab artists under 35
+Nov 3: IEEE VR 2027 XR Gallery
+Nov 14: NASA Space Apps, local events in Tunisia
+Nov 24: FIVARS 2027, VR and AR stories
+Nov 27: Awesome Foundation climate micro-grants, $1,000
+
 Who can apply, what it pays and the links are in the newsletter 👇
+
+🔗 You can find all opportunities on the Tanit XR website. The link is in the first comment.
 
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 
