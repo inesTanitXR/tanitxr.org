@@ -203,26 +203,28 @@ _Format: ref/linkedin-post-format.md. Colours by days left from the Sept 25 send
 
 🎯 Opportunities for XR creators, artists & impact makers
 
-Edition 19 is out: 16 open calls, and three of them close within a week.
+Edition 19 is out: 16 open calls, three closing within a week.
 
-A few from this one:
+🔴 Sept 27: UNESCO Silk Roads Youth Forum, heritage storytelling, ages 18–32
+🔴 Sept 28 / Oct 1: ACM CHI 2027, four free ways onto the program
+🔴 Sept 30: ReMix the Future at ASU, free 4-day XR design jam
+🟠 Oct 4: iLRN 2027, XR + AI in learning, no fee
+🟠 Oct 6: Slamdance DIG, VR and interactive gallery
+🟠 Oct 6: Women Who Code Summit, free virtual pass
+🟠 Oct 7: Earth Partner Prize, climate art, up to $10,000
+🟠 Oct 9: Djerassi residency, one month, no cost
+🟡 Oct 11: Aesthetica Art Prize, £10,000
+🟡 Oct 12: Goethe-Institut Coproduction Fund, up to €30,000
+🟡 Oct 16: Dome Fest West, fulldome and immersive film
+🟡 Oct 17: Technica, free hackathon, no coding needed
+🟢 Oct 30: The Webby Awards, now with immersive and AI categories
+🟢 Oct 31: One Young World scholarship, Cape Town summit
 
-🔴 Sept 27: UNESCO Youth Forum on Heritage along the Silk Roads
-Heritage storytelling for ages 18 to 32, in China in November
+🇹🇳 For Tunisians & North Africans
+🗼 Oct 8: Institut français x Cité internationale des arts, Paris residencies
+✍️ Rolling: Africa No Filter Kekere Fund, up to $3,000
 
-🔴 Sept 28 / Oct 1: ACM CHI 2027
-Four free ways to get on the CHI program, no academic affiliation needed
-
-🟠 Oct 7: Earth Partner Prize
-Free climate-art prize, up to $10,000, ages 14 to 30
-
-🟠 Oct 9: Djerassi Resident Artists Program
-One month in California at no cost to artists, with an art + science cohort
-
-🟢 Oct 30: The Webby Awards
-Now with immersive, AR, VR and AI categories
-
-The other 11 are in the newsletter: a Paris residency, a fulldome festival, hackathons, a VR gallery at Slamdance, and a section for Tunisians and North Africans. Deadlines and links for all of them 👇
+Who can apply, what it pays and the links are in the newsletter 👇
 
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 

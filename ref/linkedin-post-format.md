@@ -4,7 +4,7 @@ Ines's own format, taken from her edition 18 post (Sept 18, 2026). Every edition
 
 ## Rules
 
-- **SHORT TEASER (Ines, 2026-09-25): "this needs to be simplified and shorter, they need a reason to open the newsletter and read it."** At most 5 picks (her highlights plus the most urgent), then ONE line naming what else is inside and how many, pointing to the newsletter for deadlines and links. Never list every item. This overrides the one-entry-per-opportunity rule below.
+- **ALL ENTRIES, ONE SHORT LINE EACH (Ines, 2026-09-25: "I want all the entries but they're very simplified and short").** Every item in the edition, one line: `<colour> <date>: <short name>, <3–7 word hook>` (money, free, who). No second description line, no blank lines between entries inside a colour list. End with one line saying who can apply, the money and the links are in the newsletter. This overrides the two-line entry format and her edition 18 example below.
 
 - Opens with `🎯 Opportunities for XR creators, artists & impact makers`, then one or two short lines of news (what this edition covers, or an announcement she has actually made).
 - Format of each pick: `<colour> <Short date>: <Organizer / title>` on the first line, then ONE plain line saying what it is (money, who, where). No links in the post.
