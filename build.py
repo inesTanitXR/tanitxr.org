@@ -392,7 +392,7 @@ section.pad-sm{padding:56px 0}
 .art-grid img{width:100%;height:100%;object-fit:contain}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* the badge for finishing an article or an object's page, same look as Nura's */
-#read-toast{position:fixed;inset-inline-start:50%;bottom:26px;transform:translateX(-50%) translateY(10px);
+#read-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(10px);
   z-index:70;display:flex;align-items:center;gap:12px;background:rgba(46,33,24,.96);color:#fdf8f0;
   border-radius:12px;padding:13px 16px;box-shadow:0 18px 44px rgba(40,26,14,.35);
   max-width:min(460px,calc(100vw - 28px));opacity:0;transition:opacity .35s,transform .35s}
@@ -754,11 +754,11 @@ footer.site .base a{display:inline;color:rgba(255,255,255,.5)}
   background:#e6dbc6;text-decoration:none}
 .cb-art img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .cb-art:hover img{transform:scale(1.04)}
-.cb-ring{position:absolute;inset-inline-start:50%;top:50%;width:44%;aspect-ratio:1;
+.cb-ring{position:absolute;left:50%;top:50%;width:44%;aspect-ratio:1;
   transform:translate(-50%,-50%);border:1.6px dashed rgba(255,255,255,.75);border-radius:50%;
   animation:cbspin 11s linear infinite;pointer-events:none}
 @keyframes cbspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-.cb-tag{position:absolute;inset-inline-start:50%;bottom:16px;transform:translateX(-50%);
+.cb-tag{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);
   background:rgba(20,17,13,.72);color:#fdf8f0;font-size:11.5px;letter-spacing:.2em;
   text-transform:uppercase;padding:7px 16px;border-radius:999px}
 @media(max-width:900px){.cb-grid{grid-template-columns:1fr;gap:28px}}
@@ -862,7 +862,7 @@ body.gal{background:#14110d}
 .gov .x{position:fixed;top:18px;inset-inline-end:22px;background:none;border:1px solid rgba(243,236,224,.3);
   color:#f3ece0;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:19px;line-height:1}
 .gov .x:hover{background:var(--gold);color:#14110d;border-color:var(--gold)}
-.gov .arrows{position:fixed;bottom:22px;inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:10px}
+.gov .arrows{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
 .gov .arrows button{background:rgba(26,22,15,.9);border:1px solid rgba(243,236,224,.24);color:#f3ece0;
   border-radius:999px;padding:11px 22px;cursor:pointer;font:inherit;font-size:14px}
 .gov .arrows button:hover{background:var(--gold);color:#14110d;border-color:var(--gold)}
@@ -884,7 +884,7 @@ body.gal{background:#14110d}
 #walk-stage.grabbing{cursor:grabbing}
 #walk-stage.on-object{cursor:ew-resize}
 /* the headset button only appears where WebXR exists */
-#vr-button{position:fixed!important;bottom:26px!important;inset-inline-start:50%!important;
+#vr-button{position:fixed!important;bottom:26px!important;left:50%!important;
   transform:translateX(-50%)!important;background:rgba(74,53,43,.92)!important;
   color:#fdf8f0!important;border:1px solid rgba(74,53,43,.4)!important;border-radius:999px!important;
   padding:12px 26px!important;font:inherit!important;font-size:13.5px!important;
@@ -895,8 +895,28 @@ body.in-xr #walk-label,body.in-xr #saved-chip,body.in-xr #scan-entry,body.in-xr 
 body.in-xr #nura-dot,body.in-xr #rotate-cue,body.in-xr #vol-cameo{display:none}
 #walk-canvas{width:100%;height:100%;display:block}
 body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
+/* Nothing in here said you could scroll. The side arrows read as sideways and are hidden on
+   a phone altogether, so somebody could turn the first object and leave thinking that was all
+   sixty nine of them. This shows up once, a few seconds in, and goes for good on first scroll. */
+#scroll-cue{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
+  z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;pointer-events:none;
+  opacity:0;transition:opacity .6s}
+#scroll-cue.in{opacity:1}
+#scroll-cue[hidden]{display:none}
+#scroll-cue span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a735c}
+#scroll-cue svg{width:26px;height:15px;fill:none;stroke:#a35f3f;stroke-width:2.6;
+  stroke-linecap:round;stroke-linejoin:round;animation:sdrift 2.2s ease-in-out infinite}
+@keyframes sdrift{0%,100%{transform:translateY(-3px);opacity:.55}50%{transform:translateY(3px);opacity:1}}
+body.in-xr #scroll-cue,body.in-room #scroll-cue,body.demoing #scroll-cue,
+body.at-end #scroll-cue,body.in-place #scroll-cue,body.walk-fallback #scroll-cue{display:none}
+@media(max-width:760px){
+  /* the label is a sheet across the bottom on a phone, so the cue sits under the object */
+  #scroll-cue{bottom:auto;top:62%}
+  #scroll-cue span{font-size:11.5px}
+}
+@media(prefers-reduced-motion:reduce){#scroll-cue svg{animation:none}}
 /* a ring with two arrows around the object: the signal that it turns */
-#rotate-cue{position:fixed;inset-inline-start:50%;top:58%;transform:translate(-50%,-50%);
+#rotate-cue{position:fixed;left:50%;top:58%;transform:translate(-50%,-50%);
   z-index:3;pointer-events:none;width:min(40vmin,280px);opacity:0;transition:opacity .6s ease;
   text-align:center}
 #rotate-cue.show{opacity:.9}
@@ -974,7 +994,7 @@ body.in-xr #map-toggle,body.in-room #filmstrip{display:none}
   padding:7px 12px;font-size:12.5px}#sound-toggle{top:126px;inset-inline-start:auto;inset-inline-end:92px;width:34px;height:34px}#track-switch{inset-inline-start:12px;transform:none}}
 
 /* until the first model arrives, the stage breathes instead of sitting empty */
-#walk-stage:before{content:"";position:absolute;inset-inline-start:50%;top:46%;width:34vmin;
+#walk-stage:before{content:"";position:absolute;left:50%;top:46%;width:34vmin;
   height:34vmin;transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(circle,rgba(163,95,63,.14),transparent 70%);
   animation:breathe 1.8s ease-in-out infinite;transition:opacity .6s}
@@ -1185,7 +1205,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 .bd.locked .bi{background:rgba(74,53,43,.12);color:#8a735c}
 .bd b{display:block;font-size:13.5px;color:#2e2118}
 .bd span{display:block;font-size:11.5px;color:#8a735c;margin-top:2px}
-#badge-toast{position:fixed;inset-inline-start:50%;bottom:34px;transform:translateX(-50%);
+#badge-toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);
   z-index:7;display:flex;align-items:center;gap:12px;background:rgba(46,33,24,.96);
   color:#fdf8f0;border-radius:12px;padding:13px 16px;box-shadow:0 18px 44px rgba(40,26,14,.35)}
 #badge-toast[hidden]{display:none}
@@ -1275,7 +1295,7 @@ body.demoing #nura-bubble,body.demoing #nura-dot{opacity:0;pointer-events:none;
 .wcard p.lead{font-size:18.5px;color:#3a2c20}
 .wcard p.tiny{font-size:13px;color:#7d6a58;line-height:1.55;margin-top:10px}
 /* the experience is live from the first frame: no gate, no landing page */
-#track-switch{position:fixed;top:96px;inset-inline-start:50%;transform:translateX(-50%);z-index:5;
+#track-switch{position:fixed;top:96px;left:50%;transform:translateX(-50%);z-index:5;
   display:flex;gap:4px;background:rgba(253,248,240,.9);border:1px solid rgba(74,53,43,.16);
   border-radius:999px;padding:4px;box-shadow:0 8px 22px rgba(60,40,26,.1)}
 .tsw{border:0;background:none;color:#7d6a58;border-radius:999px;padding:8px 16px;font:inherit;
@@ -1293,7 +1313,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
   body #map-toggle svg{width:16px;height:16px}
   body #sound-toggle{top:80px;inset-inline-end:auto;inset-inline-start:104px;width:34px;height:34px}
   body #saved-chip{top:78px;inset-inline-end:12px;padding:7px 11px;font-size:12.5px}
-  body #track-switch{top:128px;inset-inline-start:50%;transform:translateX(-50%);font-size:12px;padding:3px}
+  body #track-switch{top:128px;left:50%;transform:translateX(-50%);font-size:12px;padding:3px}
   .tsw{padding:7px 11px;font-size:11.5px}
   .wf-panel{inset-inline-start:14px;inset-inline-end:14px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:none}
   .wf-panel #wf-id{font-size:10.5px;letter-spacing:.12em}
@@ -1316,7 +1336,7 @@ body.walk-fallback #track-switch,body.demoing #track-switch,body.in-xr #track-sw
      The track switch stays out on its own: half the Collection is the volunteer-made models,
      and folded into the "more" sheet nobody on a phone ever found them. */
   body #scan-entry,body #map-toggle,body #sound-toggle{display:none}
-  body #track-switch{display:flex;top:78px;bottom:auto;inset-inline-start:50%;
+  body #track-switch{display:flex;top:78px;bottom:auto;left:50%;
     transform:translateX(-50%);z-index:6;padding:3px}
   /* only the track you are not on: one pill saying where it takes you, which is all the room
      a phone has between the menu button and the saved count */
@@ -1449,7 +1469,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 .bd.locked .bi{background:rgba(74,53,43,.12);color:#8a735c}
 .bd b{display:block;font-size:13.5px;color:#2e2118}
 .bd span{display:block;font-size:11.5px;color:#8a735c;margin-top:2px}
-#badge-toast{position:fixed;inset-inline-start:50%;bottom:34px;transform:translateX(-50%);
+#badge-toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);
   z-index:7;display:flex;align-items:center;gap:12px;background:rgba(46,33,24,.96);
   color:#fdf8f0;border-radius:12px;padding:13px 16px;box-shadow:0 18px 44px rgba(40,26,14,.35)}
 #badge-toast[hidden]{display:none}
@@ -5195,6 +5215,8 @@ taking care of the place you are in.</p>
 </div>
 </div>
 
+<div id="scroll-cue" hidden aria-hidden="true"><span>{term("Keep scrolling")}</span>
+<svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2l10 10L22 2"/></svg></div>
 <div id="walk-label">
 <button id="wf-prev" class="wf-round wf-l" aria-label="Previous object">&#8249;</button>
 <button id="wf-next" class="wf-round wf-r" aria-label="Next object">&#8250;</button>
@@ -7607,6 +7629,7 @@ TERMS = {
            "Counted to": "Compté jusqu’au",
            "From a counter that uses no cookies and follows nobody.":
                "Depuis un compteur sans cookies, qui ne suit personne.",
+           "Keep scrolling": "Continuez à faire défiler",
            "Read": "Lire", "Back": "Précédent", "Next": "Suivant",
            "Send us your model": "Envoyez-nous votre modèle",
            "Made by volunteers": "Faits par des bénévoles", "See all": "Voir les",
@@ -7669,6 +7692,7 @@ TERMS = {
            "Counted to": "محسوب حتى",
            "From a counter that uses no cookies and follows nobody.":
                "من عدّاد بلا كوكيز، لا يتعقّب أحدًا.",
+           "Keep scrolling": "واصل التمرير",
            "Read": "اقرأ", "Back": "السابق", "Next": "التالي",
            "Send us your model": "أرسل لنا نموذجك",
            "Made by volunteers": "من صنع المتطوّعين", "See all": "شاهد الـ",

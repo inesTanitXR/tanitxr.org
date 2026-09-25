@@ -948,6 +948,9 @@ function start() {
       // if you have scrolled on, this card would name the wrong person for what is on screen
       const now = slots[shown];
       if (!now || now.it.slug !== forSlug) { metPeople.delete(p.name); return; }
+      // Nura is already talking. Two cards in the same corner of a phone read as a fault, so
+      // this one waits for another object rather than landing on top of her.
+      if (bubbleOpen) { metPeople.delete(p.name); return; }
       cameoPhoto.src = assetUrl(p.photo);
       cameoPhoto.alt = p.name;
       cameoLine.textContent = 'I ' + p.verb + ' this one.';
@@ -978,6 +981,55 @@ function start() {
       if (window.tx) tx('volunteer_cameo', { person: p.name });
     }, 1400);
   }
+
+
+  // ---- the one thing nothing told anybody: that this page scrolls.
+  // Shown a few seconds after the first object has settled, only to somebody who has not
+  // scrolled yet and has not been through the Collection before, and taken away for good the
+  // moment they do scroll. It never comes back in that visit.
+  (function scrollCue() {
+    const cue = document.getElementById('scroll-cue');
+    if (!cue) return;
+    if (location.hash && location.hash.length > 1) return;   // arrived at a particular object
+    try {
+      const been = JSON.parse(localStorage.getItem('tanitxr.walk') || '{}');
+      if (been && Array.isArray(been.seen) && been.seen.length > 1) return;   // knows already
+    } catch (e) { /* private mode: show it */ }
+    // on a phone the label is a sheet across the bottom and the object fills the middle, so
+    // the cue is placed in the band between them rather than at a guessed height
+    const place = () => {
+      if (innerWidth > 760) { cue.style.bottom = ''; cue.style.top = ''; return; }
+      const panel = document.querySelector('.wf-panel');
+      if (!panel) return;
+      const gap = Math.max(10, innerHeight - panel.getBoundingClientRect().top + 12);
+      cue.style.top = 'auto';
+      cue.style.bottom = gap + 'px';
+    };
+    let done = false;
+    const go = () => {
+      if (done) return;
+      done = true;
+      cue.classList.remove('in');
+      setTimeout(() => { cue.hidden = true; }, 700);
+      removeEventListener('scroll', go);
+      removeEventListener('wheel', go);
+      removeEventListener('keydown', onKey);
+      removeEventListener('resize', place);
+    };
+    const onKey = (e) => { if (/^Arrow|Page|Home|End| $/.test(e.key)) go(); };
+    setTimeout(() => {
+      if (done || scrollY > 40) return;
+      place();
+      cue.hidden = false;
+      void cue.offsetWidth;
+      cue.classList.add('in');
+      addEventListener('resize', place);
+      setTimeout(go, 14000);                                  // it says its piece and leaves
+    }, 3800);
+    addEventListener('scroll', go, { passive: true });
+    addEventListener('wheel', go, { passive: true });
+    addEventListener('keydown', onKey);
+  })();
 
   // ---- Standing inside a place, rather than looking at it from across the street.
   // Five of these scans are not objects: the underground passageways are 16 by 20 metres, the
