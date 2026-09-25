@@ -356,6 +356,8 @@ OPENERS = {
         "Un puits domestique de la médina. Les familles y tiraient leur eau bien avant les canalisations.",
     "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.":
         "Des carreaux vernissés d’une maison de la médina. Difficile à numériser : la glaçure reflète comme un miroir.",
+    "Glazed tiles inside the Zawiya of Sidi Sahib in Kairouan. Hard to scan: the glaze reflects like a mirror.":
+        "Des carreaux vernissés à l’intérieur de la zaouïa de Sidi Sahib, à Kairouan. Difficile à numériser : la glaçure reflète comme un miroir.",
     "This is a piece of a drowned city. A storm pulled the sand back and volunteers scanned it before the sea covered it again.":
         "C’est un morceau de cité engloutie. Une tempête a retiré le sable et des bénévoles l’ont numérisé avant que la mer ne le recouvre.",
     "Look for the sign of Tanit: a triangle, a bar, a circle. Families carved it on stones like this two thousand years ago.":
@@ -411,6 +413,8 @@ OPENERS = {
         "بئر منزلية في المدينة العتيقة. كانت العائلات تستقي منها قبل الأنابيب بزمن طويل.",
     "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.":
         "بلاط مزجّج من بيت في المدينة العتيقة. صعب المسح: الزجاج يعكس كالمرآة.",
+    "Glazed tiles inside the Zawiya of Sidi Sahib in Kairouan. Hard to scan: the glaze reflects like a mirror.":
+        "بلاط مزجّج داخل زاوية سيدي الصاحب في القيروان. صعب المسح: الزجاج يعكس كالمرآة.",
     "This is a piece of a drowned city. A storm pulled the sand back and volunteers scanned it before the sea covered it again.":
         "هذه قطعة من مدينة غارقة. أزاحت عاصفة الرمل ومسحها المتطوعون قبل أن يغطيها البحر من جديد.",
     "Look for the sign of Tanit: a triangle, a bar, a circle. Families carved it on stones like this two thousand years ago.":

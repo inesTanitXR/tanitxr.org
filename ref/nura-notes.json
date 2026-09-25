@@ -1,0 +1,350 @@
+{
+ "_what": "Nura's 'Tell me more' line per object, in her voice, three languages. build.py uses these instead of the Sketchfab first sentence. Edit here, rebuild.",
+ "notes": {
+  "tanit-stela-tophet-of-salammbo-carthage": {
+   "en": "The stone marked an urn in the Tophet, where Carthaginians made burials and offerings between the 8th and 2nd centuries BCE. Can you find the raised arms on either side of the triangle?",
+   "fr": "La pierre marquait une urne dans le Tophet, où les Carthaginois enterraient et faisaient des offrandes entre le VIIIe et le IIe siècle avant notre ère. Vois-tu les bras levés de chaque côté du triangle ?",
+   "ar": "كان هذا الحجر يعلّم جرّة في التوفاة، حيث دفن القرطاجيون موتاهم وقدّموا القرابين بين القرنين الثامن والثاني قبل الميلاد. هل ترى الذراعين المرفوعتين على جانبي المثلث؟"
+  },
+  "punic-stela-tophet-of-salammbo-carthag": {
+   "en": "Limestone, cut for the goddess Tanit and the god Baal Hammon. Some stelae carried crescent moons or a few lines of Punic script, and this one is worn enough that you have to look closely.",
+   "fr": "Du calcaire, taillé pour la déesse Tanit et le dieu Baal Hammon. Certaines stèles portaient des croissants de lune ou quelques lignes en punique, et celle-ci est assez usée pour qu'il faille regarder de près.",
+   "ar": "حجر جيري نُحت للإلهة تانيت والإله بعل حمون. حملت بعض الأنصاب أهلّة أو سطوراً قليلة بالخط البوني، وهذا النصب متآكل بما يكفي ليجعلك تدقّق النظر."
+  },
+  "punic-stelae-row-tophet-of-salammbo-ca": {
+   "en": "Each stone in this row once stood above a buried urn. The carvers often shaped them like tiny temple fronts, so look along the row for a pointed top or a doorway cut in relief.",
+   "fr": "Chaque pierre de cette rangée se dressait au-dessus d'une urne enterrée. Les tailleurs leur donnaient souvent la forme d'une façade de temple miniature : cherche un sommet pointu ou une porte en relief.",
+   "ar": "كان كل حجر في هذا الصف يقف فوق جرّة مدفونة. كثيراً ما شكّلها النحّاتون كواجهات معابد صغيرة، فابحث على طول الصف عن قمة مدببة أو باب منحوت بارز."
+  },
+  "punic-stelae-tophet-of-salammbo-carthage": {
+   "en": "The Tophet of Salammbo lies near the old Punic harbours, and these stelae have stood in the open for over two millennia. Walk around them and notice how the rain has rounded every edge.",
+   "fr": "Le Tophet de Salammbô se trouve près des anciens ports puniques, et ces stèles sont restées à l'air libre pendant plus de deux mille ans. Fais-en le tour et regarde comme la pluie a arrondi chaque arête.",
+   "ar": "يقع توفاة سلامبو قرب الموانئ البونية القديمة، وقد ظلت هذه الأنصاب في العراء أكثر من ألفي عام. دُر حولها ولاحظ كيف دوّر المطر كل حافة فيها."
+  },
+  "bird-of-prey-statue-roman-villas-of-car": {
+   "en": "For the Romans the eagle meant the power of the empire, so a villa owner in Carthage was making a statement. Trace the curve of the beak, which is still sharp after all this weathering.",
+   "fr": "Pour les Romains, l'aigle incarnait la puissance de l'empire : le propriétaire de cette villa de Carthage affichait quelque chose. Suis la courbe du bec, encore nette malgré l'usure.",
+   "ar": "كان النسر عند الرومان رمزاً لقوة الإمبراطورية، فصاحب هذه الفيلا في قرطاج أراد أن يقول شيئاً. تتبّع انحناء المنقار، فما زال حاداً رغم كل هذا التآكل."
+  },
+  "bust-fragment-roman-villas-of-carthage": {
+   "en": "Marble, from one of the Roman villas above the sea at Carthage. The face is gone but the drapery at the neck survives, so turn it around and you will see where the folds were cut.",
+   "fr": "Du marbre, venu d'une des villas romaines qui dominent la mer à Carthage. Le visage a disparu, mais le drapé du cou subsiste : tourne-le et tu verras où les plis ont été taillés.",
+   "ar": "رخام من إحدى الفيلات الرومانية المطلة على البحر في قرطاج. ضاع الوجه لكن ثنيات الثوب عند العنق باقية، فأدره وسترى أين نُحتت الطيّات."
+  },
+  "decorated-bust-fragment-roman-villas-of": {
+   "en": "Most portrait busts were plain, but this one has small figures carved across the chest and shoulders, which was rare in a private house. Can you make out any of the little shapes?",
+   "fr": "La plupart des bustes étaient lisses, mais celui-ci porte de petites figures sculptées sur la poitrine et les épaules, chose rare dans une maison privée. Distingues-tu l'une de ces petites formes ?",
+   "ar": "كانت معظم التماثيل النصفية ملساء، لكن هذا يحمل أشكالاً صغيرة منحوتة على الصدر والكتفين، وهو أمر نادر في بيت خاص. هل تستطيع تمييز أحد هذه الأشكال الصغيرة؟"
+  },
+  "draped-statue-byrsa-hill-carthage": {
+   "en": "Marble, found on Byrsa Hill where the Romans built their forum over the ruined Punic citadel. The long garment says a young person of standing, though nobody knows who.",
+   "fr": "Du marbre, trouvé sur la colline de Byrsa, où les Romains ont bâti leur forum sur la citadelle punique détruite. Le long vêtement dit un jeune personnage de rang, mais nul ne sait qui.",
+   "ar": "رخام عُثر عليه على تلة بيرصا حيث بنى الرومان منتداهم فوق القلعة البونية المدمرة. الثوب الطويل يدل على شخص شاب ذي مكانة، لكن لا أحد يعرف من هو."
+  },
+  "headless-draped-statue-byrsa-hill-cart": {
+   "en": "Roman, in a heavy draped garment that might be a toga, found on top of Byrsa Hill. Nobody knows who it was, so look at the folds and decide for yourself: a citizen, a magistrate?",
+   "fr": "Une statue romaine au lourd drapé, peut-être une toge, trouvée au sommet de la colline de Byrsa. Personne ne sait qui c'était : regarde les plis et décide toi-même, un citoyen, un magistrat ?",
+   "ar": "تمثال روماني بثوب ثقيل الطيّات قد يكون توغا، عُثر عليه على قمة تلة بيرصا. لا أحد يعرف من كان، فتأمل الثنيات وقرر بنفسك: مواطن أم قاضٍ؟"
+  },
+  "male-torso-statue-roman-villas-of-carth": {
+   "en": "Marble, in the Greek ideal of the athlete's body that Roman sculptors copied. It stood in a villa courtyard in Carthage, and the surface still carries the marks of centuries outdoors.",
+   "fr": "Du marbre, dans l'idéal grec du corps d'athlète que les sculpteurs romains copiaient. Il se dressait dans la cour d'une villa de Carthage, et la surface garde les traces de siècles à l'air libre.",
+   "ar": "رخام على المثال الإغريقي لجسد الرياضي الذي قلّده النحّاتون الرومان. وقف في فناء فيلا بقرطاج، وما زال سطحه يحمل آثار قرون في الهواء الطلق."
+  },
+  "reclining-figure-byrsa-hill-carthage": {
+   "en": "This is the lid of a sarcophagus, and the person lying on it is probably the one buried inside, shown resting as if at a banquet. It was scanned on Byrsa Hill in July 2025.",
+   "fr": "C'est le couvercle d'un sarcophage, et la personne allongée dessus est sans doute celle qui reposait dedans, montrée comme à un banquet. Il a été scanné sur la colline de Byrsa en juillet 2025.",
+   "ar": "هذا غطاء تابوت حجري، والشخص المستلقي عليه هو على الأرجح من دُفن داخله، مصوّراً مستريحاً كأنه في وليمة. مُسح على تلة بيرصا في يوليو 2025."
+  },
+  "roman-draped-statue-byrsa-hill-carthage": {
+   "en": "Marble, from Byrsa Hill, where the Roman forum stood after Carthage was rebuilt. The pose is upright and formal, the way officials liked to be shown. Look at how deep the folds are cut.",
+   "fr": "Du marbre, venu de la colline de Byrsa, où se dressait le forum romain après la reconstruction de Carthage. La pose est droite et solennelle, comme aimaient être montrés les notables. Regarde la profondeur des plis.",
+   "ar": "رخام من تلة بيرصا حيث قام المنتدى الروماني بعد إعادة بناء قرطاج. الوقفة منتصبة رسمية كما أحب الموظفون أن يُصوَّروا. انظر كم هي عميقة الطيّات المنحوتة."
+  },
+  "roman-togatus-statue-byrsa-hill-cartha": {
+   "en": "The toga was reserved for Roman citizens, so this marble figure from Byrsa Hill was someone who mattered in the colony. Follow the fold that runs from the shoulder across the body.",
+   "fr": "La toge était réservée aux citoyens romains : ce personnage de marbre trouvé sur Byrsa comptait donc dans la colonie. Suis le pli qui part de l'épaule et traverse le corps.",
+   "ar": "كانت التوغا حكراً على المواطنين الرومان، فهذا التمثال الرخامي من تلة بيرصا كان لشخص ذي شأن في المستعمرة. تتبّع الطيّة الممتدة من الكتف عبر الجسد."
+  },
+  "standing-draped-statue-roman-villas-of": {
+   "en": "Marble, from the Roman villas of Carthage, where statues like this stood in garden niches. Head and arms are missing, yet the fabric seems to move. Which way do you think it was walking?",
+   "fr": "Du marbre, venu des villas romaines de Carthage, où de telles statues occupaient des niches de jardin. Sans tête ni bras, l'étoffe semble pourtant bouger. Dans quel sens marchait-elle, à ton avis ?",
+   "ar": "رخام من الفيلات الرومانية بقرطاج حيث وقفت تماثيل كهذا في محاريب الحدائق. الرأس والذراعان مفقودان، ومع ذلك يبدو القماش يتحرك. في أي اتجاه كان يمشي برأيك؟"
+  },
+  "statue-fragment-roman-villas-of-carthage": {
+   "en": "A draped marble torso from the Roman villas of Carthage, the neighbourhood of the city's wealthy after the Punic Wars. Only the folds are left, so read the body through the cloth.",
+   "fr": "Un torse de marbre drapé, venu des villas romaines de Carthage, le quartier des riches après les guerres puniques. Il ne reste que les plis : devine le corps à travers l'étoffe.",
+   "ar": "جذع رخامي مكسوّ بالثوب من الفيلات الرومانية بقرطاج، حي الأثرياء بعد الحروب البونية. لم يبق سوى الطيّات، فاقرأ الجسد من خلال القماش."
+  },
+  "corinthian-capital-byrsa-hill-carthage": {
+   "en": "The curling leaves are acanthus, the plant that gave the Corinthian order its look. It once topped a column on Byrsa Hill, in the Roman forum. Count how many rows of leaves survive.",
+   "fr": "Les feuilles enroulées sont de l'acanthe, la plante qui a donné son allure à l'ordre corinthien. Il couronnait une colonne sur la colline de Byrsa, dans le forum romain. Compte les rangées de feuilles qui restent.",
+   "ar": "الأوراق الملتفة هي أوراق الأقنثا، النبتة التي أعطت الطراز الكورنثي مظهره. توّج يوماً عموداً على تلة بيرصا في المنتدى الروماني. عدّ صفوف الأوراق الباقية."
+  },
+  "fluted-column-fragment-byrsa-hill-cart": {
+   "en": "The vertical grooves are called flutes, and Roman masons cut them by hand. This piece stood on Byrsa Hill, the citadel of Punic Carthage that Rome later covered with a forum.",
+   "fr": "Les rainures verticales s'appellent des cannelures, et les tailleurs romains les creusaient à la main. Ce fragment se dressait sur Byrsa, la citadelle punique que Rome a ensuite recouverte d'un forum.",
+   "ar": "الأخاديد العمودية تسمى تحزيزات، وقد نحتها البنّاؤون الرومان يدوياً. وقفت هذه القطعة على تلة بيرصا، قلعة قرطاج البونية التي غطتها روما لاحقاً بمنتدى."
+  },
+  "roman-column-base-byrsa-hill-carthage": {
+   "en": "Look at the rings of moulding on top: they show where a column once sat. The stone has cracked with the weather, but the Roman precision is still there, on Byrsa Hill in Carthage.",
+   "fr": "Regarde les anneaux de moulure au sommet : ils montrent où reposait la colonne. La pierre s'est fissurée avec le temps, mais la précision romaine est encore là, sur la colline de Byrsa à Carthage.",
+   "ar": "انظر إلى حلقات الزخرفة في الأعلى: تدل على موضع العمود الذي قام هنا. تشقق الحجر بفعل الطقس، لكن الدقة الرومانية ما زالت باقية على تلة بيرصا في قرطاج."
+  },
+  "roman-column-byrsa-hill-carthage": {
+   "en": "Still standing on Byrsa Hill, the hill where the Punic citadel fell in 146 BCE and Rome later built its forum. The shaft is chipped but whole. Can you see the carved base it rises from?",
+   "fr": "Elle se dresse encore sur Byrsa, la colline où la citadelle punique est tombée en 146 avant notre ère et où Rome a bâti son forum. Le fût est ébréché mais entier. Vois-tu la base sculptée d'où il s'élève ?",
+   "ar": "ما زال قائماً على تلة بيرصا، التلة التي سقطت فيها القلعة البونية سنة 146 قبل الميلاد وبنت روما فوقها منتداها. البدن مشروم لكنه كامل. هل ترى القاعدة المنحوتة التي يرتفع منها؟"
+  },
+  "bird-and-floral-mosaic-roman-villas-of-cartha": {
+   "en": "Tiny stone cubes called tesserae, set on a villa floor in Carthage. Birds and vines stood for plenty and a good life. Find the geometric border, then the fruit hanging near the bird.",
+   "fr": "De petits cubes de pierre, les tesselles, posés sur le sol d'une villa de Carthage. Oiseaux et vignes disaient l'abondance et la belle vie. Trouve la bordure géométrique, puis les fruits près de l'oiseau.",
+   "ar": "مكعبات حجرية صغيرة تسمى الفسيفساء، رُصفت على أرضية فيلا في قرطاج. رمزت الطيور والكروم إلى الوفرة والعيش الرغيد. جد الإطار الهندسي، ثم الثمار المتدلية قرب الطائر."
+  },
+  "roman-mosaic-with-bird-and-vine-motifs": {
+   "en": "A floor from a wealthy house in Roman Carthage, made of small stone cubes. Grapes and leaves meant abundance. Get close and you can see the tesserae following the curve of each vine.",
+   "fr": "Un sol de riche maison de la Carthage romaine, fait de petits cubes de pierre. Raisins et feuilles signifiaient l'abondance. Approche-toi et tu verras les tesselles suivre la courbe de chaque sarment.",
+   "ar": "أرضية من بيت ثري في قرطاج الرومانية، مصنوعة من مكعبات حجرية صغيرة. رمز العنب والأوراق إلى الوفرة. اقترب وسترى الفسيفساء تتبع انحناء كل غصن كرمة."
+  },
+  "test-scan-interior-with-tilework-and-fountain": {
+   "en": "You are inside the Zawiya of Sidi Sahib in Kairouan, the shrine of a companion of the Prophet. Ottoman-era tiles, carved stucco and a small marble fountain once used for ablutions.",
+   "fr": "Tu es dans la zaouïa de Sidi Sahib à Kairouan, le mausolée d'un compagnon du Prophète. Des carreaux d'époque ottomane, du stuc sculpté et une petite fontaine de marbre qui servait aux ablutions.",
+   "ar": "أنت داخل زاوية سيدي الصاحب في القيروان، مقام صحابي من صحابة النبي. بلاطات من العهد العثماني، وجص منحوت، ونافورة رخامية صغيرة كانت تستعمل للوضوء."
+  },
+  "ornamental-wooden-door-with-studded-patterns": {
+   "en": "Red-painted wood, studded with iron nails in geometric patterns, in the medina of Tunis. The knockers sit at different heights, one each for men, women and children. Can you spot them?",
+   "fr": "Du bois peint en rouge, clouté de fer en motifs géométriques, dans la médina de Tunis. Les heurtoirs sont à des hauteurs différentes, un pour les hommes, un pour les femmes, un pour les enfants. Les vois-tu ?",
+   "ar": "خشب مطلي بالأحمر، مرصّع بمسامير حديدية في أشكال هندسية، في مدينة تونس العتيقة. المطارق على ارتفاعات مختلفة، واحدة للرجال وواحدة للنساء وواحدة للأطفال. هل تجدها؟"
+  },
+  "tilework-wall-panel-mausolegt-of-sidi-sahbi": {
+   "en": "Ottoman-era ceramic tiles inside the Zawiya of Sidi Sahib in Kairouan, framed by carved stucco. The middle panel shows a vase with flowers spilling out, in blue, yellow and green.",
+   "fr": "Des carreaux de céramique d'époque ottomane dans la zaouïa de Sidi Sahib à Kairouan, encadrés de stuc sculpté. Le panneau central montre un vase d'où débordent des fleurs, en bleu, jaune et vert.",
+   "ar": "بلاطات خزفية من العهد العثماني داخل زاوية سيدي الصاحب في القيروان، يحيط بها جص منحوت. اللوحة الوسطى تصور مزهرية تفيض بالزهور بالأزرق والأصفر والأخضر."
+  },
+  "traditional-door-medina-of-tunis": {
+   "en": "Heavy dark wood with iron studs, in the medina of Tunis. The two round iron knockers sit level, unlike the painted doors nearby. Look at the pattern the nail heads make around the frame.",
+   "fr": "Du bois sombre et lourd, clouté de fer, dans la médina de Tunis. Les deux heurtoirs ronds sont à la même hauteur, contrairement aux portes peintes voisines. Regarde le motif que dessinent les clous autour du cadre.",
+   "ar": "خشب داكن ثقيل بمسامير حديدية، في مدينة تونس العتيقة. المطرقتان الحديديتان المستديرتان على مستوى واحد، خلافاً للأبواب المطلية المجاورة. انظر إلى النقش الذي ترسمه رؤوس المسامير حول الإطار."
+  },
+  "wooden-door-with-tilework-zawiya-of-sid": {
+   "en": "A door at the Zawiya of Sidi Sahib in Kairouan, the city founded in 670 CE. The dark wood is carved with geometric motifs and the glazed tiles around it carry star patterns. Which colour repeats most?",
+   "fr": "Une porte de la zaouïa de Sidi Sahib à Kairouan, la ville fondée en 670. Le bois sombre est gravé de motifs géométriques et les carreaux vernissés qui l'entourent portent des étoiles. Quelle couleur revient le plus ?",
+   "ar": "باب في زاوية سيدي الصاحب بالقيروان، المدينة التي أُسست سنة 670 م. الخشب الداكن منقوش بأشكال هندسية، والبلاطات المزججة حوله تحمل نجوماً. أي لون يتكرر أكثر؟"
+  },
+  "mihrab-niche-madrasa-al-bachia-medina-of-tun": {
+   "en": "It stands in the prayer hall of the Al-Bachia madrasa, built in 1752 under Ali I Pasha. Black and white stone alternates around the arch, and the half-dome is carved like a scallop shell.",
+   "fr": "Il se trouve dans la salle de prière de la médersa Al-Bachia, bâtie en 1752 sous Ali Ier Pacha. La pierre noire et blanche alterne autour de l'arc, et la demi-coupole est sculptée comme une coquille.",
+   "ar": "يقوم في قاعة الصلاة بالمدرسة الباشية التي بُنيت سنة 1752 في عهد علي باشا الأول. يتناوب الحجر الأسود والأبيض حول القوس، ونصف القبة منحوت على شكل صدفة."
+  },
+  "niche-wall-water-temple-zaghouan": {
+   "en": "Three semicircular niches in the Water Temple at Zaghouan, built under Hadrian in the 2nd century CE. Each held a statue or an offering to the spring. Which of the three is best preserved?",
+   "fr": "Trois niches en demi-cercle du temple des Eaux de Zaghouan, bâti sous Hadrien au IIe siècle. Chacune abritait une statue ou une offrande à la source. Laquelle des trois est la mieux conservée ?",
+   "ar": "ثلاثة محاريب نصف دائرية في معبد المياه بزغوان، الذي بُني في عهد هادريان في القرن الثاني الميلادي. حوى كل منها تمثالاً أو قرباناً للنبع. أيّ الثلاثة أفضل حفظاً؟"
+  },
+  "ornamental-mihrab-mahram-medersa-slimanya": {
+   "en": "It is a mahram, a decorative niche shaped like a mihrab, in the Slimaniya madrasa in the medina of Tunis, 18th century. Marble voussoirs in black and white, a plaster shell, qallaline tiles.",
+   "fr": "C'est un mahram, une niche décorative en forme de mihrab, dans la médersa Slimaniya de la médina de Tunis, au XVIIIe siècle. Des claveaux de marbre noir et blanc, une coquille en plâtre, des carreaux de Qallaline.",
+   "ar": "هذا محرم، أي محراب زخرفي على هيئة المحراب، في المدرسة السليمانية بمدينة تونس العتيقة من القرن الثامن عشر. أحجار قوس رخامية بالأسود والأبيض، وصدفة من الجص، وبلاطات قلالين."
+  },
+  "sacred-niche-roman-water-temple-zaghouan": {
+   "en": "A vaulted chamber of the Water Temple at Zaghouan, built under Hadrian in the 2nd century CE, where the spring for Carthage's aqueduct began. Stand in front of it and look up at the arch.",
+   "fr": "Une salle voûtée du temple des Eaux de Zaghouan, bâti sous Hadrien au IIe siècle, là où naissait la source de l'aqueduc de Carthage. Place-toi devant et lève les yeux vers l'arc.",
+   "ar": "غرفة مقبّبة في معبد المياه بزغوان، الذي بُني في عهد هادريان في القرن الثاني الميلادي، حيث ينبع الماء الذي غذّى قناة قرطاج. قف أمامها وارفع نظرك إلى القوس."
+  },
+  "architectural-fragment-with-relief-decoration": {
+   "en": "A stone block from the Water Temple at Zaghouan, 2nd century CE. It carries geometric relief with traces of leaves. Turn it slowly and see where the carver's chisel stopped.",
+   "fr": "Un bloc de pierre du temple des Eaux de Zaghouan, du IIe siècle. Il porte un relief géométrique avec des traces de feuillage. Tourne-le lentement et vois où s'est arrêté le ciseau du sculpteur.",
+   "ar": "كتلة حجرية من معبد المياه بزغوان من القرن الثاني الميلادي. تحمل نقشاً هندسياً بارزاً مع آثار أوراق. أدرها ببطء وانظر أين توقف إزميل النحّات."
+  },
+  "architectural-fragments-baths-of-antoninus": {
+   "en": "Marble from the Antonine Baths at Carthage, finished in the 2nd century CE under Antoninus Pius, the largest baths in Roman Africa. Some letters of a Latin inscription survive. Can you find one?",
+   "fr": "Du marbre des thermes d'Antonin à Carthage, achevés au IIe siècle sous Antonin le Pieux, les plus grands thermes de l'Afrique romaine. Quelques lettres latines subsistent. En trouves-tu une ?",
+   "ar": "رخام من حمامات أنطونيوس بقرطاج، التي اكتملت في القرن الثاني الميلادي في عهد أنطونيوس بيوس، وهي أكبر حمامات إفريقيا الرومانية. بقيت بعض حروف نقش لاتيني. هل تجد حرفاً منها؟"
+  },
+  "carved-architectural-block-with-laurel-motifs": {
+   "en": "From the Water Temple at Zaghouan, 2nd century CE, built where the spring for Carthage's aqueduct rises. It probably lined or crowned part of the sanctuary. Follow the leaves along the block.",
+   "fr": "Du temple des Eaux de Zaghouan, au IIe siècle, bâti là où jaillit la source de l'aqueduc de Carthage. Il bordait ou couronnait sans doute une partie du sanctuaire. Suis les feuilles le long du bloc.",
+   "ar": "من معبد المياه بزغوان من القرن الثاني الميلادي، الذي بُني حيث ينبع ماء قناة قرطاج. ربما كان يبطّن أو يتوّج جزءاً من المعبد. تتبّع الأوراق على طول الكتلة."
+  },
+  "carved-architectural-blocks-with-laurel-motifs": {
+   "en": "Limestone from a cornice or frieze of the Water Temple at Zaghouan. Laurel and foliage, still crisp after centuries outdoors. Compare the blocks: are the leaves cut by the same hand?",
+   "fr": "Du calcaire d'une corniche ou d'une frise du temple des Eaux de Zaghouan. Du laurier et du feuillage, encore nets après des siècles dehors. Compare les blocs : les feuilles sont-elles de la même main ?",
+   "ar": "حجر جيري من إفريز أو كورنيش في معبد المياه بزغوان. غار وأوراق ما زالت واضحة بعد قرون في العراء. قارن بين الكتل: هل نُحتت الأوراق باليد نفسها؟"
+  },
+  "inscribed-architectural-fragment-byrsa": {
+   "en": "Latin letters next to a floral moulding and a row of beads, on a block from Byrsa Hill in Carthage. It likely came from a public building that honoured an emperor or an official.",
+   "fr": "Des lettres latines à côté d'une moulure florale et d'un rang de perles, sur un bloc de la colline de Byrsa à Carthage. Il venait sans doute d'un édifice public honorant un empereur ou un notable.",
+   "ar": "حروف لاتينية بجانب زخرفة نباتية وصف من الحبيبات، على كتلة من تلة بيرصا في قرطاج. جاءت على الأرجح من مبنى عام يكرّم إمبراطوراً أو مسؤولاً."
+  },
+  "latin-inscription-slab-water-temple-of-zaghouan": {
+   "en": "A long dedication in Roman capitals from the Water Temple at Zaghouan. Slabs like this named the emperor or benefactor who paid for the works. Try reading a word; the letters are still sharp.",
+   "fr": "Une longue dédicace en capitales romaines, venue du temple des Eaux de Zaghouan. Ces dalles nommaient l'empereur ou le bienfaiteur qui avait payé les travaux. Essaie de lire un mot, les lettres sont encore nettes.",
+   "ar": "إهداء طويل بالحروف الرومانية الكبيرة من معبد المياه بزغوان. كانت ألواح كهذه تذكر الإمبراطور أو المتبرع الذي دفع تكاليف الأشغال. حاول قراءة كلمة، فالحروف ما زالت واضحة."
+  },
+  "marble-calligraphic-panel-zitouna-mosque": {
+   "en": "On the outer wall of the Zitouna mosque in the medina of Tunis, the great mosque of the city. Qur'anic verses are inlaid in black script in white marble, framed by geometric bands. Follow one line of text.",
+   "fr": "Sur le mur extérieur de la mosquée Zitouna, la grande mosquée de la médina de Tunis. Des versets coraniques sont incrustés en noir dans le marbre blanc, encadrés de bandes géométriques. Suis une ligne du texte.",
+   "ar": "على الجدار الخارجي لجامع الزيتونة في مدينة تونس العتيقة، الجامع الأعظم للمدينة. آيات قرآنية مطعّمة بخط أسود في رخام أبيض، تحيط بها أشرطة هندسية. تتبّع سطراً واحداً من النص."
+  },
+  "bir-traditional-well-medina-of-tunis": {
+   "en": "A bir stored water for a house or a school in the medina of Tunis. A marble arch in black and white frames it, and yellow, green and blue tiles surround the round stone basin where buckets went down.",
+   "fr": "Un bir gardait l'eau d'une maison ou d'une école dans la médina de Tunis. Un arc de marbre noir et blanc l'encadre, et des carreaux jaunes, verts et bleus entourent le bassin rond où descendaient les seaux.",
+   "ar": "كانت البئر تخزّن الماء لبيت أو مدرسة في مدينة تونس العتيقة. يحيط بها قوس رخامي بالأسود والأبيض، وبلاطات صفراء وخضراء وزرقاء حول الحوض الحجري المستدير حيث تُنزل الدلاء."
+  },
+  "stone-basin-water-temple-zaghouan": {
+   "en": "Cut from stone at the Water Temple in Zaghouan, 2nd century CE. It settled or shared out the spring water before it left for Carthage. See the pierced column in the middle? It may have controlled the flow.",
+   "fr": "Taillé dans la pierre au temple des Eaux de Zaghouan, au IIe siècle. Il décantait ou répartissait l'eau de la source avant son départ vers Carthage. Vois-tu la colonne percée au centre ? Elle réglait peut-être le débit.",
+   "ar": "منحوت من الحجر في معبد المياه بزغوان من القرن الثاني الميلادي. كان يصفّي ماء النبع أو يوزعه قبل انطلاقه نحو قرطاج. هل ترى العمود المثقوب في الوسط؟ ربما كان يتحكم في التدفق."
+  },
+  "neapolis-site-revealed-by-floods-in-tunisia": {
+   "en": "Neapolis was a Roman port at Nabeul known for its fish-sauce works. Storm Harry hit the coast on 20 January 2026 and stripped the sand off these walls. Look for the straight lines the sea could not erase.",
+   "fr": "Neapolis était un port romain à Nabeul, connu pour ses fabriques de garum. La tempête Harry a frappé la côte le 20 janvier 2026 et a dégagé ces murs du sable. Cherche les lignes droites que la mer n'a pas effacées.",
+   "ar": "كانت نيابوليس ميناء رومانياً في نابل اشتهر بمعامل صلصة السمك. ضربت العاصفة هاري الساحل في 20 يناير 2026 وكشفت الرمل عن هذه الجدران. ابحث عن الخطوط المستقيمة التي لم يمحها البحر."
+  },
+  "test-scan-underground-passageways": {
+   "en": "You are under the Antonine Baths at Carthage, 2nd century CE. These vaulted corridors held the furnaces and water channels that served thousands of bathers a day. Follow one and see where it leads.",
+   "fr": "Tu es sous les thermes d'Antonin à Carthage, du IIe siècle. Ces couloirs voûtés abritaient les fours et les conduites d'eau qui servaient des milliers de baigneurs par jour. Suis-en un et vois où il mène.",
+   "ar": "أنت تحت حمامات أنطونيوس في قرطاج من القرن الثاني الميلادي. ضمّت هذه الممرات المقبّبة الأفران وقنوات الماء التي خدمت آلاف المستحمين يومياً. تتبّع أحدها وانظر إلى أين يقود."
+  },
+  "traditional-loom-with-woven-carpet-medina-of": {
+   "en": "A wooden loom in the medina of Tunis with a carpet half finished on it, green and beige diamonds in the North African way. Look at the threads still waiting for the weaver's next pass.",
+   "fr": "Un métier à tisser en bois dans la médina de Tunis, avec un tapis à moitié fini, des losanges verts et beiges à la manière nord-africaine. Regarde les fils qui attendent encore le prochain passage du tisserand.",
+   "ar": "نول خشبي في مدينة تونس العتيقة وعليه سجادة نصف مكتملة، معينات خضراء وبيج على الطريقة المغاربية. انظر إلى الخيوط التي ما زالت تنتظر مرور النسّاج التالي."
+  },
+  "patrick-clay-lamp": {
+   "en": "A hanging clay lamp, modelled by volunteer Patrick Molen to light the galleries. Tunisian potters still make lanterns like it, and the light comes out through the openings in dots.",
+   "fr": "Une lampe suspendue en argile, modélisée par le bénévole Patrick Molen pour éclairer les galeries. Les potiers tunisiens font encore de telles lanternes, et la lumière sort par les ouvertures en points.",
+   "ar": "مصباح معلّق من الطين صمّمه المتطوع باتريك مولن لإضاءة القاعات. ما زال الخزّافون التونسيون يصنعون فوانيس مثله، ويخرج الضوء من فتحاته على شكل نقاط."
+  },
+  "patrick-wall-lamp": {
+   "en": "A wall lamp from the modular kit, modelled by volunteer Patrick Molen. In the medina, lamps like this hang beside doorways in the covered souks. Where would you place it in a room?",
+   "fr": "Une applique du kit modulaire, modélisée par le bénévole Patrick Molen. Dans la médina, de telles lampes pendent près des portes dans les souks couverts. Où la mettrais-tu dans une pièce ?",
+   "ar": "مصباح جداري من الطقم المعياري صمّمه المتطوع باتريك مولن. في المدينة العتيقة تُعلّق مصابيح مثله بجانب الأبواب في الأسواق المسقوفة. أين تضعه أنت في غرفة؟"
+  },
+  "kristina-stained-glass-lamp": {
+   "en": "A stained glass lamp, modelled by volunteer Kristina Reyes and trimmed down so it runs smoothly in a headset. The souks of Tunis sell coloured glass lanterns in metal frames just like it.",
+   "fr": "Une lampe en verre coloré, modélisée par la bénévole Kristina Reyes et allégée pour tourner sans à-coups dans un casque. Les souks de Tunis vendent des lanternes de verre coloré à cadre métallique tout à fait semblables.",
+   "ar": "مصباح من الزجاج الملوّن صمّمته المتطوعة كريستينا رييس وخففته ليعمل بسلاسة في نظارة الواقع الافتراضي. تبيع أسواق تونس فوانيس من زجاج ملوّن بإطار معدني تشبهه تماماً."
+  },
+  "lamps-lit": {
+   "en": "A set of lamps with the light switched on, modelled by volunteer Rachel West. They are based on the metal and glass lanterns sold in the souks of Tunis. Look at the glow on the nearest surface.",
+   "fr": "Un ensemble de lampes allumées, modélisé par la bénévole Rachel West. Elles s'inspirent des lanternes de métal et de verre vendues dans les souks de Tunis. Regarde la lueur sur la surface la plus proche.",
+   "ar": "مجموعة مصابيح مضاءة صمّمتها المتطوعة رايتشل ويست. مستوحاة من فوانيس المعدن والزجاج التي تُباع في أسواق تونس. انظر إلى التوهج على أقرب سطح."
+  },
+  "lamps-unlit": {
+   "en": "The same lamps as the lit set, switched off, modelled by volunteer Rachel West. Metal and glass lanterns like these hang in Tunisian souks. Can you see the pattern in the metal now the light is out?",
+   "fr": "Les mêmes lampes que l'ensemble allumé, mais éteintes, modélisées par la bénévole Rachel West. De telles lanternes de métal et de verre pendent dans les souks tunisiens. Vois-tu le motif du métal, maintenant que la lumière est éteinte ?",
+   "ar": "المصابيح نفسها من المجموعة المضاءة لكنها مطفأة، صمّمتها المتطوعة رايتشل ويست. تُعلّق فوانيس من المعدن والزجاج مثلها في الأسواق التونسية. هل ترى نقش المعدن الآن وقد انطفأ الضوء؟"
+  },
+  "ornate-tunisian-hanging-lamp": {
+   "en": "A hanging lamp modelled by volunteer Claire Natanek, in the style of the pierced metal lanterns that hang in Tunisian courtyards and cafés. Look at the openings that would scatter light on the walls.",
+   "fr": "Une lampe suspendue modélisée par la bénévole Claire Natanek, dans le style des lanternes de métal ajouré qui pendent dans les cours et les cafés tunisiens. Regarde les ouvertures qui disperseraient la lumière sur les murs.",
+   "ar": "مصباح معلّق صمّمته المتطوعة كلير ناتانيك على طراز فوانيس المعدن المثقّب التي تتدلى في الأفنية والمقاهي التونسية. انظر إلى الفتحات التي تنثر الضوء على الجدران."
+  },
+  "tunisian-wooden-woven-table-lamp": {
+   "en": "A table lamp of wood and woven fibre, modelled by volunteer Claire Natanek. Basketry like this comes from Tunisia's palm and alfa grass weaving. Does the weave look tight enough to hold in light?",
+   "fr": "Une lampe de table en bois et fibre tressée, modélisée par la bénévole Claire Natanek. Cette vannerie vient du tressage tunisien de palme et d'alfa. Le tressage te semble-t-il assez serré pour retenir la lumière ?",
+   "ar": "مصباح طاولة من الخشب والألياف المنسوجة صمّمته المتطوعة كلير ناتانيك. تأتي هذه السلال من نسيج السعف والحلفاء في تونس. هل يبدو النسج محكماً بما يكفي لحبس الضوء؟"
+  },
+  "wall-lamp": {
+   "en": "A wall lamp modelled by volunteer Rachel West. Lamps like it are fixed beside doorways in Tunisian houses and hotels, usually in metal with a glass panel. Where does its light fall?",
+   "fr": "Une applique modélisée par la bénévole Rachel West. On en fixe de semblables près des portes dans les maisons et les hôtels tunisiens, souvent en métal avec un panneau de verre. Où tombe sa lumière ?",
+   "ar": "مصباح جداري صمّمته المتطوعة رايتشل ويست. تُثبّت مصابيح مثله بجانب الأبواب في البيوت والفنادق التونسية، غالباً من المعدن بلوح زجاجي. أين يقع ضوؤه؟"
+  },
+  "patrick-palm-tree": {
+   "en": "A date palm modelled by volunteer Patrick Molen for the courtyards. Tunisia's oases in the south, around Tozeur and Douz, grow the Deglet Nour date under palms just like this.",
+   "fr": "Un palmier dattier modélisé par le bénévole Patrick Molen pour les cours. Les oasis du sud tunisien, autour de Tozeur et de Douz, font pousser la datte Deglet Nour sous des palmiers comme celui-ci.",
+   "ar": "نخلة تمر صمّمها المتطوع باتريك مولن للأفنية. تزرع واحات الجنوب التونسي حول توزر ودوز تمر دقلة النور تحت نخيل مثل هذه تماماً."
+  },
+  "patrick-bamboo": {
+   "en": "A clump of bamboo modelled by volunteer Patrick Molen for the planted corners of the museum. In Tunisian gardens, canes like this often screen a wall or shade a corner of the patio.",
+   "fr": "Une touffe de bambou modélisée par le bénévole Patrick Molen pour les coins plantés du musée. Dans les jardins tunisiens, ces cannes cachent souvent un mur ou ombragent un coin du patio.",
+   "ar": "أجمة خيزران صمّمها المتطوع باتريك مولن للزوايا المزروعة في المتحف. في الحدائق التونسية كثيراً ما تستر قصبات مثلها جداراً أو تظلل ركناً من الفناء."
+  },
+  "patrick-large-pot": {
+   "en": "A large clay planter modelled by volunteer Patrick Molen. Tunisian potters, especially in Nabeul and Guellala on Djerba, still throw big terracotta jars like this for oil, water and plants.",
+   "fr": "Un grand pot en argile modélisé par le bénévole Patrick Molen. Les potiers tunisiens, surtout à Nabeul et à Guellala sur Djerba, tournent encore de grandes jarres de terre cuite comme celle-ci pour l'huile, l'eau et les plantes.",
+   "ar": "أصيص كبير من الطين صمّمه المتطوع باتريك مولن. ما زال الخزّافون التونسيون، خاصة في نابل وقلالة بجربة، يصنعون جراراً فخارية كبيرة مثله للزيت والماء والنباتات."
+  },
+  "patrick-small-pot": {
+   "en": "A small pot modelled by volunteer Patrick Molen for the kit. It follows the simple unglazed terracotta of Tunisian courtyards, the kind that sits on a step with a geranium in it.",
+   "fr": "Un petit pot modélisé par le bénévole Patrick Molen pour le kit. Il reprend la terre cuite simple et non vernissée des cours tunisiennes, celle qui trône sur une marche avec un géranium dedans.",
+   "ar": "أصيص صغير صمّمه المتطوع باتريك مولن للطقم. يحاكي الفخار البسيط غير المزجج في الأفنية التونسية، ذلك الذي يجلس على درجة وفيه نبتة جيرانيوم."
+  },
+  "assorted-succulent-pot": {
+   "en": "A pot of mixed succulents modelled by volunteer Rachel West. Plants like these grow in almost every Tunisian patio because they survive the dry summer with little water. Which leaf shape do you like?",
+   "fr": "Un pot de plantes grasses variées modélisé par la bénévole Rachel West. On en trouve dans presque tous les patios tunisiens, car elles supportent l'été sec avec peu d'eau. Quelle forme de feuille préfères-tu ?",
+   "ar": "أصيص من نباتات عصارية متنوعة صمّمته المتطوعة رايتشل ويست. تنمو نباتات مثلها في كل فناء تونسي تقريباً لأنها تصمد في الصيف الجاف بقليل من الماء. أي شكل من الأوراق يعجبك؟"
+  },
+  "large-azure-stonecrop-succulent-in-pot": {
+   "en": "A large azure stonecrop in a pot, modelled by volunteer Claire Natanek. Stonecrops are sedums, tough plants that live on sun and little water, which is why Tunisian courtyards keep them.",
+   "fr": "Un grand orpin azuré en pot, modélisé par la bénévole Claire Natanek. Les orpins sont des sedums, des plantes robustes qui vivent de soleil et de peu d'eau, d'où leur place dans les cours tunisiennes.",
+   "ar": "نبتة حيّ العالم الزرقاء الكبيرة في أصيص، صمّمتها المتطوعة كلير ناتانيك. هذه النباتات من جنس السيدوم، قوية تعيش على الشمس وقليل من الماء، ولهذا تحتفظ بها الأفنية التونسية."
+  },
+  "small-azure-stonecrop-succulent-in-pot": {
+   "en": "The smaller stonecrop, modelled by volunteer Claire Natanek. Look at the blue-green rosettes: sedums store water in their leaves, so they cope with a Tunisian summer without complaint.",
+   "fr": "Le petit orpin, modélisé par la bénévole Claire Natanek. Regarde les rosettes bleu-vert : les sedums gardent l'eau dans leurs feuilles, et supportent donc l'été tunisien sans se plaindre.",
+   "ar": "نبتة حيّ العالم الصغيرة، صمّمتها المتطوعة كلير ناتانيك. انظر إلى الورديات الزرقاء المخضرّة: يخزّن السيدوم الماء في أوراقه، فيتحمل الصيف التونسي بلا شكوى."
+  },
+  "ceramic-plate": {
+   "en": "A ceramic plate modelled by volunteer Alyssa George. Nabeul is Tunisia's pottery town, and its glazed plates carry blue, green and yellow patterns. Look at how the rim is painted.",
+   "fr": "Une assiette en céramique modélisée par la bénévole Alyssa George. Nabeul est la ville de la poterie en Tunisie, et ses assiettes vernissées portent des motifs bleus, verts et jaunes. Regarde comment le bord est peint.",
+   "ar": "طبق خزفي صمّمته المتطوعة أليسا جورج. نابل هي مدينة الفخار في تونس، وأطباقها المزججة تحمل نقوشاً زرقاء وخضراء وصفراء. انظر إلى طريقة تلوين الحافة."
+  },
+  "modern-tagine": {
+   "en": "A modern tagine modelled by volunteer Rachel West. In Tunisia the word tajine usually means a baked egg dish, but glazed clay cookware like this fills the market stalls. Lift the lid in your mind.",
+   "fr": "Un tajine moderne modélisé par la bénévole Rachel West. En Tunisie, le mot tajine désigne surtout un plat d'œufs cuit au four, mais cette vaisselle d'argile vernissée remplit les étals des marchés. Soulève le couvercle en pensée.",
+   "ar": "طاجين حديث صمّمته المتطوعة رايتشل ويست. في تونس تعني كلمة طاجين عادة طبق بيض مخبوزاً، لكن أواني الطين المزجج مثله تملأ أرفف الأسواق. ارفع الغطاء في خيالك."
+  },
+  "murex-shell-murex-brandaris": {
+   "en": "Murex brandaris, modelled by volunteer Rachel West. It took thousands of shells to dye a single cloth, and the dye works along the Tunisian coast left heaps of them behind. Count the spines along the spiral.",
+   "fr": "Un Murex brandaris, modélisé par la bénévole Rachel West. Il fallait des milliers de coquillages pour teindre une seule étoffe, et les teintureries de la côte tunisienne en ont laissé des tas. Compte les épines le long de la spirale.",
+   "ar": "صدفة موركس برانداريس صمّمتها المتطوعة رايتشل ويست. احتاج صبغ ثوب واحد إلى آلاف الأصداف، وخلّفت مصابغ الساحل التونسي أكواماً منها. عدّ الأشواك على طول اللولب."
+  },
+  "patrick-fountain-large": {
+   "en": "The main hall's fountain, modelled by volunteer Patrick Molen and tiled in the trim pattern used across the museum. Old houses in the medina of Tunis put a fountain in the open patio too.",
+   "fr": "La fontaine de la grande salle, modélisée par le bénévole Patrick Molen et carrelée du motif de frise utilisé dans tout le musée. Les vieilles maisons de la médina de Tunis mettent aussi une fontaine dans le patio ouvert.",
+   "ar": "نافورة القاعة الرئيسية، صمّمها المتطوع باتريك مولن وكساها بنقش الإطار المستعمل في كل المتحف. البيوت القديمة في مدينة تونس العتيقة تضع هي أيضاً نافورة في الفناء المكشوف."
+  },
+  "patrick-fountain-small": {
+   "en": "The smaller fountain, modelled by volunteer Patrick Molen for the side courts. In a Tunisian dar, the house turns inward to a patio and the fountain cools the air. Can you hear it?",
+   "fr": "La petite fontaine, modélisée par le bénévole Patrick Molen pour les cours latérales. Dans une dar tunisienne, la maison s'ouvre vers l'intérieur sur un patio, et la fontaine rafraîchit l'air. L'entends-tu ?",
+   "ar": "النافورة الصغيرة، صمّمها المتطوع باتريك مولن للأفنية الجانبية. في الدار التونسية ينفتح البيت إلى الداخل على فناء، وتبرّد النافورة الهواء. هل تسمعها؟"
+  },
+  "patrick-curved-bench": {
+   "en": "A curved bench modelled by volunteer Patrick Molen, somewhere to sit in the courtyard. Tunisian patios often have built-in stone benches along the walls, tiled to stay cool. Sit here a moment.",
+   "fr": "Un banc courbe modélisé par le bénévole Patrick Molen, pour s'asseoir dans la cour. Les patios tunisiens ont souvent des bancs de pierre maçonnés le long des murs, carrelés pour rester frais. Assieds-toi un instant.",
+   "ar": "مقعد منحنٍ صمّمه المتطوع باتريك مولن، مكان للجلوس في الفناء. كثيراً ما تحوي الأفنية التونسية مقاعد حجرية مبنية على طول الجدران، مكسوة بالبلاط لتبقى باردة. اجلس هنا لحظة."
+  },
+  "patrick-museum-main-hall": {
+   "en": "Volunteer Patrick Molen built this hall: an open courtyard with arcades and fountains, the way the palaces of the medina of Tunis are laid out. Turn it and find the fountain in the middle.",
+   "fr": "Le bénévole Patrick Molen a bâti cette salle : une cour ouverte avec des arcades et des fontaines, comme sont disposés les palais de la médina de Tunis. Tourne-la et trouve la fontaine au milieu.",
+   "ar": "بنى المتطوع باتريك مولن هذه القاعة: فناء مكشوف بأروقة ونوافير، على نسق قصور مدينة تونس العتيقة. أدرها وجد النافورة في الوسط."
+  },
+  "kristina-furnished-room": {
+   "en": "Volunteer Kristina Reyes built this room in one piece, furniture included, as a place to hang scans. It borrows the low seating and rug of a Tunisian sitting room. What would you hang on its walls?",
+   "fr": "La bénévole Kristina Reyes a bâti cette pièce d'un seul tenant, meubles compris, pour y accrocher des scans. Elle reprend les assises basses et le tapis d'un salon tunisien. Qu'accrocherais-tu à ses murs ?",
+   "ar": "بنت المتطوعة كريستينا رييس هذه الغرفة قطعة واحدة بأثاثها، مكاناً لتعليق المسوحات. تستعير المقاعد المنخفضة والسجادة من مجلس تونسي. ماذا كنت ستعلّق على جدرانها؟"
+  },
+  "kristina-display-plinth": {
+   "en": "The plinth that scanned objects stand on inside the museum, modelled by volunteer Kristina Reyes. It is plain on purpose so a Punic stela or a Roman torso gets all the attention.",
+   "fr": "Le socle sur lequel reposent les objets scannés dans le musée, modélisé par la bénévole Kristina Reyes. Il est sobre exprès, pour qu'une stèle punique ou un torse romain garde toute l'attention.",
+   "ar": "القاعدة التي تقف عليها القطع الممسوحة داخل المتحف، صمّمتها المتطوعة كريستينا رييس. بسيطة عن قصد حتى ينال نصب بوني أو جذع روماني كل الاهتمام."
+  },
+  "kristina-rug": {
+   "en": "A rug modelled by volunteer Kristina Reyes for the furnished room. Kairouan has been Tunisia's carpet city for centuries, with knotted wool rugs in red and cream. Look at the border pattern.",
+   "fr": "Un tapis modélisé par la bénévole Kristina Reyes pour la pièce meublée. Kairouan est depuis des siècles la ville du tapis en Tunisie, avec ses tapis de laine noués en rouge et crème. Regarde le motif de la bordure.",
+   "ar": "سجادة صمّمتها المتطوعة كريستينا رييس للغرفة المفروشة. القيروان هي مدينة السجاد في تونس منذ قرون، بسجادها الصوفي المعقود بالأحمر والكريمي. انظر إلى نقش الحاشية."
+  },
+  "patrick-wall-tanit": {
+   "en": "A wall section from the modular kit, modelled by volunteer Patrick Molen, carrying the sign of Tanit that gives the project its name. It copies the triangle, bar and circle cut on the stelae at Carthage.",
+   "fr": "Un pan de mur du kit modulaire, modélisé par le bénévole Patrick Molen, portant le signe de Tanit qui donne son nom au projet. Il reprend le triangle, la barre et le cercle gravés sur les stèles de Carthage.",
+   "ar": "جزء جدار من الطقم المعياري صمّمه المتطوع باتريك مولن، يحمل رمز تانيت الذي يستمد منه المشروع اسمه. ينقل المثلث والخط والدائرة المنحوتة على أنصاب قرطاج."
+  },
+  "patrick-carved-ceiling": {
+   "en": "A coffered ceiling modelled by volunteer Patrick Molen for the larger rooms. The palaces of the medina of Tunis have carved and painted wooden ceilings like this. Look up and count the squares.",
+   "fr": "Un plafond à caissons modélisé par le bénévole Patrick Molen pour les grandes salles. Les palais de la médina de Tunis ont des plafonds de bois sculptés et peints comme celui-ci. Lève les yeux et compte les caissons.",
+   "ar": "سقف بحشوات مربعة صمّمه المتطوع باتريك مولن للغرف الكبيرة. لقصور مدينة تونس العتيقة سقوف خشبية منحوتة ومطلية مثله. ارفع رأسك وعدّ المربعات."
+  }
+ }
+}

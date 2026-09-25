@@ -166,6 +166,15 @@ def _source_for(url):
     return dest
 
 
+def _src_size(path):
+    """(width, height) of an image, through sips; (0, 0) if it cannot be read."""
+    r = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", path],
+                       capture_output=True, text=True)
+    w = re.search(r"pixelWidth:\s*(\d+)", r.stdout or "")
+    h = re.search(r"pixelHeight:\s*(\d+)", r.stdout or "")
+    return (int(w.group(1)), int(h.group(1))) if (w and h) else (0, 0)
+
+
 def _already_made(url_or_name, max_px, as_jpeg):
     """The processed file for this image, if it is already in docs/assets/img.
 
@@ -183,8 +192,8 @@ def _already_made(url_or_name, max_px, as_jpeg):
                        (ext if ext in (".png", ".svg", ".gif") else ".jpg"))
     else:
         guesses.append(".jpg" if as_jpeg else (ext if ext in (".png", ".svg", ".gif") else ".jpg"))
-    if ext == ".png":
-        guesses.append(".webp")
+    if ext in (".png", ".jpg", ".jpeg", ".webp") and as_jpeg is not False and as_jpeg != "jpeg":
+        guesses.insert(0, ".webp")     # photos are written as WebP since 2026-09-25
     for g in guesses:
         name = f"{slugify(stem)}-{max_px}{g}"
         if os.path.exists(os.path.join(IMG_OUT, name)):
@@ -193,7 +202,11 @@ def _already_made(url_or_name, max_px, as_jpeg):
 
 
 def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
-    """Process an image into docs/assets/img, return relative site path."""
+    """Process an image into docs/assets/img, return relative site path.
+
+    Photos and artwork are written as WebP (a third of the weight of the JPEGs and a
+    quarter of the PNGs they replace, alpha kept). as_jpeg="jpeg" forces a real JPEG, which
+    the social cards need because link previews on WhatsApp and LinkedIn do not read WebP."""
     key = (url_or_name, max_px, as_jpeg)
     if key in _img_cache:
         return _img_cache[key]
@@ -212,8 +225,11 @@ def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
         as_jpeg = ext in (".jpg", ".jpeg", ".webp")
     out_ext = ".jpg" if as_jpeg else (ext if ext in (".png", ".svg", ".gif") else ".jpg")
     # transparent artwork (media/alyssa) ships as WebP with alpha: a quarter of the PNG weight
-    webp = (not as_jpeg and ext == ".png" and os.path.basename(os.path.dirname(src)) in WEBP_DIRS
-            and shutil.which("cwebp"))
+    # photos (as_jpeg None or True) become WebP; as_jpeg=False keeps the format for logos and
+    # icons, except the transparent artwork dirs, which were WebP already
+    webp = (shutil.which("cwebp") and ext in (".png", ".jpg", ".jpeg", ".webp")
+            and as_jpeg != "jpeg"
+            and (as_jpeg is not False or os.path.basename(os.path.dirname(src)) in WEBP_DIRS))
     if webp:
         out_ext = ".webp"
     out_name = f"{slugify(stem)}-{max_px}{out_ext}"
@@ -223,8 +239,11 @@ def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
         if ext == ".svg":
             shutil.copy(src, out_path)
         elif webp:
-            r = subprocess.run(["cwebp", "-quiet", "-q", "82", "-resize", str(max_px), "0", src, "-o", out_path],
-                               capture_output=True, text=True)
+            w, h = _src_size(src)
+            fit = ([] if (w and h and max(w, h) <= max_px) else      # never upscale
+                   ["-resize", str(max_px), "0"] if w >= h else ["-resize", "0", str(max_px)])
+            r = subprocess.run(["cwebp", "-quiet", "-q", "80", "-metadata", "none"] + fit
+                               + [src, "-o", out_path], capture_output=True, text=True)
             if r.returncode != 0:
                 print(f"  !! cwebp failed for {base}: {r.stderr.strip()[:120]}")
         else:
@@ -1642,6 +1661,16 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 body.has-vr #scroll-cue{bottom:96px}
 body #walk-stage{touch-action:pan-y pinch-zoom}
 #nura-bubble{left:50%;top:46%}
+.wf-btn.wf-link{background:none;border:0;color:#8a6a1a;text-decoration:underline;text-underline-offset:3px;padding:8px 6px}
+body.classroom .wf-btn.gold,body.classroom .nb-offer[data-offer="donate"],body.classroom #vol-cameo{display:none}
+.weekly-wrap{display:flex;gap:34px;align-items:center;max-width:900px;margin:0 auto}
+.weekly-wrap img{width:180px;height:180px;object-fit:cover;border-radius:14px;background:#f3ede2;flex:0 0 auto}
+@media(max-width:760px){.weekly-wrap{flex-direction:column;align-items:flex-start;gap:18px}}
+table.impact{border-collapse:collapse;width:100%;font-size:15px}
+table.impact th,table.impact td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--mist);vertical-align:top}
+table.impact th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+table.impact td.n{font-family:var(--serif);font-size:24px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
 .ways{border:0;padding:0;margin:26px 0 6px}
 .ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
 .waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
@@ -2483,6 +2512,7 @@ NAV = [
     ]),
     ("About", "about.html", [
         ("Our story", "about.html"),
+        ("Impact in numbers", "impact.html"),
         ("Our People", "team.html"),
         ("Press &amp; Recognition", "press.html"),
         ("El Jem Conference paper", "el-jem-conference.html"),
@@ -2777,7 +2807,7 @@ def social_img(name):
             if os.path.exists(tmp):
                 os.remove(tmp)
         if not os.path.exists(out_path):
-            return img(name, 1200, as_jpeg=True)
+            return img(name, 1200, as_jpeg="jpeg")
     _img_cache[key] = rel
     return rel
 
@@ -4104,6 +4134,7 @@ mentor students and publish research, building a free 3D archive of Tunisia’s 
 under-represented regions.</p>
 </div></section>
 
+{weekly_card()}
 <section class="band photo statsband"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
 <div class="wrap">
 <div class="stats big">
@@ -4244,7 +4275,7 @@ weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Fre
 </div></section>
 """
     page("index.html", "Home", body, transparent=True,
-         desc="Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Dougga and the medinas of Tunis as free 3D models you can turn in your browser, in AR and in VR.",
+         desc="Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Kairouan, Zaghouan and the medina of Tunis as free 3D models you can turn in your browser, in AR and in VR.",
          jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tanit XR", "url": SITE_URL,
                   "inLanguage": ["en", "fr", "ar"], "publisher": {"@type": "NGO", "name": "Tanit XR"}}]
                 + event_jsonld())
@@ -4364,6 +4395,7 @@ progress, this is what it looks like today.</p>
 <video class="vid" controls preload="none" playsinline poster="{img('museum-domed-hall-fountain.jpg', 1400)}"
 src="{vid('museum-walkthrough-06.mp4')}"></video>
 <p class="center" style="color:var(--gray);font-size:14px;margin-top:10px">Walkthrough recorded in the Unity editor, March 2026.</p>
+<p class="center" style="margin-top:18px"><a class="btn btn-gold" href="/{LANG_DIRS[LANG]}explore/?hall=1">Step into the hall in your browser, with the real scans</a></p>
 <div class="shots museum" style="margin-top:34px">
 <img src="{img('museum-hall-arches.jpg', 900)}" alt="Domed hall with striped arches" loading="lazy">
 <img src="{img('museum-statue-niche.jpg', 900)}" alt="Scanned Roman statue in a niche" loading="lazy">
@@ -4807,7 +4839,7 @@ NURA_HI = {
     "sacred-niche-roman-water-temple": "This niche held a statue of a water spirit. The spring behind it fed an aqueduct that ran over 90 km to Carthage.",
     "bir-traditional-well": "A household well in the medina. Families drew their own water here long before pipes.",
     "interior-with-tilework": "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.",
-    "tilework-wall-panel": "Glazed tiles from a house in the medina. Hard to scan: the glaze reflects like a mirror.",
+    "tilework-wall-panel": "Glazed tiles inside the Zawiya of Sidi Sahib in Kairouan. Hard to scan: the glaze reflects like a mirror.",
     "neapolis-site": "This is a piece of a drowned city. A storm pulled the sand back and volunteers scanned it before the sea covered it again.",
     "tanit-stela": "Look for the sign of Tanit: a triangle, a bar, a circle. Families carved it on stones like this two thousand years ago.",
 }
@@ -4815,9 +4847,21 @@ NURA_HI = {
 
 def nura_hi(slug):
     for k, v in NURA_HI.items():
-        if slug.startswith(k):
+        if k in slug:          # slugs carry prefixes like test-scan-
             return v
     return None
+
+
+_notes_path = os.path.join(HERE, "ref", "nura-notes.json")
+NURA_NOTES = json.load(open(_notes_path)).get("notes", {}) if os.path.exists(_notes_path) else {}
+
+
+def nura_note(slug, fallback):
+    """Nura's 'Tell me more' line, in her voice and the page's language, else the archive text."""
+    n = NURA_NOTES.get(slug)
+    if not n:
+        return fallback
+    return n.get(LANG) or n.get("en") or fallback
 
 
 with open(os.path.join(HERE, "ref", "model-dims.json")) as _f:
@@ -4941,6 +4985,26 @@ def human_size(d):
     if h < 0.02:
         return ""
     return f"{h:.2f} m tall"
+
+
+WEEKLY = None
+
+
+def weekly_card():
+    """One object pinned for the week, the same for everyone, so the newsletter and the
+    social posts have a fixed beat and the home page changes on its own."""
+    it = WEEKLY
+    if not it:
+        return ""
+    root = "/" + LANG_DIRS[LANG]
+    thumb = f'<img src="/{it["thumb"]}" alt="" loading="lazy">' if it.get("thumb") else ""
+    return (f'<section class="pad weekly"><div class="wrap weekly-wrap">{thumb}<div>'
+            f'<div class="eyebrow">{term("Object of the week")}</div>'
+            f'<h2 class="sec-title" style="margin:6px 0">{esc(it["title"])}</h2>'
+            f'<p class="sec-sub" style="margin:0 0 14px">{esc(it["place"])}'
+            f'{(" · " + esc(it["size"])) if it.get("size") else ""}. {esc(it["hi"])}</p>'
+            f'<a class="btn btn-gold" href="{root}explore/#{it["slug"]}">{term("Turn it in 3D")}</a>'
+            f'</div></div></section>')
 
 
 def collection_numbers():
@@ -5098,10 +5162,10 @@ def build_walk():
                           "hi": (m.get("hi") or nura_hi(m["file_slug"]) or NURA_OPENERS.get(label)
                                  or (NURA_OPENERS[WALK_MADE[0]] if m.get("made") else "Have a look at this one."))
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
-                          "note": nura_line(m) if measured else
+                          "note": nura_note(m["file_slug"], nura_line(m) if measured else
                                   (m.get("text") or
                                    f'{short_title(m["title"])}, modelled by hand for our virtual '
-                                   f'museum{", by " + m["by"] if m.get("by") else ""}.'),
+                                   f'museum{", by " + m["by"] if m.get("by") else ""}.')),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
                           **({"rotate": ov["rotate"]} if ov.get("rotate") else {})})
@@ -5146,6 +5210,11 @@ def build_walk():
     music = None
     if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
         music = {"src": MUSIC["file"], "credit": MUSIC["credit"]}
+    global WEEKLY
+    if items:
+        import datetime as _dt
+        _wk = _dt.date.today().isocalendar()
+        WEEKLY = items[(_wk[0] * 53 + _wk[1]) * 7 % len(items)]
     if LANG != "en":
         import walk_i18n
         for it in items:
@@ -5291,7 +5360,7 @@ taking care of the place you are in.</p>
 <button id="nura-dot" aria-label="Nura has something to say"><span></span></button>
 <div id="nura-bubble" hidden>
 <button id="nura-close" aria-label="Close">&times;</button>
-<p id="nura-text"></p>
+<p id="nura-text" aria-live="polite"></p>
 <div id="nura-long" hidden></div>
 <div class="nb-row">
 <button id="nura-more" class="nb-more">Tell me more</button>
@@ -5308,7 +5377,7 @@ taking care of the place you are in.</p>
 <button id="wf-next" class="wf-round wf-r" aria-label="Next object">&#8250;</button>
 <div class="wf-panel">
 <div id="wf-id" class="wf-id"></div>
-<h2 id="wf-title"></h2>
+<h2 id="wf-title" aria-live="polite"></h2>
 <div id="wf-by" class="wf-by"></div>
 <span id="wf-stats" class="wf-stats" hidden></span>
 <div class="wf-row">
@@ -5318,6 +5387,7 @@ taking care of the place you are in.</p>
 </div>
 <div class="wf-row wf-row2">
 <a class="wf-btn gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
+<button id="wf-poster" class="wf-btn wf-link">Make a poster</button>
 <a id="wf-record" class="wf-link" href="archive.html">Read more</a>
 <button id="ar-button" class="wf-btn" hidden title="Passthrough on a headset, camera AR on a phone">See it in your space</button>
 <a id="wf-map" class="wf-map" href="#" target="_blank" rel="noopener" hidden title="Where this was scanned">
@@ -5649,7 +5719,7 @@ helping remotely, every volunteer contributes to preserving history.</p>
 <a class="btn btn-gold" href="volunteer.html">Volunteer</a>
 </div></section>"""
     page("archive.html", "Archive", body,
-         desc="Every 3D scan Tanit XR volunteers have made of Tunisian heritage: mosaics, statues, stelae, columns and doors from Carthage, Dougga, El Jem and the medinas. Free to view, study and explore in 3D.")
+         desc="Every 3D scan Tanit XR volunteers have made of Tunisian heritage: mosaics, statues, stelae, columns and doors from Carthage, Kairouan, Zaghouan and the medina of Tunis. Free to view, study and explore in 3D.")
 
 
 def volunteer_made_cards(limit=None):
@@ -5865,6 +5935,7 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 <a class="btn btn-gold" href="archive.html">← Back to Archive</a>
 </div>
 {gr_html}
+<p class="cite" style="margin-top:22px;font-size:13.5px;color:var(--gray)">{term("How to cite")}: Tanit XR volunteers, “{esc(short_title(m["title"]))}”, {term("3D scan")}, {esc(m["place"])}, {str(m.get("date") or "")[:4]}, tanitxr.org/archive/{m["href"][:-5]}/. {term("Free to view and study; credit Tanit XR when you reuse it.")}</p>
 <p style="margin-top:26px;padding:16px 20px;background:var(--cloud);border-radius:10px;font-size:14.5px;color:var(--gray)">
 🤝 This scan exists because of volunteers, from scanning on site to cleanup and research.
 <a href="volunteer.html" style="color:var(--gold-text);font-weight:700">Join us →</a></p>
@@ -7458,7 +7529,67 @@ through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3) nonpr
          desc="Support Tanit XR: donations are tax deductible through our fiscal sponsor, Florida Community Innovation, and pay for scanning trips, training and the free 3D archive. Nobody here is paid.")
 
 
+def build_impact():
+    """The numbers a funder asks for, on one page, with the date each was counted."""
+    st = COLLECTION_STATS or {}
+    updated = _stats.get("updated", "")
+    rows = [
+        (_stats["artifacts"], "3D models published on Sketchfab", "Sketchfab, public models on the Tanit XR profile", updated),
+        (_stats["sites"], "heritage sites documented", "distinct places in the archive", updated),
+        (_stats["volunteers"], "volunteers on four continents", "Slack and the Thursday call", updated),
+        (_stats["reach"], "people reached by the founder's posts", "LinkedIn creator analytics, 18 Aug 2025 to 21 Sep 2026", updated),
+    ]
+    if st.get("object_views"):
+        rows += [
+            (st.get("objects"), "objects in the browser Collection", "the Explore page", st.get("as_of", "")),
+            (st.get("object_views"), "times an object was opened in the Collection", "GoatCounter, no cookies", st.get("as_of", "")),
+            (st.get("experience_views"), "people who opened the Collection", "GoatCounter, one per visitor per day", st.get("as_of", "")),
+        ]
+    trs = "".join(f'<tr><td class="n">{n:,}</td><td>{esc(w)}</td><td>{esc(src)}</td><td>{esc(str(d))}</td></tr>'
+                  for n, w, src, d in rows if n)
+    body = f"""
+{page_hero("Impact in numbers", '<a href="about.html">About</a> &nbsp;›&nbsp; Impact', bg="sv-IMG_0511.jpg", pos="center 40%")}
+<section class="pad"><div class="wrap" style="max-width:860px">
+<div class="eyebrow">What we count, and how</div>
+<h2 class="sec-title">Every number here has a source and a date</h2>
+<p class="sec-sub">Tanit XR is run entirely by volunteers. Nobody is paid, and everything we make is free.
+These are the figures we give funders and partners; each one says where it was counted and when.
+The website counts with GoatCounter, which uses no cookies and identifies nobody, so all of it can be quoted in public.</p>
+<div class="tw"><table class="impact">
+<thead><tr><th>Number</th><th>What it counts</th><th>Source</th><th>Counted</th></tr></thead>
+<tbody>{trs}</tbody></table></div>
+<h3 style="margin-top:36px">What the Collection measures on its own</h3>
+<p>Objects looked at and turned by hand, minutes spent, objects seen per visit, badges earned, galleries opened,
+shares by network, posters made, guided visits started and finished, headset and phone AR sessions, and which of
+Nura's invitations (share, donate, join, subscribe) people accept. Reports come out weekly; the monthly series
+starts with September 2026 and goes into every application after that.</p>
+<h3 style="margin-top:28px">Kept by hand, quarterly</h3>
+<ul>
+<li>Volunteers active this quarter, the countries they live in, hours contributed.</li>
+<li>Objects scanned, optimized and modelled; sites documented; models published open.</li>
+<li>Newsletter subscribers and open rate; LinkedIn newsletter reach.</li>
+<li>Workshops, talks and school sessions, and the people reached in person.</li>
+<li>Press and mentions; partnerships signed.</li>
+</ul>
+<h3 style="margin-top:28px">Recognition</h3>
+<ul>
+<li>Auggie Awards 2026, finalist, Best Societal Impact.</li>
+<li>El Jem Conference 2026, paper in English, French and Tunisian Arabic.</li>
+<li>AWE USA 2026 talk: From Scans to XR, a practical pipeline for cultural heritage.</li>
+<li>Voices of VR podcast, Al Jazeera, Niantic Spatial interview, XR Women Museum exhibitions.</li>
+</ul>
+<p style="margin-top:30px;color:var(--gray);font-size:14.5px">Tanit XR is fiscally sponsored by Florida Community Innovation, a U.S. 501(c)(3).
+For a PDF of this page for a grant annex, print it from your browser, or write to
+<a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+<p style="margin-top:18px"><a class="btn btn-gold" href="/{LANG_DIRS[LANG]}explore/?tour=1">Take the four-minute guided visit</a>
+<a class="btn btn-line" href="partners.html">Partner with us</a></p>
+</div></section>"""
+    page("impact.html", "Impact in numbers", body, active="about.html", trending=False,
+         desc="What Tanit XR has done so far, in numbers with a source and a date: 3D models published, sites documented, volunteers, reach, and what the browser Collection counts.")
+
+
 def build_misc():
+    build_impact()
     # coming soon
     body = f"""
 {page_hero("Coming Soon", "Coming Soon", bg="img_4606-copy.jpg", pos="center 40%")}
@@ -7710,6 +7841,9 @@ TERMS = {
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
+           "How to cite": "Pour citer", "3D scan": "numérisation 3D",
+           "Free to view and study; credit Tanit XR when you reuse it.": "Libre de consultation et d’étude ; créditez Tanit XR si vous le réutilisez.",
+           "Object of the week": "L’objet de la semaine", "Turn it in 3D": "Le faire tourner en 3D",
            "times one of them has been opened": "fois qu’un de ces objets a été ouvert",
            "objects looked at in an average visit": "objets regardés lors d’une visite type",
            "people have opened this Collection": "personnes ont ouvert cette Collection",
@@ -7773,6 +7907,9 @@ TERMS = {
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
+           "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد",
+           "Free to view and study; credit Tanit XR when you reuse it.": "متاح للعرض والدراسة مجانًا؛ انسب الفضل إلى Tanit XR عند إعادة الاستخدام.",
+           "Object of the week": "قطعة الأسبوع", "Turn it in 3D": "أدِرها بالأبعاد الثلاثة",
            "times one of them has been opened": "مرة فُتحت فيها إحدى هذه القطع",
            "objects looked at in an average visit": "قطعة يُنظر إليها في الزيارة الواحدة",
            "people have opened this Collection": "شخصًا فتحوا هذه المجموعة",
@@ -7902,6 +8039,8 @@ to {SITE_URL}. Last updated {today}.
             continue
         seen.add(name)
         lines.append(f"- [{name}]({SITE_URL}{p_}): {t[1]}" if t[1] else f"- [{name}]({SITE_URL}{p_})")
+    head += ("\nHow to cite an object: Tanit XR volunteers, \"<title>\", 3D scan, <site>, <year>, "
+             "tanitxr.org/archive/<slug>/. Everything is free to view and study; credit Tanit XR when you reuse it.\n\n")
     short = head + "\n".join(lines) + f"\n\n## Also available\n\n- [Everything in one file]({SITE_URL}llms-full.txt)\n- [Sitemap]({SITE_URL}sitemap.xml)\n- French and Arabic versions of the site live under /fr/ and /ar/\n"
     with open(os.path.join(DOCS, "llms.txt"), "w", encoding="utf-8") as f:
         f.write(short)
@@ -8047,6 +8186,7 @@ def main():
 
     global LANG
     for LANG in LANG_DIRS:
+        build_walk()
         build_home()
         build_community()
         build_press()
@@ -8054,7 +8194,6 @@ def main():
         build_services()
         build_archive()
         build_galleries()
-        build_walk()
         build_model_pages()
         build_news()
         build_people()

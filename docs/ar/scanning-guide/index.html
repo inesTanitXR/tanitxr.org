@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>دليل المسح – TANIT XR</title>
-<meta name="description" content="How متطوعو Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
+<meta name="description" content="كيف يلتقط متطوعو Tanit XR التراث بثلاثة أبعاد بالهاتف: الأخلاقيات التي نعمل بها، وما نمسحه وما نتركه، وScaniverse خطوة بخطوة من الإعداد إلى التصدير.">
 <link rel="canonical" href="https://tanitxr.org/ar/scanning-guide/">
 <link rel="alternate" hreflang="en" href="https://tanitxr.org/scanning-guide/"><link rel="alternate" hreflang="fr" href="https://tanitxr.org/fr/scanning-guide/"><link rel="alternate" hreflang="ar" href="https://tanitxr.org/ar/scanning-guide/"><link rel="alternate" hreflang="x-default" href="https://tanitxr.org/scanning-guide/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tanit XR">
 <meta property="og:locale" content="ar">
 <meta property="og:title" content="Tanit XR Scanning Guide – Tanit XR">
-<meta property="og:description" content="How متطوعو Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
+<meta property="og:description" content="كيف يلتقط متطوعو Tanit XR التراث بثلاثة أبعاد بالهاتف: الأخلاقيات التي نعمل بها، وما نمسحه وما نتركه، وScaniverse خطوة بخطوة من الإعداد إلى التصدير.">
 <meta property="og:url" content="https://tanitxr.org/ar/scanning-guide/">
 <meta property="og:image" content="https://tanitxr.org/assets/img/aug-20260813-124249-card.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Tanit XR Scanning Guide – Tanit XR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tanit XR Scanning Guide – Tanit XR">
-<meta name="twitter:description" content="How متطوعو Tanit XR capture heritage in 3D with a phone: the ethics we work by, what to scan and what to leave alone, and Scaniverse step by step from setup to export.">
+<meta name="twitter:description" content="كيف يلتقط متطوعو Tanit XR التراث بثلاثة أبعاد بالهاتف: الأخلاقيات التي نعمل بها، وما نمسحه وما نتركه، وScaniverse خطوة بخطوة من الإعداد إلى التصدير.">
 <meta name="twitter:image" content="https://tanitxr.org/assets/img/aug-20260813-124249-card.jpg">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Tanit XR", "url": "https://tanitxr.org/", "logo": "https://tanitxr.org/assets/img/tanitxr-logo-red-vertical-300.png", "description": "A volunteer community that 3D-scans Tunisia's endangered heritage with phones and publishes it free in 3D, AR and VR.", "foundingDate": "2025", "areaServed": "Tunisia", "email": "info@tanitxr.org", "sameAs": ["https://www.instagram.com/tanitxr/", "https://www.linkedin.com/company/tanit-xr/", "https://www.facebook.com/profile.php?id=61580920450463", "https://sketchfab.com/TanitXR"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tanitxr.org/ar/"}, {"@type": "ListItem", "position": 2, "name": "Tanit XR Scanning Guide", "item": "https://tanitxr.org/ar/scanning-guide/"}]}</script>
 <meta name="theme-color" content="#fdf8f0">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" href="../../assets/img/cropped-tanitxr-logo-red-vertical-180.png">
-<link rel="stylesheet" href="../../assets/style.css?v=953a63b8"><style>:root{--serif:'El Messiri',serif;--sans:'Tajawal',-apple-system,sans-serif;--slab:'Tajawal',sans-serif}body{font-size:17.5px}header.site .logo span{letter-spacing:.05em}</style>
+<link rel="stylesheet" href="../../assets/style.css?v=4974e88b"><style>:root{--serif:'El Messiri',serif;--sans:'Tajawal',-apple-system,sans-serif;--slab:'Tajawal',sans-serif}body{font-size:17.5px}header.site .logo span{letter-spacing:.05em}</style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -39,15 +39,15 @@
 <a href="https://www.facebook.com/profile.php?id=61580920450463" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12"/></svg></a>
 </div><div class="hlinks"><a href="../../ar/">الرئيسية</a><div class="drop"><a href="../../ar/explore/">استكشف</a><div class="menu"><a href="../../ar/explore/">استكشاف ثلاثي الأبعاد</a><a href="../../ar/galleries/">القاعات، مع الحكايات</a><a href="../../ar/archive/">تصفّح كل عمليات المسح</a><a href="../../ar/museum/">المتحف الافتراضي، قيد الإنجاز</a></div></div><a href="../../ar/opportunities/">الفرص</a></div></div>
 <a class="logo" href="../../ar/"><img src="../../assets/img/tanitxr-logo-red-vertical-300.png" alt="Tanit XR"></a>
-<div class="hside hr"><div class="hlinks"><a href="../../ar/news/">الأخبار</a><div class="drop"><a href="../../ar/volunteer/" class="on">شارك معنا</a><div class="menu"><a href="../../ar/volunteer/">التطوع</a><a href="../../ar/community/">المجتمع</a><a href="../../ar/scanning-guide/">دليل المسح</a><a href="../../ar/splats-with-phones/">دورة السحابات الغاوسية بالهاتف</a><a href="../../ar/unique-mappers/">انقل المشروع إلى منطقتك</a><a href="../../ar/create-profile/">الملف الشخصي للعضو</a></div></div><div class="drop"><a href="../../ar/about/">من نحن</a><div class="menu"><a href="../../ar/about/">قصتنا</a><a href="../../ar/team/">فريقنا</a><a href="../../ar/press/">الصحافة والتقدير</a><a href="../../ar/el-jem-conference/">ورقة بحثية في مؤتمر الجم</a><a href="../../ar/immersegt-2026/">ImmerseGT 2026</a><a href="../../ar/partners/">كن شريكًا</a><a href="../../ar/services/">خدماتنا</a><a href="../../ar/contact/">اتصل بنا</a></div></div></div><div class="hcta"><a class="donate" href="https://donors.tuesday.app/campaign/CMLPDTO" target="_blank" rel="noopener">تبرّع</a><div class="langs"><a href="../../scanning-guide/" lang="en">EN</a><a href="../../fr/scanning-guide/" lang="fr">FR</a><a href="#" class="on" lang="ar">ع</a></div></div></div>
+<div class="hside hr"><div class="hlinks"><a href="../../ar/news/">الأخبار</a><div class="drop"><a href="../../ar/volunteer/" class="on">شارك معنا</a><div class="menu"><a href="../../ar/volunteer/">التطوع</a><a href="../../ar/community/">المجتمع</a><a href="../../ar/scanning-guide/">دليل المسح</a><a href="../../ar/splats-with-phones/">دورة السحابات الغاوسية بالهاتف</a><a href="../../ar/unique-mappers/">انقل المشروع إلى منطقتك</a><a href="../../ar/create-profile/">الملف الشخصي للعضو</a></div></div><div class="drop"><a href="../../ar/about/">من نحن</a><div class="menu"><a href="../../ar/about/">قصتنا</a><a href="../../ar/impact/">الأثر بالأرقام</a><a href="../../ar/team/">فريقنا</a><a href="../../ar/press/">الصحافة والتقدير</a><a href="../../ar/el-jem-conference/">ورقة بحثية في مؤتمر الجم</a><a href="../../ar/immersegt-2026/">ImmerseGT 2026</a><a href="../../ar/partners/">كن شريكًا</a><a href="../../ar/services/">خدماتنا</a><a href="../../ar/contact/">اتصل بنا</a></div></div></div><div class="hcta"><a class="donate" href="https://donors.tuesday.app/campaign/CMLPDTO" target="_blank" rel="noopener">تبرّع</a><div class="langs"><a href="../../scanning-guide/" lang="en">EN</a><a href="../../fr/scanning-guide/" lang="fr">FR</a><a href="#" class="on" lang="ar">ع</a></div></div></div>
 <button id="nav-toggle" aria-label="القائمة"><span></span><span></span><span></span></button>
 </div>
-<nav id="mobnav"><a href="../../ar/">الرئيسية</a><div class="drop"><a href="../../ar/explore/">استكشف</a><div class="menu"><a href="../../ar/explore/">استكشاف ثلاثي الأبعاد</a><a href="../../ar/galleries/">القاعات، مع الحكايات</a><a href="../../ar/archive/">تصفّح كل عمليات المسح</a><a href="../../ar/museum/">المتحف الافتراضي، قيد الإنجاز</a></div></div><a href="../../ar/opportunities/">الفرص</a><a href="../../ar/news/">الأخبار</a><div class="drop"><a href="../../ar/volunteer/" class="on">شارك معنا</a><div class="menu"><a href="../../ar/volunteer/">التطوع</a><a href="../../ar/community/">المجتمع</a><a href="../../ar/scanning-guide/">دليل المسح</a><a href="../../ar/splats-with-phones/">دورة السحابات الغاوسية بالهاتف</a><a href="../../ar/unique-mappers/">انقل المشروع إلى منطقتك</a><a href="../../ar/create-profile/">الملف الشخصي للعضو</a></div></div><div class="drop"><a href="../../ar/about/">من نحن</a><div class="menu"><a href="../../ar/about/">قصتنا</a><a href="../../ar/team/">فريقنا</a><a href="../../ar/press/">الصحافة والتقدير</a><a href="../../ar/el-jem-conference/">ورقة بحثية في مؤتمر الجم</a><a href="../../ar/immersegt-2026/">ImmerseGT 2026</a><a href="../../ar/partners/">كن شريكًا</a><a href="../../ar/services/">خدماتنا</a><a href="../../ar/contact/">اتصل بنا</a></div></div>
+<nav id="mobnav"><a href="../../ar/">الرئيسية</a><div class="drop"><a href="../../ar/explore/">استكشف</a><div class="menu"><a href="../../ar/explore/">استكشاف ثلاثي الأبعاد</a><a href="../../ar/galleries/">القاعات، مع الحكايات</a><a href="../../ar/archive/">تصفّح كل عمليات المسح</a><a href="../../ar/museum/">المتحف الافتراضي، قيد الإنجاز</a></div></div><a href="../../ar/opportunities/">الفرص</a><a href="../../ar/news/">الأخبار</a><div class="drop"><a href="../../ar/volunteer/" class="on">شارك معنا</a><div class="menu"><a href="../../ar/volunteer/">التطوع</a><a href="../../ar/community/">المجتمع</a><a href="../../ar/scanning-guide/">دليل المسح</a><a href="../../ar/splats-with-phones/">دورة السحابات الغاوسية بالهاتف</a><a href="../../ar/unique-mappers/">انقل المشروع إلى منطقتك</a><a href="../../ar/create-profile/">الملف الشخصي للعضو</a></div></div><div class="drop"><a href="../../ar/about/">من نحن</a><div class="menu"><a href="../../ar/about/">قصتنا</a><a href="../../ar/impact/">الأثر بالأرقام</a><a href="../../ar/team/">فريقنا</a><a href="../../ar/press/">الصحافة والتقدير</a><a href="../../ar/el-jem-conference/">ورقة بحثية في مؤتمر الجم</a><a href="../../ar/immersegt-2026/">ImmerseGT 2026</a><a href="../../ar/partners/">كن شريكًا</a><a href="../../ar/services/">خدماتنا</a><a href="../../ar/contact/">اتصل بنا</a></div></div>
 <a class="donate" href="https://donors.tuesday.app/campaign/CMLPDTO" target="_blank" rel="noopener">تبرّع</a>
 <div class="langs"><a href="../../scanning-guide/" lang="en">EN</a><a href="../../fr/scanning-guide/" lang="fr">FR</a><a href="#" class="on" lang="ar">ع</a></div>
 </nav></header>
 
-<div class="page-hero"><div class="bg" style="background-image:url(../../assets/img/sv-img-4213-1800.jpg);background-position:center"></div><div class="wrap">
+<div class="page-hero"><div class="bg" style="background-image:url(../../assets/img/sv-img-4213-1800.webp);background-position:center"></div><div class="wrap">
 <h1>دليل المسح من تانيت XR</h1>
 <div class="crumb"><a href="../../ar/">الرئيسية</a> &nbsp;›&nbsp; دليل المسح</div>
 </div></div>
@@ -131,7 +131,7 @@ people connected to it.</p>
 <li>حرفة نسيج ← امسح المنسج أو زخارف النسيج أو الأدوات أو القطع الجاهزة</li>
 <li>حرفة في طريق الاندثار ← امسح الأدوات والورشة والمواد والأعمال المنجزة</li>
 <li>حكاية عائلية ← امسح البيت أو الفناء أو الصورة أو الشيء أو المكان المرتبط بالذكرى.
-Proceed with caution, as homes are private spaces and family memories are personal. تسجيل them only with
+Proceed with caution, as homes are private spaces and family memories are personal. نوع السجل them only with
 documented consent, and respect any limits that families set on how their story, home, and belongings are
 shared.</li>
 <li>مهرجان أو طقس ← امسح الزينة أو الأزياء أو الآلات أو أماكن التجمع أو الأشياء الرمزية.
@@ -308,7 +308,7 @@ Leadership Team will get back to you.</li>
 <label class="gcheck"><input type="checkbox" name="read_commitments" value="yes" required>
 قرأت الالتزامات الأخلاقية في هذه الصفحة وأوافق على العمل بها.</label>
 <label class="gcheck"><input type="checkbox" name="ask_first" value="yes" required>
-في حالة التراث الحي أو المجتمعي، سأُشرك فريق قيادة تانيت إكس آر وأطلب الموافقة قبل المسح.</label>
+في حالة التراث الحي أو المجتمعي، سأُشرك فريق قيادة Tanit XR وأطلب الموافقة قبل المسح.</label>
 <label class="req" for="cf-sign">اكتب اسمك للتوقيع</label>
 <input id="cf-sign" type="text" name="signature" required>
 <button class="btn" type="submit">وقّع وأرسل</button>
@@ -329,7 +329,7 @@ Leadership Team will get back to you.</li>
   </div>
 </div>
 <section class="trend pad-sm"><div class="wrap">
-<h3>الرائج الآن</h3><div class="row"><a href="../../ar/archive/corinthian-capital-byrsa-hill-carthage/"><img src="../../assets/img/ac789b797d4e4528aab59e898676a6f3-300.jpg" alt="تاج عمود كورنثي – تل بيرصا، قرطاج"><span>تاج عمود كورنثي – تل بيرصا، قرطاج</span></a><a href="../../ar/archive/punic-stela-tophet-of-salammbo-carthage/"><img src="../../assets/img/0ab972fffab044c0b1bdffad54514eaa-300.jpg" alt="نصب بوني – توفة سلامبو، قرطاج"><span>نصب بوني – توفة سلامبو، قرطاج</span></a><a href="../../ar/news/a-beginning-why-tanit-xr-exists/"><img src="../../assets/img/img-4196-copy-2-edited-300.jpg" alt="البداية: لماذا وُجدت Tanit XR"><span>البداية: لماذا وُجدت Tanit XR</span></a><a href="../../ar/news/material-and-meaning-marble-identity-and-cultural-exchange-i/"><img src="../../assets/img/desert-ruins-300.png" alt="المادة والمعنى: الرخام والهوية والتبادل الثقافي في قرطاج القديمة"><span>المادة والمعنى: الرخام والهوية والتبادل الثقافي في قرطاج القديمة</span></a></div></div></section>
+<h3>الرائج الآن</h3><div class="row"><a href="../../ar/archive/corinthian-capital-byrsa-hill-carthage/"><img src="../../assets/img/ac789b797d4e4528aab59e898676a6f3-300.webp" alt="تاج عمود كورنثي – تل بيرصا، قرطاج"><span>تاج عمود كورنثي – تل بيرصا، قرطاج</span></a><a href="../../ar/archive/punic-stela-tophet-of-salammbo-carthage/"><img src="../../assets/img/0ab972fffab044c0b1bdffad54514eaa-300.webp" alt="نصب بوني – توفة سلامبو، قرطاج"><span>نصب بوني – توفة سلامبو، قرطاج</span></a><a href="../../ar/news/a-beginning-why-tanit-xr-exists/"><img src="../../assets/img/img-4196-copy-2-edited-300.webp" alt="البداية: لماذا وُجدت Tanit XR"><span>البداية: لماذا وُجدت Tanit XR</span></a><a href="../../ar/news/material-and-meaning-marble-identity-and-cultural-exchange-i/"><img src="../../assets/img/desert-ruins-300.webp" alt="المادة والمعنى: الرخام والهوية والتبادل الثقافي في قرطاج القديمة"><span>المادة والمعنى: الرخام والهوية والتبادل الثقافي في قرطاج القديمة</span></a></div></div></section>
 <footer class="site"><div class="wrap"><div class="cols">
 <div><h4>عن تانيت XR</h4>
 <p>تانيت XR مبادرة غير ربحية تعمل على الحفظ الرقمي للتراث الثقافي التونسي قبل أن يندثر بفعل الزمن أو المناخ أو الإهمال. من خلال المسح ثلاثي الأبعاد وأرشيف رقمي مفتوح وتجارب غامرة بالواقع المعزز والافتراضي، نجعل الفسيفساء والتماثيل والمواقع التاريخية في متناول الطلاب والباحثين والجمهور في كل مكان.</p>
@@ -360,7 +360,7 @@ Leadership Team will get back to you.</li>
 <span>© 2026 تانيت XR. جميع الحقوق محفوظة.</span>
 <span><a href="../../ar/privacy/">سياسة الخصوصية</a></span>
 </div></div></footer>
-<script src="../../assets/site.js?v=953a63b8"></script>
+<script src="../../assets/site.js?v=4974e88b"></script>
 <script data-goatcounter="https://tanitxr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

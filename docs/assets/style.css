@@ -1398,6 +1398,16 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 body.has-vr #scroll-cue{bottom:96px}
 body #walk-stage{touch-action:pan-y pinch-zoom}
 #nura-bubble{left:50%;top:46%}
+.wf-btn.wf-link{background:none;border:0;color:#8a6a1a;text-decoration:underline;text-underline-offset:3px;padding:8px 6px}
+body.classroom .wf-btn.gold,body.classroom .nb-offer[data-offer="donate"],body.classroom #vol-cameo{display:none}
+.weekly-wrap{display:flex;gap:34px;align-items:center;max-width:900px;margin:0 auto}
+.weekly-wrap img{width:180px;height:180px;object-fit:cover;border-radius:14px;background:#f3ede2;flex:0 0 auto}
+@media(max-width:760px){.weekly-wrap{flex-direction:column;align-items:flex-start;gap:18px}}
+table.impact{border-collapse:collapse;width:100%;font-size:15px}
+table.impact th,table.impact td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--mist);vertical-align:top}
+table.impact th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+table.impact td.n{font-family:var(--serif);font-size:24px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
 .ways{border:0;padding:0;margin:26px 0 6px}
 .ways legend{font-weight:700;font-size:15px;padding:0;margin-bottom:10px}
 .waybar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}

@@ -43,6 +43,11 @@ function start() {
   // Every object is shown at one comfortable size; the real measurement is in the label.
   // Nura is a companion, not a ruler: she floats nearby, faces you, and says a line.
   const FIT = 2.15, NURA_H = 1.25;
+  // ?class=1: a classroom. Nura never asks for money or a share, the donate button is away,
+  // the objects and the stories stay. For teachers who cannot put a page that asks pupils
+  // for money in front of a class.
+  const CLASS_MODE = /[?&]class=1/.test(location.search);
+  if (CLASS_MODE) document.body.classList.add('classroom');
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true,
@@ -1263,6 +1268,7 @@ function start() {
   let nudgeLast = -99, nudgeCount = 0, nudgeItem = null;
   function nudgedIds() { try { return JSON.parse(sessionStorage.getItem(NUDGED) || '[]'); } catch (e) { return []; } }
   function maybeNudge(it) {
+    if (CLASS_MODE) return;
     if (!bubble || bubbleOpen || demoOn || roomMode || xrMode || tourStep >= 0) return;
     const seen = readProg().seen.length;
     if (seen < 4 || seen - nudgeLast < 6 || nudgeCount >= 4) return;
