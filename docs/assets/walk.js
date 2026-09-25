@@ -1005,12 +1005,13 @@ function start() {
       cue.style.top = 'auto';
       cue.style.bottom = gap + 'px';
     };
-    let done = false;
+    let done = false, ro = null;
     const go = () => {
       if (done) return;
       done = true;
       cue.classList.remove('in');
       setTimeout(() => { cue.hidden = true; }, 700);
+      if (ro) { ro.disconnect(); ro = null; }
       removeEventListener('scroll', go);
       removeEventListener('wheel', go);
       removeEventListener('keydown', onKey);
@@ -1024,6 +1025,13 @@ function start() {
       void cue.offsetWidth;
       cue.classList.add('in');
       addEventListener('resize', place);
+      // the label sheet grows after this runs, when a longer credit line or the Arabic text
+      // wraps to another row, and it grows upwards. Without this the cue is left sitting
+      // underneath it: measured once at 687, swallowed when the panel rose to 621.
+      if (window.ResizeObserver && document.querySelector('.wf-panel')) {
+        ro = new ResizeObserver(place);
+        ro.observe(document.querySelector('.wf-panel'));
+      }
       setTimeout(go, 14000);                                  // it says its piece and leaves
     }, 3800);
     addEventListener('scroll', go, { passive: true });
