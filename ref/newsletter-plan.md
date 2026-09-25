@@ -9,6 +9,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
+- 🏆 Webby Awards 2027 (31st), early entry Oct 30, $105 student / $255–$525 _(Ines asked for it in THIS edition, Sept 25)_
 - _Sept 25 trim: all CHI calls (jurors, workshops, meet-ups, Digital Experience Competition Dec 4) are ONE block; Voqal and Wiki Loves Monuments moved to 20._
 - 🌍 Earth Partner Prize 2026 — Oct 7 · 🎭 Goethe IKF Round 2 — Oct 12 · 🇹🇳 Wiki Loves Monuments Tunisia — Oct 1–31 · 🇹🇳 Kekere Storytellers Fund — rolling to Dec 31 _(accepted by Ines on the report page Sept 25; added before sending)_
 - 🏺 UNESCO IYF Silk Roads youth heritage forum (18-32, China Nov 15-20) — Sept 27 — unesco.org _(added the morning of Sept 25 at Ines's request)_
@@ -33,7 +34,6 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 ## Edition 20 (send Oct 9) — items
 - 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
 - 🇹🇳 Wiki Loves Monuments Tunisia — uploads Oct 1–31 _(moved from 19 on Sept 25 at Ines's request; Oct 9 still leaves three weeks of uploads)_
-- 🏆 Webby Awards 2027, 31st — early entry Oct 30; $105 student, $255–$525 — webbyawards.com _(Ines asked for it Sept 25; big-name paid award, fee shown in bold)_
 - 🎬 Le FIFA 2027 (Montreal; immersive and media art films; CAD 33–58 to Oct 19, 45–70 to Oct 26) — Oct 26 — lefifa.com/en/appel-a-soumissions _(accepted Sept 25)_
 - 🥽 One World 2027 VR Competition (Prague; €30, often waived) — Nov 1 — my.oneworld.cz/film-submission _(accepted Sept 25)_
 - 🕶 Meta VR Start Developer Competition ($1M; free; online) — Nov 18 — developers.meta.com _(accepted Sept 25)_

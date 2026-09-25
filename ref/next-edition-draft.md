@@ -169,14 +169,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
 👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
 
-### 🏆 The 31st Webby Awards, incl. Immersive and AI
-
-📅 Early entry deadline: October 30, 2026 (cheapest rate; later deadlines cost more)
-📍 Online entry
-👥 Anyone with work on the internet: sites, apps, video, social, podcasts, games, creators, AI and immersive
-✏️ Paid entry: Student $105, discounted categories $255, Creator single $395, General single $525. Immersive categories include Best Use of Augmented Reality, Best VR Headset Experience and Best Immersive Technology Innovation.
-👉 https://www.webbyawards.com/eligibility-and-guidelines/
-
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -199,5 +191,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | People in Need (One World) | linkedin.com/company/people-in-need |
 | Meta for Developers | linkedin.com/showcase/meta-for-developers (showcase page, not a company page) |
 | Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
-| The Webby Awards | linkedin.com/company/the-webby-awards |
 | Wikimedia Tunisie | no LinkedIn page found |

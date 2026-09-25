@@ -1,6 +1,6 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 19
 
-*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Added the morning of Sept 25, before sending: the UNESCO Silk Roads youth forum (Sept 27) and ReMix the Future (Sept 30), both verified at the source that morning; the sweep had wrongly held them for edition 20. Also added Sept 25 afternoon, after Ines accepted them on the report page: Earth Partner Prize, Goethe-Institut Coproduction Fund, Wiki Loves Monuments Tunisia, Kekere Storytellers Fund (each verified at the source Sept 25). Trimmed the same afternoon at Ines's request: the three CHI calls plus the CHI Digital Experience Competition are one block; Voqal (Oct 31) and Wiki Loves Monuments Tunisia (uploads to Oct 31) moved to edition 20. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Added the morning of Sept 25, before sending: the UNESCO Silk Roads youth forum (Sept 27) and ReMix the Future (Sept 30), both verified at the source that morning; the sweep had wrongly held them for edition 20. Also added Sept 25 afternoon, after Ines accepted them on the report page: Earth Partner Prize, Goethe-Institut Coproduction Fund, Wiki Loves Monuments Tunisia, Kekere Storytellers Fund (each verified at the source Sept 25). Trimmed the same afternoon at Ines's request: the three CHI calls plus the CHI Digital Experience Competition are one block; Voqal (Oct 31) and Wiki Loves Monuments Tunisia (uploads to Oct 31) moved to edition 20. Webby moved into this edition from 20 at Ines's request; highlights cut to her top 4; Earth Partner, Aesthetica and the Webby grouped under AWARDS. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
@@ -10,12 +10,10 @@ This one covers deadlines from Sept 27 to Oct 31, and two of them close this wee
 
 ## 🔥 HIGHLIGHTS
 
-- 🏺 UNESCO Silk Roads youth heritage forum, ages 18–32. Deadline Sept 27
-- 🕶 ReMix the Future spatial design jam at ASU, free. Deadline Sept 30
-- 🎤 ACM CHI 2027: judge workshops (Sept 28), propose a workshop or meet-up (Oct 1)
-- 🎤 iLRN 2027, immersive learning conference. Deadline Oct 4
+- 🎤 ACM CHI 2027: four free ways in, from Sept 28 to Dec 4
 - 🌍 Earth Partner Prize, climate art, up to $10,000, ages 14–30. Deadline Oct 7
 - 🏔 Djerassi residency 2027, one month, no cost. Deadline Oct 9
+- 🏆 Webby Awards, with immersive and AI categories. Early deadline Oct 30
 
 ───────────────────────────────────────
 
@@ -53,14 +51,6 @@ This one covers deadlines from Sept 27 to Oct 31, and two of them close this wee
 
 ## 🎨 IMMERSIVE ART & FILM
 
-### 🌍 Earth Partner Prize 2026
-
-📅 Deadline: October 7, 2026, 23:59 CEST
-📍 Online entry
-👥 Creatives aged 14 to 30, any nationality, any medium including new media, film and apps. Free
-✏️ Climate and environment prize. Eight finalists win $10,000, $5,000 or $2,000, and 20 more get honourable mentions. Enter with up to 10 images or videos and a written reflection.
-👉 https://earthpartner.com/earth-partner-prize/
-
 ### 🕹 Slamdance 2027: DIG (Digital Interactive Gallery)
 
 📅 Extended deadline: October 6, 2026, 11:59 pm PST ($90)
@@ -77,6 +67,26 @@ This one covers deadlines from Sept 27 to Oct 31, and two of them close this wee
 ✏️ No cost to artists. Five cohorts between February and November 2027; the June 22 – July 27 cohort is Leonardo@Djerassi, for art and science.
 👉 https://djerassi.org/apply/2027residency/
 
+### 🪐 Dome Fest West 2027
+
+📅 Regular deadline: October 16, 2026 · late December 4 · final January 8, 2027
+📍 Fiske Planetarium, Boulder, Colorado, April 21–25, 2027
+👥 Fulldome films, live dome experiences, interactive dome work completed after January 1, 2025
+✏️ The only festival just for fulldome and immersive cinema. Lineup announced February 9. Fees on FilmFreeway.
+👉 https://domefestwest.com/
+
+───────────────────────────────────────
+
+## 🏆 AWARDS
+
+### 🌍 Earth Partner Prize 2026
+
+📅 Deadline: October 7, 2026, 23:59 CEST
+📍 Online entry
+👥 Creatives aged 14 to 30, any nationality, any medium including new media, film and apps. Free
+✏️ Climate and environment prize. Eight finalists win $10,000, $5,000 or $2,000, and 20 more get honourable mentions. Enter with up to 10 images or videos and a written reflection.
+👉 https://earthpartner.com/earth-partner-prize/
+
 ### 🏆 Aesthetica Art Prize 2026
 
 📅 Deadline: October 11, 2026 (£25) · late entries until October 18 (£35)
@@ -85,13 +95,13 @@ This one covers deadlines from Sept 27 to Oct 31, and two of them close this wee
 ✏️ £10,000 Main Prize, £1,000 Emerging Prize. Two works per entry; work from the last three years, previously exhibited work accepted.
 👉 https://aestheticamagazine.com/artprize/submit/
 
-### 🪐 Dome Fest West 2027
+### 🏆 The 31st Webby Awards, incl. Immersive and AI
 
-📅 Regular deadline: October 16, 2026 · late December 4 · final January 8, 2027
-📍 Fiske Planetarium, Boulder, Colorado, April 21–25, 2027
-👥 Fulldome films, live dome experiences, interactive dome work completed after January 1, 2025
-✏️ The only festival just for fulldome and immersive cinema. Lineup announced February 9. Fees on FilmFreeway.
-👉 https://domefestwest.com/
+📅 Early entry deadline: October 30, 2026 (cheapest rate; later deadlines cost more)
+📍 Online entry
+👥 Anyone with work on the internet: sites, apps, video, social, podcasts, games, creators, AI and immersive
+✏️ Paid entry: Student $105, discounted categories $255, Creator single $395, General single $525. Immersive categories include Best Use of Augmented Reality, Best VR Headset Experience and Best Immersive Technology Innovation.
+👉 https://www.webbyawards.com/eligibility-and-guidelines/
 
 ───────────────────────────────────────
 
@@ -231,6 +241,9 @@ Festival for fulldome and immersive cinema at Fiske Planetarium, Boulder
 🟡 Oct 17: Technica 2026
 Free hackathon for underrepresented genders in tech, in Maryland or online, no coding experience needed
 
+🟢 Oct 30: The Webby Awards 2027 (early deadline)
+Immersive, AR, VR and AI categories. Paid entry, from $105 for students and $255 to $525 for everyone else
+
 🟢 Oct 31: One Young World Summit 2026 — Leading Scholarship
 Delegate pass to the Cape Town summit for ages 18 to 35, reviewed on a rolling basis
 
@@ -270,3 +283,4 @@ Full details + links to all opportunities are there 👇
 | Earth Partner (Art Partner) | linkedin.com/company/art-partner |
 | Goethe-Institut | linkedin.com/company/goethe-institut |
 | Africa No Filter | linkedin.com/company/africanofilter |
+| The Webby Awards | linkedin.com/company/the-webby-awards |
