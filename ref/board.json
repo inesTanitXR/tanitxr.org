@@ -2152,6 +2152,23 @@
    "deadline_type": null,
    "deadline_date": "January 8, 2027",
    "url": "https://filmfestival.gr/en/newsroom/news/29tidfcallforentries/"
+  },
+  {
+   "slug": "the-31st-webby-awards-2027-incl-immersive-and-ai-categories",
+   "title": "The 31st Webby Awards (2027), incl. Immersive and AI Categories",
+   "desc": "Internet awards across websites, apps, video, social, podcasts, games, creators, AI and immersive work, including Best Use of Augmented Reality, Best VR Headset Experience and Best Immersive Technology Innovation. Paid entry: at the October 30, 2026 early deadline, $105 for students, $255 for discounted categories, $395 for a creator single entry and $525 for a general single entry; later deadlines cost more.",
+   "type": "Award",
+   "eligibility": [
+    "XR Creators",
+    "Artists",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "October 30, 2026",
+   "url": "https://www.webbyawards.com/eligibility-and-guidelines/"
   }
  ]
 }

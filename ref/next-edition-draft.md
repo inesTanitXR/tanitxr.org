@@ -153,14 +153,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ $1M in prizes: 20 awards from $20,000 to $100,000, across Entertainment, Gaming and Productivity tracks. Brazil, Quebec and sanctioned regions are excluded.
 👉 https://developers.meta.com/blog/meta-connect-2026-vr-start-developer-competition/
 
-### 📱 ACM CHI 2027 Digital Experience Competition
-
-📅 Deadline: December 4, 2026, AoE
-📍 Build remotely; accepted teams demo in Pittsburgh, May 10–14, 2027
-👥 Open to all, students welcome. Free
-✏️ Build an open-source app or tool that improves the CHI 2027 attendee experience, with a prototype and a video of up to 5 minutes. Prize amounts and travel support not stated.
-👉 https://chi2027.acm.org/digital-experience-competition/
-
 ### 🎞 Thessaloniki Documentary Festival 2027, Immersive Competition
 
 📅 Deadline: January 8, 2027
@@ -168,6 +160,22 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 XR, AR and VR works from the last 24 months; world, international or European premiere. Free
 ✏️ International competition for immersive documentary work. Enter through the festival portal.
 👉 https://filmfestival.gr/en/newsroom/news/29tidfcallforentries/
+
+### 🏛 Wiki Loves Monuments 2026 in Tunisia
+
+📅 Upload window: October 1–31, 2026
+📍 Online; photos of any of Tunisia's 2,600+ listed historic and cultural sites
+👥 Open to all. Free
+✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
+👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
+
+### 🏆 The 31st Webby Awards, incl. Immersive and AI
+
+📅 Early entry deadline: October 30, 2026 (cheapest rate; later deadlines cost more)
+📍 Online entry
+👥 Anyone with work on the internet: sites, apps, video, social, podcasts, games, creators, AI and immersive
+✏️ Paid entry: Student $105, discounted categories $255, Creator single $395, General single $525. Immersive categories include Best Use of Augmented Reality, Best VR Headset Experience and Best Immersive Technology Innovation.
+👉 https://www.webbyawards.com/eligibility-and-guidelines/
 
 ## 🏷 Pages to tag
 
@@ -191,3 +199,5 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | People in Need (One World) | linkedin.com/company/people-in-need |
 | Meta for Developers | linkedin.com/showcase/meta-for-developers (showcase page, not a company page) |
 | Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
+| The Webby Awards | linkedin.com/company/the-webby-awards |
+| Wikimedia Tunisie | no LinkedIn page found |

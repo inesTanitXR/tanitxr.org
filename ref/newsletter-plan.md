@@ -9,6 +9,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
+- _Sept 25 trim: all CHI calls (jurors, workshops, meet-ups, Digital Experience Competition Dec 4) are ONE block; Voqal and Wiki Loves Monuments moved to 20._
 - 🌍 Earth Partner Prize 2026 — Oct 7 · 🎭 Goethe IKF Round 2 — Oct 12 · 🇹🇳 Wiki Loves Monuments Tunisia — Oct 1–31 · 🇹🇳 Kekere Storytellers Fund — rolling to Dec 31 _(accepted by Ines on the report page Sept 25; added before sending)_
 - 🏺 UNESCO IYF Silk Roads youth heritage forum (18-32, China Nov 15-20) — Sept 27 — unesco.org _(added the morning of Sept 25 at Ines's request)_
 - 🕶 ReMix the Future 2026, ASU MIX Center jam (free) — Sept 30 — tech.asu.edu/remixthefuture _(added the morning of Sept 25 at Ines's request)_
@@ -30,10 +31,12 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
+- 🇹🇳 Wiki Loves Monuments Tunisia — uploads Oct 1–31 _(moved from 19 on Sept 25 at Ines's request; Oct 9 still leaves three weeks of uploads)_
+- 🏆 Webby Awards 2027, 31st — early entry Oct 30; $105 student, $255–$525 — webbyawards.com _(Ines asked for it Sept 25; big-name paid award, fee shown in bold)_
 - 🎬 Le FIFA 2027 (Montreal; immersive and media art films; CAD 33–58 to Oct 19, 45–70 to Oct 26) — Oct 26 — lefifa.com/en/appel-a-soumissions _(accepted Sept 25)_
 - 🥽 One World 2027 VR Competition (Prague; €30, often waived) — Nov 1 — my.oneworld.cz/film-submission _(accepted Sept 25)_
 - 🕶 Meta VR Start Developer Competition ($1M; free; online) — Nov 18 — developers.meta.com _(accepted Sept 25)_
-- 📱 CHI 2027 Digital Experience Competition (free) — Dec 4 — chi2027.acm.org/digital-experience-competition _(accepted Sept 25)_
 - 🎞 Thessaloniki Doc Fest 2027 Immersive Competition (free) — Jan 8, 2027 — filmfestival.gr _(accepted Sept 25)_
 - 🧭 XR Guild Fall Mentorship (free, members; sign-up closes Sept 25) — on the board since Sept 24, from Ines's note; closes before any edition can carry it, kept only in the draft _(do not carry into 20)_
 - 💻 Immerse the Bay final deadline — Oct 16 (reminder) _(moved from 19 on Sept 23 to make room for Technica, whose registration could fill before Oct 9; Oct 9 still leaves a week)_
@@ -80,3 +83,4 @@ MIT designX (Boston accelerator; the main track has been MIT-affiliated only; co
 
 ## Rule from Ines, 2026-09-25
 An item is only 'too late' if it closes before the edition that would carry it goes out. Check against the NEXT send date (edition 19 went out Sept 25, so Sept 27 and Sept 30 deadlines belonged in it), not the one after. Small entry fees are fine; free items come first.
+- Fees (Ines, Sept 25, asking "where's the Webby Award?"): big-name awards go in even over $100, with the fee spelled out and listed after the free items. Everything else keeps the ~$100 guide. Same-organisation calls (e.g. several CHI 2027 tracks) go in ONE combined block.
