@@ -9,6 +9,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
+- 🌍 Earth Partner Prize 2026 — Oct 7 · 🎭 Goethe IKF Round 2 — Oct 12 · 🇹🇳 Wiki Loves Monuments Tunisia — Oct 1–31 · 🇹🇳 Kekere Storytellers Fund — rolling to Dec 31 _(accepted by Ines on the report page Sept 25; added before sending)_
 - 🏺 UNESCO IYF Silk Roads youth heritage forum (18-32, China Nov 15-20) — Sept 27 — unesco.org _(added the morning of Sept 25 at Ines's request)_
 - 🕶 ReMix the Future 2026, ASU MIX Center jam (free) — Sept 30 — tech.asu.edu/remixthefuture _(added the morning of Sept 25 at Ines's request)_
 - 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
@@ -29,6 +30,11 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 🎬 Le FIFA 2027 (Montreal; immersive and media art films; CAD 33–58 to Oct 19, 45–70 to Oct 26) — Oct 26 — lefifa.com/en/appel-a-soumissions _(accepted Sept 25)_
+- 🥽 One World 2027 VR Competition (Prague; €30, often waived) — Nov 1 — my.oneworld.cz/film-submission _(accepted Sept 25)_
+- 🕶 Meta VR Start Developer Competition ($1M; free; online) — Nov 18 — developers.meta.com _(accepted Sept 25)_
+- 📱 CHI 2027 Digital Experience Competition (free) — Dec 4 — chi2027.acm.org/digital-experience-competition _(accepted Sept 25)_
+- 🎞 Thessaloniki Doc Fest 2027 Immersive Competition (free) — Jan 8, 2027 — filmfestival.gr _(accepted Sept 25)_
 - 🧭 XR Guild Fall Mentorship (free, members; sign-up closes Sept 25) — on the board since Sept 24, from Ines's note; closes before any edition can carry it, kept only in the draft _(do not carry into 20)_
 - 💻 Immerse the Bay final deadline — Oct 16 (reminder) _(moved from 19 on Sept 23 to make room for Technica, whose registration could fill before Oct 9; Oct 9 still leaves a week)_
 - 🎨 Art Explora x Cité internationale des arts Residency 2027 (Paris, EUR 1,000/month + EUR 3,000 production + travel; 5+ yrs practice; free) — Oct 30 — artexplora.org _(added by the Sept 25 sweep, from Ines's Instagram share)_

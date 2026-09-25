@@ -1,6 +1,6 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 19
 
-*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Added the morning of Sept 25, before sending: the UNESCO Silk Roads youth forum (Sept 27) and ReMix the Future (Sept 30), both verified at the source that morning; the sweep had wrongly held them for edition 20. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Added the morning of Sept 25, before sending: the UNESCO Silk Roads youth forum (Sept 27) and ReMix the Future (Sept 30), both verified at the source that morning; the sweep had wrongly held them for edition 20. Also added Sept 25 afternoon, after Ines accepted them on the report page: Earth Partner Prize, Goethe-Institut Coproduction Fund, Wiki Loves Monuments Tunisia, Kekere Storytellers Fund (each verified at the source Sept 25). Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
@@ -15,8 +15,10 @@ This one covers deadlines from Sept 27 to Oct 31, starting with two that close t
 - 🎤 ACM CHI 2027 workshops: judge one (Sept 28) or propose one (Oct 1)
 - 🎤 ACM CHI 2027 meet-ups. Deadline Oct 1
 - 🎤 iLRN 2027, immersive learning conference. Deadline Oct 4
+- 🌍 Earth Partner Prize, climate art, up to $10,000, ages 14–30. Deadline Oct 7
 - 🏔 Djerassi residency 2027, one month, no cost. Deadline Oct 9
 - 💸 Voqal Partners Fellowship, $30,000 unrestricted. Deadline Oct 31
+- 🇹🇳 Wiki Loves Monuments Tunisia, heritage photo contest. Uploads Oct 1–31
 
 ───────────────────────────────────────
 
@@ -50,9 +52,25 @@ This one covers deadlines from Sept 27 to Oct 31, starting with two that close t
 ✏️ $30,000 unrestricted, plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas. Free to apply.
 👉 https://voqalpartners.org/fellowship/
 
+### 🎭 Goethe-Institut International Coproduction Fund, Round 2
+
+📅 Deadline: October 12, 2026, 23:59 CET
+📍 A coproduction with a partner in Germany, running January–December 2027
+👥 Organisations based outside Germany. Contact your local Goethe-Institut before applying. Free
+✏️ EUR 15,000 to 30,000, up to 75% of production costs, for new music, theatre, dance or performance work. Digital and hybrid projects qualify.
+👉 https://www.goethe.de/en/kul/foe/int.html
+
 ───────────────────────────────────────
 
 ## 🎨 IMMERSIVE ART & FILM
+
+### 🌍 Earth Partner Prize 2026
+
+📅 Deadline: October 7, 2026, 23:59 CEST
+📍 Online entry
+👥 Creatives aged 14 to 30, any nationality, any medium including new media, film and apps. Free
+✏️ Climate and environment prize. Eight finalists win $10,000, $5,000 or $2,000, and 20 more get honourable mentions. Enter with up to 10 images or videos and a written reflection.
+👉 https://earthpartner.com/earth-partner-prize/
 
 ### 🕹 Slamdance 2027: DIG (Digital Interactive Gallery)
 
@@ -154,6 +172,22 @@ This one covers deadlines from Sept 27 to Oct 31, starting with two that close t
 ✏️ Residencies at the Cité internationale des arts for research and creative projects. Apply on the Institut français eMundus platform.
 👉 https://ifprog.emundus.fr/
 
+### 🏛 Wiki Loves Monuments 2026 in Tunisia
+
+📅 Upload window: October 1–31, 2026
+📍 Online; photos of any of Tunisia's 2,600+ listed historic and cultural sites
+👥 Open to all. Free
+✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
+👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
+
+### ✍️ Africa No Filter, Kekere Storytellers Fund
+
+📅 Open until December 31, 2026, or until 12–14 storytellers are chosen, so apply early
+📍 Remote
+👥 African storytellers under 35, in Africa or the diaspora, with two years of experience and 5,000+ followers. English or French. Free
+✏️ Grants of $500 to $3,000 for projects that challenge stereotypes about Africa. You join the African Narrative Collective to apply. Film projects and equipment are not funded.
+👉 https://africanofilter.org/what-we-do/community/kekere-storytellers-fund/
+
 ───────────────────────────────────────
 
 ## ⏰ STILL OPEN FROM PAST EDITIONS
@@ -212,11 +246,17 @@ VR/AR, interactive documentaries, games, performance and installations, Los Ange
 🟠 Oct 6: Women Who Code Summit 2026
 Free Virtual Pass for the New York summit, and speaker applications still open
 
+🟠 Oct 7: Earth Partner Prize 2026
+Free climate-art prize for ages 14 to 30, any medium, $10,000 / $5,000 / $2,000
+
 🟠 Oct 9: Djerassi Resident Artists Program 2027
 One-month residency in California at no cost to artists, media arts included, with an art + science cohort
 
 🟡 Oct 11: Aesthetica Art Prize 2026
 £10,000 main prize, any discipline, plus a £1,000 prize for students and recent graduates
+
+🟡 Oct 12: Goethe-Institut International Coproduction Fund
+EUR 15,000 to 30,000 for performance coproductions with a partner in Germany, digital projects included
 
 🟡 Oct 16: Dome Fest West 2027
 Festival for fulldome and immersive cinema at Fiske Planetarium, Boulder
@@ -234,6 +274,12 @@ Delegate pass to the Cape Town summit for ages 18 to 35, reviewed on a rolling b
 
 🗼 Oct 8: Institut français x Cité internationale des arts
 Paris residencies in 2027-2028 for artists living outside France
+
+🏛 Oct 1–31: Wiki Loves Monuments Tunisia
+Free photo contest documenting Tunisia's historic sites, prizes in TND and a route to the international round
+
+✍️ Rolling: Africa No Filter Kekere Storytellers Fund
+$500 to $3,000 for African storytellers under 35, apply early
 
 🔗 The link to the opportunities page is in the comments.
 
@@ -261,3 +307,7 @@ Full details + links to all opportunities are there 👇
 | Cité internationale des arts | linkedin.com/company/cite-internationale-des-arts |
 | ASU MIX Center | linkedin.com/company/asu-mix-center |
 | UNESCO | linkedin.com/company/unesco |
+| Earth Partner (Art Partner) | linkedin.com/company/art-partner |
+| Goethe-Institut | linkedin.com/company/goethe-institut |
+| Wikimedia Tunisie | no LinkedIn page found |
+| Africa No Filter | linkedin.com/company/africanofilter |

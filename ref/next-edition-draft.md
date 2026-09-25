@@ -129,6 +129,46 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Bring an XR app or experience, a meetup, or a jobs and skills session to the conference. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit.
 👉 https://unitedxr.eu/activations
 
+### 🎬 Le FIFA 2027, Festival of Films on Art
+
+📅 Deadline: October 26, 2026 (regular rate until October 19)
+📍 Montreal, March 11–21, 2027. The work travels, you don't have to
+👥 Artists and filmmakers. CAD 33–58, or CAD 45–70 from Oct 20
+✏️ Takes interactive and immersive works, media art and art documentaries, including art and science, tech art and archaeology. Must not have screened in Montreal before.
+👉 https://lefifa.com/en/appel-a-soumissions
+
+### 🥽 One World 2027, Human Rights Documentary Festival: VR Competition
+
+📅 Deadline: November 1, 2026
+📍 Prague, March 10–18, 2027
+👥 VR, interactive and 360° projects finished 2025–2027, in English or subtitled. EUR 30 for docs, waived for many countries; VR fee not stated
+✏️ Human rights documentary festival with a Virtual Reality Competition Award. Results by mid-February 2027.
+👉 https://my.oneworld.cz/film-submission/
+
+### 🕶 Meta VR Start Developer Competition 2026
+
+📅 Deadline: November 18, 2026, 12:00 pm PT
+📍 Online
+👥 XR developers 18+ in the free Meta VR Start Program. Free
+✏️ $1M in prizes: 20 awards from $20,000 to $100,000, across Entertainment, Gaming and Productivity tracks. Brazil, Quebec and sanctioned regions are excluded.
+👉 https://developers.meta.com/blog/meta-connect-2026-vr-start-developer-competition/
+
+### 📱 ACM CHI 2027 Digital Experience Competition
+
+📅 Deadline: December 4, 2026, AoE
+📍 Build remotely; accepted teams demo in Pittsburgh, May 10–14, 2027
+👥 Open to all, students welcome. Free
+✏️ Build an open-source app or tool that improves the CHI 2027 attendee experience, with a prototype and a video of up to 5 minutes. Prize amounts and travel support not stated.
+👉 https://chi2027.acm.org/digital-experience-competition/
+
+### 🎞 Thessaloniki Documentary Festival 2027, Immersive Competition
+
+📅 Deadline: January 8, 2027
+📍 Thessaloniki, Greece, March 4–14, 2027
+👥 XR, AR and VR works from the last 24 months; world, international or European premiere. Free
+✏️ International competition for immersive documentary work. Enter through the festival portal.
+👉 https://filmfestival.gr/en/newsroom/news/29tidfcallforentries/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -147,3 +187,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Art Explora | linkedin.com/company/art-explora |
 | CURRENTS New Media | linkedin.com/company/currents-new-media |
 | UnitedXR Europe | linkedin.com/company/unitedxr |
+| Le FIFA (International Festival of Films on Art) | linkedin.com/company/festival-international-du-film-sur-l'art |
+| People in Need (One World) | linkedin.com/company/people-in-need |
+| Meta for Developers | linkedin.com/showcase/meta-for-developers (showcase page, not a company page) |
+| Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
