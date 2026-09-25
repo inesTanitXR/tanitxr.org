@@ -1,20 +1,42 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 19
 
-*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Highlights carry no links; each highlight repeats as a full block below.*
+*Post: Fri Sept 25, 2026. Every deadline below re-checked at the source Sept 24. Dropped at assembly: the Habibi Tech volunteer call (the summit is Sept 25-26, so it is over by the time this lands), A MAZE. Berlin 2027 and Tribeca 2027 (neither has published its 2027 call yet; they move to the watch list). Culture Resource Production Awards cut to a one-line reminder (it was a full block in edition 18). The XR Guild mentorship sign-up from Ines's note closes Sept 25, the send day, so it is on the board but not in this edition. Added the morning of Sept 25, before sending: the UNESCO Silk Roads youth forum (Sept 27) and ReMix the Future (Sept 30), both verified at the source that morning; the sweep had wrongly held them for edition 20. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
 Hi everyone 👋
 
-This one covers deadlines from Sept 28 to Oct 31: residencies, festival calls for XR and dome work, and four ways to get on the program at a conference. As always, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
+This one covers deadlines from Sept 27 to Oct 31, starting with two that close this week: residencies, festival calls for XR and dome work, and four ways to get on the program at a conference. As always, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
 
 ## 🔥 HIGHLIGHTS
 
+- 🏺 UNESCO Silk Roads youth heritage forum, ages 18–32. Deadline Sept 27
+- 🕶 ReMix the Future spatial design jam at ASU, free. Deadline Sept 30
 - 🎤 ACM CHI 2027 workshops: judge one (Sept 28) or propose one (Oct 1)
 - 🎤 ACM CHI 2027 meet-ups. Deadline Oct 1
 - 🎤 iLRN 2027, immersive learning conference. Deadline Oct 4
 - 🏔 Djerassi residency 2027, one month, no cost. Deadline Oct 9
 - 💸 Voqal Partners Fellowship, $30,000 unrestricted. Deadline Oct 31
+
+───────────────────────────────────────
+
+## ⏳ CLOSING THIS WEEK
+
+### 🏺 UNESCO International Youth Forum on Creativity and Heritage along the Silk Roads
+
+📅 Deadline: September 27, 2026, 23:59 Beijing time (11:59 am ET)
+📍 Changsha and Nanjing, China, November 15–20, 2026
+👥 Ages 18–32: storytellers, filmmakers, heritage practitioners
+✏️ Theme: youth-led creative heritage expression in the age of AI. Apply with a form and a video portfolio. The call does not say which costs are covered, so ask before you plan travel.
+👉 https://www.unesco.org/en/articles/call-applications-2026-international-youth-forum-creativity-and-heritage-along-silk-roads
+
+### 🕶 ReMix the Future 2026: Play Attention!
+
+📅 Deadline: September 30, 2026 (invitations go out on a rolling basis, so apply early)
+📍 ASU MIX Center, Mesa, Arizona, October 15–18, 2026
+👥 Artists, designers and technologists 18+, local or from anywhere. Free to apply; travel is yours
+✏️ Four-day spatial design jam in a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage. Immersive Experience, Interactive Installation and XR Design tracks; prize pool valued at $3,000.
+👉 https://tech.asu.edu/remixthefuture
 
 ───────────────────────────────────────
 
@@ -166,8 +188,14 @@ _Format: ref/linkedin-post-format.md. Colours by days left from the Sept 25 send
 
 Edition 19 is out: residencies, festival calls for XR and dome work, and four ways to get on the program at a conference.
 
+🔴 Sept 27: UNESCO Youth Forum on Creativity and Heritage along the Silk Roads
+Ages 18 to 32. Heritage storytelling with AI, in Changsha and Nanjing, China, Nov 15–20. Apply with a video portfolio
+
 🔴 Sept 28: ACM CHI 2027 — Workshop Jurors
 Free. Email your CV and a 150-word statement to help judge the CHI workshops, about 8 hours of reviewing in Oct and Nov
+
+🔴 Sept 30: ReMix the Future 2026 — ASU MIX Center
+Free 4-day spatial design jam in a 360° immersion studio, Mesa, Arizona, Oct 15–18. $3,000 prize pool
 
 🔴 Oct 1: ACM CHI 2027 — Workshop Proposals
 Free. Propose your own workshop at CHI in Pittsburgh, May 2027: up to six pages
@@ -231,3 +259,5 @@ Full details + links to all opportunities are there 👇
 | Technica | linkedin.com/company/gotechnica |
 | Institut français | linkedin.com/company/ifparis |
 | Cité internationale des arts | linkedin.com/company/cite-internationale-des-arts |
+| ASU MIX Center | linkedin.com/company/asu-mix-center |
+| UNESCO | linkedin.com/company/unesco |

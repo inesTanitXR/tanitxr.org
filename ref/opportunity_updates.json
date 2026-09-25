@@ -1111,6 +1111,39 @@
    "url": "https://unitedxr.eu/activations",
    "desc": "UnitedXR Europe (Brussels, December 7 to 9, 2026) is taking proposals for XR apps and experiences, community meetups, jobs and skills programmes and side events. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit, reviewed as received, answers by November 20.",
    "published": "2026-09-25"
+  },
+  {
+   "title": "ReMix the Future 2026: Play Attention! (ASU MIX Center Spatial Design Jam)",
+   "type": "Challenge",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "XR Creators",
+    "Artists",
+    "Students",
+    "Open to all"
+   ],
+   "deadline_date": "2026-09-30",
+   "deadline_type": null,
+   "url": "https://tech.asu.edu/remixthefuture",
+   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until applications close September 30, and travel is your own.",
+   "published": "2026-09-25"
+  },
+  {
+   "title": "International Youth Forum 2026 on Creativity and Heritage along the Silk Roads (UNESCO)",
+   "type": "Program",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Youth",
+    "Artists",
+    "Open to all"
+   ],
+   "deadline_date": "2026-09-27",
+   "deadline_type": null,
+   "url": "https://www.unesco.org/en/articles/call-applications-2026-international-youth-forum-creativity-and-heritage-along-silk-roads",
+   "desc": "UNESCO forum for storytellers, filmmakers and heritage practitioners aged 18 to 32, in Changsha and Nanjing, China, November 15 to 20, 2026, on the theme Youth-led Creative Heritage Expression in the Age of AI. Apply with a form and a video portfolio by September 27, 2026, 23:59 Beijing time (11:59 am ET). The call does not say which costs are covered, so check before committing to travel.",
+   "published": "2026-09-25"
   }
  ],
  "featured": {

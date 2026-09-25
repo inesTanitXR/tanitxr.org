@@ -9,6 +9,8 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
+- 🏺 UNESCO IYF Silk Roads youth heritage forum (18-32, China Nov 15-20) — Sept 27 — unesco.org _(added the morning of Sept 25 at Ines's request)_
+- 🕶 ReMix the Future 2026, ASU MIX Center jam (free) — Sept 30 — tech.asu.edu/remixthefuture _(added the morning of Sept 25 at Ines's request)_
 - 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
 - 🎤 ACM CHI 2027 Workshops — juror applications Sept 28, workshop proposals Oct 1 (free both ways; Pittsburgh May 10-14, 2027) — chi2027.acm.org/authors/workshops _(added by the Sept 22 sweep: both calls had been listed in Ines's note as live on the website since Sept 20 but were never actually on the board. Verified at the source Sept 22 and published. Combined into ONE block with the two deadlines so the edition does not carry three separate CHI items.)_
 - 🎤 iLRN 2027 Academic Stream (full/short papers, 4-7pp extended abstract for a poster; Daegu, Korea + online; no submission fee) — Oct 4 — immersivelrn.org/ilrn2027/call-for-proposals (added by the Sept 21 sweep, from Ines's note)
@@ -69,3 +71,6 @@ _Checked 2026-09-21: no new cycle open that passes the filter. Games for Change 
 _Checked 2026-09-16: no new cycle open yet. MIT Reality Hack 2027 (moving to AWE USA, May/June 2027) has no application date announced; Unity for Humanity 2027 not yet open (2026 round ran Jan 7 to Feb 20, 2026); US Embassy Tunis AFCP has published no 2027 call (most recent was the Freedom 250 special edition, closed March 31, 2026); Prince Claus Seed Awards 2027 not yet announced (2026 closed January 8, 2026). Nothing added to the board from the watch list this week._
 
 A MAZE. Berlin 2027 curation call (festival May 5-8, 2027; no official call found Sept 24) · Tribeca 2027 (only 2026 deadlines on tribecafilm.com Sept 24) · AFAC 2027 (Feb–Apr) 🇹🇳 · Prince Claus Seed Awards 🇹🇳 · Venice Immersive & Cannes Immersive (Jan–Feb) · Prix Ars Electronica (Jan) · Lumen Prize (late Jan) · SIGGRAPH 2027 Immersive Pavilion (Jan) · Games for Change Festival & Awards 2027 (Dec) · MIT Reality Hack 2027 · Echoing Green 2027 · Anna Lindh Foundation 🇹🇳 · US Embassy Tunis AFCP 2027 🇹🇳 · Europa Nostra 2028 (June) · Kamel Lazaar Foundation 🇹🇳 · Creative Capital 2028 · Sundance funds (early 2027) · Unity for Humanity 2027 · Epic MegaGrants 2027.
+
+## Rule from Ines, 2026-09-25
+An item is only 'too late' if it closes before the edition that would carry it goes out. Check against the NEXT send date (edition 19 went out Sept 25, so Sept 27 and Sept 30 deadlines belonged in it), not the one after. Small entry fees are fine; free items come first.

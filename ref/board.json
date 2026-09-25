@@ -1974,6 +1974,41 @@
    "deadline_type": null,
    "deadline_date": "November 12, 2026",
    "url": "https://unitedxr.eu/activations"
+  },
+  {
+   "slug": "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
+   "title": "ReMix the Future 2026: Play Attention! (ASU MIX Center Spatial Design Jam)",
+   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until applications close September 30, and travel is your own.",
+   "type": "Challenge",
+   "eligibility": [
+    "XR Creators",
+    "Artists",
+    "Students",
+    "Open to all"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 30, 2026",
+   "url": "https://tech.asu.edu/remixthefuture"
+  },
+  {
+   "slug": "international-youth-forum-2026-on-creativity-and-heritage-al",
+   "title": "International Youth Forum 2026 on Creativity and Heritage along the Silk Roads (UNESCO)",
+   "desc": "UNESCO forum for storytellers, filmmakers and heritage practitioners aged 18 to 32, in Changsha and Nanjing, China, November 15 to 20, 2026, on the theme Youth-led Creative Heritage Expression in the Age of AI. Apply with a form and a video portfolio by September 27, 2026, 23:59 Beijing time (11:59 am ET). The call does not say which costs are covered, so check before committing to travel.",
+   "type": "Program",
+   "eligibility": [
+    "Youth",
+    "Artists",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "September 27, 2026",
+   "url": "https://www.unesco.org/en/articles/call-applications-2026-international-youth-forum-creativity-and-heritage-along-silk-roads"
   }
  ]
 }
