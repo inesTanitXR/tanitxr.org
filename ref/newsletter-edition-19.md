@@ -203,61 +203,26 @@ _Format: ref/linkedin-post-format.md. Colours by days left from the Sept 25 send
 
 🎯 Opportunities for XR creators, artists & impact makers
 
-Edition 19 is out: residencies, festival calls for XR and dome work, a climate-art prize, and ways to get on the program at CHI.
+Edition 19 is out: 16 open calls, and three of them close within a week.
 
-🔴 Sept 27: UNESCO Youth Forum on Creativity and Heritage along the Silk Roads
-Ages 18 to 32. Heritage storytelling with AI, in Changsha and Nanjing, China, Nov 15–20. Apply with a video portfolio
+A few from this one:
 
-🔴 Sept 28 / Oct 1: ACM CHI 2027 — Jurors, Workshops, Meet-ups
-Free. Judge the workshops (Sept 28), or propose a workshop or an informal meet-up (Oct 1) for CHI in Pittsburgh, May 2027. There's also an app-building competition until Dec 4
+🔴 Sept 27: UNESCO Youth Forum on Heritage along the Silk Roads
+Heritage storytelling for ages 18 to 32, in China in November
 
-🔴 Sept 30: ReMix the Future 2026 — ASU MIX Center
-Free 4-day spatial design jam in a 360° immersion studio, Mesa, Arizona, Oct 15–18. $3,000 prize pool
+🔴 Sept 28 / Oct 1: ACM CHI 2027
+Four free ways to get on the CHI program, no academic affiliation needed
 
-🟠 Oct 4: iLRN 2027 — Immersive Learning Research Network
-Papers and posters on XR + AI in learning, online and in Daegu, Korea. No submission fee
+🟠 Oct 7: Earth Partner Prize
+Free climate-art prize, up to $10,000, ages 14 to 30
 
-🟠 Oct 6: Slamdance 2027 — DIG (Digital Interactive Gallery)
-VR/AR, interactive documentaries, games, performance and installations, Los Angeles, Feb 2027
+🟠 Oct 9: Djerassi Resident Artists Program
+One month in California at no cost to artists, with an art + science cohort
 
-🟠 Oct 6: Women Who Code Summit 2026
-Free Virtual Pass for the New York summit, and speaker applications still open
+🟢 Oct 30: The Webby Awards
+Now with immersive, AR, VR and AI categories
 
-🟠 Oct 7: Earth Partner Prize 2026
-Free climate-art prize for ages 14 to 30, any medium, $10,000 / $5,000 / $2,000
-
-🟠 Oct 9: Djerassi Resident Artists Program 2027
-One-month residency in California at no cost to artists, media arts included, with an art + science cohort
-
-🟡 Oct 11: Aesthetica Art Prize 2026
-£10,000 main prize, any discipline, plus a £1,000 prize for students and recent graduates
-
-🟡 Oct 12: Goethe-Institut International Coproduction Fund
-EUR 15,000 to 30,000 for performance coproductions with a partner in Germany, digital projects included
-
-🟡 Oct 16: Dome Fest West 2027
-Festival for fulldome and immersive cinema at Fiske Planetarium, Boulder
-
-🟡 Oct 17: Technica 2026
-Free hackathon for underrepresented genders in tech, in Maryland or online, no coding experience needed
-
-🟢 Oct 30: The Webby Awards 2027 (early deadline)
-Immersive, AR, VR and AI categories. Paid entry, from $105 for students and $255 to $525 for everyone else
-
-🟢 Oct 31: One Young World Summit 2026 — Leading Scholarship
-Delegate pass to the Cape Town summit for ages 18 to 35, reviewed on a rolling basis
-
-🇹🇳 For Tunisians & North Africans
-
-🗼 Oct 8: Institut français x Cité internationale des arts
-Paris residencies in 2027-2028 for artists living outside France
-
-✍️ Rolling: Africa No Filter Kekere Storytellers Fund
-$500 to $3,000 for African storytellers under 35, apply early
-
-🔗 The link to the opportunities page is in the comments.
-
-Full details + links to all opportunities are there 👇
+The other 11 are in the newsletter: a Paris residency, a fulldome festival, hackathons, a VR gallery at Slamdance, and a section for Tunisians and North Africans. Deadlines and links for all of them 👇
 
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 

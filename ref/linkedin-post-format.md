@@ -4,8 +4,10 @@ Ines's own format, taken from her edition 18 post (Sept 18, 2026). Every edition
 
 ## Rules
 
+- **SHORT TEASER (Ines, 2026-09-25): "this needs to be simplified and shorter, they need a reason to open the newsletter and read it."** At most 5 picks (her highlights plus the most urgent), then ONE line naming what else is inside and how many, pointing to the newsletter for deadlines and links. Never list every item. This overrides the one-entry-per-opportunity rule below.
+
 - Opens with `🎯 Opportunities for XR creators, artists & impact makers`, then one or two short lines of news (what this edition covers, or an announcement she has actually made).
-- One entry per opportunity: `<colour> <Short date>: <Organizer / title>` on the first line, then ONE plain line saying what it is (money, who, where). No links in the post.
+- Format of each pick: `<colour> <Short date>: <Organizer / title>` on the first line, then ONE plain line saying what it is (money, who, where). No links in the post.
 - Colour = days left from the send date: 🔴 within a week · 🟠 8 to 14 days · 🟡 15 to 21 days · 🟢 later. Sort by date inside each colour, colours in that order.
 - Dates short: "Sept 28", "Oct 1", "Tonight, Sept 18".
 - No @ signs in the text. Write the org name the way it is tagged, and keep the verified "## 🏷 Pages to tag" table under the post so she can tag while typing.
