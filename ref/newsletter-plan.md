@@ -6,7 +6,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
 | **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
-| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 21 blocks, trim or split when assembling |
+| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
 - 🎤 ACM CHI 2027 Call for Meet-ups (informal participant-driven sessions; free to submit; organizer must attend Pittsburgh May 10-14, 2027) — Oct 1 — chi2027.acm.org/authors/meet-ups 👤 (added by the Sept 20 sweep, from Ines's Instagram link)
@@ -29,17 +29,19 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 ## Edition 20 (send Oct 9) — items
 - 🧭 XR Guild Fall Mentorship (free, members; sign-up closes Sept 25) — on the board since Sept 24, from Ines's note; closes before any edition can carry it, kept only in the draft _(do not carry into 20)_
 - 💻 Immerse the Bay final deadline — Oct 16 (reminder) _(moved from 19 on Sept 23 to make room for Technica, whose registration could fill before Oct 9; Oct 9 still leaves a week)_
+- 🎨 Art Explora x Cité internationale des arts Residency 2027 (Paris, EUR 1,000/month + EUR 3,000 production + travel; 5+ yrs practice; free) — Oct 30 — artexplora.org _(added by the Sept 25 sweep, from Ines's Instagram share)_
 - 🏛 AIA Site Preservation Grant (up to $15,000) — Nov 1 — archaeological.org/grant/site-preservation ★ Tanit _(moved from 19 on Sept 20: edition 19 was overflowing at 16 blocks; Oct 9 still leaves 3 weeks)_
 - 🌍 MIT Solve 2027 Global Learning Challenge — Nov 2 — solve.mit.edu/challenges/2027-global-learning-challenge ★ Tanit _(moved from 19 on Sept 20)_
 - 🎬 CPH:DOX 2027 INTER:ACTIVE (VR/AR/installations; fee waived for Tunisia) — Nov 3 — cphdox.dk/rules-and-regulations _(moved from 19 on Sept 20)_
 - 🎮 Games for Change Student Challenge 2026-2027 (ages 10-25 + educators; free; SDG game design) — no deadline published yet — learn.gamesforchange.org/student-challenge (added by the Sept 20 sweep)
 - 📝 NatGeo "The Human Thread" RFP (opens Oct 1, closes Dec 1) — funding.nationalgeographic.org _(moved from 19 on Sept 20: the RFP is not live until Oct 1, so it lands better in an Oct 9 edition, and it made room for the CHI meet-ups deadline)_
 - 🎨 EMAP European Media Art Platform residencies (€4k + €4k + travel; Tunisia-resident artists eligible via Creative Europe — verify list) — Nov 6 — call.emare.eu 🇹🇳
+- 🕶 UnitedXR Europe 2026 Call for Activations (Brussels Dec 7-9; free passes + space for XR apps, meetups, side events; free) — Nov 12 — unitedxr.eu/activations _(added by the Sept 25 sweep, from Ines's Instagram share)_
 - 🚀 NASA Space Apps Challenge 2026 (free; local events incl. Tunisia + remote; registration open) — hackathon Nov 14-15 — spaceappschallenge.org _(named in edition 18's "still open" list but never given a block or a board entry; both added by the Sept 21 board check)_
 - 🏛 Awesome Foundation Conservation & Climate — Nov 27 (reminder)
 - 🔬 IEEE VR 2027 Posters (Dec 2/7), Research Demos (Dec 7), 3DUI Contest (Dec 11/16) — free — ieeevr.org/2027/contribute
 - 🎬 Raindance 2027 Immersive (VR games, social-VR worlds) — Dec 7 early → Mar 8 — raindance.org/festival/submit/films
-- 🎨 CURRENTS 2027 (Santa Fe art-tech) — Dec 8 — currentsnewmedia.org
+- 🎨 CURRENTS 2027 (Santa Fe art-tech; VR/AR/MR category; $30, $25 each extra, hardship waivers) — Dec 8 — currentsnewmedia.org/submission-guidelines-2027 _(verified and put on the board by the Sept 25 sweep, from Ines's Instagram share)_
 - 🎨 NewImages 2027 — XR Competition, FREE Virtual Worlds track, Dev Market, Immersive Art Fair — Dec 10 / 22 — newimages.art/calls-for-projects
 - 🎨 Bogliasco Fellowship Fall 2027 (Italy, one month, board) — Dec 1 — $30 — bfny.org/en/apply
 - 🎓 CURE Fellowships (PhD holders) — Nov 30 — skip unless readers ask (too academic)

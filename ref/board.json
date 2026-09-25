@@ -1926,6 +1926,54 @@
    "deadline_type": null,
    "deadline_date": "October 31, 2026",
    "url": "https://www.oneyoungworld.com/scholarship/leading-scholarship-2026"
+  },
+  {
+   "slug": "art-explora-x-cite-internationale-des-arts-residency-2027",
+   "title": "Art Explora x Cité internationale des arts Residency 2027",
+   "desc": "Three- or six-month residencies in Paris (solo) or three months (collectives) in 2027, with a furnished studio apartment, EUR 1,000 a month, a EUR 3,000 production grant and a round trip to Paris. Open to artists of any nationality in visual, performing and digital arts with at least five years of professional practice and an international exhibition record; art and science and ecological issues are priority themes. Free to apply.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 30, 2026",
+   "url": "https://www.artexplora.org/en/the-artists-residencies-programme-presentation"
+  },
+  {
+   "slug": "currents-2027-art-technology-festival-open-call",
+   "title": "CURRENTS 2027 Art & Technology Festival, Open Call",
+   "desc": "Open call for the new media festival in Santa Fe, New Mexico, June 11 to 20, 2027, including a category for virtual, augmented and mixed reality environments alongside installations, audio, robotics, performance and video. International artists can submit, though international shipping may not be covered. Fee $30 for one entry, $25 each for more; hardship fee waivers on request.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "December 8, 2026",
+   "url": "https://currentsnewmedia.org/submission-guidelines-2027/"
+  },
+  {
+   "slug": "unitedxr-europe-2026-call-for-activations",
+   "title": "UnitedXR Europe 2026, Call for Activations",
+   "desc": "UnitedXR Europe (Brussels, December 7 to 9, 2026) is taking proposals for XR apps and experiences, community meetups, jobs and skills programmes and side events. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit, reviewed as received, answers by November 20.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Open to all"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "November 12, 2026",
+   "url": "https://unitedxr.eu/activations"
   }
  ]
 }

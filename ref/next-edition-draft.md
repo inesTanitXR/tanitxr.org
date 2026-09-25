@@ -105,6 +105,30 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Free mentorship matching people building in XR and AI with people earlier on the path. Five mentee spots were left on Sept 24. On the board; closes on edition 19's send day, so it is not carried into an edition.
 👉 https://forms.gle/2YXMz2uFKpXnSVe8A
 
+### 🎨 Art Explora x Cité internationale des arts Residency 2027
+
+📅 Deadline: October 30, 2026
+📍 In person, Paris: 3 or 6 months solo, 3 months for collectives, in 2027
+👥 Artists of any nationality in visual, performing or digital arts, 5+ years of professional practice and an international exhibition record
+✏️ Furnished studio apartment, EUR 1,000 a month, a EUR 3,000 production grant and a round trip to Paris. Priority themes include art and science and ecology. Free to apply.
+👉 https://www.artexplora.org/en/the-artists-residencies-programme-presentation
+
+### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
+
+📅 Deadline: December 8, 2026, 11:59 pm MST
+📍 In person, Santa Fe, New Mexico, June 11–20, 2027
+👥 Artists worldwide; international shipping may not be covered
+✏️ New media festival with a category for VR, AR and mixed reality environments, plus installations, audio, robotics, performance and video. $30 for one entry, $25 each for more; hardship waivers on request.
+👉 https://currentsnewmedia.org/submission-guidelines-2027/
+
+### 🕶 UnitedXR Europe 2026, Call for Activations
+
+📅 Deadline: November 12, 2026 (reviewed as received, answers by November 20)
+📍 In person, Brussels, December 7–9, 2026
+👥 XR developers, community organizers, anyone with an activation idea
+✏️ Bring an XR app or experience, a meetup, or a jobs and skills session to the conference. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit.
+👉 https://unitedxr.eu/activations
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -120,3 +144,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
 | Technica | linkedin.com/company/gotechnica |
 | XR Guild | linkedin.com/company/xr-guild |
+| Art Explora | linkedin.com/company/art-explora |
+| CURRENTS New Media | linkedin.com/company/currents-new-media |
+| UnitedXR Europe | linkedin.com/company/unitedxr |
