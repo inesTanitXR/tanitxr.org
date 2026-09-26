@@ -1264,60 +1264,6 @@ function start() {
     reactTimer = setTimeout(() => { if (bubbleOpen && bubbleText && REACTIONS.includes(bubbleText.textContent)) closeBubble(); }, 7000);
   }
 
-  // ---- ask her something. She only knows what the label knows, and says so.
-  const askBox = document.getElementById('nura-ask');
-  function answer(q) {
-    const s = slots[shown];
-    if (!s) return '';
-    const it = s.it, t = q.toLowerCase();
-    const has = re => re.test(t);
-    if (has(/\b(size|big|tall|high|height|wide|long|measure|taille|grand|haut|large|mesure|حجم|طول|ارتفاع|كبير|عرض)\b/))
-      return it.size ? it.title + ': ' + it.size + '. ' + 'Measured from the scan itself, not guessed.'
-                     : 'It was modelled by hand, so it has no measured size. In the museum it stands at a comfortable height.';
-    if (has(/\b(where|place|site|found|from|location|où|lieu|endroit|trouvé|أين|مكان|موقع|من أين)\b/))
-      return it.place + (it.gps ? '. ' + 'The exact spot is on the map chip under the label.' : '.');
-    if (has(/\b(who|scan|scanned|made|model|modelled|volunteer|qui|numéris|bénévole|من|مسح|صنع|متطوع)\b/))
-      return it.credit || 'A Tanit XR volunteer.';
-    if (has(/\b(when|old|age|date|century|year|period|era|quand|ancien|siècle|époque|متى|قديم|قرن|تاريخ|عصر)\b/))
-      return /\d{3,4}|century|siècle|قرن|BCE|CE\b/.test(it.note || '') ? it.note
-           : 'The label does not give a date for this one. The archive page has the full description.';
-    if (has(/\b(material|stone|marble|wood|clay|bronze|made of|matière|pierre|marbre|bois|argile|مادة|حجر|رخام|خشب|طين)\b/))
-      return /marble|stone|wood|clay|bronze|plaster|tile|marbre|pierre|bois|argile|رخام|حجر|خشب|طين|جص/i.test(it.note || '') ? it.note
-           : 'The label does not name the material. Turn it and look at the surface: the scan keeps every grain.';
-    if (has(/\b(share|send|friend|partag|envoyer|ami|شارك|أرسل|صديق)\b/)) {
-      const sh = document.getElementById('wf-share'); if (sh) setTimeout(() => sh.click(), 300);
-      return 'Opening the share card for you.';
-    }
-    if (has(/\b(love|save|keep|garder|enregistr|aimer|حفظ|أحب)\b/)) {
-      if (uiSave) setTimeout(() => uiSave.click(), 300);
-      return 'Kept. It is in your collection, top right.';
-    }
-    if (has(/\b(vr|headset|casque|ar|quest|نظارة|افتراضي)\b/))
-      return document.getElementById('vr-button') ? 'Press See it in VR at the bottom of the page.'
-           : 'On a headset, this page has a See it in VR button. On a phone, Share gives you a picture to keep.';
-    if (has(/\b(help|donate|give|support|money|don|soutenir|aider|تبرع|دعم|مساعدة)\b/))
-      return 'Everything here is free and made by volunteers. The Donate button under the label keeps it that way.';
-    return (it.note ? it.note + ' ' : '') + 'That is all the label knows. The archive page has the full description, and the volunteer who made it may know more.';
-  }
-  if (askBox) {
-    askBox.addEventListener('keydown', e => {
-      if (e.key !== 'Enter') return;
-      const q = askBox.value.trim();
-      if (!q) return;
-      e.preventDefault();
-      const a = answer(q);
-      askBox.value = '';
-      if (bubbleText) bubbleText.textContent = a;
-      if (bubbleLong) bubbleLong.hidden = true;
-      if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
-      expanded = false;
-      beHappy(); flare = 1;
-      if (soundOn) sayLine(a, { voice: null });
-      if (window.tx) tx('nura_asked', { q: q.slice(0, 40) });
-    });
-    askBox.addEventListener('keydown', e => e.stopPropagation());
-  }
-
   // ---- Nura asks, now and then: share, donate, join, subscribe, save, a gallery, a headset.
   // Never before you have seen a few objects, never two asks close together, never the same
   // ask twice in a visit, and at most four in a visit. One line, one button.

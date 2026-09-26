@@ -1661,15 +1661,11 @@ body.walk-fallback .warea>div{opacity:1;transform:none}
 body.has-vr #scroll-cue{bottom:96px}
 body #walk-stage{touch-action:pan-y pinch-zoom}
 #nura-bubble{left:50%;top:46%}
-.nb-ask{display:block;width:100%;margin-top:10px;border:1px solid rgba(74,53,43,.18);border-radius:999px;background:#fff;
-  color:#4a3527;font:inherit;font-size:12.5px;padding:7px 12px;box-sizing:border-box}
-.nb-ask:focus{outline:2px solid var(--gold);outline-offset:1px}
 .nb-picks{display:flex;gap:8px;margin:10px 0 2px}
 .nb-pick{flex:1;min-width:0;border:1px solid rgba(74,53,43,.18);background:#fff;border-radius:10px;padding:6px;
   font:inherit;font-size:11px;line-height:1.25;cursor:pointer;color:#4a3527;text-align:center}
 .nb-pick img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block;margin-bottom:5px;background:#f3ede2}
 .nb-pick:hover,.nb-pick:focus-visible{border-color:#4a3527;outline:none}
-body.in-xr .nb-ask,body.demoing .nb-ask{display:none}
 body.classroom .wf-btn.gold,body.classroom .nb-offer[data-offer="donate"],body.classroom #vol-cameo{display:none}
 .weekly-wrap{display:flex;gap:34px;align-items:center;max-width:900px;margin:0 auto}
 .weekly-wrap img{width:180px;height:180px;object-fit:cover;border-radius:14px;background:#f3ede2;flex:0 0 auto}
@@ -5382,7 +5378,6 @@ taking care of the place you are in.</p>
 <button id="nura-close" aria-label="Close">&times;</button>
 <p id="nura-text" aria-live="polite"></p>
 <div id="nura-long" hidden></div>
-<input id="nura-ask" class="nb-ask" type="text" autocomplete="off" enterkeyhint="send" placeholder="{term("Ask Nura about this one")}" aria-label="{term("Ask Nura about this one")}">
 <div class="nb-row">
 <button id="nura-more" class="nb-more">Tell me more</button>
 <button id="nura-speak" class="nb-speak" aria-label="Read this aloud">
@@ -7861,7 +7856,7 @@ TERMS = {
            "Rolling": "Continu", "Fixed": "Date fixe", "Open": "Ouvert", "TBA": "À annoncer", "Closed": "Clôturé",
            "By": "Par", "Published": "Publié le",
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
-           "How to cite": "Pour citer", "3D scan": "numérisation 3D", "Ask Nura about this one": "Demandez à Nura",
+           "How to cite": "Pour citer", "3D scan": "numérisation 3D", 
            "Free to view and study; credit Tanit XR when you reuse it.": "Libre de consultation et d’étude ; créditez Tanit XR si vous le réutilisez.",
            "Object of the week": "L’objet de la semaine", "Turn it in 3D": "Le faire tourner en 3D",
            "times one of them has been opened": "fois qu’un de ces objets a été ouvert",
@@ -7927,7 +7922,7 @@ TERMS = {
            "Rolling": "مستمر", "Fixed": "تاريخ محدد", "Open": "مفتوح", "TBA": "يُعلن لاحقًا", "Closed": "مغلق",
            "By": "بقلم", "Published": "نُشر في",
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
-           "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد", "Ask Nura about this one": "اسأل نورا عن هذه القطعة",
+           "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد", 
            "Free to view and study; credit Tanit XR when you reuse it.": "متاح للعرض والدراسة مجانًا؛ انسب الفضل إلى Tanit XR عند إعادة الاستخدام.",
            "Object of the week": "قطعة الأسبوع", "Turn it in 3D": "أدِرها بالأبعاد الثلاثة",
            "times one of them has been opened": "مرة فُتحت فيها إحدى هذه القطع",
