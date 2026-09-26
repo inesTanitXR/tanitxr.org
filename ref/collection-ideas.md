@@ -39,7 +39,7 @@ gate and two doors; both were removed at Ines's request, and this reflects what 
 
 | Idea | What it needs |
 |---|---|
-| **Splats: "see it in its real environment"** | Scaniverse exports `.ply`; Spark (World Labs) renders splats in three.js. The community already publishes splats to arrival.space in Mark Jeffcock's course. Needs the files in Drive |
+| ~~**Splats: "see it in its real environment"**~~ | Dead 2026-09-26. This needed the raw captures out of Scaniverse, and they were only ever on Ines's phone, which broke without an iCloud backup. The renderer side was never the problem: Spark would still draw them. It comes back only if a site is scanned again |
 | **Patrick's museum pieces** | Nothing of his is in the Sketchfab archive data. Needs files or Sketchfab ids |
 | **Tunisian background music** | Needs properly licensed audio. Anything copyrighted is out |
 | **The DC event venue** | Listed as "to be announced" until Ines confirms it |
@@ -77,7 +77,7 @@ Waiting on Ines:
 - GoatCounter account (free for non-profits): sign up, pick the code, paste it in ref/analytics.json, turn on "allow visitor counts" in its settings.
 - ElevenLabs: API key and Nura's voice id. ref/nura-script.json has all 161 lines (about 12,000 characters). tools/nura_script.py --record makes the mp3s and build.py picks them up.
 - Sketchfab: tools/upload_sketchfab.py is ready to put Patrick's and Kristina's pieces on the Tanit XR account as private drafts. Not run: needs her yes, and theirs.
-- Splats: export from the Scaniverse app (share > export > PLY or SPZ) to Drive; then Spark renders them here with a "see it in its environment" fade.
+- Splats: no longer possible. The Scaniverse captures were lost with Ines's phone in September 2026 and had never been backed up. What survives is what was published to Sketchfab, which is finished mesh, not splat data.
 - A licensed Tunisian recording for the background, the DC venue, real names for danielgo257 and georgealyssa85.
 
 ## 18 September, evening
