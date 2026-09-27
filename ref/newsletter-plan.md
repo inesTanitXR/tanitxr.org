@@ -5,7 +5,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | Edition | Send | Covers deadlines | File |
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
-| **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
+| **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, _(send date Sept 25; "ready, not posted yet?" reminder given Sept 26, do not repeat)_ 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
 
 ## Edition 19 (send Sept 25) — items
@@ -33,6 +33,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 
 ## Edition 20 (send Oct 9) — items
 - 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
+- 🇹🇳 📸 PhotoVogue MENA Panorama 2026 (photo/video series, MENA + diaspora, 18+; free; $8,000 in three grants) — Oct 15 (extended from Sept 24) — site.picter.com/photovogue-regional-open-call-mena-panorama-2026 _(added by the Sept 26 sweep, from Ines's Instagram share of an AD Middle East post; deadline verified on the Picter call page)_
 - 🇹🇳 Wiki Loves Monuments Tunisia — uploads Oct 1–31 _(moved from 19 on Sept 25 at Ines's request; Oct 9 still leaves three weeks of uploads)_
 - 🎬 Le FIFA 2027 (Montreal; immersive and media art films; CAD 33–58 to Oct 19, 45–70 to Oct 26) — Oct 26 — lefifa.com/en/appel-a-soumissions _(accepted Sept 25)_
 - 🥽 One World 2027 VR Competition (Prague; €30, often waived) — Nov 1 — my.oneworld.cz/film-submission _(accepted Sept 25)_

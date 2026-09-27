@@ -430,6 +430,34 @@
    "source": "suggestion",
    "raw": "https://lefifa.com/en/appel-a-soumissions",
    "status": "added (Ines accepted it on the report page Sept 25; verified at the source Sept 25)."
+  },
+  {
+   "key": "photovogue mena panorama deadline extended october 15 2026",
+   "date": "2026-09-26",
+   "source": "screenshot",
+   "raw": "shot-26.html -> https://www.instagram.com/p/Ddah0qZI1oB/ (@admiddleeast)",
+   "status": "added (PhotoVogue MENA Panorama 2026; free; Oct 15 verified on site.picter.com; edition 20, Tunisia section)."
+  },
+  {
+   "key": "hayama artist residency japan applications close september 30 2026",
+   "date": "2026-09-26",
+   "source": "screenshot",
+   "raw": "shot-24.html -> https://www.instagram.com/p/Ddsm4V7OTOM/ (@dexterwimberly)",
+   "status": "skipped: closes Sept 30, before edition 20 goes out on Oct 9 (too late). Fees not shown on the homepage."
+  },
+  {
+   "key": "inaugural miraclair wealth art prize entries close 1 october 2026",
+   "date": "2026-09-26",
+   "source": "screenshot",
+   "raw": "shot-25.html -> https://www.instagram.com/p/DdQsJ1iM6Y0/ (@ngartcreativeresidency)",
+   "status": "skipped: closes Oct 1, before edition 20 goes out on Oct 9 (too late). Free to enter; prize is a two-week residency in Provence."
+  },
+  {
+   "key": "instagram shell no post shot html 2026 09 25",
+   "date": "2026-09-26",
+   "source": "screenshot",
+   "raw": "shot.html and shot-3.html (saved Sept 25 14:32)",
+   "status": "unreadable: the saved pages are Instagram's empty login shell with no post link or caption. Moved to done/ with an -unreadable suffix; Ines asked to share again."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -469,6 +497,12 @@
    "file": "shot-21.html",
    "raw": "https://www.instagram.com/p/Ddr7pozIvuj/ (@dcbikeparty)",
    "what": "DC Bike Party Halloween ride, Sat Oct 17, Dupont Circle"
+  },
+  {
+   "date": "2026-09-26",
+   "file": "shot-4.html",
+   "raw": "https://www.instagram.com/p/DdrPOWBGj6B/ (@visitwashingtondc)",
+   "what": "DC fall art itinerary (ARTECHOUSE SUBMERGE, Hirshhorn, Phillips, NMAAHC and others)"
   }
  ]
 }

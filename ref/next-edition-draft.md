@@ -169,6 +169,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
 👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
 
+### 📸 PhotoVogue MENA Panorama 2026
+
+📅 Deadline: October 15, 2026, 23:59 CEST (extended from September 24)
+📍 Online
+👥 Photographers and video makers 18+ from the Middle East and North Africa, and the diaspora. Free
+✏️ PhotoVogue's first regional call for MENA. Send a series of up to 15 images, or images and video; no AI-generated work. Three grants: $4,500, $2,000 and $1,500, plus festival presentation and possible Condé Nast publication.
+👉 https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -192,3 +200,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Meta for Developers | linkedin.com/showcase/meta-for-developers (showcase page, not a company page) |
 | Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
 | Wikimedia Tunisie | no LinkedIn page found |
+| PhotoVogue | no LinkedIn page found |

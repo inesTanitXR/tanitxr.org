@@ -7,7 +7,7 @@
 > Innovation, a US 501(c)(3). Founded and led by Ines Said.
 
 Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
-to https://tanitxr.org/. Last updated 2026-09-26.
+to https://tanitxr.org/. Last updated 2026-09-27.
 
 ## What people usually want
 
@@ -25,7 +25,7 @@ How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, 
 
 ## Open calls and opportunities, curated by Tanit XR
 
-Updated 2026-09-26. Full board with filters: https://tanitxr.org/opportunities/
+Updated 2026-09-27. Full board with filters: https://tanitxr.org/opportunities/
 
 - The Kyoto Retreat 2026 (Residency, In-person, , deadline July 15, 2026): The Kyoto Retreat is a four-week international artist retreat in Kyoto, Japan, open to artists, curators, and writers at all career stages. Selected participants receive a roundtrip flight, private accommodation, and $800 USD for meals and local transport. https://www.kyotoretreat.com
 - HTW Berlin – IUNO AI + XR Artistic Fellowship 2026 (Fellowship, In-person, , deadline March 31, 2026): HTW Berlin’s IUNO project is an EU-funded research initiative supporting artists at the intersection of AI and XR. The selected artist or team will co-develop a project at HTW Berlin from May 2026 to January 2027, with access to equipment, mentorship, a scientific paper publication, and public networking events. https://www.berlinartlink.com/2026/02/17/open-call-htw-berlin-artistic-fellowship-ai-xr/
@@ -127,6 +127,7 @@ Updated 2026-09-26. Full board with filters: https://tanitxr.org/opportunities/
 - Africa No Filter, Kekere Storytellers Fund (Grant, Remote, Africa, deadline December 31, 2026): Africa No Filter grants of $500 to $3,000 for African storytellers under 35, in Africa or the diaspora, whose work challenges stereotypes about Africa. Applicants need English or French, two years of experience, 5,000 or more followers and membership of the African Narrative Collective; film projects and equipment are not funded. Open until December 31, 2026 or until 12 to 14 storytellers are chosen. https://africanofilter.org/what-we-do/community/kekere-storytellers-fund/
 - Thessaloniki Documentary Festival 2027, Immersive Competition (Open Call, In-person, Europe, deadline January 8, 2027): International competition for XR, AR and VR projects at the Thessaloniki Documentary Festival in Greece, March 4 to 14, 2027. Works must be completed within the last 24 months and be a world, international or European premiere. Free to enter through the festival portal. https://filmfestival.gr/en/newsroom/news/29tidfcallforentries/
 - The 31st Webby Awards (2027), incl. Immersive and AI Categories (Award, Remote, Global, deadline October 30, 2026): Internet awards across websites, apps, video, social, podcasts, games, creators, AI and immersive work, including Best Use of Augmented Reality, Best VR Headset Experience and Best Immersive Technology Innovation. Paid entry: at the October 30, 2026 early deadline, $105 for students, $255 for discounted categories, $395 for a creator single entry and $525 for a general single entry; later deadlines cost more. https://www.webbyawards.com/eligibility-and-guidelines/
+- PhotoVogue MENA Panorama 2026, Regional Open Call (Open Call, Remote, MENA, deadline October 15, 2026): PhotoVogue's first open call for photographers and video makers aged 18+ from the Middle East and North Africa and the diaspora. Submit a series of up to 15 images, or images and video; AI-generated work is not accepted. Free to enter; three grants totalling $8,000 ($4,500, $2,000, $1,500), with festival presentation and possible Condé Nast publication. https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026
 
 ## The 3D collection
 
