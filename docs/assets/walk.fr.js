@@ -202,7 +202,7 @@ function start() {
 
   // ---- Nura: a companion who floats nearby, faces you, and has something to say
   let nura = null, mixer = null, clips = null, idleAction = null, happyAction = null,
-      nuraBaseYaw = 0, flare = 0, glance = 0;
+      nuraBaseYaw = 0, flare = 0, glance = 0, watch = 0;
   const nuraHolder = new THREE.Group();
   nuraHolder.position.set(2.15, -0.15, 1.1);
   scene.add(nuraHolder);
@@ -2839,6 +2839,11 @@ function start() {
       // she looks at the new object for a moment, then back at you and your cursor
       glance = Math.max(0, glance - dt);
       const look = Math.min(1, glance) * 0.75;
+      // ...and while you are actually turning something, she watches the thing you are
+      // turning. Tracking the cursor at that moment reads as her hanging off the end of the
+      // mouse. She holds the look for about half a second after you let go, because snapping
+      // straight back is the tell that it was a rule and not attention.
+      watch = clamp(watch + (dragging && !roomMode ? dt * 5 : -dt * 1.8), 0, 1);
       if (scanT > 0.5) {
         // turn inward and watch the object as she circles it.
         // At yaw = nuraBaseYaw she faces +Z, which is the camera, so the yaw that points
@@ -2851,10 +2856,30 @@ function start() {
         while (diff < -Math.PI) diff += Math.PI * 2;
         nura.rotation.y += diff * 0.16;
       } else {
-        nura.rotation.y = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look
-                          - clamp((frontObj ? frontObj.pivot.rotation.y : 0) * 0.3, -0.65, 0.65);
+        const idleYaw = nuraBaseYaw + ptr.x * 0.5 + Math.sin(t * 0.5) * 0.06 + look
+                        - clamp(spin * 0.3, -0.65, 0.65);
+        let yaw = idleYaw;
+        if (watch > 0.001 && frontObj) {
+          const dx = frontObj.wrap.position.x - nuraHolder.position.x;
+          const dz = frontObj.wrap.position.z - nuraHolder.position.z;
+          // She floats in front of the object and off to one side, so facing it squarely is a
+          // 113 degree turn, which puts her back to you at the moment you are using the page.
+          // Stopping at a three quarter turn still reads as looking at the thing, and you keep
+          // her face. Raise this toward Math.PI if you want the full head turn.
+          let d = Math.atan2(dx, dz);
+          while (d > Math.PI) d -= Math.PI * 2;      // turn the short way round
+          while (d < -Math.PI) d += Math.PI * 2;
+          // A fixed direction, not an offset from where the cursor has her: at full watch she
+          // holds still and looks at the object, instead of drifting along with the drag.
+          const watchYaw = nuraBaseYaw + clamp(d, -0.9, 0.9);
+          let diff = watchYaw - idleYaw;
+          while (diff > Math.PI) diff -= Math.PI * 2;
+          while (diff < -Math.PI) diff += Math.PI * 2;
+          yaw = idleYaw + diff * watch;
+        }
+        nura.rotation.y = yaw;
       }
-      nura.rotation.x = -ptr.y * 0.16;
+      nura.rotation.x = -ptr.y * 0.16 * (1 - watch);
       nura.rotation.z = Math.sin(t * 0.8) * 0.03;
       sparks.children.forEach(m => {
         m.userData.a += dt * m.userData.sp;
