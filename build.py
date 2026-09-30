@@ -1107,9 +1107,28 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
   border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;font-size:22px;line-height:1;
   cursor:pointer}
 #room-back:hover{background:#4a3527;color:#fdf8f0}
+#room-eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
 #room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
   text-transform:uppercase}
+/* the person named under an object is a way into their gallery, so it has to look like one.
+   Underlined rather than coloured: the credit line sits on a warm panel where our gold fails
+   contrast at this size. */
+.wf-who{border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;
+  text-decoration-color:rgba(74,53,43,.42)}
+.wf-who:hover,.wf-who:focus-visible{color:#8a6200;text-decoration-color:currentColor}
+/* who you are standing with, at the door of their gallery. Their own words from their profile */
+.room-who-wrap{min-width:0}
+#room-who{display:flex;align-items:baseline;gap:10px;margin-top:2px}
+#room-who[hidden]{display:none}
+#room-line{color:#5d4c3c;font-size:13.5px;line-height:1.4;overflow:hidden;flex:1 1 auto;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;min-width:0}
+/* three lines, because one volunteer's own opening sentence runs to 169 characters and
+   cutting somebody's sentence in half to save a few pixels is not a trade worth making */
+#room-prof{flex:0 0 auto;color:#8a6200;font-size:13px;white-space:nowrap}
+@media(max-width:900px){#room-line{display:none}}
+@media(max-width:760px){#room-who{gap:8px;margin-top:1px}#room-prof{font-size:12px}}
 body.in-room #walk-scroll,body.in-room #track-switch,body.in-room #rotate-cue,
 body.in-room #scan-entry,body.in-room #nura-bubble,body.in-room #nura-dot{display:none}
 body.in-room{overflow:hidden}
@@ -4974,6 +4993,43 @@ def walk_person(m):
     return None
 
 
+def bio_opening(bio, limit=150):
+    """The first sentence or two of a volunteer's own profile text, whole sentences only."""
+    bio = re.sub(r"\s+", " ", bio or "").strip()
+    if not bio:
+        return ""
+    out = ""
+    for part in (re.findall(r"[^.!?]+[.!?]", bio) or [bio]):
+        if out and len(out) + len(part) > limit:
+            break
+        out += part
+        if len(out) >= 100:
+            break
+    return out.strip()
+
+
+def walk_people(items):
+    """Who to introduce at the door of a gallery, for every maker who has one in this build.
+
+    A room exists for anybody named as an object's artist or as its credited person, so the
+    names are taken from the same two fields the room itself is built from. The words are
+    the volunteer's own, straight from ref/people.json, never written for them.
+    """
+    by_name = {pp["name"]: pp for pp in TEAM_BY_SLUG.values()}
+    names = {n for it in items
+             for n in (it.get("artist"), (it.get("person") or {}).get("name")) if n}
+    out = {}
+    for n in sorted(names):
+        pp = by_name.get(n)
+        if not pp:
+            print(f"  ! walk: {n} has a gallery but no entry in ref/people.json, "
+                  f"so their room opens with no introduction")
+            continue
+        out[n] = {"role": pp.get("role") or "", "href": pp["href"],
+                  "line": bio_opening(pp.get("bio"))}
+    return out
+
+
 def nura_line(m):
     """One short, factual remark for Nura, from the object's own description."""
     t = re.sub(r"<[^>]+>", " ", m.get("text") or "")
@@ -5253,6 +5309,7 @@ def build_walk():
                            "links": {"donate": DONATE_URL, "volunteer": "volunteer.html",
                                      "newsletter": "opportunities.html#subscribe"},
                            **({"music": music} if music else {}),
+                           "people": walk_people(items),
                            "items": items}, ensure_ascii=False)
     body = f"""
 <h1 class="sr-only">Explore Tunisia's heritage in 3D</h1>
@@ -5334,7 +5391,8 @@ taking care of the place you are in.</p>
 
 <div id="room-bar" hidden>
 <button id="room-back" aria-label="Back to the collection">&#8249;</button>
-<div><div class="wch" id="room-eyebrow">Gallery</div><h2 id="room-title"></h2></div>
+<div class="room-who-wrap"><div class="wch" id="room-eyebrow">Gallery</div><h2 id="room-title"></h2>
+<div id="room-who" hidden><span id="room-line"></span><a id="room-prof" href="">{term("Read their profile")}</a></div></div>
 <div id="room-count"></div>
 <div id="room-hint">Drag to look around. Tap anything to get closer.</div>
 </div>
@@ -7869,6 +7927,7 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "Depuis un compteur sans cookies, qui ne suit personne.",
            "Keep scrolling": "Continuez à faire défiler",
+           "Read their profile": "Voir son profil",
            "Read": "Lire", "Back": "Précédent", "Next": "Suivant",
            "Send us your model": "Envoyez-nous votre modèle",
            "Made by volunteers": "Faits par des bénévoles", "See all": "Voir les",
@@ -7935,6 +7994,7 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "من عدّاد بلا كوكيز، لا يتعقّب أحدًا.",
            "Keep scrolling": "واصل التمرير",
+           "Read their profile": "شاهد ملفه الشخصي",
            "Read": "اقرأ", "Back": "السابق", "Next": "التالي",
            "Send us your model": "أرسل لنا نموذجك",
            "Made by volunteers": "من صنع المتطوّعين", "See all": "شاهد الـ",

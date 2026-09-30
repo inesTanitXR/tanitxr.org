@@ -617,7 +617,7 @@ function start() {
     if (uiId) uiId.textContent = [it.place, it.size].filter(Boolean).join(' \u00b7 ');
     if (uiRecord) uiRecord.href = linkUrl(it.href || 'archive.html');
     const by = document.getElementById('wf-by');
-    if (by) by.textContent = it.credit || '';
+    if (by) by.innerHTML = creditHtml(it.credit || '');
     paintSave(it);
     paintInside(it);
     paintMap(it);
@@ -2356,11 +2356,30 @@ function start() {
     s.wrap.scale.setScalar(s.roomScale); s.wrap.visible = true;
     s.mats.forEach(m => { m.opacity = 1; }); s.shadow.material.opacity = 0;
   }
+  // Who you are standing with. Their role and the opening of their own profile text, never
+  // anything written for them, and nothing at all for the saved-objects room, which is yours.
+  function paintRoomWho() {
+    const box = document.getElementById('room-who');
+    if (!box) return;
+    const p = roomMode && CFG.people && CFG.people[roomMode.artist];
+    if (!p || roomFocus) { box.hidden = true; return; }
+    const line = document.getElementById('room-line');
+    const prof = document.getElementById('room-prof');
+    if (line) { line.textContent = p.line || ''; line.hidden = !p.line; }
+    if (prof) { prof.href = linkUrl(p.href); prof.hidden = !p.href; }
+    box.hidden = false;
+  }
   function paintRoomBar() {
     if (!roomMode) return;
     document.body.classList.toggle('room-focus', !!roomFocus);
     if (roomTitle) roomTitle.textContent = roomMode.artist;
-    if (roomEyebrow) roomEyebrow.textContent = roomFocus ? 'Up close' : 'Gallery';
+    if (roomEyebrow) {
+      // the eyebrow carries their role, so the sentence below it gets the whole width
+      const who = CFG.people && CFG.people[roomMode.artist];
+      roomEyebrow.textContent = roomFocus ? 'Up close'
+        : 'Gallery' + (who && who.role ? ' \u00b7 ' + who.role : '');
+    }
+    paintRoomWho();
     if (roomCount) {
       const bits = [];
       if (roomMode.made) bits.push(roomMode.made + ' modelled');
@@ -2387,6 +2406,32 @@ function start() {
     const nxt = L[clamp(cur + dir, 0, L.length - 1)];
     if (roomFocus) setFocus(nxt); else { roomYawT = nxt.roomAng; roomPitchT = 0; }
   }
+
+  // Everybody with a gallery: exactly the two fields a room is built from, so a name is only
+  // ever made clickable when there is somewhere for it to go.
+  const ROOM_PEOPLE = Array.from(new Set(CFG.items
+    .flatMap(i => [i.artist, i.person && i.person.name]).filter(Boolean)))
+    .sort((a, b) => b.length - a.length);      // longest first: "Ann" must not eat "Ann Marie"
+  const escHtml = t => String(t).replace(/[&<>"]/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const escRe = t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // One pass over the line, never a replace per name: a second pass would find the names it
+  // had just written into the markup. Same trap as the translation table.
+  const WHO_RE = ROOM_PEOPLE.length
+    ? new RegExp('(' + ROOM_PEOPLE.map(escRe).join('|') + ')', 'g') : null;
+  function creditHtml(credit) {
+    const safe = escHtml(credit);
+    if (!WHO_RE) return safe;
+    return safe.replace(WHO_RE, n =>
+      '<button type="button" class="wf-who" data-who="' + n + '">' + n + '</button>');
+  }
+  const byLine = document.getElementById('wf-by');
+  if (byLine) byLine.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('.wf-who');
+    if (!b) return;
+    openRoom(b.dataset.who);
+    if (window.tx) tx('room_from_credit', { artist: b.dataset.who });
+  });
 
   const inRoomOf = (it, who) => it.artist === who || (it.person && it.person.name === who);
   function openRoom(artist, opts) {
