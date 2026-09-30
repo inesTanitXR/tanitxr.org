@@ -174,11 +174,11 @@ FR = {
     'Get these in your inbox': 'Recevez-les dans votre boîte mail',
     'New opportunities every one to two weeks. Free.': 'De nouvelles opportunités toutes les une à deux semaines. Gratuit.',
     'Opportunities and news, in your inbox': 'Opportunités et actualités, dans votre boîte mail',
-    'Grants, residencies and open calls for artists and XR creators every one to two\nweeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Free, unsubscribe any time.': 'Bourses, résidences et appels pour artistes et créateurs XR toutes les une à deux semaines — uniquement ce à quoi nous postulerions nous-mêmes — plus, de temps en temps, des nouvelles de Tanit XR. Gratuit, désabonnement à tout moment.',
+    'Grants, residencies and open calls for artists and XR creators every one to two\nweeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Free, unsubscribe any time.': 'Bourses, résidences et appels pour artistes et créateurs XR toutes les une à deux semaines, uniquement ce à quoi nous postulerions nous-mêmes, plus de temps en temps, des nouvelles de Tanit XR. Gratuit, désabonnement à tout moment.',
     '> Opportunities (every 1–2 weeks)</label>': '> Opportunités (toutes les 1–2 semaines)</label>',
     '> Tanit XR news (occasional)</label>': '> Actualités Tanit XR (occasionnelles)</label>',
     'Work with the Tanit XR team': 'Travailler avec l’équipe Tanit XR',
-    '<b>Links, all optional.</b> Only the ones you add appear on your profile, as icons.': '<b>Liens — tous facultatifs.</b> Seuls ceux que vous ajoutez apparaissent sur votre profil, sous forme d’icônes.',
+    '<b>Links, all optional.</b> Only the ones you add appear on your profile, as icons.': '<b>Liens, tous facultatifs.</b> Seuls ceux que vous ajoutez apparaissent sur votre profil, sous forme d’icônes.',
     '>GitHub</label>': '>GitHub</label>',
     '>Sketchfab</label>': '>Sketchfab</label>',
     'Other (YouTube, X, Behance…)': 'Autre (YouTube, X, Behance…)',
@@ -190,7 +190,7 @@ FR = {
     'Scanning &amp; optimization guide for volunteers (with Rachel West and Nick Kaufmann)': 'Guide de numérisation et d’optimisation pour les bénévoles (avec Rachel West et Nick Kaufmann)',
     'Social media videos for Tanit XR': 'Vidéos pour les réseaux sociaux de Tanit XR',
     'Built for the community': 'Construit pour la communauté',
-    'Virtual museum, the original room and the modular building kit': 'Musée virtuel — la salle d’origine et le kit de construction modulaire',
+    'Virtual museum, the original room and the modular building kit': 'Musée virtuel, la salle d’origine et le kit de construction modulaire',
     'Tutorial videos for volunteers': 'Tutoriels vidéo pour les bénévoles',
     'Mentoring students': 'Mentorat d’étudiants',
     '>Services</a>': '>Services</a>',
@@ -208,14 +208,14 @@ FR = {
     'Three steps': 'Trois étapes',
     'Tell us what you need': 'Dites-nous ce dont vous avez besoin',
     'We scope it together': 'Nous cadrons ensemble',
-    'You get the work, and the community gets funded': 'Vous obtenez le travail — et la communauté est financée',
+    'You get the work, and the community gets funded': 'Vous obtenez le travail, et la communauté est financée',
     'Get in touch': 'Contactez-nous',
     'Partner with us': 'Devenez partenaire',
     'What are you interested in?': 'Qu’est-ce qui vous intéresse ?',
     'Tell us more': 'Dites-nous en plus',
     '>Send</button>': '>Envoyer</button>',
     'Prefer to give?': 'Vous préférez donner ?',
-    'Every service funds the community, so does every donation': 'Chaque service finance la communauté — comme chaque don',
+    'Every service funds the community, so does every donation': 'Chaque service finance la communauté, comme chaque don',
     '>Organization</label>': '>Organisation</label>',
     '>Name</label>': '>Nom</label>',
     'Recorded history lessons': 'Leçons d’histoire enregistrées',
@@ -228,7 +228,7 @@ FR = {
     'People reached online': 'Personnes touchées en ligne',
     '>What we do</div>': '>Ce que nous faisons</div>',
     'Six ways the community works': 'Six façons dont la communauté agit',
-    'Tanit XR started with a phone and the ruins Ines grew up next to.\nToday, volunteers in Tunisia, the US, Europe and Nigeria meet every week to scan, optimize, teach each other history,\nmentor students and publish research, building a free 3D archive of Tunisia’s heritage, and a model for other\nunder-represented regions.': 'Tanit XR a commencé avec un téléphone et les ruines près desquelles Ines a grandi. Aujourd’hui, des bénévoles en Tunisie, aux États-Unis, en Europe et au Nigeria se réunissent chaque semaine pour numériser, optimiser, s’enseigner l’histoire, accompagner des étudiants et publier des recherches — et construire une archive 3D gratuite du patrimoine tunisien, ainsi qu’un modèle pour d’autres régions sous-représentées.',
+    'Tanit XR started with a phone and the ruins Ines grew up next to.\nToday, volunteers in Tunisia, the US, Europe and Nigeria meet every week to scan, optimize, teach each other history,\nmentor students and publish research, building a free 3D archive of Tunisia’s heritage, and a model for other\nunder-represented regions.': 'Tanit XR a commencé avec un téléphone et les ruines près desquelles Ines a grandi. Aujourd’hui, des bénévoles en Tunisie, aux États-Unis, en Europe et au Nigeria se réunissent chaque semaine pour numériser, optimiser, s’enseigner l’histoire, accompagner des étudiants et publier des recherches, et construire une archive 3D gratuite du patrimoine tunisien, ainsi qu’un modèle pour d’autres régions sous-représentées.',
     '>Virtual Museum</a>': '>Musée virtuel</a>',
     '<h1>Virtual Museum</h1>': '<h1>Musée virtuel</h1>',
     '&nbsp;›&nbsp; Virtual Museum</div>': '&nbsp;›&nbsp; Musée virtuel</div>',
@@ -258,7 +258,7 @@ FR = {
     'Accepted volunteers get their own page here: your scans, models and articles are credited to you.': 'Les bénévoles acceptés ont leur propre page ici : vos scans, modèles et articles vous sont attribués.',
     'For accepted Tanit XR volunteers only.': 'Réservé aux bénévoles acceptés de Tanit XR.',
     'Not a volunteer yet? Start with the': 'Pas encore bénévole ? Commencez par le',
-    '>volunteer interest form</a>, profiles are created after you join.': '>formulaire d’intérêt bénévole</a> — les profils sont créés après votre admission.',
+    '>volunteer interest form</a>, profiles are created after you join.': '>formulaire d’intérêt bénévole</a>, les profils sont créés après votre admission.',
     'Finalist, Best Societal Impact': 'Finaliste, Meilleur impact sociétal',
     'Episode #1728': 'Épisode #1728',
     'Video interview': 'Entretien vidéo',
@@ -268,23 +268,23 @@ FR = {
     'Feature article': 'Article de fond',
     'Our impact so far': 'Notre impact jusqu’ici',
     'Small team, growing archive': 'Petite équipe, archive grandissante',
-    'Weekly community call, Thursdays, 12 pm Eastern': 'Appel communautaire hebdomadaire — le jeudi à 12h (heure de l’Est)',
+    'Weekly community call, Thursdays, 12 pm Eastern': 'Appel communautaire hebdomadaire, le jeudi à 12h (heure de l’Est)',
     'Join Slack and the Thursday call': 'Rejoignez Slack et l’appel du jeudi',
     '>Exhibitions</h2>': '>Expositions</h2>',
     'A scanning day for a volunteer: transport, mobile data for uploads, backups.': 'Une journée de numérisation pour un bénévole : transport, données mobiles, sauvegardes.',
     'A month of hosting and tools for the archive and the volunteers who optimize models.': 'Un mois d’hébergement et d’outils pour l’archive et les bénévoles qui optimisent les modèles.',
-    'A free workshop or course session for the community, Splats With Phones, history lessons, mentoring.': 'Une séance gratuite d’atelier ou de cours pour la communauté — Splats With Phones, leçons d’histoire, mentorat.',
+    'A free workshop or course session for the community, Splats With Phones, history lessons, mentoring.': 'Une séance gratuite d’atelier ou de cours pour la communauté, Splats With Phones, leçons d’histoire, mentorat.',
     'Toward the virtual museum and, one day, a professional scanner like the XGRIDS PortalCam.': 'Pour le musée virtuel et, un jour, un scanner professionnel comme le PortalCam de XGRIDS.',
-    'A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to\nlife in AR and VR, and learning from each other along the way.': 'Une communauté de bénévoles de Tunisie et du monde entier qui numérise en 3D un patrimoine menacé, le fait revivre en AR et en VR — et apprend les uns des autres en chemin.',
+    'A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to\nlife in AR and VR, and learning from each other along the way.': 'Une communauté de bénévoles de Tunisie et du monde entier qui numérise en 3D un patrimoine menacé, le fait revivre en AR et en VR, et apprend les uns des autres en chemin.',
     '>Join the Community</a>': '>Rejoindre la communauté</a>',
     'Recognized by': 'Reconnu par',
-    'Finalist, Best Societal Impact': 'Finaliste — Meilleur impact sociétal',
+    'Finalist, Best Societal Impact': 'Finaliste, Meilleur impact sociétal',
     'Featured video': 'Vidéo à la une',
     'Paper, 3 languages': 'Article, 3 langues',
     'Track sponsor': 'Sponsor d’un parcours',
     '>Speaker</span>': '>Intervenante</span>',
     'More than an archive': 'Plus qu’une archive',
-    'One phone, the ruins of Carthage, and now a community': 'Un téléphone, les ruines de Carthage — et aujourd’hui une communauté',
+    'One phone, the ruins of Carthage, and now a community': 'Un téléphone, les ruines de Carthage, et aujourd’hui une communauté',
     'Tanit XR started with a phone and the ruins Ines grew up next to. Today it is a\nnetwork of volunteers in Tunisia, the US, Europe and Nigeria who meet every week, scan and optimize together, teach\neach other history, mentor students, publish research and build a free 3D archive of Tunisia’s heritage. The goal is\nto take this model to other under-represented regions.': 'Tanit XR a commencé avec un téléphone et les ruines près desquelles Ines a grandi. C’est aujourd’hui un réseau de bénévoles en Tunisie, aux États-Unis, en Europe et au Nigeria qui se réunissent chaque semaine, numérisent et optimisent ensemble, s’enseignent l’histoire, accompagnent des étudiants, publient des recherches et construisent une archive 3D gratuite du patrimoine tunisien. L’objectif : porter ce modèle vers d’autres régions sous-représentées.',
     'Scan &amp; Preserve': 'Numériser et préserver',
     'Optimize &amp; Build': 'Optimiser et construire',
@@ -295,7 +295,7 @@ FR = {
     'Volunteers capture statues, mosaics and ruins with their phones. Every scan becomes a permanent, open record.': 'Les bénévoles capturent statues, mosaïques et ruines avec leur téléphone. Chaque numérisation devient une archive ouverte et permanente.',
     'Remote volunteers turn raw scans into game-ready models, AR lessons and our VR museum.': 'Des bénévoles à distance transforment les scans bruts en modèles optimisés, en leçons AR et en musée VR.',
     'Weekly community calls, history lessons on the sites we scan, and the Splats With Phones workshop.': 'Appels communautaires hebdomadaires, leçons d’histoire sur les sites numérisés, et l’atelier Splats With Phones.',
-    'Interview prep, portfolio reviews and mentoring for students and early-career volunteers, across four continents.': 'Préparation aux entretiens, revues de portfolio et mentorat pour étudiants et jeunes bénévoles — sur quatre continents.',
+    'Interview prep, portfolio reviews and mentoring for students and early-career volunteers, across four continents.': 'Préparation aux entretiens, revues de portfolio et mentorat pour étudiants et jeunes bénévoles, sur quatre continents.',
     'Papers, conference talks, podcasts and hackathon tracks. We publish what we learn.': 'Articles, conférences, podcasts et parcours de hackathon. Nous publions ce que nous apprenons.',
     'With the Unique Mappers in Nigeria we are testing the model in a second country. Under-represented heritage everywhere is the goal.': 'Avec les Unique Mappers au Nigeria, nous testons le modèle dans un deuxième pays. Le patrimoine sous-représenté, partout, est l’objectif.',
     '>See volunteer-made models →</a>': '>Voir les modèles des bénévoles →</a>',
@@ -311,22 +311,22 @@ FR = {
     'See how the community works': 'Voir comment fonctionne la communauté',
     'Climate is rewriting the coastline': 'Le climat redessine le littoral',
     'Storm Harry, January 2026': 'Tempête Harry, janvier 2026',
-    'The storm stripped sediment off the coast at Nabeul and exposed parts of Neapolis, an ancient city lost to a\ntsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D, a record that\nexists no matter what the sea does next.': 'La tempête a arraché les sédiments de la côte de Nabeul et mis au jour une partie de Neapolis, cité antique engloutie par un tsunami au IVe siècle. En quelques jours, nos bénévoles ont capturé en 3D les ruines révélées — une trace qui existe quoi que fasse la mer ensuite.',
-    'Floods, storms and heat are accelerating erosion across Tunisia’s sites. Every scan is a permanent, open record:\neven if the physical site is lost, the digital memory survives, for schools, museums and future generations.': 'Inondations, tempêtes et chaleur accélèrent l’érosion des sites tunisiens. Chaque scan est une archive ouverte et permanente : même si le site disparaît, la mémoire numérique survit — pour les écoles, les musées et les générations futures.',
+    'The storm stripped sediment off the coast at Nabeul and exposed parts of Neapolis, an ancient city lost to a\ntsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D, a record that\nexists no matter what the sea does next.': 'La tempête a arraché les sédiments de la côte de Nabeul et mis au jour une partie de Neapolis, cité antique engloutie par un tsunami au IVe siècle. En quelques jours, nos bénévoles ont capturé en 3D les ruines révélées, une trace qui existe quoi que fasse la mer ensuite.',
+    'Floods, storms and heat are accelerating erosion across Tunisia’s sites. Every scan is a permanent, open record:\neven if the physical site is lost, the digital memory survives, for schools, museums and future generations.': 'Inondations, tempêtes et chaleur accélèrent l’érosion des sites tunisiens. Chaque scan est une archive ouverte et permanente : même si le site disparaît, la mémoire numérique survit, pour les écoles, les musées et les générations futures.',
     'Read the Neapolis story': 'Lire l’histoire de Neapolis',
     'What people are saying': 'Ce qu’on dit de nous',
     'All press, talks &amp; papers': 'Toute la presse, conférences et publications',
     'Where we’re going': 'Où nous allons',
     'Tunisia is the pilot': 'La Tunisie est le pilote',
-    'The method, phones, volunteers, open data, works anywhere heritage is\nunder-documented. In 2026 the Unique Mappers Network began scanning in Nigeria with a mini-grant from our fiscal\nsponsor. If you want to bring this to your region, talk to us.': 'La méthode — téléphones, bénévoles, données ouvertes — fonctionne partout où le patrimoine est sous-documenté. En 2026, le réseau Unique Mappers a commencé à numériser au Nigeria grâce à une mini-bourse de notre sponsor fiscal. Vous voulez l’apporter dans votre région ? Parlons-en.',
+    'The method, phones, volunteers, open data, works anywhere heritage is\nunder-documented. In 2026 the Unique Mappers Network began scanning in Nigeria with a mini-grant from our fiscal\nsponsor. If you want to bring this to your region, talk to us.': 'La méthode (téléphones, bénévoles, données ouvertes) fonctionne partout où le patrimoine est sous-documenté. En 2026, le réseau Unique Mappers a commencé à numériser au Nigeria grâce à une mini-bourse de notre sponsor fiscal. Vous voulez l’apporter dans votre région ? Parlons-en.',
     'Bring Tanit XR to your region': 'Apporter Tanit XR dans votre région',
     'The Nigeria pilot': 'Le pilote au Nigeria',
     "How we're funded": 'Comment nous sommes financés',
     'Honest numbers': 'Des chiffres honnêtes',
-    'Tanit XR is run entirely by volunteers. So far most costs, travel to\nsites, tools, hosting, hackathon prizes, have been paid out of pocket by our founders, plus a few individual donations\nthrough our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).\nWe are applying for grants and building partnerships to change that. Here is what a donation does:': 'Tanit XR fonctionne entièrement grâce à des bénévoles. Jusqu’ici, la plupart des coûts — déplacements sur les sites, outils, hébergement, prix de hackathon — ont été payés de leur poche par nos fondatrices, plus quelques dons individuels via notre sponsor fiscal, la Florida Community Innovation Foundation (501(c)(3) américaine : les dons sont déductibles). Nous candidatons à des subventions et construisons des partenariats pour changer cela. Voici ce que permet un don :',
+    'Tanit XR is run entirely by volunteers. So far most costs, travel to\nsites, tools, hosting, hackathon prizes, have been paid out of pocket by our founders, plus a few individual donations\nthrough our fiscal sponsor, the Florida Community Innovation Foundation (a US 501(c)(3), so donations are tax-deductible).\nWe are applying for grants and building partnerships to change that. Here is what a donation does:': 'Tanit XR fonctionne entièrement grâce à des bénévoles. Jusqu’ici, la plupart des coûts (déplacements sur les sites, outils, hébergement, prix de hackathon) ont été payés de leur poche par nos fondatrices, plus quelques dons individuels via notre sponsor fiscal, la Florida Community Innovation Foundation (501(c)(3) américaine : les dons sont déductibles). Nous candidatons à des subventions et construisons des partenariats pour changer cela. Voici ce que permet un don :',
     'A scanning day: transport, mobile data for uploads, backup storage.': 'Une journée de numérisation : transport, données mobiles, sauvegarde.',
     'Full documentation of one site with several captures and research.': 'La documentation complète d’un site, avec plusieurs captures et des recherches.',
-    'A field day with collaborators, and the first time we can pay local contributors.': 'Une journée de terrain avec des collaborateurs — et la première fois que nous pouvons rémunérer des contributeurs locaux.',
+    'A field day with collaborators, and the first time we can pay local contributors.': 'Une journée de terrain avec des collaborateurs, et la première fois que nous pouvons rémunérer des contributeurs locaux.',
     'A complete digital storytelling package for one site, plus better scanning tools.': 'Un récit numérique complet pour un site, plus de meilleurs outils de numérisation.',
     '>Partner with us</a>': '>Devenir partenaire</a>',
     'See the full breakdown': 'Voir le détail complet',
@@ -360,7 +360,7 @@ FR = {
     '>Publications</h2>': '>Publications</h2>',
     'Media kit': 'Kit média',
     'Support the work': 'Soutenir le travail',
-    'Volunteer-run, founder-funded, so far': 'Porté par des bénévoles, financé par les fondatrices — jusqu’ici',
+    'Volunteer-run, founder-funded, so far': 'Porté par des bénévoles, financé par les fondatrices, jusqu’ici',
     'Our recognition came before our funding. Help us change that.': 'La reconnaissance est arrivée avant le financement. Aidez-nous à changer cela.',
     'How we’re funded': 'Comment nous sommes financés',
     "Made by our volunteers": "Créés par nos bénévoles",
@@ -374,8 +374,8 @@ FR = {
     "Attendance Commitment": "Engagement de présence",
     "Anything else you want us to know?": "Autre chose à nous dire ?",
     ">Apply</button>": ">Candidater</button>",
-    "Any level is welcome, pick one": "Tous les niveaux sont bienvenus — choisissez",
-    "This course is live and interactive, pick one": "Ce cours est en direct et interactif — choisissez",
+    "Any level is welcome, pick one": "Tous les niveaux sont bienvenus, choisissez",
+    "This course is live and interactive, pick one": "Ce cours est en direct et interactif, choisissez",
     ">None yet<": ">Aucune pour l’instant<", ">Beginner<": ">Débutant<", ">Some experience<": ">Un peu d’expérience<",
     ">Advanced<": ">Avancé<", ">Yes, I can attend at least 5 of 6 sessions<": ">Oui, je peux assister à au moins 5 séances sur 6<",
     ">Not sure yet<": ">Pas encore sûr<",
@@ -549,7 +549,7 @@ FR = {
     "✅ Tips for Great Scans": "✅ Conseils pour de belles numérisations",
     "Scan slowly and steadily": "Numérisez lentement et régulièrement",
     "Avoid people or shadows in your scan": "Évitez les personnes et les ombres dans votre scan",
-    "Focus on texture and angles, walk around the object fully": "Soignez la texture et les angles — faites le tour complet de l’objet",
+    "Focus on texture and angles, walk around the object fully": "Soignez la texture et les angles, faites le tour complet de l’objet",
     "Natural daylight is good, but harsh sun causes glare — avoid scanning at noon":
         "La lumière naturelle est idéale, mais le soleil dur crée des reflets — évitez de numériser à midi",
 
@@ -762,7 +762,7 @@ FR = {
         "Recevez les nouvelles bourses, résidences et appels à projets art, XR &amp; impact dans votre boîte mail — gratuitement, de la part de l’équipe Tanit XR. Vous serez aussi les premiers informés de l’avancée de notre travail de préservation du patrimoine.",
     'placeholder="you@example.com"': 'placeholder="vous@exemple.com"',
     ">Subscribe Free</button>": ">S’abonner gratuitement</button>",
-    "No spam, opportunities and Tanit XR news only. Also published on": "Pas de spam — uniquement des opportunités et des nouvelles de Tanit XR. Également publié sur",
+    "No spam, opportunities and Tanit XR news only. Also published on": "Pas de spam : uniquement des opportunités et des nouvelles de Tanit XR. Également publié sur",
 
     # ---- volunteer reminders ----
     "🤝 This scan exists because of volunteers — from scanning on site to cleanup and research.":
@@ -1839,6 +1839,16 @@ FR = {
         'Les Unique &#77;appers le reproduisent au Nigeria. Si le patrimoine de votre communauté est sous-documenté, nous voulons vous entendre.',
     'Impact in numbers': 'L’impact en chiffres',
 
+
+    # ---- added 2026-09-26: pages that were still English ----
+    'Step into the hall in your browser, with the real scans':
+        'Entrez dans la salle depuis votre navigateur, avec les vrais scans',
+    '3D models published, free to download': 'modèles 3D publiés, téléchargeables gratuitement',
+    '>3D models published</span>': '>modèles 3D publiés</span>',
+
+    # ---- added 2026-09-30: pages that were still English ----
+    'Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam Kania (narrative and thematic brief, experience design), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization), coordinated on the Thursday call.':
+        'Patrick Molen (la salle d’origine et le kit de construction modulaire à partir duquel chaque nouvelle salle est assemblée), Ala (une aile inspirée des thermes romains de Dougga), Kristina Reyes (une salle meublée), Cam Kania (cadrage narratif et thématique, conception de l’expérience), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega et Ray (modèles et optimisation), en coordination lors de l’appel du jeudi.',
 }
 
 
@@ -3674,4 +3684,14 @@ AR = {
 
     'Impact in numbers': 'الأثر بالأرقام',
 
+
+    # ---- added 2026-09-26: pages that were still English ----
+    'Step into the hall in your browser, with the real scans':
+        'ادخل القاعة من متصفحك، مع المسوحات الحقيقية',
+    '3D models published, free to download': 'نموذجًا ثلاثي الأبعاد منشورًا، متاحًا للتنزيل مجانًا',
+    '>3D models published</span>': '>نموذجًا ثلاثي الأبعاد منشورًا</span>',
+
+    # ---- added 2026-09-30: pages that were still English ----
+    'Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam Kania (narrative and thematic brief, experience design), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization), coordinated on the Thursday call.':
+        'Patrick Molen (القاعة الأصلية وعُدّة البناء المعيارية التي تُجمَّع منها كل قاعة جديدة)، وAla (جناح مستوحى من الحمّامات الرومانية في دقة)، وKristina Reyes (قاعة مؤثثة)، وCam Kania (الإطار السردي والموضوعي وتصميم التجربة)، وClaire Natanek وRachel West وNick Kaufmann وAna Beatriz Vega وRay (النماذج والتحسين)، بالتنسيق في لقاء الخميس.',
 }
