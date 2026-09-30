@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 18 (posted 2026-09-18, read 2026-09-21): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18). Edition 18 matched ref/newsletter-edition-18.md; the only item in it that was missing from the board was the NASA Space Apps Challenge, added 2026-09-21. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 1,946 subscribers on 2026-09-21.",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -89,7 +89,7 @@
    "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal. No closing date has been published yet."
   },
   "womentech-global-awards-2026": {
-   "url": "https://www.womentech.net/women-in-tech-awards",
+   "url": "https://www.womentech.net/women-in-tech-ai-awards",
    "desc": "Self-nomination is welcome and free. Nominations close October 1, 2026; voting ends November 13, finalists are announced November 19 to 26 and winners on December 3, 2026."
   },
   "awesome-foundation-conservation-climate-1-000-micro-grants": {
@@ -579,11 +579,11 @@
     "Open to all",
     "Artists"
    ],
-   "deadline_date": null,
-   "deadline_type": "Open",
+   "deadline_date": "2026-09-28",
+   "deadline_type": null,
    "url": "https://turkiye.gamesforchange.org/",
    "published": "2026-09-09",
-   "desc": "G4C Türkiye's 2026 festival theme is “PLAY BEYOND, play to recover, reconnect, reimagine,” exploring resilience through games. The Call for Speakers and Call for Arcade are both open now; deadlines to be announced."
+   "desc": "G4C Türkiye's 2026 festival theme is “PLAY BEYOND, play to recover, reconnect, reimagine,” exploring resilience through games. The Call for Speakers and Call for Arcade are both open now; deadlines to be announced. The speaker and arcade calls closed September 28, 2026."
   },
   {
    "title": "UnitedXR Europe 2026, Booster Programs (Narratives, Games, Builders, Startups)",
@@ -1123,10 +1123,10 @@
     "Students",
     "Open to all"
    ],
-   "deadline_date": "2026-09-30",
+   "deadline_date": "2026-10-07",
    "deadline_type": null,
    "url": "https://tech.asu.edu/remixthefuture",
-   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until applications close September 30, and travel is your own.",
+   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until participant applications close October 7 (the September 30 date was for jury applications), and travel is your own.",
    "published": "2026-09-25"
   },
   {
@@ -1309,6 +1309,51 @@
    "url": "https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026",
    "desc": "PhotoVogue's first open call for photographers and video makers aged 18+ from the Middle East and North Africa and the diaspora. Submit a series of up to 15 images, or images and video; AI-generated work is not accepted. Free to enter; three grants totalling $8,000 ($4,500, $2,000, $1,500), with festival presentation and possible Condé Nast publication.",
    "published": "2026-09-26"
+  },
+  {
+   "title": "IN-SITU Call for Community-Based Art Projects, Medina of Tunis (ANIMED)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "MENA",
+   "eligibility": [
+    "Artists",
+    "Non-profits"
+   ],
+   "deadline_date": "2026-11-30",
+   "deadline_type": null,
+   "url": "https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/",
+   "desc": "Four art projects co-created with residents, craftspeople and associations around the heritage of the Medina of Tunis, part of the EU-funded IN-SITU project (Interreg NEXT Italy-Tunisia). Each gets a flat fee of up to EUR 3,000 plus production costs and cross-border travel; digital and hybrid practices are eligible. Open to artists, collectives and arts organisations established or resident in Tunisia, free, one PDF by email; co-creation runs January to March 2027.",
+   "published": "2026-09-30"
+  },
+  {
+   "title": "IN-SITU Artist Residencies in the Medina of Tunis and Zaghouan (Fondazione MeNO)",
+   "type": "Residency",
+   "mode": "In-person",
+   "region": "MENA",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-12-20",
+   "deadline_type": null,
+   "url": "https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/",
+   "desc": "Four to six residencies of up to 10 days in the Medina of Tunis and Zaghouan between October 2026 and March 2027, for research and new work tied to local heritage and communities, with an average budget of about EUR 6,000 each covering the artist fee and production. Open to individual artists of any nationality with provable experience; new media is eligible and applying is free. Proposals are reviewed every two months from October 20, so earlier is better.",
+   "published": "2026-09-30"
+  },
+  {
+   "title": "4th Matsu Biennial, Open Call for International Artists",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-10-30",
+   "deadline_type": null,
+   "url": "https://matsubiennial.tw/en/news/details/88",
+   "desc": "Site-specific installations and participatory projects, including immersive experiences, for the Matsu Islands in Taiwan, around three axes: the island's culture and stone houses, its Cold War outpost history, and ocean ecology. Each selected proposal receives up to NTD 800,000 (tax included); open to artists worldwide. Deadline October 30, 2026, 17:00 GMT+8; the exhibition runs August 20 to November 7, 2027.",
+   "published": "2026-09-30"
   }
  ],
  "featured": {

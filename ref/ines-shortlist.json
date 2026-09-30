@@ -1,170 +1,484 @@
 {
- "_what": "Opportunities Ines should personally consider applying to. Curated by the weekly board check; the daily sweep reminds her when deadlines approach. status: new | reminded | applied | skipped",
- "profile": "Tunisian immersive artist & XR developer; founder of Tanit XR (heritage-preservation nonprofit, fiscally sponsored 501c3); seeks paid speaking, XR-art exhibitions, fellowships/awards for XR creators and women in tech, and funding for the nonprofit; based US/Tunisia.",
- "items": [
-  {
-   "slug": "ieee-vr-2027-xr-gallery-sharing-realities",
-   "deadline": "November 3, 2026",
-   "status": "new",
-   "reason": "Immersive-art call, previously unexhibited work, free registration + $500 awards — perfect fit for her XR art + a heritage piece would shine."
-  },
-  {
-   "slug": "womentech-global-awards-2026",
-   "deadline": "October 1, 2026",
-   "status": "reminded",
-   "reason": "Self-nomination welcome; visibility for women in XR — costs nothing, aligns with her profile."
-  },
-  {
-   "slug": "awe-2027-call-for-speakers-early-opportunities",
-   "deadline": null,
-   "status": "new",
-   "reason": "She spoke at AWE 2026; early speaker submission for 2027 directly serves her paid-speaking goal."
-  },
-  {
-   "slug": "games-for-change-turkiye-festival-2026-calls-for-speakers-arcade",
-   "deadline": null,
-   "status": "new",
-   "reason": "Speaker call at a values-aligned festival; heritage games angle fits Tanit XR."
-  },
-  {
-   "slug": "art-worker-artist-grant-2026-artist-engineering",
-   "deadline": "September 14, 2026",
-   "status": "skipped",
-   "reason": "URGENT (Sept 14 or first 500 entries): $5,000 AUD, minimal application; she plausibly qualifies as an artist whose livelihood is art-industry work — worth 15 minutes. — DEADLINE PASSED Sept 14, 2026; not applied."
-  },
-  {
-   "slug": "unitedxr-europe-2026-booster-programs-narratives-games-builders-startups",
-   "deadline": "September 15, 2026",
-   "status": "skipped",
-   "reason": "URGENT (Sept 15, 4 days): free to apply. Narratives track fits Tanit XR's virtual museum / heritage storytelling; Builders track fits the scanning pipeline. Brussels pitch + investor/co-producer meetings in December; fee only if selected (€300). — DEADLINE PASSED Sept 15, 2026; not applied."
-  },
-  {
-   "slug": "fast-forward-accelerator-2027",
-   "deadline": "September 18, 2026",
-   "status": "skipped",
-   "reason": "$25K+ unrestricted + accelerator for tech nonprofits; fiscally sponsored eligible. Full draft in ref/applications/fast-forward-2027-accelerator.md — Ines must confirm [CHECK] facts, record 3-min demo video, tick SF in-person commitment, submit at apply.ffwd.org/2027-accelerator. — DEADLINE PASSED September 18, 2026; not applied."
-  },
-  {
-   "slug": "world-summit-awards-2026-culture-heritage-learning-inclusion",
-   "deadline": "September 30, 2026",
-   "status": "reminded",
-   "reason": "Free nomination; Tanit XR is a textbook Culture & Heritage entry (Tunisia eligible). Deadline re-verified September 20, 2026: the national round closes September 30, 2026 and entry is free. Draft is written at ref/applications/world-summit-awards-2026.md; she has to create the hub account, confirm the [CHECK] figures and submit."
-  },
-  {
-   "slug": "ieee-vr-2027-call-for-workshop-proposals",
-   "deadline": "September 28, 2026",
-   "status": "reminded",
-   "reason": "Organize an 'XR for heritage / Global South' half-day workshop — free, strong speaking/committee credential. Deadline re-verified September 20, 2026 on ieeevr.org/2027: proposals due September 28, 2026 23:59 AoE via PCS, notifications October 12, workshops February 27-28, 2027. No draft written yet."
-  },
-  {
-   "slug": "aia-site-preservation-grant",
-   "deadline": "November 1, 2026",
-   "status": "new",
-   "reason": "Up to $15,000 for documentation + community outreach at an endangered Tunisian site — Tanit XR should apply (not yet on board; Edition 19/20)."
-  },
-  {
-   "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
-   "deadline": "October 19, 2026",
-   "status": "new",
-   "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window."
-  },
-  {
-   "slug": "sxsw-2027-xr-experience",
-   "deadline": "October 1, 2026",
-   "status": "reminded",
-   "reason": "Major XR-art showcase and exactly the exhibition visibility she wants; submissions close October 1, 2026. Entry fee applies — check the tier before submitting."
-  },
-  {
-   "slug": "fivars-2027-festival-of-international-virtual-augmented-real",
-   "deadline": "January 24, 2027",
-   "status": "new",
-   "reason": "Festival of VR/AR stories (VR, 360°, WebXR, live and spatial performance, installation) submitting via FilmFreeway — a cheap route to exhibit an XR heritage piece, and WebXR is accepted so there is no headset distribution to solve. Deadlines re-verified September 21, 2026 on fivars.net: earlybird September 24, 2026 (the lowest fee, 3 days away), regular November 24, late December 24, extended January 24, 2027; notifications February 7, festival February 22 to March 9, 2027 in Los Angeles and online."
-  },
-  {
-   "slug": "voqal-partners-fellowship-2027",
-   "deadline": "October 31, 2026",
-   "status": "new",
-   "reason": "$30,000 unrestricted plus a $1,000 healthcare stipend for a six-month program, free to apply, US-based applicants, no organization or finished product required. Tanit XR's heritage-preservation work is a direct social-impact fit and the award is unrestricted."
-  },
-  {
-   "slug": "uf-40-gators-under-40-class-of-2027",
-   "deadline": "October 5, 2026",
-   "status": "reminded",
-   "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40"
-  },
-  {
-   "slug": "women-who-code-summit-2026",
-   "deadline": "October 6, 2026",
-   "status": "reminded",
-   "reason": "You flagged this yourself. The Virtual Pass is free, and the speaker application is open with no published cut-off and a virtual-only speaking option, which serves the paid-speaking goal. Realistic note: the summit is October 6 to 8 and is 16 days away, so a speaking slot is a long shot; the free virtual pass is the certain part. In-person is $499 to $1,999. events.womenwhocode.com/2026/home"
-  },
-  {
-   "slug": "acm-chi-2027-call-for-meet-ups",
-   "deadline": "October 1, 2026",
-   "status": "reminded",
-   "reason": "You flagged this yourself (Instagram, @acm_chi). Free to submit, no academic affiliation required, and a meet-up is the least gatekept way to lead a session at CHI: an 'XR for heritage / Global South' meet-up would be a real credential. Two caveats before you spend the time: they prefer two or more organizers from two different organizations (Dr. Laura Harrison or the Unique Mappers Network would satisfy that), and at least one organizer must register and attend in person in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled, so budget the registration and travel first. Three-page proposal via PCS. chi2027.acm.org/authors/meet-ups"
-  },
-  {
-   "slug": "wijhat-destinations-culture-resource-mobility-grants",
-   "deadline": "January 16, 2027",
-   "status": "new",
-   "reason": "You flagged this yourself. Up to EUR 7,000 for travel, free to apply, and you are exactly who it is for: a Tunisian artist whose professional travel runs between the US and Tunisia. Either the departure or the arrival country has to be in the Arab region, which your trips satisfy. Deadline verified September 21, 2026 at mawred.org: three rounds a year, cut-offs 16:00 Beirut time on January 16 (results February 28), May 29 and September 17 — the September round closed four days ago, so January 16 is the next one. Plan it around a specific trip: the activity you travel for must take place after the results date of the round you apply to, so a January application only covers travel from March 2027 on."
-  },
-  {
-   "slug": "xr-women-museum-community-garden",
-   "deadline": null,
-   "status": "new",
-   "reason": "Lowest-effort item on this list. The XR Women Museum is taking rolling contributions to its Community Garden: 3D and XR-ready objects, interactive “pollinators”, botanical or spatial fragments, world-building elements. It is explicitly not a juried selection, so a Tanit XR scan — a Kerkouane fragment, a piece of the building kit — goes straight into a standing XR ecosystem in front of the XR Women audience. Free, remote, a Google form, no deadline. Verified on xrwomen.com/museum September 21, 2026."
-  },
-  {
-   "slug": "acm-chi-2027-call-for-workshop-proposals",
-   "deadline": "October 1, 2026",
-   "status": "reminded",
-   "reason": "Your note has carried this since Sept 20; verified at the source September 22, 2026 and now on the board. Two free routes into the CHI workshops track. Organize one: a six-page proposal (excluding references) via PCS by October 1, an 'XR for heritage / Global South' workshop being the obvious pitch, and it pairs with the meet-up proposal you are already weighing. Judge one instead: email name, affiliation, CV and a 150-word statement to workshops@chi2027.acm.org by September 28 for about eight hours of reviewing in October and November. The juror route asks for regular CHI attendance, so the proposal route is the realistic one for you. Same in-person catch as the meet-up: CHI 2027 is Pittsburgh, May 10-14, 2027."
-  },
-  {
-   "slug": "djerassi-resident-artists-program-2027-incl-leonardo-djerassi",
-   "deadline": "October 9, 2026",
-   "status": "new",
-   "reason": "One-month residency at no cost to artists, international applicants accepted, media arts and technology-driven work a listed discipline; the Leonardo@Djerassi cohort (June 22 to July 27, 2027) is art and science, a natural home for heritage scanning work. Verified at djerassi.org Sept 24, 2026: applications close October 9. Check the application fee on SlideRoom before starting."
-  },
-  {
-   "slug": "art-explora-cite-internationale-des-arts-residency-2027",
-   "deadline": "October 30, 2026",
-   "status": "new",
-   "reason": "Fully covered Paris residency (EUR 1,000/month, EUR 3,000 production, round trip, studio apartment), free to apply, digital arts eligible and art-and-science a priority theme: a heritage-scanning XR project fits. Needs 5+ years of professional practice and an international exhibition record, so check you meet both before starting. Verified at artexplora.org Sept 25, 2026. Portal: artexplora.plateformecandidature.com"
-  },
-  {
-   "slug": "mit-designx-accelerator",
-   "deadline": null,
-   "status": "watch",
-   "reason": "You asked for this one (Sept 25, from @mitsap). MIT's design-led venture accelerator: TIME named it one of America's best accelerators of 2026. It comes with a $10,000 team grant, mentorship and a spring class. The Boston track has been open to MIT students, staff and fellows, so check whether an outside founder can join (for example with an MIT co-founder). MIT DesignX Dubai (MENA, climate and urban startups) is the other route and fits Tanit XR's MENA work. Cohort 10 closed Oct 30, 2025, so the next call should come around Sept–Oct 2026. The weekly board check looks at mad.mit.edu/applications, designx.mit.edu and mdxb.mit.edu."
-  },
-  {
-   "slug": "endangered-archives-programme-r22",
-   "deadline": "November 6, 2026",
-   "status": "new",
-   "reason": "You chose 'Just for me' on Sept 25. Grants to digitise pre-1950s archives at risk: pilots up to £15,000, major projects up to £60,000. Shortlisted applicants move to a full application in February. Tanit XR angle: Tunisian archives (photos, documents, recordings) held by families or small institutions that no one has digitised. Preliminary application only at this stage. https://eap.bl.uk/grants"
-  },
-  {
-   "slug": "meap-2026-27",
-   "deadline": "November 16, 2026",
-   "status": "new",
-   "reason": "You chose 'Just for me' on Sept 25. Grants to digitise at-risk 20th- and 21st-century collections: print, photos, film, audio and born-digital. Mainly audiovisual projects go to a separate spring grant of up to $100,000. Tanit XR angle: Tunisian archives (photos, documents, recordings) held by families or small institutions that no one has digitised. Preliminary application only at this stage. https://meap.library.ucla.edu/call-for-applications/"
-  },
-  {
-   "slug": "horanggasy-creative-studio-2027",
-   "deadline": null,
-   "status": "watch",
-   "reason": "Korea residency for April 2027 (Ines asked Sept 27 for a funded or cheap Korea art residency around April). Horanggasy Creative Studio, Gwangju: the 2026 round gave foreign artists a private studio with housing, round-trip airfare, a monthly stipend and a solo or group show, for 1 to 3 months between April 1 and November 30. The 2026 call closed Feb 22, 2026, with results on March 10, so expect the 2027 call around January to February 2027. Watch horang.art and resartis.org; apply to horanggasy@horang.art.",
-   "url": "https://www.horang.art"
-  },
-  {
-   "slug": "culturehub-korea-residency",
-   "deadline": null,
-   "status": "watch",
-   "reason": "Korea residency for spring 2027 (Ines asked Sept 27). CultureHub (art and technology) with Seoul Institute of the Arts: run workshop sessions in a SeoulArts semester course. The 3-week option covers airfare, per diem, artist fee and accommodation. The page says 'Applications due December 19th' without a year and the form dates from 2025, so the next deadline is probably around Dec 19, 2026, for spring 2027. Email residency@culturehub.org to confirm.",
-   "url": "https://www.culturehub.org/culturehub-korea-residency"
-  }
- ]
+  "_what": "Opportunities Ines should personally consider applying to. Curated by the weekly board check; the daily sweep reminds her when deadlines approach. status: new | reminded | applied | skipped",
+  "profile": "Tunisian immersive artist & XR developer; founder of Tanit XR (heritage-preservation nonprofit, fiscally sponsored 501c3); seeks paid speaking, XR-art exhibitions, fellowships/awards for XR creators and women in tech, and funding for the nonprofit; based US/Tunisia.",
+  "items": [
+    {
+      "slug": "ieee-vr-2027-xr-gallery-sharing-realities",
+      "deadline": "November 3, 2026",
+      "status": "new",
+      "reason": "Immersive-art call, previously unexhibited work, free registration + $500 awards — perfect fit for her XR art + a heritage piece would shine."
+    },
+    {
+      "slug": "womentech-global-awards-2026",
+      "deadline": "October 1, 2026",
+      "status": "reminded",
+      "reason": "Self-nomination welcome; visibility for women in XR — costs nothing, aligns with her profile."
+    },
+    {
+      "slug": "awe-2027-call-for-speakers-early-opportunities",
+      "deadline": null,
+      "status": "new",
+      "reason": "She spoke at AWE 2026; early speaker submission for 2027 directly serves her paid-speaking goal."
+    },
+    {
+      "slug": "games-for-change-turkiye-festival-2026-calls-for-speakers-arcade",
+      "deadline": "September 28, 2026",
+      "status": "skipped",
+      "reason": "Speaker call at a values-aligned festival; heritage games angle fits Tanit XR. CLOSED: the speaker and arcade calls closed September 28, 2026 (per Games for Change Türkiye's own LinkedIn post); not marked applied."
+    },
+    {
+      "slug": "art-worker-artist-grant-2026-artist-engineering",
+      "deadline": "September 14, 2026",
+      "status": "skipped",
+      "reason": "URGENT (Sept 14 or first 500 entries): $5,000 AUD, minimal application; she plausibly qualifies as an artist whose livelihood is art-industry work — worth 15 minutes. — DEADLINE PASSED Sept 14, 2026; not applied."
+    },
+    {
+      "slug": "unitedxr-europe-2026-booster-programs-narratives-games-builders-startups",
+      "deadline": "September 15, 2026",
+      "status": "skipped",
+      "reason": "URGENT (Sept 15, 4 days): free to apply. Narratives track fits Tanit XR's virtual museum / heritage storytelling; Builders track fits the scanning pipeline. Brussels pitch + investor/co-producer meetings in December; fee only if selected (€300). — DEADLINE PASSED Sept 15, 2026; not applied."
+    },
+    {
+      "slug": "fast-forward-accelerator-2027",
+      "deadline": "September 18, 2026",
+      "status": "skipped",
+      "reason": "$25K+ unrestricted + accelerator for tech nonprofits; fiscally sponsored eligible. Full draft in ref/applications/fast-forward-2027-accelerator.md — Ines must confirm [CHECK] facts, record 3-min demo video, tick SF in-person commitment, submit at apply.ffwd.org/2027-accelerator. — DEADLINE PASSED September 18, 2026; not applied."
+    },
+    {
+      "slug": "world-summit-awards-2026-culture-heritage-learning-inclusion",
+      "deadline": "September 30, 2026",
+      "status": "reminded",
+      "reason": "Free nomination; Tanit XR is a textbook Culture & Heritage entry (Tunisia eligible). Deadline re-verified September 20, 2026: the national round closes September 30, 2026 and entry is free. Draft is written at ref/applications/world-summit-awards-2026.md; she has to create the hub account, confirm the [CHECK] figures and submit."
+    },
+    {
+      "slug": "ieee-vr-2027-call-for-workshop-proposals",
+      "deadline": "September 28, 2026",
+      "status": "skipped",
+      "reason": "Organize an 'XR for heritage / Global South' half-day workshop — free, strong speaking/committee credential. Deadline re-verified September 20, 2026 on ieeevr.org/2027: proposals due September 28, 2026 23:59 AoE via PCS, notifications October 12, workshops February 27-28, 2027. No draft written yet. DEADLINE PASSED September 28, 2026; not marked applied."
+    },
+    {
+      "slug": "aia-site-preservation-grant",
+      "deadline": "November 1, 2026",
+      "status": "new",
+      "reason": "Up to $15,000 for documentation + community outreach at an endangered Tunisian site — Tanit XR should apply (not yet on board; Edition 19/20)."
+    },
+    {
+      "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
+      "deadline": "October 19, 2026",
+      "status": "new",
+      "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window."
+    },
+    {
+      "slug": "sxsw-2027-xr-experience",
+      "deadline": "October 1, 2026",
+      "status": "reminded",
+      "reason": "Major XR-art showcase and exactly the exhibition visibility she wants; submissions close October 1, 2026. Entry fee applies — check the tier before submitting."
+    },
+    {
+      "slug": "fivars-2027-festival-of-international-virtual-augmented-real",
+      "deadline": "January 24, 2027",
+      "status": "new",
+      "reason": "Festival of VR/AR stories (VR, 360°, WebXR, live and spatial performance, installation) submitting via FilmFreeway — a cheap route to exhibit an XR heritage piece, and WebXR is accepted so there is no headset distribution to solve. Deadlines re-verified September 21, 2026 on fivars.net: earlybird September 24, 2026 (the lowest fee, 3 days away), regular November 24, late December 24, extended January 24, 2027; notifications February 7, festival February 22 to March 9, 2027 in Los Angeles and online."
+    },
+    {
+      "slug": "voqal-partners-fellowship-2027",
+      "deadline": "October 31, 2026",
+      "status": "new",
+      "reason": "$30,000 unrestricted plus a $1,000 healthcare stipend for a six-month program, free to apply, US-based applicants, no organization or finished product required. Tanit XR's heritage-preservation work is a direct social-impact fit and the award is unrestricted."
+    },
+    {
+      "slug": "uf-40-gators-under-40-class-of-2027",
+      "deadline": "October 5, 2026",
+      "status": "reminded",
+      "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40"
+    },
+    {
+      "slug": "women-who-code-summit-2026",
+      "deadline": "October 6, 2026",
+      "status": "reminded",
+      "reason": "You flagged this yourself. The Virtual Pass is free, and the speaker application is open with no published cut-off and a virtual-only speaking option, which serves the paid-speaking goal. Realistic note: the summit is October 6 to 8 and is 16 days away, so a speaking slot is a long shot; the free virtual pass is the certain part. In-person is $499 to $1,999. events.womenwhocode.com/2026/home"
+    },
+    {
+      "slug": "acm-chi-2027-call-for-meet-ups",
+      "deadline": "October 1, 2026",
+      "status": "reminded",
+      "reason": "You flagged this yourself (Instagram, @acm_chi). Free to submit, no academic affiliation required, and a meet-up is the least gatekept way to lead a session at CHI: an 'XR for heritage / Global South' meet-up would be a real credential. Two caveats before you spend the time: they prefer two or more organizers from two different organizations (Dr. Laura Harrison or the Unique Mappers Network would satisfy that), and at least one organizer must register and attend in person in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled, so budget the registration and travel first. Three-page proposal via PCS. chi2027.acm.org/authors/meet-ups"
+    },
+    {
+      "slug": "wijhat-destinations-culture-resource-mobility-grants",
+      "deadline": "January 16, 2027",
+      "status": "new",
+      "reason": "You flagged this yourself. Up to EUR 7,000 for travel, free to apply, and you are exactly who it is for: a Tunisian artist whose professional travel runs between the US and Tunisia. Either the departure or the arrival country has to be in the Arab region, which your trips satisfy. Deadline verified September 21, 2026 at mawred.org: three rounds a year, cut-offs 16:00 Beirut time on January 16 (results February 28), May 29 and September 17 — the September round closed four days ago, so January 16 is the next one. Plan it around a specific trip: the activity you travel for must take place after the results date of the round you apply to, so a January application only covers travel from March 2027 on."
+    },
+    {
+      "slug": "xr-women-museum-community-garden",
+      "deadline": null,
+      "status": "new",
+      "reason": "Lowest-effort item on this list. The XR Women Museum is taking rolling contributions to its Community Garden: 3D and XR-ready objects, interactive “pollinators”, botanical or spatial fragments, world-building elements. It is explicitly not a juried selection, so a Tanit XR scan — a Kerkouane fragment, a piece of the building kit — goes straight into a standing XR ecosystem in front of the XR Women audience. Free, remote, a Google form, no deadline. Verified on xrwomen.com/museum September 21, 2026."
+    },
+    {
+      "slug": "acm-chi-2027-call-for-workshop-proposals",
+      "deadline": "October 1, 2026",
+      "status": "reminded",
+      "reason": "Your note has carried this since Sept 20; verified at the source September 22, 2026 and now on the board. Two free routes into the CHI workshops track. Organize one: a six-page proposal (excluding references) via PCS by October 1, an 'XR for heritage / Global South' workshop being the obvious pitch, and it pairs with the meet-up proposal you are already weighing. Judge one instead: email name, affiliation, CV and a 150-word statement to workshops@chi2027.acm.org by September 28 for about eight hours of reviewing in October and November. The juror route asks for regular CHI attendance, so the proposal route is the realistic one for you. Same in-person catch as the meet-up: CHI 2027 is Pittsburgh, May 10-14, 2027."
+    },
+    {
+      "slug": "djerassi-resident-artists-program-2027-incl-leonardo-djerassi",
+      "deadline": "October 9, 2026",
+      "status": "new",
+      "reason": "One-month residency at no cost to artists, international applicants accepted, media arts and technology-driven work a listed discipline; the Leonardo@Djerassi cohort (June 22 to July 27, 2027) is art and science, a natural home for heritage scanning work. Verified at djerassi.org Sept 24, 2026: applications close October 9. Check the application fee on SlideRoom before starting."
+    },
+    {
+      "slug": "art-explora-cite-internationale-des-arts-residency-2027",
+      "deadline": "October 30, 2026",
+      "status": "new",
+      "reason": "Fully covered Paris residency (EUR 1,000/month, EUR 3,000 production, round trip, studio apartment), free to apply, digital arts eligible and art-and-science a priority theme: a heritage-scanning XR project fits. Needs 5+ years of professional practice and an international exhibition record, so check you meet both before starting. Verified at artexplora.org Sept 25, 2026. Portal: artexplora.plateformecandidature.com"
+    },
+    {
+      "slug": "mit-designx-accelerator",
+      "deadline": null,
+      "status": "watch",
+      "reason": "You asked for this one (Sept 25, from @mitsap). MIT's design-led venture accelerator: TIME named it one of America's best accelerators of 2026. It comes with a $10,000 team grant, mentorship and a spring class. The Boston track has been open to MIT students, staff and fellows, so check whether an outside founder can join (for example with an MIT co-founder). MIT DesignX Dubai (MENA, climate and urban startups) is the other route and fits Tanit XR's MENA work. Cohort 10 closed Oct 30, 2025, so the next call should come around Sept–Oct 2026. The weekly board check looks at mad.mit.edu/applications, designx.mit.edu and mdxb.mit.edu."
+    },
+    {
+      "slug": "endangered-archives-programme-r22",
+      "deadline": "November 6, 2026",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Sept 25. Grants to digitise pre-1950s archives at risk: pilots up to £15,000, major projects up to £60,000. Shortlisted applicants move to a full application in February. Tanit XR angle: Tunisian archives (photos, documents, recordings) held by families or small institutions that no one has digitised. Preliminary application only at this stage. https://eap.bl.uk/grants"
+    },
+    {
+      "slug": "meap-2026-27",
+      "deadline": "November 16, 2026",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Sept 25. Grants to digitise at-risk 20th- and 21st-century collections: print, photos, film, audio and born-digital. Mainly audiovisual projects go to a separate spring grant of up to $100,000. Tanit XR angle: Tunisian archives (photos, documents, recordings) held by families or small institutions that no one has digitised. Preliminary application only at this stage. https://meap.library.ucla.edu/call-for-applications/"
+    },
+    {
+      "slug": "horanggasy-creative-studio-2027",
+      "deadline": null,
+      "status": "watch",
+      "reason": "Korea residency for April 2027 (Ines asked Sept 27 for a funded or cheap Korea art residency around April). Horanggasy Creative Studio, Gwangju: the 2026 round gave foreign artists a private studio with housing, round-trip airfare, a monthly stipend and a solo or group show, for 1 to 3 months between April 1 and November 30. The 2026 call closed Feb 22, 2026, with results on March 10, so expect the 2027 call around January to February 2027. Watch horang.art and resartis.org; apply to horanggasy@horang.art.",
+      "url": "https://www.horang.art"
+    },
+    {
+      "slug": "culturehub-korea-residency",
+      "deadline": null,
+      "status": "watch",
+      "reason": "Korea residency for spring 2027 (Ines asked Sept 27). CultureHub (art and technology) with Seoul Institute of the Arts: run workshop sessions in a SeoulArts semester course. The 3-week option covers airfare, per diem, artist fee and accommodation. The page says 'Applications due December 19th' without a year and the form dates from 2025, so the next deadline is probably around Dec 19, 2026, for spring 2027. Email residency@culturehub.org to confirm.",
+      "url": "https://www.culturehub.org/culturehub-korea-residency"
+    },
+    {
+      "slug": "singapore-art-museum-residencies-cycle-4",
+      "deadline": "September 30, 2026",
+      "status": "drafting",
+      "reason": "Fully funded: S$1,500 a month, round-trip flight, housing and visa help for 1 to 3 months, any time June 2027 to December 2028; open globally. The 'Making/Material Cultures' strand fits heritage scanning. Closes 11:59 PM Singapore time = 11:59 AM Eastern on Sept 30. Needs CV, portfolio, a 500 to 1,000 word statement and a character reference. Apply at samresidencies.smapply.org/prog/cycle4.",
+      "title": "Singapore Art Museum Residencies, Cycle 4",
+      "url": "https://www.singaporeartmuseum.sg/residencies/announcements/open-call-cycle-4",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "tokyo-biennale-2027-social-dive",
+      "deadline": "September 30, 2026",
+      "status": "drafting",
+      "reason": "Funded Japan stay: travel up to JPY 300,000, Tokyo housing, up to JPY 200,000 project money, JPY 100,000 fee. Stay at least a month in Oct to Dec 2027 including the opening, and make a new work with local communities at heritage sites (temples, old wooden buildings). Closes 23:59 Japan time = 10:59 AM Eastern on Sept 30.",
+      "title": "Tokyo Biennale 2027 'SOCIAL DIVE' artist call",
+      "url": "https://socialdive.jp/en/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "columbia-ideas-imagination-paris-2027-28",
+      "deadline": "September 30, 2026",
+      "status": "new",
+      "reason": "$75,000 for a year in Paris, Sept 2027 to May 2028. Catch: you cannot be 'residing permanently in the United States' whatever your nationality; check whether your DC status counts before spending time on it.",
+      "title": "Columbia Institute for Ideas & Imagination (Reid Hall, Paris), Creative Arts Fellow",
+      "url": "https://ideasimagination.columbia.edu/apply/applying-for-a-fellowship/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "smithsonian-artist-research-fellowship-2027",
+      "deadline": "October 15, 2026",
+      "status": "new",
+      "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week.",
+      "title": "Smithsonian Artist Research Fellowship (SARF) 2027 — NOMINATION",
+      "url": "https://fellowships.si.edu/fellowship-programs",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "rolex-awards",
+      "deadline": "October 17, 2026",
+      "status": "new",
+      "reason": "Historically CHF 200,000; cultural heritage is a category; any nationality, 18+. The Oct 17 date is UNVERIFIED (rolex.org blocked automated fetches): check the page by hand first.",
+      "title": "Rolex Awards",
+      "url": "https://www.rolex.org/rolex-awards",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "michigan-central-newlab-residency-2027",
+      "deadline": "October 30, 2026",
+      "status": "new",
+      "reason": "$30,000 unrestricted for 12 weeks in Detroit (Feb 8 to Apr 30 or May 17 to Aug 6, 2027) with fabrication labs; US-based, 25+, needs an SSN, ITIN or EIN. No housing or travel. Session One overlaps a Japan/Korea spring, so pick one.",
+      "title": "Michigan Central × Newlab Art + Technology Creative Residency 2027",
+      "url": "https://michigancentral.com/michigan-central-x-newlab-art-technology-residency/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "wikimedia-rapid-fund-c3",
+      "deadline": "November 1, 2026",
+      "status": "new",
+      "reason": "$500 to $5,000 for open heritage uploads to Wikimedia Commons, e.g. Tanit XR's Tunisian monument scans, tied to Wiki Loves Monuments Tunisia. Uploads need a free license (CC BY, BY-SA or CC0, no non-commercial). MENA program officer: mena_rapid@wikimedia.org.",
+      "title": "Wikimedia Rapid Fund, Cycle 3 (for Tanit XR)",
+      "url": "https://meta.wikimedia.org/wiki/Grants:Project/Rapid",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "cphdox-2027-inter-active",
+      "deadline": "November 3, 2026",
+      "status": "new",
+      "reason": "DKK 150 (about $23), possibly waived for Tunisia (OECD DAC list). VR, AR and installations are exempt from the premiere rules, so an existing heritage piece can go in. Preview links are due Nov 25.",
+      "title": "CPH:DOX 2027 INTER:ACTIVE (VR/AR/installation)",
+      "url": "https://cphdox.dk/rules-and-regulations/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "meta-vr-start-competition-2026",
+      "deadline": "November 18, 2026",
+      "status": "new",
+      "reason": "$1M in prizes, free. A hands-only museum tour app built from Tanit XR scans could compete for Entertainment plus the Accessibility-Forward special award. Join the VR Start program during the competition.",
+      "title": "Meta VR Start Developer Competition 2026",
+      "url": "https://start-developer-competition-26.devpost.com/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "l-air-himeji-2027-season-2",
+      "deadline": "November 30, 2026",
+      "status": "new",
+      "reason": "The best funded spring 2027 Japan residency: April 1 to June 27, 2027 in a traditional leather-craft district; travel reimbursed, free private room, free materials, up to JPY 150,000 a month for production (not living costs). Pitch: document the craft in 3D/XR with the craftspeople. Rolling, so apply early.",
+      "title": "L-AIR Himeji 2027 Season 2 (Japan, spring)",
+      "url": "https://l-air.or.jp/journal/2026/08/916/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "natgeo-human-thread-rfp",
+      "deadline": "December 1, 2026",
+      "status": "new",
+      "reason": "Opens Oct 1. Level I up to $20,000 (Level II up to $100,000) for storytelling on global cultures and religions; Tunisia's Punic, Roman, Jewish (Djerba) and Islamic layers fit. Needs a media portfolio.",
+      "title": "National Geographic 'The Human Thread' RFP",
+      "url": "https://funding.nationalgeographic.org/s/fundingopportunity/119Hr000000CohcIAC/rfp-the-human-thread",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "british-museum-emkp-2026-27",
+      "deadline": "December 1, 2026",
+      "status": "new",
+      "reason": "Up to about £20,000 (small) to document endangered crafts in photo, video and 3D, e.g. Sejnane pottery, Nabeul ceramics, mosaic-making. Needs a host institution for oversight (ask the fiscal sponsor). Outputs CC BY-NC-SA; equipment eligible.",
+      "title": "British Museum EMKP documentation grant (for Tanit XR)",
+      "url": "https://www.emkp.org/grants/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "newimages-2027-virtual-worlds",
+      "deadline": "December 10, 2026",
+      "status": "new",
+      "reason": "Free, €3,000 award, 2 festival passes; the Tanit XR virtual museum is a close fit (check that browser-based WebXR qualifies). Early deadline Dec 10, last call Dec 22. The XR Competition next door has an Impact Award (€45 self-produced rate).",
+      "title": "NewImages 2027 Virtual Worlds Competition (Paris)",
+      "url": "https://www.newimages.art/calls-for-projects",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "lighthouse-works-fellowship-2027",
+      "deadline": "October 1, 2026",
+      "status": "drafting",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 6 weeks: Session 73 May 4 to Jun 15, 2027 (Session 72 Mar 9 to Apr 20). Room, meals, studio with wood/metal shop and kiln, $1,750. $25 fee. US-based artists; FAQ welcomes international artists who have lived and worked in the US.",
+      "title": "Lighthouse Works Fellowship (Fishers Island, NY)",
+      "url": "https://lighthouseworks.us/fellowship",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "artists-unlimited-bielefeld-2027",
+      "deadline": "October 1, 2026",
+      "status": "drafting",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 months, rent-free apartment and studio, EUR 700/month, closing show. Months not stated: ask whether April to June is possible. One PDF (max 20 MB) to residency@artists-unlimited.de. No nationality limit or fee.",
+      "title": "Artists Unlimited guest residency 2027 (Bielefeld, Germany)",
+      "url": "https://www.artists-unlimited.de/1985/residency/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "millay-arts-core-2027",
+      "deadline": "October 8, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 weeks or 1 month in Session I (April to July 2027): housing, studio, groceries, chef dinners. Oct 1 regular / Oct 8 late ($60). $45 fee + $100 deposit. International eligibility not stated.",
+      "title": "Millay Arts Core Residency (Austerlitz, NY)",
+      "url": "https://www.millayarts.org/core-residency/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "schlossmediale-2027",
+      "deadline": "October 18, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). BEST EUROPE FIT. May 17 to Jun 27, 2027: housing, CHF 4,000 grant, CHF 1,000 travel/meals, up to CHF 1,000 materials. AR/immersive work in a medieval castle; 2027 theme KLATSCH (rumour). Solo only; castle tours/talks expected. Apply via werdenberg.openolat.com/position/1409025. Also pending in the sweep suggestions.",
+      "title": "Schlossmediale 2027 residency (Werdenberg Castle, Switzerland)",
+      "url": "https://schlossmediale.ch/festival-schlossmediale/ausstellung/open-call-2027-en",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "rossonove-2027",
+      "deadline": "October 31, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 weeks between March and June 2027, free housing + coworking, access to abandoned/contested coastal sites (good for scanning). Housing only, no stipend or travel. Email call@rossonove.org; no fee, no CV.",
+      "title": "Rossonove residency 2027 (Liguria, Italy)",
+      "url": "https://rossonove.org/open-call/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "est-nord-est-spring-2027",
+      "deadline": "November 8, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). Apr 19 to Jun 11, 2027: studio + lodging, CAD 2,080 fee, wood/metal/ceramics shops, craft village. Can apply in French. Needs a Canadian visa and US re-entry: check your status. Zoom info session Oct 1 (2 pm English).",
+      "title": "Est-Nord-Est spring residency (Saint-Jean-Port-Joli, Québec)",
+      "url": "https://estnordest.org/en/artist-residency/artist-residency-regular/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "sixi-air-spring-2027",
+      "deadline": "November 15, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). TOP FIT. 3 months March to May 2027: round-trip flights, visa fees, insurance, private apartment/loft, materials, translation and tech support. Theme 1 'Flux and Imprints: migration history, colonial legacy, archives, memory' fits Tanit XR. Donate some works; talk + workshop + open studio. 2 places per season. Deadline Beijing time.",
+      "title": "Sixi AiR 2027 Spring (Sixi Museum, Nanjing, China)",
+      "url": "https://siximuseum.com/en/residency/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "eulsukdo-ecological-art-2027",
+      "deadline": "November 22, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). One commission on a protected estuary wetland: KRW 380M production budget (covers your stays) + KRW 20M artist fee; installation around March to May 2027. An AR/WebXR layer with a light physical footprint suits the low-disturbance rule; teaming with a landscape architect helps. Deadline 24:00 KST.",
+      "title": "Eulsukdo Land & Ecological Art open call (Busan, Korea)",
+      "url": "https://eulsukdo-ecoart.com/en/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "yaddo-2027-28",
+      "deadline": "December 20, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). Stays from May 2027: room, studio, all meals, access grants; 2 weeks to 2 months. Portal opens Nov 1. $35 fee. Film/video, installation, mixed media categories.",
+      "title": "Yaddo (Saratoga Springs, NY)",
+      "url": "https://www.yaddo.org/apply/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "anderson-center-2027",
+      "deadline": "January 12, 2027",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 to 4 weeks in May 2027: housing, chef meals, airport shuttle; open worldwide, invitation letter for visas. No stipend. Deadline noon CST.",
+      "title": "Anderson Center at Tower View (Red Wing, MN)",
+      "url": "https://www.andersoncenter.org/residency-program/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "monson-arts-spring-2027",
+      "deadline": "January 15, 2027",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 4 weeks Mar 29 to Apr 22 or Apr 26 to May 20, 2027: room, studio, all meals, $500 stipend. Accepts new media/video. Portal opens Dec 1; ~$25 fee.",
+      "title": "Monson Arts spring 2027 (Maine)",
+      "url": "https://monsonarts.org/residencies/overview/",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "jentel-2027",
+      "deadline": "January 15, 2027",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 weeks May 15 to Jun 7, 2027: private room + studio, $100/week food, airport pickup. Must live in the US during the residency year (citizenship not required). Portal opens Oct 1; $30 fee + $100 deposit.",
+      "title": "Jentel Artist Residency (Wyoming)",
+      "url": "https://www.jentelarts.org/apply",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "mit-tr-innovators-under-35-2027",
+      "deadline": null,
+      "status": "watch",
+      "reason": "From Ines's other chat, Sept 27: nominations for the 2027 list open December 2026; self-nomination is free. Under 35 on Oct 1 of the list year. MENA regional edition is the realistic entry point (same title; regional winners are encouraged onto the global list). Frame around the technical advance: El Jem reconstruction pipeline, spARc, IEEE best paper, Niantic 'benchmark'. Semifinalists send references, a video and a résumé. When the call opens, set a real deadline and status 'new'.",
+      "title": "MIT Technology Review Innovators Under 35 (MENA edition + global list)",
+      "url": "https://www.technologyreview.com/innovators-under-35/",
+      "added": "2026-09-27",
+      "source": "Ines's other Claude chat, pasted Sept 27"
+    },
+    {
+      "slug": "ted-fellows-2027-nomination",
+      "deadline": null,
+      "status": "watch",
+      "reason": "Nomination-based since 2024, so she needs a nominator. Plan from her other chat: ask Kent Bye (Voices of VR) and Nathan Bowser (Niantic interview) to nominate her. Watch for the 2027 nomination window and remind her to line up the nominators before it.",
+      "title": "TED Fellows 2027 (nomination only)",
+      "url": "https://www.ted.com/about/programs-initiatives/ted-fellows-program",
+      "added": "2026-09-27",
+      "source": "Ines's other Claude chat, pasted Sept 27"
+    },
+    {
+      "slug": "unesco-world-heritage-volunteers-2027",
+      "deadline": null,
+      "status": "watch",
+      "reason": "Call usually opens November or December; the 2026 call was due January 5, 2026. Idea: a one-week scan camp at Dougga, Kerkouane or El Jem with Splats With Phones as the training track. Needs the site manager's cooperation, i.e. an INP letter. Set the deadline when the 2027 call posts.",
+      "title": "UNESCO World Heritage Volunteers 2027 (Tanit XR scan camp)",
+      "url": "https://whc.unesco.org/en/world-heritage-volunteers/",
+      "added": "2026-09-27",
+      "source": "Ines's other Claude chat, pasted Sept 27"
+    },
+    {
+      "slug": "trillium-arts-april-2027",
+      "deadline": "November 4, 2026",
+      "status": "new",
+      "reason": "Spring 2027 funded-residency search. One week in April 2027 in Mars Hill, NC: private suite, workspace, $700 honorarium, no application fee. Short, close to DC. International eligibility not stated.",
+      "title": "Trillium Arts, April 2027",
+      "url": "https://www.trilliumartsnc.org/artist-residencies",
+      "added": "2026-09-27",
+      "source": "chat research session"
+    },
+    {
+      "slug": "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
+      "deadline": "October 7, 2026",
+      "status": "new",
+      "reason": "Free four-day spatial design jam at ASU's MIX Center in Mesa, Arizona, October 15 to 18, in a four-storey 360° projection studio with 55-channel spatial audio; immersive-experience and XR design tracks fit your practice. Participant applications close October 7 (verified September 30 on tech.asu.edu/remixthefuture; invitations roll, so earlier is better). Travel to Arizona is yours.",
+      "added": "2026-09-30",
+      "source": "weekly board check"
+    },
+    {
+      "slug": "4th-matsu-biennial-open-call-for-international-artists",
+      "deadline": "October 30, 2026",
+      "status": "new",
+      "reason": "Up to NTD 800,000 (tax included) to make a site-specific or immersive piece on the Matsu Islands, open to artists worldwide, no fee listed. Island heritage (stone houses, Cold War outposts) and ocean ecology are the themes, a natural home for a scan-based heritage work. Deadline verified September 30 on matsubiennial.tw: October 30, 17:00 Taiwan time (5 am ET). The work must be finished by August 10, 2027.",
+      "added": "2026-09-30",
+      "source": "weekly board check (watch list)"
+    },
+    {
+      "slug": "in-situ-artist-residencies-in-the-medina-of-tunis-and-zaghou",
+      "deadline": "December 20, 2026",
+      "status": "new",
+      "reason": "Funded short residency (up to 10 days, about EUR 6,000 average for fee and production) in the Medina of Tunis and Zaghouan, any nationality, free, new media eligible: heritage work at home, paid. Rolling review every two months from October 20, so apply early. Its sister call for Tunisia-resident artists (ANIMED, Nov 30) is on the board too; Tanit XR itself only qualifies for that one with a Tunisia-registered partner.",
+      "added": "2026-09-30",
+      "source": "weekly board check (watch list)"
+    }
+  ]
 }

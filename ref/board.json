@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-09-27",
+ "built": "2026-09-30",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -895,7 +895,7 @@
    "mode": "Remote",
    "deadline_type": "Fixed",
    "deadline_date": "October 1, 2026",
-   "url": "https://www.womentech.net/women-in-tech-awards"
+   "url": "https://www.womentech.net/women-in-tech-ai-awards"
   },
   {
    "slug": "awe-2027-call-for-speakers-early-opportunities",
@@ -1400,7 +1400,7 @@
   {
    "slug": "games-for-change-turkiye-festival-2026-calls-for-speakers-ar",
    "title": "Games for Change Türkiye Festival 2026, Calls for Speakers & Arcade",
-   "desc": "G4C Türkiye's 2026 festival theme is “PLAY BEYOND, play to recover, reconnect, reimagine,” exploring resilience through games. The Call for Speakers and Call for Arcade are both open now; deadlines to be announced.",
+   "desc": "G4C Türkiye's 2026 festival theme is “PLAY BEYOND, play to recover, reconnect, reimagine,” exploring resilience through games. The Call for Speakers and Call for Arcade are both open now; deadlines to be announced. The speaker and arcade calls closed September 28, 2026.",
    "type": "Open Call",
    "eligibility": [
     "Open to all",
@@ -1409,8 +1409,8 @@
    "region": "Global",
    "country": "",
    "mode": "Hybrid",
-   "deadline_type": "Open",
-   "deadline_date": null,
+   "deadline_type": null,
+   "deadline_date": "September 28, 2026",
    "url": "https://turkiye.gamesforchange.org/"
   },
   {
@@ -1978,7 +1978,7 @@
   {
    "slug": "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
    "title": "ReMix the Future 2026: Play Attention! (ASU MIX Center Spatial Design Jam)",
-   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until applications close September 30, and travel is your own.",
+   "desc": "Four-day spatial design jam at Arizona State University's MIX Center in Mesa, Arizona, October 15 to 18, 2026, open to local and global artists, designers and technologists aged 18+. Teams build for a four-storey 360° projection studio with 55-channel spatial audio and an LED virtual production stage, in Immersive Experience, Interactive Installation and XR Design tracks, competing for a prize pool valued at $3,000. Free to apply; invitations go out on a rolling basis until participant applications close October 7 (the September 30 date was for jury applications), and travel is your own.",
    "type": "Challenge",
    "eligibility": [
     "XR Creators",
@@ -1990,7 +1990,7 @@
    "country": "",
    "mode": "In-person",
    "deadline_type": null,
-   "deadline_date": "September 30, 2026",
+   "deadline_date": "October 7, 2026",
    "url": "https://tech.asu.edu/remixthefuture"
   },
   {
@@ -2185,6 +2185,54 @@
    "deadline_type": null,
    "deadline_date": "October 15, 2026",
    "url": "https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026"
+  },
+  {
+   "slug": "in-situ-call-for-community-based-art-projects-medina-of-tuni",
+   "title": "IN-SITU Call for Community-Based Art Projects, Medina of Tunis (ANIMED)",
+   "desc": "Four art projects co-created with residents, craftspeople and associations around the heritage of the Medina of Tunis, part of the EU-funded IN-SITU project (Interreg NEXT Italy-Tunisia). Each gets a flat fee of up to EUR 3,000 plus production costs and cross-border travel; digital and hybrid practices are eligible. Open to artists, collectives and arts organisations established or resident in Tunisia, free, one PDF by email; co-creation runs January to March 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "Non-profits"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "November 30, 2026",
+   "url": "https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/"
+  },
+  {
+   "slug": "in-situ-artist-residencies-in-the-medina-of-tunis-and-zaghou",
+   "title": "IN-SITU Artist Residencies in the Medina of Tunis and Zaghouan (Fondazione MeNO)",
+   "desc": "Four to six residencies of up to 10 days in the Medina of Tunis and Zaghouan between October 2026 and March 2027, for research and new work tied to local heritage and communities, with an average budget of about EUR 6,000 each covering the artist fee and production. Open to individual artists of any nationality with provable experience; new media is eligible and applying is free. Proposals are reviewed every two months from October 20, so earlier is better.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "December 20, 2026",
+   "url": "https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/"
+  },
+  {
+   "slug": "4th-matsu-biennial-open-call-for-international-artists",
+   "title": "4th Matsu Biennial, Open Call for International Artists",
+   "desc": "Site-specific installations and participatory projects, including immersive experiences, for the Matsu Islands in Taiwan, around three axes: the island's culture and stone houses, its Cold War outpost history, and ocean ecology. Each selected proposal receives up to NTD 800,000 (tax included); open to artists worldwide. Deadline October 30, 2026, 17:00 GMT+8; the exhibition runs August 20 to November 7, 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "October 30, 2026",
+   "url": "https://matsubiennial.tw/en/news/details/88"
   }
  ]
 }

@@ -5,6 +5,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 <!-- new items appended below by the inbox sweep -->
 
+<!-- 2026-09-30 board check: Habibi Tech Summit volunteer call and XR Guild Fall Mentorship blocks removed (both closed Sept 25-26, before edition 20 goes out). -->
+
 <!-- Edition 19 assembled 2026-09-24 → ref/newsletter-edition-19.md (Voqal, Women Who Code, CHI meet-ups, iLRN, CHI workshops, Technica went there; Habibi dropped as moot). Blocks below that are not in edition 19 belong to edition 20. -->
 
 <!-- Edition 18 assembled 2026-09-11 → ref/newsletter-edition-18.md (UnitedXR Booster moved there). Edition 19 items are listed in ref/newsletter-plan.md; append new sweep finds below. -->
@@ -65,14 +67,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Not a juried open call. The Community Garden is a living part of the museum that keeps growing: 3D and XR-ready objects, animated or interactive "pollinators", botanical or spatial fragments, conceptual world-building elements. What you send joins an evolving XR ecosystem instead of one exhibition. Submissions go through a short form linked from the museum page. The museum's current show, "Vibrancy as Praxis", is on view through July 2026 and is closed to submissions; a further event, COSMOS, launches in the winter cycle with details still to be announced.
 👉 https://www.xrwomen.com/museum
 
-### 🤝 Habibi Tech Summit 2026, Volunteer Call
-
-📅 Summit is September 25 and 26, 2026; sign-ups close when the shifts fill
-📍 In person, New York City (three venues across Brooklyn, Manhattan and Queens)
-👥 Open to all, no experience needed. Free
-✏️ Work one shift at the Habibi Tech Summit and you attend the rest of the day as a guest, on them. Six roles to pick from: guests and registration, content creation, program and stage, exhibitors and sponsors, setup and logistics, and a flexible assignment.
-👉 https://habibi.tech/volunteers
-
 ### 🚀 NASA Space Apps Challenge 2026
 
 📅 Hackathon is November 14 and 15, 2026; registration is open now
@@ -96,14 +90,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Open to all genders, built for underrepresented genders in tech. No coding experience needed
 ✏️ The University of Maryland's hackathon for underrepresented genders, 500+ hackers in 2025. Beginner, General, Research and Startup tracks, plus workshops and recruiters on site.
 👉 https://gotechnica.org/
-
-### 🧭 XR Guild Fall Mentorship Program 2026
-
-📅 Sign-up closes September 25, 2026; sessions start in October
-📍 Remote, one-to-one, every couple of weeks until year-end
-👥 XR Guild members (membership is free at xrguild.org/join), as mentees or mentors
-✏️ Free mentorship matching people building in XR and AI with people earlier on the path. Five mentee spots were left on Sept 24. On the board; closes on edition 19's send day, so it is not carried into an edition.
-👉 https://forms.gle/2YXMz2uFKpXnSVe8A
 
 ### 🎨 Art Explora x Cité internationale des arts Residency 2027
 
@@ -177,6 +163,23 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ PhotoVogue's first regional call for MENA. Send a series of up to 15 images, or images and video; no AI-generated work. Three grants: $4,500, $2,000 and $1,500, plus festival presentation and possible Condé Nast publication.
 👉 https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026
 
+### 🏝 4th Matsu Biennial, Open Call for International Artists
+
+📅 Deadline: October 30, 2026, 17:00 Taiwan time (5 am ET)
+📍 Matsu Islands, Taiwan; exhibition August 20 to November 7, 2027
+👥 Artists and collectives from anywhere. No fee listed on the call
+✏️ Up to NTD 800,000 (tax included) per project for a site-specific installation or a participatory piece, and immersive experiences are named. Three directions to work from: the island's culture and stone houses, its Cold War outpost history, and the ocean (marine ecology, sea sparkles, marine debris). Results by end of November.
+👉 https://matsubiennial.tw/en/news/details/88
+
+### 🇹🇳 IN-SITU, Medina of Tunis: Art Projects and Residencies
+
+📅 Art projects: November 30, 2026, 11:59 pm Tunis time · residencies: December 20, 2026, reviewed every two months from October 20
+📍 Medina of Tunis (and Zaghouan for the residencies), January to March 2027 for the projects, stays of up to 10 days for the residencies
+👥 Two routes, both free. Art projects: artists, collectives and arts organisations established or resident in Tunisia. Residencies: individual artists of any nationality
+✏️ Part of the EU-funded IN-SITU project on heritage in the medina. ANIMED backs four projects co-created with residents and craftspeople, up to EUR 3,000 fee each plus production and travel. Fondazione MeNO runs four to six residencies with an average budget of about EUR 6,000 each, fee and production included. Digital and new media work is eligible on both.
+👉 https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/
+👉 https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -192,6 +195,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Culture Resource (Al Mawred Al Thaqafy) | linkedin.com/company/culture-resource-al-mawred-al-thaqafy- |
 | Technica | linkedin.com/company/gotechnica |
 | XR Guild | linkedin.com/company/xr-guild |
+| ANIMED | linkedin.com/company/animed-network (check the page exists before tagging) |
 | Art Explora | linkedin.com/company/art-explora |
 | CURRENTS New Media | linkedin.com/company/currents-new-media |
 | UnitedXR Europe | linkedin.com/company/unitedxr |
