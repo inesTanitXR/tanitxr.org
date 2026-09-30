@@ -48,6 +48,22 @@ function start() {
   // for money in front of a class.
   const CLASS_MODE = /[?&]class=1/.test(location.search);
   if (CLASS_MODE) document.body.classList.add('classroom');
+  // ?embed=1: this page inside somebody else's article. The site's own header, nav and footer
+  // go away, because a reader should not be able to wander off into Opportunities inside a
+  // 600 pixel box, and one link out is added in their place. Everything that makes the thing
+  // worth embedding stays, Donate included: an embed in an article is a donation surface.
+  const EMBED = /[?&]embed=1/.test(location.search);
+  if (EMBED) {
+    document.body.classList.add('embed');
+    const back = document.getElementById('embed-out');
+    if (back) {
+      try {                                   // the same object, on the real site, no ?embed
+        const u = new URL(location.href);
+        u.searchParams.delete('embed');
+        back.href = u.toString();
+      } catch (e) { back.href = location.origin + location.pathname + location.hash; }
+    }
+  }
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true,
@@ -1747,6 +1763,27 @@ function start() {
     if (copyBtn) copyBtn.onclick = async () => {
       const ok = await copy(link);
       hint(ok ? 'نُسخ الرابط.' : link);
+    };
+    // the snippet an editor pastes. One object, not all sixty nine: in an article a single
+    // stela that turns is stronger than a forty thousand pixel scroll, and far lighter on the
+    // reader. No camera in the permission list, because the page never asks for one and a
+    // careful editor will refuse an embed that does.
+    const embedBtn = el('embed');
+    if (embedBtn) embedBtn.onclick = async () => {
+      // the object link ends in #slug, so the query has to go in before the fragment or it
+      // lands inside it and location.search never sees it
+      let src;
+      try { const u = new URL(link, location.href); u.searchParams.set('embed', '1'); src = u.toString(); }
+      catch (e) { const h = link.indexOf('#');
+        src = h < 0 ? link + (link.indexOf('?') < 0 ? '?' : '&') + 'embed=1'
+                    : link.slice(0, h) + (link.indexOf('?') < 0 ? '?' : '&') + 'embed=1' + link.slice(h); }
+      const code = '<iframe src="' + src + '" style="width:100%;height:70vh;border:0" '
+        + 'title="' + ((slots[shown] && slots[shown].it.title) || 'Tanit XR') + ' in 3D" '
+        + 'loading="lazy" allow="xr-spatial-tracking; fullscreen; gyroscope; accelerometer" '
+        + 'allowfullscreen></iframe>';
+      const ok = await copy(code);
+      hint(ok ? 'Embed code copied. Paste it into the article.' : code);
+      if (window.tx) tx('embed_code_copied', { object: slots[shown] && slots[shown].it.slug });
     };
     const saveBtn = el('save');
     if (saveBtn) {

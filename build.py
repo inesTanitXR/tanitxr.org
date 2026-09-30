@@ -1135,6 +1135,20 @@ body.in-room{overflow:hidden}
 body.in-room header.site{display:none}
 body.in-room:not(.room-focus) #walk-label{display:none}
 body.in-room #vr-button,body.in-room #saved-chip{display:none}
+/* ?embed=1: the Collection living inside somebody else's article. The site around it goes,
+   so the frame holds the object and nothing that would carry a reader out of their page. */
+#embed-out{display:none}
+body.embed header.site,body.embed footer.site,body.embed #mobnav,
+body.embed #scan-entry{display:none!important}
+body.embed{overscroll-behavior:contain}          /* the frame must not scroll the article */
+body.embed #embed-out{display:block;position:fixed;bottom:12px;inset-inline-end:12px;z-index:8;
+  background:rgba(253,248,240,.94);border:1px solid rgba(74,53,43,.18);border-radius:999px;
+  padding:7px 14px;font-size:12.5px;color:#8a6200;text-decoration:none;
+  box-shadow:0 6px 18px rgba(60,40,26,.12)}
+body.embed #embed-out:hover{background:#fff;color:#4a3527}
+/* the side arrows are the way through the collection in a frame, where scrolling belongs to
+   the article, so they stay on a phone too */
+body.embed #wf-prev,body.embed #wf-next{display:flex!important}
 #walk-stage.can-pick{cursor:pointer}
 #room-hint{font-size:12.5px;color:#8a735c;margin-inline-start:auto;text-align:end;max-width:280px}
 @media(max-width:760px){#room-hint{display:none}}
@@ -3342,6 +3356,18 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     # was left alone and pointed at a page inside the current directory, which does not exist
     doc = re.sub(r'(href|src)="((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(\?[^"#]*)?(#[^"]*)?"', _link_repl, doc)
     doc = re.sub(r'(href|src|poster)="(?:\.\./)*(assets/[^"]*)"', lambda m: f'{m.group(1)}="{P}{m.group(2)}"', doc)
+    # The object viewer on Galleries keeps its links in a <script> as JSON, so the attribute
+    # pass above never saw them: all 42 "Open the full record" links pointed at
+    # /galleries/archive/<slug>.html, a 404 on every one, in all three languages, since the
+    # page was added on 2026-09-17. Same rewrite, applied to that one JSON key.
+    def _json_link_repl(m):
+        ups, sub, stem, anchor_ = m.group(1), m.group(2), m.group(3), m.group(4) or ""
+        old = posixpath.normpath(posixpath.join(LANG_DIRS[LANG], ups + sub + stem + ".html"))
+        return '"h": "' + P + _pretty_root(old) + anchor_ + '"'
+
+    doc = re.sub(r'"h":\s*"((?:\.\./)*)((?:[A-Za-z0-9_-]+/)*)([A-Za-z0-9_-]+)\.html(#[^"]*)?"',
+                 _json_link_repl, doc)
+
     doc = re.sub(r'url\((?:\.\./)*(assets/[^)]*)\)', lambda m: f"url({P}{m.group(1)})", doc)
     doc = re.sub(r"fetch\('(?:\.\./)*profiles-live\.json'\)", f"fetch('{P}profiles-live.json')", doc)
 
@@ -3583,11 +3609,83 @@ def _add_contrib(slug, kind, label, href, uid=None, thumb=None):
     CONTRIB[slug][kind].append({"label": label, "href": href, "uid": uid, "thumb": thumb})
 
 
+WALK_MAX_BYTES = 8_000_000
+
+
+def _explore_index():
+    """Sketchfab uid -> the object's slug in the Collection, for everything the page can show.
+
+    Built once and shared with build_walk, so a card can never offer a 3D view of something
+    the Collection does not actually have.
+    """
+    models_dir = os.path.join(HERE, "media", "models")
+    on_disk = ({f[:-4] for f in os.listdir(models_dir) if f.endswith(".glb")}
+               if os.path.isdir(models_dir) else set())
+    by_uid, too_big = {}, []
+    man = os.path.join(HERE, "ref", "models-manifest.json")   # versioned; media/models is not
+    if os.path.exists(man):
+        with open(man) as f:
+            for e in json.load(f).get("models", []):
+                if e["slug"] not in on_disk:
+                    continue
+                pth = os.path.join(models_dir, e["slug"] + ".glb")
+                if os.path.getsize(pth) > WALK_MAX_BYTES:
+                    too_big.append((e["slug"], os.path.getsize(pth)))
+                    continue
+                by_uid[e["uid"]] = e["slug"]
+    return by_uid, too_big, on_disk
+
+
+EXPLORE_BY_UID, _EXPLORE_TOO_BIG, _EXPLORE_ON_DISK = _explore_index()
+
+
+def _explore_made():
+    """The museum pieces the Collection shows. They are keyed by their own slug, not by a
+    Sketchfab uid, so a uid lookup alone misses all eighteen of Patrick's."""
+    out, mp = {}, os.path.join(HERE, "ref", "made-pieces.json")
+    if not os.path.exists(mp):
+        return out
+    with open(mp) as f:
+        for pc in json.load(f)["pieces"]:
+            if pc.get("kit") or pc["slug"] not in _EXPLORE_ON_DISK:
+                continue                       # the building kit is not shown on its own
+            gp = os.path.join(HERE, "media", "models", pc["slug"] + ".glb")
+            if os.path.exists(gp) and os.path.getsize(gp) <= WALK_MAX_BYTES:
+                out[pc["slug"]] = pc["slug"]
+                m = re.search(r"models/([a-f0-9]+)", pc.get("sketchfab") or "")
+                if m:
+                    out[m.group(1)] = pc["slug"]
+    return out
+
+
+EXPLORE_BY_UID.update(_explore_made())
+
+
+def explore_href(uid):
+    """Where to send somebody who wants to see this in 3D: our page, at that object."""
+    slug = EXPLORE_BY_UID.get(uid) if uid else None
+    return f"explore.html#{slug}" if slug else None
+
+
 def model_card(title, thumb, href, meta="", uid=None, external=False, cls=""):
     """Card with a thumbnail that swaps to the live Sketchfab viewer on click (data-embed → site.js).
     Uses a <div>, not <a>, so the credit inside can be its own link."""
+    # Ines, 2026-09-30: a 3D view always lands on our own Collection, never on the Sketchfab
+    # post. Where the Collection has the object we link straight to it; only where it does not
+    # do we fall back to the old in-place Sketchfab viewer, so nothing loses its 3D view.
+    mine = explore_href(uid)
+    if mine:
+        href, external = mine, False
+    # where the Collection has no copy, the button follows the card to whichever of our pages
+    # it already points at, the museum or the object's record. The Sketchfab viewer stays only
+    # as the last resort, for a card whose own link leaves the site.
+    target = mine or (None if external else href)
+    if target:
+        play = f'<a class="play" href="{target}" aria-label="View in 3D">▶ View in 3D</a>'
+    else:
+        play = (f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>'
+                if uid else "")
     tgt = ' target="_blank" rel="noopener"' if external else ""
-    play = (f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>' if uid else "")
     if thumb:
         fit = ' class="contain"' if str(thumb).startswith("alyssa-") else ""
         ph = (f'<div class="ph"><a href="{href}"{tgt}><img src="{img(thumb, 800)}"{fit} alt="{esc(title)}" loading="lazy"></a>'
@@ -5113,21 +5211,7 @@ def collection_numbers():
 def build_walk():
     """The simple one: one artifact at a time, scroll to move, drag to turn."""
     models_dir = os.path.join(HERE, "media", "models")
-    on_disk = ({f[:-4] for f in os.listdir(models_dir) if f.endswith(".glb")}
-               if os.path.isdir(models_dir) else set())
-    WALK_MAX_BYTES = 8_000_000
-    by_uid, too_big = {}, []
-    man = os.path.join(HERE, "ref", "models-manifest.json")   # versioned; media/models is not
-    if os.path.exists(man):
-        with open(man) as f:
-            for e in json.load(f).get("models", []):
-                if e["slug"] not in on_disk:
-                    continue
-                p = os.path.join(models_dir, e["slug"] + ".glb")
-                if os.path.getsize(p) > WALK_MAX_BYTES:
-                    too_big.append((e["slug"], os.path.getsize(p)))
-                    continue
-                by_uid[e["uid"]] = e["slug"]
+    by_uid, too_big, on_disk = EXPLORE_BY_UID, _EXPLORE_TOO_BIG, _EXPLORE_ON_DISK
     for slug, n in too_big:
         print(f"  ! walk: skipping {slug} ({n/1e6:.0f} MB, over the 8 MB page budget)")
     overrides = {o["slug"]: o for o in WALK_CFG.get("overrides", [])}
@@ -5325,6 +5409,7 @@ def build_walk():
 <span class="rc-label">Drag to turn</span>
 </div></div>
 
+<a id="embed-out" href="" target="_blank" rel="noopener">{term("Open at tanitxr.org")}</a>
 <div id="exp-views" hidden><b>0</b> <span>views</span></div>
 <button id="saved-chip" aria-label="Open the ones you love">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
@@ -5416,6 +5501,7 @@ taking care of the place you are in.</p>
 <a class="ss-net" data-net="whatsapp" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4.3c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.6 2.6 1 3.2.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4l-2-1c-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg></span><span>WhatsApp</span></a>
 <a class="ss-net" data-net="x" target="_blank" rel="noopener"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16.2h1.7L6.6 4.7H4.8l11.6 14.5z"/></svg></span><span>X</span></a>
 <button class="ss-net" data-net="copy"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l2.8-2.8a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zM7.8 17.7a3 3 0 0 1 0-4.2l2.1-2.1 1.4 1.4-2.1 2.1a1 1 0 1 0 1.4 1.4l2.1-2.1 1.4 1.4-2.1 2.1a3 3 0 0 1-4.2 0zm8.4-8.4l-1.4-1.4 2.1-2.1a3 3 0 1 1 4.2 4.2l-2.1 2.1-1.4-1.4 2.1-2.1a1 1 0 1 0-1.4-1.4l-2.1 2.1z"/></svg></span><span>Copy link</span></button>
+<button class="ss-net" data-net="embed"><span class="ss-ic"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></span><span>{term("Copy embed code")}</span></button>
 </div>
 <p id="ss-hint" class="ss-note" aria-live="polite"></p>
 </div>
@@ -7927,6 +8013,8 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "Depuis un compteur sans cookies, qui ne suit personne.",
            "Keep scrolling": "Continuez à faire défiler",
+           "Copy embed code": "Copier le code d’intégration",
+           "Open at tanitxr.org": "Ouvrir sur tanitxr.org",
            "Read their profile": "Voir son profil",
            "Read": "Lire", "Back": "Précédent", "Next": "Suivant",
            "Send us your model": "Envoyez-nous votre modèle",
@@ -7994,6 +8082,8 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "من عدّاد بلا كوكيز، لا يتعقّب أحدًا.",
            "Keep scrolling": "واصل التمرير",
+           "Copy embed code": "انسخ كود التضمين",
+           "Open at tanitxr.org": "افتح على tanitxr.org",
            "Read their profile": "شاهد ملفه الشخصي",
            "Read": "اقرأ", "Back": "السابق", "Next": "التالي",
            "Send us your model": "أرسل لنا نموذجك",
