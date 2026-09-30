@@ -44,12 +44,15 @@ def count(path):
 
 paths = ([f"collection_view/{s}" for s in slugs]
          + [f"collection_save/{s}" for s in slugs]
+         + [f"collection_share/{s}" for s in slugs]
          + ["/explore/", "TOTAL"])
 with cf.ThreadPoolExecutor(max_workers=8) as pool:
     got = dict(zip(paths, pool.map(count, paths)))
 
 views = {s: got[f"collection_view/{s}"] for s in slugs}
 saves = {s: got[f"collection_save/{s}"] for s in slugs}
+shares = {s: got[f"collection_share/{s}"] for s in slugs}
+titles = {i["slug"]: i["title"] for i in cfg["items"]}
 # Views are the number a funder asks about, so totals are what is recorded and shown.
 # Unique visitors are kept alongside them because the two together say something neither
 # says alone. Saves are counted but not displayed: a save lives in one browser's storage
@@ -70,8 +73,16 @@ stats = {
 # A total of 311 is a small number; eight objects per visit is not.
 if stats["experience_views"]:
     stats["per_visit"] = round(stats["object_views"] / stats["experience_views"], 1)
+stats["shared"] = sum(t for _, t in shares.values())
 order = sorted(views.items(), key=lambda kv: -kv[1][1])
 stats["most_viewed"] = [{"slug": s, "views": t} for s, (_, t) in order[:5] if t]
+# The per object table. Ines asked for this on 2026-09-30 for funders; it is deliberately
+# not on the page. Nothing here is near a number worth showing a visitor, and "57 views"
+# beside an object makes a collection look unvisited rather than loved.
+stats["per_object"] = [{"slug": s, "title": titles.get(s, s),
+                        "views": views[s][1], "people": views[s][0],
+                        "loved": saves[s][1], "shared": shares[s][1]}
+                       for s, _ in order]
 
 if a.show:
     print(json.dumps(stats, indent=1))
@@ -81,3 +92,7 @@ else:
     print(f"{stats['objects']} objects · {stats['object_views']} views across "
           f"{stats['objects_viewed']} of them · {stats['experience_views']} views of the "
           f"Collection itself  -> ref/collection-stats.json")
+    print(f"{stats['saved']} loved · {stats['shared']} shared\n")
+    print(f"  {'views':>6} {'people':>7} {'loved':>6} {'shared':>7}  object")
+    for r in stats["per_object"][:12]:
+        print(f"  {r['views']:>6} {r['people']:>7} {r['loved']:>6} {r['shared']:>7}  {r['title'][:44]}")

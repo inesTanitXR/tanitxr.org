@@ -1,34 +1,589 @@
 {
  "_what": "What the Collection has been used for, from the public GoatCounter counters. Regenerate with tools/collection_stats.py after a build.",
- "as_of": "2026-09-23",
- "objects": 75,
- "object_views": 311,
- "objects_viewed": 71,
- "experience_views": 39,
- "people": 39,
- "saved": 12,
- "site_views": 1001,
- "per_visit": 8.0,
+ "as_of": "2026-09-30",
+ "objects": 69,
+ "object_views": 663,
+ "objects_viewed": 69,
+ "experience_views": 69,
+ "people": 69,
+ "saved": 17,
+ "site_views": 2096,
+ "per_visit": 9.6,
+ "shared": 9,
  "most_viewed": [
   {
    "slug": "tanit-stela-tophet-of-salammbo-carthage",
-   "views": 36
+   "views": 57
   },
   {
    "slug": "punic-stela-tophet-of-salammbo-carthag",
-   "views": 22
+   "views": 39
   },
   {
    "slug": "punic-stelae-row-tophet-of-salammbo-ca",
-   "views": 19
+   "views": 33
   },
   {
    "slug": "punic-stelae-tophet-of-salammbo-carthage",
-   "views": 17
+   "views": 30
   },
   {
    "slug": "bird-of-prey-statue-roman-villas-of-car",
-   "views": 14
+   "views": 26
+  }
+ ],
+ "per_object": [
+  {
+   "slug": "tanit-stela-tophet-of-salammbo-carthage",
+   "title": "Tanit Stela",
+   "views": 57,
+   "people": 57,
+   "loved": 0,
+   "shared": 2
+  },
+  {
+   "slug": "punic-stela-tophet-of-salammbo-carthag",
+   "title": "Punic Stela",
+   "views": 39,
+   "people": 39,
+   "loved": 1,
+   "shared": 2
+  },
+  {
+   "slug": "punic-stelae-row-tophet-of-salammbo-ca",
+   "title": "Punic Stelae Row",
+   "views": 33,
+   "people": 33,
+   "loved": 4,
+   "shared": 1
+  },
+  {
+   "slug": "punic-stelae-tophet-of-salammbo-carthage",
+   "title": "Punic Stelae",
+   "views": 30,
+   "people": 30,
+   "loved": 3,
+   "shared": 1
+  },
+  {
+   "slug": "bird-of-prey-statue-roman-villas-of-car",
+   "title": "Bird of Prey Statue",
+   "views": 26,
+   "people": 26,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "bust-fragment-roman-villas-of-carthage",
+   "title": "Bust Fragment",
+   "views": 23,
+   "people": 23,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "draped-statue-byrsa-hill-carthage",
+   "title": "Draped Statue",
+   "views": 18,
+   "people": 18,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "male-torso-statue-roman-villas-of-carth",
+   "title": "Male Torso Statue",
+   "views": 18,
+   "people": 18,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "decorated-bust-fragment-roman-villas-of",
+   "title": "Decorated Bust Fragment",
+   "views": 17,
+   "people": 17,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-clay-lamp",
+   "title": "Clay lamp",
+   "views": 17,
+   "people": 17,
+   "loved": 2,
+   "shared": 2
+  },
+  {
+   "slug": "headless-draped-statue-byrsa-hill-cart",
+   "title": "Headless Draped Statue",
+   "views": 16,
+   "people": 16,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "reclining-figure-byrsa-hill-carthage",
+   "title": "Reclining Figure",
+   "views": 14,
+   "people": 14,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "roman-draped-statue-byrsa-hill-carthage",
+   "title": "Roman Draped Statue",
+   "views": 13,
+   "people": 13,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "statue-fragment-roman-villas-of-carthage",
+   "title": "Statue Fragment",
+   "views": 13,
+   "people": 13,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-wall-lamp",
+   "title": "Wall lamp",
+   "views": 13,
+   "people": 13,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "roman-togatus-statue-byrsa-hill-cartha",
+   "title": "Roman Togatus Statue",
+   "views": 11,
+   "people": 11,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "kristina-stained-glass-lamp",
+   "title": "Stained glass lamp",
+   "views": 11,
+   "people": 11,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "standing-draped-statue-roman-villas-of",
+   "title": "Standing Draped Statue",
+   "views": 10,
+   "people": 10,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "roman-column-byrsa-hill-carthage",
+   "title": "Roman Column",
+   "views": 9,
+   "people": 9,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "corinthian-capital-byrsa-hill-carthage",
+   "title": "Corinthian Capital",
+   "views": 8,
+   "people": 8,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "fluted-column-fragment-byrsa-hill-cart",
+   "title": "Fluted Column Fragment",
+   "views": 8,
+   "people": 8,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "bird-and-floral-mosaic-roman-villas-of-cartha",
+   "title": "Bird and Floral Mosaic",
+   "views": 8,
+   "people": 8,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "roman-mosaic-with-bird-and-vine-motifs",
+   "title": "Roman Mosaic with Bird and Vine Motifs",
+   "views": 8,
+   "people": 8,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "lamps-lit",
+   "title": "Lamps (Lit)",
+   "views": 8,
+   "people": 8,
+   "loved": 0,
+   "shared": 1
+  },
+  {
+   "slug": "roman-column-base-byrsa-hill-carthage",
+   "title": "Roman Column Base",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "test-scan-interior-with-tilework-and-fountain",
+   "title": "Interior with Tilework and Fountain",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "ornamental-wooden-door-with-studded-patterns",
+   "title": "Ornamental Wooden Door with Studded Patterns",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "carved-architectural-blocks-with-laurel-motifs",
+   "title": "Carved Architectural Blocks with Laurel Motifs",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "traditional-loom-with-woven-carpet-medina-of",
+   "title": "Traditional Loom with Woven Carpet",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "lamps-unlit",
+   "title": "Lamps (Unlit)",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "ornate-tunisian-hanging-lamp",
+   "title": "Ornate Tunisian Hanging Lamp",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "tunisian-wooden-woven-table-lamp",
+   "title": "Tunisian Wooden Woven Table Lamp",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "wall-lamp",
+   "title": "Wall Lamp",
+   "views": 7,
+   "people": 7,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "traditional-door-medina-of-tunis",
+   "title": "Traditional Door",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "wooden-door-with-tilework-zawiya-of-sid",
+   "title": "Wooden Door with Tilework",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "mihrab-niche-madrasa-al-bachia-medina-of-tun",
+   "title": "Mihrab Niche",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "sacred-niche-roman-water-temple-zaghouan",
+   "title": "Sacred Niche",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "architectural-fragment-with-relief-decoration",
+   "title": "Architectural Fragment with Relief Decoration",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "inscribed-architectural-fragment-byrsa",
+   "title": "Inscribed Architectural Fragment",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "latin-inscription-slab-water-temple-of-zaghouan",
+   "title": "Latin Inscription Slab",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "bir-traditional-well-medina-of-tunis",
+   "title": "Bir (Traditional Well)",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-palm-tree",
+   "title": "Palm tree",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-bamboo",
+   "title": "Bamboo",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-large-pot",
+   "title": "Large clay pot",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-museum-main-hall",
+   "title": "The museum's main hall",
+   "views": 6,
+   "people": 6,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "tilework-wall-panel-mausolegt-of-sidi-sahbi",
+   "title": "Tilework Wall Panel",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "architectural-fragments-baths-of-antoninus",
+   "title": "Architectural Fragments",
+   "views": 5,
+   "people": 5,
+   "loved": 1,
+   "shared": 0
+  },
+  {
+   "slug": "carved-architectural-block-with-laurel-motifs",
+   "title": "Carved Architectural Block with Laurel Motifs",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "marble-calligraphic-panel-zitouna-mosque",
+   "title": "Marble Calligraphic Panel",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "test-scan-underground-passageways",
+   "title": "Underground passageways",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-fountain-large",
+   "title": "Courtyard fountain, large",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-fountain-small",
+   "title": "Courtyard fountain, small",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-curved-bench",
+   "title": "Curved bench",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "kristina-furnished-room",
+   "title": "Furnished room",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "kristina-rug",
+   "title": "Rug",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-carved-ceiling",
+   "title": "Carved ceiling",
+   "views": 5,
+   "people": 5,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "niche-wall-water-temple-zaghouan",
+   "title": "Niche Wall",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "ornamental-mihrab-mahram-medersa-slimanya",
+   "title": "Ornamental Mihrab (Mahram)",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "stone-basin-water-temple-zaghouan",
+   "title": "Stone Basin",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "neapolis-site-revealed-by-floods-in-tunisia",
+   "title": "Neapolis, uncovered by the storm",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "large-azure-stonecrop-succulent-in-pot",
+   "title": "Large Azure Stonecrop Succulent in Pot",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "ceramic-plate",
+   "title": "Ceramic Plate",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "modern-tagine",
+   "title": "Modern Tagine",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "murex-shell-murex-brandaris",
+   "title": "Murex Shell",
+   "views": 4,
+   "people": 4,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-small-pot",
+   "title": "Small pot",
+   "views": 3,
+   "people": 3,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "kristina-display-plinth",
+   "title": "Display plinth",
+   "views": 3,
+   "people": 3,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "patrick-wall-tanit",
+   "title": "Wall with the sign of Tanit",
+   "views": 3,
+   "people": 3,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "assorted-succulent-pot",
+   "title": "Assorted Succulent Pot",
+   "views": 2,
+   "people": 2,
+   "loved": 0,
+   "shared": 0
+  },
+  {
+   "slug": "small-azure-stonecrop-succulent-in-pot",
+   "title": "Small Azure Stonecrop Succulent in Pot",
+   "views": 2,
+   "people": 2,
+   "loved": 0,
+   "shared": 0
   }
  ]
 }
