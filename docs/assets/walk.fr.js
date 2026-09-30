@@ -479,11 +479,22 @@ function start() {
 
   // ---- drag to turn whichever object is in front
   let dragging = false, lastX = 0, lastY = 0, idle = 0;
+  // A finger can mean two things here and the page cannot know which until it has moved a
+  // little: turn this object, or scroll past it. It used to assume "turn" from the first
+  // event, so a scroll swipe tilted whatever it went past, because the stage allows vertical
+  // panning and the browser scrolls AND sends the same movement here. Now nothing turns until
+  // the direction is clear. 'x' turns, 'y' means the page is scrolling and we keep out of it.
+  // A mouse is never ambiguous, so it starts locked to turning, as before.
+  let axis = 'x';
+  const AXIS_WAIT = 8;      // pixels of travel before deciding
+  const AXIS_BIAS = 1.2;    // a tie goes to scrolling: losing a scroll is worse than a turn
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   const current = () => slots[Math.round(clamp(cursor, 0, slots.length - 1))];
   let pressed = false, downX = 0, downY = 0;
   stage.addEventListener('pointerdown', e => {
     dragging = true; pressed = true; idle = 0;
+    // in a room the page cannot scroll at all, so a finger there is always looking around
+    axis = (e.pointerType === 'touch' && !roomMode) ? null : 'x';
     lastX = downX = e.clientX; lastY = downY = e.clientY;
     stage.classList.add('grabbing');
     moved = 0;
@@ -509,6 +520,14 @@ function start() {
   });
   addEventListener('pointermove', e => {
     if (!dragging) return;
+    if (axis === null) {
+      const dx = Math.abs(e.clientX - downX), dy = Math.abs(e.clientY - downY);
+      if (dx + dy < AXIS_WAIT) { lastX = e.clientX; lastY = e.clientY; return; }
+      axis = dx > dy * AXIS_BIAS ? 'x' : 'y';
+      lastX = e.clientX; lastY = e.clientY;      // start from here, so nothing jumps
+      return;
+    }
+    if (axis === 'y') return;                    // their finger is scrolling the page
     moved += Math.abs(e.clientX - lastX);
     if (moved > 24 && !turned) {
       turned = true;
@@ -2880,7 +2899,7 @@ function start() {
       // turning. Tracking the cursor at that moment reads as her hanging off the end of the
       // mouse. She holds the look for about half a second after you let go, because snapping
       // straight back is the tell that it was a rule and not attention.
-      watch = clamp(watch + (dragging && !roomMode ? dt * 5 : -dt * 1.8), 0, 1);
+      watch = clamp(watch + (dragging && axis === 'x' && !roomMode ? dt * 5 : -dt * 1.8), 0, 1);
       if (scanT > 0.5) {
         // turn inward and watch the object as she circles it.
         // At yaw = nuraBaseYaw she faces +Z, which is the camera, so the yaw that points
