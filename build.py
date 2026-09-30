@@ -1107,6 +1107,10 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
   border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;font-size:22px;line-height:1;
   cursor:pointer}
 #room-back:hover{background:#4a3527;color:#fdf8f0}
+.fm-err{margin:14px 0 0;padding:12px 14px;border-radius:10px;font-size:14.5px;line-height:1.5;
+  background:#f1f7ef;border:1px solid #cfe3c8;color:#2f5128}
+.fm-err.bad{background:#fdf3ee;border-color:#e8c6b4;color:#7a3f22}
+.fm-err a{color:inherit;font-weight:700}
 #room-eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
 #room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
@@ -2378,7 +2382,50 @@ document.addEventListener('submit', e => {
       navigator.sendBeacon(SHEET, new URLSearchParams(new FormData(f)));
     }
   } catch (err) { /* never let the copy break the form */ }
+
+  // Do not hand the visitor over to the form service. On 2026-09-30 FormSubmit was flapping,
+  // returning 522 and 60 second timeouts, and anybody who wrote to us was sent to a blue page
+  // saying 500, with no idea whether their message had gone. The post now happens in the
+  // background and we show our own page. If their service cannot be reached, we say so in
+  // plain words and hand over a pre-filled email instead, so nobody loses what they wrote.
+  if (!f || !/formsubmit\\.co/.test(f.action || '') || f.dataset.fmSending) return;
+  const to = (f.action.match(/formsubmit\\.co\\/(?:ajax\\/)?(.+)$/) || [])[1];
+  if (!to) return;                       // an action we do not recognise keeps the old path
+  e.preventDefault();
+  f.dataset.fmSending = '1';
+  const btn = f.querySelector('button[type=submit],input[type=submit],button:not([type])');
+  const was = btn ? (btn.textContent || btn.value) : '';
+  if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = 'Sending…'; }
+  const data = new FormData(f);
+  const next = (f.querySelector('input[name=_next]') || {}).value || '';
+  const done = () => { f.dataset.fmSending = ''; if (btn) { btn.disabled = false;
+    if (btn.tagName === 'BUTTON') btn.textContent = was; } };
+  fetch('https://formsubmit.co/ajax/' + to, { method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' } })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(() => { if (next) location.href = next; else { done(); fmSaid(f, true); } })
+    .catch(() => {
+      done();
+      fmSaid(f, false, to, data);
+      window.tx('form_send_failed', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+    });
 });
+
+// what the person sees when the form service will not answer
+function fmSaid(f, ok, to, data) {
+  let box = f.querySelector('.fm-err');
+  if (!box) { box = document.createElement('p'); box.className = 'fm-err';
+    box.setAttribute('role', 'status'); f.appendChild(box); }
+  if (ok) { box.textContent = 'Thank you, that reached us.'; box.classList.remove('bad'); return; }
+  box.classList.add('bad');
+  const body = [];
+  if (data) data.forEach((v, k) => { if (k[0] !== '_' && String(v).trim()) body.push(k + ': ' + v); });
+  const mail = 'mailto:' + to + '?subject=' + encodeURIComponent('From tanitxr.org')
+             + '&body=' + encodeURIComponent(body.join('\\n'));
+  box.innerHTML = 'Our form service is not answering right now, and this is not something you '
+    + 'did. Nothing you wrote has been lost: <a href="' + mail + '">send it as an email instead</a>, '
+    + 'already filled in. Or try again in a few minutes.';
+}
 // first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
 (function(){
   try {

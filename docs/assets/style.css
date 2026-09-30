@@ -844,6 +844,10 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
   border:1px solid rgba(74,53,43,.22);background:#fff;color:#4a3527;font-size:22px;line-height:1;
   cursor:pointer}
 #room-back:hover{background:#4a3527;color:#fdf8f0}
+.fm-err{margin:14px 0 0;padding:12px 14px;border-radius:10px;font-size:14.5px;line-height:1.5;
+  background:#f1f7ef;border:1px solid #cfe3c8;color:#2f5128}
+.fm-err.bad{background:#fdf3ee;border-color:#e8c6b4;color:#7a3f22}
+.fm-err a{color:inherit;font-weight:700}
 #room-eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
 #room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
