@@ -459,8 +459,12 @@ section.pad-sm{padding:56px 0}
 .card .ph{position:relative}
 .card .ph a{display:block;height:100%}
 .card .ph.blank{display:flex;align-items:center;justify-content:center;background:var(--ink)}
-.card .play{position:absolute;right:12px;bottom:12px;background:var(--gold);color:var(--ink);border:0;border-radius:4px;
-  padding:8px 13px;font:700 13px var(--sans);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+/* height:auto and the rest undo `.card .ph a{display:block;height:100%}` above, which is for
+   the thumbnail's link. Without it this one stretches into a yellow column down the card. */
+.card .ph a.play,.card .play{position:absolute;right:12px;bottom:12px;background:var(--gold);color:var(--ink);
+  border:0;border-radius:4px;padding:8px 13px;font:700 13px var(--sans);cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);display:inline-block;width:auto;height:auto;
+  line-height:1.2;text-decoration:none}
 .card .play:hover{background:var(--gold-dark)}
 .card .ph.live{aspect-ratio:4/3;background:#000}
 .card .ph.live iframe{width:100%;height:100%;border:0;display:block}
@@ -3748,15 +3752,19 @@ def model_card(title, thumb, href, meta="", uid=None, external=False, cls=""):
     mine = explore_href(uid)
     if mine:
         href, external = mine, False
-    # where the Collection has no copy, the button follows the card to whichever of our pages
-    # it already points at, the museum or the object's record. The Sketchfab viewer stays only
-    # as the last resort, for a card whose own link leaves the site.
-    target = mine or (None if external else href)
-    if target:
-        play = f'<a class="play" href="{target}" aria-label="View in 3D">▶ View in 3D</a>'
+    # Only a card that really is a 3D model gets this. uid is what says so. Dropping that test
+    # put "View in 3D" on every card with a link, including Caroline's workshop photographs,
+    # which have no 3D anything.
+    if not uid:
+        play = ""
     else:
-        play = (f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>'
-                if uid else "")
+        # where the Collection has no copy, the button follows the card to whichever of our
+        # pages it already points at, the museum or the object's record. The Sketchfab viewer
+        # stays only as the last resort, for a card whose own link leaves the site.
+        target = mine or (None if external else href)
+        play = (f'<a class="play" href="{target}" aria-label="View in 3D">▶ View in 3D</a>'
+                if target else
+                f'<button class="play" data-embed="{uid}" aria-label="View in 3D">▶ View in 3D</button>')
     tgt = ' target="_blank" rel="noopener"' if external else ""
     if thumb:
         fit = ' class="contain"' if str(thumb).startswith("alyssa-") else ""
