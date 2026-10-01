@@ -1,0 +1,60 @@
+# Subscriptions from the old WordPress site
+
+Worked out on 2026-10-01 from the domain's live DNS records and from the Internet Archive's
+copy of the old site (3 December 2025). This is evidence of what was **installed and still
+pointed at**, not a billing statement. Only the receipts prove what is being charged.
+
+## Do not cancel these
+
+| Thing | Evidence | Why it stays |
+|---|---|---|
+| **Titan email** | `MX mx1.titan.email`, `mx2.titan.email` | This is `ines@tanitxr.org`. Cancelling it takes your email address down, and with it every form, login and reply on the site. |
+| **The domain registration** | `NS ns1/2/3.wordpress.com` | `tanitxr.org` is registered and its DNS is served at WordPress.com. Lose this and the whole site goes dark, including the GitHub Pages one. |
+
+**Check before touching the WordPress.com plan:** Titan is often sold *through* WordPress.com
+and bundled into the plan. If it is, cancelling or downgrading the plan can kill the email.
+The Purchases page below lists them separately if they are billed separately.
+
+## Likely paid, and safe to cancel
+
+Nothing on the new site uses any of these. It is a static site built by `build.py`; there is
+no WordPress, no theme, no plugin.
+
+| Thing | Evidence from the archived page | Confidence it was paid |
+|---|---|---|
+| **TranslatePress** | `wp-content/plugins/translatepress-multilingual` | **High.** The free edition allows one extra language only. The old site ran English, French *and* Arabic, which needs a paid plan. |
+| **Elementor** | `<meta name="generator" content="Elementor 3.33.2">` | Unknown. Pro is a yearly licence; the free edition also emits this tag. |
+| **Blocksy** | theme `blocksy` + `blocksy-child`, `blocksy-companion` v2.1.18 / 2.1.22 | Unknown. A child theme suggests real customisation, which usually means Pro. |
+| **Yoast SEO** | `yoast-schema-graph` in the markup | Unknown. Premium exists; free is very common. |
+| **Jetpack** | `jetpack` plugin, `stats.wp.com`, `i0.wp.com` | Unknown. Has both a free tier and paid tiers. |
+| **WordPress.com plan** | `_spf.wpcloud.com`, `/_static/??-` asset loader | **Certain there is an account.** The plan can likely drop to the cheapest tier that keeps the domain, the DNS and the email. |
+
+A caveat on the "unknown" rows: WordPress.com serves plugin assets through a URL
+concatenator, so individual plugin paths are hidden. The absence of a `-pro` marker is **not**
+evidence that the free edition was used. Only the receipts settle these.
+
+## Also seen
+
+- **Tuesday** donations, campaign `73DO5` (`donors.tuesday.app/campaign/73DO5`). Check whether
+  it carries a monthly fee or only a cut per donation, and whether that campaign is still the
+  one the new site points at.
+
+## Where to look, highest yield first
+
+1. **wordpress.com/me/purchases** — every plan, domain and marketplace subscription bought
+   through WordPress.com, each with its renewal date and an auto-renew switch. This one page
+   probably answers most of the list above.
+2. **The card or PayPal statement for the last 12 months.** This is the only complete record.
+   Annual licences renew once a year, so a full twelve months is the minimum worth reading.
+3. **Each vendor's own account page**, for anything bought directly rather than through
+   WordPress.com: elementor.com, creativethemes.com (Blocksy), translatepress.com, yoast.com.
+
+## Order of work
+
+1. Read the Purchases page and write down what is there, before cancelling anything.
+2. Confirm how Titan is billed.
+3. Cancel the plugin and theme licences. The new site cannot use them.
+4. Decide the WordPress.com plan last, once the email question is settled.
+
+Never cancel something whose renewal you have not first seen on a statement. A subscription
+you cannot find may simply be billed under a vendor name you do not recognise.
