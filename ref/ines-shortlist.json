@@ -47,8 +47,8 @@
     {
       "slug": "world-summit-awards-2026-culture-heritage-learning-inclusion",
       "deadline": "September 30, 2026",
-      "status": "reminded",
-      "reason": "Free nomination; Tanit XR is a textbook Culture & Heritage entry (Tunisia eligible). Deadline re-verified September 20, 2026: the national round closes September 30, 2026 and entry is free. Draft is written at ref/applications/world-summit-awards-2026.md; she has to create the hub account, confirm the [CHECK] figures and submit."
+      "status": "skipped",
+      "reason": "Free nomination; Tanit XR is a textbook Culture & Heritage entry (Tunisia eligible). Deadline re-verified September 20, 2026: the national round closes September 30, 2026 and entry is free. Draft is written at ref/applications/world-summit-awards-2026.md; she has to create the hub account, confirm the [CHECK] figures and submit. (deadline passed, not applied, per the deadline alarm on 2026-10-01)"
     },
     {
       "slug": "ieee-vr-2027-call-for-workshop-proposals",
@@ -169,8 +169,8 @@
     {
       "slug": "singapore-art-museum-residencies-cycle-4",
       "deadline": "September 30, 2026",
-      "status": "drafting",
-      "reason": "Fully funded: S$1,500 a month, round-trip flight, housing and visa help for 1 to 3 months, any time June 2027 to December 2028; open globally. The 'Making/Material Cultures' strand fits heritage scanning. Closes 11:59 PM Singapore time = 11:59 AM Eastern on Sept 30. Needs CV, portfolio, a 500 to 1,000 word statement and a character reference. Apply at samresidencies.smapply.org/prog/cycle4.",
+      "status": "skipped",
+      "reason": "Fully funded: S$1,500 a month, round-trip flight, housing and visa help for 1 to 3 months, any time June 2027 to December 2028; open globally. The 'Making/Material Cultures' strand fits heritage scanning. Closes 11:59 PM Singapore time = 11:59 AM Eastern on Sept 30. Needs CV, portfolio, a 500 to 1,000 word statement and a character reference. Apply at samresidencies.smapply.org/prog/cycle4. (deadline passed, not applied, per the deadline alarm on 2026-10-01)",
       "title": "Singapore Art Museum Residencies, Cycle 4",
       "url": "https://www.singaporeartmuseum.sg/residencies/announcements/open-call-cycle-4",
       "added": "2026-09-27",
@@ -179,8 +179,8 @@
     {
       "slug": "tokyo-biennale-2027-social-dive",
       "deadline": "September 30, 2026",
-      "status": "drafting",
-      "reason": "Funded Japan stay: travel up to JPY 300,000, Tokyo housing, up to JPY 200,000 project money, JPY 100,000 fee. Stay at least a month in Oct to Dec 2027 including the opening, and make a new work with local communities at heritage sites (temples, old wooden buildings). Closes 23:59 Japan time = 10:59 AM Eastern on Sept 30.",
+      "status": "skipped",
+      "reason": "Funded Japan stay: travel up to JPY 300,000, Tokyo housing, up to JPY 200,000 project money, JPY 100,000 fee. Stay at least a month in Oct to Dec 2027 including the opening, and make a new work with local communities at heritage sites (temples, old wooden buildings). Closes 23:59 Japan time = 10:59 AM Eastern on Sept 30. (deadline passed, not applied, per the deadline alarm on 2026-10-01)",
       "title": "Tokyo Biennale 2027 'SOCIAL DIVE' artist call",
       "url": "https://socialdive.jp/en/",
       "added": "2026-09-27",
@@ -189,8 +189,8 @@
     {
       "slug": "columbia-ideas-imagination-paris-2027-28",
       "deadline": "September 30, 2026",
-      "status": "drafting",
-      "reason": "$75,000 for a year in Paris, Sept 2027 to May 2028. Catch: you cannot be 'residing permanently in the United States' whatever your nationality; check whether your DC status counts before spending time on it.",
+      "status": "skipped",
+      "reason": "$75,000 for a year in Paris, Sept 2027 to May 2028. Catch: you cannot be 'residing permanently in the United States' whatever your nationality; check whether your DC status counts before spending time on it. (deadline passed, not applied, per the deadline alarm on 2026-10-01)",
       "title": "Columbia Institute for Ideas & Imagination (Reid Hall, Paris), Creative Arts Fellow",
       "url": "https://ideasimagination.columbia.edu/apply/applying-for-a-fellowship/",
       "added": "2026-09-27",
@@ -319,7 +319,7 @@
     {
       "slug": "millay-arts-core-2027",
       "deadline": "October 8, 2026",
-      "status": "new",
+      "status": "drafting",
       "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 weeks or 1 month in Session I (April to July 2027): housing, studio, groceries, chef dinners. Oct 1 regular / Oct 8 late ($60). $45 fee + $100 deposit. International eligibility not stated.",
       "title": "Millay Arts Core Residency (Austerlitz, NY)",
       "url": "https://www.millayarts.org/core-residency/",

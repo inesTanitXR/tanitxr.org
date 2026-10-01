@@ -1849,6 +1849,20 @@ FR = {
     # ---- added 2026-09-30: pages that were still English ----
     'Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam Kania (narrative and thematic brief, experience design), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization), coordinated on the Thursday call.':
         'Patrick Molen (la salle d’origine et le kit de construction modulaire à partir duquel chaque nouvelle salle est assemblée), Ala (une aile inspirée des thermes romains de Dougga), Kristina Reyes (une salle meublée), Cam Kania (cadrage narratif et thématique, conception de l’expérience), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega et Ray (modèles et optimisation), en coordination lors de l’appel du jeudi.',
+
+    # ---- added 2026-10-01: Splats With Phones reviews and course photos ----
+    'From the course': 'Le cours',
+    'What participants say': 'Ce qu’en disent les participants',
+    'Every week the cohort meets inside one another’s scans on Arrival.Space, places captured with a phone from Nigeria to Malta.':
+        'Chaque semaine, le groupe se retrouve à l’intérieur des scans des uns et des autres sur Arrival.Space, des lieux capturés au téléphone, du Nigeria à Malte.',
+    'The cohort walking through a participant’s splat of the Bariga art space in Lagos, Nigeria':
+        'Le groupe parcourt le splat de l’espace d’art de Bariga à Lagos, au Nigeria, réalisé par un membre du groupe',
+    'A participant’s splat of Xaghra, on the island of Gozo in Malta': 'Le splat de Xaghra, sur l’île de Gozo à Malte, réalisé par un membre du groupe',
+    'Inside a participant’s splat of a historic interior': 'À l’intérieur du splat d’un intérieur historique, réalisé par un membre du groupe',
+    'The group in a participant’s splat of a stone courtyard': 'Le groupe dans le splat d’une cour en pierre, réalisé par un membre du groupe',
+    'Session in a participant’s splat of a chapel and garden': 'Séance dans le splat d’une chapelle et de son jardin, réalisé par un membre du groupe',
+    'XR developer and technical artist, Splats With Phones participant': 'Développeuse XR et artiste technique, participante de Splats With Phones',
+    'Storyteller and narrative strategist, Splats With Phones participant': 'Conteuse et stratège narrative, participante de Splats With Phones',
 }
 
 
@@ -3694,4 +3708,18 @@ AR = {
     # ---- added 2026-09-30: pages that were still English ----
     'Patrick Molen (the original room and the modular building kit every new room is assembled from), Ala (a wing inspired by the Roman baths of Dougga), Kristina Reyes (a furnished room), Cam Kania (narrative and thematic brief, experience design), Claire Natanek, Rachel West, Nick Kaufmann, Ana Beatriz Vega and Ray (models and optimization), coordinated on the Thursday call.':
         'Patrick Molen (القاعة الأصلية وعُدّة البناء المعيارية التي تُجمَّع منها كل قاعة جديدة)، وAla (جناح مستوحى من الحمّامات الرومانية في دقة)، وKristina Reyes (قاعة مؤثثة)، وCam Kania (الإطار السردي والموضوعي وتصميم التجربة)، وClaire Natanek وRachel West وNick Kaufmann وAna Beatriz Vega وRay (النماذج والتحسين)، بالتنسيق في لقاء الخميس.',
+
+    # ---- added 2026-10-01: Splats With Phones reviews and course photos ----
+    'From the course': 'من الدورة',
+    'What participants say': 'ماذا يقول المشاركون',
+    'Every week the cohort meets inside one another’s scans on Arrival.Space, places captured with a phone from Nigeria to Malta.':
+        'كل أسبوع تلتقي المجموعة داخل مسوحات بعضها البعض على Arrival.Space، أماكن التُقطت بالهاتف من نيجيريا إلى مالطا.',
+    'The cohort walking through a participant’s splat of the Bariga art space in Lagos, Nigeria':
+        'المجموعة تتجوّل داخل سبلات لفضاء باريغا الفني في لاغوس، نيجيريا، أنجزه أحد أعضاء المجموعة',
+    'A participant’s splat of Xaghra, on the island of Gozo in Malta': 'سبلات لبلدة شاغرا في جزيرة غوزو بمالطا، أنجزه أحد أعضاء المجموعة',
+    'Inside a participant’s splat of a historic interior': 'داخل سبلات لفضاء داخلي تاريخي، أنجزه أحد أعضاء المجموعة',
+    'The group in a participant’s splat of a stone courtyard': 'المجموعة داخل سبلات لفناء حجري، أنجزه أحد أعضاء المجموعة',
+    'Session in a participant’s splat of a chapel and garden': 'جلسة داخل سبلات لكنيسة صغيرة وحديقتها، أنجزه أحد أعضاء المجموعة',
+    'XR developer and technical artist, Splats With Phones participant': 'مطوّرة واقع ممتد وفنانة تقنية، مشاركة في Splats With Phones',
+    'Storyteller and narrative strategist, Splats With Phones participant': 'راوية قصص وخبيرة استراتيجيات سردية، مشاركة في Splats With Phones',
 }

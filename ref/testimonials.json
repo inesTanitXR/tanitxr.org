@@ -1,0 +1,30 @@
+{
+  "_note": "Public reviews of Tanit XR courses and programs, quoted word for word from the author's own public post. 'course' picks the page (splats = /splats-with-phones/), 'home' also puts it in the homepage testimonials. Ines saves them through the Tanit Inbox shortcut; the daily sweep adds them here.",
+  "items": [
+    {
+      "name": "Salma Ramadan",
+      "role": "XR developer and technical artist, Splats With Phones participant",
+      "course": "splats",
+      "home": true,
+      "date": "2026-09-30",
+      "url": "https://www.linkedin.com/posts/youkii-xr_digitalheritage-3dgs-gaussiansplat-share-7511015959168524288-KtiC/",
+      "quote": "30 separate 3D scans. One house. 30 mins. It's amazing how far 3D gaussian splatting has come. I didn't have specialized LIDAR camera or professional scanning equipment. just my iphone 13 and a piece of heritage i wanted to document. Special thanks to Tanit XR and Mark Jeffcock who pushed me to go bigger with my scans."
+    },
+    {
+      "name": "Dee Dee Chainey-Jones",
+      "role": "Storyteller and narrative strategist, Splats With Phones participant",
+      "course": "splats",
+      "home": true,
+      "date": "2026-10-01",
+      "url": "https://www.linkedin.com/posts/dee-chainey-jones_huge-thanks-for-an-excellent-deep-dive-into-share-7511377272583462912-J1kf/",
+      "quote": "Huge thanks for an excellent deep dive into Gaussian splatting to Mark Jeffcock, Ines Said at Tanit XR, and Arrival.Space. It's been an amazing 6 weeks, and I've very much enjoyed scanning the local landscape and heritage and seeing the group's own offerings from around the world!"
+    }
+  ],
+  "photos": [
+    {"course": "splats", "file": "splats-course-bariga-lagos.jpg", "caption": "The cohort walking through a participant’s splat of the Bariga art space in Lagos, Nigeria"},
+    {"course": "splats", "file": "splats-course-xaghra-gozo.jpg", "caption": "A participant’s splat of Xaghra, on the island of Gozo in Malta"},
+    {"course": "splats", "file": "splats-course-sinnari-house.jpg", "caption": "Inside a participant’s splat of a historic interior"},
+    {"course": "splats", "file": "splats-course-courtyard.jpg", "caption": "The group in a participant’s splat of a stone courtyard"},
+    {"course": "splats", "file": "splats-course-chapel.jpg", "caption": "Session in a participant’s splat of a chapel and garden"}
+  ]
+}

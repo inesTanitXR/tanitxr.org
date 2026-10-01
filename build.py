@@ -595,6 +595,10 @@ section.pad-sm{padding:56px 0}
 .quote{background:var(--cloud);border-left:4px solid var(--gold);border-radius:8px;padding:28px}
 .quote p{font-family:var(--slab);font-size:15.5px;color:#333b41;font-style:italic}
 .quote b{display:block;margin-top:16px;font-family:var(--sans);color:var(--ink)}
+.quote b a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.quote .qrole{display:block;font-size:13.5px;color:var(--gray);margin-top:2px}
+.shots.captioned figure{margin:0}
+.shots.captioned figcaption{font-size:13.5px;color:var(--gray);margin-top:8px}
 
 /* filters + board */
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
@@ -2395,7 +2399,7 @@ document.addEventListener('submit', e => {
   f.dataset.fmSending = '1';
   const btn = f.querySelector('button[type=submit],input[type=submit],button:not([type])');
   const was = btn ? (btn.textContent || btn.value) : '';
-  if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = 'Sending…'; }
+  if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = fmT().sending; }
   const data = new FormData(f);
   const next = (f.querySelector('input[name=_next]') || {}).value || '';
   const done = () => { f.dataset.fmSending = ''; if (btn) { btn.disabled = false;
@@ -2415,20 +2419,37 @@ document.addEventListener('submit', e => {
     });
 });
 
+// the same words in the page's own language (site.js is shared by en, fr and ar)
+function fmT() {
+  const l = (document.documentElement.lang || 'en').slice(0, 2);
+  return ({
+    fr: { sending: 'Envoi…', ok: 'Merci, votre message nous est bien parvenu.', subj: 'Depuis tanitxr.org',
+          a: 'Notre service de formulaire ne répond pas pour le moment, et vous n’y êtes pour rien. '
+           + 'Rien de ce que vous avez écrit n’est perdu : ', link: 'envoyez-le plutôt par e-mail',
+          b: ', il est déjà rempli. Ou réessayez dans quelques minutes.' },
+    ar: { sending: 'جارٍ الإرسال…', ok: 'شكرًا لك، وصلتنا رسالتك.', subj: 'من tanitxr.org',
+          a: 'خدمة النماذج لدينا لا تستجيب حاليًا، وليس ذلك بسبب أي خطأ منك. '
+           + 'لم يضع شيء مما كتبته: ', link: 'أرسله عبر البريد الإلكتروني بدلًا من ذلك',
+          b: '، فهو معبّأ مسبقًا. أو حاول مجددًا بعد بضع دقائق.' }
+  })[l] || { sending: 'Sending…', ok: 'Thank you, that reached us.', subj: 'From tanitxr.org',
+             a: 'Our form service is not answering right now, and this is not something you '
+              + 'did. Nothing you wrote has been lost: ', link: 'send it as an email instead',
+             b: ', already filled in. Or try again in a few minutes.' };
+}
+
 // what the person sees when the form service will not answer
 function fmSaid(f, ok, to, data) {
+  const T = fmT();
   let box = f.querySelector('.fm-err');
   if (!box) { box = document.createElement('p'); box.className = 'fm-err';
     box.setAttribute('role', 'status'); f.appendChild(box); }
-  if (ok) { box.textContent = 'Thank you, that reached us.'; box.classList.remove('bad'); return; }
+  if (ok) { box.textContent = T.ok; box.classList.remove('bad'); return; }
   box.classList.add('bad');
   const body = [];
   if (data) data.forEach((v, k) => { if (k[0] !== '_' && String(v).trim()) body.push(k + ': ' + v); });
-  const mail = 'mailto:' + to + '?subject=' + encodeURIComponent('From tanitxr.org')
+  const mail = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subj)
              + '&body=' + encodeURIComponent(body.join('\\n'));
-  box.innerHTML = 'Our form service is not answering right now, and this is not something you '
-    + 'did. Nothing you wrote has been lost: <a href="' + mail + '">send it as an email instead</a>, '
-    + 'already filled in. Or try again in a few minutes.';
+  box.innerHTML = T.a + '<a href="' + mail + '">' + T.link + '</a>' + T.b;
 }
 // first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
 (function(){
@@ -4275,6 +4296,7 @@ def build_home():
          "celebrated.", "Ines Said"),
     ]
     quote_html = "".join(f'<div class="quote"><p>“{q}”</p><b>{a}</b></div>' for q, a in quotes)
+    quote_html += "".join(review_card(t) for t in TESTIMONIALS["items"] if t.get("home"))
 
     partners = "".join(
         f'<img src="{img(fn, 300, as_jpeg=False)}" alt="{alt}" loading="lazy">'
@@ -7319,7 +7341,32 @@ def build_submit_model():
               "Sketchfab address, with what the object is and where it came from.")
 
 
+TESTIMONIALS = json.load(open(os.path.join(HERE, "ref", "testimonials.json")))
+
+
+def review_card(t):
+    """A participant’s review, quoted from their own public post, linked back to it."""
+    who = esc(t["name"])
+    if t.get("url"):
+        who = f'<a href="{esc(t["url"])}" target="_blank" rel="noopener">{who}</a>'
+    return (f'<div class="quote"><p dir="ltr" lang="en">“{esc(t["quote"])}”</p><b>{who}</b>'
+            f'<span class="qrole">{esc(t["role"])}</span></div>')
+
+
 def build_splats():
+    reviews = "".join(review_card(t) for t in TESTIMONIALS["items"] if t["course"] == "splats")
+    photos = "".join(
+        f'<figure><img src="{img(p["file"], 1200)}" alt="{esc(p["caption"])}" loading="lazy">'
+        f'<figcaption>{esc(p["caption"])}</figcaption></figure>'
+        for p in TESTIMONIALS["photos"] if p["course"] == "splats")
+    course_sec = f"""
+<section class="pad"><div class="wrap">
+<div class="center"><div class="eyebrow">From the course</div>
+<h2 class="sec-title">What participants say</h2></div>
+<div class="quotes" style="margin-top:32px">{reviews}</div>
+<div class="shots captioned">{photos}</div>
+<p class="center" style="color:var(--gray);font-size:14.5px">Every week the cohort meets inside one another’s scans on Arrival.Space, places captured with a phone from Nigeria to Malta.</p>
+</div></section>""" if reviews else ""
     body = f"""
 {page_hero("Splats With Phones", "Splats With Phones", bg="Screenshot-2025-12-10-at-8.17.41-PM.png")}
 <section class="pad"><div class="wrap"><div class="prose">
@@ -7364,7 +7411,8 @@ motivation. More details are shared with accepted participants.</p>
 <textarea id="sp-more" name="more" rows="3" placeholder="Anything that might help us better understand you or your availability."></textarea>
 <button class="btn btn-gold" type="submit">Apply</button>
 </form>
-</div></div></section>"""
+</div></div></section>
+{course_sec}"""
     page("splats-with-phones.html", "Splats With Phones", body, active="volunteer.html",
          desc="A free course on capturing places with a phone using Gaussian splatting and photogrammetry, taught through Tanit XR for volunteers documenting heritage.")
 

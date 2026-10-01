@@ -573,7 +573,7 @@ document.addEventListener('submit', e => {
   f.dataset.fmSending = '1';
   const btn = f.querySelector('button[type=submit],input[type=submit],button:not([type])');
   const was = btn ? (btn.textContent || btn.value) : '';
-  if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = 'Sending…'; }
+  if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = fmT().sending; }
   const data = new FormData(f);
   const next = (f.querySelector('input[name=_next]') || {}).value || '';
   const done = () => { f.dataset.fmSending = ''; if (btn) { btn.disabled = false;
@@ -593,20 +593,37 @@ document.addEventListener('submit', e => {
     });
 });
 
+// the same words in the page's own language (site.js is shared by en, fr and ar)
+function fmT() {
+  const l = (document.documentElement.lang || 'en').slice(0, 2);
+  return ({
+    fr: { sending: 'Envoi…', ok: 'Merci, votre message nous est bien parvenu.', subj: 'Depuis tanitxr.org',
+          a: 'Notre service de formulaire ne répond pas pour le moment, et vous n’y êtes pour rien. '
+           + 'Rien de ce que vous avez écrit n’est perdu : ', link: 'envoyez-le plutôt par e-mail',
+          b: ', il est déjà rempli. Ou réessayez dans quelques minutes.' },
+    ar: { sending: 'جارٍ الإرسال…', ok: 'شكرًا لك، وصلتنا رسالتك.', subj: 'من tanitxr.org',
+          a: 'خدمة النماذج لدينا لا تستجيب حاليًا، وليس ذلك بسبب أي خطأ منك. '
+           + 'لم يضع شيء مما كتبته: ', link: 'أرسله عبر البريد الإلكتروني بدلًا من ذلك',
+          b: '، فهو معبّأ مسبقًا. أو حاول مجددًا بعد بضع دقائق.' }
+  })[l] || { sending: 'Sending…', ok: 'Thank you, that reached us.', subj: 'From tanitxr.org',
+             a: 'Our form service is not answering right now, and this is not something you '
+              + 'did. Nothing you wrote has been lost: ', link: 'send it as an email instead',
+             b: ', already filled in. Or try again in a few minutes.' };
+}
+
 // what the person sees when the form service will not answer
 function fmSaid(f, ok, to, data) {
+  const T = fmT();
   let box = f.querySelector('.fm-err');
   if (!box) { box = document.createElement('p'); box.className = 'fm-err';
     box.setAttribute('role', 'status'); f.appendChild(box); }
-  if (ok) { box.textContent = 'Thank you, that reached us.'; box.classList.remove('bad'); return; }
+  if (ok) { box.textContent = T.ok; box.classList.remove('bad'); return; }
   box.classList.add('bad');
   const body = [];
   if (data) data.forEach((v, k) => { if (k[0] !== '_' && String(v).trim()) body.push(k + ': ' + v); });
-  const mail = 'mailto:' + to + '?subject=' + encodeURIComponent('From tanitxr.org')
+  const mail = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subj)
              + '&body=' + encodeURIComponent(body.join('\n'));
-  box.innerHTML = 'Our form service is not answering right now, and this is not something you '
-    + 'did. Nothing you wrote has been lost: <a href="' + mail + '">send it as an email instead</a>, '
-    + 'already filled in. Or try again in a few minutes.';
+  box.innerHTML = T.a + '<a href="' + mail + '">' + T.link + '</a>' + T.b;
 }
 // first or returning visitor, once per visit (a flag in this browser only, no cookie, no id)
 (function(){
