@@ -2400,9 +2400,13 @@ document.addEventListener('submit', e => {
   const next = (f.querySelector('input[name=_next]') || {}).value || '';
   const done = () => { f.dataset.fmSending = ''; if (btn) { btn.disabled = false;
     if (btn.tagName === 'BUTTON') btn.textContent = was; } };
-  fetch('https://formsubmit.co/ajax/' + to, { method: 'POST', body: data,
+  // one retry, three seconds apart: their service returned 500 in half a second and then
+  // answered properly on a later try, so a single blip should not be reported as an outage
+  const send = () => fetch('https://formsubmit.co/ajax/' + to, { method: 'POST', body: data,
         headers: { 'Accept': 'application/json' } })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  send()
+    .catch(() => new Promise(r => setTimeout(r, 3000)).then(send))
     .then(() => { if (next) location.href = next; else { done(); fmSaid(f, true); } })
     .catch(() => {
       done();
