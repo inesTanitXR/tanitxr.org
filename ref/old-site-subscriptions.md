@@ -19,9 +19,8 @@ The three mailboxes are `ines@`, `info@` **and `laura@tanitxr.org`**. They are a
 purchase from the domain, so "keep the domain, cancel the rest" would take all three down,
 Laura's included.
 
-No WordPress.com site plan appears at all. The old site ran plugins, which needs a Business
-or Creator plan, so that plan has most likely already lapsed. Nothing is visibly being paid
-for it now.
+A third purchase, the **WordPress.com Business plan**, is active on the site and also sits in
+Caroline's account. See the plugin section below.
 
 **The real problem is not the money.** The domain and every staff mailbox sit in somebody
 else's account. Ines cannot manage the billing, cannot change the card, and cannot stop a
@@ -30,6 +29,48 @@ three mailboxes expire and the site and the email go with them. Finding out whos
 is, and getting both purchases transferred, matters more than any cancellation below.
 
 WHOIS privacy on the domain is **disabled**, so the registrant details are public.
+
+## The plugins, read from the site's own plugin list on 2026-10-01
+
+**The WordPress.com Business plan is active** on the TANIT XR site. An earlier note here said
+no plan existed; that was wrong. Purchases owned by Caroline's account are invisible from
+Ines's, the same way the domain and the mailboxes were. The plan's price and renewal date are
+in Caroline's account, not readable from Ines's.
+
+The site is marked **Unreachable**, so the plan is being paid for a site that no longer runs.
+
+### Certainly paid, no free edition exists
+
+| Plugin | Vendor | Notes |
+|---|---|---|
+| **Elementor Pro** | elementor.com | Listed by name as Pro, separate from the free Elementor also installed |
+| **JetEngine** | crocoblock.com | Paid only. This is the one Ines was worried about, and it is there |
+| **JetEngine, custom visibility conditions** | crocoblock.com | addon |
+| **JetEngine, dynamic tables builder** | crocoblock.com | addon |
+| **JetEngine post expiration period** | crocoblock.com | addon |
+| **JetSmartFilters** | crocoblock.com | paid |
+| **Filter Everything PRO** | filtereverything.pro | Listed by name as PRO |
+
+Six Crocoblock products on one site points at the all-inclusive subscription rather than
+single-plugin licences. JetFormBuilder is also installed; its core is free.
+
+### Probably paid, worth checking the receipt
+
+- **TranslatePress** — the free edition allows one extra language and the site ran French and Arabic
+- **Blocksy Companion** — listed without "Pro", so possibly the free edition
+- **Modula**, **Search & Filter**, **WP All Import**, **Bit Integrations**, **Stackable**, **Frontend Admin**, **Image Optimizer** — each is freemium; the list does not say which edition
+
+### Free, ignore
+
+Akismet, Classic Editor, Crowdsignal, Gutenberg, Gravatar Enhanced, Jetpack, Layout Grid,
+Page Optimize, WPCode Lite, WPForms Lite, WPSyncSheets Lite, WP Import Export Lite,
+WP Ultimate CSV Importer.
+
+### Where these are billed
+
+None of them appear in WordPress.com billing, so they were bought directly from the vendors:
+elementor.com, crocoblock.com, filtereverything.pro, translatepress.com. Those receipts will
+be in the Titan mailboxes, not in Gmail.
 
 ## Do not cancel these
 
