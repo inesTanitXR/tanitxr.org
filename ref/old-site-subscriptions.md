@@ -4,6 +4,33 @@ Worked out on 2026-10-01 from the domain's live DNS records and from the Interne
 copy of the old site (3 December 2025). This is evidence of what was **installed and still
 pointed at**, not a billing statement. Only the receipts prove what is being charged.
 
+## CONFIRMED on 2026-10-01, read from the WordPress.com account
+
+Two live purchases, both auto-renewing, and **both owned by a WordPress.com account that is
+not Ines's**. Her own account, `inessaid88`, has no active upgrades, no billing history and
+no payment method on file. She has never been charged by WordPress.com.
+
+| Purchase | Renews | Auto-renew | Price | Owner |
+|---|---|---|---|---|
+| **Domain `tanitxr.org`** (registered 15 Jul 2025) | 15 June 2028 | **on** | not shown to her | a different account |
+| **Professional Email**, 3 mailboxes | 25 July 2027 | **on** | **$105/year** + tax | a different account |
+
+The three mailboxes are `ines@`, `info@` **and `laura@tanitxr.org`**. They are a separate
+purchase from the domain, so "keep the domain, cancel the rest" would take all three down,
+Laura's included.
+
+No WordPress.com site plan appears at all. The old site ran plugins, which needs a Business
+or Creator plan, so that plan has most likely already lapsed. Nothing is visibly being paid
+for it now.
+
+**The real problem is not the money.** The domain and every staff mailbox sit in somebody
+else's account. Ines cannot manage the billing, cannot change the card, and cannot stop a
+lapse. If that account's card fails or its owner becomes unreachable, the domain and all
+three mailboxes expire and the site and the email go with them. Finding out whose account it
+is, and getting both purchases transferred, matters more than any cancellation below.
+
+WHOIS privacy on the domain is **disabled**, so the registrant details are public.
+
 ## Do not cancel these
 
 | Thing | Evidence | Why it stays |
