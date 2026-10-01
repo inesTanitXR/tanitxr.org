@@ -77,7 +77,12 @@ Waiting on Ines:
 - GoatCounter account (free for non-profits): sign up, pick the code, paste it in ref/analytics.json, turn on "allow visitor counts" in its settings.
 - ElevenLabs: API key and Nura's voice id. ref/nura-script.json has all 161 lines (about 12,000 characters). tools/nura_script.py --record makes the mp3s and build.py picks them up.
 - Sketchfab: tools/upload_sketchfab.py is ready to put Patrick's and Kristina's pieces on the Tanit XR account as private drafts. Not run: needs her yes, and theirs.
-- Splats: no longer possible. The Scaniverse captures were lost with Ines's phone in September 2026 and had never been backed up. What survives is what was published to Sketchfab, which is finished mesh, not splat data.
+- Splats: possible, but needs a new capture. The Scaniverse files were lost with Ines's phone in
+  September 2026, and a splat cannot be derived from the finished Sketchfab meshes, so the existing
+  69 objects cannot have one. Anything captured from now on can: splats can be built from ordinary
+  video as well as from a scanning app. Render with Spark (sparkjsdev), which reads .spz and mixes
+  splats with meshes in the same three.js scene. Crop to the object and export .spz to stay inside
+  the 8 MB per-object budget that build.py enforces.
 - A licensed Tunisian recording for the background, the DC venue, real names for danielgo257 and georgealyssa85.
 
 ## 18 September, evening

@@ -1,0 +1,12 @@
+# Already contacted (from Titan Sent/Drafts, checked 2026-10-01)
+- CyArk + Open Heritage 3D: sent Sep 27 (info@, admin@) "Contributing Tunisian heritage object scans to Open Heritage 3D"
+- ARC-WH (Bahrain): sent Sep 27 (info@, e.alkhalifa) "contributing to Dive into Heritage"
+- AMVPPC: sent Apr 20 2026 (dg.amvppc, amvppc.kamel, rabiaabelfguira.17) meeting request for Apr 24
+- South Mediterranean University (Dr. Hassen Ouakad): sent Mar 5 2026 collaboration proposal
+- GWU Capitol Archaeological Institute / Eric Cline / GW Anthropology / IMES: sent today (Oct 22 co-sponsor)
+- Tunisian Embassy DC: sent today + draft to Cultural Counselor (Oct 22)
+- UNESCO World Heritage Young Professionals Forum: applied (Apr/May 2026)
+- Niantic Spatial (Asim/Yennie thread), Nathan Bowser, Kent Bye (draft), Vince Rossi (Smithsonian? draft, no subject)
+- Rencontre El Jem (Salim Ben Rejeb) conference
+- UMD XR Club (Russell Mehta), AGOG (Vanessa), ImmerseGT
+- User list: AFCP, Gerda Henkel, National Geographic, Niantic Spatial, U.S. Embassy Tunis

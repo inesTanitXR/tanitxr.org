@@ -1,0 +1,8 @@
+# Tanit XR, for researchers (facts only, do not embellish)
+- Tanit XR: volunteer-led nonprofit (fiscally sponsored by Florida Community Innovation, a US 501(c)(3)). Founder Ines Said, Tunisian immersive artist/XR developer from Sidi Mahersi, Nabeul; lives in Washington, D.C., in Tunisia constantly.
+- A community of 85+ volunteers on four continents (Tunisia, US, Europe, Nigeria). Weekly call Thursdays 12pm ET. History lessons, mentoring, a free 6-week "Splats With Phones" course (phone photogrammetry + Gaussian splats).
+- Volunteers scan heritage OBJECTS one at a time with phones (stelae from the Tophet, statues of Byrsa Hill, Corinthian capitals, mosaics, mihrab niche in the medina of Tunis, Zaghouan, Kairouan, Neapolis). 100+ free 3D models on Sketchfab. 34 volunteer-made models of Tunisian objects (lamps, pottery). Virtual museum in progress. They do NOT scan whole sites/environments.
+- Explore page: https://tanitxr.org/explore/ (browser 3D galleries with stories, map, AR, guide character Nura, VR).
+- Neapolis: Storm Harry (Jan 2026) exposed ruins on the Nabeul coast; volunteers captured them in 3D within days.
+- El Jem conference paper (April 2026, presented at the El Jem Museum). AWE USA 2026 talk. Auggie Awards 2026 finalist (Best Societal Impact). Voices of VR podcast. Al Jazeera Arabic feature. Sponsor of a heritage track at ImmerseGT (Georgia Tech). Unique Mappers Network replicating the model in Nigeria.
+- Collaboration with Tunisia's INP is NOT confirmed. No money, small team; asks must be realistic: demo, talk, workshop, co-hosted scan day/course, data sharing, small grant, letter of support, residency.

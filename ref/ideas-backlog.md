@@ -27,7 +27,7 @@ Status words: **live** (built and deployed), **built** (in the repo, not yet che
 | Adopt an object: a named sponsor line on the label for a monthly gift | needs Ines | tiers and wording; never sells volunteer labour |
 | Neapolis landing page: the storm, the press, the only 3D record | next | strongest single story on the site |
 | Object comparisons: the four stelae side by side at real scale | next | gallery-room code does most of it |
-| Splats, "see it in its environment" | dead 2026-09-26 | needed the raw Scaniverse captures, which are gone with the phone. Alive again only if someone rescans a site |
+| Splats, "see it in its environment" | possible, needs a capture | Dead only for the 69 objects we already have: a splat cannot be made from a finished mesh, it needs the original frames. Any new capture works, and ordinary video is enough, not just a scanning app. Renderer is solved: Spark reads .spz and fuses splats with meshes in three.js. Cropped and .spz keeps a single object inside the 8 MB page budget |
 | Nura asks a question back ("which one should I show your friend?") | live 2026-09-25 | three thumbnails of objects you saw; the pick opens the share card |
 | Nura's real voice on all 69 objects and the 69 long lines | needs Ines | ElevenLabs key; `tools/nura_script.py --record` |
 | Wave and point animations for Nura | parked | only if the GLB has the clips |
