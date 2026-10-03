@@ -71,5 +71,17 @@
   "text": "Ines Said was the guest on Spatial Creator Spotlight, from Awesome Future. The episode premiered on 24 September and is on YouTube to watch any time.",
   "content": "<p>Ines Said was the guest on the 24 September episode of <a href=\"https://youtu.be/CY6u3LGEN3E\" target=\"_blank\" rel=\"noopener\">Spatial Creator Spotlight</a>, from Awesome Future. The episode is called \"Volunteers 3D Scanning Tunisia's Endangered Heritage Sites Before the Ocean Takes Them\", and it covers how Tanit XR started, how the scanning actually works, and who does it.</p><p>It premiered on 24 September and is on YouTube to watch any time. If you have been meaning to explain to somebody what this project is, this is the thing to send them.</p><p><a class=\"btn btn-gold\" href=\"https://youtu.be/CY6u3LGEN3E\" target=\"_blank\" rel=\"noopener\">Watch the episode</a></p>",
   "img": "spotlight-episode.jpg"
+ },
+ {
+  "slug": "scanning-sejnane-pottery-with-a-phone",
+  "title": "Scanning Sejnane pottery with a phone",
+  "date": "2026-10-03",
+  "cats": [
+   "News"
+  ],
+  "sketchfab": null,
+  "text": "Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into a short video.",
+  "content": "<p>Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7508890891026165760/\" target=\"_blank\" rel=\"noopener\">a short video</a>.</p>\n<p>As Laura moves around a pot, her phone takes pictures from different angles. The app matches points across those pictures, rebuilds the shape, and lays the colours and painted details over it. The result is an object you can turn, zoom into and explore.</p>\n<p>These pots scan well because their matte surfaces give the app plenty of detail to track. One tip from the session: more scanning is not always better. Going over the same areas again and again can introduce errors. The goal is careful, complete coverage.</p>\n<p>Sejnane pottery is handmade by women in northern Tunisia and decorated with designs taken from local plants and animals. UNESCO lists the tradition as Intangible Cultural Heritage.</p>\n<p>Most of this work is done by volunteers. We meet on Zoom every Thursday at 12 pm ET to learn, share scans and document heritage. Anyone can join, from anywhere: <a href=\"volunteer.html\">volunteer with us</a>.</p>\n<p><small>Video: Bety Vega. Pottery photograph in the video: Margarita Modroño, CC BY-SA 4.0, via Wikimedia Commons. Photograph above: <a href=\"https://commons.wikimedia.org/wiki/File:Poterie_de_Sejnane.jpg\" target=\"_blank\" rel=\"noopener\">IssamBarhoumi</a>, CC BY-SA 4.0, via Wikimedia Commons, cropped.</small></p>",
+  "img": "sejnane-pottery.jpg"
  }
 ]

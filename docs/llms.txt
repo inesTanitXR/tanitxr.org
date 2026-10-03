@@ -7,7 +7,7 @@
 > Innovation, a US 501(c)(3). Founded and led by Ines Said.
 
 Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
-to https://tanitxr.org/. Last updated 2026-10-01.
+to https://tanitxr.org/. Last updated 2026-10-03.
 
 ## What people usually want
 
@@ -88,6 +88,7 @@ How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, 
 - [A Beginning: Why Tanit XR Exists](https://tanitxr.org/news/a-beginning-why-tanit-xr-exists/): This is Tanit XR’s very first news article, and it feels right to begin with a story. Growing up among ruins I grew up in Tunisia surrounded by history.
 - [Material and Meaning: Marble Identity, and Cultural Exchange in Ancient Carthage](https://tanitxr.org/news/material-and-meaning-marble-identity-and-cultural-exchange-i/): By: Margarita Johnson The intense light illuminates the plateau of Byrsa Hill in Carthage, and the wind shakes the surviving fragments of an ancient city…
 - [Our episode of Spatial Creator Spotlight](https://tanitxr.org/news/our-episode-of-spatial-creator-spotlight/): Ines Said was the guest on Spatial Creator Spotlight, from Awesome Future. The episode premiered on 24 September and is on YouTube to watch any time.
+- [Scanning Sejnane pottery with a phone](https://tanitxr.org/news/scanning-sejnane-pottery-with-a-phone/): Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones.
 - [Storm Harry, Neapolis, and a Digital Moment of Preservation](https://tanitxr.org/news/storm-harry-neapolis-and-a-digital-moment-of-preservation/): By: Margarita Johnson The new year began with Storm Harry sweeping across Tunisia’s Mediterranean coastline, reshaping the coastline and disturbing layers…
 - [Tanit XR at CityCamp Gainesville Hack Day](https://tanitxr.org/news/tanit-xr-at-citycamp-gainesville-hack-day/): Tanit XR took part in CityCamp Gainesville Hack Day on Sunday, September 20, 2026, at the Reitz Union, University of Florida, an official MLH Hack Day…
 - [Art, XR & Impact Opportunities](https://tanitxr.org/opportunities/): A free curated board of grants, residencies, fellowships, open calls and events for artists, XR creators, educators, students and changemakers. Updated regularly by Tanit XR, and sent free by email.

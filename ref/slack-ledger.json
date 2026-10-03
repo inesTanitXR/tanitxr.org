@@ -1,14 +1,14 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
- "last_run": "2026-09-25",
+ "last_run": "2026-10-03",
  "last_ts": {
-  "C0983LHM7K8": "1790265672.757169",
+  "C0983LHM7K8": "1790873188.999999",
   "C0983L047V4": "1789781310.000000",
   "C09CZV4B0SW": "1789266670.767275",
   "C0AD71FAT7Y": "1789266670.767275",
   "C09F84HV8J1": "1789737745.000000",
   "C09JATYDLF7": "1789266670.767275",
-  "C0B89BWR5S9": "1789833413.012879",
+  "C0B89BWR5S9": "1790360530.999999",
   "C09FKJWCVKJ": "1789266670.767275"
  },
  "_channels": {
@@ -109,6 +109,11 @@
    "week": "2026-09-21",
    "doc_id": "1_jkY80vEHBjWRNOEK1MZ4wP6eTblxkjJheIEYHHKfIY",
    "url": "https://docs.google.com/document/d/1_jkY80vEHBjWRNOEK1MZ4wP6eTblxkjJheIEYHHKfIY/edit"
+  },
+  {
+   "week": "2026-09-28",
+   "doc_id": "1SO6qBYkMtif0VsRQ2r2gqhqxzQr8CQ1wj1ZW3KRWYZ4",
+   "url": "https://docs.google.com/document/d/1SO6qBYkMtif0VsRQ2r2gqhqxzQr8CQ1wj1ZW3KRWYZ4/edit"
   }
  ]
 }
