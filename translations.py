@@ -1863,6 +1863,15 @@ FR = {
     'Session in a participant’s splat of a chapel and garden': 'Séance dans le splat d’une chapelle et de son jardin, réalisé par un membre du groupe',
     'XR developer and technical artist, Splats With Phones participant': 'Développeuse XR et artiste technique, participante de Splats With Phones',
     'Storyteller and narrative strategist, Splats With Phones participant': 'Conteuse et stratège narrative, participante de Splats With Phones',
+
+    # ---- added 2026-10-03: pages that were still English ----
+    'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones.':
+        'Notre responsable scientifique, Laura K. Harrison, et Caroline Nickerson ont passé une matinée à numériser des poteries de Sejnane avec leur téléphone.',
+    'Scanning Sejnane pottery with a phone': 'Numériser la poterie de Sejnane avec un téléphone',
+    # the news card teaser: added by hand, merge_translations cannot see it because the
+    # 'Chief Scientist' row has already rewritten it on the built fr page
+    'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into a short video.…':
+        'Notre responsable scientifique, Laura K. Harrison, et Caroline Nickerson ont passé une matinée à numériser des poteries de Sejnane avec leur téléphone. Bety Vega, bénévole chez nous, a filmé la séance et en a tiré une courte vidéo.…',
 }
 
 
@@ -3722,4 +3731,13 @@ AR = {
     'Session in a participant’s splat of a chapel and garden': 'جلسة داخل سبلات لكنيسة صغيرة وحديقتها، أنجزه أحد أعضاء المجموعة',
     'XR developer and technical artist, Splats With Phones participant': 'مطوّرة واقع ممتد وفنانة تقنية، مشاركة في Splats With Phones',
     'Storyteller and narrative strategist, Splats With Phones participant': 'راوية قصص وخبيرة استراتيجيات سردية، مشاركة في Splats With Phones',
+
+    # ---- added 2026-10-03: pages that were still English ----
+    'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones.':
+        'صباحٌ قضته مسؤولتنا العلمية Laura K. Harrison رفقة Caroline Nickerson في مسح فخار سجنان بهاتفيهما.',
+    'Scanning Sejnane pottery with a phone': 'مسح فخار سجنان بالهاتف',
+    # the news card teaser: added by hand, merge_translations cannot see it because the
+    # 'Chief Scientist' row has already rewritten it on the built fr page
+    'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into a short video.…':
+        'صباحٌ قضته مسؤولتنا العلمية Laura K. Harrison رفقة Caroline Nickerson في مسح فخار سجنان بهاتفيهما. وصُوّرت الجلسة بعدسة Bety Vega من فريق متطوعينا، ثم حُوّلت إلى فيديو قصير.…',
 }
