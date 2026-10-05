@@ -5,6 +5,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 <!-- new items appended below by the inbox sweep -->
 
+<!-- 2026-10-05 board check: Women Who Code Summit (Oct 6-8), ACM CHI 2027 meet-ups and workshops (Oct 1) blocks removed, all over before edition 20 goes out Oct 9. Culture Moves Europe and Tribeca 2027 added from the watch list. -->
+
 <!-- 2026-09-30 board check: Habibi Tech Summit volunteer call and XR Guild Fall Mentorship blocks removed (both closed Sept 25-26, before edition 20 goes out). -->
 
 <!-- Edition 19 assembled 2026-09-24 → ref/newsletter-edition-19.md (Voqal, Women Who Code, CHI meet-ups, iLRN, CHI workshops, Technica went there; Habibi dropped as moot). Blocks below that are not in edition 19 belong to edition 20. -->
@@ -19,14 +21,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ $30,000 unrestricted award plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas still being tested. Free to apply.
 👉 https://voqalpartners.org/fellowship/
 
-### 💻 Women Who Code Summit 2026
-
-📅 October 6-8, 2026, IPIC Theater, Seaport District, New York
-📍 In person in New York, or online
-👥 Open to all. Virtual Pass free; day pass $499, general $999, executive $1,999
-✏️ Women Who Code closed as an organization in 2024; the summit continues. The free Virtual Pass covers the leadership, AI upskilling and reskilling workshops. Speaker applications are still open and reviewed on a rolling basis, with a virtual-only speaking option, and speakers must hold October 6-8.
-👉 https://events.womenwhocode.com/2026/home
-
 ### 🎮 Games for Change Student Challenge 2026-2027
 
 📅 Sign-ups open; themes and submission deadlines for this cycle not published yet
@@ -34,14 +28,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Young people aged 10-25, and educators registering a classroom. Free
 ✏️ International game design competition: build a digital game inspired by the UN Sustainable Development Goals. Prize categories for ages 10-18 and university age. Educator training and the 2026-2027 themes are announced this fall.
 👉 https://learn.gamesforchange.org/student-challenge
-
-### 🎤 ACM CHI 2027, Call for Meet-ups
-
-📅 Deadline: October 1, 2026 (24-hour grace period for edits only)
-📍 In person, David L. Lawrence Convention Center, Pittsburgh, May 10-14, 2027
-👥 Open to all, no academic affiliation required. Free to submit; preferably two or more organizers from two different organizations
-✏️ Meet-ups are the informal, participant-driven side of CHI, separate from the workshops track: World Cafe, speed networking, think-pair-share or any interactive format you propose. Three-page proposal plus two pages of supplementary material via PCS. At least one organizer has to register and attend in person or the meet-up is cancelled, so count the registration and travel before you submit.
-👉 https://chi2027.acm.org/authors/meet-ups/
 
 ### 🎤 iLRN 2027, 13th Immersive Learning Research Network Conference
 
@@ -74,14 +60,6 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Anyone interested in space and science, any age, skill level or background. Free
 ✏️ The largest annual space hackathon, run by NASA with 17 partner space agencies: 14 challenges published, teams formed on the platform, 48 hours. Mentioned in edition 18 as still open; here it is in full, because the Tunisian local events are worth planning a team around.
 👉 https://www.spaceappschallenge.org/
-
-### 🎤 ACM CHI 2027, Workshops: Propose One or Judge Them
-
-📅 Juror applications: September 28, 2026 · Workshop proposals: October 1, 2026
-📍 In person, David L. Lawrence Convention Center, Pittsburgh, May 10-14, 2027
-👥 Researchers, educators and practitioners with prior conference or reviewing experience. Free, both routes
-✏️ Two ways into the CHI workshops track, separate from the meet-ups call above. To organize: a proposal of up to six pages excluding references, ACM single-column template, submitted through PCS with a 250-word call for participation. To judge: email your name, affiliation, CV and a 150-word statement of interest to workshops@chi2027.acm.org, for about eight hours of reviewing across October and November. The juror route asks for regular CHI attendance.
-👉 https://chi2027.acm.org/authors/workshops/
 
 ### 💻 Technica 2026
 
@@ -205,3 +183,19 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
 | Wikimedia Tunisie | no LinkedIn page found |
 | PhotoVogue | no LinkedIn page found |
+
+### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
+
+📅 Monthly cut-offs: October 31 and November 30, 2026, then January 31 to April 30, 2027 (no December round)
+📍 In person, 7 to 60 days in another Creative Europe country, with one international partner who hosts you
+👥 Artists and cultural professionals legally living in a Creative Europe country. Tunisia is one of them. Free to apply
+✏️ 85 euros a day plus 400 euros for travel (800 euros beyond 5,000 km), with top-ups for green travel, visas and children. Sectors are architecture, cultural heritage, design, literature, music, performing arts and visual arts. Travel starts at least two months after the cut-off you apply to.
+👉 https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility
+
+### 🎮 Tribeca Festival 2027: Games, Shorts and Digital Creators
+
+📅 Early deadline October 28, 2026 · official December 2, 2026 · extended into 2027
+📍 New York, June 3-12, 2027
+👥 Open to all. Games $40 / $60 / $80; Shorts $50 / $70 / $80, with student rates; Digital Creators $30 / $40 / $60
+✏️ Submissions for the 26th Tribeca Festival opened September 30. Games closes March 4, 2027 at the extended rate, Shorts and Digital Creators February 3, 2027. Enter by October 28 for the lowest fee.
+👉 https://tribecafilm.com/festival/submissions

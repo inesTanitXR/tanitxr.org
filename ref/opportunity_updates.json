@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30.",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9).",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -1354,6 +1354,36 @@
    "url": "https://matsubiennial.tw/en/news/details/88",
    "desc": "Site-specific installations and participatory projects, including immersive experiences, for the Matsu Islands in Taiwan, around three axes: the island's culture and stone houses, its Cold War outpost history, and ocean ecology. Each selected proposal receives up to NTD 800,000 (tax included); open to artists worldwide. Deadline October 30, 2026, 17:00 GMT+8; the exhibition runs August 20 to November 7, 2027.",
    "published": "2026-09-30"
+  },
+  {
+   "title": "Culture Moves Europe, Individual Mobility 2026-2027",
+   "type": "Grant",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "Artists"
+   ],
+   "deadline_date": "2027-04-30",
+   "deadline_type": null,
+   "url": "https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility",
+   "desc": "EU grants for artists and cultural professionals living in a Creative Europe country, Tunisia included, to spend 7 to 60 days on a project with an international partner in another Creative Europe country: 85 euros a day plus 400 or 800 euros for travel. Sectors are architecture, cultural heritage, design, literature, music, performing arts and visual arts; free to apply. Rolling call with monthly cut-offs (October 31 and November 30, 2026, then the last day of each month from January to April 30, 2027).",
+   "published": "2026-10-05"
+  },
+  {
+   "title": "Tribeca Festival 2027: Games, Shorts and Digital Creators",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Open to all"
+   ],
+   "deadline_date": "2026-12-02",
+   "deadline_type": null,
+   "url": "https://tribecafilm.com/festival/submissions",
+   "desc": "Submissions are open for the 26th Tribeca Festival, New York, June 3 to 12, 2027. Games: $40 early (October 28), $60 official (December 2), $80 extended (March 4, 2027); Shorts: $50 / $70 / $80 to February 3, 2027, with student rates; Digital Creators: $30 / $40 / $60.",
+   "published": "2026-10-05"
   }
  ],
  "featured": {

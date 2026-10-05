@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-03",
+ "built": "2026-10-05",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -2233,6 +2233,38 @@
    "deadline_type": null,
    "deadline_date": "October 30, 2026",
    "url": "https://matsubiennial.tw/en/news/details/88"
+  },
+  {
+   "slug": "culture-moves-europe-individual-mobility-2026-2027",
+   "title": "Culture Moves Europe, Individual Mobility 2026-2027",
+   "desc": "EU grants for artists and cultural professionals living in a Creative Europe country, Tunisia included, to spend 7 to 60 days on a project with an international partner in another Creative Europe country: 85 euros a day plus 400 or 800 euros for travel. Sectors are architecture, cultural heritage, design, literature, music, performing arts and visual arts; free to apply. Rolling call with monthly cut-offs (October 31 and November 30, 2026, then the last day of each month from January to April 30, 2027).",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "April 30, 2027",
+   "url": "https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility"
+  },
+  {
+   "slug": "tribeca-festival-2027-games-shorts-and-digital-creators",
+   "title": "Tribeca Festival 2027: Games, Shorts and Digital Creators",
+   "desc": "Submissions are open for the 26th Tribeca Festival, New York, June 3 to 12, 2027. Games: $40 early (October 28), $60 official (December 2), $80 extended (March 4, 2027); Shorts: $50 / $70 / $80 to February 3, 2027, with student rates; Digital Creators: $30 / $40 / $60.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Open to all"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "December 2, 2026",
+   "url": "https://tribecafilm.com/festival/submissions"
   }
  ]
 }
