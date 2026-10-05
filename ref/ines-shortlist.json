@@ -11,8 +11,8 @@
     {
       "slug": "womentech-global-awards-2026",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "Self-nomination welcome; visibility for women in XR — costs nothing, aligns with her profile."
+      "status": "skipped",
+      "reason": "Self-nomination welcome; visibility for women in XR — costs nothing, aligns with her profile. (deadline passed, not applied, per the deadline alarm on October 3, 2026)"
     },
     {
       "slug": "awe-2027-call-for-speakers-early-opportunities",
@@ -71,8 +71,8 @@
     {
       "slug": "sxsw-2027-xr-experience",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "Major XR-art showcase and exactly the exhibition visibility she wants; submissions close October 1, 2026. Entry fee applies — check the tier before submitting."
+      "status": "skipped",
+      "reason": "Major XR-art showcase and exactly the exhibition visibility she wants; submissions close October 1, 2026. Entry fee applies — check the tier before submitting. (deadline passed, not applied, per the deadline alarm on October 3, 2026)"
     },
     {
       "slug": "fivars-2027-festival-of-international-virtual-augmented-real",
@@ -89,20 +89,20 @@
     {
       "slug": "uf-40-gators-under-40-class-of-2027",
       "deadline": "October 5, 2026",
-      "status": "drafting",
+      "status": "reminded",
       "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40"
     },
     {
       "slug": "women-who-code-summit-2026",
       "deadline": "October 6, 2026",
-      "status": "drafting",
+      "status": "reminded",
       "reason": "You flagged this yourself. The Virtual Pass is free, and the speaker application is open with no published cut-off and a virtual-only speaking option, which serves the paid-speaking goal. Realistic note: the summit is October 6 to 8 and is 16 days away, so a speaking slot is a long shot; the free virtual pass is the certain part. In-person is $499 to $1,999. events.womenwhocode.com/2026/home"
     },
     {
       "slug": "acm-chi-2027-call-for-meet-ups",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "You flagged this yourself (Instagram, @acm_chi). Free to submit, no academic affiliation required, and a meet-up is the least gatekept way to lead a session at CHI: an 'XR for heritage / Global South' meet-up would be a real credential. Two caveats before you spend the time: they prefer two or more organizers from two different organizations (Dr. Laura Harrison or the Unique Mappers Network would satisfy that), and at least one organizer must register and attend in person in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled, so budget the registration and travel first. Three-page proposal via PCS. chi2027.acm.org/authors/meet-ups"
+      "status": "skipped",
+      "reason": "You flagged this yourself (Instagram, @acm_chi). Free to submit, no academic affiliation required, and a meet-up is the least gatekept way to lead a session at CHI: an 'XR for heritage / Global South' meet-up would be a real credential. Two caveats before you spend the time: they prefer two or more organizers from two different organizations (Dr. Laura Harrison or the Unique Mappers Network would satisfy that), and at least one organizer must register and attend in person in Pittsburgh, May 10 to 14, 2027, or the meet-up is cancelled, so budget the registration and travel first. Three-page proposal via PCS. chi2027.acm.org/authors/meet-ups (deadline passed, not applied, per the deadline alarm on October 3, 2026)"
     },
     {
       "slug": "wijhat-destinations-culture-resource-mobility-grants",
@@ -119,13 +119,13 @@
     {
       "slug": "acm-chi-2027-call-for-workshop-proposals",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "Your note has carried this since Sept 20; verified at the source September 22, 2026 and now on the board. Two free routes into the CHI workshops track. Organize one: a six-page proposal (excluding references) via PCS by October 1, an 'XR for heritage / Global South' workshop being the obvious pitch, and it pairs with the meet-up proposal you are already weighing. Judge one instead: email name, affiliation, CV and a 150-word statement to workshops@chi2027.acm.org by September 28 for about eight hours of reviewing in October and November. The juror route asks for regular CHI attendance, so the proposal route is the realistic one for you. Same in-person catch as the meet-up: CHI 2027 is Pittsburgh, May 10-14, 2027."
+      "status": "skipped",
+      "reason": "Your note has carried this since Sept 20; verified at the source September 22, 2026 and now on the board. Two free routes into the CHI workshops track. Organize one: a six-page proposal (excluding references) via PCS by October 1, an 'XR for heritage / Global South' workshop being the obvious pitch, and it pairs with the meet-up proposal you are already weighing. Judge one instead: email name, affiliation, CV and a 150-word statement to workshops@chi2027.acm.org by September 28 for about eight hours of reviewing in October and November. The juror route asks for regular CHI attendance, so the proposal route is the realistic one for you. Same in-person catch as the meet-up: CHI 2027 is Pittsburgh, May 10-14, 2027. (deadline passed, not applied, per the deadline alarm on October 3, 2026)"
     },
     {
       "slug": "djerassi-resident-artists-program-2027-incl-leonardo-djerassi",
       "deadline": "October 9, 2026",
-      "status": "new",
+      "status": "reminded",
       "reason": "One-month residency at no cost to artists, international applicants accepted, media arts and technology-driven work a listed discipline; the Leonardo@Djerassi cohort (June 22 to July 27, 2027) is art and science, a natural home for heritage scanning work. Verified at djerassi.org Sept 24, 2026: applications close October 9. Check the application fee on SlideRoom before starting."
     },
     {
@@ -199,7 +199,7 @@
     {
       "slug": "smithsonian-artist-research-fellowship-2027",
       "deadline": "October 15, 2026",
-      "status": "new",
+      "status": "reminded",
       "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week.",
       "title": "Smithsonian Artist Research Fellowship (SARF) 2027 — NOMINATION",
       "url": "https://fellowships.si.edu/fellowship-programs",
@@ -299,8 +299,8 @@
     {
       "slug": "lighthouse-works-fellowship-2027",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 6 weeks: Session 73 May 4 to Jun 15, 2027 (Session 72 Mar 9 to Apr 20). Room, meals, studio with wood/metal shop and kiln, $1,750. $25 fee. US-based artists; FAQ welcomes international artists who have lived and worked in the US.",
+      "status": "skipped",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 6 weeks: Session 73 May 4 to Jun 15, 2027 (Session 72 Mar 9 to Apr 20). Room, meals, studio with wood/metal shop and kiln, $1,750. $25 fee. US-based artists; FAQ welcomes international artists who have lived and worked in the US. (deadline passed, not applied, per the deadline alarm on October 3, 2026)",
       "title": "Lighthouse Works Fellowship (Fishers Island, NY)",
       "url": "https://lighthouseworks.us/fellowship",
       "added": "2026-09-27",
@@ -309,8 +309,8 @@
     {
       "slug": "artists-unlimited-bielefeld-2027",
       "deadline": "October 1, 2026",
-      "status": "drafting",
-      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 months, rent-free apartment and studio, EUR 700/month, closing show. Months not stated: ask whether April to June is possible. One PDF (max 20 MB) to residency@artists-unlimited.de. No nationality limit or fee.",
+      "status": "skipped",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 months, rent-free apartment and studio, EUR 700/month, closing show. Months not stated: ask whether April to June is possible. One PDF (max 20 MB) to residency@artists-unlimited.de. No nationality limit or fee. (deadline passed, not applied, per the deadline alarm on October 3, 2026)",
       "title": "Artists Unlimited guest residency 2027 (Bielefeld, Germany)",
       "url": "https://www.artists-unlimited.de/1985/residency/",
       "added": "2026-09-27",
@@ -319,7 +319,7 @@
     {
       "slug": "millay-arts-core-2027",
       "deadline": "October 8, 2026",
-      "status": "drafting",
+      "status": "reminded",
       "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 weeks or 1 month in Session I (April to July 2027): housing, studio, groceries, chef dinners. Oct 1 regular / Oct 8 late ($60). $45 fee + $100 deposit. International eligibility not stated.",
       "title": "Millay Arts Core Residency (Austerlitz, NY)",
       "url": "https://www.millayarts.org/core-residency/",
@@ -459,7 +459,7 @@
     {
       "slug": "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
       "deadline": "October 7, 2026",
-      "status": "drafting",
+      "status": "reminded",
       "reason": "Free four-day spatial design jam at ASU's MIX Center in Mesa, Arizona, October 15 to 18, in a four-storey 360° projection studio with 55-channel spatial audio; immersive-experience and XR design tracks fit your practice. Participant applications close October 7 (verified September 30 on tech.asu.edu/remixthefuture; invitations roll, so earlier is better). Travel to Arizona is yours.",
       "added": "2026-09-30",
       "source": "weekly board check"
