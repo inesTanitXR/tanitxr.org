@@ -1872,6 +1872,9 @@ FR = {
     # 'Chief Scientist' row has already rewritten it on the built fr page
     'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into a short video.…':
         'Notre responsable scientifique, Laura K. Harrison, et Caroline Nickerson ont passé une matinée à numériser des poteries de Sejnane avec leur téléphone. Bety Vega, bénévole chez nous, a filmé la séance et en a tiré une courte vidéo.…',
+
+    # ---- added 2026-10-05: pages that were still English ----
+    'Underground passageways': 'Passages souterrains',
 }
 
 
@@ -3740,4 +3743,7 @@ AR = {
     # 'Chief Scientist' row has already rewritten it on the built fr page
     'Our Chief Scientist, Laura K. Harrison, and Caroline Nickerson spent a morning scanning Sejnane pottery with their phones. Bety Vega, one of our volunteers, filmed the session and cut it into a short video.…':
         'صباحٌ قضته مسؤولتنا العلمية Laura K. Harrison رفقة Caroline Nickerson في مسح فخار سجنان بهاتفيهما. وصُوّرت الجلسة بعدسة Bety Vega من فريق متطوعينا، ثم حُوّلت إلى فيديو قصير.…',
+
+    # ---- added 2026-10-05: pages that were still English ----
+    'Underground passageways': 'ممرات تحت الأرض',
 }
