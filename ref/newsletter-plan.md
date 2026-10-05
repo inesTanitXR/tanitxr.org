@@ -7,6 +7,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
 | **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, _(send date Sept 25; "ready, not posted yet?" reminder given Sept 26, do not repeat)_ 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
+| **21** | **Fri Oct 23** | Oct 30 → Jan 2027 | `ref/newsletter-edition-21.md` — created Oct 5 for the 17 accepted Sept 27 suggestions closing after Oct 23 |
 
 ## Edition 19 (send Sept 25) — items
 - 🏆 Webby Awards 2027 (31st), early entry Oct 30, $105 student / $255–$525 _(Ines asked for it in THIS edition, Sept 25)_
@@ -32,6 +33,9 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 🎓 Smithsonian Artist Research Fellowship (SARF) 2027-28 — 2026-10-15 — fellowships.si.edu/opportunity/smithsonian-artist-research-fellowship-sarf _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Bunnell Street Arts Center Alaska AIR Residency 2027–28 — 2026-10-15 — bunnellarts.org/artist-in-residence _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Schlossmediale 2027 Art Residency — 2026-10-18 — schlossmediale.ch/festival-schlossmediale/ausstellung/open-call-2027-en _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
 - 🎭 PXR2027 Call for Proposals (live performance in VR/AR/MR; VRChat remote or Toronto/Kingston/Vancouver; free) — Oct 9, 11:59 pm ET, the send day — performanceandxr.com/call-for-proposals _(added by the Oct 5 sweep from Ines's note via the DC digest; closes the evening edition 20 goes out, so put it at the top)_
 - 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
 - 🇹🇳 📸 PhotoVogue MENA Panorama 2026 (photo/video series, MENA + diaspora, 18+; free; $8,000 in three grants) — Oct 15 (extended from Sept 24) — site.picter.com/photovogue-regional-open-call-mena-panorama-2026 _(added by the Sept 26 sweep, from Ines's Instagram share of an AD Middle East post; deadline verified on the Picter call page)_
@@ -69,6 +73,26 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🇹🇳 Culture Moves Europe individual mobility 2026-27 (Tunisia eligible; 7-60 days with an international partner; EUR 85/day + travel; free) — monthly cut-offs, first Oct 31 — culture.ec.europa.eu _(reopened from the watch list, verified on the official call document by the Oct 5 board check)_
 - 🎮 Tribeca 2027 Games / Shorts / Digital Creators ($30-80) — early Oct 28, official Dec 2 — tribecafilm.com/festival/submissions _(verified Oct 5; replaces the two 'if verified' Tribeca lines; Tribeca X at $425+ is branded content, left out)_
 - 🇹🇳 Barakat Trust 2027 (Islamic art/archaeology incl. digitisation) — opens Jan 1 — barakat.org/grants ★ Tanit
+
+## Edition 21 (send Fri Oct 23) — items
+_Created by the Oct 5 sweep, as proposed: 20 was already past 23 blocks. These are the Sept 27 suggestions Ines accepted with deadlines after Oct 23. When 20 is assembled, its Dec–Jan items can move here too._
+- 💸 Michigan Central x Newlab Creative Residency 2027 — 2026-10-30 — michigancentral.com/michigan-central-x-newlab-art-technology-residency _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Rossonove Residency 2026-27, Zero Land Consumption — 2026-10-31 — rossonove.org/open-call _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🏛 Wikimedia Rapid Fund, Cycle 3 — 2026-11-01 — meta.wikimedia.org/wiki/Grants:Project/Rapid _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Trillium Arts Residency, April and October 2027 — 2026-11-04 — trilliumartsnc.org/artist-residencies _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Est-Nord-Est Artist Residencies 2027-2028 — 2026-11-08 — estnordest.org/en/artist-residency/artist-residency-regular _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Sixi AiR 2027, Spring and Autumn — 2026-11-15 — siximuseum.com/en/residency _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🌍 Eulsukdo Land & Ecological Art Open Call — 2026-11-22 — eulsukdo-ecoart.com/en _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 L-AIR Himeji 2027, Season 2 — 2026-11-30 — l-air.or.jp/journal/2026/08/916 _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🏛 British Museum Endangered Material Knowledge Programme (EMKP) 2026/27 — 2026-12-01 — emkp.org/grants _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Yaddo — 2026-12-20 — yaddo.org/apply _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🔬 EVA London 2027 — 2027-01-11 — eva-london.org/eva-london-2027/key-dates _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Anderson Center at Tower View Residency 2027 — 2027-01-12 — andersoncenter.org/residency-program _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Ucross Residency, Fall 2027 — 2027-01-15 — ucrossfoundation.org/residency-program.html _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Jentel Artist Residency 2027 — 2027-01-15 — jentelarts.org/apply _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎨 Monson Arts, Spring 2027 — 2027-01-15 — monsonarts.org/residencies/overview _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🎤 ACM CHI 2027 Interactive Demos — 2027-01-21 — chi2027.acm.org/authors/interactive-demos _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
+- 🧭 Explorers Club Impact Grants — Rolling — explorers.org/grants/explorers-club-impact-grants _(accepted by Ines on the report page Sept 27; verified at the source Oct 5)_
 
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
