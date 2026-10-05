@@ -2265,6 +2265,23 @@
    "deadline_type": null,
    "deadline_date": "December 2, 2026",
    "url": "https://tribecafilm.com/festival/submissions"
+  },
+  {
+   "slug": "pxr2027-performance-and-xr-conference-call-for-proposals",
+   "title": "PXR2027, Performance and XR Conference: Call for Proposals",
+   "desc": "Proposals for the 7th PXR Conference on live performance in VR, AR and MR, late February 2027, run by Single Thread and Electric Company Theatre. Three routes: VR projects presented remotely in VRChat, AR/MR projects at venues in Toronto, Kingston and Vancouver, and 2D talks or demos by livestream. Open to Canadian and international creators; no fee listed. Deadline October 9, 2026, 11:59 pm ET.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "October 9, 2026",
+   "url": "https://performanceandxr.com/call-for-proposals/"
   }
  ]
 }

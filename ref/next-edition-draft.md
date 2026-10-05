@@ -158,6 +158,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👉 https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/
 👉 https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/
 
+### 🎭 PXR2027, Performance and XR Conference: Call for Proposals
+
+📅 Deadline: October 9, 2026, 11:59 pm ET
+📍 Late February 2027. VR work in VRChat (remote), AR/MR work in person in Toronto, Kingston or Vancouver, talks and demos by livestream
+👥 Canadian and international creators; you do not need to live in those cities. No fee listed
+✏️ The 7th edition of Canada's conference on live performance in XR, run by Single Thread and Electric Company Theatre. Proposals through a Google Form; first-time applicants can email contactus@singlethread.ca to talk it through.
+👉 https://performanceandxr.com/call-for-proposals/
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -183,6 +191,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |
 | Wikimedia Tunisie | no LinkedIn page found |
 | PhotoVogue | no LinkedIn page found |
+| Single Thread Theatre (PXR) | linkedin.com/company/single-thread-theatre |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 

@@ -32,6 +32,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+- 🎭 PXR2027 Call for Proposals (live performance in VR/AR/MR; VRChat remote or Toronto/Kingston/Vancouver; free) — Oct 9, 11:59 pm ET, the send day — performanceandxr.com/call-for-proposals _(added by the Oct 5 sweep from Ines's note via the DC digest; closes the evening edition 20 goes out, so put it at the top)_
 - 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
 - 🇹🇳 📸 PhotoVogue MENA Panorama 2026 (photo/video series, MENA + diaspora, 18+; free; $8,000 in three grants) — Oct 15 (extended from Sept 24) — site.picter.com/photovogue-regional-open-call-mena-panorama-2026 _(added by the Sept 26 sweep, from Ines's Instagram share of an AD Middle East post; deadline verified on the Picter call page)_
 - 🏝 Matsu Biennial 2027 international open call (Taiwan; up to NTD 800,000; immersive named; free) — Oct 30 — matsubiennial.tw/en/news/details/88 _(reopened from the watch list, verified on the official page by the Sept 30 board check)_

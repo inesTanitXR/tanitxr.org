@@ -7799,11 +7799,13 @@ def build_impact():
     """The numbers a funder asks for, on one page, with the date each was counted."""
     st = COLLECTION_STATS or {}
     updated = _stats.get("updated", "")
+    # "checked" holds the date each number was last verified; "updated" is the fallback
+    checked = _stats.get("checked", {})
     rows = [
-        (_stats["artifacts"], "3D models published on Sketchfab", "Sketchfab, public models on the Tanit XR profile", updated),
-        (_stats["sites"], "heritage sites documented", "distinct places in the archive", updated),
-        (_stats["volunteers"], "volunteers on four continents", "Slack and the Thursday call", updated),
-        (_stats["reach"], "people reached by the founder's posts", "LinkedIn creator analytics, 18 Aug 2025 to 21 Sep 2026", updated),
+        (_stats["artifacts"], "3D models published on Sketchfab", "Sketchfab, public models on the Tanit XR profile", checked.get("artifacts", updated)),
+        (_stats["sites"], "heritage sites documented", "distinct places in the archive", checked.get("sites", updated)),
+        (_stats["volunteers"], "volunteers on four continents", "Slack and the Thursday call", checked.get("volunteers", updated)),
+        (_stats["reach"], "people reached by the founder's posts", "LinkedIn creator analytics, 18 Aug 2025 to 21 Sep 2026", checked.get("reach", updated)),
     ]
     if st.get("object_views"):
         rows += [
