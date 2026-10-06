@@ -52,71 +52,23 @@
 <div class="crumb"><a href="../../ar/">الرئيسية</a> &nbsp;›&nbsp; 22 October 2026</div>
 </div></div>
 <section class="pad"><div class="wrap"><div class="prose">
-<p class="lead"><b>Thursday 22 October, 6pm to 8pm. Embassy of Tunisia,
-1515 Massachusetts Avenue NW, Washington, DC 20005.</b>
-A free evening hosted by the Embassy with Tanit XR and TAYP, for people who love Tunisian history
-and for people working where technology, art and social impact meet. Students are very welcome.</p>
-
-<p>Tanit XR is a volunteer project that records Tunisia's heritage in 3D and brings it to people
-around the world. Its founder, Ines Said, will open the evening and introduce two of the people who
-have shaped it.</p>
-
-<p><b>د. لورا هاريسون</b>, archaeologist and Tanit XR's المسؤولة العلمية, and <b>د. كارولين نيكرسون</b>, Executive Director of Florida &#67;ommunity Innovation, will talk about their time in
-Tunisia: what they saw, the people they worked with, and what they brought back with them.</p>
-
-<p>Our volunteers live in many countries and most of them had no connection to Tunisia before they
-arrived. They meet every week. They sit through history sessions together. A number of them have
-since travelled to Tunisia for the first time, and several now speak about Tunisian heritage in
-their own countries, in their own words. That exchange runs in both directions, and it is the part
-of this work we are proudest of.</p>
-
-<p>We will also talk about what extended reality can do for heritage: it brings people close to
-places they may never visit, and it gives a community the tools to record what matters to it.</p>
-
-<p>A few headsets will be in the room if you would like to try one. The evening itself is about
-the conversation.</p>
-
-<h2>The speakers</h2>
-<p><b>د. لورا هاريسون</b> is Tanit XR's المسؤولة العلمية. An archaeologist who specialises in
-digital documentation, from lidar and photogrammetry to immersive technology, she was the founding
-director of the Access 3D Lab at the University of South Florida, with museum experience at
-institutions like the Smithsonian and the جديد York State Museum. She is the author of two books on
-archaeology and digital heritage,
-Associate Editor of the journal Studies in Digital Heritage, and a Commissioner on the City of
-Tampa's Historic Preservation Board.</p>
-<p><b>د. كارولين نيكرسون</b> leads Partnerships and المجتمع at Tanit XR, and is Executive
-Director and co-founder of Florida &#67;ommunity Innovation, the nonprofit that serves as Tanit XR's
-fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
-science, including roles with SciStarter, CitSci and the NASA-funded EMERGE مشروع. She holds a
-PhD in Agricultural Education and Communication from the University of Florida and a Master of
-Public Policy from American University.</p>
-<p><b>Ines Said</b>, who founded Tanit XR, is a Tunisian XR artist and developer from Nabeul. She
-will open the evening and introduce the speakers.</p>
-
-<h2>Who this is for</h2>
-<p>Tunisians and friends of Tunisia equally. You do not need to be Tunisian, and you do not need to
-know anything about technology. If you care about history, about culture travelling between
-countries, or about technology being used for something worthwhile, you will be among your people.</p>
-
-<h2>Reserving a seat</h2>
-<p>Seating is limited and we expect it to fill, so please reserve as early as you can.</p>
-<p><b>Your seat is only confirmed once you have filled in this form.</b> Entry is by a guest
-list the Embassy receives in advance, so we cannot add names at the door and there are no
-walk-ins. <b>Reservations close on Friday 16 October.</b> Please bring photo ID matching the name
-you give us. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+<p class="lead"><b>Thursday 22 October, 6pm to 8pm, at the Embassy of Tunisia.</b> Two
+archaeologists who fell for Tunisia, a room full of people who love history, and a few headsets
+to play with afterwards. Free, with TAYP. Seats are limited and go by guest list, so grab yours
+now and read the rest after.</p>
 
 <form id="dc-rsvp" class="nice" novalidate>
 <input type="hidden" name="_form" value="dc-rsvp">
 <input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <p class="hp" aria-hidden="true"><label>Leave this empty<input name="url" tabindex="-1" autocomplete="off"></label></p>
-<label for="dc-name">Full name, as it appears on the photo ID you will bring <span>*</span></label>
+<label for="dc-name">Full name <span>*</span></label>
 <input id="dc-name" name="name" required autocomplete="name">
 <label for="dc-email">البريد الإلكتروني <span>*</span></label>
 <input id="dc-email" name="email" type="email" required autocomplete="email">
-<p class="fhint">We will write to you before the event with the entrance and what to bring.</p>
+<p class="fhint">Your confirmation and the details for the evening will come by email.</p>
 <label for="dc-heard">How did you hear about this evening?</label>
 <input id="dc-heard" name="heard_via" placeholder="Optional">
-<button type="submit" class="btn btn-gold">Reserve a seat</button>
+<button type="submit" class="btn btn-gold">Save me a seat</button>
 <p id="dc-said" class="fm-err" hidden role="status"></p>
 <noscript><p class="fhint">This form needs JavaScript. Please email
 <a href="mailto:info@tanitxr.org?subject=DC%2022%20October">info@tanitxr.org</a> to reserve a seat.</p></noscript>
@@ -140,15 +92,49 @@ you give us. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.<
     var sent = false;
     try { sent = navigator.sendBeacon(SHEET, body); } catch (err) { sent = false; }
     if (!sent) { try { fetch(SHEET, {method:'POST', body: body, mode:'no-cors', keepalive:true}); } catch (err) {} }
-    f.querySelectorAll('input,textarea,button').forEach(function(el){ el.disabled = true; });
+    f.querySelectorAll('input,textarea').forEach(function(el){ el.disabled = true; });
+    btn.textContent = 'Seat saved';
     said.hidden = false;
-    said.innerHTML = 'Thank you, your seat is reserved. We will email you before the event with the '
-      + 'entrance and what to bring. If you have not heard from us by 19 October, write to '
-      + '<a href="mailto:info@tanitxr.org">info@tanitxr.org</a> and we will check.';
+    said.textContent = 'Thank you, you are on the list. Your confirmation and the details for the '
+      + 'evening will arrive by email.';
     if (window.tx) tx('dc_rsvp');
   });
 })();
 </script>
+<p class="fhint">1515 Massachusetts Avenue NW, Washington, DC 20005. Reservations close Friday
+16 October and there are no walk-ins. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+
+<h2>What you are coming to</h2>
+<p><b>د. لورا هاريسون</b> and <b>د. كارولين نيكرسون</b> went to Tunisia this summer and came
+back changed. They will tell you where they stood, who they met, and what they could not stop
+thinking about on the flight home. Ines Said, who started Tanit XR, opens the evening and
+introduces them.</p>
+<p>Then the part we love talking about: the people. Tanit XR is run by volunteers in many
+countries, most of whom had never been to Tunisia when they joined. They meet every week. They sit
+through history sessions together. Some have since flown to Tunisia for the first time, and some
+now give talks about Tunisian heritage in their own cities. Culture travelling in both directions
+is the whole point, and this evening is a bit of that happening live.</p>
+<p>A few VR headsets will be in the room. Try one if you like. The conversation is the main event.</p>
+
+<h2>Who should come</h2>
+<p>Tunisians and friends of Tunisia, equally. Anyone who loves history, or works where technology,
+art and social impact meet, or just wants a good Thursday evening with interesting people.
+Students very welcome. You need no background in any of this.</p>
+
+<h2>The speakers</h2>
+<p><b>د. لورا هاريسون</b> is Tanit XR's المسؤولة العلمية. An archaeologist who specialises in
+digital documentation, from lidar and photogrammetry to immersive technology, she was the founding
+director of the Access 3D Lab at the University of South Florida, with museum experience at
+institutions like the Smithsonian and the جديد York State Museum. She is the author of two books on
+archaeology and digital heritage, Associate Editor of the journal Studies in Digital Heritage, and a
+Commissioner on the City of Tampa's Historic Preservation Board.</p>
+<p><b>د. كارولين نيكرسون</b> leads Partnerships and المجتمع at Tanit XR, and is Executive
+Director and co-founder of Florida &#67;ommunity Innovation, the nonprofit that serves as Tanit XR's
+fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
+science, including roles with SciStarter, CitSci and the NASA-funded EMERGE مشروع. She holds a
+PhD in Agricultural Education and Communication from the University of Florida and a Master of
+Public Policy from American University.</p>
+<p><b>Ines Said</b>, who founded Tanit XR, is a Tunisian XR artist and developer from Nabeul.</p>
 </div></div></section>
 
 
