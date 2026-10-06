@@ -7676,8 +7676,9 @@ the conversation.</p>
 <h2>The speakers</h2>
 <p><b>Dr. Laura Harrison</b> is Tanit XR's Chief Scientist. An archaeologist who specialises in
 digital documentation, from lidar and photogrammetry to immersive technology, she was the founding
-director of the Access 3D Lab at the University of South Florida and has worked at the Smithsonian
-and the New York State Museum. She is the author of two books on archaeology and digital heritage,
+director of the Access 3D Lab at the University of South Florida, with museum experience at
+institutions like the Smithsonian and the New York State Museum. She is the author of two books on
+archaeology and digital heritage,
 Associate Editor of the journal Studies in Digital Heritage, and a Commissioner on the City of
 Tampa's Historic Preservation Board.</p>
 <p><b>Dr. Caroline Nickerson</b> leads Partnerships and Community at Tanit XR, and is Executive
