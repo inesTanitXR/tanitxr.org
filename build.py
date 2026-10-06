@@ -4832,14 +4832,15 @@ EVENTS = [
      "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
      "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
-     "title": "An evening in Washington, DC, with Tanit XR and TAYP",
+     "title": "Before It's Gone: an evening at the Embassy of Tunisia with Tanit XR and TAYP",
      "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
      "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
              "using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline "
              "Nickerson on their time in Tunisia, and an introduction to the volunteers who make "
              "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
-             "technology, art and social impact meet. Seating is limited and entry is by guest "
-             "list, so reservations close on Friday October 16.",
+             "technology, art and social impact meet. Seating is limited, entry is by guest list, "
+             "and a seat is only confirmed once you have registered. Reservations close Friday "
+             "October 16.",
      "links": [("Reserve a seat", "dc-october-2026.html")]},
 ]
 
@@ -7645,12 +7646,13 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "22 October 2026", bg="sv-IMG_1315.jpg")}
+{page_hero("Before It's Gone", "An evening in Washington, DC, 22 October 2026", bg="sv-IMG_1315.jpg")}
 <section class="pad"><div class="wrap"><div class="prose">
-<p class="lead"><b>Thursday 22 October, 6pm to 8pm. Embassy of Tunisia,
-1515 Massachusetts Avenue NW, Washington, DC 20005.</b>
-A free evening with Tanit XR and TAYP, for people who love Tunisian history and for people
-working where technology, art and social impact meet. Students are very welcome.</p>
+<p class="lead"><b>Preserving Tunisian heritage through 3D scanning and XR.</b><br>
+Thursday 22 October, 6pm to 8pm. Embassy of Tunisia, 1515 Massachusetts Avenue NW,
+Washington, DC 20005. A free evening hosted by the Embassy with Tanit XR and TAYP, for people
+who love Tunisian history and for people working where technology, art and social impact meet.
+Students are very welcome.</p>
 
 <p>Tanit XR is a volunteer project that records Tunisia's heritage in 3D and brings it to people
 around the world. Its founder, Ines Said, will open the evening and introduce two of the people who
@@ -7672,6 +7674,22 @@ places they may never visit, and it gives a community the tools to record what m
 <p>A few headsets will be in the room if you would like to try one. The evening itself is about
 the conversation.</p>
 
+<h2>The speakers</h2>
+<p><b>Dr. Laura Harrison</b> is Tanit XR's Chief Scientist. An archaeologist who specialises in
+digital documentation, from lidar and photogrammetry to immersive technology, she was the founding
+director of the Access 3D Lab at the University of South Florida and has worked at the Smithsonian
+and the New York State Museum. She is the author of two books on archaeology and digital heritage,
+Associate Editor of the journal Studies in Digital Heritage, and a Commissioner on the City of
+Tampa's Historic Preservation Board.</p>
+<p><b>Dr. Caroline Nickerson</b> leads Partnerships and Community at Tanit XR, and is Executive
+Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit XR's
+fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
+science, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a
+PhD in Agricultural Education and Communication from the University of Florida and a Master of
+Public Policy from American University.</p>
+<p><b>Ines Said</b>, who founded Tanit XR, is a Tunisian XR artist and developer from Nabeul. She
+will open the evening and introduce the speakers.</p>
+
 <h2>Who this is for</h2>
 <p>Tunisians and friends of Tunisia equally. You do not need to be Tunisian, and you do not need to
 know anything about technology. If you care about history, about culture travelling between
@@ -7679,16 +7697,18 @@ countries, or about technology being used for something worthwhile, you will be 
 
 <h2>Reserving a seat</h2>
 <p>Seating is limited and we expect it to fill, so please reserve as early as you can.</p>
-<p><b>Reservations close on Friday 16 October.</b> The embassy needs the guest list in advance, and
-entry is by that list only, so we cannot add anyone after that date and there are no walk-ins.
-Please bring photo ID matching the name you give us.</p>
+<p><b>Your seat is only confirmed once you have filled in this form.</b> Entry is by a guest
+list the Embassy receives in advance, so we cannot add names at the door and there are no
+walk-ins. <b>Reservations close on Friday 16 October.</b> Please bring photo ID matching the name
+you give us.</p>
 {form}
 </div></div></section>"""
-    page("dc-october-2026.html", "An evening in Washington, DC", body,
+    page("dc-october-2026.html", "Before It's Gone: an evening in Washington, DC", body,
          active="community.html",
-         desc="Thursday 22 October 2026, 6pm to 8pm at the Embassy of Tunisia in Washington, DC. "
-              "An evening with Tanit XR and TAYP on Tunisian history, cultural exchange, and "
-              "technology used for social good. Reservations close 16 October.")
+         desc="Before It's Gone: Preserving Tunisian Heritage Through 3D Scanning and XR. Thursday "
+              "22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with "
+              "Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in "
+              "Tunisia. Free, limited seating, registration required by 16 October.")
 
 
 def build_about():

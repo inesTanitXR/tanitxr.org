@@ -24,64 +24,70 @@ info@ does not need checking for this.
 The slot is **6pm to 8pm**, confirmed by Ines on 2026-10-06. The other conversation's handoff
 says 6:30 to 8:30; that is superseded. Every draft below and the event page say 6 to 8.
 
-## Draft 1. To the embassy, recap and logistics
+## Draft 1. To the embassy, thank you, the link, the guest list, the bios
 
 To: nezzaier@tunisianembassy.org
 Subject: Re: FW: Request to host a Tunisian heritage talk at the Embassy, Thursday, October 22, 2026
 
 Dear Mr. Ezzaier,
 
-Thank you again for Monday, and for welcoming the idea so warmly. It means a great deal to us,
-and to our volunteers, that this evening will happen at the Embassy.
+Thank you so much for yesterday, and for the opportunity to hold this evening at the Embassy. It
+means a great deal to me and to our volunteers, many of whom have come to love Tunisia through
+this work, that it will happen in a place that represents the country.
 
-So that we are working from the same page, here is what I understood we agreed:
+Our event page is now live, with everything a guest needs and the registration form:
+https://tanitxr.org/dc-october-2026/
 
-Thursday, October 22, from 6pm to 8pm, at the Embassy. About 25 guests. Dr. Laura Harrison and
-Dr. Caroline Nickerson will speak about their time in Tunisia, and I will introduce them and say
-a little about Tanit XR and the people behind it. We will bring three VR headsets for anyone who
-would like to try one after the talks. Our co-host for the evening is TAYP, the Tunisian American
-Young Professionals.
+Thursday, October 22, from 6pm to 8pm. Dr. Laura Harrison and Dr. Caroline Nickerson will speak
+about their time in Tunisia, and I will open the evening, introduce them, and say a little about
+Tanit XR and the people behind it. We will bring three VR headsets for anyone who would like to
+try one afterwards. Our co-host is TAYP, the Tunisian American Young Professionals.
 
-I will send you the guest list, with full names and email addresses, by Sunday, October 18. Our
-registration page is here: https://tanitxr.org/dc-october-2026/
+You asked for short biographies of Dr. Harrison and Dr. Nickerson. They are on the page under
+"The speakers", and I am happy to send them separately in whatever form is useful to you.
 
-A few questions, so that I can prepare properly:
+On the guest list: I will collect full names and email addresses through the form and send you
+the list in advance. Is there a specific date by which you would like to receive it? I have
+closed registration on Friday, October 16, so I can have it to you any day from the 17th.
 
-1. What time may we arrive to set up, and is there a screen or display we can connect a laptop to?
-2. Are the three headsets and a laptop fine to bring in, or should I declare them in advance?
-3. What should guests bring for entry, a photo ID matching the name on the list?
-4. Is there a maximum number of guests you would like us to hold to?
-5. Is photography allowed during the evening?
-6. How would you like the Embassy to be named on our page and invitations?
+I live in the area, so I am glad to come early on the 22nd for setup, and to come by beforehand
+if that would help your team.
 
-Thank you once more. I am very much looking forward to the 22nd.
+A few small questions so that I prepare properly: what time may we arrive to set up, is there a
+screen we can connect a laptop to, is it fine to bring the headsets and a laptop, should guests
+bring a photo ID matching the name on the list, and is photography allowed during the evening?
+And please tell me if there is anything else you need from us.
 
-Warm regards,
+With sincere thanks,
 Ines Said
 Founder, Tanit XR
 tanitxr.org
 
-## Draft 2. To TAYP, the final update
+## Draft 2. To TAYP, the update
 
 Reply all on "TAYP DC-DMV events"
 
 Hi Mariem, hi everyone,
 
 Good news. The Embassy of Tunisia will host us. Thursday, October 22, 6pm to 8pm, at
-1515 Massachusetts Avenue NW. Central, on the Metro, and I think a lovely place for this.
+1515 Massachusetts Avenue NW. Central, on the Metro, and a lovely place for this.
 
-The evening is Dr. Laura Harrison and Dr. Caroline Nickerson talking about their time in
-Tunisia, and me introducing Tanit XR and the volunteers who make it. I will bring a few headsets
-for people to try afterwards. It is free, and open to Tunisians and friends of Tunisia alike.
+The event page is live, with the registration form: https://tanitxr.org/dc-october-2026/
 
-Two things that come with an embassy. Seating is limited, around 25, and entry is by guest list
-only, which the Embassy needs four days ahead. So everyone who wants to come, TAYP members
-included, needs to register here by Friday, October 16: https://tanitxr.org/dc-october-2026/
+The evening is "Before It's Gone: Preserving Tunisian Heritage Through 3D Scanning and XR".
+Dr. Laura Harrison and Dr. Caroline Nickerson will talk about their time in Tunisia, and I will
+introduce them and Tanit XR and the volunteers who make it. There will be a few headsets to try
+afterwards. It is free, and open to Tunisians and friends of Tunisia alike.
 
-Could you share that link with your members this week, and let me know who from TAYP would like
-to say a word of welcome at the start? I would love TAYP to open the evening with us.
+The one rule that comes with an embassy: seating is limited, entry is by guest list, and a seat
+is only confirmed once someone has filled in the form on the page. Nobody can be added at the
+door. Registration closes Friday, October 16. That applies to all of us too, so please register
+yourselves as well.
 
-Thank you for making this happen with us. I am really excited.
+Could you share the link with your members this week? And would someone from TAYP like to say a
+word of welcome at the start? I would love TAYP to open the evening with us.
+
+Thank you for making this happen together. I am really excited.
 
 Best,
 Ines
@@ -92,20 +98,22 @@ Reply all on "Tunisian heritage talk with archaeologists, October 22 - Co-sponso
 
 Dear Shana,
 
-Thank you so much for this, and for asking the Corcoran on our behalf. That is very kind.
+Thank you so much for this, and for asking the Corcoran on our behalf before you even knew
+whether you had the bandwidth. That is very kind, and I do not take it for granted.
 
-A quick update that takes the pressure off the space question: the Embassy of Tunisia has
-offered to host the evening. Thursday, October 22, 6pm to 8pm, at 1515 Massachusetts Avenue NW.
-So we no longer need a room, and we have a very fitting one.
+A happy update: the Embassy of Tunisia has offered to host the evening, so the space question is
+solved. Thursday, October 22, 6pm to 8pm, at 1515 Massachusetts Avenue NW. The event page, with
+the programme and registration, is here: https://tanitxr.org/dc-october-2026/
 
-What we would still love is to have IMES with us, in whatever form is light for you. Being named
-as a partner on our page and invitations, sharing the evening with your students, and having you
-in the room would each mean a lot. There is no cost on your side. It is free, seating is limited
-to about 25, and registration is here: https://tanitxr.org/dc-october-2026/
+We would love to have IMES with us in whatever form is light for you: sharing the evening with
+your students, being in the room, or being named as a friend of the evening on our page. There is
+no cost on your side. Seating is limited and entry is by guest list, so a seat is only confirmed
+once someone has registered on the page, by October 16.
 
-I would also very much like to pick up the Corcoran thread for the spring. A guest lecture, a
-scanning workshop with students, or a small exhibition from our archive would all be possible,
-and Dr. Laura Harrison and I would be glad to meet whenever suits.
+More than the one evening, I would really like to work together. A guest lecture, a hands-on
+scanning workshop with students, a small exhibition from our archive at the Corcoran, or
+something we have not thought of yet. Dr. Laura Harrison and I would be glad to meet whenever
+suits you, in the spring or sooner.
 
 Thank you again, Shana. I hope to see you on the 22nd.
 
@@ -196,3 +204,54 @@ is there one you would prefer?
 Thank you both. I am so happy this is happening, and happier that it is the two of you on stage.
 
 Ines
+
+## Who to invite, and how to get the word out
+
+Twenty five seats and no walk-ins changes the job. This is not a broadcast. Personal invitations
+fill a room this size faster than any post, and over-advertising creates disappointment at the
+door. Fill around fifteen seats by direct invitation first, then open the rest to the newsletter
+and LinkedIn.
+
+**The line that goes in every single message, in these words or close to them:**
+
+> Seating is limited and entry is by guest list. Your seat is only confirmed once you have
+> registered at tanitxr.org/dc-october-2026. We cannot add names at the door.
+
+### Invite directly
+
+| Who | Why | Who asks |
+|---|---|---|
+| TAYP members | Co-host, the core of the room | Mariem, via Draft 2 |
+| The Embassy's own cultural and diplomatic network | They want international attendance; it is their interest and their list | Ask Mr. Ezzaier, in Draft 1 or by phone |
+| Shana Marshall and GW IMES students; GW Museum Studies at the Corcoran | A warm thread already open; students are exactly the audience | Draft 3 |
+| Isabella, UMD student who wrote on 30 Sep asking to volunteer | Already interested, already in the inbox | Ines, one line |
+| Alicia Morgan, follows Tanit XR on LinkedIn, asked for a call on 5 Oct | Same | Ines, one line |
+| Luke Carter, wrote on 29 Sep about the digital archive | Same | Ines, one line |
+| Tanit XR volunteers in the DC and Maryland area | They are the story being told | Ines, Julia |
+| US-Tunisia Business Council | Member companies with a Tunisia interest | Caroline or TAYP |
+| Middle East Institute, Johns Hopkins SAIS, GW Textile Museum, Georgetown, American University | Heritage, policy and the region, all within reach of Massachusetts Ave | Laura (academic), Caroline (AU is her alma mater) |
+| DC XR community: DC VR/AR meetup, XR Women, XR Guild | The tech side of "tech, art and social impact" | Ines |
+| Smithsonian contacts | Ines's FUTURES installation, Laura's time there | Ines, Laura |
+| Niantic (Nathan Bowser) | Existing relationship | Ines |
+| Journalists who cover Tunisia and the region from DC | A small embassy evening with two archaeologists is a story | Ines, through TAYP's contacts |
+
+### Channels, in the order they fire
+
+1. **Newsletter edition 20, Friday 9 October.** The only edition before the deadline. Top of the
+   edition, with the rule in bold.
+2. **LinkedIn.** A post from Ines, with Laura and Caroline each sharing it. A LinkedIn Event too,
+   with the registration link in the description, so that "Attending" there is understood as not
+   enough on its own.
+3. **TAYP channels**, newsletter, Instagram, WhatsApp groups, with the same link and the same rule.
+4. **The Embassy's channels**, if they are willing.
+5. **Instagram and Facebook**, one carousel from the generator we already have.
+6. **GW IMES student list**, through Shana.
+
+### Two practical things
+
+- **Keep taking names after the cap.** The form does not know the number. If registrations pass
+  the seats, the extra names are a waitlist, which is useful: people drop out in the last week.
+  Mark the first twenty five "confirmed" in the sheet and tell the rest they are on the list.
+- **Send a confirmation email to everyone registered around 17 October**, with the entrance, the
+  photo ID line, and "reply if you can no longer come". That is also what frees seats for the
+  waitlist.
