@@ -4828,15 +4828,19 @@ EVENTS = [
              "preservation, presented at the El Jem conference and published here in English, French "
              "and Tunisian Arabic.",
      "links": [("Read the paper", "el-jem-conference.html")]},
-    {"date": "2026-10-22", "when": "Thursday, October 22",
-     "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T21:00:00-04:00",
+    {"date": "2026-10-22", "when": "Thursday, October 22, 6pm to 8pm",
+     "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
      "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
-     "title": "Tanit XR in person, Washington DC",
-     "where": "Washington, DC. Venue to be announced",
-     "desc": "An evening with the Tanit XR community, planned with TAYP, the Tunisian American "
-             "Young Professionals. Save the date. Details will follow here and in the newsletter.",
-     "links": []},
+     "title": "An evening in Washington, DC, with Tanit XR and TAYP",
+     "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
+     "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
+             "using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline "
+             "Nickerson on their time in Tunisia, and an introduction to the volunteers who make "
+             "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
+             "technology, art and social impact meet. Seating is limited and entry is by guest "
+             "list, so reservations close on Friday October 16.",
+     "links": [("Reserve a seat", "dc-october-2026.html")]},
 ]
 
 
@@ -7583,6 +7587,115 @@ future of immersive technology.</p>
          desc="Tanit XR sponsored a heritage track and a prize at ImmerseGT, the XR hackathon at Georgia Tech, with a workshop on citizen science and XR by Dr. Caroline Nickerson.")
 
 
+def build_dc_evening():
+    """The DC evening, 22 October 2026. A small room at the Embassy of Tunisia.
+
+    The reservation form posts straight to the submissions Apps Script, which files it in the
+    "dc-rsvp" tab of the sheet in Ines's Drive. It deliberately does not touch FormSubmit:
+    that service was down for hours on 30 September, and a lost row here is a person turned
+    away at an embassy door, because the guest list is the only way in.
+
+    Government officials will be in the room, so the copy avoids language that frames Tunisia
+    as a place that was studied. Laura and Caroline spent time there; that is how it is said.
+    """
+    sheet = FORM_SHEET
+    form = f"""
+<form id="dc-rsvp" class="nice" novalidate>
+<input type="hidden" name="_form" value="dc-rsvp">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
+<p class="hp" aria-hidden="true"><label>Leave this empty<input name="url" tabindex="-1" autocomplete="off"></label></p>
+<label for="dc-name">Full name, as it appears on the photo ID you will bring <span>*</span></label>
+<input id="dc-name" name="name" required autocomplete="name">
+<label for="dc-email">Email <span>*</span></label>
+<input id="dc-email" name="email" type="email" required autocomplete="email">
+<p class="fhint">We will write to you before the event with the entrance and what to bring. Please use an address you read.</p>
+<label for="dc-from">Where are you coming from? <span>*</span></label>
+<input id="dc-from" name="coming_from" required placeholder="City, and country if outside the US">
+<label for="dc-org">Organisation or what you do</label>
+<input id="dc-org" name="organisation" placeholder="Optional">
+<label for="dc-heard">How did you hear about this evening?</label>
+<input id="dc-heard" name="heard_via" placeholder="Optional">
+<label for="dc-notes">Anything we should know?</label>
+<textarea id="dc-notes" name="notes" rows="3" placeholder="Access needs, dietary needs, or a question"></textarea>
+<label class="fcheck"><input type="checkbox" name="newsletter" value="yes"> Send me the Tanit XR newsletter</label>
+<button type="submit" class="btn btn-gold">Reserve a seat</button>
+<p id="dc-said" class="fm-err" hidden role="status"></p>
+<noscript><p class="fhint">This form needs JavaScript. Please email
+<a href="mailto:info@tanitxr.org?subject=DC%2022%20October">info@tanitxr.org</a> to reserve a seat.</p></noscript>
+</form>
+<script>
+(function(){{
+  var f = document.getElementById('dc-rsvp'), said = document.getElementById('dc-said');
+  if (!f) return;
+  var SHEET = {sheet!r};
+  var opened = Date.now();
+  f.addEventListener('submit', function(e){{
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    // the sheet drops anything that looks automated, and these two are what say a person
+    // sat on the page and ran JavaScript. Set here because our own handler runs first.
+    f.querySelector('[name=_t]').value = String(Date.now() - opened);
+    f.querySelector('[name=_js]').value = String(Date.now()).split('').reverse().join('').slice(0, 8);
+    var btn = f.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var body = new URLSearchParams(new FormData(f));
+    var sent = false;
+    try {{ sent = navigator.sendBeacon(SHEET, body); }} catch (err) {{ sent = false; }}
+    if (!sent) {{ try {{ fetch(SHEET, {{method:'POST', body: body, mode:'no-cors', keepalive:true}}); }} catch (err) {{}} }}
+    f.querySelectorAll('input,textarea,button').forEach(function(el){{ el.disabled = true; }});
+    said.hidden = false;
+    said.innerHTML = 'Thank you, your seat is reserved. We will email you before the event with the '
+      + 'entrance and what to bring. If you have not heard from us by 19 October, write to '
+      + '<a href="mailto:info@tanitxr.org">info@tanitxr.org</a> and we will check.';
+    if (window.tx) tx('dc_rsvp');
+  }});
+}})();
+</script>"""
+    body = f"""
+{page_hero("An evening in Washington, DC", "22 October 2026", bg="sv-IMG_1315.jpg")}
+<section class="pad"><div class="wrap"><div class="prose">
+<p class="lead"><b>Thursday 22 October, 6pm to 8pm. Embassy of Tunisia,
+1515 Massachusetts Avenue NW, Washington, DC 20005.</b>
+An evening with Tanit XR and TAYP, for people who love Tunisian history and for people working
+where technology, art and social impact meet.</p>
+
+<p>Most of the evening belongs to <b>Dr. Laura Harrison</b> and <b>Dr. Caroline Nickerson</b>, who
+will talk about their time in Tunisia: the places they stood in, the people they worked alongside,
+and what they carried home. Ines Said, who founded Tanit XR, will introduce them and say a little
+about the work, which is mostly a story about people rather than about software.</p>
+
+<p>Our volunteers live in many countries and most of them had no connection to Tunisia before they
+arrived. They meet every week. They sit through history sessions together. A number of them have
+since travelled to Tunisia for the first time, and several now speak about Tunisian heritage in
+their own countries, in their own words. That exchange runs in both directions, and it is the part
+of this work we are proudest of.</p>
+
+<p>We will also talk about what we think extended reality is genuinely good for: not spectacle, but
+bringing people close to places they may never stand in, and giving a community the tools to record
+what matters to it.</p>
+
+<p>A few headsets will be in the room if you would like to try one. They are not the point of the
+evening. The conversation is.</p>
+
+<h2>Who this is for</h2>
+<p>Tunisians and friends of Tunisia equally. You do not need to be Tunisian, and you do not need to
+know anything about technology. If you care about history, about culture travelling between
+countries, or about technology being used for something worthwhile, you will be among your people.</p>
+
+<h2>Reserving a seat</h2>
+<p>Seating is limited and we expect it to fill, so please reserve as early as you can.</p>
+<p><b>Reservations close on Friday 16 October.</b> The embassy needs the guest list in advance, and
+entry is by that list only, so we cannot add anyone after that date and there are no walk-ins.
+Please bring photo ID matching the name you give us.</p>
+{form}
+</div></div></section>"""
+    page("dc-october-2026.html", "An evening in Washington, DC", body,
+         active="community.html",
+         desc="Thursday 22 October 2026, 6pm to 8pm at the Embassy of Tunisia in Washington, DC. "
+              "An evening with Tanit XR and TAYP on Tunisian history, cultural exchange, and "
+              "technology used for social good. Reservations close 16 October.")
+
+
 def build_about():
     body = f"""
 {page_hero("About", "About", bg="sv-IMG_0511.jpg")}
@@ -8481,6 +8594,7 @@ def main():
         build_el_jem()
         build_unique_mappers()
         build_immersegt()
+        build_dc_evening()
         build_about()
         build_contact()
         build_support()
