@@ -4841,7 +4841,7 @@ EVENTS = [
              "technology, art and social impact meet. Seating is limited, entry is by guest list, "
              "and a seat is only confirmed once you have registered. Reservations close Friday "
              "October 16.",
-     "links": [("Reserve a seat", "dc-october-2026.html")]},
+     "links": [("Reserve a seat", "dc.html")]},
 ]
 
 
@@ -7703,7 +7703,7 @@ walk-ins. <b>Reservations close on Friday 16 October.</b> Please bring photo ID 
 you give us. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 {form}
 </div></div></section>"""
-    page("dc-october-2026.html", "An evening in Washington, DC", body,
+    page("dc.html", "An evening in Washington, DC", body,
          active="community.html",
          desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
@@ -8150,6 +8150,7 @@ def build_redirects():
 
     # interim flat names used briefly during the rebuild, keep any shared links alive
     targets["people"] = "team.html"
+    targets["dc-october-2026"] = "dc.html"      # the DC evening moved to the short address
     for m in MODELS:
         targets[f"model-{m['clean_slug']}"] = m["href"]
     for n in NEWS:

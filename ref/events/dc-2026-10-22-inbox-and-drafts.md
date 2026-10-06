@@ -36,7 +36,7 @@ means a great deal to me and to our volunteers, many of whom have come to love T
 this work, that it will happen in a place that represents the country.
 
 Our event page is now live, with everything a guest needs and the registration form:
-https://tanitxr.org/dc-october-2026/
+https://tanitxr.org/dc
 
 Thursday, October 22, from 6pm to 8pm. Dr. Laura Harrison and Dr. Caroline Nickerson will speak
 about their time in Tunisia, and I will open the evening, introduce them, and say a little about
@@ -70,7 +70,7 @@ Hi Mariem, hi everyone,
 Good news. The Embassy of Tunisia will host us. Thursday, October 22, 6pm to 8pm, at
 1515 Massachusetts Avenue NW. Central, on the Metro, and a lovely place for this.
 
-The event page is live, with the registration form: https://tanitxr.org/dc-october-2026/
+The event page is live, with the registration form: https://tanitxr.org/dc
 
 Dr. Laura Harrison and Dr. Caroline Nickerson will talk about their time in Tunisia, and I will
 introduce them and Tanit XR and the volunteers who make it. There will be a few headsets to try
@@ -100,7 +100,7 @@ whether you had the bandwidth. That is very kind, and I do not take it for grant
 
 A happy update: the Embassy of Tunisia has offered to host the evening, so the space question is
 solved. Thursday, October 22, 6pm to 8pm, at 1515 Massachusetts Avenue NW. The event page, with
-the programme and registration, is here: https://tanitxr.org/dc-october-2026/
+the programme and registration, is here: https://tanitxr.org/dc
 
 We would love to have IMES with us in whatever form is light for you: sharing the evening with
 your students, being in the room, or being named as a friend of the evening on our page. There is
@@ -176,7 +176,7 @@ One email to both
 Hi Caroline, hi Laura,
 
 It is confirmed. The Embassy of Tunisia is hosting us on Thursday, October 22, 6pm to 8pm, at
-1515 Massachusetts Avenue NW. The event page is live: https://tanitxr.org/dc-october-2026/
+1515 Massachusetts Avenue NW. The event page is live: https://tanitxr.org/dc
 
 Two things that follow from the venue. We have two hours rather than three, so I would like each
 of you to plan for about 13 to 15 minutes. And entry is by a guest list the Embassy needs by
@@ -212,7 +212,7 @@ and LinkedIn.
 **The line that goes in every single message, in these words or close to them:**
 
 > Seating is limited and entry is by guest list. Your seat is only confirmed once you have
-> registered at tanitxr.org/dc-october-2026. We cannot add names at the door.
+> registered at tanitxr.org/dc. We cannot add names at the door.
 
 ### Invite directly
 
