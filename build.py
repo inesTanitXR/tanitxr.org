@@ -7656,8 +7656,8 @@ def build_dc_evening():
 <section class="pad"><div class="wrap"><div class="prose">
 <p class="lead"><b>Thursday 22 October, 6pm to 8pm. Embassy of Tunisia,
 1515 Massachusetts Avenue NW, Washington, DC 20005.</b>
-An evening with Tanit XR and TAYP, for people who love Tunisian history and for people working
-where technology, art and social impact meet.</p>
+A free evening with Tanit XR and TAYP, for people who love Tunisian history and for people
+working where technology, art and social impact meet. Students are very welcome.</p>
 
 <p>Tanit XR is a volunteer project that records Tunisia's heritage in 3D and brings it to people
 around the world. Its founder, Ines Said, will open the evening and introduce two of the people who
@@ -7673,12 +7673,11 @@ since travelled to Tunisia for the first time, and several now speak about Tunis
 their own countries, in their own words. That exchange runs in both directions, and it is the part
 of this work we are proudest of.</p>
 
-<p>We will also talk about what we think extended reality is genuinely good for: not spectacle, but
-bringing people close to places they may never stand in, and giving a community the tools to record
-what matters to it.</p>
+<p>We will also talk about what extended reality can do for heritage: it brings people close to
+places they may never visit, and it gives a community the tools to record what matters to it.</p>
 
-<p>A few headsets will be in the room if you would like to try one. They are not the point of the
-evening. The conversation is.</p>
+<p>A few headsets will be in the room if you would like to try one. The evening itself is about
+the conversation.</p>
 
 <h2>Who this is for</h2>
 <p>Tunisians and friends of Tunisia equally. You do not need to be Tunisian, and you do not need to
