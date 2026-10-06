@@ -88,9 +88,9 @@
     },
     {
       "slug": "uf-40-gators-under-40-class-of-2027",
-      "deadline": "October 5, 2026",
+      "deadline": "October 12, 2026",
       "status": "reminded",
-      "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40"
+      "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40 Deadline extended by UF to Monday October 12, 2026, 11:59 PM Eastern (portal counter seen October 5; shortlist date corrected by the deadline alarm on 2026-10-06)."
     },
     {
       "slug": "women-who-code-summit-2026",
@@ -501,7 +501,7 @@
     {
       "slug": "pxr2027-call-for-proposals",
       "deadline": "October 9, 2026, 11:59 pm ET",
-      "status": "reminded",
+      "status": "drafting",
       "reason": "Live performance in XR, presented in VRChat from anywhere. A heritage piece in VR (a guided walk through a scanned site, performed live) fits the VR Projects route. Free, short Google Form.",
       "title": "PXR2027, Performance and XR Conference: Call for Proposals",
       "url": "https://performanceandxr.com/call-for-proposals/",
@@ -517,6 +517,76 @@
       "url": "https://airk.haaymm.org",
       "added": "2026-10-05",
       "source": "inbox note (via DC digest)"
+    },
+    {
+      "slug": "acc-individual-fellowship-2027",
+      "title": "Asian Cultural Council Individual Fellowship 2027",
+      "deadline": "November 10, 2026, 9:59 AM ET (letters by November 16)",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. Up to $35,000 for 1 to 6 months of research and cultural exchange in Asia, for US citizens or permanent residents (or in the US for applicants from Asia). New media artists apply under visual art. Funds exchange, not new work or exhibitions. Money like Voqal, exchange like the Art Explora residency; pairs with a spring 2027 Japan or Korea trip. No application fee listed.",
+      "url": "https://www.asianculturalcouncil.org/grant-opportunities",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "after-the-palace-mapping-2026",
+      "title": "AFTER THE PALACE: Resonance 2026, Video Mapping Contest (Krakow)",
+      "deadline": "October 30, 2026, 11:59 pm CET",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. International video mapping contest for projections onto Building Z of the former Lenin Steelworks administrative centre in Nowa Huta, on dissonant heritage and the architecture of power. Prizes PLN 10,000, 6,000 and 3,000; the best works are shown November 23, 2026 at the 34th Audio Art Festival. Free, online entry. A heritage-themed media art competition.",
+      "url": "https://unloc.art/en/news/after-the-palace-en/",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "alpaca-2027-call",
+      "title": "Alpaca Festival 2027, Call for Talks, Workshops and Performances",
+      "deadline": "November 1, 2026",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. Talks, workshops and performances on algorithmic patterns, from live coding to weaving and braiding, with a stated interest in 'heritage algorithms' in craftwork. Festival in Sheffield, UK, May 6 to 9, 2027, with online talk sessions. Performers and workshop leaders get an artist fee and national travel; speakers get a festival pass. Free. A talk on Sejnane pottery patterns or mosaic geometry in 3D would fit.",
+      "url": "https://alpaca.cc/call/",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "bom-dia-oasis-2027",
+      "title": "Bom Dia OASis Residency 2027 (Cultivamos Cultura, Portugal)",
+      "deadline": "October 30, 2026, 6 pm CET (or when 100 applications are in)",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. 7 to 30 days in March 2027 at Cultivamos Cultura in Sao Luis, Portugal, for artists, designers and researchers working with local materials and ecology. EUR 1,300 project fee, up to EUR 500 travel, up to EUR 1,600 production, a private room and a food per diem. Free to apply. Closes early if 100 applications arrive, so do not wait for the deadline.",
+      "url": "https://cultivamoscultura.com/2026/09/17/bom-dia-oasis-residency-call-for-2027/",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "make-a-thek-2026",
+      "title": "make-a-thek Mobility Scheme and Knowledge Exchange 2026-2027 (incl. Digitising Traditional Crafts)",
+      "deadline": "December 1, 2026 (late applicants)",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. EU-funded network of makerspaces and libraries: EUR 1,000 stipend for experienced practitioners to run workshops at European pilot sites, or EUR 850 for learners to attend a 2-day meet-up in Barcelona (Nov/Dec 2026) or Berlin (May 2027). One of three themes is Digitising Traditional Crafts, e.g. 3D scanning old tools. Open to residents of EU and Horizon Europe associated countries; check that Tunisia is on the associated list and whether a US resident qualifies before applying. Free.",
+      "url": "https://www.makeathek.eu/opencall",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "vital-impacts-2027",
+      "title": "Vital Impacts Environmental Photography Fellowships 2027",
+      "deadline": "November 30, 2026",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. One USD 20,000 fellowship, six USD 5,000 fellowships and ten mentorships for photographers documenting environmental issues in the community where they live. $25 fee, waived for applicants from developing countries (Tunisia counts). A Tunisian coastline or Sejnane series could qualify if you apply as Tunisia-based.",
+      "url": "https://vitalimpacts.org/pages/the-vital-impacts-environmental-photography-grant",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
+    },
+    {
+      "slug": "yale-world-fellows-2027",
+      "title": "Yale World Fellows 2027",
+      "deadline": "December 2, 2026, 2 pm ET",
+      "status": "new",
+      "reason": "You chose 'Just for me' on Oct 5. Four-month residential fellowship at Yale, mid-August to mid-December 2027, for non-US citizens 5 to 25 years into their careers. Stipend, furnished apartment, health insurance and a round-trip flight. $20 fee. For mid-career founders and nonprofit leaders from outside the US; Tanit XR is the story.",
+      "url": "https://jackson.yale.edu/international-leadership-center/yale-world-fellows",
+      "added": "2026-10-06",
+      "source": "report page, Just for me (Oct 5)"
     }
   ]
 }

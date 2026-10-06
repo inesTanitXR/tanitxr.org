@@ -7,6 +7,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
 | **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, _(send date Sept 25; "ready, not posted yet?" reminder given Sept 26, do not repeat)_ 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
 | **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
+| **21** | **Fri Oct 23** (proposed) | Dec 2026 → Mar 2027 | section opened Oct 6 with three accepted finds; takes the Dec–Jan blocks from 20 when 20 is assembled |
 
 ## Edition 19 (send Sept 25) — items
 - 🏆 Webby Awards 2027 (31st), early entry Oct 30, $105 student / $255–$525 _(Ines asked for it in THIS edition, Sept 25)_
@@ -69,6 +70,16 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🇹🇳 Culture Moves Europe individual mobility 2026-27 (Tunisia eligible; 7-60 days with an international partner; EUR 85/day + travel; free) — monthly cut-offs, first Oct 31 — culture.ec.europa.eu _(reopened from the watch list, verified on the official call document by the Oct 5 board check)_
 - 🎮 Tribeca 2027 Games / Shorts / Digital Creators ($30-80) — early Oct 28, official Dec 2 — tribecafilm.com/festival/submissions _(verified Oct 5; replaces the two 'if verified' Tribeca lines; Tribeca X at $425+ is branded content, left out)_
 - 🇹🇳 Barakat Trust 2027 (Islamic art/archaeology incl. digitisation) — opens Jan 1 — barakat.org/grants ★ Tanit
+- 🥽 Realities in Transition Open Call #3, Uncharted Grounds (online VRChat residency Jan–Jun 2027; EUR 10,000 per artist + EUR 15,000 production; free) — Oct 23 — realities-in-transition.eu/rit-2-open-call-3 _(Ines accepted it on the report page Oct 5; verified at the source Oct 6)_
+- 🤖 AI Horizons: Art Beyond Algorithms, PARMA 360 (under 35; AI/VR/AR; EUR 1,500 prizes; free) — Oct 31 — parma360festival.it/call-for-artists _(accepted Oct 5; verified Oct 6)_
+- 🏅 .ART Award 2026 ($15,000 + residencies + $3,000 AR package; free, needs a .ART domain) — Nov 1 — award.art _(accepted Oct 5; verified Oct 6)_
+- 💡 Swarovski Foundation Creatives for Our Future (21–30, any country; EUR 20,000; free) — Nov 9 — creatives.swarovskifoundation.org _(accepted Oct 5; verified Oct 6)_
+
+## Edition 21 (send Fri Oct 23, proposed split) — items
+_Opened Oct 6 for the Dec–Mar deadlines that would overflow edition 20. Move the Dec–Jan blocks listed under edition 20 here when 20 is assembled._
+- 📐 ACM DIS 2027 Papers and Pictorials (hybrid; remote presentation June 21–25; free to submit) — abstract Jan 11, full Jan 18, 2027 — dis.acm.org/2027/call-for-papers _(Ines accepted it on the report page Oct 5; verified at the source Oct 6)_
+- 🎤 ACM Creativity & Cognition 2027 Artworks Track (virtual June 13–16; theme Creativity and the Unseen incl. heritage and craft; free, no APC) — abstract Jan 19, full Jan 25, 2027 — cc.acm.org/2027/submit/artworks _(accepted Oct 5; verified Oct 6; same organisation as DIS: ACM SIGCHI, so one combined block is fine)_
+- 🖥 2nd Aion Digital Art Prize 2027 (online; AR/VR accepted; JPY 3,000 ≈ $20 per work) — Mar 1, 2027 — aionlabo.com/en/blank-2 _(accepted Oct 5; verified Oct 6)_
 
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit

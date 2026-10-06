@@ -192,6 +192,13 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Wikimedia Tunisie | no LinkedIn page found |
 | PhotoVogue | no LinkedIn page found |
 | Single Thread Theatre (PXR) | linkedin.com/company/single-thread-theatre |
+| L.E.V. Festival (Realities in Transition) | linkedin.com/company/l-e-v--festival |
+| Realities in Transition | linkedin.com/company/realitiesintransition (slug from its own post URL; check the page exists before tagging) |
+| PARMA 360 Festival | no LinkedIn page found |
+| .ART Registry (.ART Award) | no LinkedIn page found |
+| Swarovski Foundation | no separate LinkedIn page found (the company is linkedin.com/company/swarovski) |
+| ACM DIS 2027 and Creativity & Cognition 2027 | tag ACM SIGCHI, linkedin.com/company/acm-sigchi (already listed above) |
+| Aion Laboratory (Ise-Shima Art Company) | no LinkedIn page found |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -208,3 +215,61 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Open to all. Games $40 / $60 / $80; Shorts $50 / $70 / $80, with student rates; Digital Creators $30 / $40 / $60
 ✏️ Submissions for the 26th Tribeca Festival opened September 30. Games closes March 4, 2027 at the extended rate, Shorts and Digital Creators February 3, 2027. Enter by October 28 for the lowest fee.
 👉 https://tribecafilm.com/festival/submissions
+
+<!-- 2026-10-06 sweep: seven finds Ines accepted on the report page Oct 5, each re-verified at the source Oct 6. RiT, AI Horizons, .ART Award and Swarovski go to edition 20; DIS, Creativity & Cognition and Aion to edition 21. -->
+
+### 🥽 Realities in Transition, Open Call #3: Uncharted Grounds (VRChat residency)
+
+📅 Deadline: October 23, 2026, 23:59 CEST
+📍 Online, January to June 2027; premiere at L.E.V. Matadero, Madrid, September 2027
+👥 Artists with VR development experience (Unity, 3D or 2D art, animation, sound, narrative, UX); no country limit stated. Free
+✏️ Three artists build one shared VRChat world together, with a creative technologist. EUR 10,000 gross each, paid in three instalments, plus up to EUR 15,000 for production.
+👉 https://www.realities-in-transition.eu/rit-2-open-call-3/
+
+### 🤖 AI Horizons: Art Beyond Algorithms (PARMA 360 Festival)
+
+📅 Deadline: October 31, 2026
+📍 Group show in Parma, Italy, spring 2027, during the festival's 11th edition
+👥 Artists under 35 and fine arts students, from Italy and abroad. Free
+✏️ 20 finalists join the show; four prizes of EUR 1,500. Themes: Parma heritage, care, and sustainability and data ecology. AI, VR, AR and software art accepted. Travel is not covered.
+👉 https://parma360festival.it/call-for-artists/
+
+### 🏅 .ART Award 2026
+
+📅 Deadline: November 1, 2026
+📍 Online; Times Square screening for the showcase winner in May 2027
+👥 Artists and collectives 18+, any country, all art forms. Free to submit; you need a .ART domain, bought separately
+✏️ $15,000 grand prize, artist residencies in France, Spain and Georgia, a $3,000 package for an artist working in augmented reality, and a 5,000 tez prize for blockchain artists. The domain can point to your existing site, portfolio or social profile.
+👉 https://www.award.art
+
+### 💡 Swarovski Foundation, Creatives for Our Future 2027
+
+📅 Deadline: November 9, 2026, 11:59 pm GMT
+📍 Mostly online, plus one trip to an in-person event in London
+👥 Creatives aged 21 to 30, any country. Free
+✏️ EUR 20,000 grant, one-on-one mentorship and online masterclasses for projects that advance the UN Sustainable Development Goals. Run with the UN Office for Partnerships. Cohort notified April 2027; program fall 2027 to September 2028.
+👉 https://creatives.swarovskifoundation.org/
+
+### 📐 ACM DIS 2027, Designing Interactive Systems: Papers and Pictorials
+
+📅 Deadline: title and abstract January 11, 2027; full submission January 18, 2027 (Anywhere on Earth)
+📍 June 28 to July 2, 2027, with online presentation sessions June 21 to 25
+👥 Researchers, designers, students. Free to submit; registration if accepted
+✏️ ACM's design conference for interactive systems. Pictorials suit visual and practice-based work, and you can present remotely. Notification March 19, 2027.
+👉 https://dis.acm.org/2027/call-for-papers/
+
+### 🎤 ACM Creativity & Cognition 2027, Artworks Track
+
+📅 Deadline: abstract January 19, 2027; full submission January 25, 2027 (11:59 pm Anywhere on Earth)
+📍 Virtual conference, June 13 to 16, 2027
+👥 Artists, designers and researchers; completed or proposed works. Free to submit, no publication charge; one author must register and present
+✏️ A curated exhibition of installation, performance, time-based, interactive and screen-based work. The theme, Creativity and the Unseen, covers craft traditions, tacit knowledge, memory, archives and cultural heritage. Up to 2,000 words via PCS; accepted works go into the ACM Digital Library.
+👉 https://cc.acm.org/2027/submit/artworks/
+
+### 🖥 2nd Aion Digital Art Prize 2027
+
+📅 Deadline: March 1, 2027, 23:59 GMT
+📍 Online; organiser in Japan
+👥 Artists worldwide, any age; earlier work allowed. JPY 3,000 per work (about $20)
+✏️ Accepts interactive, video, sound, animation, AR and VR work. One JPY 50,000 grand prize and up to 35 award certificates. Results May 5, 2027.
+👉 https://www.aionlabo.com/en/blank-2
