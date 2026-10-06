@@ -39,7 +39,7 @@ Our event page is now live, with everything a guest needs and the registration f
 https://tanitxr.org/dc
 
 Thursday, October 22, from 6pm to 8pm. Dr. Laura Harrison and Dr. Caroline Nickerson will speak
-about their time in Tunisia, and I will open the evening, introduce them, and say a little about
+about their year of work with Tanit XR and their time in Tunisia, and I will open the evening, introduce them, and say a little about
 Tanit XR and the people behind it. We will bring three VR headsets for anyone who would like to
 try one afterwards. Our co-host is TAYP, the Tunisian American Young Professionals.
 
