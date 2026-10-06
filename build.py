@@ -7700,7 +7700,7 @@ countries, or about technology being used for something worthwhile, you will be 
 <p><b>Your seat is only confirmed once you have filled in this form.</b> Entry is by a guest
 list the Embassy receives in advance, so we cannot add names at the door and there are no
 walk-ins. <b>Reservations close on Friday 16 October.</b> Please bring photo ID matching the name
-you give us.</p>
+you give us. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 {form}
 </div></div></section>"""
     page("dc-october-2026.html", "Before It's Gone: an evening in Washington, DC", body,

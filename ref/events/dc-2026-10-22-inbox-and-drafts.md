@@ -53,10 +53,8 @@ closed registration on Friday, October 16, so I can have it to you any day from 
 I live in the area, so I am glad to come early on the 22nd for setup, and to come by beforehand
 if that would help your team.
 
-A few small questions so that I prepare properly: what time may we arrive to set up, is there a
-screen we can connect a laptop to, is it fine to bring the headsets and a laptop, should guests
-bring a photo ID matching the name on the list, and is photography allowed during the evening?
-And please tell me if there is anything else you need from us.
+For anything at all, your colleagues can reach us at info@tanitxr.org, or me directly on this
+address.
 
 With sincere thanks,
 Ines Said
