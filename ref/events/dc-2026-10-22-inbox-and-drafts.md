@@ -72,7 +72,6 @@ Good news. The Embassy of Tunisia will host us. Thursday, October 22, 6pm to 8pm
 
 The event page is live, with the registration form: https://tanitxr.org/dc-october-2026/
 
-The evening is "Before It's Gone: Preserving Tunisian Heritage Through 3D Scanning and XR".
 Dr. Laura Harrison and Dr. Caroline Nickerson will talk about their time in Tunisia, and I will
 introduce them and Tanit XR and the volunteers who make it. There will be a few headsets to try
 afterwards. It is free, and open to Tunisians and friends of Tunisia alike.

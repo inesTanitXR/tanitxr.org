@@ -4832,7 +4832,7 @@ EVENTS = [
      "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
      "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
-     "title": "Before It's Gone: an evening at the Embassy of Tunisia with Tanit XR and TAYP",
+     "title": "An evening at the Embassy of Tunisia with Tanit XR and TAYP",
      "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
      "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
              "using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline "
@@ -7646,13 +7646,12 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("Before It's Gone", "An evening in Washington, DC, 22 October 2026", bg="sv-IMG_1315.jpg")}
+{page_hero("An evening in Washington, DC", "22 October 2026", bg="sv-IMG_1315.jpg")}
 <section class="pad"><div class="wrap"><div class="prose">
-<p class="lead"><b>Preserving Tunisian heritage through 3D scanning and XR.</b><br>
-Thursday 22 October, 6pm to 8pm. Embassy of Tunisia, 1515 Massachusetts Avenue NW,
-Washington, DC 20005. A free evening hosted by the Embassy with Tanit XR and TAYP, for people
-who love Tunisian history and for people working where technology, art and social impact meet.
-Students are very welcome.</p>
+<p class="lead"><b>Thursday 22 October, 6pm to 8pm. Embassy of Tunisia,
+1515 Massachusetts Avenue NW, Washington, DC 20005.</b>
+A free evening hosted by the Embassy with Tanit XR and TAYP, for people who love Tunisian history
+and for people working where technology, art and social impact meet. Students are very welcome.</p>
 
 <p>Tanit XR is a volunteer project that records Tunisia's heritage in 3D and brings it to people
 around the world. Its founder, Ines Said, will open the evening and introduce two of the people who
@@ -7703,10 +7702,10 @@ walk-ins. <b>Reservations close on Friday 16 October.</b> Please bring photo ID 
 you give us. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 {form}
 </div></div></section>"""
-    page("dc-october-2026.html", "Before It's Gone: an evening in Washington, DC", body,
+    page("dc-october-2026.html", "An evening in Washington, DC", body,
          active="community.html",
-         desc="Before It's Gone: Preserving Tunisian Heritage Through 3D Scanning and XR. Thursday "
-              "22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with "
+         desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
+              "DC, with "
               "Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in "
               "Tunisia. Free, limited seating, registration required by 16 October.")
 
