@@ -1,3 +1,8 @@
+> Reference copy of the handoff from Ines's other Claude conversation. Two corrections from
+> Ines on 2026-10-06: the slot is **6pm to 8pm**, not 6:30 to 8:30, and all event email runs
+> through ines@tanitxr.org. The venue threads in section 3 were incomplete; see
+> dc-2026-10-22-inbox-and-drafts.md for what the inbox actually holds.
+
 # Handoff: "Before It's Gone" talk, Thursday October 22, 2026
 
 Written October 6, 2026, for Claude Code. Ines wants you to keep track of this event with her: check her inbox for replies on the threads below, flag anything that needs an answer, and help draft pages and emails. Never send, submit or post anything without her saying yes first.

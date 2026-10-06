@@ -18,13 +18,11 @@ Opening the threads will have marked some of them as read.
 | Potter's House DC | Them, 1 Oct: closed indefinitely | Nothing to do. |
 | Embassy consular address, "at.washington" | Ines's original outreach, 1 Oct, forwarded internally to Mr. Ezzaier | Nothing to do. |
 
-**info@tanitxr.org is not in this webmail.** Only ines@ is signed in; the sidebar offers "Add or
-create account". I could not read it. If the embassy or TAYP wrote to info@, it is unread here.
+All event correspondence runs through ines@tanitxr.org, so this mailbox is the whole picture;
+info@ does not need checking for this.
 
-**One thing to settle before sending anything:** the slot. Ines told me 6pm to 8pm. The handoff
-from the other conversation says 6:30 to 8:30, with 6 to 9 for setup. Both are written on
-6 October. The drafts say 6 to 8. The recap to the embassy is the place to pin it down, so if
-it is 6:30 to 8:30, change it there first and the page after.
+The slot is **6pm to 8pm**, confirmed by Ines on 2026-10-06. The other conversation's handoff
+says 6:30 to 8:30; that is superseded. Every draft below and the event page say 6 to 8.
 
 ## Draft 1. To the embassy, recap and logistics
 
