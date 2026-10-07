@@ -7674,7 +7674,7 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-museum.jpg", pos="center 42%")}
+{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
 <div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
