@@ -879,7 +879,7 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a6200;margin-bottom:12px}
 .dcv-sp p{font-size:15px;line-height:1.6;color:#4a3c30;margin:0}
 .dcv-host{margin-top:26px;color:#6d5a49}
-.dcv-photos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dcv-photos{display:grid;grid-template-columns:1fr;max-width:760px;margin:0 auto}
 @media(max-width:900px){.dcv-facts{grid-template-columns:1fr 1fr}.dcv-grid,.dcv-cards,.dcv-speakers,.dcv-photos{grid-template-columns:1fr}
   .dcv-grid .dcv-fig{order:-1}}
 @media(max-width:520px){.dcv-fact b{font-size:24px}}

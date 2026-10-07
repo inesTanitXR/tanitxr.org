@@ -1142,7 +1142,7 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a6200;margin-bottom:12px}
 .dcv-sp p{font-size:15px;line-height:1.6;color:#4a3c30;margin:0}
 .dcv-host{margin-top:26px;color:#6d5a49}
-.dcv-photos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dcv-photos{display:grid;grid-template-columns:1fr;max-width:760px;margin:0 auto}
 @media(max-width:900px){.dcv-facts{grid-template-columns:1fr 1fr}.dcv-grid,.dcv-cards,.dcv-speakers,.dcv-photos{grid-template-columns:1fr}
   .dcv-grid .dcv-fig{order:-1}}
 @media(max-width:520px){.dcv-fact b{font-size:24px}}
@@ -7690,8 +7690,8 @@ with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once
 <p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
-<figure class="dcv-fig"><img src="{img('dc-parasol-columns.jpg', 1100)}" alt="Dr. Laura Harrison and Dr. Caroline Nickerson between Roman columns in Tunisia, August 2026" loading="lazy">
-<figcaption>Dr. Laura Harrison and Dr. Caroline Nickerson in Tunisia, August 2026</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-mosaic-floor.jpg', 1100)}" alt="A mosaic floor in dappled light at a site in Tunisia" loading="lazy">
+<figcaption>Tunisia, August 2026</figcaption></figure>
 </div>
 </div></section>
 
@@ -7742,8 +7742,6 @@ from American University.</p></div>
 <div class="dcv-photos">
 <figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor in Tunisia" loading="lazy">
 <figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-mosaic-floor.jpg', 1100)}" alt="A mosaic floor in dappled light at a site in Tunisia" loading="lazy">
-<figcaption>Mosaic floor, Tunisia, August 2026</figcaption></figure>
 </div>
 <p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Reserve a seat</a></p>
 </div></section>"""
