@@ -24,6 +24,22 @@ info@ does not need checking for this.
 The slot is **6pm to 8pm**, confirmed by Ines on 2026-10-06. The other conversation's handoff
 says 6:30 to 8:30; that is superseded. Every draft below and the event page say 6 to 8.
 
+## Status on 2026-10-07
+
+Checked in Titan through Chrome on 2026-10-07, afternoon.
+
+| Draft | Status |
+|---|---|
+| 1, embassy | **Sent by Ines**, 6 Oct 10:26pm. Mr. Ezzaier replied 7 Oct 11:52am: thanks for the informative email, asks for Ines's phone number so they can discuss her questions in detail. Needs a two-line reply with her number. |
+| 2, TAYP | **Sent by Ines**, 6 Oct, reply all on "TAYP DC-DMV events". |
+| 3, Shana | **Sent by Ines**, 6 Oct, in her own words. |
+| 4, Friends Meeting | In Titan **Drafts**, as a reply all on Genevi's thread (Brian in copy). |
+| 5, Busboys and Poets | In Titan **Drafts**, as a reply on their thread. Reworded: their 1 Oct message said they were fully booked, so the draft no longer mentions "catering options". |
+| 6, True Reformer | In Titan **Drafts**, new email to spaceusage@publicwelfare.org. |
+| 7, Caroline and Laura | In Titan **Drafts**, new email to caroline.nickerson@floridainnovation.org and Harrisonlkh@gmail.com (the addresses on their profiles; swap for others if Ines prefers). The photo paragraph now says the page already uses photos of them and offers to swap. |
+
+Nothing was sent. Ines opens Drafts, reads, sends.
+
 ## Draft 1. To the embassy, thank you, the link, the guest list, the bios
 
 To: nezzaier@tunisianembassy.org
