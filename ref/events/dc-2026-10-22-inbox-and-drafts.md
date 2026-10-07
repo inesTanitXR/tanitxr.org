@@ -76,8 +76,7 @@ Dr. Laura Harrison and Dr. Caroline Nickerson will talk about their time in Tuni
 introduce them and Tanit XR and the volunteers who make it. There will be a few headsets to try
 afterwards. It is free, and open to Tunisians and friends of Tunisia alike.
 
-The one rule that comes with an embassy: seating is limited, entry is by guest list, and a seat
-is only confirmed once someone has filled in the form on the page.  Registration closes Friday, October 16. That applies to all of us too, so please register
+Seating is limited, so everyone who wants to come should sign up on the page.  Registration closes Friday, October 16. That applies to all of us too, so please register
 yourselves as well.
 
 Could you share the link with your members this week? And would someone from TAYP like to say a
@@ -103,8 +102,7 @@ the programme and registration, is here: https://tanitxr.org/dc
 
 We would love to have IMES with us in whatever form is light for you: sharing the evening with
 your students, being in the room, or being named as a friend of the evening on our page. There is
-no cost on your side. Seating is limited and entry is by guest list, so a seat is only confirmed
-once someone has registered on the page, by October 16.
+no cost on your side. Seating is limited, so please sign up on the page by October 16.
 
 More than the one evening, I would really like to work together. A guest lecture, a hands-on
 scanning workshop with students, a small exhibition from our archive at the Corcoran, or
@@ -208,10 +206,9 @@ fill a room this size faster than any post, and over-advertising creates disappo
 door. Fill around fifteen seats by direct invitation first, then open the rest to the newsletter
 and LinkedIn.
 
-**The line that goes in every single message, in these words or close to them:**
+**The line for every message, kept light:**
 
-> Seating is limited and entry is by guest list. Your seat is only confirmed once you have
-> registered at tanitxr.org/dc.
+> Seating is limited. Please sign up at tanitxr.org/dc.
 
 ### Invite directly
 

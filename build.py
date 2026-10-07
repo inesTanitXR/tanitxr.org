@@ -4867,8 +4867,7 @@ EVENTS = [
              "Nickerson on their time in Tunisia, and an introduction to the volunteers who make "
              "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
              "technology, art and social impact meet. Seating is limited, entry is by guest list, "
-             "and a seat is only confirmed once you have registered. Reservations close Friday "
-             "October 16.",
+             "so please sign up by Friday October 16.",
      "links": [("Reserve a seat", "dc.html")]},
 ]
 
@@ -7680,14 +7679,14 @@ def build_dc_evening():
 <div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
 <div class="dcv-fact"><b>6 to 8</b><span>in the evening<br>doors at 6pm</span></div>
 <div class="dcv-fact"><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
-<div class="dcv-fact"><b>Free</b><span>Limited seating, by guest list<br>Reserve by Friday 16 October</span></div>
+<div class="dcv-fact"><b>Free</b><span>Limited seating<br>Sign up by Friday 16 October</span></div>
 </div>
 <div class="dcv-grid">
 <div>
 <div class="eyebrow">Reserve a seat</div>
 <h2 class="sec-title" style="margin-bottom:10px">An evening on Tunisia's heritage, and the technology now protecting it</h2>
 <p class="sec-sub" style="margin:0 0 18px">With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia
-with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once you have filled in this form.</p>
+with Tanit XR and TAYP. Seats are limited, so please sign up below.</p>
 {form}
 <p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
