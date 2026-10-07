@@ -459,6 +459,19 @@ function start() {
     const c = Math.round(target);
     for (let i = c - 1; i <= c + 2; i++) load(slots[i]);
   }
+  // Bety: on a phone the object often came to rest half off the screen. When scrolling stops
+  // between two objects, settle gently on the nearer one. Never while a finger is down, never
+  // in a room, never during the demo.
+  let snapT = 0;
+  addEventListener('scroll', () => {
+    clearTimeout(snapT);
+    snapT = setTimeout(() => {
+      if (dragging || roomMode || xrMode || demoOn || !sections.length) return;
+      const m = midOf(sections[Math.round(target)]);
+      const d = Math.abs(scrollY - m);
+      if (d > 18 && d < innerHeight * 0.6) scrollTo({ top: m, behavior: 'smooth' });
+    }, 180);
+  }, { passive: true });
 
   // A model far from where you are is let go, geometry and textures, and loads again on
   // the way back. Without this a phone that scrolled the whole collection held every model.
@@ -755,6 +768,7 @@ function start() {
   }
   function startMusic() {
     if (music || !soundOn || !gestured) return;
+    if (stopping) { clearTimeout(stopping); stopping = 0; }
     if (CFG.music && CFG.music.src) {           // a recording we hold the rights to
       try {
         track = new Audio(AUDIO_BASE + CFG.music.src);
@@ -816,7 +830,8 @@ function start() {
       timer = setTimeout(pluck, 1400);
     } catch (e) { music = null; }
   }
-  function stopMusic() { if (music) { const m = music; music = null; m.stop(); } }
+  let stopping = 0;
+  function stopMusic() { if (music) { const m = music; music = null; m.stop(); clearTimeout(stopping); stopping = setTimeout(() => { stopping = 0; }, 900); } }
   const sndBtn = document.getElementById('sound-toggle');
   // phones fold the top buttons into one small menu that drives the originals
   const moreBtn2 = document.getElementById('more-toggle'), moreSheet = document.getElementById('more-sheet');
@@ -863,9 +878,15 @@ function start() {
     if (window.tx) tx('sound_toggle', { on: soundOn });
   });
   // browsers only allow sound after a real gesture, so everything waits for the first one
-  const firstGesture = () => { gestured = true; startMusic(); };
+  const firstGesture = e => {
+    // Bety: tapping the speaker started the music here and muted it a moment later in the
+    // button's own handler, so the tap looked dead and the next one played two copies.
+    if (e && e.target && e.target.closest && e.target.closest('#sound-toggle, #more-sheet')) return;
+    gestured = true; startMusic();
+    ['pointerdown', 'keydown', 'touchstart'].forEach(ev => removeEventListener(ev, firstGesture));
+  };
   ['pointerdown', 'keydown', 'touchstart'].forEach(ev =>
-    addEventListener(ev, firstGesture, { once: true, passive: true }));
+    addEventListener(ev, firstGesture, { passive: true }));
 
   const PROG = 'tanitxr.progress';
   const BADGES = [
@@ -1257,6 +1278,7 @@ function start() {
     try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
     if (done || readProg().rotated < 3 || !bubble || tourStep >= 0) return;
     try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
+    if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');
@@ -1288,6 +1310,7 @@ function start() {
     catch (e) { return; }
     const idx = n === 2 ? 0 : n === 6 ? 1 : n === 14 ? 2 : -1;
     if (idx < 0) return;
+    if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');
@@ -1351,6 +1374,7 @@ function start() {
     if (!n) return;
     nudgeLast = seen; nudgeCount++; nudgeItem = it;
     try { sessionStorage.setItem(NUDGED, JSON.stringify(done.concat(n.id))); } catch (e) { /* private mode */ }
+    if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');

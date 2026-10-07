@@ -1015,6 +1015,7 @@ body.in-ar #vr-button{display:none}
 .fs-item.seen{opacity:.9}
 .fs-item:hover{opacity:1;transform:translateY(-3px)}
 .fs-item.on{opacity:1;border-color:var(--gold);transform:translateY(-4px) scale(1.08)}
+@media(max-width:760px){.fs-room{display:none}}   /* Bety: the vertical labels sat on top of the thumbnails */
 body.walk-fallback #map-toggle,body.demoing #map-toggle,body.in-room #map-toggle,
 body.in-xr #map-toggle,body.in-room #filmstrip{display:none}
 @media(max-width:760px){#map-toggle{top:126px;inset-inline-start:auto;inset-inline-end:12px;
@@ -1235,7 +1236,7 @@ body.embed #wf-prev,body.embed #wf-next{display:flex!important}
 @media(max-width:620px){.ss-body{grid-template-columns:1fr;gap:16px}.ss-left{display:flex;gap:12px;align-items:center}
   #ss-preview{width:104px;height:104px;flex:0 0 auto}.ss-mini{width:auto;margin:0}
   .ss-card{padding:18px;border-radius:16px 16px 0 0;align-self:flex-end;max-height:94vh}
-  #share-sheet{padding:0;align-items:flex-end}.ss-net{width:72px}.ss-ic{width:46px;height:46px}}
+  #share-sheet{padding:0;align-items:flex-end}.ss-nets{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 0}.ss-net{width:auto}.ss-ic{width:46px;height:46px}}
 
 /* the volunteer who worked on this object, introduced once each */
 #vol-cameo{position:fixed;inset-inline-end:26px;bottom:34px;z-index:6;display:flex;gap:12px;
