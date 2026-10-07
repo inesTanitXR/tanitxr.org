@@ -1129,6 +1129,8 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-fact span{font-size:13.5px;line-height:1.4;color:#6d5a49}
 .dcv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
 .dcv-two{display:grid;gap:18px}
+.dcv-flyer img{max-height:none}
+.dcv-flyer{grid-column:1/-1}
 .dcv-fig{margin:0}
 .dcv-fig img{width:100%;height:auto;max-height:440px;object-fit:cover;display:block;border-radius:16px;box-shadow:0 18px 44px rgba(40,26,14,.18)}
 .dcv-fig figcaption{font-size:12.5px;color:#8a735c;margin-top:10px}
@@ -4869,7 +4871,7 @@ EVENTS = [
      "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
      "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
-     "title": "An evening at the Embassy of Tunisia with Tanit XR and TAYP",
+     "title": "Tunisia & America, Learning Together: an evening at the Embassy of Tunisia",
      "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
      "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
              "using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline "
@@ -7690,7 +7692,7 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
+{page_hero("Tunisia &amp; America, Learning Together", "An evening in Washington, DC, Thursday 22 October 2026", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
 <div class="dcv-fact"><small>When</small><b>Thursday 22 October</b><span>2026</span></div>
@@ -7709,6 +7711,8 @@ with Tanit XR and TAYP. Seats are limited, so please sign up below.</p>
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
+<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc" loading="lazy"></a>
+<figcaption>The flyer. Tap to open it full size, then save or share it.</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('dc-laura-caroline-walking.jpg', 1100)}" alt="Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026" loading="lazy">
 <figcaption>Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('dc-three-of-us-museum.jpg', 1100)}" alt="Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026" loading="lazy">
@@ -7770,8 +7774,8 @@ community that now does it. She opens the evening and shows the collection live.
 <figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure></div>
 <p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Reserve a seat</a></p>
 </div></section>"""
-    page("dc.html", "An evening in Washington, DC", body,
-         active="community.html",
+    page("dc.html", "Tunisia & America, Learning Together", body,
+         active="community.html", share_img="dc-flyer.jpg",
          desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
               "Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in "
