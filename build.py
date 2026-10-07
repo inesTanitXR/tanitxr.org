@@ -1138,7 +1138,7 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-card p{font-size:15px;line-height:1.6;color:#4a3c30;margin:0}
 .dcv-n{width:36px;height:36px;border-radius:50%;background:var(--gold);color:#2e2118;font-weight:700;
   display:flex;align-items:center;justify-content:center}
-.dcv-speakers{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.dcv-speakers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
 .dcv-sp{background:#fff;border:1px solid rgba(74,53,43,.12);border-radius:16px;padding:26px 26px 22px}
 .dcv-sp h3{font-size:24px;margin:0 0 2px}
 .dcv-role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a6200;margin-bottom:12px}
@@ -7710,7 +7710,8 @@ Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 Tanit XR: leading its scientific programme, building partnerships with universities and institutions,
 running hackathons and workshops, and travelling to Tunisia this summer to work alongside Tunisian
 colleagues at the sites themselves. They will talk about that year, what they saw, and where it goes next.
-Ines Said, founder of Tanit XR, opens the evening and introduces them.</p></div>
+Ines Said, who founded Tanit XR, opens the evening with the story of why a Tunisian developer started
+scanning Carthage with a phone, and shows the collection live.</p></div>
 <div class="dcv-card"><div class="dcv-n">2</div><h3>The technology, up close</h3>
 <p>Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it
 captured on ordinary phones by trained volunteers, and brings the results to anyone in the world through
@@ -7741,8 +7742,12 @@ XR's fiscal sponsor. Her work brings together civic engagement, public interest 
 science, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a PhD in
 Agricultural Education and Communication from the University of Florida and a Master of Public Policy
 from American University.</p></div>
+<div class="dcv-sp"><h3>Ines Said</h3><div class="dcv-role">Founder, Tanit XR</div>
+<p>A Tunisian XR artist and developer from Nabeul. Her work has been shown in the Smithsonian's FUTURES
+exhibition, she is a 2026 Auggie Awards finalist, one of NAAEE's 30 Under 30, and a speaker at AWE. She
+founded Tanit XR to put Tunisia's heritage in the hands of anyone, anywhere, and built the volunteer
+community that now does it. She opens the evening and shows the collection live.</p></div>
 </div>
-<p class="center dcv-host">Opened and hosted by <b>Ines Said</b>, founder of Tanit XR, a Tunisian XR artist and developer from Nabeul and a 2026 Auggie Awards finalist.</p>
 </div></section>
 
 <section class="pad dcv-band"><div class="wrap">
@@ -7755,7 +7760,7 @@ from American University.</p></div>
          desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
               "Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in "
-              "Tunisia. Free, limited seating, registration required by 16 October.")
+              "Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.")
 
 
 def build_about():
