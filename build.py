@@ -2650,6 +2650,7 @@ NAV = [
     ]),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
+        ("22 Oct: an evening in Washington, DC", "dc.html"),
         ("Volunteer", "volunteer.html"),
         ("Submit a model", "submit-a-model.html"),
         ("Scanning Guide", "scanning-guide.html"),
@@ -6292,6 +6293,7 @@ def build_news():
 
     body = f"""
 {page_hero(term("News and stories"), "News", bg="aug-PXL_0811_150055.jpg")}
+{events_block(cloud=False)}
 <section class="pad"><div class="wrap">
 {section(term("Stories"), term("Written by our volunteers: what they scanned, and what they found out about it."), stories)}
 <div style="height:54px"></div>
