@@ -1123,12 +1123,13 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 38px}
 .dcv-fact{background:#fff;border:1px solid rgba(74,53,43,.14);border-radius:14px;padding:18px 18px 16px;
   box-shadow:0 10px 26px rgba(60,40,26,.06)}
-.dcv-fact b{display:block;font-family:var(--serif);font-size:30px;line-height:1.05;color:#2e2118;margin-bottom:6px}
+.dcv-fact small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a6200;font-weight:700;margin-bottom:8px}
+.dcv-fact b{display:block;font-family:var(--serif);font-size:26px;line-height:1.1;color:#2e2118;margin-bottom:6px}
 .dcv-fact span{font-size:13.5px;line-height:1.4;color:#6d5a49}
 .dcv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
 .dcv-two{display:grid;gap:18px}
 .dcv-fig{margin:0}
-.dcv-fig img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 18px 44px rgba(40,26,14,.18)}
+.dcv-fig img{width:100%;height:auto;max-height:440px;object-fit:cover;display:block;border-radius:16px;box-shadow:0 18px 44px rgba(40,26,14,.18)}
 .dcv-fig figcaption{font-size:12.5px;color:#8a735c;margin-top:10px}
 .dcv-band{background:var(--cloud)}
 .dcv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
@@ -1145,8 +1146,9 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-host{margin-top:26px;color:#6d5a49}
 .dcv-photos{display:grid;grid-template-columns:1fr;max-width:760px;margin:0 auto}
 @media(max-width:900px){.dcv-facts{grid-template-columns:1fr 1fr}.dcv-grid,.dcv-cards,.dcv-speakers,.dcv-photos{grid-template-columns:1fr}
-  .dcv-grid .dcv-fig{order:-1}}
-@media(max-width:520px){.dcv-fact b{font-size:24px}}
+  .dcv-two{grid-template-columns:1fr 1fr;gap:12px}.dcv-fig img{max-height:260px}.dcv-fig figcaption{font-size:11.5px}}
+@media(max-width:520px){.dcv-facts{grid-template-columns:1fr;gap:10px}.dcv-fact{padding:14px 16px}.dcv-fact b{font-size:22px}
+  .dcv-two{grid-template-columns:1fr 1fr}.dcv-fig img{max-height:200px}}
 #room-eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
 #room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
@@ -7676,10 +7678,10 @@ def build_dc_evening():
 {page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
-<div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
-<div class="dcv-fact"><b>6 to 8</b><span>in the evening<br>doors at 6pm</span></div>
-<div class="dcv-fact"><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
-<div class="dcv-fact"><b>Free</b><span>Limited seating<br>Sign up by Friday 16 October</span></div>
+<div class="dcv-fact"><small>When</small><b>Thursday 22 October</b><span>2026</span></div>
+<div class="dcv-fact"><small>Time</small><b>6pm to 8pm</b><span>Doors open at 6pm</span></div>
+<div class="dcv-fact"><small>Location</small><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
+<div class="dcv-fact"><small>Cost</small><b>Free</b><span>Limited seating<br>Sign up by Friday 16 October</span></div>
 </div>
 <div class="dcv-grid">
 <div>
