@@ -7638,7 +7638,6 @@ def build_dc_evening():
 <input id="dc-name" name="name" required autocomplete="name">
 <label for="dc-email">Email <span>*</span></label>
 <input id="dc-email" name="email" type="email" required autocomplete="email">
-<p class="fhint">Your confirmation and the details for the evening will come by email.</p>
 <label for="dc-heard">How did you hear about this evening?</label>
 <input id="dc-heard" name="heard_via" placeholder="Optional">
 <button type="submit" class="btn btn-gold">Save me a seat</button>
