@@ -2773,12 +2773,15 @@ def _tr_patterns(lang):
         table = translations.FR if lang == "fr" else translations.AR
         pats = []
         for k in sorted(table, key=len, reverse=True):
-            body = r"\s+".join(re.escape(w) for w in k.split())
+            # the page is de-dashed before the table runs (see page()), so a key written with
+            # an em dash has to be matched in its de-dashed form too
+            kk = re.sub(r"[ \t]*\u2014[ \t]*", ", ", k)
+            body = r"\s+".join(re.escape(w) for w in kk.split())
             # a key that starts or ends in a letter matches whole words only: 'Explore' must
             # not eat the front of 'Explorer', nor 'Map' the middle of 'Mappers'
-            if k[:1].isalnum():
+            if kk[:1].isalnum():
                 body = r"(?<![A-Za-z0-9\u00C0-\u024F])" + body
-            if k[-1:].isalnum():
+            if kk[-1:].isalnum():
                 body = body + r"(?![A-Za-z0-9\u00C0-\u024F])"
             v = table[k]
             if lang == "ar":
@@ -3437,7 +3440,10 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 {analytics_tag()}
 </body>
 </html>"""
-    doc = _translate(doc)
+    # em dashes become ", " before the string table runs: the table is built from the
+    # finished pages, which never carry an em dash, so a sentence written with one in the
+    # source (the scanning guide has dozens) was translated against text that no key matched
+    doc = _translate(dedash(doc))
 
     # ---- pretty URLs: every page (except the homepage and 404) lives in its own
     # directory, so links are tanitxr.org/archive/ instead of /archive.html

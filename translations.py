@@ -1875,6 +1875,222 @@ FR = {
 
     # ---- added 2026-10-05: pages that were still English ----
     'Underground passageways': 'Passages souterrains',
+
+    # ---- added 2026-10-07: pages that were still English ----
+    'TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,\narchitecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never\njust an object, whether digital or physical. It belongs to living communities, it carries meaning and\nmemory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and\nhow to do it ethically: with consent, care, and respect for the people whose heritage it is.':
+        "TanitXR réalise des numérisations 3D détaillées de sites historiques et archéologiques, de monuments, de poteries,\nd'architecture et d'objets culturels pour constituer une archive numérique du patrimoine, ouverte et mondiale. Mais le patrimoine n'est jamais\nseulement un objet, qu'il soit numérique ou physique. Il appartient à des communautés vivantes, il porte du sens et de la\nmémoire, et il est souvent protégé par la loi et par la coutume. Ce guide explique comment réussir une numérisation, et\ncomment le faire de manière éthique : avec consentement, soin et respect pour les personnes dont c'est le patrimoine.",
+    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
+        'Une soirée consacrée à l’histoire tunisienne, à la culture qui voyage entre les pays et à l’usage de la technologie pour une cause qui en vaut la peine. Dr Laura Harrison et Dr Caroline Nickerson reviendront sur leur séjour en Tunisie, et vous ferez connaissance avec les bénévoles qui font Tanit XR. Pour les Tunisiens comme pour les amis de la Tunisie, et pour toute personne travaillant à la croisée de la technologie, de l’art et de l’impact social. Les places sont limitées et l’entrée se fait sur liste d’invités, merci donc de vous inscrire avant le vendredi 16 octobre.',
+    'For publicly visible heritage, building exteriors, monuments,\nfacades, ruins, and public art, public visibility is generally a sound basis to document, subject to\nlocal rules and any permit requirements. For living or community heritage we seek free, prior, and informed\nconsent from the relevant owners, caretakers, or cultural authorities first. This process requires the\ninvolvement of the TanitXR Leadership Team.':
+        'Pour le patrimoine visible publiquement, extérieurs de bâtiments, monuments,\nfaçades, ruines et art public, la visibilité publique constitue en général une base solide pour documenter, sous réserve des\nrègles locales et des éventuelles autorisations requises. Pour le patrimoine vivant ou communautaire, nous demandons d’abord le consentement libre, préalable et éclairé\ndes propriétaires, gardiens ou autorités culturelles concernés. Cette démarche requiert la\nparticipation de l’équipe de direction de TanitXR.',
+    '“30 separate 3D scans. One house. 30 mins. It&#x27;s amazing how far 3D gaussian splatting has come. I didn&#x27;t have specialized LIDAR camera or professional scanning equipment. just my iphone 13 and a piece of heritage i wanted to document. Special thanks to Tanit XR and Mark Jeffcock who pushed me to go bigger with my scans.”':
+        "« 30 scans 3D distincts. Une maison. 30 minutes. C'est incroyable de voir le chemin parcouru par le splatting gaussien 3D. Je n'avais ni caméra LIDAR spécialisée ni équipement de numérisation professionnel, juste mon iPhone 13 et un morceau de patrimoine que je voulais documenter. Un grand merci à Tanit XR et à Mark Jeffcock, grâce à qui j'ai vu plus grand avec mes scans. »",
+    '“Huge thanks for an excellent deep dive into Gaussian splatting to Mark Jeffcock, Ines Said at Tanit XR, and Arrival.Space. It&#x27;s been an amazing 6 weeks, and I&#x27;ve very much enjoyed scanning the local landscape and heritage and seeing the group&#x27;s own offerings from around the world!”':
+        "« Un immense merci à Mark Jeffcock, Ines Said de Tanit XR et Arrival.Space pour cette excellente plongée dans le splatting gaussien. Ces six semaines ont été formidables, et j'ai pris beaucoup de plaisir à numériser le paysage et le patrimoine locaux et à découvrir les créations du groupe venues du monde entier ! »",
+    'processing your data can drain your battery, so you may want to save your captures and then\nprocess them later with your phone plugged in to a power source. This is especially true on Android, where\nprocessing takes longer than on modern iPhones.':
+        "le traitement des données peut vider votre batterie ; vous pouvez donc enregistrer vos captures et les\ntraiter plus tard, téléphone branché sur une source d'alimentation. C'est particulièrement vrai sur Android, où\nle traitement est plus long que sur les iPhone récents.",
+    "tapping the record button. As you scan, some areas of your scene will have\ndiagonal red lines and others will not, the red-lined areas are the parts you haven't captured yet, so\nkeep moving until they're gone.":
+        "appuyer sur le bouton d'enregistrement. Pendant la numérisation, certaines zones de la scène présenteront\ndes hachures rouges et d'autres non ; les zones hachurées sont celles que vous n'avez pas encore capturées, alors\ncontinuez à bouger jusqu'à ce qu'elles disparaissent.",
+    'Communities decide whether their heritage is scanned,\nwhat is captured, and whether the result is shared openly, shared conditionally, or kept restricted. This\nauthority continues after the scan is made.':
+        'Les communautés décident si leur patrimoine est numérisé,\nce qui est capturé, et si le résultat est partagé librement, partagé sous conditions ou gardé en accès restreint. Cette\nautorité se maintient après la numérisation.',
+    'Some heritage is not just a building or object. It lives in stories, songs, rituals, recipes, crafts,\ndances, languages, memories, and everyday practices. This is called intangible heritage.':
+        "Certains patrimoines ne sont pas seulement un bâtiment ou un objet. Ils vivent dans les récits, les chants, les rituels, les recettes, les savoir-faire,\nles danses, les langues, les souvenirs et les pratiques quotidiennes. C'est ce qu'on appelle le patrimoine immatériel.",
+    'Note: Many cultural heritage sites and points of interest are protected and managed by governmental\norganizations. To digitize sites within these areas, formal permission is required.':
+        "Remarque\xa0: de nombreux sites du patrimoine culturel et points d'intérêt sont protégés et gérés par des organismes\npublics. Pour numériser des sites dans ces zones, une autorisation officielle est requise.",
+    'We document heritage with communities, not just about them. The\npeople who hold, use, and remember a place or object have the first and final say in how it is documented\nand shared.':
+        "Nous documentons le patrimoine avec les communautés, et pas seulement à leur sujet. Les\npersonnes qui détiennent, utilisent et gardent la mémoire d'un lieu ou d'un objet ont le premier et le dernier mot sur la façon dont il est documenté\net partagé.",
+    'We do not scan sacred, ceremonial, funerary, or human remains, private interiors, or\nobjects of contested or unclear ownership without explicit authorization from the right people.':
+        "Nous ne numérisons pas les lieux ou objets sacrés, cérémoniels ou funéraires, les restes humains, les intérieurs privés, ni les\nobjets dont la propriété est contestée ou incertaine, sans l'autorisation explicite des personnes habilitées.",
+    'Documentation should benefit the community whose heritage it is, for\nexample, by offering them a copy of the scan and crediting the knowledge holders who made it possible.':
+        'La documentation doit bénéficier à la communauté dont le patrimoine est issu, par\nexemple en lui offrant une copie de la numérisation et en créditant les détenteurs de savoirs qui l’ont rendue possible.',
+    'TanitXR is digitizing heritage sites or archaeological features that are plainly visible in public\nplaces. This includes what you can see from streets and public plazas.':
+        "TanitXR numérise des sites patrimoniaux ou des vestiges archéologiques clairement visibles dans l'espace\npublic. Cela inclut ce que l'on peut voir depuis les rues et les places publiques.",
+    'capture extra overlapping angles and passes. Android relies entirely on camera\nfootage to build the 3D model, so thorough coverage and good, even light matter even more.':
+        "capturez des angles et des passages supplémentaires qui se chevauchent. Android s'appuie entièrement sur les images de la caméra\npour construire le modèle 3D, donc une couverture complète et une lumière bonne et homogène comptent encore plus.",
+    'As a TanitXR Heritage Scout, you are part of a global community that is dedicated to upholding the\nhighest standards in ethical digital heritage. Our core pillars are:':
+        'En tant que Heritage Scout TanitXR, vous faites partie d’une communauté mondiale attachée à respecter les\nnormes les plus élevées du patrimoine numérique éthique. Nos piliers fondamentaux sont\xa0:',
+    'Keep Scaniverse open in the foreground while it processes. On high-end Android phones this typically\ntakes a few minutes per scan; older devices may take longer.':
+        'Gardez Scaniverse ouvert au premier plan pendant le traitement. Sur les téléphones Android haut de gamme, cela prend\ngénéralement quelques minutes par numérisation ; les appareils plus anciens peuvent prendre plus de temps.',
+    'We respect national and local heritage laws, protected-site designations, and\npermit requirements. When a permit is required, we obtain it before scanning.':
+        "Nous respectons les lois nationales et locales sur le patrimoine, les classements de sites protégés et\nles exigences de permis. Lorsqu'un permis est requis, nous l'obtenons avant de numériser.",
+    'On Android, Scaniverse builds 3D models from camera footage (photogrammetry). Scans work well but take\nlonger to process than on modern iPhones.':
+        'Sur Android, Scaniverse construit les modèles 3D à partir des images de la caméra (photogrammétrie). Les numérisations fonctionnent bien mais\nsont plus longues à traiter que sur les iPhone récents.',
+    'This is the experience Tanit XR uses, it processes scans on your phone,\nsupports Mesh mode, and lets you export FBX files directly from the app.':
+        "C'est l'expérience qu'utilise Tanit XR : elle traite les numérisations sur votre téléphone,\nprend en charge le mode Mesh et permet d'exporter des fichiers FBX directement depuis l'application.",
+    'Nura, a guide character modeled in Blender, walks with you and tells the story behind each object. Her narrated tour is being written now.':
+        "Nura, un personnage guide modélisé dans Blender, vous accompagne et raconte l'histoire de chaque objet. Sa visite commentée est en cours d'écriture.",
+    ". You don't need to memorize these, but know that the TanitXR Scanning\nGuide incorporates these standards into field practice.":
+        '. Vous n’avez pas besoin de les mémoriser, mais sachez que le Guide de numérisation\nTanitXR intègre ces normes dans la pratique de terrain.',
+    'You cannot always 3D scan intangible heritage directly, but you can document the objects, spaces, and\npeople connected to it.':
+        'On ne peut pas toujours numériser directement en 3D le patrimoine immatériel, mais on peut documenter les objets, les espaces et\nles personnes qui lui sont liés.',
+    'Pedestrian traffic and/or moveable objects in the area should also be avoided. Aim to capture objects\nwith a fixed shape.':
+        'Il faut aussi éviter les zones de passage piéton et les objets mobiles. Privilégiez les objets\nayant une forme fixe.',
+    'scans can be completed indoors or outdoors. The most important thing is even lighting (lack of shadows\nor bright lights).':
+        'les numérisations peuvent se faire en intérieur comme en extérieur. Le plus important est un éclairage homogène (sans ombres\nni lumières vives).',
+    'As you scan, blurry areas on screen show where you still need coverage. Keep moving until the whole\nobject looks sharp.':
+        'Pendant la numérisation, les zones floues à l’écran indiquent ce qu’il reste à couvrir. Continuez à vous déplacer jusqu’à ce que\nl’objet entier paraisse net.',
+    'The app automatically uses the best scanning method for your device, no extra setup needed on iOS or\nAndroid.':
+        "L'application choisit automatiquement la meilleure méthode de numérisation pour votre appareil, sans réglage supplémentaire sur iOS ou\nAndroid.",
+    'iPad (8th gen+), iPad Air (4th gen+), iPad Mini (5th gen+), iPad Pro 11" (all), iPad Pro 12.9" (3rd\ngen+)':
+        'iPad (8e gén. ou plus), iPad Air (4e gén. ou plus), iPad Mini (5e gén. ou plus), iPad Pro 11" (tous), iPad Pro 12,9" (3e\ngén. ou plus)',
+    ', doors, arches, columns, facades, walls, courtyards, monuments, and\nthe exterior of historic homes':
+        ', portes, arcs, colonnes, façades, murs, cours, monuments et\nextérieurs de maisons historiques',
+    'Busy areas (pedestrian and vehicle traffic can add noise to your scan and complicate processing)':
+        'Les lieux très fréquentés (la circulation des piétons et des véhicules peut ajouter du bruit à votre numérisation et compliquer le traitement)',
+    'Our practice follows recognized standards in archaeology and digital heritage, including the':
+        'Notre pratique suit les normes reconnues en archéologie et en patrimoine numérique, notamment la',
+    ', pottery, tools, carvings, statues, tiles, textiles, inscriptions, and\nhousehold items':
+        ', poteries, outils, sculptures, statues, carreaux, textiles, inscriptions et\nobjets du quotidien',
+    ", patterns, textures, symbols, damage, repairs, maker's marks, or decorative\nelements":
+        ', motifs, textures, symboles, dégâts, réparations, marques d’artisan ou éléments\ndécoratifs',
+    "the record button to start, no need to hold it down.\nTap again when you're finished.":
+        "le bouton d'enregistrement pour commencer, inutile de le maintenir enfoncé.\nAppuyez de nouveau quand vous avez terminé.",
+    'Charge your phone before heading out, scanning and processing use a lot of battery':
+        'Chargez votre téléphone avant de partir, la numérisation et le traitement consomment beaucoup de batterie',
+    'Tap the name and give it a clear title (e.g., "Ksar Ouled Soltane – Main Door").':
+        'Appuyez sur le nom et donnez-lui un titre clair (par ex. « Ksar Ouled Soltane – Porte principale »).',
+    'Newer iPhones scan faster and more accurately, but any supported device works.':
+        'Les iPhone récents numérisent plus vite et avec plus de précision, mais tout appareil pris en charge convient.',
+    'Check that the lighting is good, then point the camera directly\nat the object':
+        'Vérifiez que l’éclairage est bon, puis pointez la caméra directement\nvers l’objet',
+    'Natural daylight is good, but harsh sun causes glare – avoid scanning at noon':
+        'La lumière naturelle du jour est idéale, mais un soleil trop fort crée des reflets : évitez de numériser à midi',
+    'with your question and a member of the\nLeadership Team will get back to you.':
+        "avec votre question, et un membre de\nl'équipe de direction vous répondra.",
+    'Moveable objects (like textiles or tapestries that are blowing in the wind)':
+        'Les objets mobiles (comme les textiles ou les tapisseries qui bougent au vent)',
+    'Upload your file, below, and then email description and other details to':
+        'Téléversez votre fichier ci-dessous, puis envoyez la description et les autres détails par e-mail à',
+    'When documenting intangible heritage, include context with your upload:':
+        'Lorsque vous documentez du patrimoine immatériel, joignez du contexte à votre envoi :',
+    '2003 Convention for the\nSafeguarding of Intangible Cultural Heritage':
+        'Convention de 2003 pour la\nsauvegarde du patrimoine culturel immatériel',
+    'Watch for blurry areas on screen and re-scan them until they sharpen':
+        "Surveillez les zones floues à l'écran et rescannez-les jusqu'à ce qu'elles deviennent nettes",
+    'Is there a story, memory, or quote that should go with the scan?':
+        'Y a-t-il une histoire, un souvenir ou une citation à associer à la numérisation\xa0?',
+    'Shiny or reflective textures (difficult for scanner to pick up)':
+        'Les surfaces brillantes ou réfléchissantes (difficiles à capter pour le scanner)',
+    'We always document where a scan came from, and how it was\nmade.':
+        "Nous documentons toujours l'origine d'une numérisation et la manière dont elle a été\nréalisée.",
+    "for computer-based visualization of cultural heritage, UNESCO's":
+        "pour la visualisation informatique du patrimoine culturel, et le texte de l'UNESCO",
+    'Download Scaniverse (free, by Niantic Spatial, Inc.) from the':
+        'Téléchargez Scaniverse (gratuit, édité par Niantic Spatial, Inc.) sur',
+    'Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC':
+        'Ambassade de Tunisie, 1515 Massachusetts Ave NW, Washington, DC',
+    'If the app asks you to sign in or create an account, just tap':
+        "Si l'application vous demande de vous connecter ou de créer un compte, appuyez simplement sur",
+    'An evening at the Embassy of Tunisia with Tanit XR and TAYP':
+        'Une soirée à l’Ambassade de Tunisie avec Tanit XR et TAYP',
+    'setting, then wait for the app to complete the 3D\nmodel.':
+        "puis attendez que l'application termine le modèle\n3D.",
+    'Digitizing Intangible Heritage (Stories and Practices)':
+        'Numériser le patrimoine immatériel (récits et pratiques)',
+    'Spend 1–3 minutes per scan, longer can reduce quality':
+        'Comptez 1 à 3 minutes par numérisation, au-delà la qualité peut baisser',
+    'Keep Scaniverse open while your scan is processing':
+        'Gardez Scaniverse ouvert pendant le traitement de votre numérisation',
+    'What is this tradition, story, or practice called?':
+        "Comment s'appelle cette tradition, cette histoire ou cette pratique ?",
+    '(not "Splat"), this is what we need for Tanit XR.':
+        '(et non "Splat"), c’est ce dont nous avons besoin pour Tanit XR.',
+    ', you can scan, process, and export without one.':
+        ', vous pouvez numériser, traiter et exporter sans en créer un.',
+    'CARE Principles for\nIndigenous Data Governance':
+        'Principes CARE pour la\ngouvernance des données autochtones',
+    "When you first open Scaniverse, you'll see a":
+        'À la première ouverture de Scaniverse, vous verrez un écran',
+    ', longer scans can actually reduce quality.':
+        ', des numérisations plus longues peuvent en réalité réduire la qualité.',
+    'A device with the A12 Bionic chip or later:':
+        'Un appareil doté de la puce A12 Bionic ou d’une puce plus récente\xa0:',
+    'We recommend processing your scan with the':
+        'Nous recommandons de traiter votre numérisation avec le réglage',
+    'Personal account FAQ (Classic app help):':
+        "FAQ sur le compte personnel (aide de l'application Classic)\xa0:",
+    'setting, which can take several minutes.': 'ce qui peut prendre plusieurs minutes.',
+    'Open Scaniverse (Classic experience)': 'Ouvrez Scaniverse (expérience Classic)',
+    'Point the camera at the object, then': "Pointez la caméra vers l'objet, puis",
+    'Save Without Processing (Important!)': 'Enregistrer sans traitement (Important\xa0!)',
+    'to process the scan immediately, or': 'pour traiter la numérisation immédiatement, ou',
+    'No account needed in Classic mode.': 'Aucun compte requis en mode Classic.',
+    'Step-by-Step Scanning Instructions': 'Instructions de numérisation pas à pas',
+    'and select the\nClassic experience.': "et sélectionnez l'expérience\nClassic.",
+    'iPhone SE (2nd or 3rd generation)': 'iPhone SE (2e ou 3e génération)',
+    'Only seeing red lines on screen?': "Vous ne voyez que des lignes rouges à l'écran\xa0?",
+    'iPhone XR / XS / XS Max or newer': 'iPhone XR / XS / XS Max ou plus récent',
+    'Back at Home: Process Your Scan': 'De retour chez vous\xa0: traitez votre numérisation',
+    'Select the size of your object:': 'Sélectionnez la taille de votre objet\xa0:',
+    'When you are done scanning, tap': 'Une fois la numérisation terminée, appuyez sur',
+    'Transparency and authenticity.': 'Transparence et authenticité.',
+    'ARCore with Depth API support': 'ARCore avec prise en charge de la Depth API',
+    'Android 7.0 (Nougat) or later': 'Android 7.0 (Nougat) ou version ultérieure',
+    'People and communities first.': "Les personnes et les communautés d'abord.",
+    'Good things to scan include:': 'Parmi les bons sujets à numériser\xa0:',
+    '– pottery, carvings, statues': '– poteries, sculptures, statues',
+    'How did you learn about it?': 'Comment en avez-vous entendu parler\xa0?',
+    'Minimum System Requirements': 'Configuration minimale requise',
+    'button to start a new scan.': 'pour lancer une nouvelle numérisation.',
+    '– facades, walls, monuments': '– façades, murs, monuments',
+    '– doors, columns, mosaics': '– portes, colonnes, mosaïques',
+    'Consent where it counts.': 'Le consentement là où il compte.',
+    'Processing and Exporting': 'Traitement et exportation',
+    'Reciprocity and benefit.': 'Réciprocité et bénéfice.',
+    'screen with two options:': 'avec deux options :',
+    '1–3 minutes of scanning': '1 à 3 minutes de numérisation',
+    'Our Ethical Commitments': 'Nos engagements éthiques',
+    'Dr. Caroline Nickerson': 'Dr Caroline Nickerson',
+    'Keep textures enabled.': 'Laissez les textures activées.',
+    'TanitXR Support: email': 'Assistance TanitXR : e-mail',
+    'Where does it happen?': 'Où cela se passe-t-il ?',
+    'At least 4 GB of RAM': 'Au moins 4 Go de RAM',
+    'Once processed, tap': 'Une fois le traitement terminé, appuyez sur',
+    'Open the Scaniverse': 'Ouvrez Scaniverse',
+    'Why does it matter?': 'Pourquoi est-ce important ?',
+    'Dr. Laura Harrison': 'Dr Laura Harrison',
+    'Library → Settings': 'Bibliothèque (Library) → Réglages (Settings)',
+    'Seville Principles': 'Principes de Séville',
+    'Legal compliance.': 'Conformité légale.',
+    'Select "Classic."': 'Sélectionnez « Classic ».',
+    'What not to scan:': "Ce qu'il ne faut pas numériser :",
+    'Who practices it?': 'Qui le pratique ?',
+    'iOS 16.6 or later': 'iOS 16.6 ou version ultérieure',
+    'to process later.': 'pour traiter plus tard.',
+    'Export the Model': 'Exporter le modèle',
+    'Share Your Model': 'Partagez votre modèle',
+    'Getting Started': 'Pour commencer',
+    'Scaniverse FAQ:': 'FAQ Scaniverse\xa0:',
+    '(bottom menu).': '(menu du bas).',
+    'Android users:': 'Sur Android\xa0:',
+    'Begin the Scan': 'Lancer la numérisation',
+    'London Charter': 'Charte de Londres',
+    'Reserve a seat': 'Réserver une place',
+    'Submit a model': 'Soumettre un modèle',
+    'and choose the': 'et choisissez le réglage',
+    'Do no harm.': 'Ne pas nuire.',
+    'Click here': 'Cliquez ici',
+    'Save Draft': 'Enregistrer le brouillon',
+    'ℹ️ Support': 'ℹ️ Assistance',
+    ', and the': ', et la',
+    'Examples:': 'Exemples\xa0:',
+    'Full name': 'Nom complet',
+    'Aim for': 'Visez',
+    'Classic': 'Classique',
+    'Library': 'Bibliothèque (Library)',
+    'Name it': 'Nommez-le',
+    'Tap the': 'Appuyez sur le bouton',
+    'and the': 'et le',
+    'format.': 'comme format.',
+    'Detail': 'Détail',
+    'Select': 'Sélectionnez',
+    'before': 'avant de',
+    'Note:': 'Remarque\xa0:',
+    'App:': 'Application\xa0:',
+    'Area': 'Zone',
+    'Tap': 'Appuyez sur',
+    'and': 'et',
+    'tap': 'appuyez sur',
 }
 
 
@@ -3746,4 +3962,214 @@ AR = {
 
     # ---- added 2026-10-05: pages that were still English ----
     'Underground passageways': 'ممرات تحت الأرض',
+
+    # ---- added 2026-10-07: pages that were still English ----
+    'TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,\narchitecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never\njust an object, whether digital or physical. It belongs to living communities, it carries meaning and\nmemory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and\nhow to do it ethically: with consent, care, and respect for the people whose heritage it is.':
+        'تنتج TanitXR مسوحات ثلاثية الأبعاد مفصّلة للمواقع التاريخية والأثرية والمعالم والفخار\nوالعمارة والقطع الثقافية من أجل أرشيف رقمي مفتوح وعالمي للتراث. لكن التراث ليس\nمجرد قطعة أبدًا، رقمية كانت أم مادية. فهو ملك لمجتمعات حية، ويحمل معنى\nوذاكرة، وكثيرًا ما يحميه القانون والعرف. يشرح هذا الدليل كيف تلتقطون مسحًا جيدًا،\nوكيف تفعلون ذلك بشكل أخلاقي: بالموافقة والعناية والاحترام لمن يعود إليهم هذا التراث.',
+    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
+        'أمسية عن التاريخ التونسي، وعن الثقافة التي تسافر بين البلدان، وعن استخدام التكنولوجيا في ما يستحق العناء. تتحدث الدكتورة Laura Harrison والدكتورة Caroline Nickerson عن تجربتهما في تونس، مع تعريف بالمتطوعين الذين يصنعون Tanit XR. للتونسيين وأصدقاء تونس على حد سواء، ولكل من يعمل حيث تلتقي التكنولوجيا والفن والأثر الاجتماعي. المقاعد محدودة والدخول بقائمة الضيوف، لذا يرجى التسجيل قبل يوم الجمعة 16 أكتوبر.',
+    'For publicly visible heritage, building exteriors, monuments,\nfacades, ruins, and public art, public visibility is generally a sound basis to document, subject to\nlocal rules and any permit requirements. For living or community heritage we seek free, prior, and informed\nconsent from the relevant owners, caretakers, or cultural authorities first. This process requires the\ninvolvement of the TanitXR Leadership Team.':
+        'بالنسبة إلى التراث الظاهر للعموم، كواجهات المباني الخارجية والمعالم\nوالواجهات والأطلال والفن العام، تُعدّ الرؤية العامة عموماً أساساً سليماً للتوثيق، مع مراعاة\nالقواعد المحلية وأي تصاريح مطلوبة. أما التراث الحي أو المجتمعي فنسعى أولاً إلى الحصول على الموافقة الحرة والمسبقة والمستنيرة\nمن المالكين أو القائمين على الرعاية أو السلطات الثقافية المعنية. وتتطلب هذه العملية\nمشاركة فريق قيادة TanitXR.',
+    '“30 separate 3D scans. One house. 30 mins. It&#x27;s amazing how far 3D gaussian splatting has come. I didn&#x27;t have specialized LIDAR camera or professional scanning equipment. just my iphone 13 and a piece of heritage i wanted to document. Special thanks to Tanit XR and Mark Jeffcock who pushed me to go bigger with my scans.”':
+        '«30 مسحًا ثلاثي الأبعاد منفصلًا. منزل واحد. 30 دقيقة. مذهل كم تطوّر السبلات الغاوسي ثلاثي الأبعاد. لم أكن أملك كاميرا LIDAR متخصصة ولا معدات مسح احترافية، فقط هاتفي iPhone 13 وقطعة تراث أردت توثيقها. شكر خاص لـ Tanit XR وMark Jeffcock اللذين دفعاني إلى التفكير بشكل أكبر في مسوحاتي.»',
+    '“Huge thanks for an excellent deep dive into Gaussian splatting to Mark Jeffcock, Ines Said at Tanit XR, and Arrival.Space. It&#x27;s been an amazing 6 weeks, and I&#x27;ve very much enjoyed scanning the local landscape and heritage and seeing the group&#x27;s own offerings from around the world!”':
+        '«شكر جزيل لـ Mark Jeffcock وInes Said من Tanit XR وArrival.Space على هذا الغوص الممتاز في عالم السبلات الغاوسي. كانت ستة أسابيع رائعة، واستمتعت كثيرًا بمسح المناظر والتراث المحليين ومشاهدة أعمال أعضاء المجموعة من مختلف أنحاء العالم!»',
+    'processing your data can drain your battery, so you may want to save your captures and then\nprocess them later with your phone plugged in to a power source. This is especially true on Android, where\nprocessing takes longer than on modern iPhones.':
+        'قد تستنزف معالجة البيانات بطاريتكم، لذا قد تفضّلون حفظ اللقطات ثم\nمعالجتها لاحقًا والهاتف موصول بمصدر طاقة. وينطبق هذا خصوصًا على Android، حيث\nتستغرق المعالجة وقتًا أطول مما تستغرقه على أجهزة iPhone الحديثة.',
+    "tapping the record button. As you scan, some areas of your scene will have\ndiagonal red lines and others will not, the red-lined areas are the parts you haven't captured yet, so\nkeep moving until they're gone.":
+        'الضغط على زر التسجيل. أثناء المسح، ستظهر على بعض أجزاء المشهد\nخطوط حمراء مائلة دون غيرها؛ الأجزاء ذات الخطوط الحمراء هي التي لم تلتقطوها بعد، لذلك\nواصلوا التحرك حتى تختفي.',
+    'Communities decide whether their heritage is scanned,\nwhat is captured, and whether the result is shared openly, shared conditionally, or kept restricted. This\nauthority continues after the scan is made.':
+        'تقرر المجتمعات ما إذا كان تراثها سيُمسح،\nوما الذي يُلتقط، وما إذا كانت النتيجة ستُشارك علناً أو بشروط أو تبقى مقيّدة. وتستمر\nهذه السلطة بعد إنجاز المسح.',
+    'Some heritage is not just a building or object. It lives in stories, songs, rituals, recipes, crafts,\ndances, languages, memories, and everyday practices. This is called intangible heritage.':
+        'بعض التراث ليس مجرد مبنى أو قطعة، بل يعيش في الحكايات والأغاني والطقوس والوصفات والحرف\nوالرقصات واللغات والذكريات والممارسات اليومية. هذا ما يُسمّى التراث غير المادي.',
+    'Note: Many cultural heritage sites and points of interest are protected and managed by governmental\norganizations. To digitize sites within these areas, formal permission is required.':
+        'ملاحظة: كثير من مواقع التراث الثقافي والمعالم محمية وتديرها جهات\nحكومية. ولرقمنة مواقع داخل هذه المناطق، يلزم الحصول على إذن رسمي.',
+    'We document heritage with communities, not just about them. The\npeople who hold, use, and remember a place or object have the first and final say in how it is documented\nand shared.':
+        'نوثّق التراث مع المجتمعات، لا عنها فحسب. فمن\nيحفظون مكانًا أو قطعة ويستخدمونها ويتذكرونها لهم الكلمة الأولى والأخيرة في كيفية توثيقها\nومشاركتها.',
+    'We do not scan sacred, ceremonial, funerary, or human remains, private interiors, or\nobjects of contested or unclear ownership without explicit authorization from the right people.':
+        'لا نمسح الأماكن أو القطع المقدسة أو الطقسية أو الجنائزية، ولا الرفات البشرية، ولا الفضاءات الداخلية الخاصة، ولا\nالقطع التي تكون ملكيتها متنازعًا عليها أو غير واضحة، دون إذن صريح من الجهات المعنية.',
+    'Documentation should benefit the community whose heritage it is, for\nexample, by offering them a copy of the scan and crediting the knowledge holders who made it possible.':
+        'ينبغي أن يعود التوثيق بالنفع على المجتمع صاحب التراث، على\nسبيل المثال بتقديم نسخة من المسح له ونسب الفضل إلى حاملي المعرفة الذين أتاحوه.',
+    'TanitXR is digitizing heritage sites or archaeological features that are plainly visible in public\nplaces. This includes what you can see from streets and public plazas.':
+        'تقوم TanitXR برقمنة المواقع التراثية أو المعالم الأثرية الظاهرة بوضوح في الأماكن\nالعامة. ويشمل ذلك ما يمكن رؤيته من الشوارع والساحات العامة.',
+    'capture extra overlapping angles and passes. Android relies entirely on camera\nfootage to build the 3D model, so thorough coverage and good, even light matter even more.':
+        'التقطوا زوايا ولقطات إضافية متداخلة. يعتمد Android كليًا على لقطات الكاميرا\nلبناء النموذج ثلاثي الأبعاد، لذا فإن التغطية الشاملة والإضاءة الجيدة المتجانسة أهم بكثير.',
+    'As a TanitXR Heritage Scout, you are part of a global community that is dedicated to upholding the\nhighest standards in ethical digital heritage. Our core pillars are:':
+        'بصفتكم كشّافة تراث TanitXR، أنتم جزء من مجتمع عالمي ملتزم بأعلى\nمعايير التراث الرقمي الأخلاقي. ركائزنا الأساسية هي:',
+    'Keep Scaniverse open in the foreground while it processes. On high-end Android phones this typically\ntakes a few minutes per scan; older devices may take longer.':
+        'أبقوا Scaniverse مفتوحًا في الواجهة أثناء المعالجة. على هواتف Android المتطورة يستغرق ذلك عادةً\nبضع دقائق لكل مسح؛ وقد تستغرق الأجهزة الأقدم وقتًا أطول.',
+    'We respect national and local heritage laws, protected-site designations, and\npermit requirements. When a permit is required, we obtain it before scanning.':
+        'نحترم قوانين التراث الوطنية والمحلية وتصنيفات المواقع المحمية\nومتطلبات التراخيص. وعندما يلزم ترخيص، نحصل عليه قبل المسح.',
+    'On Android, Scaniverse builds 3D models from camera footage (photogrammetry). Scans work well but take\nlonger to process than on modern iPhones.':
+        'على Android، يبني Scaniverse النماذج ثلاثية الأبعاد من لقطات الكاميرا (المسح التصويري). تعمل عمليات المسح جيدًا لكن\nمعالجتها تستغرق وقتًا أطول مما على هواتف iPhone الحديثة.',
+    'This is the experience Tanit XR uses, it processes scans on your phone,\nsupports Mesh mode, and lets you export FBX files directly from the app.':
+        'هذه هي التجربة التي تستخدمها Tanit XR، فهي تعالج المسوحات على هاتفكم،\nوتدعم وضع Mesh، وتتيح تصدير ملفات FBX مباشرة من التطبيق.',
+    'Nura, a guide character modeled in Blender, walks with you and tells the story behind each object. Her narrated tour is being written now.':
+        'نورا، شخصية مرشدة صُمّمت في Blender، تسير معكم وتروي قصة كل قطعة. ويجري حاليًا كتابة جولتها المروية.',
+    ". You don't need to memorize these, but know that the TanitXR Scanning\nGuide incorporates these standards into field practice.":
+        '. لا حاجة إلى حفظها، لكن اعلموا أن دليل المسح الخاص بـ TanitXR\nيدمج هذه المعايير في الممارسة الميدانية.',
+    'You cannot always 3D scan intangible heritage directly, but you can document the objects, spaces, and\npeople connected to it.':
+        'لا يمكن دائمًا مسح التراث غير المادي ثلاثي الأبعاد مباشرة، لكن يمكن توثيق القطع والأماكن\nوالأشخاص المرتبطين به.',
+    'Pedestrian traffic and/or moveable objects in the area should also be avoided. Aim to capture objects\nwith a fixed shape.':
+        'ينبغي أيضًا تجنب حركة المارة والأشياء المتحركة في المكان. احرصوا على تصوير أشياء\nذات شكل ثابت.',
+    'scans can be completed indoors or outdoors. The most important thing is even lighting (lack of shadows\nor bright lights).':
+        'يمكن إجراء المسوحات في الداخل أو في الخارج. والأهم هو الإضاءة المتجانسة (دون ظلال\nأو أضواء ساطعة).',
+    'As you scan, blurry areas on screen show where you still need coverage. Keep moving until the whole\nobject looks sharp.':
+        'أثناء المسح، تُظهر المناطق الضبابية على الشاشة ما لم تتم تغطيته بعد. واصلوا الحركة حتى يبدو\nالجسم كله واضحاً.',
+    'The app automatically uses the best scanning method for your device, no extra setup needed on iOS or\nAndroid.':
+        'يستخدم التطبيق تلقائيًا أفضل طريقة مسح لجهازكم، دون أي إعداد إضافي على iOS أو\nAndroid.',
+    'iPad (8th gen+), iPad Air (4th gen+), iPad Mini (5th gen+), iPad Pro 11" (all), iPad Pro 12.9" (3rd\ngen+)':
+        'iPad (الجيل الثامن فما فوق)، iPad Air (الجيل الرابع فما فوق)، iPad Mini (الجيل الخامس فما فوق)، iPad Pro 11" (جميعها)، iPad Pro 12.9" (الجيل الثالث\nفما فوق)',
+    ', doors, arches, columns, facades, walls, courtyards, monuments, and\nthe exterior of historic homes':
+        '، أبواب، أقواس، أعمدة، واجهات، جدران، أفنية، معالم،\nوالجهة الخارجية للمنازل التاريخية',
+    'Busy areas (pedestrian and vehicle traffic can add noise to your scan and complicate processing)':
+        'الأماكن المزدحمة (حركة المشاة والمركبات قد تضيف تشويشاً إلى المسح وتعقّد المعالجة)',
+    'Our practice follows recognized standards in archaeology and digital heritage, including the':
+        'تتبع ممارستنا المعايير المعترف بها في علم الآثار والتراث الرقمي، بما في ذلك',
+    ', pottery, tools, carvings, statues, tiles, textiles, inscriptions, and\nhousehold items':
+        '، فخار، أدوات، منحوتات، تماثيل، بلاطات، منسوجات، نقوش\nوأدوات منزلية',
+    ", patterns, textures, symbols, damage, repairs, maker's marks, or decorative\nelements":
+        '، أنماط، ملامس، رموز، أضرار، ترميمات، علامات الصانع أو عناصر\nزخرفية',
+    "the record button to start, no need to hold it down.\nTap again when you're finished.":
+        'زر التسجيل للبدء، ولا داعي لإبقائه مضغوطًا.\nاضغطوا مرة أخرى عند الانتهاء.',
+    'Charge your phone before heading out, scanning and processing use a lot of battery':
+        'اشحنوا هواتفكم قبل الخروج، فالمسح والمعالجة يستهلكان الكثير من البطارية',
+    'Tap the name and give it a clear title (e.g., "Ksar Ouled Soltane – Main Door").':
+        'اضغطوا على الاسم وأعطوه عنوانًا واضحًا (مثلًا: "قصر أولاد سلطان – الباب الرئيسي").',
+    'Newer iPhones scan faster and more accurately, but any supported device works.':
+        'تقوم هواتف iPhone الأحدث بالمسح بسرعة ودقة أكبر، لكن أي جهاز مدعوم يفي بالغرض.',
+    'Check that the lighting is good, then point the camera directly\nat the object':
+        'تأكدوا من أن الإضاءة جيدة، ثم وجّهوا الكاميرا مباشرة\nنحو الجسم',
+    'Natural daylight is good, but harsh sun causes glare – avoid scanning at noon':
+        'ضوء النهار الطبيعي جيد، لكن الشمس القوية تسبب وهجًا؛ تجنبوا المسح عند الظهيرة',
+    'with your question and a member of the\nLeadership Team will get back to you.':
+        'مع سؤالكم، وسيردّ عليكم أحد أعضاء\nفريق القيادة.',
+    'Moveable objects (like textiles or tapestries that are blowing in the wind)':
+        'الأشياء المتحركة (مثل المنسوجات أو السجاد الذي يرفرف في الريح)',
+    'Upload your file, below, and then email description and other details to':
+        'ارفعوا ملفكم أدناه، ثم أرسلوا الوصف والتفاصيل الأخرى بالبريد الإلكتروني إلى',
+    'When documenting intangible heritage, include context with your upload:':
+        'عند توثيق التراث غير المادي، أرفقوا السياق مع ما ترفعونه:',
+    '2003 Convention for the\nSafeguarding of Intangible Cultural Heritage':
+        'اتفاقية عام 2003 لصون\nالتراث الثقافي غير المادي',
+    'Watch for blurry areas on screen and re-scan them until they sharpen':
+        'انتبهوا إلى المناطق الضبابية على الشاشة وأعيدوا مسحها حتى تصبح واضحة',
+    'Is there a story, memory, or quote that should go with the scan?':
+        'هل هناك قصة أو ذكرى أو اقتباس ينبغي أن يرافق المسح؟',
+    'Shiny or reflective textures (difficult for scanner to pick up)':
+        'الأسطح اللامعة أو العاكسة (يصعب على الماسح التقاطها)',
+    'We always document where a scan came from, and how it was\nmade.':
+        'نوثّق دائمًا مصدر كل مسح وكيفية\nإنجازه.',
+    "for computer-based visualization of cultural heritage, UNESCO's":
+        'للتصوير الحاسوبي للتراث الثقافي، ووثيقة اليونسكو',
+    'Download Scaniverse (free, by Niantic Spatial, Inc.) from the':
+        'نزّلوا Scaniverse (مجاني، من Niantic Spatial, Inc.) من',
+    'Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC':
+        'سفارة تونس، 1515 Massachusetts Ave NW, Washington, DC',
+    'If the app asks you to sign in or create an account, just tap':
+        'إذا طلب منكم التطبيق تسجيل الدخول أو إنشاء حساب، فاضغطوا ببساطة على',
+    'An evening at the Embassy of Tunisia with Tanit XR and TAYP':
+        'أمسية في سفارة تونس مع Tanit XR وTAYP',
+    'setting, then wait for the app to complete the 3D\nmodel.':
+        'ثم انتظروا حتى ينهي التطبيق النموذج\nثلاثي الأبعاد.',
+    'Digitizing Intangible Heritage (Stories and Practices)':
+        'رقمنة التراث غير المادي (الحكايات والممارسات)',
+    'Spend 1–3 minutes per scan, longer can reduce quality':
+        'خصّصوا من دقيقة إلى 3 دقائق لكل مسح، فالإطالة قد تقلل الجودة',
+    'Keep Scaniverse open while your scan is processing':
+        'أبقوا Scaniverse مفتوحًا أثناء معالجة المسح',
+    'What is this tradition, story, or practice called?':
+        'ما اسم هذا التقليد أو هذه الحكاية أو هذه الممارسة؟',
+    '(not "Splat"), this is what we need for Tanit XR.':
+        '(وليس "Splat")، فهذا ما نحتاجه في Tanit XR.',
+    ', you can scan, process, and export without one.':
+        '، فيمكنكم المسح والمعالجة والتصدير من دونه.',
+    'CARE Principles for\nIndigenous Data Governance': 'مبادئ CARE لحوكمة\nبيانات الشعوب الأصلية',
+    "When you first open Scaniverse, you'll see a":
+        'عند فتح Scaniverse للمرة الأولى، ستظهر لكم شاشة',
+    ', longer scans can actually reduce quality.': '، فالمسح الأطول قد يقلل الجودة في الواقع.',
+    'A device with the A12 Bionic chip or later:': 'جهاز بشريحة A12 Bionic أو أحدث:',
+    'We recommend processing your scan with the': 'ننصح بمعالجة المسح باستخدام إعداد',
+    'Personal account FAQ (Classic app help):':
+        'الأسئلة الشائعة حول الحساب الشخصي (مساعدة تطبيق Classic):',
+    'setting, which can take several minutes.': 'وقد يستغرق ذلك عدة دقائق.',
+    'Open Scaniverse (Classic experience)': 'افتحوا Scaniverse (تجربة Classic)',
+    'Point the camera at the object, then': 'وجّهوا الكاميرا نحو القطعة، ثم',
+    'Save Without Processing (Important!)': 'الحفظ دون معالجة (مهم!)',
+    'to process the scan immediately, or': 'لمعالجة المسح فورًا، أو',
+    'No account needed in Classic mode.': 'لا حاجة إلى حساب في وضع Classic.',
+    'Step-by-Step Scanning Instructions': 'تعليمات المسح خطوة بخطوة',
+    'and select the\nClassic experience.': 'واختاروا تجربة\nClassic.',
+    'iPhone SE (2nd or 3rd generation)': 'iPhone SE (الجيل الثاني أو الثالث)',
+    'Only seeing red lines on screen?': 'لا ترون سوى خطوط حمراء على الشاشة؟',
+    'iPhone XR / XS / XS Max or newer': 'iPhone XR / XS / XS Max أو أحدث',
+    'Back at Home: Process Your Scan': 'عند العودة إلى المنزل: عالجوا المسح',
+    'Select the size of your object:': 'اختاروا حجم القطعة:',
+    'When you are done scanning, tap': 'عند الانتهاء من المسح، اضغطوا على',
+    'Transparency and authenticity.': 'الشفافية والأصالة.',
+    'ARCore with Depth API support': 'ARCore مع دعم Depth API',
+    'Android 7.0 (Nougat) or later': 'Android 7.0 (Nougat) أو أحدث',
+    'People and communities first.': 'الناس والمجتمعات أولًا.',
+    'Good things to scan include:': 'من الأشياء المناسبة للمسح:',
+    '– pottery, carvings, statues': '– فخار ومنحوتات وتماثيل',
+    'How did you learn about it?': 'كيف عرفتم عنه؟',
+    'Minimum System Requirements': 'الحد الأدنى لمتطلبات النظام',
+    'button to start a new scan.': 'لبدء مسح جديد.',
+    '– facades, walls, monuments': '– واجهات وجدران ومعالم',
+    '– doors, columns, mosaics': '– أبواب وأعمدة وفسيفساء',
+    'Consent where it counts.': 'الموافقة حيث تكون مهمة.',
+    'Processing and Exporting': 'المعالجة والتصدير',
+    'Reciprocity and benefit.': 'المعاملة بالمثل والمنفعة.',
+    'screen with two options:': 'فيها خياران:',
+    '1–3 minutes of scanning': 'ما بين دقيقة و3 دقائق من المسح',
+    'Our Ethical Commitments': 'التزاماتنا الأخلاقية',
+    'Keep textures enabled.': 'أبقوا الإكساءات (textures) مفعّلة.',
+    'TanitXR Support: email': 'دعم TanitXR: البريد الإلكتروني',
+    'Where does it happen?': 'أين يحدث ذلك؟',
+    'At least 4 GB of RAM': '4 غيغابايت من ذاكرة RAM على الأقل',
+    'Once processed, tap': 'بعد انتهاء المعالجة، اضغطوا على',
+    'Open the Scaniverse': 'افتحوا Scaniverse',
+    'Why does it matter?': 'لماذا هو مهم؟',
+    'Library → Settings': 'المكتبة (Library) → الإعدادات (Settings)',
+    'Seville Principles': 'مبادئ إشبيلية',
+    'Legal compliance.': 'الامتثال القانوني.',
+    'Select "Classic."': 'اختاروا "Classic".',
+    'What not to scan:': 'ما لا يجب مسحه:',
+    'Who practices it?': 'من يمارسه؟',
+    'iOS 16.6 or later': 'iOS 16.6 أو أحدث',
+    'to process later.': 'للمعالجة لاحقًا.',
+    'Export the Model': 'تصدير النموذج',
+    'Share Your Model': 'شاركوا نموذجكم',
+    'Getting Started': 'البدء',
+    'Scaniverse FAQ:': 'الأسئلة الشائعة حول Scaniverse:',
+    '(bottom menu).': '(القائمة السفلية).',
+    'Android users:': 'لمستخدمي Android:',
+    'Begin the Scan': 'بدء المسح',
+    'London Charter': 'ميثاق لندن',
+    'Reserve a seat': 'حجز مقعد',
+    'Submit a model': 'إرسال نموذج',
+    'and choose the': 'واختاروا إعداد',
+    'Do no harm.': 'عدم الإضرار.',
+    'Click here': 'انقروا هنا',
+    'Save Draft': 'حفظ المسودة',
+    'ℹ️ Support': 'ℹ️ الدعم',
+    ', and the': '، وكذلك',
+    'Examples:': 'أمثلة:',
+    'Full name': 'الاسم الكامل',
+    'Aim for': 'استهدفوا',
+    'Classic': 'كلاسيكي',
+    'Library': 'المكتبة (Library)',
+    'Name it': 'سمّوه',
+    'Tap the': 'اضغطوا على زر',
+    'and the': 'و',
+    'format.': 'كصيغة.',
+    'Detail': 'تفصيل',
+    'Select': 'اختاروا',
+    'before': 'قبل',
+    'Note:': 'ملاحظة:',
+    'App:': 'التطبيق:',
+    'Area': 'منطقة',
+    'Tap': 'اضغطوا على',
+    'and': 'و',
+    'tap': 'اضغطوا على',
 }
