@@ -1119,6 +1119,33 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
   background:#f1f7ef;border:1px solid #cfe3c8;color:#2f5128}
 .fm-err.bad{background:#fdf3ee;border-color:#e8c6b4;color:#7a3f22}
 .fm-err a{color:inherit;font-weight:700}
+/* the DC evening page: its own layout, every class prefixed so the global sheet is untouched */
+.dcv-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 38px}
+.dcv-fact{background:#fff;border:1px solid rgba(74,53,43,.14);border-radius:14px;padding:18px 18px 16px;
+  box-shadow:0 10px 26px rgba(60,40,26,.06)}
+.dcv-fact b{display:block;font-family:var(--serif);font-size:30px;line-height:1.05;color:#2e2118;margin-bottom:6px}
+.dcv-fact span{font-size:13.5px;line-height:1.4;color:#6d5a49}
+.dcv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.dcv-fig{margin:0}
+.dcv-fig img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 18px 44px rgba(40,26,14,.18)}
+.dcv-fig figcaption{font-size:12.5px;color:#8a735c;margin-top:10px}
+.dcv-band{background:var(--cloud)}
+.dcv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.dcv-card{background:#fff;border-radius:16px;padding:26px 24px;border:1px solid rgba(74,53,43,.12)}
+.dcv-card h3{font-size:20px;margin:10px 0 10px}
+.dcv-card p{font-size:15px;line-height:1.6;color:#4a3c30;margin:0}
+.dcv-n{width:36px;height:36px;border-radius:50%;background:var(--gold);color:#2e2118;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.dcv-speakers{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.dcv-sp{background:#fff;border:1px solid rgba(74,53,43,.12);border-radius:16px;padding:26px 26px 22px}
+.dcv-sp h3{font-size:24px;margin:0 0 2px}
+.dcv-role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a6200;margin-bottom:12px}
+.dcv-sp p{font-size:15px;line-height:1.6;color:#4a3c30;margin:0}
+.dcv-host{margin-top:26px;color:#6d5a49}
+.dcv-photos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.dcv-facts{grid-template-columns:1fr 1fr}.dcv-grid,.dcv-cards,.dcv-speakers,.dcv-photos{grid-template-columns:1fr}
+  .dcv-grid .dcv-fig{order:-1}}
+@media(max-width:520px){.dcv-fact b{font-size:24px}}
 #room-eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #room-bar h2{font-family:var(--serif);font-size:22px;font-weight:400;color:#2e2118;margin:2px 0 0}
 #room-count{margin-inline-start:auto;color:#8a735c;font-size:12.5px;letter-spacing:.14em;
@@ -2613,27 +2640,26 @@ NAV = [
         ("Browse every scan", "archive.html"),
         ("Virtual Museum, in progress", "museum.html"),
     ]),
-    ("Opportunities", "opportunities.html"),
+    ("About", "about.html", [
+        ("Our story", "about.html"),
+        ("Our People", "team.html"),
+        ("Community", "community.html"),
+        ("Impact in numbers", "impact.html"),
+        ("Press &amp; Recognition", "press.html"),
+        ("Contact", "contact.html"),
+    ]),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
         ("Volunteer", "volunteer.html"),
-        ("Community", "community.html"),
+        ("Submit a model", "submit-a-model.html"),
         ("Scanning Guide", "scanning-guide.html"),
         ("Splats With Phones course", "splats-with-phones.html"),
         ("Bring it to your region", "unique-mappers.html"),
-        ("Member profile", "create-profile.html"),
-    ]),
-    ("About", "about.html", [
-        ("Our story", "about.html"),
-        ("Impact in numbers", "impact.html"),
-        ("Our People", "team.html"),
-        ("Press &amp; Recognition", "press.html"),
-        ("El Jem Conference paper", "el-jem-conference.html"),
-        ("ImmerseGT 2026", "immersegt-2026.html"),
         ("Partner with us", "partners.html"),
         ("Services", "services.html"),
-        ("Contact", "contact.html"),
+        ("Member profile", "create-profile.html"),
     ]),
+    ("Opportunities", "opportunities.html"),
 ]
 
 
@@ -7646,53 +7672,81 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "22 October 2026", bg="sv-IMG_1315.jpg")}
-<section class="pad"><div class="wrap"><div class="prose">
-<p class="lead"><b>Thursday 22 October, 6pm to 8pm, at the Embassy of Tunisia.</b> An evening
-on Tunisia's heritage and the technology now being used to protect it, with Dr. Laura Harrison and
-Dr. Caroline Nickerson, hosted by the Embassy with Tanit XR and TAYP. Free. Seating is limited and
-entry is by guest list, so reserve first and read on after.</p>
+{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-laura-caroline-ruins.jpg", pos="center 30%")}
+<section class="pad" style="padding-top:34px"><div class="wrap">
+<div class="dcv-facts">
+<div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
+<div class="dcv-fact"><b>6 to 8</b><span>in the evening<br>doors at 6pm</span></div>
+<div class="dcv-fact"><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
+<div class="dcv-fact"><b>Free</b><span>Limited seating, by guest list<br>Reserve by Friday 16 October</span></div>
+</div>
+<div class="dcv-grid">
+<div>
+<div class="eyebrow">Reserve a seat</div>
+<h2 class="sec-title" style="margin-bottom:10px">An evening on Tunisia's heritage, and the technology now protecting it</h2>
+<p class="sec-sub" style="margin:0 0 18px">With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia
+with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once you have filled in this form.</p>
 {form}
-<p class="fhint">1515 Massachusetts Avenue NW, Washington, DC 20005. Reservations close Friday
-16 October and there are no walk-ins. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+<p class="fhint">No walk-ins. Your confirmation and the details for the evening come by email.
+Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+</div>
+<figure class="dcv-fig"><img src="{img('dc-parasol-columns.jpg', 1100)}" alt="Dr. Laura Harrison and Dr. Caroline Nickerson between Roman columns in Tunisia, August 2026" loading="lazy">
+<figcaption>Dr. Laura Harrison and Dr. Caroline Nickerson in Tunisia, August 2026</figcaption></figure>
+</div>
+</div></section>
 
-<h2>The evening</h2>
-<p>Over the past year, <b>Dr. Laura Harrison</b> and <b>Dr. Caroline Nickerson</b> have been at the
-centre of Tanit XR's work: leading its scientific programme, building its partnerships with
-universities and institutions, running hackathons and workshops, and travelling to Tunisia this
-summer to work alongside Tunisian colleagues at the sites themselves. They will talk about that
-year, what they saw in Tunisia, and where the work goes next. Ines Said, founder of Tanit XR, opens
-the evening and introduces them.</p>
-<p>You will see the technology up close. Tanit XR documents Tunisian heritage with photogrammetry,
-lidar and Gaussian splatting, much of it captured on ordinary phones by trained volunteers, and
-brings the results to anyone in the world through a browser, a headset, or a virtual museum. The
-collection is already open at <a href="explore.html">tanitxr.org/explore</a>, and VR headsets will
-be in the room for anyone who would like to stand inside it.</p>
-<p>And you will meet the model behind it. Tanit XR is run by volunteers in many countries, most
-of whom had no connection to Tunisia when they joined. They meet every week, study Tunisian history
-together, and several have since travelled to Tunisia or now speak about its heritage in their own
-cities. Culture travelling in both directions, with technology as the bridge, is what the evening
-is about.</p>
+<section class="pad dcv-band"><div class="wrap">
+<div class="center"><div class="eyebrow">The evening</div><h2 class="sec-title">Three things you will come away with</h2></div>
+<div class="dcv-cards">
+<div class="dcv-card"><div class="dcv-n">1</div><h3>A year of work, told by the people who did it</h3>
+<p>Over the past year, <b>Dr. Laura Harrison</b> and <b>Dr. Caroline Nickerson</b> have been at the centre of
+Tanit XR: leading its scientific programme, building partnerships with universities and institutions,
+running hackathons and workshops, and travelling to Tunisia this summer to work alongside Tunisian
+colleagues at the sites themselves. They will talk about that year, what they saw, and where it goes next.
+Ines Said, founder of Tanit XR, opens the evening and introduces them.</p></div>
+<div class="dcv-card"><div class="dcv-n">2</div><h3>The technology, up close</h3>
+<p>Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it
+captured on ordinary phones by trained volunteers, and brings the results to anyone in the world through
+a browser, a headset or a virtual museum. The collection is already open at
+<a href="explore.html">tanitxr.org/explore</a>, and VR headsets will be in the room for anyone who
+would like to stand inside it.</p></div>
+<div class="dcv-card"><div class="dcv-n">3</div><h3>Culture travelling both ways</h3>
+<p>Tanit XR is run by volunteers in many countries, most of whom had no connection to Tunisia when they
+joined. They meet every week, study Tunisian history together, and several have since travelled to
+Tunisia or now speak about its heritage in their own cities. That exchange, with technology as the
+bridge, is what the evening is about. Tunisians and friends of Tunisia equally welcome; students very
+welcome; no technical background needed.</p></div>
+</div>
+</div></section>
 
-<h2>Who should come</h2>
-<p>Tunisians and friends of Tunisia equally. Anyone who cares about heritage, or works where
-technology, culture and social impact meet. Students very welcome. No technical background needed.</p>
+<section class="pad"><div class="wrap">
+<div class="center"><div class="eyebrow">The speakers</div><h2 class="sec-title">Who you will hear</h2></div>
+<div class="dcv-speakers">
+<div class="dcv-sp"><h3>Dr. Laura Harrison</h3><div class="dcv-role">Chief Scientist, Tanit XR</div>
+<p>An archaeologist who specialises in digital documentation, from lidar and photogrammetry to immersive
+technology, she was the founding director of the Access 3D Lab at the University of South Florida, with
+museum experience at institutions like the Smithsonian and the New York State Museum. She is the author
+of two books on archaeology and digital heritage, Associate Editor of the journal Studies in Digital
+Heritage, and a Commissioner on the City of Tampa's Historic Preservation Board.</p></div>
+<div class="dcv-sp"><h3>Dr. Caroline Nickerson</h3><div class="dcv-role">Partnerships and Community, Tanit XR</div>
+<p>Executive Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit
+XR's fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
+science, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a PhD in
+Agricultural Education and Communication from the University of Florida and a Master of Public Policy
+from American University.</p></div>
+</div>
+<p class="center dcv-host">Opened and hosted by <b>Ines Said</b>, founder of Tanit XR, a Tunisian XR artist and developer from Nabeul and a 2026 Auggie Awards finalist.</p>
+</div></section>
 
-<h2>The speakers</h2>
-<p><b>Dr. Laura Harrison</b> is Tanit XR's Chief Scientist. An archaeologist who specialises in
-digital documentation, from lidar and photogrammetry to immersive technology, she was the founding
-director of the Access 3D Lab at the University of South Florida, with museum experience at
-institutions like the Smithsonian and the New York State Museum. She is the author of two books on
-archaeology and digital heritage, Associate Editor of the journal Studies in Digital Heritage, and a
-Commissioner on the City of Tampa's Historic Preservation Board.</p>
-<p><b>Dr. Caroline Nickerson</b> leads Partnerships and Community at Tanit XR, and is Executive
-Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit XR's
-fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
-science, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a
-PhD in Agricultural Education and Communication from the University of Florida and a Master of
-Public Policy from American University.</p>
-<p><b>Ines Said</b>, founder of Tanit XR, is a Tunisian XR artist and developer from Nabeul, and a 2026 Auggie Awards finalist.</p>
-</div></div></section>"""
+<section class="pad dcv-band"><div class="wrap">
+<div class="dcv-photos">
+<figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor in Tunisia" loading="lazy">
+<figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-mosaic-floor.jpg', 1100)}" alt="A mosaic floor in dappled light at a site in Tunisia" loading="lazy">
+<figcaption>Mosaic floor, Tunisia, August 2026</figcaption></figure>
+</div>
+<p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Reserve a seat</a></p>
+</div></section>"""
     page("dc.html", "An evening in Washington, DC", body,
          active="community.html",
          desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
