@@ -74,12 +74,16 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🤖 AI Horizons: Art Beyond Algorithms, PARMA 360 (under 35; AI/VR/AR; EUR 1,500 prizes; free) — Oct 31 — parma360festival.it/call-for-artists _(accepted Oct 5; verified Oct 6)_
 - 🏅 .ART Award 2026 ($15,000 + residencies + $3,000 AR package; free, needs a .ART domain) — Nov 1 — award.art _(accepted Oct 5; verified Oct 6)_
 - 💡 Swarovski Foundation Creatives for Our Future (21–30, any country; EUR 20,000; free) — Nov 9 — creatives.swarovskifoundation.org _(accepted Oct 5; verified Oct 6)_
+- 🧠 Eyebeam AGENCY Residencies (US-based only; virtual $2,000 / NYC $5,000; free) — virtual Oct 11, NYC Nov 15 — eyebeam.org/articles/agency-residency-open-call _(Ines accepted it on the report page Oct 6; verified at the source Oct 6; closes two days after the send, so put it high)_
+- 🔮 SAT Montréal Dome Production + Research-Creation residencies (CAD 10,000 x3; free) — Oct 18 — sat.qc.ca _(accepted Oct 6; verified Oct 6)_
 
 ## Edition 21 (send Fri Oct 23, proposed split) — items
 _Opened Oct 6 for the Dec–Mar deadlines that would overflow edition 20. Move the Dec–Jan blocks listed under edition 20 here when 20 is assembled._
 - 📐 ACM DIS 2027 Papers and Pictorials (hybrid; remote presentation June 21–25; free to submit) — abstract Jan 11, full Jan 18, 2027 — dis.acm.org/2027/call-for-papers _(Ines accepted it on the report page Oct 5; verified at the source Oct 6)_
 - 🎤 ACM Creativity & Cognition 2027 Artworks Track (virtual June 13–16; theme Creativity and the Unseen incl. heritage and craft; free, no APC) — abstract Jan 19, full Jan 25, 2027 — cc.acm.org/2027/submit/artworks _(accepted Oct 5; verified Oct 6; same organisation as DIS: ACM SIGCHI, so one combined block is fine)_
 - 🖥 2nd Aion Digital Art Prize 2027 (online; AR/VR accepted; JPY 3,000 ≈ $20 per work) — Mar 1, 2027 — aionlabo.com/en/blank-2 _(accepted Oct 5; verified Oct 6)_
+- 🎥 Sony Future Filmmaker Awards 2027, Immersive category (3D/180/360 video, 5–20 min; free; $5,000 + Meta VR device) — Dec 15, 7 am CST — sonyfuturefilmmakerawards.com _(accepted Oct 6; verified Oct 6)_
+- 🌴 FilmGate Interactive 13, Miami (VR/AR/dome/interactive; $35 regular, $50 late) — Dec 20 / Jan 18 — filmfreeway.com/FilmgateInteractive _(accepted Oct 6; verified Oct 6)_
 
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit

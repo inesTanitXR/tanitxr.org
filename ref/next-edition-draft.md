@@ -199,6 +199,10 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Swarovski Foundation | no separate LinkedIn page found (the company is linkedin.com/company/swarovski) |
 | ACM DIS 2027 and Creativity & Cognition 2027 | tag ACM SIGCHI, linkedin.com/company/acm-sigchi (already listed above) |
 | Aion Laboratory (Ise-Shima Art Company) | no LinkedIn page found |
+| Eyebeam | linkedin.com/company/eyebeam |
+| Société des arts technologiques [SAT] | linkedin.com/company/societe-des-arts-technologiques |
+| Creo (Sony Future Filmmaker Awards) | linkedin.com/company/creoartsgroup |
+| FilmGate Miami | linkedin.com/company/filmgate-miami |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -273,3 +277,37 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Artists worldwide, any age; earlier work allowed. JPY 3,000 per work (about $20)
 ✏️ Accepts interactive, video, sound, animation, AR and VR work. One JPY 50,000 grand prize and up to 35 award certificates. Results May 5, 2027.
 👉 https://www.aionlabo.com/en/blank-2
+
+<!-- 2026-10-06 evening: four more finds Ines accepted on the report page the same evening, verified at the source Oct 6. Eyebeam and SAT go to edition 20 (both close before Oct 23); Sony and FilmGate to edition 21. -->
+
+### 🧠 Eyebeam AGENCY Residencies 2026-27 (Virtual and NYC)
+
+📅 Deadline: Virtual Residency October 11, 2026, 11:59 pm ET · NYC Residency November 15, 2026, 11:59 pm ET
+📍 Virtual (November 4, 2026 to February 12, 2027) or on site in New York (March 15 to June 11, 2027)
+👥 US-based artists only: the virtual track for artists living in the US outside New York, the NYC track for the five boroughs. Individuals, no full-time students. Free
+✏️ $2,000 stipend (virtual) or $5,000 (NYC), mentorship and access to Eyebeam's technical network. Theme AGENCY: human agency as AI systems act on our behalf.
+👉 https://eyebeam.org/articles/agency-residency-open-call
+
+### 🔮 SAT Montréal, Dome Production and Research-Creation Residencies 2027-28
+
+📅 Deadline: October 18, 2026 for both calls; results January 2027
+📍 Society for Arts and Technology, Montréal
+👥 Artists, collectives, researchers and interdisciplinary teams; the research-creation call also takes non-profits. No nationality limit stated. Free
+✏️ Dome Production Residency: make and present a work for the Satosphère, an 18 m immersive dome, in the 2027-28 programme. Research-Creation Residencies in Technological Arts: three projects at CAD 10,000 each with two months of SAT support, on live arts meeting technology around human movement. Travel and housing for the dome call are not stated.
+👉 https://sat.qc.ca/en/calls/dome-production-residency-2027-2028-program/
+
+### 🎥 Sony Future Filmmaker Awards 2027, Immersive Category
+
+📅 Deadline: December 15, 2026, 7:00 am CST
+📍 Online entry; shortlisted filmmakers travel to a four-day workshop in the US, flights and accommodation covered
+👥 Open worldwide, any nationality; under-18s need consent. Film must be 3D, 180° or 360° video, 5 to 20 minutes, released January 1, 2025 to December 15, 2026. AR, MR and XR pieces are not eligible. Free
+✏️ New Immersive category presented by Meta: the winner gets $5,000 and a Meta VR device. Fiction, Non-Fiction, Animation, Student and Future Format categories run alongside.
+👉 https://www.sonyfuturefilmmakerawards.com/
+
+### 🌴 FilmGate Interactive 13, Miami
+
+📅 Deadline: regular December 20, 2026 · late January 18, 2027
+📍 Miami and Miami Beach, March 19 to 24, 2027
+👥 Open worldwide, any length, fiction or non-fiction, finished or near-finished immersive work. $35 regular, $50 late
+✏️ Categories include VR project, AR project, immersive experience, interactive documentary, interactive installation, dome experience, public immersive installation, and new games and applications, plus a market and talks. Submissions need a budget estimate, technical rider and spatial requirements. Notification February 1, 2027.
+👉 https://filmfreeway.com/FilmgateInteractive
