@@ -7692,8 +7692,8 @@ with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once
 <p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
-<figure class="dcv-fig"><img src="{img('dc-mosaic-floor.jpg', 1100)}" alt="A mosaic floor in dappled light at a site in Tunisia" loading="lazy">
-<figcaption>A mosaic floor in Tunisia, photographed by the team in August 2026</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-laura-harrison-column.jpg', 1100)}" alt="Dr. Laura Harrison beside a Corinthian column above the bay of Tunis, August 2026" loading="lazy">
+<figcaption>Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
 </div>
 </div></section>
 
