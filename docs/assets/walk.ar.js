@@ -310,6 +310,14 @@ function start() {
     speaking = false;
     if (speakBtn) speakBtn.classList.remove('on');
   }
+  // Bety and Ines, on phones: four things were on screen at once five seconds in. Whenever
+  // Nura's bubble is open the body says so, and the volunteer card, the scroll cue and the
+  // badge toast stay out of the way. Watching the attribute catches every way a bubble opens.
+  if (bubble && window.MutationObserver) {
+    const sayTalking = () => document.body.classList.toggle('nura-talking', !bubble.hidden);
+    new MutationObserver(sayTalking).observe(bubble, { attributes: true, attributeFilter: ['hidden'] });
+    sayTalking();
+  }
   function openBubble() {
     sfx('pop');
     const s = slots[shown];
@@ -504,6 +512,16 @@ function start() {
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   const current = () => slots[Math.round(clamp(cursor, 0, slots.length - 1))];
   let pressed = false, downX = 0, downY = 0;
+  let claimed = false;
+  // Ines's rule for a phone: sideways turns the object, up or down moves to the next or
+  // the previous one, and that is all a finger can do here. Every single-finger touch on
+  // the stage is ours from the start, so the browser never scrolls under it and nothing
+  // gets confused halfway. Two fingers still pinch-zoom the page.
+  stage.addEventListener('touchstart', e => {
+    if (roomMode || e.touches.length !== 1) { claimed = false; return; }
+    claimed = true;
+    e.preventDefault();
+  }, { passive: false });
   stage.addEventListener('pointerdown', e => {
     dragging = true; pressed = true; idle = 0;
     // in a room the page cannot scroll at all, so a finger there is always looking around
@@ -536,11 +554,17 @@ function start() {
     if (axis === null) {
       const dx = Math.abs(e.clientX - downX), dy = Math.abs(e.clientY - downY);
       if (dx + dy < AXIS_WAIT) { lastX = e.clientX; lastY = e.clientY; return; }
-      axis = dx > dy * AXIS_BIAS ? 'x' : 'y';
+      // on the object the benefit of the doubt goes to turning; on the background, to scrolling
+      axis = dx > dy * (claimed ? 0.8 : AXIS_BIAS) ? 'x' : 'y';
       lastX = e.clientX; lastY = e.clientY;      // start from here, so nothing jumps
       return;
     }
-    if (axis === 'y') return;                    // their finger is scrolling the page
+    if (axis === 'y') {
+      // We claimed this touch at touchstart so the browser is not scrolling. If the finger
+      // went up or down anyway, scroll for it, so a swipe on the object still moves you on.
+      if (claimed) lastY = e.clientY;
+      return;
+    }
     moved += Math.abs(e.clientX - lastX);
     if (moved > 24 && !turned) {
       turned = true;
@@ -552,7 +576,7 @@ function start() {
     const s = roomMode ? roomFocus : current();
     if (s) {
       s.pivot.rotation.y += (e.clientX - lastX) * 0.01;
-      s.pivot.rotation.x = clamp(s.pivot.rotation.x + (e.clientY - lastY) * 0.005, -0.7, 0.7);
+      if (!claimed) s.pivot.rotation.x = clamp(s.pivot.rotation.x + (e.clientY - lastY) * 0.005, -0.7, 0.7);
     } else if (roomMode) {                    // look around the room
       roomYawT -= (e.clientX - lastX) * 0.005;
       roomPitchT = clamp(roomPitchT + (e.clientY - lastY) * 0.003, -0.35, 0.3);
@@ -560,6 +584,12 @@ function start() {
     lastX = e.clientX; lastY = e.clientY;
   }, { passive: true });
   const stopDrag = () => {
+    // a vertical swipe on the object is one swipe, one object: up for the next, down for the
+    // one before. Scrolling it by hand had no momentum, so the snap pulled it straight back.
+    if (dragging && claimed && axis === 'y' && Math.abs(lastY - downY) > 60) {
+      jump(lastY < downY ? 1 : -1);
+    }
+    claimed = false;
     dragging = false;
     stage.classList.remove('grabbing');
     if (!turned && cueEl) {                   // a tap is not a turn, keep showing the cue
@@ -932,9 +962,14 @@ function start() {
       if (toast && toastName) {
         toast.querySelector('.bt-icon').textContent = b.icon;
         toastName.textContent = b.name;
-        toast.hidden = false;
-        clearTimeout(toast._t);
-        toast._t = setTimeout(() => { toast.hidden = true; }, 9000);
+        const showToast = (tries) => {
+          if (narrow() && bubbleOpen && tries > 0) { toast._w = setTimeout(() => showToast(tries - 1), 2000); return; }
+          toast.hidden = false;
+          clearTimeout(toast._t);
+          toast._t = setTimeout(() => { toast.hidden = true; }, narrow() ? 5000 : 9000);
+        };
+        clearTimeout(toast._w);
+        showToast(4);
       }
       if (window.tx) tx('badge_earned', { badge: b.id });
     });
@@ -1051,7 +1086,7 @@ function start() {
       if (!now || now.it.slug !== forSlug) { metPeople.delete(p.name); return; }
       // Nura is already talking. Two cards in the same corner of a phone read as a fault, so
       // this one waits for another object rather than landing on top of her.
-      if (bubbleOpen) { metPeople.delete(p.name); return; }
+      if (bubbleOpen || (toast && !toast.hidden && narrow())) { metPeople.delete(p.name); return; }
       cameoPhoto.src = assetUrl(p.photo);
       cameoPhoto.alt = p.name;
       cameoLine.textContent = 'أنا من ' + p.verb + ' هذه القطعة.';
@@ -1610,7 +1645,9 @@ function start() {
 
   const jump = d => {
     if (roomMode) { roomStep(d); return; }
-    const i = clamp(Math.round(cursor) + d, 0, sections.length - 1);
+    // from where the page is, not from where the eased cursor has got to: two quick swipes
+    // used to land on the same object because the cursor was still catching up
+    const i = clamp(Math.round(target) + d, 0, sections.length - 1);
     const el = sections[i];
     if (el) scrollTo({ top: midOf(el), behavior: 'smooth' });
   };

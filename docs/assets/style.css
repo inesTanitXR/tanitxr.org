@@ -931,6 +931,8 @@ body.embed #embed-out:hover{background:#fff;color:#4a3527}
 /* the side arrows are the way through the collection in a frame, where scrolling belongs to
    the article, so they stay on a phone too */
 body.embed #wf-prev,body.embed #wf-next{display:flex!important}
+/* one voice at a time on a phone: while Nura is talking, nothing else lands on the screen */
+@media(max-width:760px){body.nura-talking #vol-cameo,body.nura-talking #scroll-cue,body.nura-talking #badge-toast{display:none!important}}
 #walk-stage.can-pick{cursor:pointer}
 #room-hint{font-size:12.5px;color:#8a735c;margin-inline-start:auto;text-align:end;max-width:280px}
 @media(max-width:760px){#room-hint{display:none}}
