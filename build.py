@@ -7674,7 +7674,7 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-museum.jpg", pos="center 28%")}
+{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-museum.jpg", pos="center 42%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
 <div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
@@ -7693,10 +7693,10 @@ with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
+<figure class="dcv-fig"><img src="{img('dc-laura-caroline-walking.jpg', 1100)}" alt="Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026" loading="lazy">
+<figcaption>Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('dc-three-of-us-museum.jpg', 1100)}" alt="Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026" loading="lazy">
 <figcaption>Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in Tunisia, August 2026</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor" loading="lazy">
-<figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure>
 </div>
 </div>
 </div></section>
@@ -7745,6 +7745,8 @@ from American University.</p></div>
 </div></section>
 
 <section class="pad dcv-band"><div class="wrap">
+<div class="dcv-photos"><figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor" loading="lazy">
+<figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure></div>
 <p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Reserve a seat</a></p>
 </div></section>"""
     page("dc.html", "An evening in Washington, DC", body,
