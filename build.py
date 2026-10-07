@@ -7675,7 +7675,7 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-tanit-sign-mosaic.jpg", pos="center")}
+{page_hero("An evening in Washington, DC", "Thursday 22 October 2026, Embassy of Tunisia", bg="dc-three-of-us-museum.jpg", pos="center 28%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
 <div class="dcv-fact"><b>22</b><span>October 2026<br>Thursday</span></div>
@@ -7694,10 +7694,10 @@ with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
-<figure class="dcv-fig"><img src="{img('dc-laura-harrison-column.jpg', 1100)}" alt="Dr. Laura Harrison beside a Corinthian column above the bay of Tunis, August 2026" loading="lazy">
-<figcaption>Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('caroline1.png', 900)}" alt="Dr. Caroline Nickerson" loading="lazy">
-<figcaption>Dr. Caroline Nickerson</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-three-of-us-museum.jpg', 1100)}" alt="Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026" loading="lazy">
+<figcaption>Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in Tunisia, August 2026</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor" loading="lazy">
+<figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure>
 </div>
 </div>
 </div></section>
