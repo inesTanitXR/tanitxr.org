@@ -6,8 +6,8 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 |---|---|---|---|
 | **18** | **Wed Sept 16** (refreshed; Art Worker grant + UnitedXR Booster dropped after closing Sept 14/15) | Sept 18 → Oct 6 (+ Al Mawred Oct 19 in the Tunisia block) | `ref/newsletter-edition-18.md` ✅ ready to post, items on the board — _send date passed; "not posted yet?" reminder given Sept 18, do not repeat_ |
 | **19** | **Fri Sept 25** | Sept 28 → Oct 31 | `ref/newsletter-edition-19.md` ✅ assembled Sept 24, _(send date Sept 25; "ready, not posted yet?" reminder given Sept 26, do not repeat)_ 13 blocks, every deadline re-verified at the source Sept 24. Dropped: Habibi Tech volunteer (moot), A MAZE. Berlin 2027 and Tribeca 2027 (no 2027 call published; moved to the watch list). Immerse the Bay stays in the still-open list. All items now on the board. |
-| **20** | **Fri Oct 9** | Nov 1 → Jan 2027 | to assemble ~Oct 7 — 23 blocks after the Sept 25 sweep, too many: proposed split, 20 keeps deadlines through Nov 27 and a new edition 21 (Fri Oct 23) takes the Dec–Jan deadlines |
-| **21** | **Fri Oct 23** (proposed) | Dec 2026 → Mar 2027 | section opened Oct 6 with three accepted finds; takes the Dec–Jan blocks from 20 when 20 is assembled |
+| **20** | **Fri Oct 9** | Oct 9 → Nov 3 | `ref/newsletter-edition-20.md` ✅ assembled Oct 7, every deadline re-verified at the source Oct 7. 15 body blocks + 4 in the Tunisia section (19). Added at assembly: AIA Site Preservation, MIT Solve, CPH:DOX (in the plan since Sept 11 but never on the board; verified and published Oct 7). Dropped: One Young World (53-country list, Tunisia and the US not on it), Global Game Jam (Nov 1 is when site registration opens, moved to 21). Everything closing Nov 6 or later moved to 21. If Ines wants it shorter, the five Nov 1–3 blocks (One World, .ART, AIA, MIT Solve, CPH:DOX) can move to 21. |
+| **21** | **Fri Oct 23** | Nov 6 → Dec 8 | to assemble ~Oct 21. Took the Nov 6+ blocks from 20 on Oct 7 (list below). Already ~20 blocks, so a new **edition 22 (Fri Nov 6)** is proposed for Dec 10 onward (NewImages, Sony, FilmGate, Thessaloniki, DIS, iLRN iLEAD, Laval, Wijhat, Creativity & Cognition, FIVARS, Aion). |
 
 ## Edition 19 (send Sept 25) — items
 - 🏆 Webby Awards 2027 (31st), early entry Oct 30, $105 student / $255–$525 _(Ines asked for it in THIS edition, Sept 25)_
@@ -33,6 +33,7 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 💸 Voqal Partners Fellowship 2027 ($30,000 + $1,000 healthcare stipend; US-based, 18+, free) — Oct 31 — voqalpartners.org/fellowship ★ Tanit (added by the Sept 16 sweep)
 
 ## Edition 20 (send Oct 9) — items
+_Assembled Oct 7 → ref/newsletter-edition-20.md. The list below is the planning list as it stood; the file is the truth. Items closing Nov 6 or later moved to the edition 21 list._
 - 🎭 PXR2027 Call for Proposals (live performance in VR/AR/MR; VRChat remote or Toronto/Kingston/Vancouver; free) — Oct 9, 11:59 pm ET, the send day — performanceandxr.com/call-for-proposals _(added by the Oct 5 sweep from Ines's note via the DC digest; closes the evening edition 20 goes out, so put it at the top)_
 - 💸 Voqal Partners Fellowship 2027 — Oct 31 _(moved from 19 on Sept 25 at Ines's request to trim it)_
 - 🇹🇳 📸 PhotoVogue MENA Panorama 2026 (photo/video series, MENA + diaspora, 18+; free; $8,000 in three grants) — Oct 15 (extended from Sept 24) — site.picter.com/photovogue-regional-open-call-mena-panorama-2026 _(added by the Sept 26 sweep, from Ines's Instagram share of an AD Middle East post; deadline verified on the Picter call page)_
@@ -77,8 +78,25 @@ Rule: one edition every 1–2 weeks, never too long (≈10–14 items). Items ar
 - 🧠 Eyebeam AGENCY Residencies (US-based only; virtual $2,000 / NYC $5,000; free) — virtual Oct 11, NYC Nov 15 — eyebeam.org/articles/agency-residency-open-call _(Ines accepted it on the report page Oct 6; verified at the source Oct 6; closes two days after the send, so put it high)_
 - 🔮 SAT Montréal Dome Production + Research-Creation residencies (CAD 10,000 x3; free) — Oct 18 — sat.qc.ca _(accepted Oct 6; verified Oct 6)_
 
-## Edition 21 (send Fri Oct 23, proposed split) — items
-_Opened Oct 6 for the Dec–Mar deadlines that would overflow edition 20. Move the Dec–Jan blocks listed under edition 20 here when 20 is assembled._
+## Edition 21 (send Fri Oct 23) — items
+_Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item closing Nov 6 or later moved here (blocks already in next-edition-draft.md unless noted). Dec 10 onward is proposed for edition 22 (Fri Nov 6)._
+- 🎨 EMAP European Media Art Platform residencies 2027 (Tunisia explicitly eligible; verified Oct 7 on call.emare.eu) — Nov 6, 2 pm CET — call.emare.eu 🇹🇳 _needs a board entry and a draft block before 21 is assembled_
+- 💡 Swarovski Foundation Creatives for Our Future (21–30; EUR 20,000; free) — Nov 9, 11:59 pm GMT (page also says BST; GMT is the real one) — creatives.swarovskifoundation.org
+- 🕶 UnitedXR Europe 2026 Call for Activations — Nov 12 — unitedxr.eu/activations
+- 🚀 NASA Space Apps Challenge 2026 (local events incl. Tunisia) — hackathon Nov 14-15 — spaceappschallenge.org 🇹🇳
+- 🕶 Meta VR Start Developer Competition ($1M; free) — Nov 18 — developers.meta.com
+- 🏛 Awesome Foundation Conservation & Climate — Nov 27 (reminder line)
+- 🇹🇳 IN-SITU Medina of Tunis, ONE block: ANIMED art projects Nov 30, 11:59 pm Tunis time (verified Oct 7 in the browser on animed-network.com) · Fondazione MeNO residencies Dec 20 ★ Tanit
+- 📝 NatGeo "The Human Thread" RFP — Dec 1 — funding.nationalgeographic.org _needs a board entry and a block_
+- 🎨 Bogliasco Fellowship Fall 2027 — Dec 1 — $30 — bfny.org _needs a board entry and a block_
+- 🎮 Tribeca 2027 official deadline Dec 2 (reminder line; early rate was in 20)
+- 🎤 ACM CHI 2027 Digital Experience Competition — Dec 4 (reminder line; on the board, was in the edition 19 CHI block)
+- 🎬 Raindance 2027 Immersive — Dec 7 early — raindance.org _needs a board entry and a block_
+- 🎨 CURRENTS 2027 (VR/AR/MR category; $30) — Dec 8 — currentsnewmedia.org
+- 🎮 Games for Change Student Challenge 2026-2027 (no deadline published) — learn.gamesforchange.org/student-challenge
+- 🎨 XR Women Museum Community Garden (rolling) — xrwomen.com/museum
+- 🎮 Global Game Jam 2027: site registration OPENS Nov 1 (jammer registration Dec 1; jam Jan 25–31) — one line in the Tunisia section: "register a Tunisian site from Nov 1" — globalgamejam.org/important-dates 🇹🇳 _(not a deadline; globalgamejam.org blocks fetches, dates from its own search snippets, re-check at assembly)_
+- 🇹🇳 Culture Moves Europe, Nov 30 cut-off (reminder line; block was in 20)
 - 📐 ACM DIS 2027 Papers and Pictorials (hybrid; remote presentation June 21–25; free to submit) — abstract Jan 11, full Jan 18, 2027 — dis.acm.org/2027/call-for-papers _(Ines accepted it on the report page Oct 5; verified at the source Oct 6)_
 - 🎤 ACM Creativity & Cognition 2027 Artworks Track (virtual June 13–16; theme Creativity and the Unseen incl. heritage and craft; free, no APC) — abstract Jan 19, full Jan 25, 2027 — cc.acm.org/2027/submit/artworks _(accepted Oct 5; verified Oct 6; same organisation as DIS: ACM SIGCHI, so one combined block is fine)_
 - 🖥 2nd Aion Digital Art Prize 2027 (online; AR/VR accepted; JPY 3,000 ≈ $20 per work) — Mar 1, 2027 — aionlabo.com/en/blank-2 _(accepted Oct 5; verified Oct 6)_

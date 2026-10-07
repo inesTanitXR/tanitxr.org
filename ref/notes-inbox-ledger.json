@@ -653,6 +653,34 @@
    "source": "suggestion",
    "raw": "https://filmfreeway.com/DocEdgeFestival",
    "status": "skipped: Ines rejected it on the report page Oct 6. Do not suggest again."
+  },
+  {
+   "key": "aia site preservation grant 2027",
+   "date": "2026-10-07",
+   "source": "edition assembly",
+   "raw": "https://www.archaeological.org/grant/site-preservation/",
+   "status": "added (edition 20 assembly Oct 7: in the plan since Sept 11 with no board entry; verified at the source Oct 7, Nov 1, free)."
+  },
+  {
+   "key": "mit solve 2027 global learning challenge",
+   "date": "2026-10-07",
+   "source": "edition assembly",
+   "raw": "https://solve.mit.edu/challenges/2027-global-learning-challenge",
+   "status": "added (edition 20 assembly Oct 7; verified at the source Oct 7, Nov 2 12:00 pm EST, free)."
+  },
+  {
+   "key": "cphdox 2027 interactive",
+   "date": "2026-10-07",
+   "source": "edition assembly",
+   "raw": "https://cphdox.dk/rules-and-regulations/",
+   "status": "added (edition 20 assembly Oct 7; verified Oct 7, Nov 3 all time zones, 150 DKK, DAC-list waiver on request)."
+  },
+  {
+   "key": "one young world leading scholarship 2026",
+   "date": "2026-10-07",
+   "source": "edition assembly",
+   "raw": "https://www.oneyoungworld.com/scholarship/leading-scholarship-2026",
+   "status": "corrected Oct 7: the page lists 53 eligible countries, Tunisia and the US not among them; board desc fixed, left out of edition 20."
   }
  ],
  "slack_last_ts": "1789764970.037819",

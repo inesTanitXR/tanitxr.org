@@ -1,1 +1,45 @@
-{"2026-09-30": ["tokyo-biennale-2027-social-dive", "singapore-art-museum-residencies-cycle-4", "world-summit-awards-2026-culture-heritage-learning-inclusion", "columbia-ideas-imagination-paris-2027-28", "artists-unlimited-bielefeld-2027", "lighthouse-works-fellowship-2027", "sxsw-2027-xr-experience", "womentech-global-awards-2026", "acm-chi-2027-call-for-meet-ups", "acm-chi-2027-call-for-workshop-proposals"], "2026-10-01": ["artists-unlimited-bielefeld-2027", "womentech-global-awards-2026", "lighthouse-works-fellowship-2027", "sxsw-2027-xr-experience", "acm-chi-2027-call-for-meet-ups", "acm-chi-2027-call-for-workshop-proposals"], "2026-10-03": ["uf-40-gators-under-40-class-of-2027", "women-who-code-summit-2026"], "2026-10-05": ["uf-40-gators-under-40-class-of-2027", "women-who-code-summit-2026", "remix-the-future-2026-play-attention-asu-mix-center-spatial-", "millay-arts-core-2027"], "2026-10-06": ["women-who-code-summit-2026", "remix-the-future-2026-play-attention-asu-mix-center-spatial-", "millay-arts-core-2027", "djerassi-resident-artists-program-2027-incl-leonardo-djerassi", "pxr2027-call-for-proposals"]}
+{
+ "2026-09-30": [
+  "tokyo-biennale-2027-social-dive",
+  "singapore-art-museum-residencies-cycle-4",
+  "world-summit-awards-2026-culture-heritage-learning-inclusion",
+  "columbia-ideas-imagination-paris-2027-28",
+  "artists-unlimited-bielefeld-2027",
+  "lighthouse-works-fellowship-2027",
+  "sxsw-2027-xr-experience",
+  "womentech-global-awards-2026",
+  "acm-chi-2027-call-for-meet-ups",
+  "acm-chi-2027-call-for-workshop-proposals"
+ ],
+ "2026-10-01": [
+  "artists-unlimited-bielefeld-2027",
+  "womentech-global-awards-2026",
+  "lighthouse-works-fellowship-2027",
+  "sxsw-2027-xr-experience",
+  "acm-chi-2027-call-for-meet-ups",
+  "acm-chi-2027-call-for-workshop-proposals"
+ ],
+ "2026-10-03": [
+  "uf-40-gators-under-40-class-of-2027",
+  "women-who-code-summit-2026"
+ ],
+ "2026-10-05": [
+  "uf-40-gators-under-40-class-of-2027",
+  "women-who-code-summit-2026",
+  "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
+  "millay-arts-core-2027"
+ ],
+ "2026-10-06": [
+  "women-who-code-summit-2026",
+  "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
+  "millay-arts-core-2027",
+  "djerassi-resident-artists-program-2027-incl-leonardo-djerassi",
+  "pxr2027-call-for-proposals"
+ ],
+ "2026-10-07": [
+  "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
+  "millay-arts-core-2027",
+  "djerassi-resident-artists-program-2027-incl-leonardo-djerassi",
+  "pxr2027-call-for-proposals"
+ ]
+}

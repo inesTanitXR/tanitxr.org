@@ -203,6 +203,9 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Société des arts technologiques [SAT] | linkedin.com/company/societe-des-arts-technologiques |
 | Creo (Sony Future Filmmaker Awards) | linkedin.com/company/creoartsgroup |
 | FilmGate Miami | linkedin.com/company/filmgate-miami |
+| Archaeological Institute of America | linkedin.com/company/archaeological-institute-of-america |
+| MIT Solve | linkedin.com/company/solvemit |
+| CPH:DOX | linkedin.com/company/cph-dox |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -311,3 +314,29 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 Open worldwide, any length, fiction or non-fiction, finished or near-finished immersive work. $35 regular, $50 late
 ✏️ Categories include VR project, AR project, immersive experience, interactive documentary, interactive installation, dome experience, public immersive installation, and new games and applications, plus a market and talks. Submissions need a budget estimate, technical rider and spatial requirements. Notification February 1, 2027.
 👉 https://filmfreeway.com/FilmgateInteractive
+
+<!-- 2026-10-07 edition 20 assembly: AIA, MIT Solve and CPH:DOX had sat in the plan for edition 20 since Sept 11 without a board entry or a block. Verified at the source Oct 7 and added. -->
+
+### 🏛 AIA Site Preservation Grant 2027
+
+📅 Deadline: November 1, 2026
+📍 Any archaeological site; remote application
+👥 Projects that preserve a site and involve the local community; no nationality limit stated. Free
+✏️ Up to $15,000 from the Archaeological Institute of America for conservation planning (including photographic and digital documentation), hands-on conservation, preventive measures and monitoring, training, and public outreach and education. Stronger applications show community involvement and a long-term maintenance plan. Awards announced by March 1, 2027.
+👉 https://www.archaeological.org/grant/site-preservation/
+
+### 🌍 MIT Solve 2027 Global Learning Challenge
+
+📅 Deadline: November 2, 2026, 12:00 pm EST (noon, not midnight)
+📍 Online, with four-day in-person events in Cambridge and New York for selected teams
+👥 Organisations and individuals anywhere, prototype stage or later. Free
+✏️ Tech-based education solutions. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and nine months of coaching and workshops (about 25 hours). This year's call wants tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment.
+👉 https://solve.mit.edu/challenges/2027-global-learning-challenge
+
+### 🎬 CPH:DOX 2027 INTER:ACTIVE
+
+📅 Deadline: November 3, 2026, all time zones, for works finished after September 1; preview links by November 25
+📍 Copenhagen, March 10 to 21, 2027
+👥 VR, AR, mixed-media and installation works that premiered after April 1, 2026. 150 DKK (about EUR 20) for interactive works; waiver on request for OECD DAC-list countries, which include Tunisia
+✏️ One of the largest documentary festivals, with an INTER:ACTIVE section for immersive and interactive work. Waiver requests go to submissions@cphdox.dk, up to two projects per company.
+👉 https://cphdox.dk/rules-and-regulations/

@@ -550,7 +550,7 @@
     "XR Creators",
     "Researchers"
    ],
-   "deadline_date": "November 3, 2026",
+   "deadline_date": "2026-11-03",
    "url": "https://ieeevr.org/2027/contribute/xrgallery/",
    "published": "2026-09-09",
    "desc": "IEEE VR's immersive-art exhibition (Melbourne, Feb 27 – Mar 3, 2027), themed “Sharing Realities: Immersive Experiences Across Boundaries.” Previously unexhibited works only; accepted artists get a free full conference registration and select works receive $500 awards. Underrepresented and Indigenous artists especially encouraged."
@@ -1058,13 +1058,12 @@
    "mode": "In-person",
    "region": "Africa",
    "eligibility": [
-    "Youth",
-    "Open to all"
+    "Youth"
    ],
    "deadline_date": "2026-10-31",
    "deadline_type": null,
    "url": "https://www.oneyoungworld.com/scholarship/leading-scholarship-2026",
-   "desc": "Full delegate access and meals at the One Young World Summit in Cape Town, November 3 to 6, 2026, for people aged 18 to 35 working on positive change; travel and accommodation are decided case by case and visa fees are the scholar's own. Free to apply, reviewed on a rolling basis until October 31, 2026, with priority for countries less represented at past summits.",
+   "desc": "Full delegate access and meals at the One Young World Summit in Cape Town, November 3 to 6, 2026, for people aged 18 to 35 working on positive change; travel and accommodation are decided case by case and visa fees are the scholar's own. Only nationals of the 53 countries listed on the page can apply (Tunisia and the United States are not on the list; Mauritania, Oman, Qatar, Chad, Niger and Djibouti are). Free to apply, reviewed on a rolling basis until October 31, 2026.",
    "published": "2026-09-24"
   },
   {
@@ -1572,6 +1571,52 @@
    "url": "https://filmfreeway.com/FilmgateInteractive",
    "published": "2026-10-06",
    "desc": "FilmGate Interactive 13 runs March 19 to 24, 2027 in Miami and Miami Beach across museums, public spaces and immersive venues. Categories include Virtual Reality Project, Augmented Reality Project, Immersive Experience, Interactive Documentary, Interactive Installation, Dome Experience, Public Immersive Installation and New Games and Applications, plus a market and talks. Open worldwide, any length, fiction or non-fiction; submissions need a budget estimate, technical rider and spatial requirements. Regular deadline December 20, 2026 ($35), late January 18, 2027 ($50); notification February 1, 2027."
+  },
+  {
+   "title": "AIA Site Preservation Grant 2027",
+   "type": "Grant",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Non-profits",
+    "Researchers"
+   ],
+   "deadline_date": "2026-11-01",
+   "deadline_type": null,
+   "url": "https://www.archaeological.org/grant/site-preservation/",
+   "published": "2026-10-07",
+   "desc": "Up to $15,000 from the Archaeological Institute of America for projects that preserve an archaeological site and involve the local community: conservation planning including photographic and digital documentation, physical conservation, preventive measures and monitoring, training, and public outreach and education. Applications close November 1, 2026; awards announced by March 1, 2027. No fee stated."
+  },
+  {
+   "title": "MIT Solve 2027 Global Learning Challenge",
+   "type": "Challenge",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "Non-profits",
+    "Educators",
+    "Open to all"
+   ],
+   "deadline_date": "2026-11-02",
+   "deadline_type": null,
+   "url": "https://solve.mit.edu/challenges/2027-global-learning-challenge",
+   "published": "2026-10-07",
+   "desc": "Tech-based education solutions at prototype stage or later, from organisations or individuals anywhere. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and a nine-month programme of coaching and workshops, with four-day in-person events in Cambridge and New York. The 2027 challenge looks for tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment. Deadline November 2, 2026, 12:00 pm EST. Free."
+  },
+  {
+   "title": "CPH:DOX 2027 INTER:ACTIVE, Interactive, VR and Installation Works",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-11-03",
+   "deadline_type": null,
+   "url": "https://cphdox.dk/rules-and-regulations/",
+   "published": "2026-10-07",
+   "desc": "Copenhagen's documentary festival (March 10 to 21, 2027) takes VR, AR, mixed-media and installation works that premiered after April 1, 2026. Deadline November 3, 2026 for works finished after September 1, all time zones; preview links by November 25. Entry fee 150 DKK (about EUR 20) for interactive works; creators from OECD DAC-list countries, which include Tunisia, can ask for a waiver by email, up to two projects per company."
   }
  ],
  "featured": {

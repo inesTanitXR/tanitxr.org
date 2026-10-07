@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-06",
+ "built": "2026-10-07",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -1914,11 +1914,10 @@
   {
    "slug": "one-young-world-summit-2026-leading-scholarship",
    "title": "One Young World Summit 2026, Leading Scholarship",
-   "desc": "Full delegate access and meals at the One Young World Summit in Cape Town, November 3 to 6, 2026, for people aged 18 to 35 working on positive change; travel and accommodation are decided case by case and visa fees are the scholar's own. Free to apply, reviewed on a rolling basis until October 31, 2026, with priority for countries less represented at past summits.",
+   "desc": "Full delegate access and meals at the One Young World Summit in Cape Town, November 3 to 6, 2026, for people aged 18 to 35 working on positive change; travel and accommodation are decided case by case and visa fees are the scholar's own. Only nationals of the 53 countries listed on the page can apply (Tunisia and the United States are not on the list; Mauritania, Oman, Qatar, Chad, Niger and Djibouti are). Free to apply, reviewed on a rolling basis until October 31, 2026.",
    "type": "Program",
    "eligibility": [
-    "Youth",
-    "Open to all"
+    "Youth"
    ],
    "region": "Africa",
    "country": "",
@@ -2465,6 +2464,55 @@
    "deadline_type": null,
    "deadline_date": "December 20, 2026",
    "url": "https://filmfreeway.com/FilmgateInteractive"
+  },
+  {
+   "slug": "aia-site-preservation-grant-2027",
+   "title": "AIA Site Preservation Grant 2027",
+   "desc": "Up to $15,000 from the Archaeological Institute of America for projects that preserve an archaeological site and involve the local community: conservation planning including photographic and digital documentation, physical conservation, preventive measures and monitoring, training, and public outreach and education. Applications close November 1, 2026; awards announced by March 1, 2027. No fee stated.",
+   "type": "Grant",
+   "eligibility": [
+    "Non-profits",
+    "Researchers"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "November 1, 2026",
+   "url": "https://www.archaeological.org/grant/site-preservation/"
+  },
+  {
+   "slug": "mit-solve-2027-global-learning-challenge",
+   "title": "MIT Solve 2027 Global Learning Challenge",
+   "desc": "Tech-based education solutions at prototype stage or later, from organisations or individuals anywhere. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and a nine-month programme of coaching and workshops, with four-day in-person events in Cambridge and New York. The 2027 challenge looks for tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment. Deadline November 2, 2026, 12:00 pm EST. Free.",
+   "type": "Challenge",
+   "eligibility": [
+    "Non-profits",
+    "Educators",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "November 2, 2026",
+   "url": "https://solve.mit.edu/challenges/2027-global-learning-challenge"
+  },
+  {
+   "slug": "cph-dox-2027-inter-active-interactive-vr-and-installation-wo",
+   "title": "CPH:DOX 2027 INTER:ACTIVE, Interactive, VR and Installation Works",
+   "desc": "Copenhagen's documentary festival (March 10 to 21, 2027) takes VR, AR, mixed-media and installation works that premiered after April 1, 2026. Deadline November 3, 2026 for works finished after September 1, all time zones; preview links by November 25. Entry fee 150 DKK (about EUR 20) for interactive works; creators from OECD DAC-list countries, which include Tunisia, can ask for a waiver by email, up to two projects per company.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "region": "Europe",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "November 3, 2026",
+   "url": "https://cphdox.dk/rules-and-regulations/"
   }
  ]
 }

@@ -95,8 +95,8 @@
     {
       "slug": "women-who-code-summit-2026",
       "deadline": "October 6, 2026",
-      "status": "reminded",
-      "reason": "You flagged this yourself. The Virtual Pass is free, and the speaker application is open with no published cut-off and a virtual-only speaking option, which serves the paid-speaking goal. Realistic note: the summit is October 6 to 8 and is 16 days away, so a speaking slot is a long shot; the free virtual pass is the certain part. In-person is $499 to $1,999. events.womenwhocode.com/2026/home"
+      "status": "skipped",
+      "reason": "You flagged this yourself. The Virtual Pass is free, and the speaker application is open with no published cut-off and a virtual-only speaking option, which serves the paid-speaking goal. Realistic note: the summit is October 6 to 8 and is 16 days away, so a speaking slot is a long shot; the free virtual pass is the certain part. In-person is $499 to $1,999. events.womenwhocode.com/2026/home (deadline passed, not applied, per the deadline alarm on 2026-10-07)"
     },
     {
       "slug": "acm-chi-2027-call-for-meet-ups",
@@ -209,8 +209,8 @@
     {
       "slug": "rolex-awards",
       "deadline": "October 17, 2026",
-      "status": "new",
-      "reason": "Historically CHF 200,000; cultural heritage is a category; any nationality, 18+. The Oct 17 date is UNVERIFIED (rolex.org blocked automated fetches): check the page by hand first.",
+      "status": "watch",
+      "reason": "Historically CHF 200,000; cultural heritage is a category; any nationality, 18+. The Oct 17 date is UNVERIFIED (rolex.org blocked automated fetches): check the page by hand first. Moved to watch on 2026-10-07: rolex.org still blocks automated reads (HTTP 403) and no open call was visible on Oct 5, so the Oct 17 date cannot stand as a deadline. Re-check by hand or wait for the next call.",
       "title": "Rolex Awards",
       "url": "https://www.rolex.org/rolex-awards",
       "added": "2026-09-27",
