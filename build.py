@@ -1126,6 +1126,7 @@ body.walk-fallback #scan-entry,body.demoing #scan-entry{display:none}
 .dcv-fact b{display:block;font-family:var(--serif);font-size:30px;line-height:1.05;color:#2e2118;margin-bottom:6px}
 .dcv-fact span{font-size:13.5px;line-height:1.4;color:#6d5a49}
 .dcv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.dcv-two{display:grid;gap:18px}
 .dcv-fig{margin:0}
 .dcv-fig img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 18px 44px rgba(40,26,14,.18)}
 .dcv-fig figcaption{font-size:12.5px;color:#8a735c;margin-top:10px}
@@ -7692,8 +7693,12 @@ with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once
 <p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
+<div class="dcv-two">
 <figure class="dcv-fig"><img src="{img('dc-laura-harrison-column.jpg', 1100)}" alt="Dr. Laura Harrison beside a Corinthian column above the bay of Tunis, August 2026" loading="lazy">
 <figcaption>Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('caroline1.png', 900)}" alt="Dr. Caroline Nickerson" loading="lazy">
+<figcaption>Dr. Caroline Nickerson</figcaption></figure>
+</div>
 </div>
 </div></section>
 
