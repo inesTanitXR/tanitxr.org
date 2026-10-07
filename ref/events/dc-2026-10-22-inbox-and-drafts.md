@@ -77,8 +77,7 @@ introduce them and Tanit XR and the volunteers who make it. There will be a few 
 afterwards. It is free, and open to Tunisians and friends of Tunisia alike.
 
 The one rule that comes with an embassy: seating is limited, entry is by guest list, and a seat
-is only confirmed once someone has filled in the form on the page. Nobody can be added at the
-door. Registration closes Friday, October 16. That applies to all of us too, so please register
+is only confirmed once someone has filled in the form on the page.  Registration closes Friday, October 16. That applies to all of us too, so please register
 yourselves as well.
 
 Could you share the link with your members this week? And would someone from TAYP like to say a
@@ -181,7 +180,7 @@ It is confirmed. The Embassy of Tunisia is hosting us on Thursday, October 22, 6
 Two things that follow from the venue. We have two hours rather than three, so I would like each
 of you to plan for about 13 to 15 minutes. And entry is by a guest list the Embassy needs by
 October 18, so anyone you would like to invite from your DC circles needs to register by Friday,
-October 16. No walk-ins, which is unusual for us.
+October 16. 
 
 The shape of the evening has shifted a little too. You two are the heart of it: your time in
 Tunisia, what you saw, who you worked with, what you brought back. I will open, introduce you
@@ -204,7 +203,7 @@ Ines
 
 ## Who to invite, and how to get the word out
 
-Twenty five seats and no walk-ins changes the job. This is not a broadcast. Personal invitations
+Twenty five seats by guest list changes the job. This is not a broadcast. Personal invitations
 fill a room this size faster than any post, and over-advertising creates disappointment at the
 door. Fill around fifteen seats by direct invitation first, then open the rest to the newsletter
 and LinkedIn.
@@ -212,7 +211,7 @@ and LinkedIn.
 **The line that goes in every single message, in these words or close to them:**
 
 > Seating is limited and entry is by guest list. Your seat is only confirmed once you have
-> registered at tanitxr.org/dc. We cannot add names at the door.
+> registered at tanitxr.org/dc.
 
 ### Invite directly
 

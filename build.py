@@ -7687,7 +7687,7 @@ def build_dc_evening():
 <p class="sec-sub" style="margin:0 0 18px">With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia
 with Tanit XR and TAYP. Entry is by guest list, so a seat is only confirmed once you have filled in this form.</p>
 {form}
-<p class="fhint">No walk-ins. Your confirmation and the details for the evening come by email.
+<p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <figure class="dcv-fig"><img src="{img('dc-parasol-columns.jpg', 1100)}" alt="Dr. Laura Harrison and Dr. Caroline Nickerson between Roman columns in Tunisia, August 2026" loading="lazy">
