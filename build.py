@@ -7642,12 +7642,20 @@ def build_dc_evening():
 <input type="hidden" name="_form" value="dc-rsvp">
 <input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <p class="hp" aria-hidden="true"><label>Leave this empty<input name="url" tabindex="-1" autocomplete="off"></label></p>
-<label for="dc-name">Full name <span>*</span></label>
+<label for="dc-name">Full name, as it appears on your government-issued photo ID <span>*</span></label>
 <input id="dc-name" name="name" required autocomplete="name">
-<label for="dc-email">Email <span>*</span></label>
+<label for="dc-email">Email address <span>*</span></label>
 <input id="dc-email" name="email" type="email" required autocomplete="email">
+<label for="dc-cit">Citizenship</label>
+<input id="dc-cit" name="citizenship" placeholder="Optional" autocomplete="country-name">
+<label for="dc-access">Do you need any accessibility accommodations?</label>
+<input id="dc-access" name="accessibility" placeholder="Optional">
+<label for="dc-q">Is there a question you would like the speakers to address?</label>
+<textarea id="dc-q" name="question" rows="2" placeholder="Optional"></textarea>
 <label for="dc-heard">How did you hear about this evening?</label>
 <input id="dc-heard" name="heard_via" placeholder="Optional">
+<label class="fcheck"><input type="checkbox" name="updates" value="yes"> I would like to receive updates from Tanit XR</label>
+<label class="fcheck"><input type="checkbox" name="photo_consent" value="yes" required> I understand photos and video may be taken at this event and used to share Tanit XR's work <span>*</span></label>
 <button type="submit" class="btn btn-gold">Save me a seat</button>
 <p id="dc-said" class="fm-err" hidden role="status"></p>
 <noscript><p class="fhint">This form needs JavaScript. Please email
