@@ -10,7 +10,7 @@ Data sources (scraped from the old WordPress site 2026-09-08):
   profiles/      , volunteer profile submissions (JSON), merged into Our People
 """
 import json
-import os
+import os, tempfile
 import posixpath
 import re
 import hashlib
@@ -201,6 +201,24 @@ def _already_made(url_or_name, max_px, as_jpeg):
     return None
 
 
+def _upright(src):
+    """The photo with its EXIF rotation applied to the pixels, or the photo itself when it
+    needs none. Uses the system Python, which has Pillow; the build's own may not."""
+    if not src.lower().endswith((".jpg", ".jpeg", ".png")):
+        return src
+    code = ("import sys\nfrom PIL import Image, ImageOps\n"
+            "im=Image.open(sys.argv[1]); o=im.getexif().get(274,1)\n"
+            "if o==1: sys.exit(3)\n"
+            "ImageOps.exif_transpose(im).save(sys.argv[2], quality=95)\n")
+    tmp = os.path.join(tempfile.gettempdir(), "tanitxr-upright-" + os.path.basename(src))
+    r = subprocess.run(["/usr/bin/python3", "-c", code, src, tmp], capture_output=True, text=True)
+    if r.returncode == 0 and os.path.exists(tmp):
+        return tmp
+    if r.returncode not in (0, 3):
+        print(f"  !! could not read the rotation of {os.path.basename(src)}: {r.stderr.strip()[-100:]}")
+    return src
+
+
 def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
     """Process an image into docs/assets/img, return relative site path.
 
@@ -236,6 +254,9 @@ def img(url_or_name, max_px=1600, as_jpeg=None, quality=72):
     out_path = os.path.join(IMG_OUT, out_name)
     rel = f"assets/img/{out_name}"
     if not os.path.exists(out_path):
+        # Laura, Oct 2026: phone photos carry their rotation as a tag, and cwebp neither turns
+        # the pixels nor keeps the tag, so portraits came out on their side. Turn them first.
+        src = _upright(src)
         if ext == ".svg":
             shutil.copy(src, out_path)
         elif webp:

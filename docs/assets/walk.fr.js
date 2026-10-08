@@ -156,8 +156,11 @@ function start() {
         fit.rotation.set((r[0] || 0) * Math.PI / 180, (r[1] || 0) * Math.PI / 180,
                          (r[2] || 0) * Math.PI / 180);
       } else if (size.y < 0.08 * Math.max(size.x, size.z)) {   // only truly flat: mosaics, rugs, slabs
-        // a mosaic, rug or slab scanned lying flat: stand it up so its face looks at you
+        // a mosaic, rug or slab scanned lying flat: stand it up so its face looks at you.
+        // Ines: stood up this way both mosaics hung upside down, birds and rabbit on their
+        // heads, so it is then turned a half circle in the picture plane.
         fit.rotation.x = -Math.PI / 2;
+        fit.rotateOnWorldAxis(new THREE.Vector3(0, 0, 1), Math.PI);
         s.stood = true;
       }
       // the real fitted extent, after any turn, so a piece can stand exactly on a plinth
@@ -2831,7 +2834,13 @@ function start() {
     }
   } else if (wanted) {
     const i = slots.findIndex(x => x.it.slug === wanted);
-    if (i >= 0 && sections[i]) scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+    if (i >= 0 && sections[i]) {
+      // straight to it: the eased cursor used to walk through every object on the way,
+      // naming each in the address bar and counting a view for each
+      target = cursor = i;
+      scrollTo({ top: midOf(sections[i]), behavior: 'instant' });
+      readScroll();
+    }
   }
   paintTray();
 
