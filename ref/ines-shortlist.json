@@ -199,10 +199,10 @@
     {
       "slug": "smithsonian-artist-research-fellowship-2027",
       "deadline": "October 15, 2026",
-      "status": "reminded",
-      "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week.",
+      "status": "drafting",
+      "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week. Verified 2026-10-08 on the official page: nomination by Oct 15, 11:59 pm ET; application Jan 28, 2027, 4:59 pm ET; one month, $5,000. Nomination email draft: ref/applications/smithsonian-artist-research-fellowship-2027.md.",
       "title": "Smithsonian Artist Research Fellowship (SARF) 2027 — NOMINATION",
-      "url": "https://fellowships.si.edu/fellowship-programs",
+      "url": "https://fellowships.si.edu/opportunity/smithsonian-artist-research-fellowship-sarf",
       "added": "2026-09-27",
       "source": "chat research session"
     },
@@ -329,7 +329,7 @@
     {
       "slug": "schlossmediale-2027",
       "deadline": "October 18, 2026",
-      "status": "new",
+      "status": "reminded",
       "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). BEST EUROPE FIT. May 17 to Jun 27, 2027: housing, CHF 4,000 grant, CHF 1,000 travel/meals, up to CHF 1,000 materials. AR/immersive work in a medieval castle; 2027 theme KLATSCH (rumour). Solo only; castle tours/talks expected. Apply via werdenberg.openolat.com/position/1409025. Also pending in the sweep suggestions.",
       "title": "Schlossmediale 2027 residency (Werdenberg Castle, Switzerland)",
       "url": "https://schlossmediale.ch/festival-schlossmediale/ausstellung/open-call-2027-en",
@@ -459,8 +459,8 @@
     {
       "slug": "remix-the-future-2026-play-attention-asu-mix-center-spatial-",
       "deadline": "October 7, 2026",
-      "status": "reminded",
-      "reason": "Free four-day spatial design jam at ASU's MIX Center in Mesa, Arizona, October 15 to 18, in a four-storey 360° projection studio with 55-channel spatial audio; immersive-experience and XR design tracks fit your practice. Participant applications close October 7 (verified September 30 on tech.asu.edu/remixthefuture; invitations roll, so earlier is better). Travel to Arizona is yours.",
+      "status": "skipped",
+      "reason": "Free four-day spatial design jam at ASU's MIX Center in Mesa, Arizona, October 15 to 18, in a four-storey 360° projection studio with 55-channel spatial audio; immersive-experience and XR design tracks fit your practice. Participant applications close October 7 (verified September 30 on tech.asu.edu/remixthefuture; invitations roll, so earlier is better). Travel to Arizona is yours. (deadline passed, not applied, per the deadline alarm on 2026-10-08)",
       "added": "2026-09-30",
       "source": "weekly board check"
     },
