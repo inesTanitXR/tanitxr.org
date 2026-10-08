@@ -2091,6 +2091,97 @@ FR = {
     'Tap': 'Appuyez sur',
     'and': 'et',
     'tap': 'appuyez sur',
+
+    # ---- added 2026-10-08: pages that were still English ----
+    'have been at the centre of\nTanit XR: leading its scientific programme, building partnerships with universities and institutions,\nrunning hackathons and workshops, and travelling to Tunisia this summer to work alongside Tunisian\ncolleagues at the sites themselves. They will talk about that year, what they saw, and where it goes next.\nInes Said, who founded Tanit XR, opens the evening with the story of why a Tunisian developer started\nscanning Carthage with a phone, and shows the collection live.':
+        'ont été au cœur de\nTanit XR : elles ont dirigé son programme scientifique, noué des partenariats avec des universités et des institutions,\nanimé des hackathons et des ateliers, et se sont rendues en Tunisie cet été pour travailler aux côtés de collègues\ntunisiens, sur les sites mêmes. Elles parleront de cette année, de ce qu’elles ont vu et de la suite.\nInes Said, fondatrice de Tanit XR, ouvre la soirée en racontant pourquoi une développeuse tunisienne a commencé\nà numériser Carthage avec un téléphone, et présente la collection en direct.',
+    "An archaeologist who specialises in digital documentation, from lidar and photogrammetry to immersive\ntechnology, she was the founding director of the Access 3D Lab at the University of South Florida, with\nmuseum experience at institutions like the Smithsonian and the New York State Museum. She is the author\nof two books on archaeology and digital heritage, Associate Editor of the journal Studies in Digital\nHeritage, and a Commissioner on the City of Tampa's Historic Preservation Board.":
+        'Archéologue spécialiste de la documentation numérique, du lidar et de la photogrammétrie aux technologies\nimmersives, elle a été la directrice fondatrice de l’Access 3D Lab à l’University of South Florida, et a travaillé\ndans des musées comme le Smithsonian et le &#78;ew York State Museum. Elle est l’autrice\nde deux livres sur l’archéologie et le patrimoine numérique, rédactrice associée de la revue Studies in Digital\nHeritage, et membre de la commission de préservation du patrimoine historique de la ville de Tampa.',
+    'Tanit XR is run by volunteers in many countries, most of whom had no connection to Tunisia when they\njoined. They meet every week, study Tunisian history together, and several have since travelled to\nTunisia or now speak about its heritage in their own cities. That exchange, with technology as the\nbridge, is what the evening is about. Tunisians and friends of Tunisia equally welcome; students very\nwelcome; no technical background needed.':
+        'Tanit XR est porté par des bénévoles de nombreux pays, dont la plupart n’avaient aucun lien avec la Tunisie\nà leur arrivée. Ils se réunissent chaque semaine, étudient ensemble l’histoire tunisienne, et plusieurs sont depuis allés\nen Tunisie ou parlent aujourd’hui de son patrimoine dans leur propre ville. Cet échange, avec la technologie comme\npasserelle, est le cœur de la soirée. Tunisiens et amis de la Tunisie sont les bienvenus au même titre ; les étudiants tout particulièrement ;\naucune connaissance technique n’est nécessaire.',
+    "Executive Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit\nXR's fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen\nscience, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a PhD in\nAgricultural Education and Communication from the University of Florida and a Master of Public Policy\nfrom American University.":
+        'Directrice exécutive et cofondatrice de Florida &#67;ommunity Innovation, l’organisation à but non lucratif qui assure le parrainage fiscal\nde Tanit XR. Son travail réunit engagement civique, technologie d’intérêt public et science\nparticipative, notamment avec SciStarter, CitSci et le projet EMERGE financé par la NASA. Elle est titulaire d’un doctorat\nen éducation et communication agricoles de l’University of Florida et d’un Master of Public Policy\nde l’American University.',
+    "A Tunisian XR artist and developer from Nabeul. Her work has been shown in the Smithsonian's FUTURES\nexhibition, she is a 2026 Auggie Awards finalist, one of NAAEE's 30 Under 30, and a speaker at AWE. She\nfounded Tanit XR to put Tunisia's heritage in the hands of anyone, anywhere, and built the volunteer\ncommunity that now does it. She opens the evening and shows the collection live.":
+        'Artiste et développeuse XR tunisienne, originaire de Nabeul. Son travail a été présenté dans l’exposition FUTURES\ndu Smithsonian ; elle est finaliste des Auggie Awards 2026, l’une des 30 Under 30 de la NAAEE et intervenante à AWE. Elle\na fondé Tanit XR pour mettre le patrimoine tunisien entre les mains de tous, partout, et a bâti la communauté\nde bénévoles qui le fait aujourd’hui. Elle ouvre la soirée et présente la collection en direct.',
+    'Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it\ncaptured on ordinary phones by trained volunteers, and brings the results to anyone in the world through\na browser, a headset or a virtual museum. The collection is already open at':
+        'Tanit XR documente le patrimoine tunisien par photogrammétrie, lidar et Gaussian splatting, souvent\nà l’aide de simples téléphones, par des bénévoles formés, et met les résultats à la portée de tous, partout dans le monde,\ndans un navigateur, un casque ou un musée virtuel. La collection est déjà ouverte sur',
+    'Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
+        'Jeudi 22 octobre 2026, de 18 h à 20 h, à l’Ambassade de Tunisie à Washington, DC, avec Tanit XR et TAYP. Dr Laura Harrison et Dr Caroline Nickerson sur leur séjour en Tunisie, et Ines Said, fondatrice de Tanit XR. Gratuit, places limitées, inscription avant le 16 octobre.',
+    'With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
+        'Avec Dr Laura Harrison et Dr Caroline Nickerson, accueillie par l’Ambassade de Tunisie\navec Tanit XR et TAYP. Les places sont limitées, merci de vous inscrire ci-dessous.',
+    'Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
+        'Affiche de la soirée : Tunisie et Amérique, apprendre ensemble. Jeudi 22 octobre, de 18 h à 20 h (heure de l’Est), Washington, DC. Gratuit, inscription avant le 16 octobre sur tanitxr.org/dc',
+    'Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026':
+        'Dr Caroline Nickerson et Dr Laura Harrison sur un site en Tunisie, août 2026',
+    'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026':
+        'Dr Laura Harrison, Ines Said et Dr Caroline Nickerson dans un musée en Tunisie, août 2026',
+    "I understand photos and video may be taken at this event and used to share Tanit XR's work":
+        'Je comprends que des photos et des vidéos peuvent être prises pendant la soirée et utilisées pour faire connaître le travail de Tanit XR',
+    ', and VR headsets will be in the room for anyone who\nwould like to stand inside it.':
+        ', et des casques de réalité virtuelle seront sur place pour celles et ceux qui\nvoudraient y entrer.',
+    'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in Tunisia, August 2026':
+        'Dr Laura Harrison, Ines Said et Dr Caroline Nickerson en Tunisie, août 2026',
+    'Your confirmation and the details for the evening come by email.\nQuestions:':
+        'Votre confirmation et les détails de la soirée arrivent par e-mail.\nQuestions :',
+    'Tunisia &amp; America, Learning Together: an evening at the Embassy of Tunisia':
+        'Tunisie et Amérique, apprendre ensemble : une soirée à l’Ambassade de Tunisie',
+    "An evening on Tunisia's heritage, and the technology now protecting it":
+        'Une soirée sur le patrimoine tunisien et la technologie qui le protège aujourd’hui',
+    'The sign of Tanit, set into a floor. The symbol Tanit XR is named for.':
+        'Le signe de Tanit, incrusté dans un sol. Le symbole qui a donné son nom à Tanit XR.',
+    'Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026':
+        'Dr Caroline Nickerson et Dr Laura Harrison en Tunisie, août 2026',
+    'Full name, as it appears on your government-issued photo ID':
+        'Nom complet, tel qu’il figure sur votre pièce d’identité officielle avec photo',
+    'Is there a question you would like the speakers to address?':
+        'Y a-t-il une question que vous aimeriez poser aux intervenantes ?',
+    'The flyer. Tap to open it full size, then save or share it.':
+        'L’affiche. Appuyez pour l’ouvrir en grand, puis l’enregistrer ou la partager.',
+    'An evening in Washington, DC, Thursday 22 October 2026':
+        'Une soirée à Washington, DC, jeudi 22 octobre 2026',
+    'Tunisia &amp; America, Learning Together – TANIT XR':
+        'Tunisie et Amérique, apprendre ensemble – TANIT XR',
+    'Tunisia &amp; America, Learning Together – Tanit XR':
+        'Tunisie et Amérique, apprendre ensemble – Tanit XR',
+    'A year of work, told by the people who did it':
+        'Une année de travail, racontée par celles qui l’ont faite',
+    'Do you need any accessibility accommodations?':
+        'Avez-vous besoin d’aménagements d’accessibilité ?',
+    'I would like to receive updates from Tanit XR':
+        'Je souhaite recevoir les nouvelles de Tanit XR',
+    'The sign of Tanit set into a mosaic floor':
+        'Le signe de Tanit incrusté dans un sol en mosaïque',
+    'This form needs JavaScript. Please email': 'Ce formulaire nécessite JavaScript. Écrivez à',
+    '22 Oct: an evening in Washington, DC': '22 oct. : une soirée à Washington, DC',
+    'How did you hear about this evening?': 'Comment avez-vous entendu parler de cette soirée ?',
+    'Partnerships and Community, Tanit XR': 'Partenariats et communauté, Tanit XR',
+    'Three things you will come away with': 'Ce que vous en retiendrez',
+    'Tunisia &amp; America, Learning Together': 'Tunisie et Amérique, apprendre ensemble',
+    'placeholder="Optional"': 'placeholder="Facultatif"',
+    'Culture travelling both ways': 'Une culture qui voyage dans les deux sens',
+    'Sign up by Friday 16 October': 'Inscription avant le vendredi 16 octobre',
+    'Chief Scientist, Tanit XR': 'Responsable scientifique, Tanit XR',
+    'The technology, up close': 'La technologie, de près',
+    '<small>Location</small>': '<small>Lieu</small>',
+    '>Citizenship</label>': '>Nationalité</label>',
+    '<small>Cost</small>': '<small>Prix</small>',
+    '<small>Time</small>': '<small>Heure</small>',
+    '<small>When</small>': '<small>Quand</small>',
+    'Over the past year,': 'Au cours de l’année écoulée,',
+    'Thursday 22 October': 'Jeudi 22 octobre',
+    'Embassy of Tunisia': 'Ambassade de Tunisie',
+    'to reserve a seat.': 'pour réserver une place.',
+    'Doors open at 6pm': 'Ouverture des portes à 18 h',
+    'Founder, Tanit XR': 'Fondatrice, Tanit XR',
+    'Who you will hear': 'Qui vous entendrez',
+    'Leave this empty': 'Laisser vide',
+    'Limited seating': 'Places limitées',
+    'Save me a seat': 'Réservez-moi une place',
+    'Email address': 'Adresse e-mail',
+    'The speakers': 'Les intervenantes',
+    '<b>Free</b>': '<b>Gratuit</b>',
+    'The evening': 'La soirée',
+    '6pm to 8pm': '18 h à 20 h',
 }
 
 
@@ -4172,4 +4263,90 @@ AR = {
     'Tap': 'اضغطوا على',
     'and': 'و',
     'tap': 'اضغطوا على',
+
+    # ---- added 2026-10-08: pages that were still English ----
+    'have been at the centre of\nTanit XR: leading its scientific programme, building partnerships with universities and institutions,\nrunning hackathons and workshops, and travelling to Tunisia this summer to work alongside Tunisian\ncolleagues at the sites themselves. They will talk about that year, what they saw, and where it goes next.\nInes Said, who founded Tanit XR, opens the evening with the story of why a Tunisian developer started\nscanning Carthage with a phone, and shows the collection live.':
+        'كانتا في قلب\nTanit XR: قادتا برنامجه العلمي، وبنتا شراكات مع جامعات ومؤسسات،\nونظّمتا هاكاثونات وورشات عمل، وسافرتا إلى تونس هذا الصيف للعمل إلى جانب زملاء\nتونسيين في المواقع نفسها. ستتحدثان عن ذلك العام، وعمّا رأتاه، وإلى أين يمضي العمل.\nتفتتح Ines Said، مؤسِّسة Tanit XR، الأمسية بقصة مطوّرة تونسية بدأت\nمسح قرطاج بهاتف، وتعرض المجموعة مباشرة.',
+    "An archaeologist who specialises in digital documentation, from lidar and photogrammetry to immersive\ntechnology, she was the founding director of the Access 3D Lab at the University of South Florida, with\nmuseum experience at institutions like the Smithsonian and the New York State Museum. She is the author\nof two books on archaeology and digital heritage, Associate Editor of the journal Studies in Digital\nHeritage, and a Commissioner on the City of Tampa's Historic Preservation Board.":
+        'عالمة آثار متخصصة في التوثيق الرقمي، من الليدار والمسح التصويري إلى التكنولوجيا\nالغامرة. كانت المديرة المؤسِّسة لمختبر Access 3D Lab في University of South Florida، ولها\nخبرة متحفية في مؤسسات مثل Smithsonian و&#78;ew York State Museum. ألّفت\nكتابين عن علم الآثار والتراث الرقمي، وهي محررة مشاركة في مجلة Studies in Digital\nHeritage، وعضو في هيئة الحفاظ على التراث التاريخي بمدينة تامبا.',
+    'Tanit XR is run by volunteers in many countries, most of whom had no connection to Tunisia when they\njoined. They meet every week, study Tunisian history together, and several have since travelled to\nTunisia or now speak about its heritage in their own cities. That exchange, with technology as the\nbridge, is what the evening is about. Tunisians and friends of Tunisia equally welcome; students very\nwelcome; no technical background needed.':
+        'يدير Tanit XR متطوعون من بلدان كثيرة، لم تكن لمعظمهم أي صلة بتونس حين\nانضموا. يجتمعون كل أسبوع ويدرسون التاريخ التونسي معًا، وقد سافر عدد منهم منذ ذلك الحين إلى\nتونس أو صاروا يتحدثون عن تراثها في مدنهم. هذا التبادل، والتكنولوجيا جسره،\nهو موضوع الأمسية. التونسيون وأصدقاء تونس مرحَّب بهم على حد سواء، والطلبة مرحَّب بهم\nبشكل خاص، ولا حاجة إلى أي خلفية تقنية.',
+    "Executive Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit\nXR's fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen\nscience, including roles with SciStarter, CitSci and the NASA-funded EMERGE project. She holds a PhD in\nAgricultural Education and Communication from the University of Florida and a Master of Public Policy\nfrom American University.":
+        'المديرة التنفيذية والمؤسِّسة المشاركة لمنظمة Florida &#67;ommunity Innovation غير الربحية، الراعي المالي\nلـTanit XR. يجمع عملها بين المشاركة المدنية وتكنولوجيا المصلحة العامة والعلوم\nالتشاركية، ومن ذلك أدوار مع SciStarter وCitSci ومشروع EMERGE الممول من NASA. تحمل دكتوراه في\nالتعليم والاتصال الزراعي من University of Florida وماجستير في السياسات العامة\nمن American University.',
+    "A Tunisian XR artist and developer from Nabeul. Her work has been shown in the Smithsonian's FUTURES\nexhibition, she is a 2026 Auggie Awards finalist, one of NAAEE's 30 Under 30, and a speaker at AWE. She\nfounded Tanit XR to put Tunisia's heritage in the hands of anyone, anywhere, and built the volunteer\ncommunity that now does it. She opens the evening and shows the collection live.":
+        'فنانة ومطوّرة تونسية في الواقع الممتد من نابل. عُرض عملها في معرض FUTURES\nفي Smithsonian، وهي من المتأهلات إلى نهائيات Auggie Awards 2026، وضمن قائمة 30 Under 30 لـNAAEE، ومتحدثة في AWE.\nأسّست Tanit XR لتضع تراث تونس بين أيدي الجميع، في كل مكان، وبنت مجتمع المتطوعين\nالذي يقوم بذلك اليوم. تفتتح الأمسية وتعرض المجموعة مباشرة.',
+    'Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it\ncaptured on ordinary phones by trained volunteers, and brings the results to anyone in the world through\na browser, a headset or a virtual museum. The collection is already open at':
+        'يوثّق Tanit XR التراث التونسي بالمسح التصويري والليدار وتقنية Gaussian splatting، ويُلتقط معظمه\nبهواتف عادية على أيدي متطوعين مدرَّبين، ثم يضع النتائج في متناول أي شخص في العالم عبر\nالمتصفح أو نظارة الواقع الافتراضي أو متحف افتراضي. المجموعة متاحة بالفعل على',
+    'Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
+        'الخميس 22 أكتوبر 2026، من 6 إلى 8 مساءً، باستضافة سفارة تونس في واشنطن العاصمة، مع Tanit XR وTAYP. الدكتورة Laura Harrison والدكتورة Caroline Nickerson تتحدثان عن تجربتهما في تونس، وInes Said، مؤسِّسة Tanit XR. مجانًا، المقاعد محدودة، التسجيل قبل 16 أكتوبر.',
+    'With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
+        'مع الدكتورة Laura Harrison والدكتورة Caroline Nickerson، باستضافة سفارة تونس\nمع Tanit XR وTAYP. المقاعد محدودة، لذا يرجى التسجيل أدناه.',
+    'Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
+        'ملصق الأمسية: تونس وأمريكا، نتعلّم معًا. الخميس 22 أكتوبر، من 6 إلى 8 مساءً بتوقيت شرق الولايات المتحدة، واشنطن العاصمة. مجانًا، التسجيل قبل 16 أكتوبر على tanitxr.org/dc',
+    'Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026':
+        'الدكتورة Caroline Nickerson والدكتورة Laura Harrison في أحد المواقع في تونس، أغسطس 2026',
+    'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026':
+        'الدكتورة Laura Harrison وInes Said والدكتورة Caroline Nickerson في أحد المتاحف في تونس، أغسطس 2026',
+    "I understand photos and video may be taken at this event and used to share Tanit XR's work":
+        'أفهم أنه قد تُلتقط صور ومقاطع فيديو خلال هذه الأمسية وتُستخدم للتعريف بعمل Tanit XR',
+    ', and VR headsets will be in the room for anyone who\nwould like to stand inside it.':
+        '، وستكون نظارات الواقع الافتراضي في القاعة لمن\nيرغب في الدخول إليها.',
+    'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in Tunisia, August 2026':
+        'الدكتورة Laura Harrison وInes Said والدكتورة Caroline Nickerson في تونس، أغسطس 2026',
+    'Your confirmation and the details for the evening come by email.\nQuestions:':
+        'يصلكم التأكيد وتفاصيل الأمسية عبر البريد الإلكتروني.\nللأسئلة:',
+    'Tunisia &amp; America, Learning Together: an evening at the Embassy of Tunisia':
+        'تونس وأمريكا، نتعلّم معًا: أمسية في سفارة تونس',
+    "An evening on Tunisia's heritage, and the technology now protecting it":
+        'أمسية عن تراث تونس والتكنولوجيا التي تحميه اليوم',
+    'The sign of Tanit, set into a floor. The symbol Tanit XR is named for.':
+        'علامة تانيت مرصّعة في أرضية. الرمز الذي سُمّي به Tanit XR.',
+    'Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026':
+        'الدكتورة Caroline Nickerson والدكتورة Laura Harrison في تونس، أغسطس 2026',
+    'Full name, as it appears on your government-issued photo ID':
+        'الاسم الكامل كما يظهر في بطاقة الهوية الرسمية المصوّرة',
+    'Is there a question you would like the speakers to address?':
+        'هل لديكم سؤال تودّون أن تجيب عنه المتحدثات؟',
+    'The flyer. Tap to open it full size, then save or share it.':
+        'الملصق. اضغطوا لفتحه بالحجم الكامل، ثم احفظوه أو شاركوه.',
+    'An evening in Washington, DC, Thursday 22 October 2026':
+        'أمسية في واشنطن العاصمة، الخميس 22 أكتوبر 2026',
+    'Tunisia &amp; America, Learning Together – TANIT XR': 'تونس وأمريكا، نتعلّم معًا – TANIT XR',
+    'Tunisia &amp; America, Learning Together – Tanit XR': 'تونس وأمريكا، نتعلّم معًا – Tanit XR',
+    'A year of work, told by the people who did it': 'عام من العمل، ترويه من أنجزنه',
+    'Do you need any accessibility accommodations?':
+        'هل تحتاجون إلى أي تسهيلات خاصة بإمكانية الوصول؟',
+    'I would like to receive updates from Tanit XR': 'أرغب في تلقي أخبار Tanit XR',
+    'The sign of Tanit set into a mosaic floor': 'علامة تانيت مرصّعة في أرضية من الفسيفساء',
+    'This form needs JavaScript. Please email': 'يحتاج هذا النموذج إلى JavaScript. يرجى مراسلة',
+    '22 Oct: an evening in Washington, DC': '22 أكتوبر: أمسية في واشنطن العاصمة',
+    'How did you hear about this evening?': 'كيف سمعتم بهذه الأمسية؟',
+    'Partnerships and Community, Tanit XR': 'الشراكات والمجتمع، Tanit XR',
+    'Three things you will come away with': 'ثلاثة أشياء ستخرجون بها',
+    'Tunisia &amp; America, Learning Together': 'تونس وأمريكا، نتعلّم معًا',
+    'placeholder="Optional"': 'placeholder="اختياري"',
+    'Culture travelling both ways': 'ثقافة تسافر في الاتجاهين',
+    'Sign up by Friday 16 October': 'سجّلوا قبل الجمعة 16 أكتوبر',
+    'Chief Scientist, Tanit XR': 'المسؤولة العلمية، Tanit XR',
+    'The technology, up close': 'التكنولوجيا عن قرب',
+    '<small>Location</small>': '<small>المكان</small>',
+    '>Citizenship</label>': '>الجنسية</label>',
+    '<small>Cost</small>': '<small>التكلفة</small>',
+    '<small>Time</small>': '<small>الساعة</small>',
+    '<small>When</small>': '<small>متى</small>',
+    'Over the past year,': 'خلال العام الماضي،',
+    'Thursday 22 October': 'الخميس 22 أكتوبر',
+    'Embassy of Tunisia': 'سفارة تونس',
+    'to reserve a seat.': 'لحجز مقعد.',
+    'Doors open at 6pm': 'تُفتح الأبواب على الساعة 6 مساءً',
+    'Founder, Tanit XR': 'المؤسِّسة، Tanit XR',
+    'Who you will hear': 'من ستستمعون إليهن',
+    'Leave this empty': 'اتركوا هذا الحقل فارغًا',
+    'Limited seating': 'المقاعد محدودة',
+    'Save me a seat': 'احجزوا لي مقعدًا',
+    'Email address': 'البريد الإلكتروني',
+    'The speakers': 'المتحدثات',
+    '<b>Free</b>': '<b>مجانًا</b>',
+    'The evening': 'الأمسية',
+    '6pm to 8pm': 'من 6 إلى 8 مساءً',
 }

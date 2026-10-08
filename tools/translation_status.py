@@ -30,7 +30,7 @@ DOCS = os.path.join(HERE, "docs")
 PAGES = ["", "opportunities/", "explore/", "partners/", "volunteer/", "community/", "support/",
          "contact/", "archive/", "news/", "team/", "museum/", "galleries/", "create-profile/",
          "scanning-guide/", "splats-with-phones/", "press/", "unique-mappers/",
-         "el-jem-conference/", "immersegt-2026/", "privacy/", "thank-you/", "about/"]
+         "el-jem-conference/", "immersegt-2026/", "privacy/", "thank-you/", "about/", "dc/"]
 
 
 def visible(path):
