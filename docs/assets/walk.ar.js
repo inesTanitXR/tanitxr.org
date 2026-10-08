@@ -165,6 +165,15 @@ function start() {
       const fb = new THREE.Box3().setFromObject(fit);
       s.fitH = fb.max.y - fb.min.y;
       s.fitMin = fb.min.y;
+      // Ines: a phone only turns things sideways now, so a bowl, a basin or a row of low
+      // stelae would never show its top. Anything wider than it is tall starts tipped a
+      // little towards you there, the flatter the more, up to about 35 degrees; a statue or
+      // a column stands straight. A "tilt" in degrees on the object overrides the guess.
+      const wide = Math.max(fb.max.x - fb.min.x, fb.max.z - fb.min.z, 0.001);
+      const ratio = s.fitH / wide;
+      s.tilt = s.it.tilt !== undefined ? s.it.tilt * Math.PI / 180
+             : (s.stood || ratio >= 0.8) ? 0 : clamp((1 - ratio) * 0.65, 0, 0.6);
+      if (onPhone() && !roomMode) s.pivot.rotation.x = s.tilt;
       o.traverse(n => {
         if (!n.isMesh || !n.material) return;
         // scans are exported unlit with light baked into the texture; relighting them
@@ -343,7 +352,37 @@ function start() {
     hushNura();
   }
   if (closeBtn) closeBtn.addEventListener('click', () => { closeBubble(); if (typeof tourStep !== 'undefined' && tourStep >= 0 && !tourWait) tourDone(); });
-  if (dot) dot.addEventListener('click', openBubble);
+  // Ilano, on phones: a bubble Nura opens by herself is too much on a small screen. There
+  // she holds it, a "!" appears beside her, and it opens when you tap it. Anything you ask
+  // for yourself, by tapping her or an object, still opens at once. Moving on to another
+  // object drops what she was holding; it was about the moment, not the object.
+  let pendingSay = null, quietCount = 0, quietCloser = 0;
+  const openedAt = Date.now();
+  const onPhone = () => matchMedia('(max-width:760px)').matches;
+  function quietly(open) {
+    if (!onPhone() || !dot) { open(); return; }
+    // and not more than three of these in the first minute: after that she only has
+    // something when you come to her
+    if (Date.now() - openedAt < 60000 && ++quietCount > 3) return;
+    pendingSay = open;
+    dot.classList.add('in', 'ask');
+  }
+  function dropPending() { pendingSay = null; if (dot) dot.classList.remove('ask'); }
+  if (dot) dot.addEventListener('click', () => {
+    if (pendingSay) {
+      const f = pendingSay; dropPending(); f();
+      // what she was holding closes by itself; the X is a small target on a phone
+      clearTimeout(quietCloser);
+      const said = bubbleText ? bubbleText.textContent : '';
+      quietCloser = setTimeout(() => { if (bubbleOpen && bubbleText && bubbleText.textContent === said) closeBubble(); }, 9000);
+      return;
+    }
+    openBubble();
+  });
+  // the first thing you do here, a turn or a move to another object, is what some of her
+  // lines wait for on a phone: nothing lands while you are still just looking
+  let onFirstAct = null;
+  const firstAct = () => { if (onFirstAct) { const f = onFirstAct; onFirstAct = null; f(); } };
   if (moreBtn) moreBtn.addEventListener('click', () => {
     if (moreBtn.dataset.offer === '1') {          // she offered the demo, you said yes
       moreBtn.dataset.offer = '';
@@ -568,6 +607,7 @@ function start() {
     moved += Math.abs(e.clientX - lastX);
     if (moved > 24 && !turned) {
       turned = true;
+      firstAct();
       if (window.tx) tx('collection_rotate');
       bump(p => { p.rotated++; });
       maybeOfferDemo();
@@ -587,6 +627,9 @@ function start() {
     // a vertical swipe on the object is one swipe, one object: up for the next, down for the
     // one before. Scrolling it by hand had no momentum, so the snap pulled it straight back.
     if (dragging && claimed && axis === 'y' && Math.abs(lastY - downY) > 60) {
+      // Ines: leaving a place by swiping was a struggle. Step out first, in the same gesture,
+      // rather than leaving it to the scroll that follows.
+      if (inside) stepOutside();
       jump(lastY < downY ? 1 : -1);
     }
     claimed = false;
@@ -689,13 +732,22 @@ function start() {
     const wasShown = shown;
     shown = i;
     const it = s.it;
-    if (wasShown >= 0) sfx('whoosh');
+    if (wasShown >= 0) { sfx('whoosh'); dropPending(); firstAct(); }
 
     if (uiTitle) uiTitle.textContent = it.title;
     if (uiId) uiId.textContent = [it.place, it.size].filter(Boolean).join(' \u00b7 ');
     if (uiRecord) uiRecord.href = linkUrl(it.href || 'archive.html');
     const by = document.getElementById('wf-by');
-    if (by) by.innerHTML = creditHtml(it.credit || '');
+    if (by) {
+      by.innerHTML = creditHtml(it.credit || '');
+      // on a phone the volunteer's card is folded into their line: a small photo that opens
+      // their room, instead of a card sliding over the object
+      const p = it.person;
+      if (p && p.photo && onPhone()) {
+        by.insertAdjacentHTML('afterbegin', '<button type="button" class="wf-ava" data-who="'
+          + escHtml(p.name) + '" aria-label="' + escHtml(p.name) + '"><img src="' + assetUrl(p.photo) + '" alt=""></button>');
+      }
+    }
     paintSave(it);
     paintInside(it);
     paintMap(it);
@@ -950,6 +1002,7 @@ function start() {
   function writeProg(p) {
     try { localStorage.setItem(PROG, JSON.stringify(p)); } catch (e) { /* private mode */ }
   }
+  let badgeNew = false;
   const toast = document.getElementById('badge-toast');
   const toastName = document.getElementById('bt-name');
   let lastBadge = null;
@@ -959,7 +1012,12 @@ function start() {
       p.badges.push(b.id);
       lastBadge = b;
       chime('badge');
-      if (toast && toastName) {
+      if (onPhone()) {
+        // Ines: one less thing landing on a phone. The heart chip shows it has something new
+        // and the badge waits in the tray, where the Badges tab opens on it.
+        badgeNew = true;
+        paintTray();
+      } else if (toast && toastName) {
         toast.querySelector('.bt-icon').textContent = b.icon;
         toastName.textContent = b.name;
         const showToast = (tries) => {
@@ -985,7 +1043,8 @@ function start() {
     p.rooms.push(key);
     flare = 1.6;
     beHappy();
-    if (bubble && bubbleText) {
+    if (bubble && bubbleText) quietly(() => {
+      if (bubbleOpen) return;
       bubbleOpen = true; bubble.hidden = false;
       if (dot) dot.classList.remove('in');
       bubbleText.textContent = it.artist
@@ -994,7 +1053,7 @@ function start() {
           + ' متبقية في المجموعة كاملة.';
       if (bubbleLong) bubbleLong.hidden = true;
       if (moreBtn) moreBtn.hidden = true;
-    }
+    });
     chime('badge');
     if (window.tx) tx('room_complete', { room: key });
   }
@@ -1073,7 +1132,7 @@ function start() {
   const metPeople = new Set();
   let cameoTimer = null;
   function showCameo(it) {
-    if (roomMode) return;
+    if (roomMode || onPhone()) return;      // on a phone the volunteer is in the credit line
     const p = it.person;
     if (!cameo || !p || metPeople.has(p.name)) return;
     metPeople.add(p.name);
@@ -1154,7 +1213,7 @@ function start() {
       removeEventListener('resize', place);
     };
     const onKey = (e) => { if (/^Arrow|Page|Home|End| $/.test(e.key)) go(); };
-    setTimeout(() => {
+    const show = () => {
       if (done || scrollY > 40) return;
       place();
       cue.hidden = false;
@@ -1173,7 +1232,10 @@ function start() {
       }
       tick = setInterval(place, 250);
       setTimeout(go, 14000);                                  // it says its piece and leaves
-    }, 3800);
+    };
+    // Ines: on a phone this is the second sign after the drag ring, and it comes early,
+    // because nothing else tells anybody the page goes on
+    setTimeout(show, innerWidth <= 760 ? 2400 : 3800);
     addEventListener('scroll', go, { passive: true });
     addEventListener('wheel', go, { passive: true });
     addEventListener('keydown', onKey);
@@ -1273,7 +1335,9 @@ function start() {
     if (!uiSave) return;
     const on = it && it.slug ? readSaved().includes(it.slug) : false;
     uiSave.classList.toggle('on', on);
-    uiSave.textContent = on ? 'أحببتها ♥' : 'أحبّها ♡';
+    // the word is its own span so a phone can show the heart alone and still read the word
+    // to a screen reader
+    uiSave.innerHTML = '<span class="wf-word">' + (on ? 'أحببتها' : 'أحبّها') + '</span> ' + (on ? '\u2665' : '\u2661');
   }
   if (uiSave) uiSave.addEventListener('click', () => {
     const s0 = slots[shown];
@@ -1313,6 +1377,7 @@ function start() {
     try { done = localStorage.getItem(OFFERED) === '1'; } catch (e) { done = true; }
     if (done || readProg().rotated < 3 || !bubble || tourStep >= 0) return;
     try { localStorage.setItem(OFFERED, '1'); } catch (e) { /* private mode */ }
+    quietly(() => {
     if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
@@ -1327,6 +1392,7 @@ function start() {
     }
     beHappy();
     flare = 1;
+    });
   }
 
 
@@ -1345,6 +1411,7 @@ function start() {
     catch (e) { return; }
     const idx = n === 2 ? 0 : n === 6 ? 1 : n === 14 ? 2 : -1;
     if (idx < 0) return;
+    quietly(() => {
     if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
@@ -1355,6 +1422,7 @@ function start() {
     beHappy(); flare = 1;
     clearTimeout(reactTimer);
     reactTimer = setTimeout(() => { if (bubbleOpen && bubbleText && REACTIONS.includes(bubbleText.textContent)) closeBubble(); }, 7000);
+    });
   }
 
   // ---- Nura asks, now and then: share, donate, join, subscribe, save, a gallery, a headset.
@@ -1409,6 +1477,7 @@ function start() {
     if (!n) return;
     nudgeLast = seen; nudgeCount++; nudgeItem = it;
     try { sessionStorage.setItem(NUDGED, JSON.stringify(done.concat(n.id))); } catch (e) { /* private mode */ }
+    quietly(() => {
     if (bubbleOpen) return;              // Bety: bubbles were landing on top of each other
     bubbleOpen = true;
     bubble.hidden = false;
@@ -1435,6 +1504,7 @@ function start() {
     }
     beHappy(); flare = 1; sfx('pop');
     if (window.tx) tx('nura_ask', { ask: n.id });
+    });
   }
 
 
@@ -1599,7 +1669,13 @@ function start() {
   function paintTray() {
     const list = readSaved();
     if (chipCount) chipCount.textContent = list.length;
-    if (chip) chip.style.display = list.length ? '' : 'none';
+    if (chip) { chip.style.display = (list.length || badgeNew) ? '' : 'none'; chip.classList.toggle('new', badgeNew); }
+    const progLine = document.getElementById('st-prog');
+    if (progLine) {
+      const pr = readProg(), left = CFG.items.length - pr.seen.length;
+      progLine.textContent = pr.seen.length > 1 && left > 0 ? pr.seen.length + ' شاهدتها حتى الآن، ' + left + ' متبقية.' : '';
+      progLine.hidden = !progLine.textContent;
+    }
     if (!trayList) return;
     trayList.innerHTML = '';
     if (!list.length) {
@@ -1620,7 +1696,13 @@ function start() {
   }
   if (chip) chip.addEventListener('click', () => {
     tray.hidden = !tray.hidden;
-    if (!tray.hidden) paintTray();
+    if (!tray.hidden) {
+      const toBadges = badgeNew;
+      badgeNew = false;
+      paintTray();
+      const tab = document.querySelector('.st-tab[data-tab="' + (toBadges ? 'badges' : 'saved') + '"]');
+      if (tab) tab.click();
+    }
   });
   const closeTray = document.getElementById('saved-close');
   if (closeTray) closeTray.addEventListener('click', () => { tray.hidden = true; });
@@ -2507,7 +2589,7 @@ function start() {
   }
   function setFocus(s) {
     roomFocus = s;
-    if (s) { s.pivot.rotation.x = 0; load(s); roomYawT = s.roomAng; roomPitchT = 0; }
+    if (s) { s.pivot.rotation.x = onPhone() ? (s.tilt || 0) : 0; load(s); roomYawT = s.roomAng; roomPitchT = 0; }
     paintRoomBar();
   }
   // the piece nearest to where you are looking, and the one after it in either direction
@@ -2544,7 +2626,7 @@ function start() {
   }
   const byLine = document.getElementById('wf-by');
   if (byLine) byLine.addEventListener('click', e => {
-    const b = e.target.closest && e.target.closest('.wf-who');
+    const b = e.target.closest && e.target.closest('.wf-who,.wf-ava');
     if (!b) return;
     openRoom(b.dataset.who);
     if (window.tx) tx('room_from_credit', { artist: b.dataset.who });
@@ -2556,6 +2638,7 @@ function start() {
     if (!list.length) return;
     if (roomMode) { roomPlinths.clear(); slots.forEach(s => { s.roomPos = null; }); }
     list.forEach(load);
+    list.forEach(x => { x.pivot.rotation.x = 0; });     // on a plinth everything stands straight
     roomMode = { artist, list };
     roomFocus = null; roomHover = null;
     layoutRoom(list, opts);
@@ -2647,7 +2730,11 @@ function start() {
     }, 600);
   }
 
+  // Ines: on a phone the Share button is just "Share", so four actions fit on one line. An
+  // iPad or anything wider keeps the whole line, which is the point of the button.
+  const shareFull = shareBtn ? shareBtn.textContent : '';
   function resize() {
+    if (shareBtn) shareBtn.textContent = matchMedia('(max-width:760px)').matches ? 'شارك' : shareFull;
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
@@ -2683,7 +2770,11 @@ function start() {
     try { seenBefore = localStorage.getItem(GREETED) === '1'; } catch (e) { seenBefore = true; }
     const returning = seenBefore && readProg().seen.length > 3;
     if ((seenBefore && !returning) || !bubble || demoOn || TOUR_ON) return;
+    // on a phone the welcome back is a line in the heart tray instead, see paintTray
+    if (returning && onPhone()) return;
     try { localStorage.setItem(GREETED, '1'); } catch (e) { /* private mode */ }
+    const greet = () => quietly(() => {
+    if (bubbleOpen) return;
     bubbleOpen = true;
     bubble.hidden = false;
     if (dot) dot.classList.remove('in');
@@ -2697,6 +2788,8 @@ function start() {
     if (moreBtn) { moreBtn.hidden = true; moreBtn.dataset.offer = ''; }
     beHappy();
     flare = 1;
+    });
+    if (onPhone()) onFirstAct = greet; else greet();
   }, 4200);
 
   let wanted = '';
@@ -2928,17 +3021,18 @@ function start() {
       const halfW = halfH * camera.aspect;
       ptr.x += (ptr.tx - ptr.x) * 0.06;
       ptr.y += (ptr.ty - ptr.y) * 0.06;
-      // on a phone she is smaller and sits low on the right, beside the object's foot
+      // on a phone she is smaller and stands up in the top corner, under the chips, so the
+      // middle of the screen is the object's alone
       const ph = narrow();
-      nuraHolder.scale.setScalar(ph ? 0.52 : 1);
-      const homeX = ph ? halfW * 0.62 : clamp(halfW * 0.52, 1.0, 2.9);
+      nuraHolder.scale.setScalar(ph ? 0.48 : 1);
+      const homeX = ph ? halfW * 0.64 : clamp(halfW * 0.52, 1.0, 2.9);
       // when you turn the object, she swings around it with you, within a comfortable arc
       const frontObj = slots[shown];
       const spin = frontObj ? frontObj.pivot.rotation.y : 0;
       const swing = clamp(spin * 0.3, -0.65, 0.65);
       const hx = Math.cos(swing) * homeX + Math.sin(t * 0.43) * 0.07 + ptr.x * 0.16;
       const hz = (ph ? 0.2 : 0.9) + Math.sin(swing) * homeX * 0.55;
-      const hy = (ph ? camera.position.y - halfH * 0.36 : -halfH * 0.16) + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
+      const hy = (ph ? camera.position.y + halfH * 0.34 : -halfH * 0.16) + Math.sin(t * 1.05) * 0.075 - ptr.y * 0.1;
       if (scanT > 0.05) {
         // she flies the circle herself, just behind the phone, and shows you how
         const R = 1.75 * (demo.scale.x || 1) + 0.7;
@@ -3024,8 +3118,15 @@ function start() {
         const hdr = document.querySelector('header.site');
         const hb = (hdr && !hdr.hidden) ? hdr.getBoundingClientRect().bottom : 0;
         const floor = Math.max(r.top, hb) + bubble.offsetHeight + 12;
-        bubble.style.left = Math.round(lx) + 'px';
-        bubble.style.top = Math.round(Math.max(sy - 10, floor)) + 'px';
+        // on a phone she stands in the top right corner, so the bubble sits beside her, to
+        // her left, like speech in a comic, rather than above her under the header
+        const beside = narrow();
+        bubble.classList.toggle('beside', beside);
+        bubble.style.left = Math.round(beside ? r.left + 12 : lx) + 'px';
+        bubble.style.top = Math.round(beside ? Math.max(sy - 14, hb + 8) : Math.max(sy - 10, floor)) + 'px';
+        // Ilano: the tail sat at a fixed spot on the bubble and pointed at nothing once the
+        // bubble had been pulled in from the edge. It follows her now.
+        if (!beside) bubble.style.setProperty('--tail', Math.round(clamp(sx - (lx - bw / 2) - 7, 16, bw - 30)) + 'px');
       }
       if (dot) {
         dot.style.left = Math.round(sx) + 'px';
@@ -3088,11 +3189,11 @@ function start() {
       .then(r => r.ok ? r.json() : null)
       .then(j => {
         const n = parseInt(String((j || {}).count_unique).replace(/\D/g, ''), 10) || 0;
-        if (n) paint(n, n === 1 ? 'person' : 'people');
+        if (n) paint(n, n === 1 ? 'شخص' : 'أشخاص');
       }).catch(() => {});
   };
   if (!vc.hit) { peopleInstead(); return; }
   ask(vc.hit)
     .then((n) => n || (vc.get ? ask(vc.get) : 0))     // rate limited: read without adding
-    .then((n) => { if (n) paint(n, n === 1 ? 'view' : 'views'); else peopleInstead(); });
+    .then((n) => { if (n) paint(n, n === 1 ? 'مشاهدة' : 'مشاهدة'); else peopleInstead(); });
 })();

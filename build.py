@@ -931,6 +931,11 @@ body.walk-fallback #walk-stage,body.walk-fallback #walk-label{display:none}
 #scroll-cue.in{opacity:1}
 #scroll-cue[hidden]{display:none}
 #scroll-cue span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a735c}
+/* on a phone it is a pill like the drag ring's, and says what the finger should do */
+#scroll-cue .sc-phone{display:none}
+@media(max-width:760px){#scroll-cue .sc-desk{display:none}
+  #scroll-cue .sc-phone{display:inline-block;font-size:11px;letter-spacing:.18em;color:#7a6450;
+    white-space:nowrap;background:rgba(253,248,240,.72);border-radius:999px;padding:6px 14px}}
 #scroll-cue svg{width:26px;height:15px;fill:none;stroke:#a35f3f;stroke-width:2.6;
   stroke-linecap:round;stroke-linejoin:round;animation:sdrift 2.2s ease-in-out infinite}
 @keyframes sdrift{0%,100%{transform:translateY(-3px);opacity:.55}50%{transform:translateY(3px);opacity:1}}
@@ -1279,6 +1284,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
 #saved-tray[hidden]{display:none}
 .st-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .st-head h3{font-family:var(--serif);font-size:19px;font-weight:400;color:#2e2118;margin:0}
+.st-prog{margin:-4px 0 10px;font-size:12.5px;color:#8a735c}.st-prog[hidden]{display:none}
 #saved-close{border:0;background:none;color:#a3907a;font-size:21px;line-height:1;cursor:pointer}
 #saved-close:hover{color:#4a3527}
 #saved-list{max-height:46vh;overflow-y:auto;display:grid;gap:8px}
@@ -1335,7 +1341,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
   background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
   padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
 #nura-bubble[hidden]{display:none}
-#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:30px;width:13px;
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;left:var(--tail,30px);width:13px;
   height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
   border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
@@ -1599,7 +1605,7 @@ body.walk-fallback #saved-chip,body.walk-fallback #saved-tray{display:none}
   background:rgba(253,249,242,.97);border:1px solid rgba(74,53,43,.16);border-radius:16px;
   padding:14px 16px 12px;box-shadow:0 16px 40px rgba(60,40,26,.2)}
 #nura-bubble[hidden]{display:none}
-#nura-bubble:after{content:"";position:absolute;bottom:-7px;inset-inline-start:30px;width:13px;
+#nura-bubble:after{content:"";position:absolute;bottom:-7px;left:var(--tail,30px);width:13px;
   height:13px;background:inherit;border-inline-end:1px solid rgba(74,53,43,.16);
   border-bottom:1px solid rgba(74,53,43,.16);transform:rotate(45deg)}
 #nura-close{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;
@@ -1799,10 +1805,47 @@ body.in-xr #exp-views,body.in-room #exp-views,body.demoing #exp-views,
 body.walk-fallback #exp-views,body.at-end #exp-views{opacity:0;pointer-events:none}
 /* the loved chip moves down to sit under it */
 body #saved-chip{top:146px}
+#chip-row{display:contents}
 @media(max-width:760px){
   #exp-views{top:78px;inset-inline-end:12px;padding:5px 11px;font-size:11.5px}
   #exp-views b{font-size:13px}
   body #saved-chip{top:120px}
+}
+/* Phones, after a UI designer's pass in October 2026: the page is for the objects, so the
+   chrome around them shrinks. A lower header with the three dots beside the menu, the three
+   chips on one line under it, Nura up in the corner (see the frame loop in walk.js) and the
+   four actions on one line at the bottom. The heart on its own is the Love button. */
+@media(max-width:760px){
+  body:has(#walk-stage) header.site .bar{padding:6px 14px}
+  body:has(#walk-stage) header.site .logo img{height:36px}
+  body #more-toggle{top:8px;inset-inline-start:auto;inset-inline-end:54px;width:32px;height:32px;z-index:61;gap:3px}
+  body #more-sheet{top:48px;inset-inline-start:auto;inset-inline-end:12px;z-index:61}
+  body #chip-row{display:flex;position:fixed;top:54px;inset-inline-start:12px;inset-inline-end:12px;z-index:5;
+    gap:6px;align-items:center;justify-content:flex-end;pointer-events:none}
+  body #chip-row>*{position:static;pointer-events:auto}
+  body #exp-views{pointer-events:none}
+  body #saved-chip{padding:6px 10px;gap:5px}
+  body #saved-chip .sc-word,body #saved-chip .sc-prog{display:none}
+  body #track-switch{top:54px;left:auto;right:auto;inset-inline-start:12px;transform:none}
+  body #vol-cameo{top:196px}
+  .wf-panel .wf-acts{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .wf-panel .wf-row,.wf-panel .wf-row2{display:contents}
+  .wf-panel #wf-save{padding:7px 11px;font-size:16px;line-height:1.1}
+  .wf-word{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  /* a line she would have said by herself waits as a "!" beside her until you tap it */
+  #nura-dot.ask{width:32px;height:32px}
+  #nura-dot.ask span{width:22px;height:22px;margin:5px;background:var(--gold);color:#241a10;
+    font:700 15px/22px var(--sans);text-align:center}
+  #nura-dot.ask span::before{content:"!"}
+  /* a new badge shows on the heart chip and waits in the tray */
+  body #saved-chip.new b{background:var(--gold);color:#241a10;border-radius:999px;padding:0 7px}
+  /* the volunteer's photo in the credit line opens their room */
+  .wf-ava{display:inline-block;vertical-align:middle;width:22px;height:22px;border-radius:50%;
+    border:1.5px solid var(--gold);padding:0;margin-inline-end:6px;background:#e6dbc6;overflow:hidden;cursor:pointer}
+  .wf-ava img{width:100%;height:100%;object-fit:cover;display:block}
+  /* her bubble opens beside her, to her left, when she stands in the top corner */
+  #nura-bubble.beside{transform:none;width:min(300px,calc(100vw - 104px))}
+  #nura-bubble.beside:after{bottom:auto;top:16px;left:auto;right:-7px;transform:rotate(-45deg)}
 }
 /* the Collection's own numbers, at the end of the walk */
 .wnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 22px;
@@ -5448,7 +5491,8 @@ def build_walk():
                                    f'museum{", by " + m["by"] if m.get("by") else ""}.')),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
-                          **({"rotate": ov["rotate"]} if ov.get("rotate") else {})})
+                          **({"rotate": ov["rotate"]} if ov.get("rotate") else {}),
+                          **({"tilt": ov["tilt"]} if "tilt" in ov else {})})
             shutil.copy(os.path.join(models_dir, m["file_slug"] + ".glb"),
                         os.path.join(out_dir, m["file_slug"] + ".glb"))
             shipped.add(m["file_slug"] + ".glb")
@@ -5536,14 +5580,17 @@ def build_walk():
 </div></div>
 
 <a id="embed-out" href="" target="_blank" rel="noopener">{term("Open at tanitxr.org")}</a>
+<div id="chip-row">
 <div id="exp-views" hidden><b>0</b> <span>views</span></div>
 <button id="saved-chip" aria-label="Open the ones you love">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
-<b id="saved-count">0</b> loved <span class="sc-prog"></span></button>
+<b id="saved-count">0</b> <span class="sc-word">loved</span> <span class="sc-prog"></span></button>
+</div>
 
 <div id="saved-tray" hidden>
 <div class="st-head"><h3>Your collection</h3>
 <button id="saved-close" aria-label="Close">&times;</button></div>
+<p id="st-prog" class="st-prog" hidden></p>
 <div class="st-tabs"><button class="st-tab on" data-tab="saved">Loved</button>
 <button class="st-tab" data-tab="badges">Badges</button></div>
 <div id="saved-list"></div>
@@ -5656,7 +5703,7 @@ taking care of the place you are in.</p>
 </div>
 </div>
 
-<div id="scroll-cue" hidden aria-hidden="true"><span>{term("Keep scrolling")}</span>
+<div id="scroll-cue" hidden aria-hidden="true"><span class="sc-desk">{term("Keep scrolling")}</span><span class="sc-phone">{term("Swipe up for the next one")}</span>
 <svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2l10 10L22 2"/></svg></div>
 <div id="walk-label">
 <button id="wf-prev" class="wf-round wf-l" aria-label="Previous object">&#8249;</button>
@@ -5666,6 +5713,7 @@ taking care of the place you are in.</p>
 <h2 id="wf-title" aria-live="polite"></h2>
 <div id="wf-by" class="wf-by"></div>
 <span id="wf-stats" class="wf-stats" hidden></span>
+<div class="wf-acts">
 <div class="wf-row">
 <button id="wf-save" class="wf-btn">Save &#9825;</button>
 <button id="wf-inside" class="wf-btn" hidden>Step inside</button>
@@ -5679,6 +5727,7 @@ taking care of the place you are in.</p>
 <span class="wf-map-tile"><img id="wf-map-img" alt=""><i class="wf-pin"></i></span>
 <span class="wf-map-txt"><b>Scanned here</b><small>&copy; OpenStreetMap</small></span>
 </a>
+</div>
 </div>
 </div>
 </div>
@@ -8324,6 +8373,7 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "Depuis un compteur sans cookies, qui ne suit personne.",
            "Keep scrolling": "Continuez à faire défiler",
+           "Swipe up for the next one": "Glissez vers le haut pour la suivante",
            "Copy embed code": "Copier le code d’intégration",
            "Open at tanitxr.org": "Ouvrir sur tanitxr.org",
            "Read their profile": "Voir son profil",
@@ -8393,6 +8443,7 @@ TERMS = {
            "From a counter that uses no cookies and follows nobody.":
                "من عدّاد بلا كوكيز، لا يتعقّب أحدًا.",
            "Keep scrolling": "واصل التمرير",
+           "Swipe up for the next one": "اسحب لأعلى للقطعة التالية",
            "Copy embed code": "انسخ كود التضمين",
            "Open at tanitxr.org": "افتح على tanitxr.org",
            "Read their profile": "شاهد ملفه الشخصي",
