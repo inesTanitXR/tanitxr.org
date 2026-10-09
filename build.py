@@ -5361,7 +5361,7 @@ def weekly_card():
             f'<h2 class="sec-title" style="margin:6px 0">{esc(it["title"])}</h2>'
             f'<p class="sec-sub" style="margin:0 0 14px">{esc(it["place"])}'
             f'{(" · " + esc(it["size"])) if it.get("size") else ""}. {esc(it["hi"])}</p>'
-            f'<a class="btn btn-gold" href="{root}explore/#{it["slug"]}">{term("Turn it in 3D")}</a>'
+            f'<a class="btn btn-gold" href="{root}explore/#{it["slug"]}">{term("Explore in 3D")}</a>'
             f'</div></div></section>')
 
 
@@ -8383,7 +8383,7 @@ TERMS = {
            "objects, scanned and modelled by volunteers": "objets, numérisés et modélisés par des bénévoles",
            "How to cite": "Pour citer", "3D scan": "numérisation 3D", 
            "Free to view and study; credit Tanit XR when you reuse it.": "Libre de consultation et d’étude ; créditez Tanit XR si vous le réutilisez.",
-           "Object of the week": "L’objet de la semaine", "Turn it in 3D": "Le faire tourner en 3D",
+           "Object of the week": "L’objet de la semaine", "Explore in 3D": "Explorer en 3D",
            "times one of them has been opened": "fois qu’un de ces objets a été ouvert",
            "objects looked at in an average visit": "objets regardés lors d’une visite type",
            "people have opened this Collection": "personnes ont ouvert cette Collection",
@@ -8453,7 +8453,7 @@ TERMS = {
            "objects, scanned and modelled by volunteers": "قطعة، مسحها ونمذجها متطوّعون",
            "How to cite": "للاستشهاد", "3D scan": "مسح ثلاثي الأبعاد", 
            "Free to view and study; credit Tanit XR when you reuse it.": "متاح للعرض والدراسة مجانًا؛ انسب الفضل إلى Tanit XR عند إعادة الاستخدام.",
-           "Object of the week": "قطعة الأسبوع", "Turn it in 3D": "أدِرها بالأبعاد الثلاثة",
+           "Object of the week": "قطعة الأسبوع", "Explore in 3D": "استكشاف ثلاثي الأبعاد",
            "times one of them has been opened": "مرة فُتحت فيها إحدى هذه القطع",
            "objects looked at in an average visit": "قطعة يُنظر إليها في الزيارة الواحدة",
            "people have opened this Collection": "شخصًا فتحوا هذه المجموعة",

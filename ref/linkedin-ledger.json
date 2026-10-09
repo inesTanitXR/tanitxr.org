@@ -1,17 +1,27 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task, Part B. last_checked = date of the last LinkedIn pass; last_post = the newest post seen on Ines's activity feed and on the Tanit XR company page, so the next run only looks at newer ones.",
- "last_checked": "2026-10-05",
+ "last_checked": "2026-10-09",
  "ines_activity": {
   "newest_post": "Repost of Salma Ramadan's splats-course scans, about 2026-10-01 (shown as '2d' on 2026-10-03)",
-  "followers": 7265
+  "followers": 7279
  },
  "company_page": {
   "url": "https://www.linkedin.com/company/tanit-xr/",
   "id": "108342542",
-  "newest_post": "2026-09-24, Sejnane pottery scanning video (Laura Harrison, Caroline Nickerson; video by Bety Vega)",
-  "followers": 471
+  "newest_post": "2026-10-09, repost about Petra in Scaniverse (Takuma Nagao); before it 2026-10-07, the DC evening at the Embassy of Tunisia",
+  "followers": 477
  },
  "seen_not_published": [
+  {
+   "post": "Tanit XR company page: Tunisia & America, Learning Together, Oct 22 at the Embassy of Tunisia",
+   "date": "2026-10-07",
+   "why": "already on the site at /dc/"
+  },
+  {
+   "post": "Tanit XR company page: Petra's Siq in Scaniverse by Takuma Nagao",
+   "date": "2026-10-09",
+   "why": "a share of someone else's work, not Tanit XR news"
+  },
   {
    "post": "Repost of Salma Ramadan's Gaussian splats scans from the Tanit XR course, thanking Mark Jeffcock",
    "date": "~2026-10-01",

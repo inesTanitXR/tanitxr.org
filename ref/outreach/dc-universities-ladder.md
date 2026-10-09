@@ -8,7 +8,7 @@ This file is the single source of truth. The Thursday DC digest reads it, texts 
 
 - Stage: 0
 - Next action: (time-critical, before the Oct 22 item) Sit down with Claude on Wed Oct 7, do the worth-sending vs spam pass on the five drafts in drafts-2026-10-06-smithsonian-and-honorarium.md, make them warm and specific, and send the two Smithsonian curator nomination asks (Dumouchelle, Isgro) by Fri Oct 9; nomination deadline Thu Oct 15. Then back to: get the GW people into the Oct 22 embassy room.
-- Last nudged: 2026-10-06 (calendar reminder set for Oct 7, 9:30am)
+- Last nudged: 2026-10-08 (Thursday digest; no evidence yet the two Smithsonian asks went out)
 - Waiting on: Shana Marshall's Museum Studies follow-up (she wrote Oct 6; nudge her only after Oct 15)
 
 ## What she brings (so drafts stay accurate)
