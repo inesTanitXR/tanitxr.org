@@ -65,7 +65,7 @@
     {
       "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
       "deadline": "October 19, 2026",
-      "status": "new",
+      "status": "reminded",
       "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window."
     },
     {
@@ -319,8 +319,8 @@
     {
       "slug": "millay-arts-core-2027",
       "deadline": "October 8, 2026",
-      "status": "reminded",
-      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 weeks or 1 month in Session I (April to July 2027): housing, studio, groceries, chef dinners. Oct 1 regular / Oct 8 late ($60). $45 fee + $100 deposit. International eligibility not stated.",
+      "status": "skipped",
+      "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 2 weeks or 1 month in Session I (April to July 2027): housing, studio, groceries, chef dinners. Oct 1 regular / Oct 8 late ($60). $45 fee + $100 deposit. International eligibility not stated. (deadline passed, not applied, per the deadline alarm on 2026-10-09)",
       "title": "Millay Arts Core Residency (Austerlitz, NY)",
       "url": "https://www.millayarts.org/core-residency/",
       "added": "2026-09-27",
@@ -611,6 +611,26 @@
       "deadline": "January 15, 2027",
       "status": "watch",
       "reason": "Watch date: the DC Francophonie Cultural Festival (March, partly hosted at the Smithsonian National Museum of African Art) is programmed by the francophone embassies; Tunisia is a member. Ask the Embassy of Tunisia (Mr. Ezzaier) in the Oct 23 thank-you note to propose a Tanit XR talk or phone-scanning workshop in French. Smithsonian stage, embassy sponsor. Ladder, Smithsonian section."
+    },
+    {
+      "slug": "adobe-max-2026-online",
+      "title": "Adobe MAX 2026 (free online pass)",
+      "url": "https://max.adobe.com/max-online/",
+      "deadline": "November 10, 2026 (event Nov 10-12; no application)",
+      "status": "new",
+      "added": "2026-10-09",
+      "source": "hold queue, Just for me (Oct 8)",
+      "reason": "Adobe's yearly creativity conference, November 10-12, 2026 (preconference Nov 8-9), Miami Beach or online. Online is free: keynotes, Sneaks and on-demand sessions; in-person full pass $1,995. Sessions on Adobe's design, video, 3D and AI tools. Event, nothing to apply for: register for the free online pass before Nov 10."
+    },
+    {
+      "slug": "dt-heritage-roundtable-2026",
+      "title": "Digital Transitions Cultural Heritage Roundtable 2026 (free, online)",
+      "url": "https://www.eventbrite.com/e/digital-transitions-roundtable-2026-day-1-tickets-1995949454548",
+      "deadline": "October 29, 2026 (event Oct 29-30, 9 am-3 pm ET; register first)",
+      "status": "new",
+      "added": "2026-10-09",
+      "source": "hold queue, Just for me (Oct 8)",
+      "reason": "Two days of practitioner sessions on heritage digitization (capture hardware, software, workflow automation), with teams from the Folger Shakespeare Library, Florida State University, UNC Chapel Hill and the New Jersey State Library, live Q&A. Online, free, register for one or both days on Eventbrite. Useful for Tanit XR's scanning workflow."
     }
   ]
 }

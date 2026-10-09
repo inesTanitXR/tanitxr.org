@@ -681,6 +681,34 @@
    "source": "edition assembly",
    "raw": "https://www.oneyoungworld.com/scholarship/leading-scholarship-2026",
    "status": "corrected Oct 7: the page lists 53 eligible countries, Tunisia and the US not among them; board desc fixed, left out of edition 20."
+  },
+  {
+   "key": "tanitxr instagram what can tunisians and americans learn from each other",
+   "date": "2026-10-09",
+   "source": "share (Tanit Inbox shot-2.html)",
+   "raw": "https://www.instagram.com/p/DeNVBhrEr2Z/",
+   "status": "not an opportunity: Tanit XR's own Oct 7 post about the Oct 22 embassy evening (tanitxr.org/dc/). Archived to done/. Flagged in the report: edition 20 does not mention the evening."
+  },
+  {
+   "key": "immersive x 2026",
+   "date": "2026-10-09",
+   "source": "hold queue (approved Oct 8)",
+   "raw": "https://www.immersive-x.de",
+   "status": "added to the next-edition draft and edition 21 as a 'worth attending' line (not the board: no open application). Site checked Oct 9: Nov 10-12, free, partner proposals to Oct 31, volunteers open; the attendee Register area showed 'Applications closed'."
+  },
+  {
+   "key": "adobe max 2026",
+   "date": "2026-10-09",
+   "source": "hold queue (Just for me Oct 8)",
+   "raw": "https://max.adobe.com/max-online/",
+   "status": "personal: added to ines-shortlist.json, not published"
+  },
+  {
+   "key": "digital transitions heritage roundtable 2026",
+   "date": "2026-10-09",
+   "source": "hold queue (Just for me Oct 8)",
+   "raw": "https://www.eventbrite.com/e/digital-transitions-roundtable-2026-day-1-tickets-1995949454548",
+   "status": "personal: added to ines-shortlist.json, not published"
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -744,6 +772,12 @@
    "file": "shot-3.png",
    "raw": "screenshot, Instagram @thezebrapress",
    "what": "White House fall garden tours, free timed tickets, Oct 17-18, D.C."
+  },
+  {
+   "date": "2026-10-09",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/DeMrCzARZUU/ (@yallarunclubdmv)",
+   "what": "Yalla Run Club coffee social, Thursday Oct 15, DMV"
   }
  ]
 }

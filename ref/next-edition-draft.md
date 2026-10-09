@@ -166,6 +166,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ The 7th edition of Canada's conference on live performance in XR, run by Single Thread and Electric Company Theatre. Proposals through a Google Form; first-time applicants can email contactus@singlethread.ca to talk it through.
 👉 https://performanceandxr.com/call-for-proposals/
 
+### 🥽 Immersive X 2026, The Global XR Festival in VR (worth attending, no application)
+
+📅 November 10-12, 2026 · partner proposals until October 31 · volunteers rolling
+📍 In VR, most sessions also on other devices, some livestreamed
+👥 Free. New attendees apply for an invitation (the Register area showed "Applications closed" on Oct 9, so check before sending); returning community members register directly
+✏️ Theme: "Reclaim the Future", on how immersive media can shape positive visions for society and industry. The presenter call closed August 31. Organizations can still propose platform, content or community partnerships until October 31, and volunteers are recruited for in-world hosting, stage management, photography and Discord.
+🔗 https://www.immersive-x.de  (🔗 not 👉: an event line, deliberately not on the board)
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -340,3 +348,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👥 VR, AR, mixed-media and installation works that premiered after April 1, 2026. 150 DKK (about EUR 20) for interactive works; waiver on request for OECD DAC-list countries, which include Tunisia
 ✏️ One of the largest documentary festivals, with an INTER:ACTIVE section for immersive and interactive work. Waiver requests go to submissions@cphdox.dk, up to two projects per company.
 👉 https://cphdox.dk/rules-and-regulations/
+| Immersive X (run by vm-people, Berlin) | no LinkedIn page found |

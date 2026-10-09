@@ -103,6 +103,7 @@ _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item cl
 - 🎥 Sony Future Filmmaker Awards 2027, Immersive category (3D/180/360 video, 5–20 min; free; $5,000 + Meta VR device) — Dec 15, 7 am CST — sonyfuturefilmmakerawards.com _(accepted Oct 6; verified Oct 6)_
 - 🌴 FilmGate Interactive 13, Miami (VR/AR/dome/interactive; $35 regular, $50 late) — Dec 20 / Jan 18 — filmfreeway.com/FilmgateInteractive _(accepted Oct 6; verified Oct 6)_
 
+- 🥽 Immersive X 2026, global XR festival in VR (free; Nov 10-12; partner proposals Oct 31; volunteers rolling) — a short 'worth attending' line, NOT the board — immersive-x.de _(Ines approved it on the hold page Oct 8; block in next-edition-draft.md; attendee invitations showed 'Applications closed' Oct 9, re-check at assembly)_
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
 - Gerda Henkel Patrimonies (Africa; documentation + conservation) ★ Tanit via Tunisian team
