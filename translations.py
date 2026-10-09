@@ -2182,6 +2182,9 @@ FR = {
     '<b>Free</b>': '<b>Gratuit</b>',
     'The evening': 'La soirée',
     '6pm to 8pm': '18 h à 20 h',
+
+    # ---- added 2026-10-09: pages that were still English ----
+    'loved': 'aimés',
 }
 
 
@@ -4349,4 +4352,7 @@ AR = {
     '<b>Free</b>': '<b>مجانًا</b>',
     'The evening': 'الأمسية',
     '6pm to 8pm': 'من 6 إلى 8 مساءً',
+
+    # ---- added 2026-10-09: pages that were still English ----
+    'loved': 'أحببتها',
 }
