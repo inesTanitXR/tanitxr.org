@@ -7,7 +7,7 @@
 > Innovation, a US 501(c)(3). Founded and led by Ines Said.
 
 Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
-to https://tanitxr.org/. Last updated 2026-10-09.
+to https://tanitxr.org/. Last updated 2026-10-10.
 
 ## What people usually want
 
@@ -25,7 +25,7 @@ How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, 
 
 ## Open calls and opportunities, curated by Tanit XR
 
-Updated 2026-10-09. Full board with filters: https://tanitxr.org/opportunities/
+Updated 2026-10-10. Full board with filters: https://tanitxr.org/opportunities/
 
 - The Kyoto Retreat 2026 (Residency, In-person, , deadline July 15, 2026): The Kyoto Retreat is a four-week international artist retreat in Kyoto, Japan, open to artists, curators, and writers at all career stages. Selected participants receive a roundtrip flight, private accommodation, and $800 USD for meals and local transport. https://www.kyotoretreat.com
 - HTW Berlin – IUNO AI + XR Artistic Fellowship 2026 (Fellowship, In-person, , deadline March 31, 2026): HTW Berlin’s IUNO project is an EU-funded research initiative supporting artists at the intersection of AI and XR. The selected artist or team will co-develop a project at HTW Berlin from May 2026 to January 2027, with access to equipment, mentorship, a scientific paper publication, and public networking events. https://www.berlinartlink.com/2026/02/17/open-call-htw-berlin-artistic-fellowship-ai-xr/
@@ -148,6 +148,7 @@ Updated 2026-10-09. Full board with filters: https://tanitxr.org/opportunities/
 - AIA Site Preservation Grant 2027 (Grant, Remote, Global, deadline November 1, 2026): Up to $15,000 from the Archaeological Institute of America for projects that preserve an archaeological site and involve the local community: conservation planning including photographic and digital documentation, physical conservation, preventive measures and monitoring, training, and public outreach and education. Applications close November 1, 2026; awards announced by March 1, 2027. No fee stated. https://www.archaeological.org/grant/site-preservation/
 - MIT Solve 2027 Global Learning Challenge (Challenge, Hybrid, Global, deadline November 2, 2026): Tech-based education solutions at prototype stage or later, from organisations or individuals anywhere. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and a nine-month programme of coaching and workshops, with four-day in-person events in Cambridge and New York. The 2027 challenge looks for tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment. Deadline November 2, 2026, 12:00 pm EST. Free. https://solve.mit.edu/challenges/2027-global-learning-challenge
 - CPH:DOX 2027 INTER:ACTIVE, Interactive, VR and Installation Works (Open Call, In-person, Europe, deadline November 3, 2026): Copenhagen's documentary festival (March 10 to 21, 2027) takes VR, AR, mixed-media and installation works that premiered after April 1, 2026. Deadline November 3, 2026 for works finished after September 1, all time zones; preview links by November 25. Entry fee 150 DKK (about EUR 20) for interactive works; creators from OECD DAC-list countries, which include Tunisia, can ask for a waiver by email, up to two projects per company. https://cphdox.dk/rules-and-regulations/
+- TEEEM Foundation Community Impact Grants 2026 (Grant, Remote, Global, deadline November 1, 2026): Grants of $5,000 to $30,000 in three tiers for nonprofit and charitable organizations anywhere working on education and youth development, equality and empowerment, entrepreneurship, health or community infrastructure. Download the application form and email it as one PDF with attachments by November 1, 2026. Free to apply; funded projects send a mid-year and a final impact report. https://teeem.org/foundation
 
 ## The 3D collection
 

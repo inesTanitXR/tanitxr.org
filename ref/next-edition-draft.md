@@ -174,6 +174,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Theme: "Reclaim the Future", on how immersive media can shape positive visions for society and industry. The presenter call closed August 31. Organizations can still propose platform, content or community partnerships until October 31, and volunteers are recruited for in-world hosting, stage management, photography and Discord.
 🔗 https://www.immersive-x.de  (🔗 not 👉: an event line, deliberately not on the board)
 
+### 🤝 TEEEM Foundation Community Impact Grants
+
+📅 Deadline: November 1, 2026 (application window opened August 17)
+📍 Global, by email
+👥 Nonprofit and charitable organizations, US or international. Free
+✏️ Three tiers: Community Grants $5,000 to $10,000, Growth Grants $10,000 to $20,000, Transformational Grants $20,000 to $30,000. Focus areas include education and youth development, equality and empowerment, and entrepreneurship. Send the completed form and attachments as one PDF.
+👉 https://teeem.org/foundation
+
 ## 🏷 Pages to tag
 
 | Mention | LinkedIn page |
@@ -349,3 +357,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ One of the largest documentary festivals, with an INTER:ACTIVE section for immersive and interactive work. Waiver requests go to submissions@cphdox.dk, up to two projects per company.
 👉 https://cphdox.dk/rules-and-regulations/
 | Immersive X (run by vm-people, Berlin) | no LinkedIn page found |
+| TEEEM Foundation | linkedin.com/company/teeemglobal (linked from teeem.org) |
