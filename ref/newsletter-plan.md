@@ -116,6 +116,8 @@ IGF 2027 (game devs only, Sept 13), IFFR Lightroom (needs an attached producer, 
 
 ## Watch list (weekly board check re-opens these)
 
+_Added 2026-10-11 by the similar-finds research (not open yet): IDFA Bertha Fund Classic (filmmakers from Africa and the Middle East; entries open late December, deadline Feb 10, 2027; check idfa.nl) · Annecy VR Works 2027 (deadline usually late March; check annecyfestival.com) · Cannes Immersive and NIME 2027 (no 2027 call published yet)._
+
 _Added 2026-10-08 by the similar-finds research (not open yet): DAAD Artists-in-Berlin Program 2028 (applications open in November, December deadline; check daad.de/artists-in-berlin) · ifa CrossCulture Programme 2027 (Tunisia on the country list; opens in October; check ifa.de/en/funding/crossculture-programme) · US Embassy Tunis Annual Program Statement FY2027 (the last round, closed June 8, 2026, named heritage conservation with VR and AR; check tn.usembassy.gov for the next notice). Also seen: Rome Prize 2027-28 (Nov 1 / late Nov 15) and six others went to the report page as suggestions._
 
 _Checked 2026-10-05: Culture Moves Europe 2026-27 (open, Tunisia listed as a Creative Europe country, monthly cut-offs from Oct 31) and Tribeca 2027 (opened Sept 30) are on the board and in edition 20; removed from the list below. Still not open: A MAZE. 2027 (award site still the 2026 system; awards expected December), MIT designX cohort 11, MDXB cohort 4._
