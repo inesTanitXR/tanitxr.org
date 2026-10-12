@@ -608,6 +608,7 @@ function start() {
       return;
     }
     moved += Math.abs(e.clientX - lastX);
+    if (moved > 8 && window.cueTurned) cueTurned();
     if (moved > 24 && !turned) {
       turned = true;
       firstAct();
@@ -638,10 +639,6 @@ function start() {
     claimed = false;
     dragging = false;
     stage.classList.remove('grabbing');
-    if (!turned && cueEl) {                   // a tap is not a turn, keep showing the cue
-      cueEl.classList.remove('gone');
-      cueEl.classList.add('show');
-    }
   };
   addEventListener('pointerup', stopDrag);
   addEventListener('pointercancel', stopDrag);
@@ -728,7 +725,7 @@ function start() {
 
   // ---- paint(): everything that has to change when a different object comes to the front.
   // This is the hinge of the page, so keep it in one place.
-  let shown = -1, turned = false, cueTimer = null, moved = 0;
+  let shown = -1, turned = false, moved = 0;
   function paint(i) {
     const s = slots[i];
     if (!s || shown === i) return;
@@ -767,13 +764,6 @@ function start() {
     if (dot) dot.classList.add('in');
     glance = 1.6;
     showCameo(it);
-
-    // keep signalling that it turns until someone has actually turned one
-    if (cueEl && !turned) {
-      clearTimeout(cueTimer);
-      cueEl.classList.remove('gone');
-      cueTimer = setTimeout(() => cueEl.classList.add('show'), 500);
-    }
 
     paintStrip();
     bump(p => {
@@ -1188,60 +1178,58 @@ function start() {
   // invisible to Ines and to every returning visitor. That check earned nothing: you only
   // see this by sitting still for nearly four seconds, and somebody who knows the page
   // scrolls has scrolled long before then.
-  (function scrollCue() {
-    const cue = document.getElementById('scroll-cue');
-    if (!cue) return;
-    if (location.hash && location.hash.length > 1) return;   // arrived at a particular object
+  // ---- The two signs. Ines: "both should show up when needed, when the user doesn't rotate
+  // for a while or doesn't scroll for a while." So neither is tied to the first seconds of a
+  // visit, to the address bar or to where the page was opened, which is what kept the swipe
+  // sign from ever appearing on a reload. The ring comes whenever the object in front has sat
+  // unturned for a few seconds, the swipe pill whenever the page has sat unscrolled a little
+  // longer, and each goes the moment you do the thing it asks for, and comes back later.
+  (function cues() {
+    const scue = document.getElementById('scroll-cue');
+    const now = () => performance.now();
+    let lastTurn = now(), lastScroll = now();
+    const RING_AFTER = 5000;
+    const SWIPE_AFTER = innerWidth <= 760 ? 7000 : 9000;
     // on a phone the label is a sheet across the bottom and the object fills the middle, so
-    // the cue is placed in the band between them rather than at a guessed height
+    // the pill is placed in the band between them rather than at a guessed height
     const place = () => {
-      if (innerWidth > 760) { cue.style.bottom = ''; cue.style.top = ''; return; }
+      if (!scue) return;
+      if (innerWidth > 760) { scue.style.bottom = ''; scue.style.top = ''; return; }
       const panel = document.querySelector('.wf-panel');
       if (!panel) return;
       const gap = Math.max(10, innerHeight - panel.getBoundingClientRect().top + 12);
-      cue.style.top = 'auto';
-      cue.style.bottom = gap + 'px';
+      scue.style.top = 'auto';
+      scue.style.bottom = gap + 'px';
     };
-    let done = false, ro = null, tick = 0;
-    const go = () => {
-      if (done) return;
-      done = true;
-      cue.classList.remove('in');
-      setTimeout(() => { cue.hidden = true; }, 700);
-      if (ro) { ro.disconnect(); ro = null; }
-      if (tick) { clearInterval(tick); tick = 0; }
-      removeEventListener('scroll', go);
-      removeEventListener('wheel', go);
-      removeEventListener('keydown', onKey);
-      removeEventListener('resize', place);
+    let ringOn = false, swipeOn = false, hideT = 0;
+    const ring = on => {
+      if (!cueEl || ringOn === on) return;
+      ringOn = on;
+      cueEl.classList.toggle('show', on);
+      cueEl.classList.toggle('gone', !on);
     };
-    const onKey = (e) => { if (/^Arrow|Page|Home|End| $/.test(e.key)) go(); };
-    const show = () => {
-      if (done || scrollY > 40) return;
-      place();
-      cue.hidden = false;
-      void cue.offsetWidth;
-      cue.classList.add('in');
-      addEventListener('resize', place);
-      // The label sheet does not hold still. It grows upwards when a longer credit line or
-      // the Arabic text wraps to another row, and on a slow connection that lands well after
-      // this runs: measured once against a panel starting at 687, then the panel rose to 621
-      // and sat on top of the cue. Rather than guess at every cause, the cue simply keeps
-      // checking for the few seconds it is on screen. It is one rect read, four times a
-      // second, for fourteen seconds.
-      if (window.ResizeObserver && document.querySelector('.wf-panel')) {
-        ro = new ResizeObserver(place);
-        ro.observe(document.querySelector('.wf-panel'));
-      }
-      tick = setInterval(place, 250);
-      setTimeout(go, 14000);                                  // it says its piece and leaves
+    const swipe = on => {
+      if (!scue || swipeOn === on) return;
+      swipeOn = on;
+      clearTimeout(hideT);
+      if (on) { place(); scue.hidden = false; void scue.offsetWidth; scue.classList.add('in'); }
+      else { scue.classList.remove('in'); hideT = setTimeout(() => { if (!swipeOn) scue.hidden = true; }, 700); }
     };
-    // Ines: on a phone this is the second sign after the drag ring, and it comes early,
-    // because nothing else tells anybody the page goes on
-    setTimeout(show, innerWidth <= 760 ? 2400 : 3800);
-    addEventListener('scroll', go, { passive: true });
-    addEventListener('wheel', go, { passive: true });
-    addEventListener('keydown', onKey);
+    window.cueTurned = () => { lastTurn = now(); ring(false); };
+    const scrolled = () => { lastScroll = now(); swipe(false); };
+    addEventListener('scroll', scrolled, { passive: true });
+    addEventListener('wheel', scrolled, { passive: true });
+    addEventListener('keydown', e => { if (/^Arrow|Page|Home|End| $/.test(e.key)) scrolled(); });
+    addEventListener('resize', place);
+    setInterval(() => {
+      const busy = dragging || roomMode || xrMode || demoOn || inside
+        || document.body.classList.contains('at-end') || document.body.classList.contains('walk-fallback');
+      if (busy) { ring(false); swipe(false); return; }
+      const t = now();
+      if (swipeOn) place();                     // the sheet under it does not hold still
+      ring(t - lastTurn > RING_AFTER && t - lastScroll > 1500);
+      swipe(t - lastScroll > SWIPE_AFTER && t - lastTurn > 2500);
+    }, 300);
   })();
 
   // ---- Standing inside a place, rather than looking at it from across the street.
