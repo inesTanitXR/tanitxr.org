@@ -2722,7 +2722,7 @@ NAV = [
     ]),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
-        ("22 Oct: an evening in Washington, DC", "dc.html"),
+        ("23 Oct: an evening in Washington, DC", "dc.html"),
         ("Volunteer", "volunteer.html"),
         ("Submit a model", "submit-a-model.html"),
         ("Scanning Guide", "scanning-guide.html"),
@@ -4936,15 +4936,15 @@ EVENTS = [
              "preservation, presented at the El Jem conference and published here in English, French "
              "and Tunisian Arabic.",
      "links": [("Read the paper", "el-jem-conference.html")]},
-    {"date": "2026-10-22", "when": "Thursday, October 22, 6pm to 8pm",
-     "start": "2026-10-22T18:00:00-04:00", "end": "2026-10-22T20:00:00-04:00",
+    {"date": "2026-10-23", "when": "Friday, October 23, 6pm to 8pm",
+     "start": "2026-10-23T18:00:00-04:00", "end": "2026-10-23T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
      "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
      "title": "Tunisia & America, Learning Together: an evening at the Embassy of Tunisia",
      "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
      "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
-             "using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline "
-             "Nickerson on their time in Tunisia, and an introduction to the volunteers who make "
+             "using technology for something worthwhile. Dr. Caroline Nickerson on her time in "
+             "Tunisia, and an introduction to the volunteers who make "
              "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
              "technology, art and social impact meet. Seating is limited, entry is by guest list, "
              "so please sign up by Friday October 16.",
@@ -7703,7 +7703,7 @@ future of immersive technology.</p>
 
 
 def build_dc_evening():
-    """The DC evening, 22 October 2026. A small room at the Embassy of Tunisia.
+    """The DC evening, 23 October 2026. A small room at the Embassy of Tunisia.
 
     The reservation form posts straight to the submissions Apps Script, which files it in the
     "dc-rsvp" tab of the sheet in Ines's Drive. It deliberately does not touch FormSubmit:
@@ -7767,10 +7767,10 @@ def build_dc_evening():
 }})();
 </script>"""
     body = f"""
-{page_hero("Tunisia &amp; America, Learning Together", "An evening in Washington, DC, Thursday 22 October 2026", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
+{page_hero("Tunisia &amp; America, Learning Together", "An evening in Washington, DC, Friday 23 October 2026", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
-<div class="dcv-fact"><small>When</small><b>Thursday 22 October</b><span>2026</span></div>
+<div class="dcv-fact"><small>When</small><b>Friday 23 October</b><span>2026</span></div>
 <div class="dcv-fact"><small>Time</small><b>6pm to 8pm</b><span>Doors open at 6pm</span></div>
 <div class="dcv-fact"><small>Location</small><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
 <div class="dcv-fact"><small>Cost</small><b>Free</b><span>Limited seating<br>Sign up by Friday 16 October</span></div>
@@ -7779,14 +7779,14 @@ def build_dc_evening():
 <div>
 <div class="eyebrow">Reserve a seat</div>
 <h2 class="sec-title" style="margin-bottom:10px">An evening on Tunisia's heritage, and the technology now protecting it</h2>
-<p class="sec-sub" style="margin:0 0 18px">With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia
+<p class="sec-sub" style="margin:0 0 18px">With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia
 with Tanit XR and TAYP. Seats are limited, so please sign up below.</p>
 {form}
 <p class="fhint">Your confirmation and the details for the evening come by email.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
-<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc" loading="lazy"></a>
+<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc" loading="lazy"></a>
 <figcaption>The flyer. Tap to open it full size, then save or share it.</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('dc-laura-caroline-walking.jpg', 1100)}" alt="Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026" loading="lazy">
 <figcaption>Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
@@ -7800,10 +7800,10 @@ Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 <div class="center"><div class="eyebrow">The evening</div><h2 class="sec-title">Three things you will come away with</h2></div>
 <div class="dcv-cards">
 <div class="dcv-card"><div class="dcv-n">1</div><h3>A year of work, told by the people who did it</h3>
-<p>Over the past year, <b>Dr. Laura Harrison</b> and <b>Dr. Caroline Nickerson</b> have been at the centre of
-Tanit XR: leading its scientific programme, building partnerships with universities and institutions,
-running hackathons and workshops, and travelling to Tunisia this summer to work alongside Tunisian
-colleagues at the sites themselves. They will talk about that year, what they saw, and where it goes next.
+<p>Over the past year, <b>Dr. Caroline Nickerson</b> has been at the centre of Tanit XR: building
+partnerships with universities and institutions, running hackathons and workshops, and travelling to
+Tunisia this summer with Dr. Laura Harrison to work alongside Tunisian colleagues at the sites themselves.
+She will talk about that year, what she saw, and where it goes next.
 Ines Said, who founded Tanit XR, opens the evening with the story of why a Tunisian developer started
 scanning Carthage with a phone, and shows the collection live.</p></div>
 <div class="dcv-card"><div class="dcv-n">2</div><h3>The technology, up close</h3>
@@ -7824,12 +7824,6 @@ welcome; no technical background needed.</p></div>
 <section class="pad"><div class="wrap">
 <div class="center"><div class="eyebrow">The speakers</div><h2 class="sec-title">Who you will hear</h2></div>
 <div class="dcv-speakers">
-<div class="dcv-sp"><h3>Dr. Laura Harrison</h3><div class="dcv-role">Chief Scientist, Tanit XR</div>
-<p>An archaeologist who specialises in digital documentation, from lidar and photogrammetry to immersive
-technology, she was the founding director of the Access 3D Lab at the University of South Florida, with
-museum experience at institutions like the Smithsonian and the New York State Museum. She is the author
-of two books on archaeology and digital heritage, Associate Editor of the journal Studies in Digital
-Heritage, and a Commissioner on the City of Tampa's Historic Preservation Board.</p></div>
 <div class="dcv-sp"><h3>Dr. Caroline Nickerson</h3><div class="dcv-role">Partnerships and Community, Tanit XR</div>
 <p>Executive Director and co-founder of Florida Community Innovation, the nonprofit that serves as Tanit
 XR's fiscal sponsor. Her work brings together civic engagement, public interest technology and citizen
@@ -7851,9 +7845,9 @@ community that now does it. She opens the evening and shows the collection live.
 </div></section>"""
     page("dc.html", "Tunisia & America, Learning Together", body,
          active="community.html", share_img="dc-flyer.jpg",
-         desc="Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
+         desc="Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
-              "Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in "
+              "Tanit XR and TAYP. Dr. Caroline Nickerson on her time in "
               "Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.")
 
 

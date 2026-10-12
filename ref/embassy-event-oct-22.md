@@ -109,3 +109,5 @@ than needing anything new.
 - The Google Form link, once it exists
 
 Everything else I can write.
+
+> **Update 2026-10-12:** the date moved to **Friday 23 October 2026**, 6pm to 8pm. Dr. Laura Harrison can no longer attend; Dr. Caroline Nickerson and Ines speak. The page, the events list, the flyer and the translations were updated the same day. The sign-up deadline stays Friday 16 October.

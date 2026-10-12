@@ -1144,7 +1144,7 @@ FR = {
     'Paper · دارجة تونسية': 'Article · دارجة تونسية',
     'Research and Writing': 'Recherche et rédaction',
     'See it in your space': 'Voyez-le chez vous',
-    'Thursday, October 22': 'Jeudi 22 octobre',
+    'Friday, October 23': 'Vendredi 23 octobre',
     'Zawiya of Sidi Sahbi': 'Zaouïa de Sidi Sahbi',
     'Arch, first pattern': 'Arche, premier motif',
     'Arch, third pattern': 'Arc, troisième motif',
@@ -1881,8 +1881,8 @@ FR = {
     # ---- added 2026-10-07: pages that were still English ----
     'TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,\narchitecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never\njust an object, whether digital or physical. It belongs to living communities, it carries meaning and\nmemory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and\nhow to do it ethically: with consent, care, and respect for the people whose heritage it is.':
         "TanitXR réalise des numérisations 3D détaillées de sites historiques et archéologiques, de monuments, de poteries,\nd'architecture et d'objets culturels pour constituer une archive numérique du patrimoine, ouverte et mondiale. Mais le patrimoine n'est jamais\nseulement un objet, qu'il soit numérique ou physique. Il appartient à des communautés vivantes, il porte du sens et de la\nmémoire, et il est souvent protégé par la loi et par la coutume. Ce guide explique comment réussir une numérisation, et\ncomment le faire de manière éthique : avec consentement, soin et respect pour les personnes dont c'est le patrimoine.",
-    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
-        'Une soirée consacrée à l’histoire tunisienne, à la culture qui voyage entre les pays et à l’usage de la technologie pour une cause qui en vaut la peine. Dr Laura Harrison et Dr Caroline Nickerson reviendront sur leur séjour en Tunisie, et vous ferez connaissance avec les bénévoles qui font Tanit XR. Pour les Tunisiens comme pour les amis de la Tunisie, et pour toute personne travaillant à la croisée de la technologie, de l’art et de l’impact social. Les places sont limitées et l’entrée se fait sur liste d’invités, merci donc de vous inscrire avant le vendredi 16 octobre.',
+    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Caroline Nickerson on her time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
+        'Une soirée consacrée à l’histoire tunisienne, à la culture qui voyage entre les pays et à l’usage de la technologie pour une cause qui en vaut la peine. Dr Caroline Nickerson reviendra sur son séjour en Tunisie, et vous ferez connaissance avec les bénévoles qui font Tanit XR. Pour les Tunisiens comme pour les amis de la Tunisie, et pour toute personne travaillant à la croisée de la technologie, de l’art et de l’impact social. Les places sont limitées et l’entrée se fait sur liste d’invités, merci donc de vous inscrire avant le vendredi 16 octobre.',
     'For publicly visible heritage, building exteriors, monuments,\nfacades, ruins, and public art, public visibility is generally a sound basis to document, subject to\nlocal rules and any permit requirements. For living or community heritage we seek free, prior, and informed\nconsent from the relevant owners, caretakers, or cultural authorities first. This process requires the\ninvolvement of the TanitXR Leadership Team.':
         'Pour le patrimoine visible publiquement, extérieurs de bâtiments, monuments,\nfaçades, ruines et art public, la visibilité publique constitue en général une base solide pour documenter, sous réserve des\nrègles locales et des éventuelles autorisations requises. Pour le patrimoine vivant ou communautaire, nous demandons d’abord le consentement libre, préalable et éclairé\ndes propriétaires, gardiens ou autorités culturelles concernés. Cette démarche requiert la\nparticipation de l’équipe de direction de TanitXR.',
     '“30 separate 3D scans. One house. 30 mins. It&#x27;s amazing how far 3D gaussian splatting has come. I didn&#x27;t have specialized LIDAR camera or professional scanning equipment. just my iphone 13 and a piece of heritage i wanted to document. Special thanks to Tanit XR and Mark Jeffcock who pushed me to go bigger with my scans.”':
@@ -2107,12 +2107,12 @@ FR = {
         'Artiste et développeuse XR tunisienne, originaire de Nabeul. Son travail a été présenté dans l’exposition FUTURES\ndu Smithsonian ; elle est finaliste des Auggie Awards 2026, l’une des 30 Under 30 de la NAAEE et intervenante à AWE. Elle\na fondé Tanit XR pour mettre le patrimoine tunisien entre les mains de tous, partout, et a bâti la communauté\nde bénévoles qui le fait aujourd’hui. Elle ouvre la soirée et présente la collection en direct.',
     'Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it\ncaptured on ordinary phones by trained volunteers, and brings the results to anyone in the world through\na browser, a headset or a virtual museum. The collection is already open at':
         'Tanit XR documente le patrimoine tunisien par photogrammétrie, lidar et Gaussian splatting, souvent\nà l’aide de simples téléphones, par des bénévoles formés, et met les résultats à la portée de tous, partout dans le monde,\ndans un navigateur, un casque ou un musée virtuel. La collection est déjà ouverte sur',
-    'Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
-        'Jeudi 22 octobre 2026, de 18 h à 20 h, à l’Ambassade de Tunisie à Washington, DC, avec Tanit XR et TAYP. Dr Laura Harrison et Dr Caroline Nickerson sur leur séjour en Tunisie, et Ines Said, fondatrice de Tanit XR. Gratuit, places limitées, inscription avant le 16 octobre.',
-    'With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
-        'Avec Dr Laura Harrison et Dr Caroline Nickerson, accueillie par l’Ambassade de Tunisie\navec Tanit XR et TAYP. Les places sont limitées, merci de vous inscrire ci-dessous.',
-    'Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
-        'Affiche de la soirée : Tunisie et Amérique, apprendre ensemble. Jeudi 22 octobre, de 18 h à 20 h (heure de l’Est), Washington, DC. Gratuit, inscription avant le 16 octobre sur tanitxr.org/dc',
+    'Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Caroline Nickerson on her time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
+        'Vendredi 23 octobre 2026, de 18 h à 20 h, à l’Ambassade de Tunisie à Washington, DC, avec Tanit XR et TAYP. Dr Caroline Nickerson sur son séjour en Tunisie, et Ines Said, fondatrice de Tanit XR. Gratuit, places limitées, inscription avant le 16 octobre.',
+    'With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
+        'Avec Dr Caroline Nickerson et Ines Said, accueillie par l’Ambassade de Tunisie\navec Tanit XR et TAYP. Les places sont limitées, merci de vous inscrire ci-dessous.',
+    'Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
+        'Affiche de la soirée : Tunisie et Amérique, apprendre ensemble. Vendredi 23 octobre, de 18 h à 20 h (heure de l’Est), Washington, DC. Gratuit, inscription avant le 16 octobre sur tanitxr.org/dc',
     'Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026':
         'Dr Caroline Nickerson et Dr Laura Harrison sur un site en Tunisie, août 2026',
     'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026':
@@ -2139,8 +2139,8 @@ FR = {
         'Y a-t-il une question que vous aimeriez poser aux intervenantes ?',
     'The flyer. Tap to open it full size, then save or share it.':
         'L’affiche. Appuyez pour l’ouvrir en grand, puis l’enregistrer ou la partager.',
-    'An evening in Washington, DC, Thursday 22 October 2026':
-        'Une soirée à Washington, DC, jeudi 22 octobre 2026',
+    'An evening in Washington, DC, Friday 23 October 2026':
+        'Une soirée à Washington, DC, vendredi 23 octobre 2026',
     'Tunisia &amp; America, Learning Together – TANIT XR':
         'Tunisie et Amérique, apprendre ensemble – TANIT XR',
     'Tunisia &amp; America, Learning Together – Tanit XR':
@@ -2154,7 +2154,7 @@ FR = {
     'The sign of Tanit set into a mosaic floor':
         'Le signe de Tanit incrusté dans un sol en mosaïque',
     'This form needs JavaScript. Please email': 'Ce formulaire nécessite JavaScript. Écrivez à',
-    '22 Oct: an evening in Washington, DC': '22 oct. : une soirée à Washington, DC',
+    '23 Oct: an evening in Washington, DC': '23 oct. : une soirée à Washington, DC',
     'How did you hear about this evening?': 'Comment avez-vous entendu parler de cette soirée ?',
     'Partnerships and Community, Tanit XR': 'Partenariats et communauté, Tanit XR',
     'Three things you will come away with': 'Ce que vous en retiendrez',
@@ -2170,7 +2170,7 @@ FR = {
     '<small>Time</small>': '<small>Heure</small>',
     '<small>When</small>': '<small>Quand</small>',
     'Over the past year,': 'Au cours de l’année écoulée,',
-    'Thursday 22 October': 'Jeudi 22 octobre',
+    'Friday 23 October': 'Vendredi 23 octobre',
     'Embassy of Tunisia': 'Ambassade de Tunisie',
     'to reserve a seat.': 'pour réserver une place.',
     'Doors open at 6pm': 'Ouverture des portes à 18 h',
@@ -3306,7 +3306,7 @@ AR = {
     'Paper · دارجة تونسية': 'ورقة بحثية · دارجة تونسية',
     'Research and Writing': 'البحث والكتابة',
     'See it in your space': 'شاهدوه في مكانكم',
-    'Thursday, October 22': 'الخميس 22 أكتوبر',
+    'Friday, October 23': 'الجمعة 23 أكتوبر',
     'Zawiya of Sidi Sahbi': 'زاوية سيدي الصحبي',
     'Arch, first pattern': 'قوس، النقش الأول',
     'Arch, third pattern': 'قوس، الزخرفة الثالثة',
@@ -4064,8 +4064,8 @@ AR = {
     # ---- added 2026-10-07: pages that were still English ----
     'TanitXR creates detailed 3D scans of historical and archaeological sites, landmarks, pottery,\narchitecture, and cultural artifacts for an open, global digital heritage archive. But heritage is never\njust an object, whether digital or physical. It belongs to living communities, it carries meaning and\nmemory, and it is often protected by law and by custom. This guide covers how to capture a great scan, and\nhow to do it ethically: with consent, care, and respect for the people whose heritage it is.':
         'تنتج TanitXR مسوحات ثلاثية الأبعاد مفصّلة للمواقع التاريخية والأثرية والمعالم والفخار\nوالعمارة والقطع الثقافية من أجل أرشيف رقمي مفتوح وعالمي للتراث. لكن التراث ليس\nمجرد قطعة أبدًا، رقمية كانت أم مادية. فهو ملك لمجتمعات حية، ويحمل معنى\nوذاكرة، وكثيرًا ما يحميه القانون والعرف. يشرح هذا الدليل كيف تلتقطون مسحًا جيدًا،\nوكيف تفعلون ذلك بشكل أخلاقي: بالموافقة والعناية والاحترام لمن يعود إليهم هذا التراث.',
-    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
-        'أمسية عن التاريخ التونسي، وعن الثقافة التي تسافر بين البلدان، وعن استخدام التكنولوجيا في ما يستحق العناء. تتحدث الدكتورة Laura Harrison والدكتورة Caroline Nickerson عن تجربتهما في تونس، مع تعريف بالمتطوعين الذين يصنعون Tanit XR. للتونسيين وأصدقاء تونس على حد سواء، ولكل من يعمل حيث تلتقي التكنولوجيا والفن والأثر الاجتماعي. المقاعد محدودة والدخول بقائمة الضيوف، لذا يرجى التسجيل قبل يوم الجمعة 16 أكتوبر.',
+    'An evening on Tunisian history, on culture travelling between countries, and on using technology for something worthwhile. Dr. Caroline Nickerson on her time in Tunisia, and an introduction to the volunteers who make Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where technology, art and social impact meet. Seating is limited, entry is by guest list, so please sign up by Friday October 16.':
+        'أمسية عن التاريخ التونسي، وعن الثقافة التي تسافر بين البلدان، وعن استخدام التكنولوجيا في ما يستحق العناء. تتحدث الدكتورة Caroline Nickerson عن تجربتها في تونس، مع تعريف بالمتطوعين الذين يصنعون Tanit XR. للتونسيين وأصدقاء تونس على حد سواء، ولكل من يعمل حيث تلتقي التكنولوجيا والفن والأثر الاجتماعي. المقاعد محدودة والدخول بقائمة الضيوف، لذا يرجى التسجيل قبل يوم الجمعة 16 أكتوبر.',
     'For publicly visible heritage, building exteriors, monuments,\nfacades, ruins, and public art, public visibility is generally a sound basis to document, subject to\nlocal rules and any permit requirements. For living or community heritage we seek free, prior, and informed\nconsent from the relevant owners, caretakers, or cultural authorities first. This process requires the\ninvolvement of the TanitXR Leadership Team.':
         'بالنسبة إلى التراث الظاهر للعموم، كواجهات المباني الخارجية والمعالم\nوالواجهات والأطلال والفن العام، تُعدّ الرؤية العامة عموماً أساساً سليماً للتوثيق، مع مراعاة\nالقواعد المحلية وأي تصاريح مطلوبة. أما التراث الحي أو المجتمعي فنسعى أولاً إلى الحصول على الموافقة الحرة والمسبقة والمستنيرة\nمن المالكين أو القائمين على الرعاية أو السلطات الثقافية المعنية. وتتطلب هذه العملية\nمشاركة فريق قيادة TanitXR.',
     '“30 separate 3D scans. One house. 30 mins. It&#x27;s amazing how far 3D gaussian splatting has come. I didn&#x27;t have specialized LIDAR camera or professional scanning equipment. just my iphone 13 and a piece of heritage i wanted to document. Special thanks to Tanit XR and Mark Jeffcock who pushed me to go bigger with my scans.”':
@@ -4284,12 +4284,12 @@ AR = {
         'فنانة ومطوّرة تونسية في الواقع الممتد من نابل. عُرض عملها في معرض FUTURES\nفي Smithsonian، وهي من المتأهلات إلى نهائيات Auggie Awards 2026، وضمن قائمة 30 Under 30 لـNAAEE، ومتحدثة في AWE.\nأسّست Tanit XR لتضع تراث تونس بين أيدي الجميع، في كل مكان، وبنت مجتمع المتطوعين\nالذي يقوم بذلك اليوم. تفتتح الأمسية وتعرض المجموعة مباشرة.',
     'Tanit XR documents Tunisian heritage with photogrammetry, lidar and Gaussian splatting, much of it\ncaptured on ordinary phones by trained volunteers, and brings the results to anyone in the world through\na browser, a headset or a virtual museum. The collection is already open at':
         'يوثّق Tanit XR التراث التونسي بالمسح التصويري والليدار وتقنية Gaussian splatting، ويُلتقط معظمه\nبهواتف عادية على أيدي متطوعين مدرَّبين، ثم يضع النتائج في متناول أي شخص في العالم عبر\nالمتصفح أو نظارة الواقع الافتراضي أو متحف افتراضي. المجموعة متاحة بالفعل على',
-    'Thursday 22 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Laura Harrison and Dr. Caroline Nickerson on their time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
-        'الخميس 22 أكتوبر 2026، من 6 إلى 8 مساءً، باستضافة سفارة تونس في واشنطن العاصمة، مع Tanit XR وTAYP. الدكتورة Laura Harrison والدكتورة Caroline Nickerson تتحدثان عن تجربتهما في تونس، وInes Said، مؤسِّسة Tanit XR. مجانًا، المقاعد محدودة، التسجيل قبل 16 أكتوبر.',
-    'With Dr. Laura Harrison and Dr. Caroline Nickerson, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
-        'مع الدكتورة Laura Harrison والدكتورة Caroline Nickerson، باستضافة سفارة تونس\nمع Tanit XR وTAYP. المقاعد محدودة، لذا يرجى التسجيل أدناه.',
-    'Event flyer: Tunisia and America, Learning Together. Thursday October 22, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
-        'ملصق الأمسية: تونس وأمريكا، نتعلّم معًا. الخميس 22 أكتوبر، من 6 إلى 8 مساءً بتوقيت شرق الولايات المتحدة، واشنطن العاصمة. مجانًا، التسجيل قبل 16 أكتوبر على tanitxr.org/dc',
+    'Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP. Dr. Caroline Nickerson on her time in Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.':
+        'الجمعة 23 أكتوبر 2026، من 6 إلى 8 مساءً، باستضافة سفارة تونس في واشنطن العاصمة، مع Tanit XR وTAYP. الدكتورة Caroline Nickerson تتحدث عن تجربتها في تونس، وInes Said، مؤسِّسة Tanit XR. مجانًا، المقاعد محدودة، التسجيل قبل 16 أكتوبر.',
+    'With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia\nwith Tanit XR and TAYP. Seats are limited, so please sign up below.':
+        'مع الدكتورة Caroline Nickerson وInes Said، باستضافة سفارة تونس\nمع Tanit XR وTAYP. المقاعد محدودة، لذا يرجى التسجيل أدناه.',
+    'Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc':
+        'ملصق الأمسية: تونس وأمريكا، نتعلّم معًا. الجمعة 23 أكتوبر، من 6 إلى 8 مساءً بتوقيت شرق الولايات المتحدة، واشنطن العاصمة. مجانًا، التسجيل قبل 16 أكتوبر على tanitxr.org/dc',
     'Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026':
         'الدكتورة Caroline Nickerson والدكتورة Laura Harrison في أحد المواقع في تونس، أغسطس 2026',
     'Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026':
@@ -4316,8 +4316,8 @@ AR = {
         'هل لديكم سؤال تودّون أن تجيب عنه المتحدثات؟',
     'The flyer. Tap to open it full size, then save or share it.':
         'الملصق. اضغطوا لفتحه بالحجم الكامل، ثم احفظوه أو شاركوه.',
-    'An evening in Washington, DC, Thursday 22 October 2026':
-        'أمسية في واشنطن العاصمة، الخميس 22 أكتوبر 2026',
+    'An evening in Washington, DC, Friday 23 October 2026':
+        'أمسية في واشنطن العاصمة، الجمعة 23 أكتوبر 2026',
     'Tunisia &amp; America, Learning Together – TANIT XR': 'تونس وأمريكا، نتعلّم معًا – TANIT XR',
     'Tunisia &amp; America, Learning Together – Tanit XR': 'تونس وأمريكا، نتعلّم معًا – Tanit XR',
     'A year of work, told by the people who did it': 'عام من العمل، ترويه من أنجزنه',
@@ -4326,7 +4326,7 @@ AR = {
     'I would like to receive updates from Tanit XR': 'أرغب في تلقي أخبار Tanit XR',
     'The sign of Tanit set into a mosaic floor': 'علامة تانيت مرصّعة في أرضية من الفسيفساء',
     'This form needs JavaScript. Please email': 'يحتاج هذا النموذج إلى JavaScript. يرجى مراسلة',
-    '22 Oct: an evening in Washington, DC': '22 أكتوبر: أمسية في واشنطن العاصمة',
+    '23 Oct: an evening in Washington, DC': '23 أكتوبر: أمسية في واشنطن العاصمة',
     'How did you hear about this evening?': 'كيف سمعتم بهذه الأمسية؟',
     'Partnerships and Community, Tanit XR': 'الشراكات والمجتمع، Tanit XR',
     'Three things you will come away with': 'ثلاثة أشياء ستخرجون بها',
@@ -4342,7 +4342,7 @@ AR = {
     '<small>Time</small>': '<small>الساعة</small>',
     '<small>When</small>': '<small>متى</small>',
     'Over the past year,': 'خلال العام الماضي،',
-    'Thursday 22 October': 'الخميس 22 أكتوبر',
+    'Friday 23 October': 'الجمعة 23 أكتوبر',
     'Embassy of Tunisia': 'سفارة تونس',
     'to reserve a seat.': 'لحجز مقعد.',
     'Doors open at 6pm': 'تُفتح الأبواب على الساعة 6 مساءً',
