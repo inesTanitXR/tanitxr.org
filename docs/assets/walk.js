@@ -2355,7 +2355,12 @@ function start() {
     renderer.xr.addEventListener('sessionend', exitXR);
   }
   const arBtn = document.getElementById('ar-button');
-  if (navigator.xr && navigator.xr.isSessionSupported) {
+  // Ilano: "See it in VR" was showing on an Android phone, over Donate and Read more, because
+  // Chrome there counts a cardboard viewer as VR. The button is for headsets, and for a
+  // desktop with one plugged in; a phone in a hand is neither.
+  const phoneNotHeadset = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+    && !/OculusBrowser|Quest|Pico|Wolvic|VisionOS|Vision Pro|XR/i.test(navigator.userAgent);
+  if (navigator.xr && navigator.xr.isSessionSupported && !phoneNotHeadset) {
     navigator.xr.isSessionSupported('immersive-vr').then(ok => {
       if (!ok) return;
       return import('three/addons/webxr/VRButton.js').then(mod => {
@@ -3034,7 +3039,7 @@ function start() {
       // middle of the screen is the object's alone
       const ph = narrow();
       nuraHolder.scale.setScalar(ph ? 0.48 : 1);
-      const homeX = ph ? halfW * 0.64 : clamp(halfW * 0.52, 1.0, 2.9);
+      const homeX = ph ? halfW * 0.74 : clamp(halfW * 0.52, 1.0, 2.9);   // Ilano: further from the object
       // when you turn the object, she swings around it with you, within a comfortable arc
       const frontObj = slots[shown];
       const spin = frontObj ? frontObj.pivot.rotation.y : 0;
