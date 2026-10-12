@@ -4217,6 +4217,9 @@ PRESS = [
     {"k": "Paper", "t": "El Jem Conference 2026, Paper in English, French and Tunisian Arabic",
      "d": "Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.",
      "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem"},
+    {"k": "Press", "t": "Al Jazeera, Can artificial intelligence bring Arab antiquities back to life? (Arabic)",
+     "d": "Al Jazeera's technology desk on 3D scanning, digital archives and AI reconstruction across the Arab world, with Ines Said on why Tanit XR keeps missing parts missing and marks anything rebuilt, and Dr. Laura Harrison on scans as measurable references for restoration.",
+     "u": "https://www.aljazeera.net/tech/2026/10/11/%D9%87%D9%84-%D9%8A%D8%B3%D8%AA%D8%B7%D9%8A%D8%B9-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9", "date": "October 11, 2026", "anchor": "aljazeera-ai"},
     {"k": "Press", "t": "Al Jazeera, \"Tanit XR\": a non-profit platform documenting Tunisian heritage digitally (Arabic)",
      "d": "Al Jazeera's culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia's sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.",
      "u": "https://www.aljazeera.net/culture/2025/10/12/%D8%AA%D8%A7%D9%86%D9%8A%D8%AA-%D8%A5%D9%83%D8%B3-%D8%A2%D8%B1-%D9%85%D9%86%D8%B5%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%B1%D8%A8%D8%AD%D9%8A%D8%A9-%D8%AA%D9%88%D8%AB%D9%82", "date": "October 12, 2025", "anchor": "aljazeera"},
@@ -4855,7 +4858,7 @@ scanning days.</p></div>
 
 def build_press():
     groups = [("Awards", ["auggie"]), ("Exhibitions", ["xrwomen"]), ("Talks & events", ["awe", "eljem", "immersegt", "citycamp"]),
-              ("Podcasts & video", ["spotlight", "voices", "niantic"]), ("Articles", ["aljazeera", "carthage", "medium"]),
+              ("Podcasts & video", ["spotlight", "voices", "niantic"]), ("Articles", ["aljazeera-ai", "aljazeera", "carthage", "medium"]),
               ("Partnerships", ["nigeria"])]
     by = {x["anchor"]: x for x in PRESS}
     sections = ""

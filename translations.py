@@ -1666,6 +1666,8 @@ FR = {
     # ---- added 2026-09-21: pages that were still English ----
     'Tanit XR&#x27;s work was shown in the XR Women Museum, including its &quot;Garden: In Full Bloom&quot; exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.':
         'Le travail de Tanit XR a été présenté au XR Women Museum, notamment dans son exposition « Garden: In Full Bloom », un musée immersif de plus de 30 mondes-galeries dirigé par Paige Dansinger.',
+    'Al Jazeera, Can artificial intelligence bring Arab antiquities back to life? (Arabic)':
+        'Al Jazeera, L’intelligence artificielle peut-elle redonner vie aux antiquités arabes ? (en arabe)',
     'Al Jazeera, &quot;Tanit XR&quot;: a non-profit platform documenting Tunisian heritage digitally (Arabic)':
         'Al Jazeera, « Tanit XR » : une plateforme à but non lucratif qui documente le patrimoine tunisien en numérique (en arabe)',
     '&quot;Apteranthes europaea&quot; cactus': 'Cactus "Apteranthes europaea"',
@@ -3848,6 +3850,8 @@ AR = {
     # ---- added 2026-09-21: pages that were still English ----
     'Tanit XR&#x27;s work was shown in the XR Women Museum, including its &quot;Garden: In Full Bloom&quot; exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.':
         'عُرض عمل Tanit XR في XR Women Museum، ضمن معرضه "Garden: In Full Bloom"، وهو متحف غامر يضمّ أكثر من 30 عالمًا معرضيًا تديره بيج دانسينجر.',
+    'Al Jazeera, Can artificial intelligence bring Arab antiquities back to life? (Arabic)':
+        'الجزيرة، هل يستطيع الذكاء الاصطناعي إعادة الحياة إلى الآثار العربية؟ (بالعربية)',
     'Al Jazeera, &quot;Tanit XR&quot;: a non-profit platform documenting Tunisian heritage digitally (Arabic)':
         'الجزيرة، "Tanit XR": منصّة غير ربحية توثّق التراث التونسي رقميًا (بالعربية)',
     '&quot;Apteranthes europaea&quot; cactus': 'صبّار "Apteranthes europaea"',
