@@ -1,16 +1,16 @@
 {
- "_what": "Rows already taken out of the submissions sheet, so the daily check does not report the same person twice. One key per row: the received stamp and the name.",
+ "_what": "Rows already taken out of the submissions sheet, so the daily check does not report the same person twice. One key per row: the received stamp, then '#' and the first 12 hex characters of sha256 of the name, trimmed and lowercased. Never write a name here: this repository is public.",
  "done": [
-  "9/22/2026 0:08:53|Test Check",
-  "9/30/2026 23:15:55|test",
-  "9/30/2026 23:24:56|Ines Said",
-  "9/30/2026 23:25:10|x",
-  "10/6/2026 20:48:53|Ines Said",
-  "10/8/2026 0:59:58|Narmine Ben Aissa",
-  "10/8/2026 11:35:57|Morgan johnson",
-  "10/9/2026 0:27:43|Afaf BOUBAKER",
-  "10/9/2026 0:29:34|Ammar Arab",
-  "10/10/2026 3:04:28|Afaf BOUBAKER",
-  "10/10/2026 3:07:30|Ammar Arab"
+  "9/22/2026 0:08:53|#3da5eea3dbe0",
+  "9/30/2026 23:15:55|#9f86d081884c",
+  "9/30/2026 23:24:56|#d8330baa7b68",
+  "9/30/2026 23:25:10|#2d711642b726",
+  "10/6/2026 20:48:53|#d8330baa7b68",
+  "10/8/2026 0:59:58|#1bdc75d2050c",
+  "10/8/2026 11:35:57|#481749c3063b",
+  "10/9/2026 0:27:43|#166d32113cd3",
+  "10/9/2026 0:29:34|#5b07964bcc98",
+  "10/10/2026 3:04:28|#166d32113cd3",
+  "10/10/2026 3:07:30|#5b07964bcc98"
  ]
 }
