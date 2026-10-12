@@ -83,7 +83,7 @@ _Assembled Oct 7 → ref/newsletter-edition-20.md. The list below is the plannin
 _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item closing Nov 6 or later moved here (blocks already in next-edition-draft.md unless noted). Dec 10 onward is proposed for edition 22 (Fri Nov 6)._
 - 🎨 EMAP European Media Art Platform residencies 2027 (Tunisia explicitly eligible; verified Oct 7 on call.emare.eu) — Nov 6, 2 pm CET — call.emare.eu 🇹🇳 _needs a board entry and a draft block before 21 is assembled_
 - 💡 Swarovski Foundation Creatives for Our Future (21–30; EUR 20,000; free) — Nov 9, 11:59 pm GMT (page also says BST; GMT is the real one) — creatives.swarovskifoundation.org
-- 🕶 UnitedXR Europe 2026 Call for Activations — Nov 12 — unitedxr.eu/activations
+- 🕶 UnitedXR Europe 2026 Call for Activations — Oct 30 (moved up from Nov 12; official page checked Oct 12; still after the Oct 23 send) — unitedxr.eu/activations
 - 🚀 NASA Space Apps Challenge 2026 (local events incl. Tunisia) — hackathon Nov 14-15 — spaceappschallenge.org 🇹🇳
 - 🕶 Meta VR Start Developer Competition ($1M; free) — Nov 18 — developers.meta.com
 - 🏛 Awesome Foundation Conservation & Climate — Nov 27 (reminder line)
@@ -115,6 +115,8 @@ _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item cl
 IGF 2027 (game devs only, Sept 13), IFFR Lightroom (needs an attached producer, €55), ICCROM Fellowship (10+ yrs experience), Smithsonian Fellowship & CURE (academic), Knight-Hennessy (elite), QM-Jerome (NYC-only), Supporting Act (must bank in 10 EU countries), Delfina (Lusophone Africa), Fulbright US Student (US citizens — reconsider if Ines is a US citizen), Goethe mobility (Sub-Saharan only), CAA 2027 (Chile travel), Draper Richards Kaplan (needs spin-out plan), Horizon Europe (consortium), Mandela Washington (Tunisia ineligible), TechWomen (discontinued), Honor Frost (eastern Med only).
 
 ## Watch list (weekly board check re-opens these)
+
+_Checked 2026-10-12: nothing reopened that passes the filter. Open but skipped: MIT DesignX 2027 cohort (Nov 1; one team member must be MIT-affiliated, in person in Cambridge) and Anna Lindh K4A Cycle 2 (Oct 24; university or think-tank only). Dates already set for calls not yet open: SIGGRAPH 2027 Immersive Pavilion (Feb 23, 2027, submissions open soon), IDFA Bertha Fund Classic (opens late December, Feb 10, 2027; directors must live in a listed country), Learning Planet Youth Design Challenge (opens mid-October, Jan 7, 2027, ages 15-26), DAAD Artists-in-Berlin 2028 (opens November), Prix Ars Electronica (January 2027), NIME 2027 (call due in October), MIT TR Innovators Under 35 (December). Could not confirm: ifa CrossCulture 2027 (bot check), MIT TR U35 MENA, Kinship (organisation not identified; needs a URL)._
 
 _Added 2026-10-12 by the similar-finds research (not open yet): Arts at CERN Collide 2027 (check arts.cern) · Learning Planet Youth Design Challenge (deadline reported as Jan 7, 2027; check learning-planet.org) · Kinship (January call). Also seen: NewImages 2027 Virtual Worlds lists its last deadline as Dec 22, 2026; re-check the date when edition 22 is assembled._
 

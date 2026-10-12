@@ -16,7 +16,7 @@
     },
     {
       "slug": "awe-2027-call-for-speakers-early-opportunities",
-      "deadline": null,
+      "deadline": "February 22, 2027",
       "status": "new",
       "reason": "She spoke at AWE 2026; early speaker submission for 2027 directly serves her paid-speaking goal."
     },
@@ -639,6 +639,36 @@
       "deadline": "November 1, 2026",
       "status": "new",
       "reason": "From your Oct 8 screenshot. $5,000 to $30,000 for nonprofits worldwide, free, emailed as one PDF. Tanit XR's youth scanning workshops fit 'education and youth development'. Check first whether a fiscally sponsored project (through Florida Community Innovation) counts as an eligible organization; the form asks for nonprofit documentation."
+    },
+    {
+      "slug": "sat-montreal-dome-production-residency-2027-28-and-research-",
+      "deadline": "October 18, 2026",
+      "status": "new",
+      "reason": "Make and show a work in the Satosphère, an 18 m immersive dome, or take one of three CAD 10,000 research-creation residencies; free, no nationality limit stated, non-profits welcome on the research call. Travel and housing for the dome call are not stated, so check before applying."
+    },
+    {
+      "slug": "realities-in-transition-open-call-3-uncharted-grounds-vrchat",
+      "deadline": "October 23, 2026",
+      "status": "new",
+      "reason": "EUR 10,000 each plus up to EUR 15,000 production for three artists building one shared VRChat world, online January to June 2027, free. Made for an XR developer who is also an artist. No country limit is stated, but it is an EU-funded project, so confirm a non-EU artist can be paid."
+    },
+    {
+      "slug": "mit-solve-2027-global-learning-challenge",
+      "deadline": "November 2, 2026, 12:00 pm EST",
+      "status": "new",
+      "reason": "Tanit XR's phone scanning workshops for students fit the offline and low-resource learning tools this call asks for; $10,000 grant plus coaching for selected teams, free, organisations anywhere."
+    },
+    {
+      "slug": "currents-2027-art-technology-festival-open-call",
+      "deadline": "December 8, 2026",
+      "status": "new",
+      "reason": "A VR, AR and mixed reality category at a Santa Fe new media festival, $30 to enter with hardship waivers; a low-cost way to exhibit an existing XR piece in the US."
+    },
+    {
+      "slug": "acm-creativity-cognition-2027-artworks-track",
+      "deadline": "January 19, 2027 (abstract; full work January 25)",
+      "status": "new",
+      "reason": "Virtual exhibition themed on craft, memory, archives and cultural heritage, free with no publication charge; a heritage XR piece from Tanit XR scans fits the theme closely."
     }
   ]
 }

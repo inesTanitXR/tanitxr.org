@@ -900,7 +900,7 @@
   {
    "slug": "awe-2027-call-for-speakers-early-opportunities",
    "title": "AWE 2027, Call for Speakers & Early Opportunities",
-   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal. No closing date has been published yet.",
+   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal until February 22, 2027.",
    "type": "Open Call",
    "eligibility": [
     "XR Creators",
@@ -910,9 +910,9 @@
    "region": "North America",
    "country": "",
    "mode": "In-person",
-   "deadline_type": "Open",
-   "deadline_date": null,
-   "url": "https://www.awexr.com/call-for-speakers"
+   "deadline_type": "Fixed",
+   "deadline_date": "February 22, 2027",
+   "url": "https://events.awexr.com/usa-2027/cfs/12121821"
   },
   {
    "slug": "ted-posca-global-artist-residency-visible-mending",
@@ -1731,7 +1731,7 @@
    "mode": "Remote",
    "deadline_type": "Rolling",
    "deadline_date": null,
-   "url": "https://www.xrwomen.com/museum"
+   "url": "https://www.xrwomen.com/community-garden-museum"
   },
   {
    "slug": "nasa-space-apps-challenge-2026",
@@ -1971,7 +1971,7 @@
    "country": "",
    "mode": "In-person",
    "deadline_type": null,
-   "deadline_date": "November 12, 2026",
+   "deadline_date": "October 30, 2026",
    "url": "https://unitedxr.eu/activations"
   },
   {

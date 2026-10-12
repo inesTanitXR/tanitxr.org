@@ -87,7 +87,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ### 🕶 UnitedXR Europe 2026, Call for Activations
 
-📅 Deadline: November 12, 2026 (reviewed as received, answers by November 20)
+📅 Deadline: October 30, 2026 (answers by November 6)
 📍 In person, Brussels, December 7–9, 2026
 👥 XR developers, community organizers, anyone with an activation idea
 ✏️ Bring an XR app or experience, a meetup, or a jobs and skills session to the conference. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit.

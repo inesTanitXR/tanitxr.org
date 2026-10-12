@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9).",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9). Checked again 2026-10-12: the public newsletter page still lists Edition 19 (Sept 25) as the latest; edition 20 (due Oct 9) is not posted yet.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -85,8 +85,10 @@
    "desc": "VIVERSE funds creators building web-based 3D worlds, immersive art and games, with funding negotiated per project. Applications are accepted on a rolling basis and no prior WebXR experience is required; Unity WebGL, Three.js, PlayCanvas, Babylon.js, A-Frame and Godot are supported."
   },
   "awe-2027-call-for-speakers-early-opportunities": {
-   "url": "https://www.awexr.com/call-for-speakers",
-   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal. No closing date has been published yet."
+   "deadline_date": "2027-02-22",
+   "deadline_type": "Fixed",
+   "url": "https://events.awexr.com/usa-2027/cfs/12121821",
+   "desc": "Speaker submissions for AWE USA 2027 (June 14 to 17, 2027, Long Beach) are open through the conference portal until February 22, 2027."
   },
   "womentech-global-awards-2026": {
    "url": "https://www.womentech.net/women-in-tech-ai-awards",
@@ -115,6 +117,12 @@
   },
   "games-for-change-student-challenge-2026-2027": {
    "desc": "International game design competition inviting young people aged 10 to 25 to build digital games inspired by the UN Sustainable Development Goals, with prize categories for ages 10 to 18 and university age. Educators sign up classrooms and students worldwide can submit; participation is free. Sign-ups for the 2026-2027 cycle are open and the two themes are published: “Everyone Belongs Here”, on fostering belonging, and “Bounce Back”, on building resilience. The submission deadlines for this cycle have not been published yet."
+  },
+  "unitedxr-europe-2026-call-for-activations": {
+   "deadline_date": "2026-10-30"
+  },
+  "xr-women-museum-community-garden": {
+   "url": "https://www.xrwomen.com/community-garden-museum"
   }
  },
  "new": [
