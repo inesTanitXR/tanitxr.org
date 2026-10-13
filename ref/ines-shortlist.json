@@ -89,8 +89,8 @@
     {
       "slug": "uf-40-gators-under-40-class-of-2027",
       "deadline": "October 12, 2026",
-      "status": "reminded",
-      "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40 Deadline extended by UF to Monday October 12, 2026, 11:59 PM Eastern (portal counter seen October 5; shortlist date corrected by the deadline alarm on 2026-10-06)."
+      "status": "skipped",
+      "reason": "UF Alumni Association award for outstanding young alumni, free to apply, self-application allowed. Founding a heritage-preservation nonprofit from Gainesville is exactly the professional + service + community impact they ask you to quantify. Not on the board or in the newsletter: UF alumni only. ⚠ Eligibility: must be a UF alumna in good standing and 39 or under on October 5, 2026. Needs a resume/CV, headshot, 250-word third-person bio, and 1–2 letters of recommendation, so start early. Apply: https://my.reviewr.com/s2/site/27GatorsUnder40 Deadline extended by UF to Monday October 12, 2026, 11:59 PM Eastern (portal counter seen October 5; shortlist date corrected by the deadline alarm on 2026-10-06). (deadline passed, not applied, per the deadline alarm on 2026-10-13; the STATUS file never reached SUBMITTED. If you did submit, tell a chat and it gets marked applied.)"
     },
     {
       "slug": "women-who-code-summit-2026",
@@ -643,13 +643,13 @@
     {
       "slug": "sat-montreal-dome-production-residency-2027-28-and-research-",
       "deadline": "October 18, 2026",
-      "status": "new",
-      "reason": "Make and show a work in the Satosphère, an 18 m immersive dome, or take one of three CAD 10,000 research-creation residencies; free, no nationality limit stated, non-profits welcome on the research call. Travel and housing for the dome call are not stated, so check before applying."
+      "status": "drafting",
+      "reason": "Make and show a work in the Satosphère, an 18 m immersive dome, or take one of three CAD 10,000 research-creation residencies; free, no nationality limit stated, non-profits welcome on the research call. Travel and housing for the dome call are not stated, so check before applying. Draft: ref/applications/sat-montreal-dome-production-residency-2027-28.md (Oct 13). Needs a 1-minute+ audiovisual excerpt and SAT's budget template; travel and housing not covered."
     },
     {
       "slug": "realities-in-transition-open-call-3-uncharted-grounds-vrchat",
       "deadline": "October 23, 2026",
-      "status": "new",
+      "status": "reminded",
       "reason": "EUR 10,000 each plus up to EUR 15,000 production for three artists building one shared VRChat world, online January to June 2027, free. Made for an XR developer who is also an artist. No country limit is stated, but it is an EU-funded project, so confirm a non-EU artist can be paid."
     },
     {
