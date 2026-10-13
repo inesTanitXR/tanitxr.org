@@ -2187,6 +2187,9 @@ FR = {
 
     # ---- added 2026-10-09: pages that were still English ----
     'loved': 'aimés',
+
+    # ---- added 2026-10-13: pages that were still English ----
+    'Press · October 11, 2026': 'Presse · 11 octobre 2026',
 }
 
 
@@ -4359,4 +4362,7 @@ AR = {
 
     # ---- added 2026-10-09: pages that were still English ----
     'loved': 'أحببتها',
+
+    # ---- added 2026-10-13: pages that were still English ----
+    'Press · October 11, 2026': 'صحافة · 11 أكتوبر 2026',
 }
