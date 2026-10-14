@@ -744,6 +744,20 @@
    "source": "share (Tanit Inbox shot-2.txt, lnkd.in/p/e_c97Jbu)",
    "raw": "https://www.linkedin.com/feed/update/urn:li:share:7515277578417500160",
    "status": "unreadable: LinkedIn shows only the sign-up wall and the embed says page not found (probably a connections-only post). Asked Ines to paste the text or a screenshot. Archived to done/."
+  },
+  {
+   "key": "the league of stars iceland 2027 sky gazing residency",
+   "date": "2026-10-14",
+   "source": "share (Tanit Inbox shot-4.html, Instagram @theleagueofstars post DeWZqvmMkaP)",
+   "raw": "https://www.theleagueofstars.com/iceland",
+   "status": "held: pay-to-attend retreat, EUR 1,790 shared / EUR 2,290 single plus flights, Apr 2-8 2027, deadline Dec 21 2026 (early bird Nov 23); raised in the hold queue (editorial) with the fee table, not published. Archived to done/."
+  },
+  {
+   "key": "renderjuice speed blender animation contest",
+   "date": "2026-10-14",
+   "source": "form (opportunity tab of the submissions sheet, Oct 13, sent by someone at RenderJuice)",
+   "raw": "https://www.renderjuice.com/contests/speed",
+   "status": "held: free Blender contest, $1,500 cash + $3,500 credits, Oct 15-31 2026 23:59 UTC, verified at the source Oct 14; company-run and partly promotional, not XR/heritage, raised in the hold queue (editorial), not published."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -825,6 +839,12 @@
    "file": "shot-3.html",
    "raw": "https://www.instagram.com/p/DeR2x38lP82/ (@smithsoniannpg)",
    "what": "National Portrait Gallery free fall programs (Analog Nights Oct 13, Wellness Wednesdays Oct 21, Reading Parties Oct 29, Dia de los Muertos Nov 1)"
+  },
+  {
+   "date": "2026-10-14",
+   "file": "shot.png",
+   "raw": "screenshot, Instagram feed: @natgeomuseum ad and a Norway northern lights travel post",
+   "what": "National Geographic Museum of Exploration Trivia Night, every Wednesday 6 pm, D.C. (ad); Norway northern lights post (travel)"
   }
  ]
 }
