@@ -24,7 +24,7 @@ to https://tanitxr.org/. Last updated 2026-10-15.
 How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, tanitxr.org/archive/<slug>/. Everything is free to view and study; credit Tanit XR when you reuse it.
 
 - [Home](https://tanitxr.org/): Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Kairouan, Zaghouan and the medina of Tunis as free 3D models you can turn in your browser, in AR and in VR.
-- [About](https://tanitxr.org/about/): Why Tanit XR exists, who builds it, and how a volunteer network in Tunisia, the United States, Europe and Nigeria documents endangered heritage in 3D and gives it away free.
+- [About](https://tanitxr.org/about/): Why Tanit XR exists: named for Tanit, the Carthaginian goddess of protection, a volunteer community that scans Tunisia's endangered heritage in 3D and gives it away free.
 - [Archive](https://tanitxr.org/archive/): Every 3D scan Tanit XR volunteers have made of Tunisian heritage: mosaics, statues, stelae, columns and doors from Carthage, Kairouan, Zaghouan and the medina of Tunis. Free to view, study and explore in 3D.
 - [Architectural Fragment with Relief Decoration](https://tanitxr.org/archive/architectural-fragment-with-relief-decoration/): This carved block fragment once formed part of the ornate architectural decoration of the Roman Water Temple at Zaghouan, constructed in the 2nd century…
 - [Architectural Fragments  - Baths of Antoninus](https://tanitxr.org/archive/architectural-fragments-baths-of-antoninus/): These monumental marble fragments come from the Antonine Baths of Carthage, one of the grandest Roman bath complexes in North Africa.

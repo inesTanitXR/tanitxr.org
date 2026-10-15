@@ -2704,35 +2704,34 @@ ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4
 
 # ---------------------------------------------------------------- shell
 
+# Laura's review of 8 October 2026, with Ines's exceptions: Volunteer, the Scanning Guide,
+# Community and Impact in numbers stay; Submit a model, Services and Browse every scan leave
+# the menu (the pages still exist and are linked where they belong).
 NAV = [
     ("Home", "index.html"),
-    ("Explore", "explore.html", [
-        ("Explore in 3D", "explore.html"),
-        ("Galleries, with the stories", "galleries.html"),
-        ("Browse every scan", "archive.html"),
-        ("Virtual Museum, in progress", "museum.html"),
+    ("Digital Projects", "explore.html", [
+        ("Explore individual models", "explore.html"),
+        ("Tanit XR Galleries", "galleries.html"),
+        ("Virtual Museum", "museum.html"),
     ]),
     ("About", "about.html", [
         ("Our story", "about.html"),
-        ("Our People", "team.html"),
         ("Community", "community.html"),
         ("Impact in numbers", "impact.html"),
-        ("Press &amp; Recognition", "press.html"),
-        ("Contact", "contact.html"),
     ]),
+    ("Our Team", "team.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
         ("23 Oct: an evening in Washington, DC", "dc.html"),
         ("Volunteer", "volunteer.html"),
-        ("Submit a model", "submit-a-model.html"),
         ("Scanning Guide", "scanning-guide.html"),
         ("Splats With Phones course", "splats-with-phones.html"),
         ("Bring it to your region", "unique-mappers.html"),
         ("Partner with us", "partners.html"),
-        ("Services", "services.html"),
+        ("Opportunities board", "opportunities.html"),
         ("Member profile", "create-profile.html"),
     ]),
-    ("Opportunities", "opportunities.html"),
+    ("Contact", "contact.html"),
 ]
 
 
@@ -2766,8 +2765,8 @@ def _nav_items(entries, active):
 
 def header_html(active, transparent, fname="index.html"):
     logo = img("tanitxr-logo_red_vertical.png", 300, as_jpeg=False)
-    left = _nav_items(NAV[:3], active)     # Home, Explore, Opportunities
-    right = _nav_items(NAV[3:], active)    # News, Get Involved, About
+    left = _nav_items(NAV[:3], active)     # Home, Digital Projects, About
+    right = _nav_items(NAV[3:], active)    # Our Team, News, Get Involved, Contact
     socials = f"""<div class="socials">
 <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICO_IG}</a>
 <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICO_LI}</a>
@@ -2819,7 +2818,7 @@ public everywhere.</p>
 <a href="opportunities.html">Opportunities</a></div>
 <div><h4>Get Involved</h4>
 <a href="volunteer.html" style="color:var(--gold);font-weight:700">Volunteer →</a>
-<a href="services.html">Services</a>
+<a href="partners.html">Partner with us</a>
 <a href="splats-with-phones.html">Workshops</a>
 <a href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
 <a href="contact.html">Contact</a></div>
@@ -4352,7 +4351,7 @@ and workshops, and better equipment. Here is what a donation does:</p>
 </div>
 <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
 <a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a>
-<a class="btn btn-line-light" href="services.html">Work with us</a>
+<a class="btn btn-line-light" href="partners.html">Work with us</a>
 <a class="btn btn-line-light" href="support.html">See the full breakdown</a></div>
 </div></section>"""
 
@@ -4373,10 +4372,10 @@ def build_home():
          "Interview prep, portfolio reviews and mentoring for students and early-career volunteers, across four continents.",
          "Volunteer with us", "volunteer.html"),
         ("research.png", "Research &amp; Share",
-         "Papers, conference talks, podcasts and hackathon tracks. We publish what we learn.",
+         "Academic papers, conference presentations, public talks, hackathons and workshops. We publish and share our research and insights with a global audience.",
          "Press &amp; recognition", "press.html"),
         ("research-1.png", "Extend Beyond Tunisia",
-         "With the Unique Mappers in Nigeria we are testing the model in a second country. Under-represented heritage everywhere is the goal.",
+         "We are building a global framework for collaborative digital heritage. It started in Tunisia, inspired by Tanit, the goddess of protection. We are now extending the model globally, partnering with the Unique Mappers in Nigeria and others.",
          "TanitXR &amp; the Unique Mappers", "unique-mappers.html"),
     ]
     pillar_html = "".join(
@@ -4423,9 +4422,11 @@ def build_home():
     body = f"""
 <div class="hero"><div class="bg hero-photo" style="background-image:var(--scrim),url({img('hero-baths-flipped.jpg', 1920)})"></div>
 <div class="in">
-<h1>Preserving Heritage</h1>
-<p>A volunteer community from Tunisia and around the world, scanning endangered heritage in 3D and bringing it to
-life in AR and VR, and learning from each other along the way.</p>
+<h1>Heritage at Risk.<br>Technology at Hand.</h1>
+<p>The world’s archaeological sites are vanishing faster than they can be protected. Climate change brings floods,
+storms and heat that accelerate erosion. Without urgent action, pieces of world history could disappear. With every
+scan, Tanit XR creates a permanent archive. Even if the physical site is lost, the digital memory survives, for
+schools, museums and future generations.</p>
 <div class="ctas"><a class="btn btn-gold" href="community.html">Join the Community</a>
 <a class="btn btn-dark" href="explore.html">Explore in 3D</a></div>
 </div></div>
@@ -4438,10 +4439,10 @@ life in AR and VR, and learning from each other along the way.</p>
 <section class="pad"><div class="wrap center" style="max-width:860px">
 <div class="eyebrow">More than an archive</div>
 <h2 class="sec-title">One phone, the ruins of Carthage, and now a community</h2>
-<p class="sec-sub" style="margin:0;font-size:18px">Tanit XR started with a phone and the ruins Ines grew up next to.
-Today, volunteers in Tunisia, the US, Europe and Nigeria meet every week to scan, optimize, teach each other history,
-mentor students and publish research, building a free 3D archive of Tunisia’s heritage, and a model for other
-under-represented regions.</p>
+<p class="sec-sub" style="margin:0;font-size:18px">Tanit XR was founded by Ines Said, who grew up in Tunisia surrounded
+by ruins. Today, we are a global community of volunteers in Tunisia, the U.S., Europe and Africa who meet every week
+to scan, optimize, teach and learn history, mentor students, and publish and present research. We are building a free,
+open archive of Tunisia’s heritage, which we hope will be a model for other underrepresented regions.</p>
 </div></section>
 
 {weekly_card()}
@@ -4457,25 +4458,9 @@ under-represented regions.</p>
 <section class="pad"><div class="wrap">
 <div class="center" style="max-width:820px;margin:0 auto 40px">
 <div class="eyebrow">What we do</div>
-<h2 class="sec-title">Six ways the community works</h2></div>
+<h2 class="sec-title">Our Approach to Digital Heritage</h2></div>
 <div class="pillars">{pillar_html}</div>
 </div></section>
-
-<section class="pad" style="background:var(--cloud)"><div class="wrap">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;align-items:center">
-{community_mosaic()}
-<div>
-<div class="eyebrow">Community</div>
-<h2 class="sec-title">We meet every week</h2>
-<p class="sec-sub" style="margin:0 0 18px">Tanit XR is a weekly call across time zones as much as it is an archive. We
-review each other’s scans, learn the history behind them, run workshops, prepare students for interviews, share
-Tunisian culture, and celebrate wins together.</p>
-<ul style="color:var(--gray);line-height:1.9;padding-left:20px;margin-bottom:26px">
-<li>Weekly community call, Thursdays, 12 pm Eastern</li><li>History lessons on the sites we scan</li><li>Splats With Phones workshop</li>
-<li>Mentoring &amp; interview prep</li><li>Events, talks &amp; hackathons</li><li>Cultural exchange</li></ul>
-<a class="btn btn-gold" href="community.html">See how the community works</a>
-&nbsp; <a class="btn btn-line" href="volunteer.html">Volunteer</a>
-</div></div></div></section>
 
 <section class="pad"><div class="wrap center">
 <div class="eyebrow">Featured Scans</div>
@@ -4508,68 +4493,6 @@ each maker's own gallery, or put on a headset.</p>
 </a>
 </div>
 </div></section>
-
-<section class="pad" style="background:var(--cloud)"><div class="wrap center">
-<div class="eyebrow">🏺 Made by our volunteers</div>
-<h2 class="sec-title">Recreated by hand, for VR &amp; learning</h2>
-<p class="sec-sub">Beyond scanning, our volunteers model Tunisian lamps, pottery and plants from scratch for our
-virtual museum. Press <b>View in 3D</b> to spin one around right here.</p>
-<div class="cards" style="text-align:left">{volunteer_made_cards(4)}</div>
-<p style="margin-top:34px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a>
-&nbsp; <a class="btn btn-gold" href="volunteer.html">Make one with us</a></p>
-</div></section>
-
-<section class="split">
-<div class="simg" style="background-image:url({img('aug-20260813_124249.jpg', 1400)})" role="img" aria-label="Ruins on the Tunisian coast"></div>
-<div class="stx">
-<h2 class="sec-title">Climate is rewriting the coastline</h2>
-<h3>Storm Harry, January 2026</h3>
-<p>The storm stripped sediment off the coast at Nabeul and exposed parts of Neapolis, an ancient city lost to a
-tsunami in the 4th century. Within days our volunteers captured the newly revealed ruins in 3D, a record that
-exists no matter what the sea does next.</p>
-<h3>A lasting record</h3>
-<p>Floods, storms and heat are accelerating erosion across Tunisia’s sites. Every scan is a permanent, open record:
-even if the physical site is lost, the digital memory survives, for schools, museums and future generations.</p>
-<div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
-<a class="btn btn-gold" href="news/storm-harry-neapolis-and-a-digital-moment-of-preservation.html">Read the Neapolis story</a>
-<a class="btn btn-line" href="{DONATE_URL}" target="_blank" rel="noopener">Donate</a></div>
-</div></section>
-
-<section class="pad"><div class="wrap center">
-<div class="eyebrow">Press &amp; Recognition</div>
-<h2 class="sec-title">What people are saying</h2>
-<div style="text-align:left;margin-top:36px">{press_cards(PRESS[:6])}</div>
-<p style="margin-top:34px"><a class="btn btn-line" href="press.html">All press, talks &amp; papers</a></p>
-</div></section>
-
-<section class="band pad"><div class="bg" style="background-image:url({img('sv-IMG_0511.jpg', 1800)})"></div>
-<div class="wrap">
-<div class="eyebrow">Where we’re going</div>
-<h2 class="sec-title">Tunisia is the pilot</h2>
-<p class="sec-sub" style="margin:0;max-width:760px">The method, phones, volunteers, open data, works anywhere heritage is
-under-documented. In 2026 the Unique Mappers Network began scanning in Nigeria with a mini-grant from our fiscal
-sponsor. If you want to bring this to your region, talk to us.</p>
-<div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
-<a class="btn btn-gold" href="contact.html">Bring Tanit XR to your region</a>
-<a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a></div>
-</div></section>
-
-<section class="pad"><div class="wrap center">
-<div class="eyebrow">Our Team</div>
-<h2 class="sec-title">Powered by our people</h2>
-<p class="sec-sub">Tanit XR is led by a dedicated core team and powered by a growing network of volunteers
-across Tunisia and the world.</p>
-<div class="team">{team}</div>
-<p style="margin-top:36px"><a class="btn btn-line" href="team.html">Meet Everyone</a></p>
-</div></section>
-
-<section class="pad" style="background:var(--cloud)"><div class="wrap center">
-<div class="eyebrow">Testimonials</div>
-<h2 class="sec-title">Hear from the volunteers and mentors shaping Tanit XR</h2>
-<div class="quotes" style="text-align:left;margin-top:40px">{quote_html}</div>
-</div></section>
-
-{funding_band()}
 
 <section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:760px">
 <div class="eyebrow">Newsletter</div>
@@ -5349,6 +5272,16 @@ def human_size(d):
 
 
 WEEKLY = None
+# Laura, Oct 2026: the week's object deserves a paragraph a person wrote. One per object, in
+# their own words; an object without one falls back to Nura's line.
+WEEKLY_NOTES = {
+    "architectural-fragments-baths-of-antoninus":
+        "The Baths of Antoninus are part of the Archaeological Site of Carthage, a UNESCO World Heritage Site in "
+        "Tunisia. Built between 145 and 162 CE, during the reign of the Roman emperor Antoninus Pius, they were among "
+        "the largest Roman baths in the empire. Today, all that remains is the basement, with passageways and furnaces "
+        "that once heated the extensive public baths. The site sits directly on the Mediterranean coast and is "
+        "threatened by erosion. Tanit XR scanned the site in 2025.",
+}
 
 
 def weekly_card():
@@ -5363,7 +5296,7 @@ def weekly_card():
             f'<div class="eyebrow">{term("Object of the week")}</div>'
             f'<h2 class="sec-title" style="margin:6px 0">{esc(it["title"])}</h2>'
             f'<p class="sec-sub" style="margin:0 0 14px">{esc(it["place"])}'
-            f'{(" · " + esc(it["size"])) if it.get("size") else ""}. {esc(it["hi"])}</p>'
+            f'{(" · " + esc(it["size"])) if it.get("size") else ""}. {esc(WEEKLY_NOTES.get(it["slug"], it["hi"]))}</p>'
             f'<a class="btn btn-gold" href="{root}explore/#{it["slug"]}">{term("Explore in 3D")}</a>'
             f'</div></div></section>')
 
@@ -6384,6 +6317,11 @@ def build_news():
 {section(term("Stories"), term("Written by our volunteers: what they scanned, and what they found out about it."), stories)}
 <div style="height:54px"></div>
 {section(term("Announcements"), term("What we are doing and where we will be."), notes)}
+<div style="height:54px"></div>
+<h2 class="sec-title" style="text-align:start;margin-top:8px">{term("Press &amp; Recognition")}</h2>
+<p style="color:var(--gray);max-width:62ch;margin:6px 0 26px">{term("Awards, talks, podcasts and articles about Tanit XR.")}</p>
+{press_cards(PRESS[:6])}
+<p style="margin-top:26px"><a class="btn btn-line" href="press.html">{term("All press, talks and papers")}</a></p>
 </div></section>"""
     _newest = (stories or newest)
     _nxt_news = ((None, "/" + LANG_DIRS[LANG] + _newest[0]["href"][:-5] + "/") if _newest else None)
@@ -7852,42 +7790,50 @@ community that now does it. She opens the evening and shows the collection live.
 
 
 def build_about():
+    """Laura, Oct 2026: impact, purpose, the goddess and the founder's story, in that order,
+    with the words from the partnership deck."""
     body = f"""
 {page_hero("About", "About", bg="sv-IMG_0511.jpg")}
-<section class="pad"><div class="wrap center">
-<h2 class="sec-title">Our Impact So Far</h2>
-<p class="sec-sub">Tanit XR is a community effort to save Tunisia’s heritage from climate change, erosion,
-and neglect. Together, we’re building a digital archive to protect it for generations.</p>
-<div class="stats icons" style="margin-top:14px">
+<section class="pad"><div class="wrap center" style="max-width:820px">
+<div class="eyebrow">Purpose</div>
+<h2 class="sec-title">Named for Tanit, the Carthaginian goddess of protection</h2>
+<p class="sec-sub" style="margin:0;font-size:18px">That is our mission, brought into the digital age. We train volunteers
+worldwide in 3D photogrammetry to scan heritage sites on the ground. Students and skilled volunteers optimize, publish
+and research the models, and they are shown in an interactive online virtual museum alongside other media. Our work in
+Tunisia and beyond is a model for democratizing, protecting and sharing cultural heritage, committed to ethical
+technology use and community engagement.</p>
+</div></section>
+<section class="pad" style="background:var(--cloud)"><div class="wrap">
+<div class="center" style="max-width:820px;margin:0 auto 34px">
+<div class="eyebrow">Impact</div>
+<h2 class="sec-title">Democratizing the past</h2>
+<p class="sec-sub" style="margin:0">A global community that digitizes, preserves, shares and experiences cultural heritage.</p>
+</div>
+<div class="acts">
+<div class="act"><b>Digitizing at-risk heritage</b><p>Scanning sites and objects before they disappear or are damaged by neglect, conflict and a changing climate.</p></div>
+<div class="act"><b>A virtual museum for everyone</b><p>Making artifacts accessible to researchers, students and communities worldwide, free, in a browser or a headset.</p></div>
+<div class="act"><b>Hidden histories</b><p>Uncovering and preserving stories with archaeological research and digital restoration.</p></div>
+<div class="act"><b>A global movement</b><p>Connecting educators, institutions and communities to celebrate and protect cultural heritage, in Tunisia first and now in Nigeria.</p></div>
+</div>
+<div class="stats icons" style="margin-top:44px">
 <div><img src="{img('artifacts.png', 200, as_jpeg=False)}" alt="Artifacts scanned"><b style="color:var(--gold-text)">{stat('artifacts')}</b><span style="color:var(--gray)">3D models published</span></div>
 <div><img src="{img('sites.png', 200, as_jpeg=False)}" alt="Sites documented"><b style="color:var(--gold-text)">{stat('sites')}</b><span style="color:var(--gray)">Sites Documented</span></div>
 <div><img src="{img('volunteer-1.png', 200, as_jpeg=False)}" alt="Volunteers"><b style="color:var(--gold-text)">{stat('volunteers')}</b><span style="color:var(--gray)">Volunteers</span></div>
 <div><img src="{img('global.png', 200, as_jpeg=False)}" alt="People reached online"><b style="color:var(--gold-text)">{stat('reach')}</b><span style="color:var(--gray)">People reached online</span></div>
 </div>
+<p class="center" style="margin-top:26px"><a class="btn btn-line" href="impact.html">Impact in numbers</a></p>
 </div></section>
-<section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
-<h2 style="margin-top:0">We Are A Non-Profit Organization</h2>
-<p>Tanit XR operates under fiscal sponsorship with Florida Community Innovation (FCI), a U.S. 501(c)(3)
-nonprofit. This partnership allows us to accept tax-deductible donations while we grow toward becoming a
-fully independent nonprofit organization.</p>
-<p>Our mission is to preserve Tunisia’s endangered heritage through digital scans, immersive technology, and
-education. With every artifact we scan and every volunteer we train, we are proving that heritage can be
-safeguarded for future generations, no matter the threats of climate change and neglect.</p>
-<p>Tanit XR advances <b>Sustainable Development Goal 11.4</b>, which focuses on safeguarding cultural and
-natural heritage. We view the Sustainable Development Goals as an important shared framework for linking
-local action to global impact.</p>
-</div></div></section>
 <section class="pad"><div class="wrap">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:50px;align-items:center">
 <div>
 <h2 class="sec-title">Why I Started Tanit XR</h2>
-<p>I grew up walking past the ruins of Carthage every day. To me, they were just there – a backdrop of my
+<p>I grew up walking past the ruins of Carthage every day. To me, they were just there, a backdrop of my
 childhood. But slowly I began to notice how pieces were missing, how mosaics cracked and crumbled, how
 nothing was truly protected. Tunisia’s history is not kept in vaults or guarded museums. It is left in the
-open air, vulnerable to time, weather, and neglect. And every year, more of it disappears.</p>
+open air, vulnerable to time, weather and neglect. And every year, more of it disappears.</p>
 <p>Tanit XR was born from the fear of losing this history forever and the belief that technology can change
-the story. With 3D scanning, digital archiving, and immersive storytelling, we can preserve what remains and
-share it with the world. Each scan is more than just data; it is a memory, a voice from the past, a way of
+the story. With 3D scanning, digital archiving and immersive storytelling, we can preserve what remains and
+share it with the world. Each scan is more than data; it is a memory, a voice from the past, a way of
 saying: we were here, and we matter.</p>
 <p><b>– <a href="https://www.inessaid.com" target="_blank" rel="noopener"
 style="color:var(--gold-text)">Ines Said</a>, Founder</b></p>
@@ -7895,6 +7841,14 @@ style="color:var(--gold-text)">Ines Said</a>, Founder</b></p>
 <img src="{img('img_4196.jpg', 1000)}" alt="Ines scanning at Carthage" style="border-radius:14px" loading="lazy">
 </div>
 </div></section>
+<section class="pad" style="background:var(--cloud)"><div class="wrap"><div class="prose">
+<h2 style="margin-top:0">A nonprofit, by volunteers</h2>
+<p>Tanit XR operates under fiscal sponsorship with Florida Community Innovation, a U.S. 501(c)(3) nonprofit, which
+lets us accept tax-deductible donations while we grow toward a fully independent organization. Nobody is paid.
+Our work advances <b>Sustainable Development Goal 11.4</b>, safeguarding cultural and natural heritage.</p>
+<p><a href="team.html" style="color:var(--gold-text);font-weight:700">Meet the team →</a> &nbsp;
+<a href="community.html" style="color:var(--gold-text);font-weight:700">How the community works →</a></p>
+</div></div></section>
 <section class="band pad"><div class="bg" style="background-image:url({img('img_4615-copy.jpg', 1800)})"></div>
 <div class="wrap center">
 <div class="eyebrow">Become a volunteer</div>
@@ -7905,7 +7859,7 @@ helping remotely, every volunteer contributes to preserving history.</p>
 <a class="btn btn-gold" href="volunteer.html">Volunteer</a>
 </div></section>"""
     page("about.html", "About", body,
-         desc="Why Tanit XR exists, who builds it, and how a volunteer network in Tunisia, the United States, Europe and Nigeria documents endangered heritage in 3D and gives it away free.")
+         desc="Why Tanit XR exists: named for Tanit, the Carthaginian goddess of protection, a volunteer community that scans Tunisia's endangered heritage in 3D and gives it away free.")
 
 
 def build_contact():
@@ -7967,10 +7921,6 @@ def build_partners():
         ("Build an immersive experience with us",
          "Your developers and designers, our volunteers and our published scans, one weekend or one quarter: an AR "
          "lesson, a VR room, a piece for your own event. The kind of project your team asks to be part of."),
-        ("A care day for a coastal site",
-         "With the authorities who look after the sites, a day of cleaning and care at a coastal site with local "
-         "volunteers: travel, meals, gloves and bags, and a modest fee for the locals who show up. The sea is the "
-         "clock we work against."),
         ("Learn to capture in 3D with a phone",
          "A workshop for your team on phone photogrammetry, on objects and places we are free to scan, with the "
          "method our volunteers use. A skill people keep, and a new way to look at the street they walk every day."),
@@ -7978,9 +7928,6 @@ def build_partners():
          "Our founder and team speak on community XR, phone 3D capture and heritage at risk: AWE, Voices of VR, Georgia "
          "Tech, the El Jem conference. Or we bring the 3D experience and a headset to your conference or office, with "
          "a volunteer to guide people through it."),
-        ("Fund the community itself",
-         "Courses, mentoring for students, hosting and tools, the weekly call across four continents. The unglamorous "
-         "part that keeps eighty-five volunteers working, and the first paid coordinator when we can afford one."),
     ]
     offer_html = "".join(f'<div class="act"><b>{esc(t)}</b><p>{esc(d)}</p></div>' for t, d in offers)
     gets = [
@@ -8000,21 +7947,14 @@ def build_partners():
 <div class="eyebrow">For companies and foundations</div>
 <h2 class="sec-title">Keep a country's memory, with your name on it</h2>
 <p class="sec-sub">Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage
-into 3D and publish it free, for anyone, working alongside the institutions that look after the sites. Everything on
-this site was built without a single paid person. A partnership pays for the museum, the experiences, the training and
-the care of the places, and gives your team a real part in it.</p>
-<p style="margin-top:18px"><a class="btn btn-gold" href="explore.html?tour=1">Take the four-minute guided visit</a>
-&nbsp; <a class="btn btn-line" href="mailto:{EMAIL}?subject=Partnering%20with%20Tanit%20XR">Write to us</a></p>
+into 3D and publish it free. A partnership pays for the museum, the experiences and the training, and gives your
+team a real part in it. Workshops, talks and consulting for institutions are part of what we offer.</p>
+<p style="margin-top:18px"><a class="btn btn-gold" href="mailto:{EMAIL}?subject=Partnering%20with%20Tanit%20XR">Write to us</a>
+&nbsp; <a class="btn btn-line" href="explore.html?tour=1">Take the four-minute guided visit</a></p>
 </div>
 <h3 class="sec-title" style="font-size:26px;text-align:center;margin-bottom:8px">What a partnership can look like</h3>
 <p class="sec-sub center" style="margin:0 auto 26px;max-width:640px">Pick one, or shape one with us. We build each partnership around your team and your budget.</p>
 <div class="acts">{offer_html}</div>
-</div></section>
-<section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:820px">
-<h3 class="sec-title" style="font-size:26px">What you get back</h3>
-<ul class="prose" style="margin-top:14px">{gets_html}</ul>
-<p class="sec-sub" style="margin-top:26px">One promise we keep whatever the partnership: the archive stays free and open,
-and our volunteers are never made to work so that someone else earns. We sell training, events and our time, never the heritage.</p>
 </div></section>
 <section class="band pad"><div class="wrap center">
 <div class="eyebrow">Start the conversation</div>

@@ -5,6 +5,76 @@
 # intentionally stay in English for now.
 
 FR = {
+    'Heritage at Risk.':
+        'Un patrimoine en danger.',
+    'Technology at Hand.':
+        'La technologie à portée de main.',
+    'The world’s archaeological sites are vanishing faster than they can be protected. Climate change brings floods,\nstorms and heat that accelerate erosion. Without urgent action, pieces of world history could disappear. With every\nscan, Tanit XR creates a permanent archive. Even if the physical site is lost, the digital memory survives, for\nschools, museums and future generations.':
+        'Les sites archéologiques du monde disparaissent plus vite qu’on ne peut les protéger. Le changement climatique apporte inondations, tempêtes et chaleur qui accélèrent l’érosion. Sans action urgente, des pans de l’histoire du monde pourraient disparaître. À chaque scan, Tanit XR crée une archive permanente. Même si le site physique est perdu, la mémoire numérique survit, pour les écoles, les musées et les générations futures.',
+    'Tanit XR was founded by Ines Said, who grew up in Tunisia surrounded\nby ruins. Today, we are a global community of volunteers in Tunisia, the U.S., Europe and Africa who meet every week\nto scan, optimize, teach and learn history, mentor students, and publish and present research. We are building a free,\nopen archive of Tunisia’s heritage, which we hope will be a model for other underrepresented regions.':
+        'Tanit XR a été fondée par Ines Said, qui a grandi en Tunisie entourée de ruines. Aujourd’hui, nous sommes une communauté mondiale de bénévoles en Tunisie, aux États-Unis, en Europe et en Afrique, qui se retrouvent chaque semaine pour scanner, optimiser, enseigner et apprendre l’histoire, accompagner des étudiants, et publier et présenter des recherches. Nous construisons une archive libre et ouverte du patrimoine tunisien, qui, nous l’espérons, servira de modèle à d’autres régions sous-représentées.',
+    'Our Approach to Digital Heritage':
+        'Notre approche du patrimoine numérique',
+    'Academic papers, conference presentations, public talks, hackathons and workshops. We publish and share our research and insights with a global audience.':
+        'Articles académiques, présentations en conférence, conférences publiques, hackathons et ateliers. Nous publions et partageons nos recherches et nos enseignements avec un public mondial.',
+    'We are building a global framework for collaborative digital heritage. It started in Tunisia, inspired by Tanit, the goddess of protection. We are now extending the model globally, partnering with the Unique Mappers in Nigeria and others.':
+        'Nous construisons un cadre mondial pour un patrimoine numérique collaboratif. Tout a commencé en Tunisie, sous le signe de Tanit, déesse de la protection. Nous étendons aujourd’hui le modèle au monde entier, avec les Unique Mappers au Nigeria et d’autres partenaires.',
+    'The Baths of Antoninus are part of the Archaeological Site of Carthage, a UNESCO World Heritage Site in Tunisia. Built between 145 and 162 CE, during the reign of the Roman emperor Antoninus Pius, they were among the largest Roman baths in the empire. Today, all that remains is the basement, with passageways and furnaces that once heated the extensive public baths. The site sits directly on the Mediterranean coast and is threatened by erosion. Tanit XR scanned the site in 2025.':
+        'Les thermes d’Antonin font partie du site archéologique de Carthage, inscrit au patrimoine mondial de l’UNESCO, en Tunisie. Construits entre 145 et 162 de notre ère, sous le règne de l’empereur romain Antonin le Pieux, ils comptaient parmi les plus grands thermes de l’Empire. Il n’en reste aujourd’hui que le sous-sol, avec les couloirs et les fours qui chauffaient autrefois ces vastes bains publics. Le site est au bord de la Méditerranée et menacé par l’érosion. Tanit XR l’a scanné en 2025.',
+    'Digital Projects':
+        'Projets numériques',
+    'Explore individual models':
+        'Explorer les modèles un par un',
+    'Tanit XR Galleries':
+        'Galeries Tanit XR',
+    'Our Team':
+        'Notre équipe',
+    'Opportunities board':
+        'Tableau des opportunités',
+    'Purpose':
+        'Notre raison d’être',
+    'Named for Tanit, the Carthaginian goddess of protection':
+        'Au nom de Tanit, déesse carthaginoise de la protection',
+    'That is our mission, brought into the digital age. We train volunteers\nworldwide in 3D photogrammetry to scan heritage sites on the ground. Students and skilled volunteers optimize, publish\nand research the models, and they are shown in an interactive online virtual museum alongside other media. Our work in\nTunisia and beyond is a model for democratizing, protecting and sharing cultural heritage, committed to ethical\ntechnology use and community engagement.':
+        'C’est notre mission, portée à l’ère numérique. Nous formons des bénévoles du monde entier à la photogrammétrie 3D pour scanner les sites patrimoniaux sur le terrain. Étudiants et bénévoles qualifiés optimisent, publient et étudient les modèles, présentés ensuite dans un musée virtuel interactif en ligne, aux côtés d’autres médias. Notre travail en Tunisie et au-delà est un modèle pour démocratiser, protéger et partager le patrimoine culturel, avec un engagement pour un usage éthique de la technologie et la participation des communautés.',
+    'Impact':
+        'Impact',
+    'Democratizing the past':
+        'Démocratiser le passé',
+    'A global community that digitizes, preserves, shares and experiences cultural heritage.':
+        'Une communauté mondiale qui numérise, préserve, partage et fait vivre le patrimoine culturel.',
+    'Digitizing at-risk heritage':
+        'Numériser le patrimoine menacé',
+    'Scanning sites and objects before they disappear or are damaged by neglect, conflict and a changing climate.':
+        'Scanner les sites et les objets avant qu’ils ne disparaissent ou ne soient abîmés par l’abandon, les conflits et le changement climatique.',
+    'A virtual museum for everyone':
+        'Un musée virtuel pour tous',
+    'Making artifacts accessible to researchers, students and communities worldwide, free, in a browser or a headset.':
+        'Rendre les objets accessibles aux chercheurs, aux étudiants et aux communautés du monde entier, gratuitement, dans un navigateur ou un casque.',
+    'Hidden histories':
+        'Histoires cachées',
+    'Uncovering and preserving stories with archaeological research and digital restoration.':
+        'Révéler et préserver des histoires grâce à la recherche archéologique et à la restauration numérique.',
+    'A global movement':
+        'Un mouvement mondial',
+    'Connecting educators, institutions and communities to celebrate and protect cultural heritage, in Tunisia first and now in Nigeria.':
+        'Relier enseignants, institutions et communautés pour célébrer et protéger le patrimoine culturel, en Tunisie d’abord, et désormais au Nigeria.',
+    'A nonprofit, by volunteers':
+        'Une association à but non lucratif, portée par des bénévoles',
+    'Tanit XR operates under fiscal sponsorship with Florida Community Innovation, a U.S. 501(c)(3) nonprofit, which\nlets us accept tax-deductible donations while we grow toward a fully independent organization. Nobody is paid.\nOur work advances':
+        'Tanit XR fonctionne sous le parrainage fiscal de Florida Community Innovation, organisation américaine à but non lucratif 501(c)(3), ce qui nous permet de recevoir des dons déductibles des impôts en attendant de devenir une organisation pleinement indépendante. Personne n’est rémunéré. Notre travail contribue à l’',
+    ', safeguarding cultural and natural heritage.':
+        ', la sauvegarde du patrimoine culturel et naturel.',
+    'Meet the team →':
+        'Rencontrer l’équipe →',
+    'How the community works →':
+        'Comment fonctionne la communauté →',
+    'Awards, talks, podcasts and articles about Tanit XR.':
+        'Prix, conférences, podcasts et articles sur Tanit XR.',
+    'All press, talks and papers':
+        'Toute la presse, les conférences et les articles',
+    "Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage\ninto 3D and publish it free. A partnership pays for the museum, the experiences and the training, and gives your\nteam a real part in it. Workshops, talks and consulting for institutions are part of what we offer.":
+        'Tanit XR, ce sont quatre-vingt-cinq bénévoles sur quatre continents qui portent le patrimoine tunisien en danger en 3D et le publient gratuitement. Un partenariat finance le musée, les expériences et la formation, et donne à votre équipe une vraie place dans le projet. Ateliers, conférences et conseil pour les institutions font partie de ce que nous proposons.',
     'More like this': 'D’autres comme celui-ci',
     # ---- navigation / header ----
     ">Home</a>": ">Accueil</a>",
@@ -2194,6 +2264,76 @@ FR = {
 
 
 AR = {
+    'Heritage at Risk.':
+        'تراث في خطر.',
+    'Technology at Hand.':
+        'والتكنولوجيا في متناول اليد.',
+    'The world’s archaeological sites are vanishing faster than they can be protected. Climate change brings floods,\nstorms and heat that accelerate erosion. Without urgent action, pieces of world history could disappear. With every\nscan, Tanit XR creates a permanent archive. Even if the physical site is lost, the digital memory survives, for\nschools, museums and future generations.':
+        'تختفي المواقع الأثرية في العالم أسرع مما يمكن حمايتها. يجلب تغيّر المناخ فيضانات وعواصف وحرارة تسرّع التآكل. ومن دون تحرّك عاجل، قد تضيع أجزاء من تاريخ العالم. مع كل مسح، تبني Tanit XR أرشيفًا دائمًا. حتى لو ضاع الموقع المادي، تبقى الذاكرة الرقمية، للمدارس والمتاحف والأجيال القادمة.',
+    'Tanit XR was founded by Ines Said, who grew up in Tunisia surrounded\nby ruins. Today, we are a global community of volunteers in Tunisia, the U.S., Europe and Africa who meet every week\nto scan, optimize, teach and learn history, mentor students, and publish and present research. We are building a free,\nopen archive of Tunisia’s heritage, which we hope will be a model for other underrepresented regions.':
+        'أسّست Ines Said منظمة Tanit XR، وقد نشأت في تونس محاطة بالآثار. نحن اليوم مجتمع عالمي من المتطوعين في تونس والولايات المتحدة وأوروبا وأفريقيا، يلتقون كل أسبوع للمسح والتحسين وتعليم التاريخ وتعلّمه، ومرافقة الطلبة، ونشر البحوث وتقديمها. نبني أرشيفًا حرًا ومفتوحًا للتراث التونسي، نأمل أن يكون نموذجًا لمناطق أخرى قليلة التمثيل.',
+    'Our Approach to Digital Heritage':
+        'نهجنا في التراث الرقمي',
+    'Academic papers, conference presentations, public talks, hackathons and workshops. We publish and share our research and insights with a global audience.':
+        'أوراق أكاديمية وعروض في المؤتمرات ومحاضرات عامة وهاكاثونات وورشات. ننشر بحوثنا وخلاصاتنا ونشاركها مع جمهور عالمي.',
+    'We are building a global framework for collaborative digital heritage. It started in Tunisia, inspired by Tanit, the goddess of protection. We are now extending the model globally, partnering with the Unique Mappers in Nigeria and others.':
+        'نبني إطارًا عالميًا للتراث الرقمي التشاركي. بدأ الأمر في تونس، مستلهمًا من تانيت، إلهة الحماية. ونوسّع النموذج اليوم عالميًا بالشراكة مع Unique Mappers في نيجيريا وغيرهم.',
+    'The Baths of Antoninus are part of the Archaeological Site of Carthage, a UNESCO World Heritage Site in Tunisia. Built between 145 and 162 CE, during the reign of the Roman emperor Antoninus Pius, they were among the largest Roman baths in the empire. Today, all that remains is the basement, with passageways and furnaces that once heated the extensive public baths. The site sits directly on the Mediterranean coast and is threatened by erosion. Tanit XR scanned the site in 2025.':
+        'حمّامات أنطونينوس جزء من موقع قرطاج الأثري، المدرج في قائمة التراث العالمي لليونسكو في تونس. بُنيت بين عامي 145 و162 ميلادية، في عهد الإمبراطور الروماني أنطونينوس بيوس، وكانت من أكبر الحمّامات الرومانية في الإمبراطورية. لم يبقَ منها اليوم سوى الطابق السفلي، بممراته وأفرانه التي كانت تسخّن الحمّامات العامة الواسعة. يقع الموقع مباشرة على ساحل المتوسط وهو مهدّد بالتآكل. مسحته Tanit XR سنة 2025.',
+    'Digital Projects':
+        'المشاريع الرقمية',
+    'Explore individual models':
+        'استكشف النماذج قطعةً قطعة',
+    'Tanit XR Galleries':
+        'قاعات Tanit XR',
+    'Our Team':
+        'فريقنا',
+    'Opportunities board':
+        'لوحة الفرص',
+    'Purpose':
+        'رسالتنا',
+    'Named for Tanit, the Carthaginian goddess of protection':
+        'باسم تانيت، إلهة الحماية القرطاجية',
+    'That is our mission, brought into the digital age. We train volunteers\nworldwide in 3D photogrammetry to scan heritage sites on the ground. Students and skilled volunteers optimize, publish\nand research the models, and they are shown in an interactive online virtual museum alongside other media. Our work in\nTunisia and beyond is a model for democratizing, protecting and sharing cultural heritage, committed to ethical\ntechnology use and community engagement.':
+        'هذه رسالتنا، منقولة إلى العصر الرقمي. ندرّب متطوعين من أنحاء العالم على التصوير المساحي ثلاثي الأبعاد لمسح المواقع التراثية ميدانيًا. يتولّى الطلبة والمتطوعون المهرة تحسين النماذج ونشرها ودراستها، ثم تُعرض في متحف افتراضي تفاعلي على الإنترنت إلى جانب وسائط أخرى. عملنا في تونس وخارجها نموذج لإتاحة التراث الثقافي للجميع وحمايته ومشاركته، مع التزام بالاستخدام الأخلاقي للتكنولوجيا وإشراك المجتمعات.',
+    'Impact':
+        'الأثر',
+    'Democratizing the past':
+        'الماضي للجميع',
+    'A global community that digitizes, preserves, shares and experiences cultural heritage.':
+        'مجتمع عالمي يرقمن التراث الثقافي ويحفظه ويشاركه ويعيشه.',
+    'Digitizing at-risk heritage':
+        'رقمنة التراث المهدد',
+    'Scanning sites and objects before they disappear or are damaged by neglect, conflict and a changing climate.':
+        'مسح المواقع والقطع قبل أن تختفي أو تتضرر بسبب الإهمال والنزاعات وتغيّر المناخ.',
+    'A virtual museum for everyone':
+        'متحف افتراضي للجميع',
+    'Making artifacts accessible to researchers, students and communities worldwide, free, in a browser or a headset.':
+        'إتاحة القطع الأثرية للباحثين والطلبة والمجتمعات في العالم كله، مجانًا، في المتصفح أو في نظارة الواقع الافتراضي.',
+    'Hidden histories':
+        'تواريخ خفية',
+    'Uncovering and preserving stories with archaeological research and digital restoration.':
+        'كشف القصص وحفظها بالبحث الأثري والترميم الرقمي.',
+    'A global movement':
+        'حركة عالمية',
+    'Connecting educators, institutions and communities to celebrate and protect cultural heritage, in Tunisia first and now in Nigeria.':
+        'ربط المعلّمين والمؤسسات والمجتمعات للاحتفاء بالتراث الثقافي وحمايته، في تونس أولًا، والآن في نيجيريا.',
+    'A nonprofit, by volunteers':
+        'منظمة غير ربحية، يصنعها المتطوعون',
+    'Tanit XR operates under fiscal sponsorship with Florida Community Innovation, a U.S. 501(c)(3) nonprofit, which\nlets us accept tax-deductible donations while we grow toward a fully independent organization. Nobody is paid.\nOur work advances':
+        'تعمل Tanit XR تحت الرعاية المالية لمنظمة Florida Community Innovation، وهي منظمة أمريكية غير ربحية 501(c)(3)، ما يتيح لنا قبول تبرعات معفاة من الضرائب ريثما نصبح منظمة مستقلة بالكامل. لا أحد يتقاضى أجرًا. يسهم عملنا في',
+    ', safeguarding cultural and natural heritage.':
+        '، صون التراث الثقافي والطبيعي.',
+    'Meet the team →':
+        'تعرّف على الفريق ←',
+    'How the community works →':
+        'كيف يعمل المجتمع ←',
+    'Awards, talks, podcasts and articles about Tanit XR.':
+        'جوائز ومحاضرات وبودكاست ومقالات عن Tanit XR.',
+    'All press, talks and papers':
+        'كل ما كُتب عنا والمحاضرات والأوراق',
+    "Tanit XR is eighty-five volunteers on four continents who bring Tunisia's endangered heritage\ninto 3D and publish it free. A partnership pays for the museum, the experiences and the training, and gives your\nteam a real part in it. Workshops, talks and consulting for institutions are part of what we offer.":
+        'Tanit XR خمسة وثمانون متطوعًا في أربع قارات، ينقلون التراث التونسي المهدد إلى الأبعاد الثلاثة وينشرونه مجانًا. تموّل الشراكة المتحف والتجارب والتدريب، وتمنح فريقكم دورًا حقيقيًا فيها. الورشات والمحاضرات والاستشارات للمؤسسات جزء مما نقدّمه.',
     'More like this': 'المزيد من هذا',
     # ---- navigation / header ----
     ">Home</a>": ">الرئيسية</a>",
