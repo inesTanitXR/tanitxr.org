@@ -5,6 +5,15 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 <!-- new items appended below by the inbox sweep -->
 
+### 🧠 MIT Museum BRAIN Open Calls: Digital Content and Public Programs
+
+📅 Deadline: November 1, 2026, 11:59 pm EST (both calls; no extensions)
+📍 MIT Museum, Cambridge, Massachusetts; shown or scheduled April to September 2027. Digital content is tested by the museum's own team, with the maker joining remotely
+👥 Artists, scientists, engineers, designers and other creative practitioners, 18 or over, from anywhere; no MIT link needed. Free
+✏️ Digital content: immersive, non-linear, non-interactive work for the two-story screen in the Exchange amphitheater (3840 x 3024), $2,500 to $5,000 honorarium, no travel covered, results January 2027. Public programs: talks, demonstrations, performances, workshops, VR/XR, up to $1,000 total including travel, results by December 15, 2026. Submit a title, description and proof-of-concept visuals.
+👉 https://mitmuseum.mit.edu/connection/open-call
+
+
 <!-- 2026-10-05 board check: Women Who Code Summit (Oct 6-8), ACM CHI 2027 meet-ups and workshops (Oct 1) blocks removed, all over before edition 20 goes out Oct 9. Culture Moves Europe and Tribeca 2027 added from the watch list. -->
 
 <!-- 2026-09-30 board check: Habibi Tech Summit volunteer call and XR Guild Fall Mentorship blocks removed (both closed Sept 25-26, before edition 20 goes out). -->
@@ -358,3 +367,4 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 👉 https://cphdox.dk/rules-and-regulations/
 | Immersive X (run by vm-people, Berlin) | no LinkedIn page found |
 | TEEEM Foundation | linkedin.com/company/teeemglobal (linked from teeem.org) |
+| MIT Museum | no LinkedIn page found (the museum site links only Facebook and Instagram, @mitmuseum) |

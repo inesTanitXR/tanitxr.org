@@ -758,6 +758,13 @@
    "source": "form (opportunity tab of the submissions sheet, Oct 13, sent by someone at RenderJuice)",
    "raw": "https://www.renderjuice.com/contests/speed",
    "status": "held: free Blender contest, $1,500 cash + $3,500 credits, Oct 15-31 2026 23:59 UTC, verified at the source Oct 14; company-run and partly promotional, not XR/heritage, raised in the hold queue (editorial), not published."
+  },
+  {
+   "key": "mit museum brain open calls public programs digital content exchange",
+   "date": "2026-10-15",
+   "source": "note (DC digest line, Oct 15; Instagram @mitmuseum post DecgllLl3cu)",
+   "raw": "https://www.instagram.com/p/DecgllLl3cu/",
+   "status": "added (board, draft, edition 21, shortlist; verified Oct 15 in the browser at mitmuseum.mit.edu/brain-digital-content-open-call and /brain-programmatic-open-call: both close Nov 1, 2026, 11:59 pm EST; digital content $2,500 to $5,000, programs up to $1,000; curl and WebFetch are blocked by a Vercel checkpoint)"
   }
  ],
  "slack_last_ts": "1789764970.037819",
