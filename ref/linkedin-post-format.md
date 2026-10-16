@@ -76,3 +76,7 @@ Full details + links to all opportunities are there 👇
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 
 #XR #ImmersiveArt #Grants #VR #CreativeTech #SocialImpact #Tunisia
+
+## Block spacing (Ines, 2026-10-16)
+
+Every block keeps a blank line between its five lines (📅, 📍, 👥, ✏️, 👉). Without it the preview and LinkedIn run them into one paragraph, which she then has to re-space by hand.
