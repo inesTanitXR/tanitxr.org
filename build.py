@@ -2715,7 +2715,7 @@ ICO_LI = '<svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4
 NAV = [
     ("Home", "index.html"),
     ("Digital Projects", "explore.html", [
-        ("Explore individual models", "explore.html"),
+        ("Explore in 3D", "explore.html"),
         ("Tanit XR Galleries", "galleries.html"),
         ("Virtual Museum", "museum.html"),
     ]),
