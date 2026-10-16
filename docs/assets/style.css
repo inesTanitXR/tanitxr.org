@@ -401,6 +401,17 @@ section.pad-sm{padding:56px 0}
   cursor:pointer;font-family:var(--sans);transition:.15s}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
+.sharebox{position:relative;margin-top:12px}
+.shr{background:none;border:1px solid var(--mist);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;
+  font-family:var(--sans);color:var(--ink);transition:.15s}
+.shr:hover{border-color:var(--gold);background:#fff8dc}
+.shmenu{position:absolute;z-index:5;inset-inline-start:0;top:38px;background:#fff;border:1px solid var(--mist);border-radius:10px;
+  box-shadow:0 12px 30px rgba(17,21,24,.12);padding:8px;display:flex;flex-direction:column;min-width:200px}
+.shmenu[hidden]{display:none}
+.shmenu b{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);padding:6px 10px 4px}
+.shmenu a,.shmenu button{background:none;border:0;text-align:start;padding:8px 10px;border-radius:6px;font:inherit;font-size:14px;
+  color:var(--ink);text-decoration:none;cursor:pointer;font-family:var(--sans)}
+.shmenu a:hover,.shmenu button:hover{background:var(--cloud)}
 #board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
 .board-fallback{grid-column:1/-1;list-style:none;padding:0;margin:0;display:grid;gap:18px}
 .board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}

@@ -685,6 +685,17 @@ section.pad-sm{padding:56px 0}
   cursor:pointer;font-family:var(--sans);transition:.15s}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
+.sharebox{position:relative;margin-top:12px}
+.shr{background:none;border:1px solid var(--mist);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;
+  font-family:var(--sans);color:var(--ink);transition:.15s}
+.shr:hover{border-color:var(--gold);background:#fff8dc}
+.shmenu{position:absolute;z-index:5;inset-inline-start:0;top:38px;background:#fff;border:1px solid var(--mist);border-radius:10px;
+  box-shadow:0 12px 30px rgba(17,21,24,.12);padding:8px;display:flex;flex-direction:column;min-width:200px}
+.shmenu[hidden]{display:none}
+.shmenu b{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);padding:6px 10px 4px}
+.shmenu a,.shmenu button{background:none;border:0;text-align:start;padding:8px 10px;border-radius:6px;font:inherit;font-size:14px;
+  color:var(--ink);text-decoration:none;cursor:pointer;font-family:var(--sans)}
+.shmenu a:hover,.shmenu button:hover{background:var(--cloud)}
 #board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
 .board-fallback{grid-column:1/-1;list-style:none;padding:0;margin:0;display:grid;gap:18px}
 .board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}
@@ -6527,17 +6538,23 @@ def build_opportunities():
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
                "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
+               "share": "↗ Share", "sendto": "Send it to someone", "copy": "Copy the link", "copied": "Copied",
+               "found": "Found on the Tanit XR opportunities board, curated by Ines Said. New calls every two weeks, free:",
                "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "open": "open", "closedl": "closed", "clear": "Clear all", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
+               "share": "↗ Partager", "sendto": "L’envoyer à quelqu’un", "copy": "Copier le lien", "copied": "Copié",
+               "found": "Trouvé sur le tableau des opportunités de Tanit XR, tenu par Ines Said. De nouveaux appels toutes les deux semaines, gratuit :",
                "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins", "open": "ouvertes", "closedl": "clôturées", "clear": "Tout effacer",
                "terms": TERMS["fr"]},
         "ar": {"dl": "الموعد النهائي: ", "closed": "مغلق", "days": " أيام متبقية", "day": " يوم متبقٍ",
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
+               "share": "↗ مشاركة", "sendto": "أرسلها لأحد", "copy": "نسخ الرابط", "copied": "تم النسخ",
+               "found": "من لوحة فرص Tanit XR التي تعدّها Ines Said. فرص جديدة كل أسبوعين، مجانًا:",
                "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل", "open": "مفتوحة", "closedl": "منتهية", "clear": "مسح الكل",
                "terms": TERMS["ar"]},
     }[LANG]
@@ -6731,7 +6748,8 @@ const ACT=document.getElementById('active');
 document.querySelectorAll('.fdrop input[type=checkbox]').forEach(cb=>cb.addEventListener('change',()=>{{
   const set=F[cb.dataset.key]; cb.checked?set.add(cb.value):set.delete(cb.value); render();
 }}));
-document.addEventListener('click',e=>{{ document.querySelectorAll('.fdrop[open]').forEach(d=>{{ if(!d.contains(e.target)) d.removeAttribute('open'); }}); }});
+document.addEventListener('click',e=>{{ document.querySelectorAll('.fdrop[open]').forEach(d=>{{ if(!d.contains(e.target)) d.removeAttribute('open'); }});
+  if(!e.target.closest('.sharebox')) document.querySelectorAll('.shmenu').forEach(x=>x.hidden=true); }});
 document.querySelectorAll('.fdrop').forEach(d=>d.addEventListener('toggle',()=>{{ if(d.open) document.querySelectorAll('.fdrop[open]').forEach(o=>{{ if(o!==d) o.removeAttribute('open'); }}); }}));
 function drawActive(){{
   const chips=[];
@@ -6795,6 +6813,21 @@ function render(){{
       + [o.ty,o.md,o.rg||o.co].filter(Boolean).map(c=>'<span class="chip">'+c+'</span>').join('')
       + o.el.map(c=>'<span class="chip gold">'+c+'</span>').join('');
   }}
+  // Ines, Oct 2026: a share button on every block, so a reader can pass it on, and every
+  // pass-on carries the board, the newsletter and her name with it
+  function shareHtml(o,dl){{
+    if(o._closed)return '';
+    const url=location.origin+location.pathname+'?ref=share#opp-'+o.id;
+    const text=o.t+(dl?' · '+dl:'')+'\\n'+LBL.found+' '+url;
+    const e=encodeURIComponent;
+    return '<div class="sharebox"><button type="button" class="shr" data-id="'+o.id+'" data-text="'+e(text)+'" data-url="'+e(url)+'" data-t="'+e(o.t)+'">'+LBL.share+'</button>'+
+      '<div class="shmenu" hidden><b>'+LBL.sendto+'</b>'+
+      '<a href="https://wa.me/?text='+e(text)+'" target="_blank" rel="noopener">WhatsApp</a>'+
+      '<a href="https://www.linkedin.com/sharing/share-offsite/?url='+e(url)+'" target="_blank" rel="noopener">LinkedIn</a>'+
+      '<a href="https://twitter.com/intent/tweet?text='+e(o.t+' · '+LBL.found)+'&url='+e(url)+'" target="_blank" rel="noopener">X</a>'+
+      '<a href="mailto:?subject='+e(o.t)+'&body='+e(text)+'">Email</a>'+
+      '<button type="button" class="cp">'+LBL.copy+'</button></div></div>';
+  }}
   function btnOf(o){{
     if(!o.u||o._closed)return '';
     if(o.tx)return '<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'">'+LBL.vol+'</a>';
@@ -6808,7 +6841,7 @@ function render(){{
     return '<div class="opp" id="opp-'+o.id+'"><div class="fx">'+
       '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+'</div>'+
+      '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+shareHtml(o,dl)+'</div>'+
       '<div class="fp" style="background-image:url('+ASSET(o.ph)+')"></div></div>';
   }}).join('');
   const card=(o,extra)=>{{
@@ -6816,7 +6849,7 @@ function render(){{
     const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
     return '<div class="opp'+(o._closed?' closed':'')+(extra||'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+'</div>';
+      '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+shareHtml(o,o._closed?'':dl)+'</div>';
   }};
   const openList=rest.filter(o=>!o._closed), closedList=rest.filter(o=>o._closed);
   board.innerHTML=openList.map(o=>card(o)).join('')||(closedList.length?'':'<p style="color:var(--gray)">'+LBL.none+'</p>');
@@ -6836,6 +6869,20 @@ function render(){{
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
   }}));
   document.querySelectorAll('.apply').forEach(a=>a.addEventListener('click',()=>track('click',a.dataset.id)));
+  document.querySelectorAll('.shr').forEach(b=>b.addEventListener('click',async()=>{{
+    const d=decodeURIComponent, text=d(b.dataset.text), url=d(b.dataset.url), title=d(b.dataset.t);
+    track('share',b.dataset.id);
+    if(navigator.share&&matchMedia('(max-width:760px)').matches){{
+      try{{await navigator.share({{title,text,url}});}}catch(e){{}} return;
+    }}
+    const m=b.nextElementSibling; const open=!m.hidden;
+    document.querySelectorAll('.shmenu').forEach(x=>x.hidden=true);
+    m.hidden=open;
+  }}));
+  document.querySelectorAll('.shmenu .cp').forEach(b=>b.addEventListener('click',async()=>{{
+    const shr=b.closest('.sharebox').querySelector('.shr');
+    try{{await navigator.clipboard.writeText(decodeURIComponent(shr.dataset.text));b.textContent=LBL.copied;}}catch(e){{}}
+  }}));
   document.querySelectorAll('.reacts button').forEach(b=>b.addEventListener('click',()=>{{
     const type=b.dataset.rx,id=b.dataset.id;
     if(lsGet('rx:'+type+':'+id))return;
