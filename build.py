@@ -529,12 +529,17 @@ section.pad-sm{padding:56px 0}
 .act .ic{font-size:26px;margin-bottom:10px}
 .act b{display:block;font-size:17px;margin-bottom:6px;font-family:var(--serif);font-weight:400}
 .act p{color:var(--gray);font-size:14.5px}
-.press{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.press{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
 .press a,.press div.item{display:block;background:#fff;border:1px solid var(--mist);border-radius:10px;padding:22px;text-decoration:none;color:var(--ink);transition:.2s}
 .press a:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(17,21,24,.1)}
 .press .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:700}
 .press h3{font-size:18px;margin:8px 0 6px}
 .press p{color:var(--gray);font-size:14.5px}
+.press a{overflow:hidden}
+.press .pph{height:190px;margin:-22px -22px 16px;background:var(--cloud);overflow:hidden}
+.press .pph img{width:100%;height:100%;object-fit:cover;display:block}
+.press .pph:has(img.logo){background:#241a10}
+.press .pph img.logo{object-fit:contain;padding:34px 44px;box-sizing:border-box}
 .vid{width:100%;border-radius:12px;background:#000;display:block;aspect-ratio:16/9}
 .shots.museum img{aspect-ratio:16/9}
 .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
@@ -4199,47 +4204,47 @@ TRENDING = TRENDING[:4]
 PRESS = [
     {"k": "Award", "t": "Auggie Awards 2026, Finalist, Best Societal Impact",
      "d": "Tanit XR was a finalist in the Best Societal Impact category at Augmented World Expo USA 2026, the XR industry's main awards, selected by public vote and expert review.",
-     "u": "https://www.awexr.com/blog/1382-2026-auggie-awards-finalists-announced", "date": "June 2026", "anchor": "auggie"},
+     "u": "https://www.awexr.com/blog/1382-2026-auggie-awards-finalists-announced", "date": "June 2026", "anchor": "auggie", "img": "awe.svg", "logo": True},
     {"k": "Video", "t": "Spatial Creator Spotlight, Awesome Future",
      "d": "Volunteers 3D Scanning Tunisia's Endangered Heritage Sites Before the Ocean Takes Them: "
           "a full episode with Ines Said on how Tanit XR started, how the scanning works and who does it.",
-     "u": "https://youtu.be/CY6u3LGEN3E", "date": "September 24, 2026", "anchor": "spotlight"},
+     "u": "https://youtu.be/CY6u3LGEN3E", "date": "September 24, 2026", "anchor": "spotlight", "img": "spotlight-episode.jpg", "logo": False},
     {"k": "Podcast", "t": "Voices of VR #1728, Preserving Tunisian Cultural Heritage with Tanit XR",
      "d": "Kent Bye interviewed Ines Said at AWE USA 2026 about phone-based reality capture, volunteers and heritage at risk.",
-     "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices"},
+     "u": "https://voicesofvr.com/1728-preserving-tunisian-cultural-heritage-with-tanit-xr-reality-capture", "date": "July 2, 2026", "anchor": "voices", "img": "voicesofvr.png", "logo": True},
     {"k": "Talk", "t": "AWE USA 2026, From Scans to XR: A Practical Pipeline for Cultural Heritage",
      "d": "Ines Said and Margarita Johnson presented Tanit XR's pipeline at Augmented World Expo USA 2026 in Long Beach, California, on 18 June.",
-     "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe"},
+     "u": "https://www.awexr.com/usa-2026/speakers/2677-ines-said", "date": "June 2026", "anchor": "awe", "img": "awe.svg", "logo": True},
     {"k": "Video", "t": "Niantic Spatial, video interview with Nathan Bowser",
      "d": "Nathan Bowser interviewed Ines Said for Niantic Spatial about Tanit XR and the Scaniverse capture of the amphitheatre of El Jem; Niantic published the video on its channels.",
-     "u": "press.html#niantic", "date": "2026", "anchor": "niantic"},
+     "u": "press.html#niantic", "date": "2026", "anchor": "niantic", "img": "0976604ed7d24ab5db5b5574520fcdf9.jpg", "logo": False},
     {"k": "Paper", "t": "El Jem Conference 2026, Paper in English, French and Tunisian Arabic",
      "d": "Our paper on digital documentation, XR and citizen science for community-driven heritage preservation, presented in April 2026.",
-     "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem"},
+     "u": "el-jem-conference.html", "date": "April 2026", "anchor": "eljem", "img": "el-jem.jpg", "logo": False},
     {"k": "Press", "t": "Al Jazeera, Can artificial intelligence bring Arab antiquities back to life? (Arabic)",
      "d": "Al Jazeera's technology desk on 3D scanning, digital archives and AI reconstruction across the Arab world, with Ines Said on why Tanit XR keeps missing parts missing and marks anything rebuilt, and Dr. Laura Harrison on scans as measurable references for restoration.",
-     "u": "https://www.aljazeera.net/tech/2026/10/11/%D9%87%D9%84-%D9%8A%D8%B3%D8%AA%D8%B7%D9%8A%D8%B9-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9", "date": "October 11, 2026", "anchor": "aljazeera-ai"},
+     "u": "https://www.aljazeera.net/tech/2026/10/11/%D9%87%D9%84-%D9%8A%D8%B3%D8%AA%D8%B7%D9%8A%D8%B9-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9", "date": "October 11, 2026", "anchor": "aljazeera-ai", "img": "ines-byrsa-column.jpg", "logo": False},
     {"k": "Press", "t": "Al Jazeera, \"Tanit XR\": a non-profit platform documenting Tunisian heritage digitally (Arabic)",
      "d": "Al Jazeera's culture desk profiled Tanit XR in Arabic: a non-profit building a precise digital library of Tunisia's sites and artifacts with photogrammetry and Gaussian splats, before time and neglect erase them.",
-     "u": "https://www.aljazeera.net/culture/2025/10/12/%D8%AA%D8%A7%D9%86%D9%8A%D8%AA-%D8%A5%D9%83%D8%B3-%D8%A2%D8%B1-%D9%85%D9%86%D8%B5%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%B1%D8%A8%D8%AD%D9%8A%D8%A9-%D8%AA%D9%88%D8%AB%D9%82", "date": "October 12, 2025", "anchor": "aljazeera"},
+     "u": "https://www.aljazeera.net/culture/2025/10/12/%D8%AA%D8%A7%D9%86%D9%8A%D8%AA-%D8%A5%D9%83%D8%B3-%D8%A2%D8%B1-%D9%85%D9%86%D8%B5%D8%A9-%D8%BA%D9%8A%D8%B1-%D8%B1%D8%A8%D8%AD%D9%8A%D8%A9-%D8%AA%D9%88%D8%AB%D9%82", "date": "October 12, 2025", "anchor": "aljazeera", "img": "aljazeera.svg", "logo": True},
     {"k": "Exhibition", "t": "XR Women Museum, two exhibitions in FrameVR, curated by Paige Dansinger",
      "d": "Tanit XR's work was shown in the XR Women Museum, including its \"Garden: In Full Bloom\" exhibition, an immersive museum of 30+ gallery worlds directed by Paige Dansinger.",
-     "u": "https://framevr.io/xrwomenmuseum", "date": "2026", "anchor": "xrwomen"},
+     "u": "https://framevr.io/xrwomenmuseum", "date": "2026", "anchor": "xrwomen", "img": "xrwomen.png", "logo": True},
     {"k": "Article", "t": "Carthage Magazine, Preserving Tunisia's Heritage Through Immersive Technology",
      "d": "Feature on how Tanit XR uses photogrammetry, Scaniverse and Gaussian splatting to build an open archive of Tunisian heritage.",
-     "u": "https://carthagemagazine.com/tanit-xr-preserving-tunisias-heritage-through-immersive-technology/", "date": "2026", "anchor": "carthage"},
+     "u": "https://carthagemagazine.com/tanit-xr-preserving-tunisias-heritage-through-immersive-technology/", "date": "2026", "anchor": "carthage", "img": "carthagemagazine.png", "logo": True},
     {"k": "Article", "t": "Medium / Women Write, Tanit XR: Preserving Tunisia's Heritage Through Immersive Technology",
      "d": "Ines Said on why Tanit XR exists and where it is going, published in the Women Write collection.",
-     "u": "https://medium.com/women-write/tanit-xr-preserving-tunisias-heritage-through-immersive-technology-c9238dab7675", "date": "2026", "anchor": "medium"},
+     "u": "https://medium.com/women-write/tanit-xr-preserving-tunisias-heritage-through-immersive-technology-c9238dab7675", "date": "2026", "anchor": "medium", "img": "img_7367-copy.jpg", "logo": False},
     {"k": "Event", "t": "ImmerseGT 2026, Sponsored track at Georgia Tech's XR hackathon",
      "d": "We sponsored a heritage track and a $300 prize; Dr. Caroline Nickerson led a workshop on citizen science and XR.",
-     "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt"},
+     "u": "immersegt-2026.html", "date": "April 10–12, 2026", "anchor": "immersegt", "img": "IMG_6912.jpg", "logo": False},
     {"k": "Event", "t": "CityCamp Gainesville Hack Day 2026, heritage challenge",
      "d": "Tanit XR's heritage challenge at the official MLH Hack Day hosted by Florida Community Innovation at the University of Florida: build something usable from our 3D scans, or a public-history project that needs no code.",
-     "u": "https://citycamp-hack-day.devpost.com/", "date": "September 20, 2026", "anchor": "citycamp"},
+     "u": "https://citycamp-hack-day.devpost.com/", "date": "September 20, 2026", "anchor": "citycamp", "img": "img_4606-copy.jpg", "logo": False},
     {"k": "Partnership", "t": "TanitXR & the Unique Mappers, expanding to Nigeria",
      "d": "The Unique Mappers Network (500+ citizen scientists) is replicating the Tanit XR model in Nigeria with a mini-grant from our fiscal sponsor.",
-     "u": "unique-mappers.html", "date": "2026", "anchor": "nigeria"},
+     "u": "unique-mappers.html", "date": "2026", "anchor": "nigeria", "img": "164961718_137972651589064_4119697293414013034_n.jpg", "logo": False},
 ]
 NIANTIC_EMBED = "https://www.linkedin.com/embed/feed/update/urn:li:activity:7488488682652495873"
 
@@ -4327,7 +4332,13 @@ def press_cards(items):
     out = ""
     for x in items:
         ext = ' target="_blank" rel="noopener"' if x["u"].startswith("http") else ""
-        out += (f'<a href="{x["u"]}"{ext}><div class="k">{x["k"]} · {x["date"]}</div><h3>{esc(x["t"])}</h3>'
+        # Ines, Oct 2026: the page was dry without pictures. A photo of the thing where there
+        # is one, the outlet's mark where there is not.
+        pic = ""
+        if x.get("img"):
+            cls = ' class="logo"' if x.get("logo") else ""
+            pic = f'<div class="pph"><img src="{img(x["img"], 800, as_jpeg=False)}"{cls} alt="" loading="lazy"></div>'
+        out += (f'<a href="{x["u"]}"{ext}>{pic}<div class="k">{x["k"]} · {x["date"]}</div><h3>{esc(x["t"])}</h3>'
                 f'<p>{esc(x["d"])}</p></a>')
     return f'<div class="press">{out}</div>'
 
