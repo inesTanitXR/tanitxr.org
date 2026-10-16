@@ -6,9 +6,9 @@
 
 Hi everyone 👋
 
-This one covers deadlines from Oct 18 to Nov 9. Two residencies in Montreal and VRChat, a biennial in Taiwan, a Paris studio, a $30,000 fellowship, a screen at the MIT Museum, and two heritage grants for the people who document sites. As always, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
+Deadlines from Oct 18 to Nov 9, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
 
-One thing of ours first: on Friday October 23, Tanit XR is at the Embassy of Tunisia in Washington, DC, for an evening on Tunisia and America, learning together, with Dr. Caroline Nickerson. Free, seats are limited: tanitxr.org/dc
+Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Free, limited seats: tanitxr.org/dc
 
 ## 🔥 HIGHLIGHTS
 
@@ -230,54 +230,81 @@ If you apply to any of these, tell me. And if you want to help preserve Tunisian
 
 # 📣 LinkedIn post (profile)
 
-_Format: ref/linkedin-post-format.md. Colours by days left from the Oct 16 send: 🔴 within a week · 🟠 8 to 14 days · 🟡 15 to 21 days · 🟢 later. Sorted by date inside each colour. Tag the names in the table below as you type them._
+Her edition 18 layout: one short line per entry, a blank line between entries, no markdown, nothing to reformat. Copy from the 🎯 line to the hashtags. The tag table sits under the post for reference only.
 
 🎯 Opportunities for XR creators, artists & impact makers
 
-Edition 20 is out: 21 open calls, from a VRChat residency to a screen at the MIT Museum. And next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Free, limited seats, sign up on tanitxr.org/dc.
+Edition 20 is out. And on Friday Oct 23 we are at the Embassy of Tunisia in Washington, DC, free, limited seats: tanitxr.org/dc
 
 🔴 Oct 18: SAT Montréal dome and research-creation residencies, CAD 10,000
+
 🔴 Oct 23: Realities in Transition, six-month VRChat residency, EUR 10,000, Tunisia eligible
+
 🟠 Oct 26: Le FIFA Montréal, immersive and media art films
-🟠 Oct 28: Tribeca 2027 Games, Shorts and Digital Creators, early rate
+
+🟠 Oct 28: Tribeca 2027, Games, Shorts and Digital Creators, early rate
+
 🟠 Oct 30: Matsu Biennial 2027, up to NTD 800,000 per project
+
 🟠 Oct 30: Art Explora Paris residency, EUR 1,000 a month plus production
+
 🟠 Oct 30: UnitedXR Europe activations, free passes and space in Brussels
+
 🟡 Oct 31: Voqal Partners Fellowship, $30,000 unrestricted, US-based
+
 🟡 Oct 31: AI Horizons at PARMA 360, under 35, four EUR 1,500 prizes
-🟡 Nov 1: MIT Museum BRAIN, $2,500 to $5,000 for the Exchange screen, remote
+
+🟡 Nov 1: MIT Museum BRAIN, $2,500 to $5,000 for a two-story screen, remote
+
 🟡 Nov 1: One World Prague, VR competition
+
 🟡 Nov 1: .ART Award, $15,000 grand prize and an AR package
-🟡 Nov 1: AIA Site Preservation Grant, up to $15,000 for heritage sites
+
+🟡 Nov 1: AIA Site Preservation Grant, up to $15,000 for a heritage site
+
 🟡 Nov 1: TEEEM Foundation grants, $5,000 to $30,000 for nonprofits
+
 🟡 Nov 2: MIT Solve Global Learning Challenge, $10,000 plus nine months of support
+
 🟡 Nov 3: CPH:DOX INTER:ACTIVE, VR and installations, about EUR 20
-🟢 Nov 9: Swarovski Foundation Creatives for Our Future, 21 to 30, EUR 20,000
+
+🟢 Nov 9: Swarovski Foundation Creatives for Our Future, ages 21 to 30, EUR 20,000
 
 🇹🇳 For Tunisians & North Africans
+
 🎨 Oct 19: Culture Resource Production Awards, Arab artists under 35
+
 🏛 Oct 1–31: Wiki Loves Monuments Tunisia, upload your photos
+
 ✈️ Oct 31: Culture Moves Europe, Tunisia eligible, EUR 85 a day plus travel
+
 🎨 Nov 6: EMAP media art residencies, Tunisia eligible, EUR 8,000 plus travel
+
 🏺 Nov 30 and Dec 20: IN-SITU Medina of Tunis, art projects and residencies
 
 ⏰ Still open from past editions
-Oct 16: Immerse the Bay, Stanford XR hackathon, final round today
-Oct 17: Technica, free hackathon, registration open
+
 Oct 18: Aesthetica Art Prize, £10,000, late deadline
+
 Oct 30: Webby Awards, early entry
+
 Nov 3: IEEE VR 2027 XR Gallery, free
+
 Nov 14: NASA Space Apps, local events in Tunisia
+
 Nov 15: Eyebeam AGENCY NYC residency, US-based
+
 Nov 18: Meta VR Start Developer Competition, $1M in prizes
+
 Nov 27: Awesome Foundation climate micro-grants, $1,000
+
 Dec 4: Dome Fest West, late deadline
+
 Dec 31: Kekere Storytellers Fund, up to $3,000
-Jan 8: Thessaloniki Doc Fest immersive competition, free
 
-Who can apply, what it pays and the links are in the newsletter 👇
+🔗 The link to the opportunities page is in the comments.
 
-🔗 You can find all opportunities on the Tanit XR website. The link is in the first comment.
+Full details + links to all opportunities are there 👇
 
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 

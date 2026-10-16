@@ -4870,7 +4870,7 @@ EVENTS = [
              "Tunisia, and an introduction to the volunteers who make "
              "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
              "technology, art and social impact meet. Seating is limited, entry is by guest list, "
-             "so please sign up by Friday October 16.",
+             "so please sign up by Monday October 19.",
      "links": [("Reserve a seat", "dc.html")]},
 ]
 
@@ -7711,7 +7711,7 @@ def build_dc_evening():
 <div class="dcv-fact"><small>When</small><b>Friday 23 October</b><span>2026</span></div>
 <div class="dcv-fact"><small>Time</small><b>6pm to 8pm</b><span>Doors open at 6pm</span></div>
 <div class="dcv-fact"><small>Location</small><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
-<div class="dcv-fact"><small>Cost</small><b>Free</b><span>Limited seating<br>Sign up by Friday 16 October</span></div>
+<div class="dcv-fact"><small>Cost</small><b>Free</b><span>Limited seating<br>Sign up by Monday 19 October</span></div>
 </div>
 <div class="dcv-grid">
 <div>
@@ -7724,7 +7724,7 @@ with Tanit XR and TAYP. Seats are limited, so please sign up below.</p>
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
-<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 16 at tanitxr.org/dc" loading="lazy"></a>
+<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 19 at tanitxr.org/dc" loading="lazy"></a>
 <figcaption>The flyer. Tap to open it full size, then save or share it.</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('dc-laura-caroline-walking.jpg', 1100)}" alt="Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026" loading="lazy">
 <figcaption>Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
@@ -7786,7 +7786,7 @@ community that now does it. She opens the evening and shows the collection live.
          desc="Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
               "Tanit XR and TAYP. Dr. Caroline Nickerson on her time in "
-              "Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 16 October.")
+              "Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 19 October.")
 
 
 def build_about():
