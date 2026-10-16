@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-15",
+ "built": "2026-10-16",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -2285,13 +2285,13 @@
   {
    "slug": "realities-in-transition-open-call-3-uncharted-grounds-vrchat",
    "title": "Realities in Transition, Open Call #3: Uncharted Grounds (VRChat residency with L.E.V.)",
-   "desc": "Six-month online residency, January to June 2027, for three artists who build one shared VRChat world together, premiered at L.E.V. Matadero in Madrid in September 2027. Each artist receives EUR 10,000 gross plus a shared production budget of up to EUR 15,000. Applicants need VR development experience (Unity, 3D or 2D art, animation, sound, narrative or UX); no nationality limit or fee is listed. Deadline October 23, 2026, 23:59 CEST.",
+   "desc": "Six-month online residency, January to June 2027, for three artists who build one shared VRChat world together, premiered at L.E.V. Matadero in Madrid in September 2027. Each artist receives EUR 10,000 gross plus a shared production budget of up to EUR 15,000. Applicants need VR development experience (Unity, 3D or 2D art, animation, sound, narrative or UX) and must be permanent residents of an EU member state or a Creative Europe associated country, Tunisia included. Free. Deadline October 23, 2026, 23:59 CEST.",
    "type": "Residency",
    "eligibility": [
     "Artists",
     "XR Creators"
    ],
-   "region": "Global",
+   "region": "Europe",
    "country": "",
    "mode": "Remote",
    "deadline_type": null,

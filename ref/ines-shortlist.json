@@ -199,8 +199,8 @@
   {
    "slug": "smithsonian-artist-research-fellowship-2027",
    "deadline": "October 15, 2026",
-   "status": "drafting",
-   "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week. Verified 2026-10-08 on the official page: nomination by Oct 15, 11:59 pm ET; application Jan 28, 2027, 4:59 pm ET; one month, $5,000. Nomination email draft: ref/applications/smithsonian-artist-research-fellowship-2027.md.",
+   "status": "skipped",
+   "reason": "1 to 2 months with Smithsonian collections and scholars. A Smithsonian curator or research staffer (or an outside curator/scholar, or a current/former fellow) must nominate you by Oct 15; then the application itself is due January 28, 2027 (5 PM ET) — after the nomination, reset this item's deadline to January 28, 2027. You have already shown at the Smithsonian, so ask that contact this week. Verified 2026-10-08 on the official page: nomination by Oct 15, 11:59 pm ET; application Jan 28, 2027, 4:59 pm ET; one month, $5,000. Nomination email draft: ref/applications/smithsonian-artist-research-fellowship-2027.md. (deadline passed, not applied, per the deadline alarm on 2026-10-16: the nomination window closed October 15, 2026; if a nominator did submit, tell a chat and the item gets reset to the January 28, 2027 application deadline)",
    "title": "Smithsonian Artist Research Fellowship (SARF) 2027 — NOMINATION",
    "url": "https://fellowships.si.edu/opportunity/smithsonian-artist-research-fellowship-sarf",
    "added": "2026-09-27",
@@ -649,8 +649,9 @@
   {
    "slug": "realities-in-transition-open-call-3-uncharted-grounds-vrchat",
    "deadline": "October 23, 2026",
-   "status": "reminded",
-   "reason": "EUR 10,000 each plus up to EUR 15,000 production for three artists building one shared VRChat world, online January to June 2027, free. Made for an XR developer who is also an artist. No country limit is stated, but it is an EU-funded project, so confirm a non-EU artist can be paid."
+   "status": "drafting",
+   "reason": "EUR 10,000 each plus up to EUR 15,000 production for three artists building one shared VRChat world, online January to June 2027, free. Made for an XR developer who is also an artist. ELIGIBILITY CHECKED 2026-10-16 on the programme page: applicants must be permanent residents of an EU member state or a Creative Europe associated country (Tunisia is listed, the United States is not); nationality alone does not qualify. Deadline October 23, 2026, 23:59 CEST = 5:59 pm Eastern. Draft: ref/applications/realities-in-transition-uncharted-grounds-2027.md",
+   "url": "https://www.realities-in-transition.eu/rit-2-open-call-3/"
   },
   {
    "slug": "mit-solve-2027-global-learning-challenge",

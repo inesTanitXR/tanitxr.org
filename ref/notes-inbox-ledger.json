@@ -765,6 +765,13 @@
    "source": "note (DC digest line, Oct 15; Instagram @mitmuseum post DecgllLl3cu)",
    "raw": "https://www.instagram.com/p/DecgllLl3cu/",
    "status": "added (board, draft, edition 21, shortlist; verified Oct 15 in the browser at mitmuseum.mit.edu/brain-digital-content-open-call and /brain-programmatic-open-call: both close Nov 1, 2026, 11:59 pm EST; digital content $2,500 to $5,000, programs up to $1,000; curl and WebFetch are blocked by a Vercel checkpoint)"
+  },
+  {
+   "key": "lnkd in p edfxakmk linkedin share oct 15",
+   "date": "2026-10-16",
+   "source": "share (Tanit Inbox shot.txt, Oct 15)",
+   "raw": "https://lnkd.in/p/edfxAkmK",
+   "status": "unreadable: resolves to linkedin.com/feed/update/urn:li:share:7515437530813505537 (highlighted activity 7516487589579808769); LinkedIn shows only its sign-up wall to curl and to the built-in browser. Asked Ines to paste the text or a screenshot. Moved to done/."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -852,6 +859,18 @@
    "file": "shot.png",
    "raw": "screenshot, Instagram feed: @natgeomuseum ad and a Norway northern lights travel post",
    "what": "National Geographic Museum of Exploration Trivia Night, every Wednesday 6 pm, D.C. (ad); Norway northern lights post (travel)"
+  },
+  {
+   "date": "2026-10-16",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/Dehqa8CteLo/ (@kuchehkollective)",
+   "what": "Yalda Bazar at Brookland Arts Walk, DC: vendor application open, deadline Saturday Oct 31, 11:59 pm (local market stall, personal)"
+  },
+  {
+   "date": "2026-10-16",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/p/DeheucyRwyI/ (@georgetownmainst)",
+   "what": "Georgetown Main Street 'Don't ghost small businesses this weekend' shop-local post, DC"
   }
  ]
 }

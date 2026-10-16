@@ -254,7 +254,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 📅 Deadline: October 23, 2026, 23:59 CEST
 📍 Online, January to June 2027; premiere at L.E.V. Matadero, Madrid, September 2027
-👥 Artists with VR development experience (Unity, 3D or 2D art, animation, sound, narrative, UX); no country limit stated. Free
+👥 Artists with VR development experience (Unity, 3D or 2D art, animation, sound, narrative, UX) who are permanent residents of an EU member state or a Creative Europe associated country, Tunisia included. Free
 ✏️ Three artists build one shared VRChat world together, with a creative technologist. EUR 10,000 gross each, paid in three instalments, plus up to EUR 15,000 for production.
 👉 https://www.realities-in-transition.eu/rit-2-open-call-3/
 
