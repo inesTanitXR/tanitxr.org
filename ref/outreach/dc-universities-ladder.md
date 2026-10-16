@@ -7,9 +7,9 @@ This file is the single source of truth. The Thursday DC digest reads it, texts 
 ## Live status (the digest edits only this block)
 
 - Stage: 0
-- Next action: (time-critical, before the Oct 22 item) Sit down with Claude on Wed Oct 7, do the worth-sending vs spam pass on the five drafts in drafts-2026-10-06-smithsonian-and-honorarium.md, make them warm and specific, and send the two Smithsonian curator nomination asks (Dumouchelle, Isgro) by Fri Oct 9; nomination deadline Thu Oct 15. Then back to: get the GW people into the Oct 22 embassy room.
-- Last nudged: 2026-10-08 (Thursday digest; no evidence yet the two Smithsonian asks went out)
-- Waiting on: Shana Marshall's Museum Studies follow-up (she wrote Oct 6; nudge her only after Oct 15)
+- Next action: Send Shana Marshall the embassy evening link (Fri Oct 23, 6 to 8 PM; tanitxr.org/dc, registration closes Fri Oct 16; note the flyer and site say Friday Oct 23, not Oct 22 as the ladder below says) and ask her to pass it to Museum Studies and her students; send the same link to Khalil. One message, this week. Then: greet whoever comes from GW at the door on Oct 23 and collect names for the thank-you note.
+- Last nudged: 2026-10-16 (Friday follow-up text). Registration for the embassy evening closes tonight; the Shana/Khalil message could not be verified (Gmail shows nothing, and ines@tanitxr.org mail lives in Titan). If it went out, say so in a chat and this line gets updated. First nudged 2026-10-15.
+- Waiting on: Shana Marshall's Museum Studies follow-up (she wrote Oct 6; the Oct 23 link message above doubles as the nudge, so no separate nudge)
 
 ## What she brings (so drafts stay accurate)
 

@@ -25,17 +25,25 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ### 🔮 SAT Montréal, Dome Production and Research-Creation Residencies 2027-28
 
 📅 Deadline: October 18, 2026 for both calls; results January 2027
+
 📍 Society for Arts and Technology, Montréal
+
 👥 Artists, collectives, researchers and interdisciplinary teams; the research-creation call also takes non-profits. No nationality limit stated. Free
+
 ✏️ Dome Production Residency: make and present a work for the Satosphère, an 18 m immersive dome, in the 2027-28 programme. Research-Creation Residencies in Technological Arts: three projects at CAD 10,000 each with two months of SAT support, on live arts meeting technology around human movement. Travel and housing for the dome call are not stated.
+
 👉 https://sat.qc.ca/en/calls/dome-production-residency-2027-2028-program/
 
 ### 🥽 Realities in Transition, Open Call #3: Uncharted Grounds (VRChat residency)
 
 📅 Deadline: October 23, 2026, 23:59 CEST
+
 📍 Online, January to June 2027; premiere at L.E.V. Matadero, Madrid, September 2027
+
 👥 Artists with VR development experience (Unity, 3D or 2D art, animation, sound, narrative, UX) who are permanent residents of an EU member state or a Creative Europe associated country, Tunisia included. Free
+
 ✏️ Three artists build one shared VRChat world together, with a creative technologist. EUR 10,000 gross each, paid in three instalments, plus up to EUR 15,000 for production.
+
 👉 https://www.realities-in-transition.eu/rit-2-open-call-3/
 
 ───────────────────────────────────────
@@ -45,65 +53,97 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ### 🎬 Le FIFA 2027, Festival of Films on Art
 
 📅 Deadline: October 26, 2026 (regular rate until October 19)
+
 📍 Montreal and Quebec City, March 11–21, 2027. The work travels, you don't have to
+
 👥 Directors, producers and distributors. CAD 33 (40 minutes or less) or CAD 58 (longer) until Oct 19; CAD 45 or CAD 70 from Oct 20 to 26
+
 ✏️ Takes interactive and immersive works, media art and art documentaries, including art and science, technological art and archaeology. Must not have screened in Montreal before March 29, 2027.
+
 👉 https://lefifa.com/en/appel-a-soumissions
 
 ### 🎮 Tribeca Festival 2027: Games, Shorts and Digital Creators
 
 📅 Early deadline October 28, 2026 · official December 2, 2026 · extended into 2027 (all 11:59 pm ET)
+
 📍 New York, June 3-12, 2027
+
 👥 Open to all. Games $40 / $60 / $80; Shorts $50 / $70 / $80, with student rates; Digital Creators $30 / $40 / $60
+
 ✏️ Submissions for the 26th Tribeca Festival opened September 30. Games closes March 4, 2027 at the extended rate, Shorts and Digital Creators February 3, 2027. Enter by October 28 for the lowest fee.
+
 👉 https://tribecafilm.com/festival/submissions
 
 ### 🏝 4th Matsu Biennial, Open Call for International Artists
 
 📅 Deadline: October 30, 2026, 17:00 Taiwan time (5 am ET)
+
 📍 Matsu Islands, Taiwan; exhibition August 20 to November 7, 2027
+
 👥 Artists and collectives from anywhere. No fee listed on the call
+
 ✏️ Up to NTD 800,000 (tax included) per project for a site-specific installation or a participatory piece, and immersive experiences are named. Three directions to work from: the island's culture and stone houses, its Cold War outpost history, and the ocean (marine ecology, sea sparkles, marine debris). Results by end of November.
+
 👉 https://matsubiennial.tw/en/news/details/88
 
 ### 🎨 Art Explora x Cité internationale des arts Residency 2027
 
 📅 Deadline: October 30, 2026
+
 📍 In person, Paris: 3 or 6 months solo, 3 months for collectives, in 2027
+
 👥 Artists of any nationality in visual, performing or digital arts, 5+ years of professional practice and an international exhibition record
+
 ✏️ Furnished studio apartment, EUR 1,000 a month, a EUR 3,000 production grant and a round trip to Paris. Priority themes include art and science and ecology. Free to apply.
+
 👉 https://www.artexplora.org/en/the-artists-residencies-programme-presentation
 
 ### 🕶 UnitedXR Europe 2026, Call for Activations
 
 📅 Deadline: October 30, 2026 (answers by November 6)
+
 📍 In person, Brussels, December 7–9, 2026
+
 👥 XR developers, community organizers, anyone with an activation idea. Free to submit
+
 ✏️ Bring an XR app or experience, a meetup, or a jobs and skills session to the conference. Selected partners get free passes, reserved space and times, a calendar listing and marketing support.
+
 👉 https://unitedxr.eu/activations
 
 ### 🧠 MIT Museum BRAIN Open Calls: Digital Content and Public Programs
 
 📅 Deadline: November 1, 2026, 11:59 pm EST (both calls; no extensions)
+
 📍 MIT Museum, Cambridge, Massachusetts; shown or scheduled April to September 2027. Digital content is tested by the museum's own team, with the maker joining remotely
+
 👥 Artists, scientists, engineers, designers and other creative practitioners, 18 or over, from anywhere; no MIT link needed. Free
+
 ✏️ Digital content: immersive, non-linear, non-interactive work for the two-story screen in the Exchange amphitheater (3840 x 3024), $2,500 to $5,000 honorarium, no travel covered, results January 2027. Public programs: talks, demonstrations, performances, workshops, VR/XR, up to $1,000 total including travel, results by December 15, 2026. Submit a title, description and proof-of-concept visuals.
+
 👉 https://mitmuseum.mit.edu/connection/open-call
 
 ### 🥽 One World 2027, Human Rights Documentary Festival: VR Competition
 
 📅 Deadline: November 1, 2026
+
 📍 Prague, March 10–18, 2027
+
 👥 VR, interactive and 360° projects finished 2025–2027, in English or subtitled. EUR 30 for features and mid-length films; no separate VR fee listed. The fee-waiver list covers Morocco, Algeria, Egypt and Libya, not Tunisia
+
 ✏️ Human rights documentary festival with a Virtual Reality Competition Award. Results by mid-February 2027.
+
 👉 https://my.oneworld.cz/film-submission/
 
 ### 🎬 CPH:DOX 2027 INTER:ACTIVE
 
 📅 Deadline: November 3, 2026, all time zones, for works finished after September 1; preview links by November 25
+
 📍 Copenhagen, March 10 to 21, 2027
+
 👥 VR, AR, mixed-media and installation works that premiered after April 1, 2026. 150 DKK (about EUR 20) for interactive works; waiver on request for OECD DAC-list countries, which include Tunisia
+
 ✏️ One of the largest documentary festivals, with an INTER:ACTIVE section for immersive and interactive work. Waiver requests go to submissions@cphdox.dk, up to two projects per company.
+
 👉 https://cphdox.dk/rules-and-regulations/
 
 ───────────────────────────────────────
@@ -113,41 +153,61 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ### 💸 Voqal Partners Fellowship 2027
 
 📅 Deadline: October 31, 2026, 11:59 pm ET
+
 📍 Remote, April–September 2027, with travel covered to three in-person convenings
+
 👥 Anyone 18+ based in the United States who can receive funds in the US; no organization, finished product or business plan required; no visa sponsorship
+
 ✏️ $30,000 unrestricted award plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas still being tested. Free to apply.
+
 👉 https://voqalpartners.org/fellowship/
 
 ### 🏛 AIA Site Preservation Grant 2027
 
 📅 Deadline: November 1, 2026
+
 📍 Any archaeological site; remote application
+
 👥 Projects that preserve a site and involve the local community; no nationality limit stated. Free
+
 ✏️ Up to $15,000 from the Archaeological Institute of America for conservation planning (including photographic and digital documentation), hands-on conservation, preventive measures and monitoring, training, and public outreach and education. Stronger applications show community involvement and a long-term maintenance plan. Awards announced by March 1, 2027.
+
 👉 https://www.archaeological.org/grant/site-preservation/
 
 ### 🤝 TEEEM Foundation Community Impact Grants
 
 📅 Deadline: November 1, 2026
+
 📍 Global, by email
+
 👥 Nonprofit and charitable organizations, US or international. Free
+
 ✏️ Three tiers: Community Grants $5,000 to $10,000, Growth Grants $10,000 to $20,000, Transformational Grants $20,000 to $30,000. Focus areas include education and youth development, equality and empowerment, and entrepreneurship. Send the completed form and attachments as one PDF.
+
 👉 https://teeem.org/foundation
 
 ### 🌍 MIT Solve 2027 Global Learning Challenge
 
 📅 Deadline: November 2, 2026, 12:00 pm EST (noon, not midnight)
+
 📍 Online, with four-day in-person events in Cambridge and New York for selected teams
+
 👥 Organisations and individuals anywhere, prototype stage or later. Free
+
 ✏️ Tech-based education solutions. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and nine months of coaching and workshops (about 25 hours). This year's call wants tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment.
+
 👉 https://solve.mit.edu/challenges/2027-global-learning-challenge
 
 ### 💡 Swarovski Foundation, Creatives for Our Future 2027
 
 📅 Deadline: November 9, 2026, 11:59 pm GMT
+
 📍 Mostly online, plus one trip to an in-person event in London
+
 👥 Creatives aged 21 to 30, any country. Free
+
 ✏️ EUR 20,000 grant, one-on-one mentorship and online masterclasses for projects that advance the UN Sustainable Development Goals. Run with the UN Office for Partnerships. Cohort notified April 2027; program fall 2027 to September 2028.
+
 👉 https://creatives.swarovskifoundation.org/
 
 ───────────────────────────────────────
@@ -157,17 +217,25 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ### 🤖 AI Horizons: Art Beyond Algorithms (PARMA 360 Festival)
 
 📅 Deadline: October 31, 2026
+
 📍 Group show in Parma, Italy, spring 2027, during the festival's 11th edition
+
 👥 Artists under 35 and fine arts students, from Italy and abroad. Free
+
 ✏️ 20 finalists join the show; four prizes of EUR 1,500. Themes: Parma heritage, care, and sustainability and data ecology. AI, VR, AR and software art accepted. Travel is not covered.
+
 👉 https://parma360festival.it/call-for-artists/
 
 ### 🏅 .ART Award 2026
 
 📅 Deadline: November 1, 2026
+
 📍 Online; Times Square screening for the showcase winner in May 2027
+
 👥 Artists and collectives 18+, any country, all art forms. Free to submit; you need a .ART domain, bought separately
+
 ✏️ $15,000 grand prize, artist residencies in France, Spain and Georgia, a $3,000 package for an artist working in augmented reality, and a 5,000 tez prize for blockchain artists. The domain can point to your existing site, portfolio or social profile.
+
 👉 https://www.award.art
 
 ───────────────────────────────────────
@@ -177,25 +245,37 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ### 🏛 Wiki Loves Monuments 2026 in Tunisia
 
 📅 Upload window: October 1–31, 2026
+
 📍 Online; photos of any of Tunisia's 2,600+ listed historic and cultural sites
+
 👥 Open to all. Free
+
 ✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
+
 👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
 
 ### ✈️ Culture Moves Europe, Individual Mobility 2026-2027
 
 📅 Cut-offs at 23:59:59 CET/CEST: October 31 and November 30, 2026, then January 31 to April 30, 2027 (no December round)
+
 📍 In person, 7 to 60 days in another Creative Europe country, with one international partner who hosts you
+
 👥 Artists and cultural professionals legally living in a Creative Europe country. Tunisia is one of them. Free to apply
+
 ✏️ 85 euros a day plus 400 euros for travel (800 euros beyond 5,000 km), with top-ups for green travel, visas and children. Sectors are architecture, cultural heritage, design, literature, music, performing arts and visual arts. Travel starts at least two months after the cut-off you apply to.
+
 👉 https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility
 
 ### 🇹🇳 IN-SITU, Medina of Tunis: Art Projects and Residencies
 
 📅 Art projects: November 30, 2026, 11:59 pm Tunis time · residencies: December 20, 2026, reviewed every two months from October 20
+
 📍 Medina of Tunis (and Zaghouan for the residencies), January to March 2027 for the projects, stays of up to 10 days for the residencies
+
 👥 Two routes, both free. Art projects: artists, collectives and arts organisations established or resident in Tunisia. Residencies: individual artists of any nationality
+
 ✏️ Part of the EU-funded IN-SITU project on heritage in the medina. ANIMED backs four projects co-created with residents and craftspeople, up to EUR 3,000 fee each plus production and travel. Fondazione MeNO runs four to six residencies with an average budget of about EUR 6,000 each, fee and production included. Digital and new media work is eligible on both.
+
 👉 https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/
 👉 https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/
 
