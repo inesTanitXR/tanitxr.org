@@ -685,17 +685,40 @@ section.pad-sm{padding:56px 0}
   cursor:pointer;font-family:var(--sans);transition:.15s}
 .reacts button:hover{background:#dfe3e8}
 .reacts button.on{background:var(--gold);font-weight:700}
-.sharebox{position:relative;margin-top:12px}
-.shr{background:none;border:1px solid var(--mist);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;
-  font-family:var(--sans);color:var(--ink);transition:.15s}
-.shr:hover{border-color:var(--gold);background:#fff8dc}
-.shmenu{position:absolute;z-index:5;inset-inline-start:0;top:38px;background:#fff;border:1px solid var(--mist);border-radius:10px;
-  box-shadow:0 12px 30px rgba(17,21,24,.12);padding:8px;display:flex;flex-direction:column;min-width:200px}
-.shmenu[hidden]{display:none}
-.shmenu b{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);padding:6px 10px 4px}
-.shmenu a,.shmenu button{background:none;border:0;text-align:start;padding:8px 10px;border-radius:6px;font:inherit;font-size:14px;
-  color:var(--ink);text-decoration:none;cursor:pointer;font-family:var(--sans)}
-.shmenu a:hover,.shmenu button:hover{background:var(--cloud)}
+/* the foot of a card: the apply button, and the share circle at the far end (Explore style) */
+.opp-foot{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:16px}
+.opp-foot .btn{margin-top:0}
+.shr{margin-inline-start:auto;width:40px;height:40px;padding:0;border-radius:50%;border:1px solid rgba(17,21,24,.22);
+  background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex:0 0 auto}
+.shr svg{width:17px;height:17px;fill:currentColor}
+.shr:hover,.shr:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--gold)}
+/* the share sheet, same bones as the one on Explore: a note you can edit, and round icons for where it goes */
+#opp-share{position:fixed;inset:0;z-index:60;background:rgba(17,21,24,.62);display:flex;align-items:center;justify-content:center;padding:26px}
+#opp-share[hidden]{display:none}
+.os-card{position:relative;background:#fff;border-radius:14px;padding:26px 28px 22px;width:min(560px,100%);max-height:90vh;overflow-y:auto;
+  box-shadow:0 30px 80px rgba(17,21,24,.4)}
+#os-close{position:absolute;top:10px;inset-inline-end:14px;border:0;background:none;color:var(--gray);font-size:26px;line-height:1;cursor:pointer}
+#os-close:hover{color:var(--ink)}
+.os-card h3{font-size:24px;margin:4px 0 4px;padding-inline-end:28px}
+.os-sub{margin:0 0 16px;color:var(--gray);font-size:14px}
+.os-lab{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);font-weight:700;margin-bottom:6px}
+.os-lab span{text-transform:none;letter-spacing:0;font-weight:400;color:var(--gray);margin-inline-start:6px}
+#os-caption{display:block;width:100%;box-sizing:border-box;resize:vertical;font:inherit;font-size:14px;line-height:1.5;color:var(--ink);
+  background:var(--cloud);border:1px solid var(--mist);border-radius:10px;padding:11px 13px;margin:0 0 16px}
+#os-caption:focus{outline:2px solid var(--gold);outline-offset:1px}
+.os-nets{display:flex;flex-wrap:wrap;gap:6px 2px}
+.os-net{display:flex;flex-direction:column;align-items:center;gap:6px;width:82px;padding:8px 4px;border:0;background:none;
+  color:var(--ink);font:inherit;font-size:12.5px;cursor:pointer;text-decoration:none;border-radius:12px;font-family:var(--sans)}
+.os-net[hidden]{display:none}
+.os-ic{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#fff;border:1px solid rgba(17,21,24,.2);transition:.15s}
+.os-ic svg{width:22px;height:22px;fill:var(--ink)}
+.os-net:hover .os-ic,.os-net:focus-visible .os-ic{background:var(--ink);border-color:var(--ink)}
+.os-net:hover .os-ic svg,.os-net:focus-visible .os-ic svg{fill:var(--gold)}
+.os-net[data-net="native"] .os-ic{background:var(--gold);border-color:var(--gold)}
+.os-note{font-size:13px;color:var(--gray);line-height:1.5;margin:10px 0 0;min-height:1.5em}
+@media(max-width:620px){.os-card{padding:18px 18px 22px;border-radius:16px 16px 0 0;max-height:94vh}
+  #opp-share{padding:0;align-items:flex-end}.os-nets{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 0}.os-net{width:auto}.os-ic{width:46px;height:46px}}
 #board,#closed{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;align-items:stretch}
 .board-fallback{grid-column:1/-1;list-style:none;padding:0;margin:0;display:grid;gap:18px}
 .board-fallback li{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:20px 22px}
@@ -6538,14 +6561,14 @@ def build_opportunities():
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
                "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
-               "share": "↗ Share", "sendto": "Send it to someone", "copy": "Copy the link", "copied": "Copied",
+               "share": "Share", "passon": "Pass it on", "shsub": "Every share helps the right person find this call. Pick where it goes, the note comes along.", "note": "Note", "edit": "(you can edit it)", "native": "Share…", "copy": "Copy link", "copied": "Copied, paste it anywhere.", "email": "Email",
                "found": "Found on the Tanit XR opportunities board, curated by Ines Said. New calls every two weeks, free:",
                "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "open": "open", "closedl": "closed", "clear": "Clear all", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
-               "share": "↗ Partager", "sendto": "L’envoyer à quelqu’un", "copy": "Copier le lien", "copied": "Copié",
+               "share": "Partager", "passon": "Faites passer", "shsub": "Chaque partage aide la bonne personne à trouver cet appel. Choisissez où il va, le mot l’accompagne.", "note": "Mot", "edit": "(vous pouvez le modifier)", "native": "Partager…", "copy": "Copier le lien", "copied": "Copié, collez-le où vous voulez.", "email": "E-mail",
                "found": "Trouvé sur le tableau des opportunités de Tanit XR, tenu par Ines Said. De nouveaux appels toutes les deux semaines, gratuit :",
                "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins", "open": "ouvertes", "closedl": "clôturées", "clear": "Tout effacer",
                "terms": TERMS["fr"]},
@@ -6553,7 +6576,7 @@ def build_opportunities():
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
-               "share": "↗ مشاركة", "sendto": "أرسلها لأحد", "copy": "نسخ الرابط", "copied": "تم النسخ",
+               "share": "مشاركة", "passon": "مرّرها", "shsub": "كل مشاركة تساعد الشخص المناسب على إيجاد هذه الفرصة. اختر وجهتها، والرسالة ترافقها.", "note": "الرسالة", "edit": "(يمكنك تعديلها)", "native": "مشاركة…", "copy": "نسخ الرابط", "copied": "تم النسخ، الصقه في أي مكان.", "email": "بريد",
                "found": "من لوحة فرص Tanit XR التي تعدّها Ines Said. فرص جديدة كل أسبوعين، مجانًا:",
                "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل", "open": "مفتوحة", "closedl": "منتهية", "clear": "مسح الكل",
                "terms": TERMS["ar"]},
@@ -6675,6 +6698,26 @@ target="_blank" rel="noopener" style="color:var(--gold-text)">LinkedIn newslette
 <div id="closedwrap" hidden><h3 class="closed-h"></h3><div id="closed"></div>
 <p style="margin-top:18px"><button id="moreclosed" class="btn btn-line" type="button"></button></p></div>
 
+<div id="opp-share" hidden>
+<div class="os-card" role="dialog" aria-labelledby="os-title">
+<button id="os-close" aria-label="Close">&times;</button>
+<div class="eyebrow">{LBL["passon"]}</div><h3 id="os-title"></h3>
+<p class="os-sub">{LBL["shsub"]}</p>
+<label class="os-lab" for="os-caption">{LBL["note"]} <span>{LBL["edit"]}</span></label>
+<textarea id="os-caption" rows="4" spellcheck="false"></textarea>
+<div class="os-nets">
+<button class="os-net" data-net="native" hidden><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M12 3l4 4h-3v8h-2V7H8l4-4zm-7 9h2v7h10v-7h2v9H5v-9z"/></svg></span><span>{LBL["native"]}</span></button>
+<a class="os-net" data-net="whatsapp" target="_blank" rel="noopener"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4.3c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.6 2.6 1 3.2.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4l-2-1c-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg></span><span>WhatsApp</span></a>
+<a class="os-net" data-net="linkedin" target="_blank" rel="noopener"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H10z"/></svg></span><span>LinkedIn</span></a>
+<a class="os-net" data-net="facebook" target="_blank" rel="noopener"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.5H7.3V14h2.8v8h3.4z"/></svg></span><span>Facebook</span></a>
+<a class="os-net" data-net="x" target="_blank" rel="noopener"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16.2h1.7L6.6 4.7H4.8l11.6 14.5z"/></svg></span><span>X</span></a>
+<a class="os-net" data-net="email"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5-8-5zM4.6 7l7.4 4.6L19.4 7H4.6z"/></svg></span><span>{LBL["email"]}</span></a>
+<button class="os-net" data-net="copy"><span class="os-ic"><svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l2.8-2.8a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zM7.8 17.7a3 3 0 0 1 0-4.2l2.1-2.1 1.4 1.4-2.1 2.1a1 1 0 1 0 1.4 1.4l2.1-2.1 1.4 1.4-2.1 2.1a3 3 0 0 1-4.2 0zm8.4-8.4l-1.4-1.4 2.1-2.1a3 3 0 1 1 4.2 4.2l-2.1 2.1-1.4-1.4 2.1-2.1a1 1 0 1 0-1.4-1.4l-2.1 2.1z"/></svg></span><span>{LBL["copy"]}</span></button>
+</div>
+<p id="os-hint" class="os-note" aria-live="polite"></p>
+</div>
+</div>
+
 <div class="band" style="margin-top:64px;border-radius:14px;padding:44px 38px">
 <div style="max-width:640px">
 <div class="eyebrow">Newsletter</div>
@@ -6732,6 +6775,28 @@ function track(type,id){{
   if(!RX)return;
   try{{navigator.sendBeacon(RX+'/track',new Blob([JSON.stringify({{type,id}})],{{type:'application/json'}}))}}catch(e){{}}
 }}
+// the share sheet: one for the page, filled per call. The note is editable, every link reads it live.
+const OS=document.getElementById('opp-share');
+function openShare(o){{
+  const e=encodeURIComponent, cap=document.getElementById('os-caption'), hint=document.getElementById('os-hint');
+  document.getElementById('os-title').textContent=o.title; cap.value=o.text; hint.textContent='';
+  const note=()=>cap.value.trim();
+  const nat=OS.querySelector('[data-net="native"]'); nat.hidden=!navigator.share;
+  nat.onclick=async()=>{{ try{{await navigator.share({{title:o.title,text:note(),url:o.url}});}}catch(x){{}} }};
+  const link=(net,fn)=>{{ const a=OS.querySelector('[data-net="'+net+'"]'); a.href=fn(); a.onclick=()=>{{a.href=fn();track('share-'+net,o.id);}}; }};
+  link('whatsapp',()=>'https://wa.me/?text='+e(note()));
+  link('linkedin',()=>'https://www.linkedin.com/sharing/share-offsite/?url='+e(o.url));
+  link('facebook',()=>'https://www.facebook.com/sharer/sharer.php?u='+e(o.url)+'&quote='+e(note()));
+  link('x',()=>'https://twitter.com/intent/tweet?text='+e(note().replace(o.url,'').trim())+'&url='+e(o.url));
+  link('email',()=>'mailto:?subject='+e(o.title)+'&body='+e(note()));
+  OS.querySelector('[data-net="copy"]').onclick=async()=>{{ try{{await navigator.clipboard.writeText(note());hint.textContent=LBL.copied;track('share-copy',o.id);}}catch(x){{}} }};
+  OS.hidden=false; document.body.style.overflow='hidden';
+  setTimeout(()=>{{ if(!matchMedia('(max-width:760px)').matches) cap.focus(); }},50);
+}}
+function closeShare(){{ OS.hidden=true; document.body.style.overflow=''; }}
+document.getElementById('os-close').addEventListener('click',closeShare);
+OS.addEventListener('click',e=>{{ if(e.target===OS) closeShare(); }});
+document.addEventListener('keydown',e=>{{ if(e.key==='Escape'&&!OS.hidden) closeShare(); }});
 function reactsHtml(o){{
   if(!RX||o._closed)return '';
   const s=STATS[o.id]||{{}};
@@ -6749,7 +6814,7 @@ document.querySelectorAll('.fdrop input[type=checkbox]').forEach(cb=>cb.addEvent
   const set=F[cb.dataset.key]; cb.checked?set.add(cb.value):set.delete(cb.value); render();
 }}));
 document.addEventListener('click',e=>{{ document.querySelectorAll('.fdrop[open]').forEach(d=>{{ if(!d.contains(e.target)) d.removeAttribute('open'); }});
-  if(!e.target.closest('.sharebox')) document.querySelectorAll('.shmenu').forEach(x=>x.hidden=true); }});
+  }});
 document.querySelectorAll('.fdrop').forEach(d=>d.addEventListener('toggle',()=>{{ if(d.open) document.querySelectorAll('.fdrop[open]').forEach(o=>{{ if(o!==d) o.removeAttribute('open'); }}); }}));
 function drawActive(){{
   const chips=[];
@@ -6820,18 +6885,14 @@ function render(){{
     const url=location.origin+location.pathname+'?ref=share#opp-'+o.id;
     const text=o.t+(dl?' · '+dl:'')+'\\n'+LBL.found+' '+url;
     const e=encodeURIComponent;
-    return '<div class="sharebox"><button type="button" class="shr" data-id="'+o.id+'" data-text="'+e(text)+'" data-url="'+e(url)+'" data-t="'+e(o.t)+'">'+LBL.share+'</button>'+
-      '<div class="shmenu" hidden><b>'+LBL.sendto+'</b>'+
-      '<a href="https://wa.me/?text='+e(text)+'" target="_blank" rel="noopener">WhatsApp</a>'+
-      '<a href="https://www.linkedin.com/sharing/share-offsite/?url='+e(url)+'" target="_blank" rel="noopener">LinkedIn</a>'+
-      '<a href="https://twitter.com/intent/tweet?text='+e(o.t+' · '+LBL.found)+'&url='+e(url)+'" target="_blank" rel="noopener">X</a>'+
-      '<a href="mailto:?subject='+e(o.t)+'&body='+e(text)+'">Email</a>'+
-      '<button type="button" class="cp">'+LBL.copy+'</button></div></div>';
+    return '<button type="button" class="shr" aria-label="'+LBL.share+'" title="'+LBL.share+'" data-id="'+o.id+'" data-text="'+e(text)+'" data-url="'+e(url)+'" data-t="'+e(o.t)+'">'+
+      '<svg viewBox="0 0 24 24"><path d="M12 3l4 4h-3v8h-2V7H8l4-4zm-7 9h2v7h10v-7h2v9H5v-9z"/></svg></button>';
   }}
+  function footOf(o,dl){{ const h=btnOf(o)+shareHtml(o,dl); return h?'<div class="opp-foot">'+h+'</div>':''; }}
   function btnOf(o){{
     if(!o.u||o._closed)return '';
-    if(o.tx)return '<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'">'+LBL.vol+'</a>';
-    return '<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px;margin-top:14px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>';
+    if(o.tx)return '<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px" href="'+o.u+'">'+LBL.vol+'</a>';
+    return '<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>';
   }}
   const feats=list.filter(o=>o.f&&!o._closed);
   let rest=list.filter(o=>!feats.includes(o));
@@ -6841,7 +6902,7 @@ function render(){{
     return '<div class="opp" id="opp-'+o.id+'"><div class="fx">'+
       '<div class="top"><span class="chip feat">'+LBL.feat+'</span>'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+btnOf(o)+reactsHtml(o)+shareHtml(o,dl)+'</div>'+
+      '<p class="desc">'+o.d+'</p>'+reactsHtml(o)+footOf(o,dl)+'</div>'+
       '<div class="fp" style="background-image:url('+ASSET(o.ph)+')"></div></div>';
   }}).join('');
   const card=(o,extra)=>{{
@@ -6849,7 +6910,7 @@ function render(){{
     const more=o.d.length>260?'<button class="more" type="button">'+LBL.more+'</button>':'';
     return '<div class="opp'+(o._closed?' closed':'')+(extra||'')+'" id="opp-'+o.id+'"><div class="top">'+chipsOf(o)+'</div>'+
       '<h3>'+o.t+'</h3><div class="dl '+cls+'">'+dl+'</div>'+
-      '<p class="desc">'+o.d+'</p>'+more+btnOf(o)+reactsHtml(o)+shareHtml(o,o._closed?'':dl)+'</div>';
+      '<p class="desc">'+o.d+'</p>'+more+reactsHtml(o)+footOf(o,o._closed?'':dl)+'</div>';
   }};
   const openList=rest.filter(o=>!o._closed), closedList=rest.filter(o=>o._closed);
   board.innerHTML=openList.map(o=>card(o)).join('')||(closedList.length?'':'<p style="color:var(--gray)">'+LBL.none+'</p>');
@@ -6869,19 +6930,9 @@ function render(){{
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
   }}));
   document.querySelectorAll('.apply').forEach(a=>a.addEventListener('click',()=>track('click',a.dataset.id)));
-  document.querySelectorAll('.shr').forEach(b=>b.addEventListener('click',async()=>{{
-    const d=decodeURIComponent, text=d(b.dataset.text), url=d(b.dataset.url), title=d(b.dataset.t);
-    track('share',b.dataset.id);
-    if(navigator.share&&matchMedia('(max-width:760px)').matches){{
-      try{{await navigator.share({{title,text,url}});}}catch(e){{}} return;
-    }}
-    const m=b.nextElementSibling; const open=!m.hidden;
-    document.querySelectorAll('.shmenu').forEach(x=>x.hidden=true);
-    m.hidden=open;
-  }}));
-  document.querySelectorAll('.shmenu .cp').forEach(b=>b.addEventListener('click',async()=>{{
-    const shr=b.closest('.sharebox').querySelector('.shr');
-    try{{await navigator.clipboard.writeText(decodeURIComponent(shr.dataset.text));b.textContent=LBL.copied;}}catch(e){{}}
+  document.querySelectorAll('.shr').forEach(b=>b.addEventListener('click',()=>{{
+    const d=decodeURIComponent; track('share',b.dataset.id);
+    openShare({{id:b.dataset.id,title:d(b.dataset.t),text:d(b.dataset.text),url:d(b.dataset.url)}});
   }}));
   document.querySelectorAll('.reacts button').forEach(b=>b.addEventListener('click',()=>{{
     const type=b.dataset.rx,id=b.dataset.id;
