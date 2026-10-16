@@ -1,6 +1,6 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 20
 
-*Post: Fri Oct 16, 2026. This is the Oct 9 edition reassembled for Oct 16, since it never went out. Dropped because they closed between Oct 9 and Oct 16: PXR2027 (Oct 9), Eyebeam virtual track (Oct 11; the NYC track, Nov 15, stays as a line), Djerassi (Oct 9), Aesthetica (Oct 11, late Oct 18 stays as a line), Goethe-Institut Coproduction Fund (Oct 12), PhotoVogue MENA (Oct 15). Immerse the Bay closes today and Technica is tomorrow, both kept as one-liners. Pulled forward from the edition 21 list because they close before the next send: MIT Museum BRAIN (Nov 1), TEEEM (Nov 1), UnitedXR Activations (Oct 30), Swarovski (Nov 9), EMAP (Nov 6). Deadlines were checked at the organisers' pages between Oct 7 and Oct 15; the five closing this week were looked at again Oct 16. Highlights carry no links; each highlight repeats as a full block below.*
+*Posted Fri Oct 16, 2026, with Ines's own trims: highlights cut to three, the Matsu Biennial and the AIA Site Preservation Grant left out (both stay on the board). This is the Oct 9 edition reassembled for Oct 16, since it never went out. Dropped because they closed between Oct 9 and Oct 16: PXR2027 (Oct 9), Eyebeam virtual track (Oct 11; the NYC track, Nov 15, stays as a line), Djerassi (Oct 9), Aesthetica (Oct 11, late Oct 18 stays as a line), Goethe-Institut Coproduction Fund (Oct 12), PhotoVogue MENA (Oct 15). Immerse the Bay closes today and Technica is tomorrow, both kept as one-liners. Pulled forward from the edition 21 list because they close before the next send: MIT Museum BRAIN (Nov 1), TEEEM (Nov 1), UnitedXR Activations (Oct 30), Swarovski (Nov 9), EMAP (Nov 6). Deadlines were checked at the organisers' pages between Oct 7 and Oct 15; the five closing this week were looked at again Oct 16. Highlights carry no links; each highlight repeats as a full block below.*
 
 ---
 
@@ -14,9 +14,7 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 
 - 🔮 SAT Montréal, dome and research-creation residencies, CAD 10,000. Deadline Oct 18
 - 🥽 Realities in Transition, six-month VRChat residency, EUR 10,000 per artist, Tunisia eligible. Deadline Oct 23
-- 🏝 Matsu Biennial 2027, up to NTD 800,000 per project. Deadline Oct 30
 - 💸 Voqal Partners Fellowship, $30,000 unrestricted, US-based. Deadline Oct 31
-- 🏛 AIA Site Preservation Grant, up to $15,000 for a heritage site. Deadline Nov 1
 
 ───────────────────────────────────────
 
@@ -73,18 +71,6 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ✏️ Submissions for the 26th Tribeca Festival opened September 30. Games closes March 4, 2027 at the extended rate, Shorts and Digital Creators February 3, 2027. Enter by October 28 for the lowest fee.
 
 👉 https://tribecafilm.com/festival/submissions
-
-### 🏝 4th Matsu Biennial, Open Call for International Artists
-
-📅 Deadline: October 30, 2026, 17:00 Taiwan time (5 am ET)
-
-📍 Matsu Islands, Taiwan; exhibition August 20 to November 7, 2027
-
-👥 Artists and collectives from anywhere. No fee listed on the call
-
-✏️ Up to NTD 800,000 (tax included) per project for a site-specific installation or a participatory piece, and immersive experiences are named. Three directions to work from: the island's culture and stone houses, its Cold War outpost history, and the ocean (marine ecology, sea sparkles, marine debris). Results by end of November.
-
-👉 https://matsubiennial.tw/en/news/details/88
 
 ### 🎨 Art Explora x Cité internationale des arts Residency 2027
 
@@ -161,18 +147,6 @@ Next Friday, Oct 23, Tanit XR is at the Embassy of Tunisia in Washington, DC. Fr
 ✏️ $30,000 unrestricted award plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas still being tested. Free to apply.
 
 👉 https://voqalpartners.org/fellowship/
-
-### 🏛 AIA Site Preservation Grant 2027
-
-📅 Deadline: November 1, 2026
-
-📍 Any archaeological site; remote application
-
-👥 Projects that preserve a site and involve the local community; no nationality limit stated. Free
-
-✏️ Up to $15,000 from the Archaeological Institute of America for conservation planning (including photographic and digital documentation), hands-on conservation, preventive measures and monitoring, training, and public outreach and education. Stronger applications show community involvement and a long-term maintenance plan. Awards announced by March 1, 2027.
-
-👉 https://www.archaeological.org/grant/site-preservation/
 
 ### 🤝 TEEEM Foundation Community Impact Grants
 
@@ -324,8 +298,6 @@ Edition 20 is out. And on Friday Oct 23 we are at the Embassy of Tunisia in Wash
 
 🟠 Oct 28: Tribeca 2027, Games, Shorts and Digital Creators, early rate
 
-🟠 Oct 30: Matsu Biennial 2027, up to NTD 800,000 per project
-
 🟠 Oct 30: Art Explora Paris residency, EUR 1,000 a month plus production
 
 🟠 Oct 30: UnitedXR Europe activations, free passes and space in Brussels
@@ -339,8 +311,6 @@ Edition 20 is out. And on Friday Oct 23 we are at the Embassy of Tunisia in Wash
 🟡 Nov 1: One World Prague, VR competition
 
 🟡 Nov 1: .ART Award, $15,000 grand prize and an AR package
-
-🟡 Nov 1: AIA Site Preservation Grant, up to $15,000 for a heritage site
 
 🟡 Nov 1: TEEEM Foundation grants, $5,000 to $30,000 for nonprofits
 
@@ -399,7 +369,6 @@ Full details + links to all opportunities are there 👇
 | Realities in Transition | linkedin.com/company/realitiesintransition (check the page exists before tagging) |
 | Le FIFA (International Festival of Films on Art) | linkedin.com/company/festival-international-du-film-sur-l'art |
 | Tribeca | linkedin.com/company/tribeca-film-festival-nyc-llc |
-| Matsu Biennial | no LinkedIn page found |
 | Art Explora | linkedin.com/company/art-explora |
 | Cité internationale des arts | linkedin.com/company/cite-internationale-des-arts |
 | UnitedXR Europe | linkedin.com/company/unitedxr |
@@ -407,7 +376,6 @@ Full details + links to all opportunities are there 👇
 | People in Need (One World) | linkedin.com/company/people-in-need |
 | CPH:DOX | linkedin.com/company/cph-dox |
 | Voqal | linkedin.com/company/voqal |
-| Archaeological Institute of America | linkedin.com/company/archaeological-institute-of-america |
 | TEEEM Foundation | linkedin.com/company/teeemglobal |
 | MIT Solve | linkedin.com/company/solvemit |
 | Swarovski Foundation | no separate page found (the company is linkedin.com/company/swarovski) |
