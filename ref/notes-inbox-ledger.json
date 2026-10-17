@@ -772,6 +772,41 @@
    "source": "share (Tanit Inbox shot.txt, Oct 15)",
    "raw": "https://lnkd.in/p/edfxAkmK",
    "status": "unreadable: resolves to linkedin.com/feed/update/urn:li:share:7515437530813505537 (highlighted activity 7516487589579808769); LinkedIn shows only its sign-up wall to curl and to the built-in browser. Asked Ines to paste the text or a screenshot. Moved to done/."
+  },
+  {
+   "key": "apply now lnkd in dijcn8cd changemakers for youth 2027",
+   "date": "2026-10-17",
+   "source": "note (ADD NEW line) + screenshot (Tanit Inbox 'shot 2.png', LinkedIn post)",
+   "raw": "https://lnkd.in/diJCN8CD → https://www.changemakersforyouth.org → changemakerxchange.org/changemakers-for-youth/",
+   "status": "added (board, draft, edition 21 Tunisia section, tag row; verified Oct 17 on changemakerxchange.org: applications open Oct 13, close Nov 9, 2026; ages 18-35; must live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany; free). Not on Ines's shortlist: the residence rule excludes the US."
+  },
+  {
+   "key": "lnkd in p ek7m9mqa samuel abinsinguza yale world fellows post",
+   "date": "2026-10-17",
+   "source": "share (Tanit Inbox shot.txt, Oct 16)",
+   "raw": "https://lnkd.in/p/ek7M9MqA → linkedin.com/posts/samiesmilz_fellowship-leadership-globalleadership-activity-7516495785060900865",
+   "status": "already covered: the post is about Yale World Fellows 2027 (Dec 2, 2026, 2 pm ET), which has been on Ines's shortlist as 'just for me' since Oct 6; the only other link is openfellowships.com, an aggregator. Nothing new to publish. Moved to done/."
+  },
+  {
+   "key": "collective mind collaboration fellows compass co creation",
+   "date": "2026-10-17",
+   "source": "screenshot (Tanit Inbox shot.png, Oct 15, collectivemindglobal.org)",
+   "raw": "https://collectivemindglobal.org/compass-co-creation",
+   "status": "skipped: unpaid co-creation of a consultancy's AI collaboration tool (Compass) for network-management practitioners; the official page gives no deadline and no stipend, and the topic is not XR, art, heritage or youth. Say so if you want it just for you. Moved to done/."
+  },
+  {
+   "key": "google search gitea screenshot",
+   "date": "2026-10-17",
+   "source": "screenshot (Tanit Inbox shot-2.png, Oct 15)",
+   "raw": "Google results page for 'gitea'",
+   "status": "not an opportunity (a search for the Gitea git-hosting software). Moved to done/."
+  },
+  {
+   "key": "a space arts southampton outdoor sports centre public art open call",
+   "date": "2026-10-17",
+   "source": "screenshot (Tanit Inbox shot-3.png, Oct 16, LinkedIn repost by Artist Open Calls of 'a space' arts)",
+   "raw": "https://aspacearts.org.uk/artist-development/opportunities (brief PDF: FINAL-Artist-Brief-Southampton-Sports-Centre-PAP.pdf)",
+   "status": "skipped: a permanent physical public artwork for a sports centre in Southampton, UK (EOI by Nov 23, 2026, 12 pm; GBP 25,000 artist fee incl. materials and transport; four shortlisted artists get GBP 500 to develop a proposal; fabrication and site meetings across 2027; 10-year lifespan). Free to apply and no nationality rule in the brief, but it is a UK public-art commission needing presence on site through 2027, not XR, heritage or impact. Moved to done/."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -871,6 +906,24 @@
    "file": "shot-2.html",
    "raw": "https://www.instagram.com/p/DeheucyRwyI/ (@georgetownmainst)",
    "what": "Georgetown Main Street 'Don't ghost small businesses this weekend' shop-local post, DC"
+  },
+  {
+   "date": "2026-10-17",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/DekOkVACXNM/ (@dupontcircledc)",
+   "what": "Free pumpkins in Dupont Circle, Oct 16"
+  },
+  {
+   "date": "2026-10-17",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/p/DekPA9qF-z7/ (@peopleshousedc)",
+   "what": "The People's House Halloween happy hour with craft painting"
+  },
+  {
+   "date": "2026-10-17",
+   "file": "shot-3.html",
+   "raw": "https://www.instagram.com/p/DekiIdKMrsB/ (@washingtonbucketlist)",
+   "what": "Wisconsin Avenue fall weekend, vendors and pumpkin painting, Oct 17-18"
   }
  ]
 }

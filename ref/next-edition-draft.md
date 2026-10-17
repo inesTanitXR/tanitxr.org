@@ -5,6 +5,19 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 <!-- new items appended below by the inbox sweep -->
 
+### 🇹🇳 Changemakers for Youth 2027 (ChangemakerXchange)
+
+📅 Deadline: November 9, 2026 (no time given)
+
+📍 Online sessions, then a five-day summit somewhere in the region in mid-March 2027 (location to be confirmed; lodging, meals and local transport covered, travel stipend case by case)
+
+👥 Ages 18 to 35 who live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany and hold a leadership role in a youth-focused social or environmental venture. Free
+
+✏️ Three-year programme for 80 changemakers: capacity building, the summit, seed funding for cross-border projects and membership of the ChangemakerXchange network. Interviews November 20 to December 19; decisions January 13, 2027.
+
+👉 https://changemakerxchange.org/changemakers-for-youth/
+
+
 ### 🧠 MIT Museum BRAIN Open Calls: Digital Content and Public Programs
 
 📅 Deadline: November 1, 2026, 11:59 pm EST (both calls; no extensions)

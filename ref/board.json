@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-16",
+ "built": "2026-10-17",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -2546,6 +2546,22 @@
    "deadline_type": null,
    "deadline_date": "November 1, 2026",
    "url": "https://mitmuseum.mit.edu/connection/open-call"
+  },
+  {
+   "slug": "changemakers-for-youth-2027-changemakerxchange",
+   "title": "Changemakers for Youth 2027 (ChangemakerXchange)",
+   "desc": "Three-year programme for 80 young changemakers aged 18 to 35 who live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany and hold a leadership role in a youth-focused social or environmental venture. Online capacity building, a five-day summit in the region in mid-March 2027 with lodging and meals covered, seed funding for cross-border projects. Free to apply; applications close November 9, 2026.",
+   "type": "Program",
+   "eligibility": [
+    "Youth",
+    "Open to all"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "November 9, 2026",
+   "url": "https://changemakerxchange.org/changemakers-for-youth/"
   }
  ]
 }

@@ -83,6 +83,7 @@ _Assembled Oct 7 → ref/newsletter-edition-20.md. The list below is the plannin
 ## Edition 21 (send Fri Oct 23) — items
 _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item closing Nov 6 or later moved here (blocks already in next-edition-draft.md unless noted). Dec 10 onward is proposed for edition 22 (Fri Nov 6)._
 - 🎨 EMAP European Media Art Platform residencies 2027 (Tunisia explicitly eligible; verified Oct 7 on call.emare.eu) — Nov 6, 2 pm CET — call.emare.eu 🇹🇳 _needs a board entry and a draft block before 21 is assembled_
+- 🇹🇳 Changemakers for Youth 2027 (ChangemakerXchange; ages 18–35 living in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany; free; summit mid-March 2027) — Nov 9 — changemakerxchange.org/changemakers-for-youth _(added by the Oct 17 sweep from Ines's note and LinkedIn screenshot; verified on the official page Oct 17)_
 - 💡 Swarovski Foundation Creatives for Our Future (21–30; EUR 20,000; free) — Nov 9, 11:59 pm GMT (page also says BST; GMT is the real one) — creatives.swarovskifoundation.org
 - 🕶 UnitedXR Europe 2026 Call for Activations — Oct 30 (moved up from Nov 12; official page checked Oct 12; still after the Oct 23 send) — unitedxr.eu/activations
 - 🚀 NASA Space Apps Challenge 2026 (local events incl. Tunisia) — hackathon Nov 14-15 — spaceappschallenge.org 🇹🇳
