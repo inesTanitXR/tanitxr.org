@@ -7910,9 +7910,11 @@ def build_dc_evening():
     as a place that was studied. Laura and Caroline spent time there; that is how it is said.
     """
     sheet = FORM_SHEET
+    # 19 Oct: the guest list went to the embassy, so the form is a waitlist now. Its rows go to
+    # their own "dc-waitlist" tab (the script makes the tab on the first row), never the guest list.
     form = f"""
 <form id="dc-rsvp" class="nice" novalidate>
-<input type="hidden" name="_form" value="dc-rsvp">
+<input type="hidden" name="_form" value="dc-waitlist">
 <input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 <p class="hp" aria-hidden="true"><label>Leave this empty<input name="url" tabindex="-1" autocomplete="off"></label></p>
 <label for="dc-name">Full name, as it appears on your government-issued photo ID <span>*</span></label>
@@ -7929,10 +7931,10 @@ def build_dc_evening():
 <input id="dc-heard" name="heard_via" placeholder="Optional">
 <label class="fcheck"><input type="checkbox" name="updates" value="yes"> I would like to receive updates from Tanit XR</label>
 <label class="fcheck"><input type="checkbox" name="photo_consent" value="yes" required> I understand photos and video may be taken at this event and used to share Tanit XR's work <span>*</span></label>
-<button type="submit" class="btn btn-gold">Save me a seat</button>
+<button type="submit" class="btn btn-gold">Join the waitlist</button>
 <p id="dc-said" class="fm-err" hidden role="status"></p>
 <noscript><p class="fhint">This form needs JavaScript. Please email
-<a href="mailto:info@tanitxr.org?subject=DC%2022%20October">info@tanitxr.org</a> to reserve a seat.</p></noscript>
+<a href="mailto:info@tanitxr.org?subject=DC%2023%20October%20waitlist">info@tanitxr.org</a> to join the waitlist.</p></noscript>
 </form>
 <script>
 (function(){{
@@ -7954,11 +7956,10 @@ def build_dc_evening():
     try {{ sent = navigator.sendBeacon(SHEET, body); }} catch (err) {{ sent = false; }}
     if (!sent) {{ try {{ fetch(SHEET, {{method:'POST', body: body, mode:'no-cors', keepalive:true}}); }} catch (err) {{}} }}
     f.querySelectorAll('input,textarea').forEach(function(el){{ el.disabled = true; }});
-    btn.textContent = 'Seat saved';
+    btn.textContent = 'On the waitlist';
     said.hidden = false;
-    said.textContent = 'Thank you, you are on the list. Your confirmation and the details for the '
-      + 'evening will arrive by email.';
-    if (window.tx) tx('dc_rsvp');
+    said.textContent = 'Thank you, you are on the waitlist. If a seat opens, we will email you before Friday.';
+    if (window.tx) tx('dc_waitlist');
   }});
 }})();
 </script>"""
@@ -7969,17 +7970,15 @@ def build_dc_evening():
 <div class="dcv-fact"><small>When</small><b>Friday 23 October</b><span>2026</span></div>
 <div class="dcv-fact"><small>Time</small><b>6pm to 8pm</b><span>Doors open at 6pm</span></div>
 <div class="dcv-fact"><small>Location</small><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
-<div class="dcv-fact"><small>Cost</small><b>Free</b><span>Limited seating<br>Sign up by Monday 19 October</span></div>
+<div class="dcv-fact"><small>Cost</small><b>Free</b><span>The guest list is full<br>Waitlist open</span></div>
 </div>
 <div class="dcv-grid">
 <div>
-<div class="eyebrow">Reserve a seat</div>
+<div class="eyebrow">Join the waitlist</div>
 <h2 class="sec-title" style="margin-bottom:10px">An evening on Tunisia's heritage, and the technology now protecting it</h2>
-<p class="sec-sub" style="margin:0 0 18px">With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia
-with Tanit XR and TAYP. Seats are limited, so please sign up below.</p>
+<p class="sec-sub" style="margin:0 0 18px">With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia with Tanit XR and TAYP. The guest list is now with the embassy and every seat is taken. Join the waitlist and we will email you if a seat opens.</p>
 {form}
-<p class="fhint">Your confirmation and the details for the evening come by email.
-Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+<p class="fhint">If a seat opens, we will email you before Friday. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
 </div>
 <div class="dcv-two">
 <figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 19 at tanitxr.org/dc" loading="lazy"></a>
@@ -8037,14 +8036,14 @@ community that now does it. She opens the evening and shows the collection live.
 <section class="pad dcv-band"><div class="wrap">
 <div class="dcv-photos"><figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor" loading="lazy">
 <figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure></div>
-<p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Reserve a seat</a></p>
+<p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Join the waitlist</a></p>
 </div></section>"""
     page("dc.html", "Tunisia & America, Learning Together", body,
          active="community.html", share_img="dc-flyer.jpg",
          desc="Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
               "DC, with "
               "Tanit XR and TAYP. Dr. Caroline Nickerson on her time in "
-              "Tunisia, and Ines Said, founder of Tanit XR. Free, limited seating, sign up by 19 October.")
+              "Tunisia, and Ines Said, founder of Tanit XR. Free. The guest list is full, and a waitlist is open.")
 
 
 def build_about():

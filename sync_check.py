@@ -59,14 +59,26 @@ board_hosts = {host(u) for u in board}
 editions = sorted(glob.glob(os.path.join(HERE, "ref", "newsletter-edition-*.md"))) + \
     [os.path.join(HERE, "ref", "next-edition-draft.md")]
 in_newsletter = {}  # norm(url) -> edition file
+problems_early = []
 link_re = re.compile(r"👉[^\n]*?(https?://[^\s)\]]+)")
 for f in editions:
     if not os.path.exists(f):
         continue
     for m in link_re.finditer(open(f, encoding="utf-8").read()):
-        in_newsletter.setdefault(norm(m.group(1)), os.path.basename(f))
+        u = m.group(1)
+        # a counted link (tanitxr.org/go/<call>/?ref=nlNN, tools/go_links.py) stands for the
+        # organiser URL its forwarding page holds
+        g = re.search(r"tanitxr\.org/go/([a-z0-9-]+)", u)
+        if g:
+            gp = os.path.join(HERE, "docs", "go", g.group(1), "index.html")
+            gm = re.search(r'var U="([^"]+)"', open(gp, encoding="utf-8").read()) if os.path.exists(gp) else None
+            if not gm:
+                problems_early.append(f"BROKEN COUNTED LINK  {u}   (in {os.path.basename(f)}, no forwarding page)")
+                continue
+            u = gm.group(1)
+        in_newsletter.setdefault(norm(u), os.path.basename(f))
 
-problems = []
+problems = list(problems_early)
 
 # 1. newsletter → website
 for u, f in in_newsletter.items():
