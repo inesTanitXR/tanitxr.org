@@ -149,3 +149,18 @@ MIT designX (Boston accelerator; the main track has been MIT-affiliated only; co
 ## Rule from Ines, 2026-09-25
 An item is only 'too late' if it closes before the edition that would carry it goes out. Check against the NEXT send date (edition 19 went out Sept 25, so Sept 27 and Sept 30 deadlines belonged in it), not the one after. Small entry fees are fine; free items come first.
 - Fees (Ines, Sept 25, asking "where's the Webby Award?"): big-name awards go in even over $100, with the fee spelled out and listed after the free items. Everything else keeps the ~$100 guide. Same-organisation calls (e.g. several CHI 2027 tracks) go in ONE combined block.
+
+## Counted links (from edition 21, 2026-10-19)
+
+Every item's 👉 link is a tanitxr.org/go/ link, so each click is counted per edition and per item.
+The reader still lands on the organiser's page.
+
+1. Put every item on the board first (ref/opportunity_updates.json), then run the build.
+2. Run `python3 tools/go_links.py ref/newsletter-edition-NN.md --edition NN`. It lists the links it will
+   swap and any that match nothing on the board. Fix those, then run it again with `--write`.
+3. The board link keeps `?ref=newsletterNN`, as before.
+4. After the send, `python3 tools/analytics_report.py --days 14` shows "Newsletter items clicked"
+   (edition, item, clicks), what readers opened on the board, and what they searched for and did not find.
+
+Forwarding pages are never deleted, so links in sent editions keep working after a call closes.
+If an organiser changes a URL, fix it in the board data and every past edition follows.

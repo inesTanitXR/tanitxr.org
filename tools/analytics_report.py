@@ -51,12 +51,20 @@ TRUNCATED = [False]
 
 
 def hits(start, end):
-    """GoatCounter caps this endpoint at 100 rows and has no pagination for it, so this is the
-    100 busiest paths and events in the window. Totals come from stats/total, which is exact."""
-    page = get("stats/hits", start=start.isoformat(), end=end.isoformat(), limit=100, daily="true")
-    if page.get("more"):
-        TRUNCATED[0] = True
-    return page.get("hits", [])
+    """Every path and event in the window. The endpoint returns 100 rows at a time; the next 100 come
+    from passing the ids already seen as exclude_paths, comma separated (an array form is ignored)."""
+    out, seen = [], []
+    for _ in range(40):
+        q = dict(start=start.isoformat(), end=end.isoformat(), limit=100, daily="true")
+        if seen:
+            q["exclude_paths"] = ",".join(map(str, seen))
+        page = get("stats/hits", **q)
+        rows = page.get("hits", [])
+        out += rows; seen += [h["path_id"] for h in rows]
+        if not page.get("more") or not rows:
+            return out
+    TRUNCATED[0] = True
+    return out
 
 
 def side(kind, start, end, limit=15):
@@ -82,14 +90,22 @@ LABEL = {"collection_view": "Objects looked at", "collection_rotate": "Objects t
          "explore_open": "Explore in 3D opened", "visit": "Visits counted (first or returning)",
          "dwell": "Time milestones reached", "depth": "Depth milestones reached",
          "donate_click": "Donate clicks", "newsletter_signup": "Newsletter sign-ups (form sent)",
-         "form_submit": "Forms sent", "form-sent": "Forms delivered (thank-you page)"}
+         "form_submit": "Forms sent", "form-sent": "Forms delivered (thank-you page)",
+         "opp_apply": "Board: apply clicks", "opp_more": "Board: descriptions opened", "opp_share_open": "Board: share sheet opened",
+         "opp_share": "Board: shared", "opp_landing": "Board: arrived on one call's link", "opp_filter": "Board: filters used",
+         "opp_quick": "Board: quick picks used", "opp_search": "Board: searches", "opp_search_empty": "Board: searches that found nothing",
+         "opp_sort": "Board: sort changed", "opp_depth": "Board: scroll milestones", "opp_dwell": "Board: time milestones",
+         "opp_closed_list": "Board: closed calls opened", "go": "Newsletter item clicks", "out": "Clicks that left the site"}
 # events whose second path segment is worth a table of its own
 DIM = {"collection_view": "Object", "collection_save": "Object", "collection_share": "Network", "collection_poster": "Object",
        "share_landing": "Object", "nura_more": "Object", "room_pick": "Object", "xr_pick": "Object", "map_jump": "Object",
        "badge_earned": "Badge", "nura_ask": "Ask", "nura_ask_yes": "Ask", "room_opened": "Maker", "room_complete": "Room",
        "tour_step": "Step", "explore_open": "Device", "visit": "Kind", "dwell": "Stayed at least", "depth": "Looked at",
        "donate_click": "From page", "newsletter_signup": "From page", "form_submit": "From page", "form-sent": "Form",
-       "volunteer_cameo": "Volunteer", "xr_entered": "Object", "ar_entered": "Object"}
+       "volunteer_cameo": "Volunteer", "xr_entered": "Object", "ar_entered": "Object",
+       "opp_apply": "Call", "opp_more": "Call", "opp_share_open": "Call", "opp_share": "Network", "opp_landing": "Call",
+       "opp_filter": "Filter", "opp_quick": "Pick", "opp_search": "Term", "opp_search_empty": "Term", "opp_sort": "Sort",
+       "opp_depth": "Reached", "opp_dwell": "Stayed at least", "go": "Edition and item", "out": "Destination"}
 NAME, UIDS = {}, {}
 try:
     html = open(os.path.join(HERE, "docs", "explore", "index.html"), encoding="utf-8").read()
@@ -97,6 +113,75 @@ try:
     NAME = {i["slug"]: i["title"] for i in cfg["items"]}
 except Exception:
     pass
+
+
+CALLS = {}
+try:
+    _b = open(os.path.join(HERE, "docs", "opportunities", "index.html"), encoding="utf-8").read()
+    CALLS = {o["id"]: o for o in json.loads(re.search(r"const OPPS=(\[.*?\]);\n", _b, re.S).group(1))}
+except Exception:
+    pass
+BOARD_KEYS = ("opp_apply", "opp_more", "opp_share_open", "opp_share", "opp_landing", "opp_filter", "opp_quick",
+              "opp_search", "opp_search_empty", "opp_sort", "opp_depth", "opp_dwell", "go", "out")
+
+
+def call_name(slug):
+    if slug == "opportunities":
+        return "The board itself"
+    return CALLS.get(slug, {}).get("t") or slug.replace("-", " ")
+
+
+def board_tables(cur, top=15):
+    """What the newsletter needs: which calls readers open, what kinds, what they look for and don't
+    find, which newsletter items get clicked, and where shared calls go."""
+    ev, per = cur["events"], cur["per"]
+    pg = dict(cur["pages"])
+    views = sum(look(pg, p) for p in ("/opportunities/", "/fr/opportunities/", "/ar/opportunities/"))
+    P("\n## The opportunities board and the newsletter\n")
+    P(f"- {views:,} visits to the board, {ev.get('opp_apply', 0):,} apply clicks, {ev.get('opp_more', 0):,} descriptions opened, "
+      f"{ev.get('opp_share', 0):,} shares, {per.get('newsletter_signup', Counter()).get('opportunities', 0):,} newsletter sign-ups from the board.")
+    dp, dw = per.get("opp_depth", Counter()), per.get("opp_dwell", Counter())
+    if dp or dw:
+        P(f"- Scrolling: {dp.get('6-cards', 0):,} saw 6 calls or more, {dp.get('12-cards', 0):,} saw 12, {dp.get('24-cards', 0):,} saw 24, "
+          f"{dp.get('all', 0):,} reached the end. Time: {dw.get('1-min', 0):,} stayed a minute, {dw.get('3-min', 0):,} three, {dw.get('10-min', 0):,} ten.")
+    interest = Counter()
+    for k, w in (("opp_apply", 1), ("opp_more", 1)):
+        for slug, n in per.get(k, Counter()).items():
+            interest[slug] += n * w
+    if interest:
+        P("\n### Calls readers wanted most (apply clicks and descriptions opened)\n")
+        P("| Call | Apply clicks | Opened | Type | For |"); P("|---|---|---|---|---|")
+        for slug, _ in interest.most_common(top):
+            o = CALLS.get(slug, {})
+            P(f"| {call_name(slug)} | {per.get('opp_apply', Counter()).get(slug, 0):,} | {per.get('opp_more', Counter()).get(slug, 0):,} | "
+              f"{o.get('ty', '')} | {', '.join(o.get('el', []))} |")
+        kinds = defaultdict(Counter)
+        for slug, n in interest.items():
+            o = CALLS.get(slug)
+            if not o: continue
+            kinds["Type"][o.get("ty") or "(none)"] += n
+            for e in o.get("el", []): kinds["For"][e] += n
+            kinds["Region"][o.get("rg") or o.get("co") or "(none)"] += n
+            kinds["Mode"][o.get("md") or "(none)"] += n
+        for k in ("Type", "For", "Region", "Mode"):
+            if kinds[k]:
+                P(f"\n### Interest by {({'For': 'who it is for'}).get(k, k.lower())}\n"); P(f"| {k} | Clicks and opens |"); P("|---|---|")
+                for name, n in kinds[k].most_common(10): P(f"| {name} | {n:,} |")
+    gos = per.get("go", Counter())
+    if gos:
+        P("\n### Newsletter items clicked (tanitxr.org/go/ links)\n")
+        P("| Edition | Item | Clicks |"); P("|---|---|---|")
+        for key, n in sorted(gos.items(), key=lambda x: (x[0].split("/")[0], -x[1])):
+            ed, _, slug = key.partition("/")
+            P(f"| {ed} | {call_name(slug)} | {n:,} |")
+    for k, title in (("opp_quick", "Quick picks used"), ("opp_filter", "Filters used"), ("opp_search", "What people searched for"),
+                     ("opp_search_empty", "Searches that found nothing (calls to look for)"), ("opp_share", "Shared to"),
+                     ("opp_landing", "Calls people arrived on from a link"), ("out", "Clicks that left the site, by destination")):
+        rows = per.get(k, Counter()).most_common(20)
+        if rows:
+            P(f"\n### {title}\n"); P(f"| {DIM[k]} | Times |"); P("|---|---|")
+            for key, n in rows:
+                P(f"| {call_name(key) if DIM[k] == 'Call' else key.replace('-', ' ')} | {n:,} |")
 
 
 def pretty(kind, key):
@@ -160,7 +245,7 @@ def P(s=""): lines.append(s)
 
 
 def event_tables(cur, prev=None, top=10):
-    P("\n## What people did in the Collection\n")
+    P("\n## Everything people did on the site\n")
     if prev is not None:
         P("| | This period | Before |"); P("|---|---|---|")
         for k in sorted(set(cur["events"]) | set(prev["events"]), key=lambda k: -cur["events"].get(k, 0)):
@@ -208,6 +293,7 @@ if a.grant:
             P(f"\n## {title}\n"); P("| | Page views and actions |"); P("|---|---|")
             for n, c in rows: P(f"| {n or ('(direct)' if kind == 'toprefs' else '(unknown)')} | {c:,} |")
     event_tables(cur, top=15)
+    board_tables(cur)
     tot, rows = sketchfab_totals()
     if tot:
         P("\n## Open 3D models on Sketchfab, lifetime\n")
@@ -264,9 +350,9 @@ else:
             P(f"\n## {title}\n"); P("| | Page views and actions |"); P("|---|---|")
             for n, c in rows: P(f"| {n or ('(direct)' if kind == 'toprefs' else '(unknown)')} | {c:,} |")
     event_tables(cur, prev)
+    board_tables(cur)
     if TRUNCATED[0]:
-        P("\nThe page and event tables show the 100 busiest paths, which is all the API returns at once. "
-          "Visits and unique visitors above are exact.")
+        P("\nThe page and event tables stopped at 4,000 rows. Visits and unique visitors above are exact.")
     P("\nDashboard with everything, live: https://tanitxr.goatcounter.com")
 
 report = "\n".join(lines)

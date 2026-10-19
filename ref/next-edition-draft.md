@@ -3,6 +3,7 @@
 Items researched by the daily inbox sweep land here in newsletter format, so the next
 edition is always ready to assemble. (Edition 18's full draft: newsletter-edition-18-draft.md)
 
+<!-- links are counted tanitxr.org/go/ links (tools/go_links.py, see newsletter-plan.md); run it again after adding items -->
 <!-- new items appended below by the inbox sweep -->
 
 ### 🇹🇳 Changemakers for Youth 2027 (ChangemakerXchange)
@@ -15,7 +16,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Three-year programme for 80 changemakers: capacity building, the summit, seed funding for cross-border projects and membership of the ChangemakerXchange network. Interviews November 20 to December 19; decisions January 13, 2027.
 
-👉 https://changemakerxchange.org/changemakers-for-youth/
+👉 https://tanitxr.org/go/changemakers-for-youth-2027-changemakerxchange/?ref=nl21
 
 
 ### 🧠 MIT Museum BRAIN Open Calls: Digital Content and Public Programs
@@ -28,7 +29,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Digital content: immersive, non-linear, non-interactive work for the two-story screen in the Exchange amphitheater (3840 x 3024), $2,500 to $5,000 honorarium, no travel covered, results January 2027. Public programs: talks, demonstrations, performances, workshops, VR/XR, up to $1,000 total including travel, results by December 15, 2026. Submit a title, description and proof-of-concept visuals.
 
-👉 https://mitmuseum.mit.edu/connection/open-call
+👉 https://tanitxr.org/go/mit-museum-brain-open-calls-digital-content-for-the-exchange/?ref=nl21
 
 
 <!-- 2026-10-05 board check: Women Who Code Summit (Oct 6-8), ACM CHI 2027 meet-ups and workshops (Oct 1) blocks removed, all over before edition 20 goes out Oct 9. Culture Moves Europe and Tribeca 2027 added from the watch list. -->
@@ -49,7 +50,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ $30,000 unrestricted award plus a $1,000 healthcare stipend and a childcare stipend for fellows with dependents, for early-stage social justice ideas still being tested. Free to apply.
 
-👉 https://voqalpartners.org/fellowship/
+👉 https://tanitxr.org/go/voqal-partners-fellowship-2027/?ref=nl21
 
 ### 🎮 Games for Change Student Challenge 2026-2027
 
@@ -61,7 +62,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ International game design competition: build a digital game inspired by the UN Sustainable Development Goals. Prize categories for ages 10-18 and university age. Educator training and the 2026-2027 themes are announced this fall.
 
-👉 https://learn.gamesforchange.org/student-challenge
+👉 https://tanitxr.org/go/games-for-change-student-challenge-2026-2027/?ref=nl21
 
 ### 🎤 iLRN 2027, 13th Immersive Learning Research Network Conference
 
@@ -73,7 +74,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Theme is "XR + AI Collaboration". The Academic Stream takes full papers (12-15 pages, Scopus-indexed Springer CCIS), short papers (8-11 pages), 4-7 page extended abstracts for a poster, and doctoral colloquium papers. The iLEAD stream is the practitioner route: a 2-5 page extended abstract gets you a talk, poster, workshop, panel, guided virtual adventure or product demo, and it closes January 12. Online presenters record a 3-5 minute video.
 
-👉 https://www.immersivelrn.org/ilrn2027/call-for-proposals/
+👉 https://tanitxr.org/go/ilrn-2027-13th-immersive-learning-research-network-conferenc/?ref=nl21
 
 ### 🇹🇳 Wijhat (Destinations), Culture Resource Mobility Grants
 
@@ -85,7 +86,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Up to 7,000 euros for flights, visas, accommodation, internal transport and partial living costs, to attend a fair, residency, conference, seminar or training workshop. 25 to 30 grants a year across three rounds (cut-offs January 16, May 29, September 17). Culture Resource can send a supporting letter to the embassy for your visa once the contract is signed. Your travel has to happen after the results date of the round you apply to.
 
-👉 https://mawred.org/artistic-creativity/wijhat/?lang=en
+👉 https://tanitxr.org/go/wijhat-destinations-culture-resource-mobility-grants/?ref=nl21
 
 ### 🎨 XR Women Museum, Community Garden
 
@@ -97,7 +98,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Not a juried open call. The Community Garden is a living part of the museum that keeps growing: 3D and XR-ready objects, animated or interactive "pollinators", botanical or spatial fragments, conceptual world-building elements. What you send joins an evolving XR ecosystem instead of one exhibition. Submissions go through a short form linked from the museum page. The museum's current show, "Vibrancy as Praxis", is on view through July 2026 and is closed to submissions; a further event, COSMOS, launches in the winter cycle with details still to be announced.
 
-👉 https://www.xrwomen.com/museum
+👉 https://tanitxr.org/go/xr-women-museum-open-call-vibrancy-as-practice/?ref=nl21
 
 ### 🚀 NASA Space Apps Challenge 2026
 
@@ -109,7 +110,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ The largest annual space hackathon, run by NASA with 17 partner space agencies: 14 challenges published, teams formed on the platform, 48 hours. Mentioned in edition 18 as still open; here it is in full, because the Tunisian local events are worth planning a team around.
 
-👉 https://www.spaceappschallenge.org/
+👉 https://tanitxr.org/go/nasa-space-apps-challenge-2026/?ref=nl21
 
 ### 💻 Technica 2026
 
@@ -121,7 +122,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ The University of Maryland's hackathon for underrepresented genders, 500+ hackers in 2025. Beginner, General, Research and Startup tracks, plus workshops and recruiters on site.
 
-👉 https://gotechnica.org/
+👉 https://tanitxr.org/go/technica-2026-hackathon-celebrating-underrepresented-genders/?ref=nl21
 
 ### 🎨 Art Explora x Cité internationale des arts Residency 2027
 
@@ -133,7 +134,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Furnished studio apartment, EUR 1,000 a month, a EUR 3,000 production grant and a round trip to Paris. Priority themes include art and science and ecology. Free to apply.
 
-👉 https://www.artexplora.org/en/the-artists-residencies-programme-presentation
+👉 https://tanitxr.org/go/art-explora-x-cite-internationale-des-arts-residency-2027/?ref=nl21
 
 ### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
 
@@ -145,7 +146,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ New media festival with a category for VR, AR and mixed reality environments, plus installations, audio, robotics, performance and video. $30 for one entry, $25 each for more; hardship waivers on request.
 
-👉 https://currentsnewmedia.org/submission-guidelines-2027/
+👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl21
 
 ### 🕶 UnitedXR Europe 2026, Call for Activations
 
@@ -157,7 +158,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Bring an XR app or experience, a meetup, or a jobs and skills session to the conference. Selected partners get free passes, reserved space and times, a calendar listing and marketing support. Free to submit.
 
-👉 https://unitedxr.eu/activations
+👉 https://tanitxr.org/go/unitedxr-europe-2026-call-for-activations/?ref=nl21
 
 ### 🎬 Le FIFA 2027, Festival of Films on Art
 
@@ -169,7 +170,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Takes interactive and immersive works, media art and art documentaries, including art and science, tech art and archaeology. Must not have screened in Montreal before.
 
-👉 https://lefifa.com/en/appel-a-soumissions
+👉 https://tanitxr.org/go/le-fifa-2027-festival-of-films-on-art/?ref=nl21
 
 ### 🥽 One World 2027, Human Rights Documentary Festival: VR Competition
 
@@ -181,7 +182,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Human rights documentary festival with a Virtual Reality Competition Award. Results by mid-February 2027.
 
-👉 https://my.oneworld.cz/film-submission/
+👉 https://tanitxr.org/go/one-world-2027-human-rights-documentary-festival-vr-competit/?ref=nl21
 
 ### 🕶 Meta VR Start Developer Competition 2026
 
@@ -193,7 +194,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ $1M in prizes: 20 awards from $20,000 to $100,000, across Entertainment, Gaming and Productivity tracks. Brazil, Quebec and sanctioned regions are excluded.
 
-👉 https://developers.meta.com/blog/meta-connect-2026-vr-start-developer-competition/
+👉 https://tanitxr.org/go/meta-vr-start-developer-competition-2026/?ref=nl21
 
 ### 🎞 Thessaloniki Documentary Festival 2027, Immersive Competition
 
@@ -205,7 +206,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ International competition for immersive documentary work. Enter through the festival portal.
 
-👉 https://filmfestival.gr/en/newsroom/news/29tidfcallforentries/
+👉 https://tanitxr.org/go/thessaloniki-documentary-festival-2027-immersive-competition/?ref=nl21
 
 ### 🏛 Wiki Loves Monuments 2026 in Tunisia
 
@@ -217,7 +218,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Photos go on Wikimedia Commons under CC BY-SA 4.0. Prizes of 700, 400 and 250 TND plus a 250 TND special prize; the top 10 go on to the international round. Photos can be taken any time, but must be uploaded in October.
 
-👉 https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2026_in_Tunisia
+👉 https://tanitxr.org/go/wiki-loves-monuments-2026-in-tunisia/?ref=nl21
 
 ### 📸 PhotoVogue MENA Panorama 2026
 
@@ -229,7 +230,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ PhotoVogue's first regional call for MENA. Send a series of up to 15 images, or images and video; no AI-generated work. Three grants: $4,500, $2,000 and $1,500, plus festival presentation and possible Condé Nast publication.
 
-👉 https://site.picter.com/photovogue-regional-open-call-mena-panorama-2026
+👉 https://tanitxr.org/go/photovogue-mena-panorama-2026-regional-open-call/?ref=nl21
 
 ### 🏝 4th Matsu Biennial, Open Call for International Artists
 
@@ -241,7 +242,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Up to NTD 800,000 (tax included) per project for a site-specific installation or a participatory piece, and immersive experiences are named. Three directions to work from: the island's culture and stone houses, its Cold War outpost history, and the ocean (marine ecology, sea sparkles, marine debris). Results by end of November.
 
-👉 https://matsubiennial.tw/en/news/details/88
+👉 https://tanitxr.org/go/4th-matsu-biennial-open-call-for-international-artists/?ref=nl21
 
 ### 🇹🇳 IN-SITU, Medina of Tunis: Art Projects and Residencies
 
@@ -253,8 +254,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Part of the EU-funded IN-SITU project on heritage in the medina. ANIMED backs four projects co-created with residents and craftspeople, up to EUR 3,000 fee each plus production and travel. Fondazione MeNO runs four to six residencies with an average budget of about EUR 6,000 each, fee and production included. Digital and new media work is eligible on both.
 
-👉 https://animed-network.com/en/opportunities/in-situ-project-call-for-community-based-art-projects-medina-of-tunis/
-👉 https://www.fondazionemeno.org/avviso-selezione-residenze-artistiche-in-situ/
+👉 https://tanitxr.org/go/in-situ-call-for-community-based-art-projects-medina-of-tuni/?ref=nl21
+👉 https://tanitxr.org/go/in-situ-artist-residencies-in-the-medina-of-tunis-and-zaghou/?ref=nl21
 
 ### 🎭 PXR2027, Performance and XR Conference: Call for Proposals
 
@@ -266,7 +267,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ The 7th edition of Canada's conference on live performance in XR, run by Single Thread and Electric Company Theatre. Proposals through a Google Form; first-time applicants can email contactus@singlethread.ca to talk it through.
 
-👉 https://performanceandxr.com/call-for-proposals/
+👉 https://tanitxr.org/go/pxr2027-performance-and-xr-conference-call-for-proposals/?ref=nl21
 
 ### 🥽 Immersive X 2026, The Global XR Festival in VR (worth attending, no application)
 
@@ -290,7 +291,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Three tiers: Community Grants $5,000 to $10,000, Growth Grants $10,000 to $20,000, Transformational Grants $20,000 to $30,000. Focus areas include education and youth development, equality and empowerment, and entrepreneurship. Send the completed form and attachments as one PDF.
 
-👉 https://teeem.org/foundation
+👉 https://tanitxr.org/go/teeem-foundation-community-impact-grants-2026/?ref=nl21
 
 ## 🏷 Pages to tag
 
@@ -343,7 +344,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ 85 euros a day plus 400 euros for travel (800 euros beyond 5,000 km), with top-ups for green travel, visas and children. Sectors are architecture, cultural heritage, design, literature, music, performing arts and visual arts. Travel starts at least two months after the cut-off you apply to.
 
-👉 https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility
+👉 https://tanitxr.org/go/culture-moves-europe-individual-mobility-2026-2027/?ref=nl21
 
 ### 🎮 Tribeca Festival 2027: Games, Shorts and Digital Creators
 
@@ -355,7 +356,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Submissions for the 26th Tribeca Festival opened September 30. Games closes March 4, 2027 at the extended rate, Shorts and Digital Creators February 3, 2027. Enter by October 28 for the lowest fee.
 
-👉 https://tribecafilm.com/festival/submissions
+👉 https://tanitxr.org/go/tribeca-festival-2027-games-shorts-and-digital-creators/?ref=nl21
 
 <!-- 2026-10-06 sweep: seven finds Ines accepted on the report page Oct 5, each re-verified at the source Oct 6. RiT, AI Horizons, .ART Award and Swarovski go to edition 20; DIS, Creativity & Cognition and Aion to edition 21. -->
 
@@ -369,7 +370,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Three artists build one shared VRChat world together, with a creative technologist. EUR 10,000 gross each, paid in three instalments, plus up to EUR 15,000 for production.
 
-👉 https://www.realities-in-transition.eu/rit-2-open-call-3/
+👉 https://tanitxr.org/go/realities-in-transition-open-call-3-uncharted-grounds-vrchat/?ref=nl21
 
 ### 🤖 AI Horizons: Art Beyond Algorithms (PARMA 360 Festival)
 
@@ -381,7 +382,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ 20 finalists join the show; four prizes of EUR 1,500. Themes: Parma heritage, care, and sustainability and data ecology. AI, VR, AR and software art accepted. Travel is not covered.
 
-👉 https://parma360festival.it/call-for-artists/
+👉 https://tanitxr.org/go/ai-horizons-art-beyond-algorithms-parma-360-festival-call-fo/?ref=nl21
 
 ### 🏅 .ART Award 2026
 
@@ -393,7 +394,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ $15,000 grand prize, artist residencies in France, Spain and Georgia, a $3,000 package for an artist working in augmented reality, and a 5,000 tez prize for blockchain artists. The domain can point to your existing site, portfolio or social profile.
 
-👉 https://www.award.art
+👉 https://tanitxr.org/go/art-award-2026/?ref=nl21
 
 ### 💡 Swarovski Foundation, Creatives for Our Future 2027
 
@@ -405,7 +406,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ EUR 20,000 grant, one-on-one mentorship and online masterclasses for projects that advance the UN Sustainable Development Goals. Run with the UN Office for Partnerships. Cohort notified April 2027; program fall 2027 to September 2028.
 
-👉 https://creatives.swarovskifoundation.org/
+👉 https://tanitxr.org/go/swarovski-foundation-creatives-for-our-future-2027/?ref=nl21
 
 ### 📐 ACM DIS 2027, Designing Interactive Systems: Papers and Pictorials
 
@@ -417,7 +418,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ ACM's design conference for interactive systems. Pictorials suit visual and practice-based work, and you can present remotely. Notification March 19, 2027.
 
-👉 https://dis.acm.org/2027/call-for-papers/
+👉 https://tanitxr.org/go/acm-dis-2027-designing-interactive-systems-papers-and-pictor/?ref=nl21
 
 ### 🎤 ACM Creativity & Cognition 2027, Artworks Track
 
@@ -429,7 +430,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ A curated exhibition of installation, performance, time-based, interactive and screen-based work. The theme, Creativity and the Unseen, covers craft traditions, tacit knowledge, memory, archives and cultural heritage. Up to 2,000 words via PCS; accepted works go into the ACM Digital Library.
 
-👉 https://cc.acm.org/2027/submit/artworks/
+👉 https://tanitxr.org/go/acm-creativity-cognition-2027-artworks-track/?ref=nl21
 
 ### 🖥 2nd Aion Digital Art Prize 2027
 
@@ -441,7 +442,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Accepts interactive, video, sound, animation, AR and VR work. One JPY 50,000 grand prize and up to 35 award certificates. Results May 5, 2027.
 
-👉 https://www.aionlabo.com/en/blank-2
+👉 https://tanitxr.org/go/2nd-aion-digital-art-prize-2027/?ref=nl21
 
 <!-- 2026-10-06 evening: four more finds Ines accepted on the report page the same evening, verified at the source Oct 6. Eyebeam and SAT go to edition 20 (both close before Oct 23); Sony and FilmGate to edition 21. -->
 
@@ -455,7 +456,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ $2,000 stipend (virtual) or $5,000 (NYC), mentorship and access to Eyebeam's technical network. Theme AGENCY: human agency as AI systems act on our behalf.
 
-👉 https://eyebeam.org/articles/agency-residency-open-call
+👉 https://tanitxr.org/go/eyebeam-agency-residencies-2026-27-virtual-and-nyc/?ref=nl21
 
 ### 🔮 SAT Montréal, Dome Production and Research-Creation Residencies 2027-28
 
@@ -467,7 +468,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Dome Production Residency: make and present a work for the Satosphère, an 18 m immersive dome, in the 2027-28 programme. Research-Creation Residencies in Technological Arts: three projects at CAD 10,000 each with two months of SAT support, on live arts meeting technology around human movement. Travel and housing for the dome call are not stated.
 
-👉 https://sat.qc.ca/en/calls/dome-production-residency-2027-2028-program/
+👉 https://tanitxr.org/go/sat-montreal-dome-production-residency-2027-28-and-research-/?ref=nl21
 
 ### 🎥 Sony Future Filmmaker Awards 2027, Immersive Category
 
@@ -479,7 +480,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ New Immersive category presented by Meta: the winner gets $5,000 and a Meta VR device. Fiction, Non-Fiction, Animation, Student and Future Format categories run alongside.
 
-👉 https://www.sonyfuturefilmmakerawards.com/
+👉 https://tanitxr.org/go/sony-future-filmmaker-awards-2027-immersive-category/?ref=nl21
 
 ### 🌴 FilmGate Interactive 13, Miami
 
@@ -491,7 +492,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Categories include VR project, AR project, immersive experience, interactive documentary, interactive installation, dome experience, public immersive installation, and new games and applications, plus a market and talks. Submissions need a budget estimate, technical rider and spatial requirements. Notification February 1, 2027.
 
-👉 https://filmfreeway.com/FilmgateInteractive
+👉 https://tanitxr.org/go/filmgate-interactive-13-miami-vr-ar-dome-and-interactive-wor/?ref=nl21
 
 <!-- 2026-10-07 edition 20 assembly: AIA, MIT Solve and CPH:DOX had sat in the plan for edition 20 since Sept 11 without a board entry or a block. Verified at the source Oct 7 and added. -->
 
@@ -505,7 +506,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Up to $15,000 from the Archaeological Institute of America for conservation planning (including photographic and digital documentation), hands-on conservation, preventive measures and monitoring, training, and public outreach and education. Stronger applications show community involvement and a long-term maintenance plan. Awards announced by March 1, 2027.
 
-👉 https://www.archaeological.org/grant/site-preservation/
+👉 https://tanitxr.org/go/aia-site-preservation-grant-2027/?ref=nl21
 
 ### 🌍 MIT Solve 2027 Global Learning Challenge
 
@@ -517,7 +518,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ Tech-based education solutions. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and nine months of coaching and workshops (about 25 hours). This year's call wants tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment.
 
-👉 https://solve.mit.edu/challenges/2027-global-learning-challenge
+👉 https://tanitxr.org/go/mit-solve-2027-global-learning-challenge/?ref=nl21
 
 ### 🎬 CPH:DOX 2027 INTER:ACTIVE
 
@@ -529,7 +530,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ One of the largest documentary festivals, with an INTER:ACTIVE section for immersive and interactive work. Waiver requests go to submissions@cphdox.dk, up to two projects per company.
 
-👉 https://cphdox.dk/rules-and-regulations/
+👉 https://tanitxr.org/go/cph-dox-2027-inter-active-interactive-vr-and-installation-wo/?ref=nl21
 | Immersive X (run by vm-people, Berlin) | no LinkedIn page found |
 | TEEEM Foundation | linkedin.com/company/teeemglobal (linked from teeem.org) |
 | MIT Museum | no LinkedIn page found (the museum site links only Facebook and Instagram, @mitmuseum) |

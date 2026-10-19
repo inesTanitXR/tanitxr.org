@@ -18,7 +18,12 @@ window.tx = function(name, props){
 };
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
-  if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+  if (a) { window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' }); return; }
+  // every other link that leaves the site, by where it goes (press articles, LinkedIn, Instagram,
+  // partner sites); the board's apply buttons are counted on their own, per call
+  const o = e.target.closest('a[href^="http"]');
+  if (o && !o.classList.contains('apply') && !o.closest('#opp-share, #share-sheet') && o.hostname && o.hostname !== location.hostname && !/goatcounter/.test(o.hostname))
+    window.tx('out', { on: o.hostname.replace(/^www\./, '') });
 });
 const PAGE_OPENED = Date.now();
 

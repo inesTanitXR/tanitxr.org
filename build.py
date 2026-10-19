@@ -1986,7 +1986,12 @@ window.tx = function(name, props){
 };
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="donors.tuesday.app"], a[href*="donate"]');
-  if (a) window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' });
+  if (a) { window.tx('donate_click', { from: location.pathname.split('/').filter(Boolean)[0] || 'home' }); return; }
+  // every other link that leaves the site, by where it goes (press articles, LinkedIn, Instagram,
+  // partner sites); the board's apply buttons are counted on their own, per call
+  const o = e.target.closest('a[href^="http"]');
+  if (o && !o.classList.contains('apply') && !o.closest('#opp-share, #share-sheet') && o.hostname && o.hostname !== location.hostname && !/goatcounter/.test(o.hostname))
+    window.tx('out', { on: o.hostname.replace(/^www\./, '') });
 });
 const PAGE_OPENED = Date.now();
 
@@ -6561,14 +6566,14 @@ def build_opportunities():
                "none": "No opportunities match those filters.", "det": "See details",
                "apply": "Apply / Info →", "more": "▾ More", "less": "▴ Less",
                "feat": "★ Featured", "helpful": "👍 Helpful", "applied": "✅ I applied",
-               "share": "Share", "passon": "Pass it on", "shsub": "Every share helps the right person find this call. Pick where it goes, the note comes along.", "note": "Note", "edit": "(you can edit it)", "native": "Share…", "copy": "Copy link", "copied": "Copied, paste it anywhere.", "email": "Email",
+               "share": "Share", "passon": "Pass it on", "shsub": "Every share helps the right person find this call. Pick where it goes, the note comes along.", "note": "Note", "edit": "(you can edit it)", "native": "Share…", "copy": "Copy link", "copied": "Copied, paste it anywhere.", "email": "Email", "pastehint": "Note copied. Paste it into your post when it opens.", "mailhint": "Note copied too. If no email app opens, paste it into a new email.", "opening": "Opening with the note filled in.",
                "found": "Found on the Tanit XR opportunities board, curated by Ines Said. New calls every two weeks, free:",
                "vol": "Volunteer with us →", "closedh": "Closed opportunities", "showall": "Show all {n} closed opportunities", "showless": "Show fewer", "open": "open", "closedl": "closed", "clear": "Clear all", "terms": {}},
         "fr": {"dl": "Date limite : ", "closed": "Clôturé", "days": " jours restants", "day": " jour restant",
                "none": "Aucune opportunité ne correspond à ces filtres.", "det": "Voir les détails",
                "apply": "Postuler / Infos →", "more": "▾ Plus", "less": "▴ Moins",
                "feat": "★ À la une", "helpful": "👍 Utile", "applied": "✅ J’ai postulé",
-               "share": "Partager", "passon": "Faites passer", "shsub": "Chaque partage aide la bonne personne à trouver cet appel. Choisissez où il va, le mot l’accompagne.", "note": "Mot", "edit": "(vous pouvez le modifier)", "native": "Partager…", "copy": "Copier le lien", "copied": "Copié, collez-le où vous voulez.", "email": "E-mail",
+               "share": "Partager", "passon": "Faites passer", "shsub": "Chaque partage aide la bonne personne à trouver cet appel. Choisissez où il va, le mot l’accompagne.", "note": "Mot", "edit": "(vous pouvez le modifier)", "native": "Partager…", "copy": "Copier le lien", "copied": "Copié, collez-le où vous voulez.", "email": "E-mail", "pastehint": "Mot copié. Collez-le dans votre publication quand elle s’ouvre.", "mailhint": "Mot copié aussi. Si aucune messagerie ne s’ouvre, collez-le dans un nouvel e-mail.", "opening": "Ouverture avec le mot déjà rempli.",
                "found": "Trouvé sur le tableau des opportunités de Tanit XR, tenu par Ines Said. De nouveaux appels toutes les deux semaines, gratuit :",
                "vol": "Devenez bénévole →", "closedh": "Opportunités clôturées", "showall": "Voir les {n} opportunités clôturées", "showless": "Voir moins", "open": "ouvertes", "closedl": "clôturées", "clear": "Tout effacer",
                "terms": TERMS["fr"]},
@@ -6576,7 +6581,7 @@ def build_opportunities():
                "none": "لا توجد فرص مطابقة لهذه المرشحات.", "det": "انظر التفاصيل",
                "apply": "قدّم / التفاصيل ←", "more": "▾ المزيد", "less": "▴ أقل",
                "feat": "★ مميّزة", "helpful": "👍 مفيدة", "applied": "✅ لقد قدّمت",
-               "share": "مشاركة", "passon": "مرّرها", "shsub": "كل مشاركة تساعد الشخص المناسب على إيجاد هذه الفرصة. اختر وجهتها، والرسالة ترافقها.", "note": "الرسالة", "edit": "(يمكنك تعديلها)", "native": "مشاركة…", "copy": "نسخ الرابط", "copied": "تم النسخ، الصقه في أي مكان.", "email": "بريد",
+               "share": "مشاركة", "passon": "مرّرها", "shsub": "كل مشاركة تساعد الشخص المناسب على إيجاد هذه الفرصة. اختر وجهتها، والرسالة ترافقها.", "note": "الرسالة", "edit": "(يمكنك تعديلها)", "native": "مشاركة…", "copy": "نسخ الرابط", "copied": "تم النسخ، الصقه في أي مكان.", "email": "بريد", "pastehint": "تم نسخ الرسالة. الصقها في منشورك عندما يُفتح.", "mailhint": "تم نسخ الرسالة أيضًا. إن لم يُفتح تطبيق البريد، الصقها في رسالة جديدة.", "opening": "يُفتح والرسالة مكتوبة.",
                "found": "من لوحة فرص Tanit XR التي تعدّها Ines Said. فرص جديدة كل أسبوعين، مجانًا:",
                "vol": "تطوّع معنا ←", "closedh": "فرص انتهت", "showall": "عرض كل الفرص المنتهية ({n})", "showless": "عرض أقل", "open": "مفتوحة", "closedl": "منتهية", "clear": "مسح الكل",
                "terms": TERMS["ar"]},
@@ -6772,9 +6777,14 @@ const featBox=document.getElementById('featured');
 const lsGet=k=>{{try{{return localStorage.getItem(k)}}catch(e){{return null}}}};
 const lsSet=(k,v)=>{{try{{localStorage.setItem(k,v)}}catch(e){{}}}};
 function track(type,id){{
+  // GoatCounter first, so these exist even with the reactions server off (it always has been):
+  // which calls people open, which they share and where, read by tools/analytics_report.py
+  const M={{click:'opp_apply',share:'opp_share_open'}};
+  if(window.tx){{ if(M[type]) tx(M[type],{{on:id}}); else if(type.indexOf('share-')===0) tx('opp_share',{{net:type.slice(6)}}); }}
   if(!RX)return;
   try{{navigator.sendBeacon(RX+'/track',new Blob([JSON.stringify({{type,id}})],{{type:'application/json'}}))}}catch(e){{}}
 }}
+const ev=(name,v)=>{{ if(window.tx) tx(name,v===undefined?undefined:{{on:String(v)}}); }};
 // the share sheet: one for the page, filled per call. The note is editable, every link reads it live.
 const OS=document.getElementById('opp-share');
 function openShare(o){{
@@ -6783,7 +6793,14 @@ function openShare(o){{
   const note=()=>cap.value.trim();
   const nat=OS.querySelector('[data-net="native"]'); nat.hidden=!navigator.share;
   nat.onclick=async()=>{{ try{{await navigator.share({{title:o.title,text:note(),url:o.url}});}}catch(x){{}} }};
-  const link=(net,fn)=>{{ const a=OS.querySelector('[data-net="'+net+'"]'); a.href=fn(); a.onclick=()=>{{a.href=fn();track('share-'+net,o.id);}}; }};
+  // LinkedIn and Facebook drop any text a site sends (their rule, not ours), so the note goes to the
+  // clipboard first and the post opens ready for a paste. Email links do nothing on a computer with no
+  // mail app set up, which is most people on webmail, so email copies the note as well.
+  const copyNote=async()=>{{ try{{await navigator.clipboard.writeText(note());return true;}}catch(x){{return false;}} }};
+  const HINT={{linkedin:LBL.pastehint,facebook:LBL.pastehint,email:LBL.mailhint}};
+  const link=(net,fn)=>{{ const a=OS.querySelector('[data-net="'+net+'"]'); a.href=fn();
+    a.onclick=()=>{{ a.href=fn(); track('share-'+net,o.id);
+      if(HINT[net]){{ copyNote().then(ok=>{{ hint.textContent=ok?HINT[net]:''; }}); }} else hint.textContent=LBL.opening; }}; }};
   link('whatsapp',()=>'https://wa.me/?text='+e(note()));
   link('linkedin',()=>'https://www.linkedin.com/sharing/share-offsite/?url='+e(o.url));
   link('facebook',()=>'https://www.facebook.com/sharer/sharer.php?u='+e(o.url)+'&quote='+e(note()));
@@ -6811,7 +6828,8 @@ function parseDate(s){{return s?new Date(s):null}}
 const F={{ty:new Set(),el:new Set(),md:new Set()}};
 const ACT=document.getElementById('active');
 document.querySelectorAll('.fdrop input[type=checkbox]').forEach(cb=>cb.addEventListener('change',()=>{{
-  const set=F[cb.dataset.key]; cb.checked?set.add(cb.value):set.delete(cb.value); render();
+  const set=F[cb.dataset.key]; cb.checked?set.add(cb.value):set.delete(cb.value);
+  if(cb.checked) ev('opp_filter',cb.dataset.key+'-'+cb.value); render();
 }}));
 document.addEventListener('click',e=>{{ document.querySelectorAll('.fdrop[open]').forEach(d=>{{ if(!d.contains(e.target)) d.removeAttribute('open'); }});
   }});
@@ -6834,14 +6852,14 @@ function fillCounts(){{
 }}
 fillCounts();
 let soonOnly=false;
-document.getElementById('soon').addEventListener('click',e=>{{ soonOnly=!soonOnly; e.currentTarget.classList.toggle('on',soonOnly); render(); }});
+document.getElementById('soon').addEventListener('click',e=>{{ soonOnly=!soonOnly; e.currentTarget.classList.toggle('on',soonOnly); if(soonOnly) ev('opp_filter','closing-this-week'); render(); }});
 document.querySelectorAll('.qbtn').forEach(b=>b.addEventListener('click',()=>{{
-  const v=b.dataset.q; F.el.has(v)?F.el.delete(v):F.el.add(v);
+  const v=b.dataset.q; F.el.has(v)?F.el.delete(v):(F.el.add(v),ev('opp_quick',v));
   const cb=document.querySelector('.fdrop input[data-key="el"][value="'+v+'"]'); if(cb)cb.checked=F.el.has(v);
   render();
 }}));
 let showAllClosed=false;
-document.getElementById('moreclosed').addEventListener('click',()=>{{showAllClosed=!showAllClosed;render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({{behavior:'smooth',block:'start'}});}});
+document.getElementById('moreclosed').addEventListener('click',()=>{{showAllClosed=!showAllClosed;if(showAllClosed)ev('opp_closed_list');render();if(!showAllClosed)document.getElementById('closedwrap').scrollIntoView({{behavior:'smooth',block:'start'}});}});
 function render(){{
   const q=document.getElementById('q').value.toLowerCase();
   const ft=F.ty, fe=F.el, fm=F.md;
@@ -6882,7 +6900,7 @@ function render(){{
   // pass-on carries the board, the newsletter and her name with it
   function shareHtml(o,dl){{
     if(o._closed)return '';
-    const url=location.origin+location.pathname+'?ref=share#opp-'+o.id;
+    const url=location.origin+location.pathname.replace(/opportunities\/?.*$/,'')+'o/'+o.id+'/?ref=share';
     const text=o.t+(dl?' · '+dl:'')+'\\n'+LBL.found+' '+url;
     const e=encodeURIComponent;
     return '<button type="button" class="shr" aria-label="'+LBL.share+'" title="'+LBL.share+'" data-id="'+o.id+'" data-text="'+e(text)+'" data-url="'+e(url)+'" data-t="'+e(o.t)+'">'+
@@ -6891,7 +6909,7 @@ function render(){{
   function footOf(o,dl){{ const h=btnOf(o)+shareHtml(o,dl); return h?'<div class="opp-foot">'+h+'</div>':''; }}
   function btnOf(o){{
     if(!o.u||o._closed)return '';
-    if(o.tx)return '<a class="btn btn-gold" style="padding:8px 20px;font-size:13.5px" href="'+o.u+'">'+LBL.vol+'</a>';
+    if(o.tx)return '<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px" href="'+o.u+'">'+LBL.vol+'</a>';
     return '<a class="btn btn-gold apply" data-id="'+o.id+'" style="padding:8px 20px;font-size:13.5px" href="'+o.u+'" target="_blank" rel="noopener">'+LBL.apply+'</a>';
   }}
   const feats=list.filter(o=>o.f&&!o._closed);
@@ -6927,6 +6945,7 @@ function render(){{
   document.querySelectorAll('.qbtn').forEach(b=>b.classList.toggle('on',F.el.has(b.dataset.q)));
   document.querySelectorAll('#board .more').forEach(b=>b.addEventListener('click',()=>{{
     const card=b.closest('.opp');card.classList.toggle('x');
+    if(card.classList.contains('x')) ev('opp_more',card.id.replace(/^opp-/,''));
     b.textContent=card.classList.contains('x')?LBL.less:LBL.more;
   }}));
   document.querySelectorAll('.apply').forEach(a=>a.addEventListener('click',()=>track('click',a.dataset.id)));
@@ -6947,9 +6966,41 @@ function render(){{
 ['q','sort'].forEach(id=>{{
   document.getElementById(id).addEventListener('input',render);
 }});
+// what people look for: the term once they stop typing, and separately the ones that found nothing,
+// which is the list of calls readers wanted and the board did not have
+let qTimer=0, qLast='';
+document.getElementById('q').addEventListener('input',()=>{{
+  clearTimeout(qTimer);
+  qTimer=setTimeout(()=>{{
+    const q=document.getElementById('q').value.trim().toLowerCase().slice(0,40);
+    if(q.length<3||q===qLast)return; qLast=q;
+    ev(board.querySelector('.opp')?'opp_search':'opp_search_empty',q);
+  }},1800);
+}});
+document.getElementById('sort').addEventListener('change',e=>ev('opp_sort',e.target.value));
 render();
+// how far down the board people get, in cards actually on screen
+(function(){{
+  if(!('IntersectionObserver' in window))return;
+  const seen=new Set(), marks=[6,12,24]; let sentAll=false;
+  const io=new IntersectionObserver(es=>es.forEach(x=>{{
+    if(!x.isIntersecting)return; seen.add(x.target.id); io.unobserve(x.target);
+    while(marks.length&&seen.size>=marks[0]) ev('opp_depth',String(marks.shift())+'-cards');
+    const total=board.querySelectorAll('.opp').length;
+    if(!sentAll&&total>24&&seen.size>=total){{sentAll=true;ev('opp_depth','all');}}
+  }}),{{threshold:.5}});
+  const watch=()=>board.querySelectorAll('.opp').forEach(c=>io.observe(c));
+  watch(); new MutationObserver(watch).observe(board,{{childList:true}});
+}})();
+// time spent reading the board, counting only while the tab is in front
+(function(){{
+  let t=0; const marks=[1,3,10];
+  setInterval(()=>{{ if(document.visibilityState!=='visible')return; t+=15;
+    if(marks.length&&t>=marks[0]*60) ev('opp_dwell',marks.shift()+'-min'); }},15000);
+}})();
 if(location.hash&&location.hash.startsWith('#opp-')){{
   try{{const el=document.querySelector(location.hash);
+    ev('opp_landing',location.hash.slice(5));
     if(el){{el.scrollIntoView({{block:'center'}});el.style.boxShadow='0 0 0 3px var(--gold)';}}
   }}catch(e){{}}
 }}
@@ -6962,6 +7013,104 @@ if(RX){{
          jsonld=opp_jsonld,
          desc="A free curated board of grants, residencies, fellowships, open calls and events for artists, "
               "XR creators, educators, students and changemakers. Updated regularly by Tanit XR, and sent free by email.")
+    _share_cards(data, _deadline, _past, LBL)
+
+
+def _share_cards(data, deadline_of, past, lbl):
+    """tanitxr.org/o/<call>/ : what a shared call links to. LinkedIn and Facebook build their preview
+    card from the page's tags and ignore any text sent with the link, so each call gets a page whose
+    card reads its title, its deadline and the board line. People are sent straight to the card on
+    the board, with the ref kept so GoatCounter still shows the visit as a share."""
+    lang_dir = os.path.join(DOCS, LANG_DIRS[LANG]) if LANG_DIRS[LANG] else DOCS
+    out = os.path.join(lang_dir, "o")
+    os.makedirs(out, exist_ok=True)
+    try:
+        board_html = open(os.path.join(lang_dir, "opportunities", "index.html"), encoding="utf-8").read()
+        og_img = re.search(r'og:image" content="([^"]+)', board_html).group(1)
+    except Exception:
+        og_img = ""
+    keep = set()
+    line = lbl["found"].rstrip(" :：")
+    for r in data:
+        # closed calls keep their page too: someone may have shared it, and the card is still on the board
+        slug = r["id"]
+        keep.add(slug)
+        d = os.path.join(out, slug)
+        os.makedirs(d, exist_ok=True)
+        title = htmod.escape(r["t"])
+        desc = htmod.escape(re.sub(r"\b0(\d)\b", r"\1", f"{deadline_of(r)}. {line}."))
+        canon = f"https://{CUSTOM_DOMAIN or 'tanitxr.org'}/{LANG_DIRS[LANG]}o/{slug}/"
+        target = f"../../opportunities/?ref=share#opp-{slug}"
+        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+            f.write(f"""<!doctype html><html lang="{LANG}"{' dir="rtl"' if LANG == 'ar' else ''}><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{title} · Tanit XR</title>
+<meta name="description" content="{desc}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tanit XR">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canon}">
+<meta property="og:image" content="{og_img}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{og_img}">
+<script>
+var q=new URLSearchParams(location.search), ref=(q.get('ref')||'share').replace(/[^A-Za-z0-9_-]/g,'').slice(0,30)||'share';
+location.replace({json.dumps(target)}.replace('ref=share','ref='+ref));
+</script>
+<noscript><meta http-equiv="refresh" content="0;url={target}"></noscript>
+</head><body><p><a href="{target}">{title}</a></p></body></html>""")
+    # never delete one: a link shared months ago should still land on the board
+
+
+def build_go_links():
+    """tanitxr.org/go/<call>?ref=nl21 counts a click on a newsletter item, then forwards to the
+    organiser. Newsletter items used to link straight out, so nobody could tell which ones readers
+    opened. One page per call that has an apply link, closed ones included so old editions still
+    work, and the link follows the board: fix a URL in the data and every past edition is fixed."""
+    gc = (ANALYTICS.get("goatcounter_code") or "").strip()
+    out = os.path.join(DOCS, "go")
+    os.makedirs(out, exist_ok=True)
+    rows = [(o["slug"], o["title"], o["url"]) for o in OPPS if o.get("url")]
+    rows.append(("volunteer-with-tanit-xr", "Volunteer with Tanit XR", f"https://{CUSTOM_DOMAIN or 'tanitxr.org'}/volunteer/"))
+    rows.append(("opportunities", "Tanit XR opportunities board", f"https://{CUSTOM_DOMAIN or 'tanitxr.org'}/opportunities/"))
+    keep = set()
+    for slug, title, url in rows:
+        if not re.match(r"^https?://", url or ""):
+            continue
+        keep.add(slug)
+        d = os.path.join(out, slug)
+        os.makedirs(d, exist_ok=True)
+        t = htmod.escape(title)
+        u = htmod.escape(url, quote=True)
+        counter = ("" if not gc else
+                   f'<script data-goatcounter="https://{gc}.goatcounter.com/count" async src="//gc.zgo.at/count.js" '
+                   'data-goatcounter-settings=\'{"no_onload":true}\' onload="hit()" onerror="go()"></script>')
+        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+            f.write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{t} · Tanit XR</title>
+<link rel="canonical" href="{u}">
+<script>
+var U={json.dumps(url)}, S={json.dumps(slug)}, T={json.dumps(title)}, done=false;
+function go(){{ if(!done){{ done=true; location.replace(U); }} }}
+function hit(){{
+  try{{ var r=(new URLSearchParams(location.search).get('ref')||'direct').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,30)||'direct';
+    goatcounter.count({{path:'go/'+r+'/'+S, title:T, event:true}}); }}catch(e){{}}
+  setTimeout(go,80);
+}}
+setTimeout(go,1200);
+</script>
+{counter}
+<noscript><meta http-equiv="refresh" content="0;url={u}"></noscript>
+<style>body{{font:16px/1.5 system-ui,sans-serif;color:#111518;display:grid;place-items:center;min-height:90vh;margin:0}}a{{color:#8a6200}}</style>
+</head><body><p>Opening <a href="{u}">{t}</a></p></body></html>""")
+    # pages for calls that have left the data are kept on purpose: a sent newsletter links to them forever
+    print(f"  {len(keep)} newsletter click links written to go/")
 
 
 def build_volunteer():
@@ -8810,6 +8959,7 @@ def main():
         print(f"  {LANG}: done")
     LANG = "en"
     build_redirects()
+    build_go_links()
     build_llms_txt()
     check_credits()
 
