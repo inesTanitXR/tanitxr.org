@@ -65,8 +65,8 @@
   {
    "slug": "culture-resource-al-mawred-production-awards-2027-arab-artis",
    "deadline": "October 19, 2026",
-   "status": "reminded",
-   "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window."
+   "status": "skipped",
+   "reason": "Up to EUR 8,500 production grant for visual arts (XR qualifies) or EUR 13,000 for cinema, 25 grants in total, open to artists from the Arab region including the diaspora, free to apply. A direct fit for a Tunisian heritage XR piece. Deadline re-verified September 21, 2026 at mawred.org: 19 October 2026 at 16:00 Beirut time, results end of March. ⚠ Eligibility now confirmed precisely: applicants must be born between January 1991 and December 2010, i.e. under 35. Skip if you are outside that window. (deadline passed, not applied, per the deadline alarm on 2026-10-20)"
   },
   {
    "slug": "sxsw-2027-xr-experience",
@@ -131,7 +131,7 @@
   {
    "slug": "art-explora-cite-internationale-des-arts-residency-2027",
    "deadline": "October 30, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "Fully covered Paris residency (EUR 1,000/month, EUR 3,000 production, round trip, studio apartment), free to apply, digital arts eligible and art-and-science a priority theme: a heritage-scanning XR project fits. Needs 5+ years of professional practice and an international exhibition record, so check you meet both before starting. Verified at artexplora.org Sept 25, 2026. Portal: artexplora.plateformecandidature.com"
   },
   {
@@ -219,7 +219,7 @@
   {
    "slug": "michigan-central-newlab-residency-2027",
    "deadline": "October 30, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "$30,000 unrestricted for 12 weeks in Detroit (Feb 8 to Apr 30 or May 17 to Aug 6, 2027) with fabrication labs; US-based, 25+, needs an SSN, ITIN or EIN. No housing or travel. Session One overlaps a Japan/Korea spring, so pick one.",
    "title": "Michigan Central × Newlab Art + Technology Creative Residency 2027",
    "url": "https://michigancentral.com/michigan-central-x-newlab-art-technology-residency/",
@@ -329,8 +329,8 @@
   {
    "slug": "schlossmediale-2027",
    "deadline": "October 18, 2026",
-   "status": "reminded",
-   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). BEST EUROPE FIT. May 17 to Jun 27, 2027: housing, CHF 4,000 grant, CHF 1,000 travel/meals, up to CHF 1,000 materials. AR/immersive work in a medieval castle; 2027 theme KLATSCH (rumour). Solo only; castle tours/talks expected. Apply via werdenberg.openolat.com/position/1409025. Also pending in the sweep suggestions. Draft written by the deadline alarm on 2026-10-11: ref/applications/schlossmediale-2027.md (no deadline time on the page; assume 11:59 PM CEST = 5:59 PM ET Oct 18).",
+   "status": "skipped",
+   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). BEST EUROPE FIT. May 17 to Jun 27, 2027: housing, CHF 4,000 grant, CHF 1,000 travel/meals, up to CHF 1,000 materials. AR/immersive work in a medieval castle; 2027 theme KLATSCH (rumour). Solo only; castle tours/talks expected. Apply via werdenberg.openolat.com/position/1409025. Also pending in the sweep suggestions. Draft written by the deadline alarm on 2026-10-11: ref/applications/schlossmediale-2027.md (no deadline time on the page; assume 11:59 PM CEST = 5:59 PM ET Oct 18). (deadline passed, not applied, per the deadline alarm on 2026-10-20)",
    "title": "Schlossmediale 2027 residency (Werdenberg Castle, Switzerland)",
    "url": "https://schlossmediale.ch/festival-schlossmediale/ausstellung/open-call-2027-en",
    "added": "2026-09-27",
@@ -467,7 +467,7 @@
   {
    "slug": "4th-matsu-biennial-open-call-for-international-artists",
    "deadline": "October 30, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "Up to NTD 800,000 (tax included) to make a site-specific or immersive piece on the Matsu Islands, open to artists worldwide, no fee listed. Island heritage (stone houses, Cold War outposts) and ocean ecology are the themes, a natural home for a scan-based heritage work. Deadline verified September 30 on matsubiennial.tw: October 30, 17:00 Taiwan time (5 am ET). The work must be finished by August 10, 2027.",
    "added": "2026-09-30",
    "source": "weekly board check (watch list)"
@@ -532,7 +532,7 @@
    "slug": "after-the-palace-mapping-2026",
    "title": "AFTER THE PALACE: Resonance 2026, Video Mapping Contest (Krakow)",
    "deadline": "October 30, 2026, 11:59 pm CET",
-   "status": "new",
+   "status": "reminded",
    "reason": "You chose 'Just for me' on Oct 5. International video mapping contest for projections onto Building Z of the former Lenin Steelworks administrative centre in Nowa Huta, on dissonant heritage and the architecture of power. Prizes PLN 10,000, 6,000 and 3,000; the best works are shown November 23, 2026 at the 34th Audio Art Festival. Free, online entry. A heritage-themed media art competition.",
    "url": "https://unloc.art/en/news/after-the-palace-en/",
    "added": "2026-10-06",
@@ -552,7 +552,7 @@
    "slug": "bom-dia-oasis-2027",
    "title": "Bom Dia OASis Residency 2027 (Cultivamos Cultura, Portugal)",
    "deadline": "October 30, 2026, 6 pm CET (or when 100 applications are in)",
-   "status": "new",
+   "status": "reminded",
    "reason": "You chose 'Just for me' on Oct 5. 7 to 30 days in March 2027 at Cultivamos Cultura in Sao Luis, Portugal, for artists, designers and researchers working with local materials and ecology. EUR 1,300 project fee, up to EUR 500 travel, up to EUR 1,600 production, a private room and a food per diem. Free to apply. Closes early if 100 applications arrive, so do not wait for the deadline.",
    "url": "https://cultivamoscultura.com/2026/09/17/bom-dia-oasis-residency-call-for-2027/",
    "added": "2026-10-06",
@@ -627,7 +627,7 @@
    "title": "Digital Transitions Cultural Heritage Roundtable 2026 (free, online)",
    "url": "https://www.eventbrite.com/e/digital-transitions-roundtable-2026-day-1-tickets-1995949454548",
    "deadline": "October 29, 2026 (event Oct 29-30, 9 am-3 pm ET; register first)",
-   "status": "new",
+   "status": "reminded",
    "added": "2026-10-09",
    "source": "hold queue, Just for me (Oct 8)",
    "reason": "Two days of practitioner sessions on heritage digitization (capture hardware, software, workflow automation), with teams from the Folger Shakespeare Library, Florida State University, UNC Chapel Hill and the New Jersey State Library, live Q&A. Online, free, register for one or both days on Eventbrite. Useful for Tanit XR's scanning workflow."
@@ -643,8 +643,8 @@
   {
    "slug": "sat-montreal-dome-production-residency-2027-28-and-research-",
    "deadline": "October 18, 2026",
-   "status": "reminded",
-   "reason": "Make and show a work in the Satosphère, an 18 m immersive dome, or take one of three CAD 10,000 research-creation residencies; free, no nationality limit stated, non-profits welcome on the research call. Travel and housing for the dome call are not stated, so check before applying. Draft: ref/applications/sat-montreal-dome-production-residency-2027-28.md (Oct 13). Needs a 1-minute+ audiovisual excerpt and SAT's budget template; travel and housing not covered."
+   "status": "skipped",
+   "reason": "Make and show a work in the Satosphère, an 18 m immersive dome, or take one of three CAD 10,000 research-creation residencies; free, no nationality limit stated, non-profits welcome on the research call. Travel and housing for the dome call are not stated, so check before applying. Draft: ref/applications/sat-montreal-dome-production-residency-2027-28.md (Oct 13). Needs a 1-minute+ audiovisual excerpt and SAT's budget template; travel and housing not covered. (deadline passed, not applied, per the deadline alarm on 2026-10-20)"
   },
   {
    "slug": "realities-in-transition-open-call-3-uncharted-grounds-vrchat",
@@ -680,6 +680,15 @@
    "added": "2026-10-15",
    "source": "inbox sweep (DC digest line in the note)",
    "reason": "Ambient, immersive, non-interactive digital content for the two-story Exchange screen at the MIT Museum during its BRAIN focus, April to September 2027: $2,500 to $5,000 flat honorarium, anyone 18+, no MIT link needed, remote participation, no travel covered. Screen is 3840 x 3024 (80:63), Windows PC with an RTX 3090, no content-critical audio. Submit a title, a description tied to BRAIN, proof-of-concept visuals, and any hardware notes. Deadline November 1, 2026, 11:59 pm EST, no extensions; results January 2027. Verified Oct 15, 2026 on the call page. You have shown at MIT before; a visualisation built from scan data (memory, pattern, perception) could fit."
+  },
+  {
+   "slug": "solo-founders-program-2027",
+   "title": "Solo Founders Program (San Francisco, Feb 2027 cohort)",
+   "url": "https://solofounders.com/program",
+   "deadline": "Rolling, apply by February 2027",
+   "status": "new",
+   "added": "2026-10-20",
+   "reason": "From your note, Oct 20. Three months in person in San Francisco from February 2027 for solo founders of tech companies, full-time or ready to be: $100K on an uncapped MFN SAFE for 2.5% equity, no program fee, weekly 1:1s, shared office, optional housing at the office, no visa sponsorship. Kept off the board and the newsletter: an equity-taking startup accelerator, not XR, art or heritage, and Tanit XR is a nonprofit, so it would be for a company of your own."
   }
  ]
 }
