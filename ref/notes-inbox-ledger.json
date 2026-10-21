@@ -828,6 +828,13 @@
    "source": "run",
    "raw": "",
    "status": "one note item (Solo Founders Program, skipped for the board, put on Ines's shortlist); share folders empty; Slack quiet; hold queue 2 pending; no new suggestion decisions; Antarctica and My Korea Story lines left in place as personal."
+  },
+  {
+   "key": "run 2026-10-21",
+   "date": "2026-10-21",
+   "source": "run",
+   "raw": "",
+   "status": "nothing new for the board: ADD NEW empty; four Tanit Inbox shares (People's House Art After Hours, National Harbor Halloween, thingstododc aerial yoga) are personal DC events, left in place for the DC digest; Opportunities Inbox empty; Slack quiet; hold queue 2 pending; no new suggestion decisions."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -945,6 +952,30 @@
    "file": "shot-3.html",
    "raw": "https://www.instagram.com/p/DekiIdKMrsB/ (@washingtonbucketlist)",
    "what": "Wisconsin Avenue fall weekend, vendors and pumpkin painting, Oct 17-18"
+  },
+  {
+   "date": "2026-10-21",
+   "file": "shot.png",
+   "raw": "screenshot, Instagram ad @peopleshousedc",
+   "what": "The People's House 'Art After Hours' fall craft evening, Wed Oct 28, 6-8 pm, tickets include two drinks, D.C."
+  },
+  {
+   "date": "2026-10-21",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/DeuDvLOCuC-/ (@secret.washington.dc)",
+   "what": "National Harbor Halloween celebration, Sun Oct 25, 12:30-3 pm (trick-or-treating, Hocus Pocus screening, pet costume parade)"
+  },
+  {
+   "date": "2026-10-21",
+   "file": "shot-2.png",
+   "raw": "screenshot, Instagram @thingstododc",
+   "what": "Sunday aerial yoga experience at a DC aerial yoga studio, 5 pm"
+  },
+  {
+   "date": "2026-10-21",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/p/DerFS3yltwm/ (@thingstododc)",
+   "what": "thingstododc weekend events post (Oct 19), incl. the Sunday aerial yoga class"
   }
  ]
 }
