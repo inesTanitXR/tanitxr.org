@@ -2267,6 +2267,9 @@ FR = {
 
     # ---- added 2026-10-13: pages that were still English ----
     'Press · October 11, 2026': 'Presse · 11 octobre 2026',
+
+    # ---- added 2026-10-21: pages that were still English ----
+    '<b>Sustainable Development Goal 11.4</b>': '<b>Objectif de développement durable 11.4</b>',
 }
 
 
@@ -4519,4 +4522,7 @@ AR = {
 
     # ---- added 2026-10-13: pages that were still English ----
     'Press · October 11, 2026': 'صحافة · 11 أكتوبر 2026',
+
+    # ---- added 2026-10-21: pages that were still English ----
+    '<b>Sustainable Development Goal 11.4</b>': '<b>هدف التنمية المستدامة 11.4</b>',
 }
