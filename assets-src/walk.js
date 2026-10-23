@@ -2115,6 +2115,7 @@ function start() {
     dust.visible = false;
     xrCursor = xrTarget = Math.max(0, shown);
     xrLabelSlug = null;
+    sparks.visible = false;                       // one less thing per frame in the headset
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
     if (window.tx) tx('xr_entered', { object: slots[shown] && slots[shown].it.slug });
   }
@@ -2128,7 +2129,8 @@ function start() {
     xrGrab = null;
     if (xrLabel) { xrRoot.remove(xrLabel); xrLabel = null; xrLabelSlug = null; }
     if (nuraPanel) { nuraHolder.remove(nuraPanel); nuraPanel = null; }
-    slots.forEach(s => { s.shadow.material.opacity = 0.8; });
+    slots.forEach(s => { s.shadow.material.opacity = 0.8; s.pivot.rotation.x = onPhone() && !roomMode ? (s.tilt || 0) : 0; });
+    sparks.visible = true;
     homeCamera();
     // carry on down the page from the object you were looking at in the headset
     const i = Math.round(clamp(xrCursor, 0, slots.length - 1));
@@ -2154,7 +2156,7 @@ function start() {
         if (roomMode) {
           const rs = xrRoomHit(c);
           if (!rs) { xrRoomFocus = null; return; }
-          if (xrRoomFocus === rs) { xrGrab = { slot: rs, ctrl: c, lastYaw: ctrlYaw(c) }; return; }
+          if (xrRoomFocus === rs) { xrGrab = { slot: rs, ctrl: c, lastYaw: ctrlYaw(c), lastPitch: ctrlPitch(c) }; return; }
           xrRoomFocus = rs; paintXRLabel(rs.it); paint(rs.i);
           return;
         }
@@ -2170,7 +2172,7 @@ function start() {
           paintXRLabel(hit.slot.it);
           return;
         }
-        xrGrab = { slot: hit.slot, ctrl: c, lastYaw: ctrlYaw(c) };
+        xrGrab = { slot: hit.slot, ctrl: c, lastYaw: ctrlYaw(c), lastPitch: ctrlPitch(c) };
         if (!turned) { turned = true; bump(p => { p.rotated++; }); }
       });
       c.addEventListener('selectend', () => { xrGrab = null; });
@@ -2182,6 +2184,20 @@ function start() {
   function ctrlYaw(c) {
     const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion);
     return Math.atan2(d.x, d.z);
+  }
+  function ctrlPitch(c) {
+    const d = new THREE.Vector3(0, 0, -1).applyQuaternion(c.quaternion);
+    return Math.asin(clamp(d.y, -1, 1));
+  }
+  // Ines, 23 Oct: the page turns an object sideways only, because a finger on a phone also
+  // scrolls. In a headset the hand is free, so a held object tumbles too: raise or lower the
+  // controller and it tips toward you, short of upside down so swinging sideways stays sideways.
+  function xrTurn() {
+    if (!xrGrab) return;
+    const y = ctrlYaw(xrGrab.ctrl), p = ctrlPitch(xrGrab.ctrl), piv = xrGrab.slot.pivot;
+    piv.rotation.y += (y - xrGrab.lastYaw) * 2.2;
+    piv.rotation.x = clamp(piv.rotation.x - (p - xrGrab.lastPitch) * 2.2, -1.4, 1.4);
+    xrGrab.lastYaw = y; xrGrab.lastPitch = p;
   }
   function xrPick(c) {
     const o = new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
@@ -2312,11 +2328,7 @@ function start() {
       s.mats.forEach(m => { m.opacity = 1; });
       s.shadow.material.opacity = 0;
     });
-    if (xrGrab) {
-      const y = ctrlYaw(xrGrab.ctrl);
-      xrGrab.slot.pivot.rotation.y += (y - xrGrab.lastYaw) * 2.2;
-      xrGrab.lastYaw = y;
-    }
+    xrTurn();
     if (xrLabel) {
       if (xrRoomFocus) {
         const f = xrRoomFocus, h = (f.fitH || 1) * f.wrap.scale.y;
@@ -2877,32 +2889,21 @@ function start() {
         if (!reduce && !xrGrab && ad < 0.5) s.pivot.rotation.y += dt * 0.1;
       });
       xrShade.material.opacity = 0.9;
-      if (xrGrab) {                                 // hold the trigger and swing to turn it
-        const y = ctrlYaw(xrGrab.ctrl);
-        xrGrab.slot.pivot.rotation.y += (y - xrGrab.lastYaw) * 2.2;
-        xrGrab.lastYaw = y;
-      }
+      xrTurn();                                     // hold the trigger and move the hand to turn it
       if (mixer) mixer.update(dt);
       if (nura) {
         nuraHolder.visible = true;
-        // a small companion beside the object, never on top of it; she swings round with you
+        // Ines, 23 Oct: she used to swing round as the object turned, which read as lag in the
+        // headset. In here she stands in one spot beside the object, breathing, facing you.
         nuraHolder.scale.setScalar(arMode ? 0.36 : 0.48);
-        const swing = clamp(front.pivot.rotation.y * 0.3, -0.65, 0.65);
         const R = arMode ? 0.8 : 1.35;
-        nuraHolder.position.set(Math.cos(swing) * R + Math.sin(te * 0.43) * 0.04,
-                                (arMode ? 0.02 : XR_EYE - 0.9) + Math.sin(te * 1.05) * 0.04,
-                                -xrDist() + (arMode ? 0.25 : 0.45) + Math.sin(swing) * R * 0.55);
-        // she keeps facing you; at nuraBaseYaw she faces +Z, and you stand at the origin
+        nuraHolder.position.set(R * 0.92 + Math.sin(te * 0.43) * 0.03,
+                                (arMode ? 0.02 : XR_EYE - 0.9) + Math.sin(te * 1.05) * 0.03,
+                                -xrDist() + (arMode ? 0.25 : 0.45) + R * 0.3);
         nura.rotation.y = nuraBaseYaw + Math.atan2(-nuraHolder.position.x, -nuraHolder.position.z)
-                          + Math.sin(te * 0.5) * 0.06;
+                          + Math.sin(te * 0.5) * 0.05;
         nura.rotation.x = 0;
-        nura.rotation.z = Math.sin(te * 0.8) * 0.03;
-        sparks.children.forEach(m => {
-          m.userData.a += dt * m.userData.sp;
-          m.position.set(Math.cos(m.userData.a) * m.userData.r,
-                         m.userData.y + Math.sin(te * m.userData.sp + m.userData.a) * 0.09,
-                         Math.sin(m.userData.a) * m.userData.r * 0.7);
-        });
+        nura.rotation.z = Math.sin(te * 0.8) * 0.02;
       }
       renderer.render(scene, camera);
       return;
