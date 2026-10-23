@@ -2,7 +2,7 @@
  "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
  "last_run": "2026-10-16",
  "last_ts": {
-  "C0983LHM7K8": "1792079955.378599",
+  "C0983LHM7K8": "1792690778.000000",
   "C0983L047V4": "1789781310.000000",
   "C09CZV4B0SW": "1789266670.767275",
   "C0AD71FAT7Y": "1789266670.767275",

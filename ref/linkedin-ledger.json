@@ -1,15 +1,15 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task, Part B. last_checked = date of the last LinkedIn pass; last_post = the newest post seen on Ines's activity feed and on the Tanit XR company page, so the next run only looks at newer ones.",
- "last_checked": "2026-10-09",
+ "last_checked": "2026-10-23",
  "ines_activity": {
-  "newest_post": "Repost of Salma Ramadan's splats-course scans, about 2026-10-01 (shown as '2d' on 2026-10-03)",
-  "followers": 7279
+  "newest_post": "2026-10-16, Edition 20 of the opportunities newsletter; before it 2026-10-14, the DC evening at the Embassy of Tunisia on Oct 23",
+  "followers": 7384
  },
  "company_page": {
   "url": "https://www.linkedin.com/company/tanit-xr/",
   "id": "108342542",
   "newest_post": "2026-10-09, repost about Petra in Scaniverse (Takuma Nagao); before it 2026-10-07, the DC evening at the Embassy of Tunisia",
-  "followers": 477
+  "followers": 499
  },
  "seen_not_published": [
   {
@@ -81,6 +81,16 @@
    "post": "Thanks to Niantic Spatial for the interview",
    "date": "~2026-08-15",
    "why": "already in PRESS as the Niantic entry"
+  },
+  {
+   "post": "Ines: Join us at the Embassy of Tunisia in Washington, DC on Friday, October 23",
+   "date": "2026-10-14",
+   "why": "already on the site at /dc/"
+  },
+  {
+   "post": "Edition 20 of the opportunities newsletter",
+   "date": "2026-10-16",
+   "why": "newsletter, owned by the board-check task"
   }
  ]
 }
