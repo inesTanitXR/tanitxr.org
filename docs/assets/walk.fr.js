@@ -2082,7 +2082,45 @@ function start() {
   let previewYaw = 0;
   const xrCurrent = () => slots[Math.round(clamp(xrCursor, 0, slots.length - 1))];
   function xrStep(n) {
+    if (xrInside) xrStepOutside();                 // the next object is outside this one
     xrTarget = clamp(Math.round(xrTarget) + n, 0, slots.length - 1);
+  }
+  // Ines, 23 Oct: the places you can step inside on the page (canGoInside) open in the headset
+  // too, from the grip menu. The place is scaled to its real metres and set down so its floor
+  // is the real floor and you stand in the middle, in VR and in passthrough alike.
+  let xrInside = null;
+  function xrStepInside(s) {
+    if (!s || !s.loaded || xrInside || !canGoInside(s.it)) return;
+    const it = s.it;
+    const tall = new THREE.Box3().setFromObject(s.fit).getSize(new THREE.Vector3()).y / s.fit.scale.y;
+    const perUnit = (it.dims[1] || 1) / (tall || 1);
+    xrInside = { s, scale: s.fit.scale.x, rot: { x: s.pivot.rotation.x, y: s.pivot.rotation.y },
+                 sides: s.mats.map(m => m.side), cx: 0, cz: 0, floorY: 0 };
+    s.fit.scale.setScalar(perUnit);
+    s.pivot.rotation.set(0, 0, 0);
+    s.wrap.scale.setScalar(1);
+    s.wrap.position.set(0, 0, 0);
+    s.wrap.updateMatrixWorld(true);
+    const b = new THREE.Box3().setFromObject(s.wrap);
+    xrInside.cx = -(b.min.x + b.max.x) / 2;
+    xrInside.cz = -(b.min.z + b.max.z) / 2;
+    xrInside.floorY = -b.min.y;
+    s.mats.forEach(m => { m.side = THREE.DoubleSide; m.needsUpdate = true; });
+    xrGrab = null;
+    if (xrLabel) xrLabel.visible = false;
+    nuraHolder.visible = false;
+    xrFloor.visible = false; xrShade.visible = false;
+    if (window.tx) tx('stepped_inside', { object: it.slug });
+  }
+  function xrStepOutside() {
+    if (!xrInside) return;
+    const { s } = xrInside;
+    s.fit.scale.setScalar(xrInside.scale);
+    s.pivot.rotation.set(xrInside.rot.x, xrInside.rot.y, 0);
+    s.mats.forEach((m, i) => { m.side = xrInside.sides[i]; m.needsUpdate = true; });
+    xrInside = null;
+    xrFloor.visible = true; xrShade.visible = !arMode;
+    if (xrLabel) { xrLabel.visible = true; xrLabelSlug = null; }
   }
   let xrStickCool = 0;
   function xrPollInput(dt) {
@@ -2138,6 +2176,7 @@ function start() {
     if (window.tx) tx('xr_entered', { object: slots[shown] && slots[shown].it.slug });
   }
   function exitXR() {
+    if (xrInside) xrStepOutside();
     xrMode = false; arMode = false; xrRoomFocus = null;
     closeXRMenu();
     document.body.classList.remove('in-xr', 'in-ar');
@@ -2178,6 +2217,7 @@ function start() {
           xrRoomFocus = rs; paintXRLabel(rs.it); paint(rs.i);
           return;
         }
+        if (xrInside) return;                       // inside a place: look around, use the menu
         const hit = xrPick(c);
         if (!hit) { xrStep(1); return; }
         if (hit.kind === 'nura') {
@@ -2255,6 +2295,11 @@ function start() {
   function xrMenuItems() {
     const items = [];
     if (roomMode) items.push({ label: 'Retour à la collection', act: () => closeRoom() });
+    if (xrInside) items.push({ label: 'Ressortir', act: () => xrStepOutside() });
+    else if (!roomMode) {
+      const fr = xrCurrent();
+      if (fr && fr.loaded && canGoInside(fr.it)) items.push({ label: 'Entrer', act: () => xrStepInside(fr) });
+    }
     const firstReal = slots.findIndex(s => s.it.real), firstMade = slots.findIndex(s => !s.it.real);
     if (firstReal >= 0) items.push({ label: 'Numérisé en Tunisie', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstReal; } });
     if (firstMade >= 0) items.push({ label: 'Réalisé par des bénévoles', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstMade; } });
@@ -2899,6 +2944,20 @@ function start() {
       paint(front.i);
       if (xrLabelSlug !== front.it.slug && Math.abs(xrCursor - front.i) < 0.3) paintXRLabel(front.it);
       const te = clock.elapsedTime;
+      if (xrInside) {
+        slots.forEach(s => {
+          if (s !== xrInside.s) { s.wrap.visible = false; return; }
+          s.wrap.visible = true;
+          s.wrap.scale.setScalar(1);
+          s.wrap.position.set(xrInside.cx, xrInside.floorY, xrInside.cz);
+          s.mats.forEach(m => { m.opacity = 1; });
+          s.shadow.material.opacity = 0;
+        });
+        xrShade.material.opacity = 0;
+        if (mixer) mixer.update(dt);
+        renderer.render(scene, camera);
+        return;
+      }
       slots.forEach(s => {
         const d = s.i - xrCursor, ad = Math.abs(d);
         const a = Math.max(0, 1 - ad * 1.3);
@@ -2925,7 +2984,7 @@ function start() {
         nuraHolder.scale.setScalar(arMode ? 0.36 : 0.48);
         const R = arMode ? 0.8 : 1.35;
         nuraHolder.position.set(R * 0.92 + Math.sin(te * 0.43) * 0.03,
-                                (arMode ? 0.02 : XR_EYE - 0.9) + Math.sin(te * 1.05) * 0.03,
+                                (arMode ? 0.95 : XR_EYE - 0.9) + Math.sin(te * 1.05) * 0.03,
                                 -xrDist() + (arMode ? 0.25 : 0.45) + R * 0.3);
         nura.rotation.y = nuraBaseYaw + Math.atan2(-nuraHolder.position.x, -nuraHolder.position.z)
                           + Math.sin(te * 0.5) * 0.05;
