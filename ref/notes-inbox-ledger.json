@@ -842,6 +842,20 @@
    "source": "run",
    "raw": "",
    "status": "nothing new for the board: ADD NEW empty; both share folders empty; Slack quiet; submissions sheet nothing new; hold queue 2 pending; no new suggestion decisions; Antarctica and My Korea Story lines left in place as personal."
+  },
+  {
+   "key": "https www instagram com p debjrazjt3j",
+   "date": "2026-10-23",
+   "source": "screenshot (Tanit Inbox shot-5.html, Oct 22, Instagram @thearctichideaway)",
+   "raw": "https://www.instagram.com/p/DeBjrAZjt3j/",
+   "status": "closed: Arctic Hideaway Fleinvaer residency open call; the post itself says the call is now closed and applicants hear by November 1. Moved to done/."
+  },
+  {
+   "key": "run 2026-10-23",
+   "date": "2026-10-23",
+   "source": "run",
+   "raw": "",
+   "status": "ADD NEW empty; five Tanit Inbox shares: Arctic Hideaway residency (closed, to done/), four DC personal posts (yoga, thingstododc, aro collective fitness, NatGeo Museum explorer talks) left in place for the DC digest; Opportunities Inbox empty; Slack quiet; hold queue 2 pending; no new suggestion decisions."
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -983,6 +997,30 @@
    "file": "shot-2.html",
    "raw": "https://www.instagram.com/p/DerFS3yltwm/ (@thingstododc)",
    "what": "thingstododc weekend events post (Oct 19), incl. the Sunday aerial yoga class"
+  },
+  {
+   "date": "2026-10-23",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/DekgJnmPX3n/ (@stateoftheparty)",
+   "what": "yoga class priority registration, DMV"
+  },
+  {
+   "date": "2026-10-23",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/p/Dex5oDwMjmv/ (@thingstododc)",
+   "what": "thingstododc.com post, DC things to do"
+  },
+  {
+   "date": "2026-10-23",
+   "file": "shot-3.html",
+   "raw": "https://www.instagram.com/p/DeZnnoARbE0/ (@arocollective)",
+   "what": "Move with Nene x Brightside Blend fall fitness pop-up"
+  },
+  {
+   "date": "2026-10-23",
+   "file": "shot-4.html",
+   "raw": "https://www.instagram.com/p/DeMwMmfsxjy/ (@natgeomuseum)",
+   "what": "National Geographic Museum Explorer talks, D.C."
   }
  ]
 }
