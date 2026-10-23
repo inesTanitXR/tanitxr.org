@@ -2101,7 +2101,25 @@ function start() {
     }
   }
 
-  let pendingAR = false;
+  let pendingAR = false, arOK = false, xrSwitching = false;
+  const AR_INIT = { requiredFeatures: ['local-floor'], optionalFeatures: ['hit-test', 'hand-tracking'] };
+  const VR_INIT = { optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers'] };
+  // Ines, 23 Oct: "once I'm inside I want to be able to switch to passthrough". A browser will
+  // only open a session on a user's action, and a trigger pull in the headset counts as one, so
+  // this runs from the menu: end the session you are in, then open the other kind straight away.
+  async function switchXR(toAR) {
+    const sess = renderer.xr.getSession();
+    if (!sess || xrSwitching) return;
+    xrSwitching = true;
+    try {
+      await sess.end();
+      pendingAR = toAR;
+      const next = await navigator.xr.requestSession(toAR ? 'immersive-ar' : 'immersive-vr', toAR ? AR_INIT : VR_INIT);
+      await renderer.xr.setSession(next);
+      if (window.tx) tx(toAR ? 'ar_entered' : 'xr_entered', { object: slots[shown] && slots[shown].it.slug });
+    } catch (e) { pendingAR = false; }                // back on the page, where both buttons are
+    xrSwitching = false;
+  }
   function enterXR() {
     xrMode = true;
     const sess = renderer.xr.getSession();
@@ -2245,6 +2263,7 @@ function start() {
     const saved = readSaved();
     if (saved.length) items.push({ label: 'قطعك المحفوظة (' + saved.length + ')',
       act: () => openRoom('مجموعتك', { hall: arMode, plain: true, list: slots.filter(s => saved.includes(s.it.slug)) }) });
+    if (arOK) items.push({ label: arMode ? 'Switch to VR' : 'Switch to passthrough', act: () => switchXR(!arMode) });
     items.push({ label: arMode ? 'الخروج من الوضع المختلط' : 'الخروج من الواقع الافتراضي', act: () => { const ss = renderer.xr.getSession(); if (ss) ss.end(); } });
     return items;
   }
@@ -2377,18 +2396,26 @@ function start() {
     // passthrough on a headset, camera AR on an Android phone: the same session type
     navigator.xr.isSessionSupported('immersive-ar').then(ok => {
       if (!ok || !arBtn) return;
+      arOK = true;
       arBtn.hidden = false;
-      arBtn.addEventListener('click', async () => {
+      const startAR = async () => {
         if (renderer.xr.isPresenting) { renderer.xr.getSession().end(); return; }
         readyXR();
         try {
           pendingAR = true;
-          const session = await navigator.xr.requestSession('immersive-ar',
-            { requiredFeatures: ['local-floor'], optionalFeatures: ['hit-test', 'hand-tracking'] });
+          const session = await navigator.xr.requestSession('immersive-ar', AR_INIT);
           await renderer.xr.setSession(session);
           if (window.tx) tx('ar_entered', { object: slots[shown] && slots[shown].it.slug });
         } catch (e) { pendingAR = false; }
-      });
+      };
+      arBtn.addEventListener('click', startAR);
+      if (/OculusBrowser|Quest|Pico|Wolvic|VisionOS|Vision Pro/i.test(navigator.userAgent)) {
+        const fb = document.createElement('button');
+        fb.id = 'ar-fixed'; fb.textContent = 'See it in passthrough';
+        fb.addEventListener('click', startAR);
+        document.body.appendChild(fb);
+        document.body.classList.add('has-ar');
+      }
     }).catch(() => {});
   }
   // iPhones have no WebXR; Apple's Quick Look shows the object in the room instead
