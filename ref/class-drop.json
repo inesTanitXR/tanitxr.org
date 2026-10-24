@@ -1,0 +1,10 @@
+{
+ "_what": "A class activity: students scan an object with Scaniverse and their scans go on Explore within minutes. tanitxr.org/drop shows them where to send the file; tools/class_drop.py on Ines's laptop picks the files up, shrinks them and publishes them. The label is the room they appear in on Explore.",
+ "link": "https://drive.google.com/drive/folders/1OmyfBChVcb--Qg3hLhp88TlSUcUe8Gj7?usp=sharing",
+ "label": "Washington and Lee, Fall 2026",
+ "sub": "Scanned by students in class",
+ "where": "Washington and Lee University",
+ "place": "Scanned in class",
+ "folders": ["~/ClassDrop", "~/Downloads"],
+ "max_mb": 7.5
+}

@@ -16,3 +16,6 @@ ref/decks/ig-*/
 
 # generated social images, remade from the board whenever they are needed
 social/
+
+# which class files tools/class_drop.py has already handled on this laptop
+ref/class-drop-state.json

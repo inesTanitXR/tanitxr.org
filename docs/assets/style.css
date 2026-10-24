@@ -343,6 +343,14 @@ section.pad-sm{padding:56px 0}
 .quote b{display:block;margin-top:16px;font-family:var(--sans);color:var(--ink)}
 .quote b a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .quote .qrole{display:block;font-size:13.5px;color:var(--gray);margin-top:2px}
+/* the class drop page */
+.dropgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.dropsteps{padding-inline-start:22px;font-size:17px;line-height:1.6}
+.dropsteps li{margin-bottom:14px}
+.dropsteps code{background:var(--mist);padding:2px 7px;border-radius:6px;font-size:15px}
+.dropqr-box{background:#fff;border:1px solid var(--mist);border-radius:14px;padding:22px;text-align:center}
+.dropqr{width:100%;max-width:300px;height:auto;display:block;margin:0 auto}
+@media(max-width:760px){.dropgrid{grid-template-columns:1fr}.dropqr-box{order:-1}}
 .shots.captioned figure{margin:0}
 .shots.captioned figcaption{font-size:13.5px;color:var(--gray);margin-top:8px}
 

@@ -627,6 +627,14 @@ section.pad-sm{padding:56px 0}
 .quote b{display:block;margin-top:16px;font-family:var(--sans);color:var(--ink)}
 .quote b a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .quote .qrole{display:block;font-size:13.5px;color:var(--gray);margin-top:2px}
+/* the class drop page */
+.dropgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.dropsteps{padding-inline-start:22px;font-size:17px;line-height:1.6}
+.dropsteps li{margin-bottom:14px}
+.dropsteps code{background:var(--mist);padding:2px 7px;border-radius:6px;font-size:15px}
+.dropqr-box{background:#fff;border:1px solid var(--mist);border-radius:14px;padding:22px;text-align:center}
+.dropqr{width:100%;max-width:300px;height:auto;display:block;margin:0 auto}
+@media(max-width:760px){.dropgrid{grid-template-columns:1fr}.dropqr-box{order:-1}}
 .shots.captioned figure{margin:0}
 .shots.captioned figcaption{font-size:13.5px;color:var(--gray);margin-top:8px}
 
@@ -5216,6 +5224,8 @@ def walk_credit(m):
     """
     if m.get("made"):
         return f'Modelled by {m["by"]}' if m.get("by") else "Modelled by a Tanit XR volunteer"
+    if m.get("cls"):
+        return f'Scanned by {m["by"]}' if m.get("by") else "Scanned in class"
     ov = next((v for k, v in CREATORS.get("model_overrides", {}).items()
                if not k.startswith("_") and k.lower() in m["title"].lower()), {})
     o_name, o_href = creator_credit(m.get("optimized_by"))
@@ -5242,6 +5252,8 @@ def nice_place(p):
 
 def walk_person(m):
     """The volunteer to introduce on this object, if we know who they are and they have a page."""
+    if m.get("cls"):
+        return None
     if m.get("made"):
         if not m.get("by"):
             return None
@@ -5461,6 +5473,22 @@ def build_walk():
     shipped, items, blocks = set(), [], ""
     rooms = [(l, sb, None, None) for l, sb, _ in WALK_ROOMS] + [("Other objects", "", None, None)]
     rooms += made_rooms
+    # scans made in a class, dropped in during the session by tools/class_drop.py. They sit in
+    # their own room at the end and leave together (class_drop.py remove-all).
+    cls_path = os.path.join(HERE, "ref", "class-models.json")
+    if os.path.exists(cls_path):
+        with open(cls_path) as f:
+            cls = json.load(f)
+        cg = [{"title": c["title"], "file_slug": c["slug"], "place": cls.get("place", "Scanned in class"),
+               "site": cls.get("label", "Class scans"), "href": "explore.html", "by": c.get("by"),
+               "cls": True, "thumb": None, "date": c.get("date", ""),
+               "hi": (c.get("by") + " scanned this in class" if c.get("by") else "Scanned in class")
+                     + (" at " + cls["where"] if cls.get("where") else "") + ". Walk round it and see how it came out."}
+              for c in cls.get("items", [])
+              if c["slug"] in on_disk and os.path.getsize(os.path.join(models_dir, c["slug"] + ".glb")) <= WALK_MAX_BYTES]
+        if cg:
+            cg.sort(key=lambda g: g.get("date", ""))
+            rooms.append((cls.get("label", "Class scans"), cls.get("sub", "Scanned by students"), cg, None))
     for label, sub, preset, artist in rooms:
         group = preset if preset is not None else by_room.get(label)
         if not group:
@@ -5478,7 +5506,7 @@ def build_walk():
         for m in group:
             d = MODEL_DIMS.get(m["file_slug"])
             ov = overrides.get(m["file_slug"], {})
-            measured = not m.get("by")      # props were modelled, not scanned to scale
+            measured = not m.get("by") and not m.get("cls")   # props were modelled, not scanned to scale
             voice = NURA_VOICE.get(m["file_slug"])
             voice_more = NURA_VOICE.get(m["file_slug"] + "--more")
             gps = MODEL_GPS.get(m["file_slug"])
@@ -5500,8 +5528,10 @@ def build_walk():
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_note(m["file_slug"], nura_line(m) if measured else
                                   (m.get("text") or
-                                   f'{short_title(m["title"])}, modelled by hand for our virtual '
-                                   f'museum{", by " + m["by"] if m.get("by") else ""}.')),
+                                   (f'{short_title(m["title"])}, scanned in class'
+                                    f'{" by " + m["by"] if m.get("by") else ""} with a phone.' if m.get("cls") else
+                                    f'{short_title(m["title"])}, modelled by hand for our virtual '
+                                    f'museum{", by " + m["by"] if m.get("by") else ""}.'))),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
                           **({"rotate": ov["rotate"]} if ov.get("rotate") else {}),
@@ -8327,6 +8357,46 @@ For a PDF of this page for a grant annex, print it from your browser, or write t
          desc="What Tanit XR has done so far, in numbers with a source and a date: 3D models published, sites documented, volunteers, reach, and what the browser Collection counts.")
 
 
+def build_drop():
+    """tanitxr.org/drop : where a class sends its Scaniverse scans. The file goes to a Drive
+    folder (ref/class-drop.json), or to Ines by AirDrop; tools/class_drop.py on her laptop does
+    the rest. English only: it is read off a classroom screen."""
+    cfg_path = os.path.join(HERE, "ref", "class-drop.json")
+    if not os.path.exists(cfg_path):
+        return
+    with open(cfg_path) as f:
+        cfg = json.load(f)
+    link = cfg.get("link", "")
+    qr = ""
+    try:
+        sys.path.insert(0, os.path.join(HERE, "tools", "vendor"))
+        import segno
+        qr = segno.make(link, error="m").svg_inline(scale=7, dark="#111518", border=2)
+        qr = qr.replace("<svg ", '<svg class="dropqr" role="img" aria-label="QR code for the upload folder" ', 1)
+    except Exception as e:
+        print(f"  ! drop page: no QR ({e})")
+    body = f"""
+{page_hero("Add your scan", "Add your scan", bg="sv-IMG_8547.jpg", pos="center 30%")}
+<section class="pad"><div class="wrap" style="max-width:980px">
+<div class="dropgrid">
+<div>
+<div class="eyebrow">{esc(cfg.get("label", "Class scans"))}</div>
+<h2 class="sec-title" style="margin-bottom:18px">Three steps, then look for it on Explore</h2>
+<ol class="dropsteps">
+<li><b>Export from Scaniverse.</b> Open your scan, tap <b>Share</b>, then <b>Export Model</b>, then <b>GLB</b>.</li>
+<li><b>Name the file.</b> <code>YourFirstName_ObjectName.glb</code>, for example <code>Maya_CoffeeMug.glb</code>. That is how your name and the object's name appear on the site.</li>
+<li><b>Upload it.</b> Tap the button, or scan the code, and add the file to the folder. Signed in to any Google account is enough. On an iPhone you can also AirDrop it to Ines.</li>
+</ol>
+<p><a class="btn btn-gold" href="{esc(link)}" target="_blank" rel="noopener" style="font-size:16px;padding:14px 30px">Upload my scan</a></p>
+<p class="fhint">A few minutes later your scan is in its own room at the end of <a href="explore.html">Explore in 3D</a>, ready for the headset. Files up to about 150 MB are fine, the site shrinks them.</p>
+</div>
+<div class="dropqr-box">{qr}<p class="fhint center" style="margin-top:10px">Scan to open the upload folder</p></div>
+</div>
+</div></section>"""
+    page("drop.html", "Add your scan", body, active="explore.html",
+         desc="Send your Scaniverse scan and see it on tanitxr.org/explore, in VR, a few minutes later.")
+
+
 def build_misc():
     build_impact()
     # coming soon
@@ -8958,6 +9028,8 @@ def main():
         build_dc_evening()
         build_about()
         build_contact()
+        if LANG == "en":
+            build_drop()
         build_support()
         build_partners()
         build_misc()
@@ -9002,5 +9074,32 @@ def main():
         print("\n⚠ newsletter/website out of sync:\n" + r.stdout.strip())
 
 
+def main_walk_only():
+    """Only the Explore pages and their model files, in the three languages: seconds instead of
+    minutes, for tools/class_drop.py adding a scan while a class is running."""
+    global LANG
+    import walk_i18n
+    for _lang in ("en", "fr", "ar"):
+        _fn = "walk.js" if _lang == "en" else f"walk.{_lang}.js"
+        with open(os.path.join(DOCS, "assets", _fn), "w") as f:
+            f.write(walk_i18n.script(WALK_JS, _lang))
+    for LANG in LANG_DIRS:
+        build_walk()
+    LANG = "en"
+    for d in LANG_DIRS.values():
+        _p = os.path.join(DOCS, d, "explore", "index.html")
+        if os.path.exists(_p):
+            with open(_p, encoding="utf-8") as _f:
+                _h = _f.read()
+            _d = offsite_opens_away(dedash(_h))
+            if _d != _h:
+                with open(_p, "w", encoding="utf-8") as _f:
+                    _f.write(_d)
+    print("  explore pages rebuilt")
+
+
 if __name__ == "__main__":
-    main()
+    if "--only" in sys.argv and "walk" in sys.argv:
+        main_walk_only()
+    else:
+        main()
