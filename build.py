@@ -8024,10 +8024,10 @@ def build_dc_evening():
 <div class="dcv-two">
 <figure class="dcv-fig"><img src="{img('dc-evening-IMG_3757.jpg', 1100)}" alt="The room at the Embassy of Tunisia during the talk, the audience facing the speakers" loading="lazy">
 <figcaption>The room, during the talk</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3745.jpg', 1100)}" alt="A guest in a VR headset trying the Tanit XR collection, in front of the Tunisian flag, with Ines Said beside him" loading="lazy">
-<figcaption>Inside the collection, in front of the flag</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3730.jpg', 1100)}" alt="Dr. Caroline Nickerson and Ines Said seated in front of the Tunisian flag before the evening" loading="lazy">
-<figcaption>Dr. Caroline Nickerson and Ines Said, before the doors opened</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3730.jpg', 1100)}" alt="Ines Said opening the evening, with her introduction slide on the screen" loading="lazy">
+<figcaption>Ines Said opening the evening</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3745.jpg', 1100)}" alt="Dr. Caroline Nickerson speaking during the conversation, with Ines Said beside her" loading="lazy">
+<figcaption>Dr. Caroline Nickerson, during the conversation</figcaption></figure>
 </div>
 </div>
 </div></section>
