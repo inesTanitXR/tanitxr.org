@@ -4926,7 +4926,7 @@ EVENTS = [
     {"date": "2026-10-23", "when": "Friday, October 23, 6pm to 8pm",
      "start": "2026-10-23T18:00:00-04:00", "end": "2026-10-23T20:00:00-04:00",
      "city": "Washington", "region": "DC", "country": "US",
-     "img": "sv-IMG_1232.jpg", "announced": "2026-09-15",
+     "img": "dc-evening-IMG_3757.jpg", "announced": "2026-09-15",
      "title": "Tunisia & America, Learning Together: an evening at the Embassy of Tunisia",
      "where": "Embassy of Tunisia, 1515 Massachusetts Ave NW, Washington, DC",
      "desc": "An evening on Tunisian history, on culture travelling between countries, and on "
@@ -4935,7 +4935,12 @@ EVENTS = [
              "Tanit XR. For Tunisians and friends of Tunisia equally, and for anyone working where "
              "technology, art and social impact meet. Seating is limited, entry is by guest list, "
              "so please sign up by Monday October 19.",
-     "links": [("Reserve a seat", "dc.html")]},
+     "links": [("Reserve a seat", "dc.html")],
+     "recap": "A full room at the Embassy of Tunisia, hosted with TAYP. Ines Said told the story of "
+              "the project and showed the collection, Dr. Caroline Nickerson spoke about her year "
+              "with Tanit XR and her time in Tunisia, and guests stood inside the collection in VR.",
+     "past_links": [("Read about the evening", "news/an-evening-at-the-embassy-of-tunisia.html"),
+                    ("The event page", "dc.html")]},
 ]
 
 
@@ -8003,32 +8008,32 @@ def build_dc_evening():
 {page_hero("Tunisia &amp; America, Learning Together", "An evening in Washington, DC, Friday 23 October 2026", bg="dc-three-of-us-capbon.jpg", pos="center 35%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
-<div class="dcv-fact"><small>When</small><b>Friday 23 October</b><span>2026</span></div>
-<div class="dcv-fact"><small>Time</small><b>6pm to 8pm</b><span>Doors open at 6pm</span></div>
+<div class="dcv-fact"><small>When</small><b>Friday 23 October</b><span>2026, 6pm to 8pm</span></div>
 <div class="dcv-fact"><small>Location</small><b>Embassy of Tunisia</b><span>1515 Massachusetts Ave NW<br>Washington, DC 20005</span></div>
-<div class="dcv-fact"><small>Cost</small><b>Free</b><span>The guest list is full<br>Waitlist open</span></div>
+<div class="dcv-fact"><small>Hosted by</small><b>The Embassy of Tunisia</b><span>with Tanit XR and TAYP</span></div>
+<div class="dcv-fact"><small>Next</small><b>Thursdays, 12pm ET</b><span>The volunteer call, on Zoom<br><a href="volunteer.html">Join us</a></span></div>
 </div>
 <div class="dcv-grid">
 <div>
-<div class="eyebrow">Join the waitlist</div>
+<div class="eyebrow">Thank you</div>
 <h2 class="sec-title" style="margin-bottom:10px">An evening on Tunisia's heritage, and the technology now protecting it</h2>
-<p class="sec-sub" style="margin:0 0 18px">With Dr. Caroline Nickerson and Ines Said, hosted by the Embassy of Tunisia with Tanit XR and TAYP. The guest list is now with the embassy and every seat is taken. Join the waitlist and we will email you if a seat opens.</p>
-{form}
-<p class="fhint">If a seat opens, we will email you before Friday. Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>
+<p class="sec-sub" style="margin:0 0 18px">On Friday 23 October the Embassy of Tunisia opened its doors for an evening hosted with Tanit XR and TAYP. Ines Said told the story of why a Tunisian developer started scanning Carthage with a phone and showed the collection live. Dr. Caroline Nickerson spoke about her year with Tanit XR and her time in Tunisia this summer. Then the headsets came out, and guests stood inside the collection.</p>
+<p class="sec-sub" style="margin:0 0 18px">Our thanks to the Embassy of Tunisia for hosting us, to TAYP for co-organising, and to everyone who came, asked questions and tried the collection.</p>
+<p><a class="btn btn-gold" href="explore.html">Explore the collection</a> &nbsp; <a class="btn btn-line" href="news/an-evening-at-the-embassy-of-tunisia.html">Read about the evening</a></p>
 </div>
 <div class="dcv-two">
-<figure class="dcv-fig dcv-flyer"><a href="{img('dc-flyer.jpg', 1600)}" target="_blank" rel="noopener"><img src="{img('dc-flyer.jpg', 1100)}" alt="Event flyer: Tunisia and America, Learning Together. Friday October 23, 6 to 8pm ET, Washington, DC. Free, register by October 19 at tanitxr.org/dc" loading="lazy"></a>
-<figcaption>The flyer. Tap to open it full size, then save or share it.</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-laura-caroline-walking.jpg', 1100)}" alt="Dr. Caroline Nickerson and Dr. Laura Harrison walking through a site in Tunisia, August 2026" loading="lazy">
-<figcaption>Dr. Caroline Nickerson and Dr. Laura Harrison in Tunisia, August 2026</figcaption></figure>
-<figure class="dcv-fig"><img src="{img('dc-three-of-us-museum.jpg', 1100)}" alt="Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in a museum in Tunisia, August 2026" loading="lazy">
-<figcaption>Dr. Laura Harrison, Ines Said and Dr. Caroline Nickerson in Tunisia, August 2026</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3757.jpg', 1100)}" alt="The room at the Embassy of Tunisia during the talk, the audience facing the speakers" loading="lazy">
+<figcaption>The room, during the talk</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3745.jpg', 1100)}" alt="A guest in a VR headset trying the Tanit XR collection, in front of the Tunisian flag, with Ines Said beside him" loading="lazy">
+<figcaption>Inside the collection, in front of the flag</figcaption></figure>
+<figure class="dcv-fig"><img src="{img('dc-evening-IMG_3730.jpg', 1100)}" alt="Dr. Caroline Nickerson and Ines Said seated in front of the Tunisian flag before the evening" loading="lazy">
+<figcaption>Dr. Caroline Nickerson and Ines Said, before the doors opened</figcaption></figure>
 </div>
 </div>
 </div></section>
 
 <section class="pad dcv-band"><div class="wrap">
-<div class="center"><div class="eyebrow">The evening</div><h2 class="sec-title">Three things you will come away with</h2></div>
+<div class="center"><div class="eyebrow">The evening</div><h2 class="sec-title">What the evening was about</h2></div>
 <div class="dcv-cards">
 <div class="dcv-card"><div class="dcv-n">1</div><h3>A year of work, told by the people who did it</h3>
 <p>Over the past year, <b>Dr. Caroline Nickerson</b> has been at the centre of Tanit XR: building
@@ -8072,14 +8077,13 @@ community that now does it. She opens the evening and shows the collection live.
 <section class="pad dcv-band"><div class="wrap">
 <div class="dcv-photos"><figure class="dcv-fig"><img src="{img('dc-tanit-sign-mosaic.jpg', 1100)}" alt="The sign of Tanit set into a mosaic floor" loading="lazy">
 <figcaption>The sign of Tanit, set into a floor. The symbol Tanit XR is named for.</figcaption></figure></div>
-<p class="center" style="margin-top:28px"><a class="btn btn-gold" href="#dc-rsvp">Join the waitlist</a></p>
+<p class="center" style="margin-top:28px"><a class="btn btn-gold" href="volunteer.html">Volunteer with us</a></p>
 </div></section>"""
     page("dc.html", "Tunisia & America, Learning Together", body,
          active="community.html", share_img="dc-flyer.jpg",
-         desc="Friday 23 October 2026, 6pm to 8pm, hosted by the Embassy of Tunisia in Washington, "
-              "DC, with "
-              "Tanit XR and TAYP. Dr. Caroline Nickerson on her time in "
-              "Tunisia, and Ines Said, founder of Tanit XR. Free. The guest list is full, and a waitlist is open.")
+         desc="Friday 23 October 2026 at the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP: "
+              "Ines Said on the story of the project, Dr. Caroline Nickerson on her time in Tunisia, and the "
+              "collection in VR for the guests.")
 
 
 def build_about():
