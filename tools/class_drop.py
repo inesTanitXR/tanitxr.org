@@ -82,20 +82,62 @@ def parse_name(path):
     return "", pretty(base)
 
 
+BLENDER = "/Applications/Blender.app/Contents/MacOS/Blender"
+
+
+def gt(src, dst, size, err=0.0001, ratio=0):
+    cmd = ["npx", "--yes", "@gltf-transform/cli@4", "optimize", src, dst,
+           "--compress", "meshopt", "--texture-compress", "webp", "--texture-size", str(size),
+           "--simplify-error", str(err), "--simplify-ratio", str(ratio)]
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
+    if r.returncode != 0 or not os.path.exists(dst):
+        raise RuntimeError("gltf-transform failed: " + (r.stderr or r.stdout)[-400:])
+    return os.path.getsize(dst)
+
+
 def shrink(src, dst):
-    """gltf-transform optimize: dedup, prune, textures to 2048 px webp, meshopt. The page loads
-    anything up to the budget in ref/class-drop.json; over it, try again with 1024 px textures."""
+    """Textures first: gltf-transform optimize with webp at 2048 px, then 1024, then 512, which is
+    what a Scaniverse export usually needs (its weight is an 8k jpg). If the file is still over
+    the budget in ref/class-drop.json the mesh itself is the weight, so Blender decimates it
+    (meshopt's simplifier stops at texture seams on scans; Decimate does not), then the texture
+    pass runs again on the lighter mesh."""
     max_bytes = int(float(CFG.get("max_mb", 7.5)) * 1_000_000)
+    n = 0
     for size in (2048, 1024, 512):
-        cmd = ["npx", "--yes", "@gltf-transform/cli@4", "optimize", src, dst,
-               "--compress", "meshopt", "--texture-compress", "webp", "--texture-size", str(size)]
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
-        if r.returncode != 0 or not os.path.exists(dst):
-            raise RuntimeError("gltf-transform failed: " + (r.stderr or r.stdout)[-400:])
-        n = os.path.getsize(dst)
-        log(f"    shrunk to {n/1e6:.1f} MB at {size} px")
+        n = gt(src, dst, size)
+        log(f"    {n/1e6:.1f} MB with textures at {size} px")
         if n <= max_bytes:
             return n
+    if os.path.exists(BLENDER):
+        tmp, plain = dst + ".dec.glb", dst + ".plain.glb"
+        # Blender cannot read a meshopt or Draco file (a re-shared one from Sketchfab), so hand it
+        # a plain copy; a fresh Scaniverse export is already plain and passes through unchanged
+        import glob
+        nm = next((os.path.dirname(os.path.dirname(d)) for d in
+                   glob.glob(os.path.expanduser("~/.npm/_npx/*/node_modules/@gltf-transform/cli"))), None)
+        if nm:
+            subprocess.run(["node", os.path.join(HERE, "tools", "class_plain.cjs"), nm, src, plain],
+                           capture_output=True, text=True, timeout=900)
+        bsrc = plain if os.path.exists(plain) else src
+        for ratio in (0.3, 0.1, 0.03):
+            log(f"    decimating the mesh to {ratio:.0%} in Blender")
+            r = subprocess.run([BLENDER, "-b", "--python", os.path.join(HERE, "tools", "class_decimate.py"), "--",
+                                bsrc, tmp, str(ratio)], capture_output=True, text=True, timeout=1800)
+            if r.returncode != 0 or not os.path.exists(tmp):
+                log("    Blender failed: " + (r.stderr or r.stdout)[-300:].strip()); break
+            for size in (2048, 1024):
+                n = gt(tmp, dst, size)
+                log(f"    {n/1e6:.1f} MB decimated, textures at {size} px")
+                if n <= max_bytes:
+                    for t in (tmp, plain):
+                        if os.path.exists(t):
+                            os.remove(t)
+                    return n
+        for t in (tmp, plain):
+            if os.path.exists(t):
+                os.remove(t)
+    if os.path.exists(dst):
+        os.remove(dst)
     raise RuntimeError(f"still {n/1e6:.1f} MB after shrinking, over the {max_bytes/1e6:.0f} MB page budget")
 
 
