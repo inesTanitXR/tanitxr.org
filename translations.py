@@ -2288,6 +2288,9 @@ FR = {
 
     # ---- added 2026-10-21: pages that were still English ----
     '<b>Sustainable Development Goal 11.4</b>': '<b>Objectif de développement durable 11.4</b>',
+
+    # ---- added 2026-10-25: pages that were still English ----
+    'The event page': "La page de l'événement",
 }
 
 
@@ -4545,4 +4548,7 @@ AR = {
 
     # ---- added 2026-10-21: pages that were still English ----
     '<b>Sustainable Development Goal 11.4</b>': '<b>هدف التنمية المستدامة 11.4</b>',
+
+    # ---- added 2026-10-25: pages that were still English ----
+    'The event page': 'صفحة الفعالية',
 }
