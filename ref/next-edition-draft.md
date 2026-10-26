@@ -534,3 +534,64 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Immersive X (run by vm-people, Berlin) | no LinkedIn page found |
 | TEEEM Foundation | linkedin.com/company/teeemglobal (linked from teeem.org) |
 | MIT Museum | no LinkedIn page found (the museum site links only Facebook and Instagram, @mitmuseum) |
+
+### 🎨 EMAP European Media Art Platform Residencies 2027
+
+📅 Deadline: November 6, 2026, 2 pm CET
+
+📍 In person, two months in 2027 at one of the EMAP media art labs across Europe; kick-off conference March 11–12, 2027 in Gijón, Spain
+
+👥 Media artists who are residents or taxpayers of an EU country or a listed non-EU country, Tunisia included; no undergraduate or master's students. Free
+
+✏️ EUR 4,000 artist grant (EUR 6,000 for a duo), a EUR 4,000 project budget, accommodation and travel covered by the host lab.
+
+👉 https://tanitxr.org/go/emap-european-media-art-platform-residencies-2027/?ref=nl21
+
+### 📝 National Geographic Society, The Human Thread RFP
+
+📅 Deadline: December 1, 2026
+
+📍 Remote, project anywhere
+
+👥 Applicants 18 or over who lead the project themselves, any country. Free
+
+✏️ Request for proposals for storytelling projects on the breadth of human experience and global cultures, with support from Lilly Endowment. Funding tiers are shown inside the National Geographic funding portal once you start an application.
+
+👉 https://tanitxr.org/go/national-geographic-society-the-human-thread-rfp/?ref=nl21
+
+### 🎨 Bogliasco Foundation Fellowship, Fall 2027
+
+📅 Deadline: December 1, 2026 (Spring 2028 round: March 11, 2027)
+
+📍 In person, Bogliasco Study Center on the Ligurian coast near Genoa, Italy, one semester
+
+👥 Artists and scholars in the arts and humanities, any nationality; conversational English needed. USD 30 until a week before the deadline, then USD 45
+
+✏️ Full room and board and a work space. Travel, materials and personal expenses are yours.
+
+👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl21
+
+### 🎬 Raindance Film Festival 2027, Immersive
+
+📅 Deadline: early December 7, 2026 (GBP 38) · regular January 18, 2027 (GBP 49) · late March 8, 2027 (GBP 66)
+
+📍 London, 35th edition; submissions through FilmFreeway
+
+👥 Open to all. Fees above; Raindance Create members get one free submission a year
+
+✏️ Immersive section for VR, XR and social VR worlds. Results May 16, 2027.
+
+👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl21
+
+<!-- edition 22 (Dec 10 onward) -->
+### 🔮 Fulldome Festival Montevideo 2027
+
+📅 Deadline: December 19, 2026 (results January 10, 2027)
+
+📍 Montevideo, Uruguay, April 8–11, 2027; the work travels, you don't have to
+
+👥 Artists and collectives worldwide, no age limit. Free with the code FDFM2027 on FilmFreeway
+
+✏️ Fulldome works only (1:1 domemaster), up to 12 minutes, finished after 2021; AI-made content must be declared. Several entries allowed.
+
+👉 https://tanitxr.org/go/fulldome-festival-montevideo-2027/?ref=nl22

@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 19 (posted 2026-09-25, read 2026-09-30): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9). Checked again 2026-10-12: the public newsletter page still lists Edition 19 (Sept 25) as the latest; edition 20 (due Oct 9) is not posted yet.",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 20 (posted 2026-10-16, read 2026-10-26 in the built-in browser; every item in it was on the board except the EMAP 2027 reminder line, added 2026-10-26 with published = 2026-10-16): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9). Checked again 2026-10-12: the public newsletter page still lists Edition 19 (Sept 25) as the latest; edition 20 (due Oct 9) is not posted yet. Checked 2026-10-26: Edition 20 (Oct 16) is the latest; 2,153 subscribers.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -1054,10 +1054,10 @@
     "Artists",
     "XR Creators"
    ],
-   "deadline_date": "2026-10-16",
+   "deadline_date": "2027-01-08",
    "deadline_type": null,
    "url": "https://domefestwest.com/",
-   "desc": "Festival for fulldome and immersive cinema at Fiske Planetarium, University of Colorado Boulder, April 21 to 25, 2027. Categories: feature and short dome films, live dome experiences, interactive dome experiences, completed after January 1, 2025. Regular deadline October 16, 2026, then December 4 and January 8, 2027; fees on FilmFreeway.",
+   "desc": "Festival for fulldome and immersive cinema at Fiske Planetarium, University of Colorado Boulder, April 21 to 25, 2027. Categories: feature and short dome films, live dome experiences, interactive dome experiences, completed after January 1, 2025. Regular deadline October 16, 2026 has passed; late and final deadlines run through January 8, 2027, fees on FilmFreeway.",
    "published": "2026-09-24"
   },
   {
@@ -1433,11 +1433,11 @@
     "Students",
     "Youth"
    ],
-   "deadline_date": "2026-10-31",
+   "deadline_date": "2026-11-15",
    "deadline_type": null,
    "url": "https://parma360festival.it/call-for-artists/",
    "published": "2026-10-06",
-   "desc": "Free call for artists under 35 and fine arts students, from Italy and abroad, working with AI, VR, AR, software art and other digital tools. Twenty finalists join a group show in Parma in spring 2027 during the festival's 11th edition; four prizes of EUR 1,500 each. Themes: Parma heritage, care, and sustainability and data ecology. Travel is not covered. Deadline October 31, 2026."
+   "desc": "Free call for artists under 35 and fine arts students, from Italy and abroad, working with AI, VR, AR, software art and other digital tools. Twenty finalists join a group show in Parma in spring 2027 during the festival's 11th edition; four prizes of EUR 1,500 each. Themes: Parma heritage, care, and sustainability and data ecology. Travel is not covered. Deadline October 31, 2026. Deadline extended to November 15, 2026 (official page, checked October 26, 2026)."
   },
   {
    "title": ".ART Award 2026",
@@ -1526,11 +1526,11 @@
    "eligibility": [
     "Artists"
    ],
-   "deadline_date": "2026-10-11",
+   "deadline_date": "2026-11-15",
    "deadline_type": null,
    "url": "https://eyebeam.org/articles/agency-residency-open-call",
    "published": "2026-10-06",
-   "desc": "Two residencies on the theme AGENCY (human agency as AI systems act on our behalf), for US-based artists only. Virtual Residency, November 4, 2026 to February 12, 2027: $2,000 stipend, mentorship and Eyebeam's technical network, for artists living in the US outside New York; deadline October 11, 2026, 11:59 pm ET. NYC Residency, March 15 to June 11, 2027: $5,000 for artists in the five boroughs, on site one day a week; deadline November 15, 2026. Individuals only, no full-time students, no fee. Not open outside the US."
+   "desc": "Two residencies on the theme AGENCY (human agency as AI systems act on our behalf), for US-based artists only. Virtual Residency, November 4, 2026 to February 12, 2027: $2,000 stipend, mentorship and Eyebeam's technical network, for artists living in the US outside New York; deadline October 11, 2026, 11:59 pm ET. NYC Residency, March 15 to June 11, 2027: $5,000 for artists in the five boroughs, on site one day a week; deadline November 15, 2026. Individuals only, no full-time students, no fee. Not open outside the US. The Virtual Residency closed October 11; the NYC Residency (New York City residents only) is open until November 15, 2026, 11:59 pm ET."
   },
   {
    "title": "SAT Montréal: Dome Production Residency 2027-28 and Research-Creation Residencies in Technological Arts",
@@ -1605,11 +1605,11 @@
     "Educators",
     "Open to all"
    ],
-   "deadline_date": "2026-11-02",
+   "deadline_date": "2026-11-06",
    "deadline_type": null,
    "url": "https://solve.mit.edu/challenges/2027-global-learning-challenge",
    "published": "2026-10-07",
-   "desc": "Tech-based education solutions at prototype stage or later, from organisations or individuals anywhere. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and a nine-month programme of coaching and workshops, with four-day in-person events in Cambridge and New York. The 2027 challenge looks for tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment. Deadline November 2, 2026, 12:00 pm EST. Free."
+   "desc": "Tech-based education solutions at prototype stage or later, from organisations or individuals anywhere. Selected Solver teams get a $10,000 grant, access to more than $1M in prize funding and a nine-month programme of coaching and workshops, with four-day in-person events in Cambridge and New York. The 2027 challenge looks for tools that strengthen teachers' practice, work offline or in low-resource settings, include assistive or multilingual support, or improve assessment. Deadline November 2, 2026, 12:00 pm EST. Free. Deadline extended to November 6, 2026, 12:00 pm EST (official page, checked October 26, 2026)."
   },
   {
    "title": "CPH:DOX 2027 INTER:ACTIVE, Interactive, VR and Installation Works",
@@ -1671,9 +1671,86 @@
    "url": "https://changemakerxchange.org/changemakers-for-youth/",
    "published": "2026-10-17",
    "desc": "Three-year programme for 80 young changemakers aged 18 to 35 who live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany and hold a leadership role in a youth-focused social or environmental venture. Online capacity building, a five-day summit in the region in mid-March 2027 with lodging and meals covered, seed funding for cross-border projects. Free to apply; applications close November 9, 2026."
+  },
+  {
+   "title": "EMAP European Media Art Platform Residencies 2027",
+   "type": "Residency",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-11-06",
+   "deadline_type": null,
+   "url": "https://call.emare.eu/",
+   "published": "2026-10-16",
+   "desc": "Two-month production residency in 2027 at one of the EMAP member media art labs across Europe, with a EUR 4,000 artist grant (EUR 6,000 for a duo), a EUR 4,000 project budget, accommodation and travel covered by the host. Open to media artists who are residents or taxpayers of an EU country or a listed non-EU country, Tunisia included; undergraduate and master's students are not eligible. Free to apply; deadline November 6, 2026, 2 pm CET."
+  },
+  {
+   "title": "National Geographic Society: The Human Thread RFP",
+   "type": "Grant",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "Researchers",
+    "Educators"
+   ],
+   "deadline_date": "2026-12-01",
+   "deadline_type": null,
+   "url": "https://funding.nationalgeographic.org/s/fundingopportunity/119Hr000000CohcIAC/rfp-the-human-thread",
+   "published": "2026-10-26",
+   "desc": "Request for proposals for storytelling projects on the breadth of human experience and global cultures, funded with support from Lilly Endowment. Applicants must be 18 or over and lead the project themselves; budgets follow the RFP's own tiers, shown inside the funding portal. Free to apply; deadline December 1, 2026."
+  },
+  {
+   "title": "Bogliasco Foundation Fellowship, Fall 2027",
+   "type": "Fellowship",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "Artists",
+    "Researchers"
+   ],
+   "deadline_date": "2026-12-01",
+   "deadline_type": null,
+   "url": "https://bfny.org/en/apply/requirements",
+   "published": "2026-10-26",
+   "desc": "One-semester residential fellowships at the Bogliasco Study Center on the Ligurian coast near Genoa, Italy, with full room and board and a work space, for artists and scholars in the arts and humanities. Travel, materials and personal expenses are not covered. Application fee USD 30 until a week before the deadline, then USD 45. Fall 2027 deadline December 1, 2026; Spring 2028 deadline March 11, 2027."
+  },
+  {
+   "title": "Raindance Film Festival 2027, Immersive",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-01-18",
+   "deadline_type": null,
+   "url": "https://raindance.org/festival/submit/films",
+   "published": "2026-10-26",
+   "desc": "The 35th Raindance Film Festival in London takes immersive work, including VR, XR and social VR worlds, through FilmFreeway. Early deadline December 7, 2026 (GBP 38), regular January 18, 2027 (GBP 49), late March 8, 2027 (GBP 66); results May 16, 2027."
+  },
+  {
+   "title": "Fulldome Festival Montevideo 2027",
+   "type": "Open Call",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Students"
+   ],
+   "deadline_date": "2026-12-19",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/FulldomeFestivalmvd",
+   "published": "2026-10-26",
+   "desc": "Fulldome festival in Montevideo, Uruguay, April 8 to 11, 2027, open to artists and collectives worldwide with no age limit. Works must be in fulldome format (1:1 domemaster), up to 12 minutes, finished after 2021; AI-made content must be declared. Submission is free on FilmFreeway with the code FDFM2027; deadline December 19, 2026, results January 10, 2027."
   }
  ],
  "featured": {
-  "ieee-vr-2027-xr-gallery-sharing-realities": "ieeevr2027-banner.webp"
+  "in-situ-artist-residencies-in-the-medina-of-tunis-and-zaghou": "in-situ-residencies-zaghouan.jpg"
  }
 }
