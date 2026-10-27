@@ -186,7 +186,7 @@ def publish(push=True, what="class scans"):
     if not push:
         log("  built locally (no push)")
         return
-    paths = ["docs/explore", "docs/fr/explore", "docs/ar/explore", "docs/assets/models", "docs/assets/walk.js",
+    paths = ["docs/explore", "docs/fr/explore", "docs/ar/explore", "docs/explore.html", "docs/fr/explore.html", "docs/ar/explore.html", "docs/assets/models", "docs/assets/walk.js",
              "docs/assets/walk.fr.js", "docs/assets/walk.ar.js", "ref/class-models.json"]
     subprocess.run(["git", "add"] + paths, cwd=HERE, check=False, capture_output=True)
     c = subprocess.run(["git", "commit", "-q", "-m", what], cwd=HERE, capture_output=True, text=True)
