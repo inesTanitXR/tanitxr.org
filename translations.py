@@ -2291,6 +2291,13 @@ FR = {
 
     # ---- added 2026-10-25: pages that were still English ----
     'The event page': "La page de l'événement",
+
+    # ---- added 2026-10-27: pages that were still English ----
+    'Sample scan: Roman column base, Scanned in class':
+        'Numérisation d’exemple : base de colonne romaine, numérisée en classe',
+    'Scanned by students in class': 'Numérisé par des élèves en classe',
+    'Your class': 'Votre classe',
+    'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee, automne 2026',
 }
 
 
@@ -4551,4 +4558,11 @@ AR = {
 
     # ---- added 2026-10-25: pages that were still English ----
     'The event page': 'صفحة الفعالية',
+
+    # ---- added 2026-10-27: pages that were still English ----
+    'Sample scan: Roman column base, Scanned in class':
+        'مسح تجريبي: قاعدة عمود روماني، مُسحت في الصف',
+    'Scanned by students in class': 'مسح أنجزه الطلاب في الصف',
+    'Your class': 'صفّكم',
+    'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee، خريف 2026',
 }
