@@ -79,7 +79,44 @@ def parse_name(path):
     if "_" in base:
         by, title = base.split("_", 1)
         return pretty(by).split(" ")[0] if by.strip() else "", pretty(title)
+    m = re.match(r"Scaniverse \d{4}-\d\d-\d\d (\d\d)(\d\d)\d\d$", base)   # an export nobody renamed
+    if m:
+        return "", f"Class scan, {int(m.group(1))}:{m.group(2)}"
     return "", pretty(base)
+
+
+def drive_folder_id():
+    m = re.search(r"/folders/([A-Za-z0-9_-]+)", CFG.get("link", ""))
+    return m.group(1) if m else None
+
+
+def drive_list(fid):
+    """The upload folder is shared by link, so its public listing needs no sign-in."""
+    import html, urllib.request
+    url = f"https://drive.google.com/embeddedfolderview?id={fid}"
+    page = urllib.request.urlopen(url, timeout=30).read().decode("utf-8", "replace")
+    return [(m.group(1), html.unescape(m.group(2)).strip()) for m in
+            re.finditer(r'id="entry-([A-Za-z0-9_-]+)".*?flip-entry-title">([^<]*)<', page, re.S)]
+
+
+def drive_fetch(fid, name, into):
+    """Download one file from the shared folder into a watched folder. It lands under a dot name
+    first and is renamed when complete, so the watcher never picks up half a file."""
+    import urllib.request
+    base, ext = os.path.splitext(os.path.basename(name))
+    dst = os.path.join(into, base + ext)
+    if os.path.exists(dst):
+        dst = os.path.join(into, f"{base}-{fid[:5]}{ext}")
+    part = os.path.join(into, "." + os.path.basename(dst) + ".part")
+    url = f"https://drive.usercontent.google.com/download?id={fid}&export=download&confirm=t"
+    with urllib.request.urlopen(url, timeout=300) as r, open(part, "wb") as f:
+        shutil.copyfileobj(r, f)
+    with open(part, "rb") as f:
+        if f.read(4) != b"glTF":
+            os.remove(part)
+            raise RuntimeError("Drive did not hand back a .glb (is the folder still shared by link?)")
+    os.rename(part, dst)
+    return dst
 
 
 BLENDER = "/Applications/Blender.app/Contents/MacOS/Blender"
@@ -181,7 +218,7 @@ def add(path, by=None, title=None, push=True, publish_now=True):
                        "source": os.path.basename(path), "bytes": size})
     save(MODELS_PATH, m)
     if publish_now:
-        publish(push, f"class: add {by + ' ' if by else ''}{title}")
+        publish(push, f"class: add {title}")
     return slug
 
 
@@ -229,8 +266,26 @@ def watch(push=True, every=20):
         for fn in os.listdir(f):
             if fn.lower().endswith(".glb"):
                 state["done"].setdefault(os.path.join(f, fn), "present at start")
+    fid, drive_into = drive_folder_id(), folders[0]
+    if fid:
+        try:
+            for i, n in drive_list(fid):        # already in the Drive folder: not from this class
+                state.setdefault("drive", {}).setdefault(i, "present at start")
+            log("also checking the Drive upload folder (" + str(len(state.get("drive", {}))) + " files already there, left alone)")
+        except Exception as e:
+            log(f"  !! could not read the Drive folder: {e}")
     save(STATE_PATH, state)
     while True:
+        if fid:
+            try:
+                for i, n in drive_list(fid):
+                    if i in state.setdefault("drive", {}) or not n.lower().endswith(".glb"):
+                        continue
+                    log(f"  new on Drive: {n}")
+                    state["drive"][i] = drive_fetch(i, n, drive_into)
+                    save(STATE_PATH, state)
+            except Exception as e:
+                log(f"  !! Drive check: {e}")
         for f in folders:
             try:
                 names = sorted(os.listdir(f), key=lambda n: os.path.getmtime(os.path.join(f, n)))
