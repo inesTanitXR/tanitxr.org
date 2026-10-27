@@ -11,6 +11,14 @@
    "date": "2026-10-26T23:14",
    "source": "SampleColumn.glb",
    "bytes": 427936
+  },
+  {
+   "slug": "class-ines-sample-scan",
+   "title": "Sample scan",
+   "by": "Ines",
+   "date": "2026-10-27T09:16",
+   "source": "Scaniverse 2026-08-24 162816.glb",
+   "bytes": 768728
   }
  ]
 }
