@@ -8377,7 +8377,7 @@ For a PDF of this page for a grant annex, print it from your browser, or write t
 
 def build_drop():
     """tanitxr.org/drop : where a class sends its Scaniverse scans. The file goes to a Drive
-    folder (ref/class-drop.json), or to Ines by AirDrop; tools/class_drop.py on her laptop does
+    folder (ref/class-drop.json), by email, or to Ines by AirDrop; tools/class_drop.py on her laptop does
     the rest. English only: it is read off a classroom screen."""
     cfg_path = os.path.join(HERE, "ref", "class-drop.json")
     if not os.path.exists(cfg_path):
@@ -8403,9 +8403,10 @@ def build_drop():
 <ol class="dropsteps">
 <li><b>Export from Scaniverse.</b> Open your scan, tap <b>Share</b>, then <b>Export Model</b>, then <b>GLB</b>.</li>
 <li><b>Name the file.</b> <code>YourFirstName_ObjectName.glb</code>, for example <code>Maya_CoffeeMug.glb</code>. That is how your name and the object's name appear on the site.</li>
-<li><b>Upload it.</b> Tap the button, or scan the code, and add the file to the folder. Signed in to any Google account is enough. On an iPhone you can also AirDrop it to Ines.</li>
+<li><b>Upload it.</b> Tap the button, or scan the code, and add the file to the folder. Signed in to any Google account is enough. You can also email it to <a href="mailto:ines@tanitxr.org?subject=My%20class%20scan">ines@tanitxr.org</a> (under 25 MB), or AirDrop it to Ines from an iPhone.</li>
 </ol>
 <p><a class="btn btn-gold" href="{esc(link)}" target="_blank" rel="noopener" style="font-size:16px;padding:14px 30px">Upload my scan</a>
+&nbsp; <a class="btn btn-line" href="mailto:ines@tanitxr.org?subject=My%20class%20scan" style="font-size:16px;padding:14px 30px">Email it instead</a>
 &nbsp; <a class="btn btn-line" href="/class/" style="font-size:16px;padding:14px 30px">See the class scans</a></p>
 <p class="fhint">A few minutes later your scan is on <a href="/class/">tanitxr.org/class</a>, ready for the headset. Reload the page to see new ones. Files up to about 150 MB are fine, the site shrinks them.</p>
 </div>
