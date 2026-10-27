@@ -297,14 +297,29 @@ def watch(push=True, every=20):
                     continue
                 if not wait_until_still(p):
                     log(f"  {fn} keeps changing, will look again"); continue
+                h = file_hash(p)      # the same scan via Drive and Downloads (or AirDrop) goes up once
+                if h in state.setdefault("hashes", {}):
+                    log(f"  {fn} is the same file as {state['hashes'][h]}, skipped")
+                    state["done"][p] = "duplicate of " + state["hashes"][h]
+                    save(STATE_PATH, state); continue
                 try:
                     slug = add(p, push=push)
                     state["done"][p] = slug
+                    state["hashes"][h] = slug
                 except Exception as e:
                     log(f"  !! {fn}: {e}")
                     state["done"][p] = "failed: " + str(e)[:120]
                 save(STATE_PATH, state)
         time.sleep(every)
+
+
+def file_hash(path):
+    import hashlib
+    d = hashlib.sha1()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            d.update(chunk)
+    return d.hexdigest()
 
 
 def local_ip():
