@@ -1,0 +1,16 @@
+{
+ "label": "Washington and Lee, Fall 2026",
+ "sub": "Scanned by students in class",
+ "where": "Washington and Lee University",
+ "place": "Scanned in class",
+ "items": [
+  {
+   "slug": "class-sample-scan-roman-column-base",
+   "title": "Sample scan: Roman column base",
+   "by": "",
+   "date": "2026-10-26T23:14",
+   "source": "SampleColumn.glb",
+   "bytes": 427936
+  }
+ ]
+}

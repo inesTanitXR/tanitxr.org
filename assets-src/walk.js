@@ -474,6 +474,9 @@ function start() {
     demo.add(phone);
   })();
 
+  // three bodies of work, each with its own switch: scanned in Tunisia, made by volunteers, and
+  // on a class day the scans the students just sent in (tools/class_drop.py), at the very end
+  function trackOf(it) { return it.cls ? 'class' : (it.real ? 'scans' : 'made'); }
   function jumpTo(pred) {
     const i = CFG.items.findIndex(pred);
     if (i < 0 || !sections[i]) return;
@@ -489,9 +492,9 @@ function start() {
       o.classList.toggle('on', o === b);
       o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
     });
-    const made = b.dataset.track === 'made';
-    jumpTo(it => made ? !it.real : it.real);
-    if (window.tx) tx(made ? 'track_made' : 'track_scans');
+    const tr = b.dataset.track;
+    jumpTo(it => trackOf(it) === tr);
+    if (window.tx) tx('track_' + tr);
   }));
 
   // ---- scroll moves along the list, one object per section
@@ -755,7 +758,7 @@ function start() {
 
     // the switch follows where you actually are
     document.querySelectorAll('.tsw').forEach(b =>
-      b.classList.toggle('on', (b.dataset.track === 'made') === !it.real));
+      b.classList.toggle('on', b.dataset.track === trackOf(it)));
 
     // Nura goes quiet on a new object and glances over at it
     if (cameo) cameo.hidden = true;
@@ -2300,7 +2303,9 @@ function start() {
       const fr = xrCurrent();
       if (fr && fr.loaded && canGoInside(fr.it)) items.push({ label: 'Step inside', act: () => xrStepInside(fr) });
     }
-    const firstReal = slots.findIndex(s => s.it.real), firstMade = slots.findIndex(s => !s.it.real);
+    const firstReal = slots.findIndex(s => s.it.real), firstMade = slots.findIndex(s => trackOf(s.it) === 'made');
+    const firstClass = slots.findIndex(s => s.it.cls);
+    if (firstClass >= 0) items.push({ label: 'Your class', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstClass; } });
     if (firstReal >= 0) items.push({ label: 'Scanned in Tunisia', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstReal; } });
     if (firstMade >= 0) items.push({ label: 'Made by volunteers', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstMade; } });
     Array.from(new Set(CFG.items.map(i => i.artist).filter(Boolean))).forEach(m =>
@@ -2880,7 +2885,7 @@ function start() {
     const device = /OculusBrowser|Quest|Pico|VisionOS|Vision Pro/i.test(ua) ? 'headset'
       : /Mobi|Android|iPhone|iPad/i.test(ua) ? 'phone' : 'desktop';
     tx('explore_open', { device });
-    if (wanted && !wanted.startsWith('saved=') && !/^tour/.test(wanted)) tx('share_landing', { object: wanted });
+    if (wanted && wanted !== 'class' && !wanted.startsWith('saved=') && !/^tour/.test(wanted)) tx('share_landing', { object: wanted });
     if (wanted.startsWith('saved=')) tx('share_landing', { object: 'saved-collection' });
     if (TOUR_ON) tx('tour_start');
     // minutes spent, as milestones (reliable, unlike a beacon at exit); the clock pauses in another tab
@@ -2909,6 +2914,8 @@ function start() {
       if (tray) tray.hidden = false;
       goTo(list[0]);
     }
+  } else if (wanted === 'class') {                // explore/#class: straight to the class's scans
+    jumpTo(it => it.cls);
   } else if (wanted) {
     const i = slots.findIndex(x => x.it.slug === wanted);
     if (i >= 0 && sections[i]) {

@@ -5539,6 +5539,7 @@ def build_walk():
                                     f'museum{", by " + m["by"] if m.get("by") else ""}.'))),
                           "dims": [d["w"], d["h"], d["d"]] if (d and measured) else None,
                           "real": measured,
+                          **({"cls": True} if m.get("cls") else {}),
                           **({"rotate": ov["rotate"]} if ov.get("rotate") else {}),
                           **({"tilt": ov["tilt"]} if "tilt" in ov else {})})
             shutil.copy(os.path.join(models_dir, m["file_slug"] + ".glb"),
@@ -5578,6 +5579,7 @@ def build_walk():
         print("  ! walk: no models, run tools/pull_sketchfab_models.py")
 
     rooms = blocks.count('class="warea"')
+    n_cls = sum(1 for i in items if i.get("cls"))      # scans sent in during a class, for the "Your class" switch
     # nuraYaw turns the character to face the viewer; adjust here if she ends up backwards
     music = None
     if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
@@ -5656,7 +5658,8 @@ def build_walk():
 
 <div id="track-switch">
 <button class="tsw on" data-track="scans" aria-pressed="true">Scanned in Tunisia <b>{sum(1 for i in items if i.get("real"))}</b></button>
-<button class="tsw" data-track="made" aria-pressed="false">Made by volunteers <b>{sum(1 for i in items if not i.get("real"))}</b></button>
+<button class="tsw" data-track="made" aria-pressed="false">Made by volunteers <b>{sum(1 for i in items if not i.get("real") and not i.get("cls"))}</b></button>
+{f'<button class="tsw" data-track="class" aria-pressed="false">Your class <b>{n_cls}</b></button>' if n_cls else ""}
 </div>
 
 <button id="map-toggle" title="See the whole collection at a glance">
@@ -5672,6 +5675,7 @@ Sound</button>
 <div id="more-sheet" hidden>
 <button class="ms-track" data-track="scans">Scanned in Tunisia</button>
 <button class="ms-track" data-track="made">Made by volunteers</button>
+{'<button class="ms-track" data-track="class">Your class</button>' if n_cls else ""}
 <button class="ms-act" data-for="scan-entry">How to scan</button>
 <button class="ms-act" data-for="map-toggle">Map of everything</button>
 <button class="ms-act ms-sound" data-for="sound-toggle">Sound</button>
@@ -5834,6 +5838,16 @@ built separately by Patrick, Cam and the team, and every object here will hang i
                      f'<meta http-equiv="refresh" content="0;url={_dest}">'
                      f'<script>location.replace("{_dest}" + location.search + location.hash)</script>'
                      f'</head><body><p>Moved: <a href="{_dest}">tanitxr.org/explore</a></p></body></html>')
+    # tanitxr.org/class: short enough to type in a headset. Opens Explore in classroom mode
+    # (no donate asks) on the first scan the class sent in, or at the start if there are none yet.
+    _d = os.path.join(DOCS, "class")
+    os.makedirs(_d, exist_ok=True)
+    with open(os.path.join(_d, "index.html"), "w", encoding="utf-8") as _f:
+        _f.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+                 '<title>Your class scans \u2013 TANIT XR</title><meta name="robots" content="noindex">'
+                 '<meta http-equiv="refresh" content="0;url=/explore/?class=1#class">'
+                 '<script>location.replace("/explore/?class=1#class")</script>'
+                 '</head><body><p><a href="/explore/?class=1#class">Your class scans on Explore</a></p></body></html>')
 
 
 # ---------------------------------------------------------------- galleries
@@ -8391,8 +8405,9 @@ def build_drop():
 <li><b>Name the file.</b> <code>YourFirstName_ObjectName.glb</code>, for example <code>Maya_CoffeeMug.glb</code>. That is how your name and the object's name appear on the site.</li>
 <li><b>Upload it.</b> Tap the button, or scan the code, and add the file to the folder. Signed in to any Google account is enough. On an iPhone you can also AirDrop it to Ines.</li>
 </ol>
-<p><a class="btn btn-gold" href="{esc(link)}" target="_blank" rel="noopener" style="font-size:16px;padding:14px 30px">Upload my scan</a></p>
-<p class="fhint">A few minutes later your scan is in its own room at the end of <a href="explore.html">Explore in 3D</a>, ready for the headset. Files up to about 150 MB are fine, the site shrinks them.</p>
+<p><a class="btn btn-gold" href="{esc(link)}" target="_blank" rel="noopener" style="font-size:16px;padding:14px 30px">Upload my scan</a>
+&nbsp; <a class="btn btn-line" href="/class/" style="font-size:16px;padding:14px 30px">See the class scans</a></p>
+<p class="fhint">A few minutes later your scan is on <a href="/class/">tanitxr.org/class</a>, ready for the headset. Reload the page to see new ones. Files up to about 150 MB are fine, the site shrinks them.</p>
 </div>
 <div class="dropqr-box">{qr}<p class="fhint center" style="margin-top:10px">Scan to open the upload folder</p></div>
 </div>
