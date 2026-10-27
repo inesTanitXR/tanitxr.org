@@ -75,6 +75,7 @@ def pretty(s):
 def parse_name(path):
     """Maya_CoffeeMug.glb -> ("Maya", "Coffee Mug"). No underscore: no name, the whole thing is the title."""
     base = os.path.splitext(os.path.basename(path))[0]
+    base = re.sub(r"(\.glb)+$", "", base, flags=re.I)  # Maya_Mug.glb.glb, when the phone adds its own extension
     base = re.sub(r"\s*\(\d+\)$", "", base)          # "Maya_Mug (2).glb" from a second download
     if "_" in base:
         by, title = base.split("_", 1)
@@ -261,13 +262,16 @@ def watch(push=True, every=20):
     log("watching " + ", ".join(folders))
     log(f"preview on this network: http://{ip}:8737/explore/   (python3 -m http.server 8737 --directory docs --bind 0.0.0.0)")
     log("Ctrl-C to stop. Files already here are left alone; only new ones go up.")
-    # anything already in the folders at start is not from this class
+    # anything already in the folders at start is not from this class, except what arrived while a
+    # previous run was stopped (a restart mid-class must not swallow a scan)
+    since = state.get("last_loop", 0)
     for f in folders:
         for fn in os.listdir(f):
-            if fn.lower().endswith(".glb"):
-                state["done"].setdefault(os.path.join(f, fn), "present at start")
+            p = os.path.join(f, fn)
+            if fn.lower().endswith(".glb") and os.path.getmtime(p) < since - 60 or (fn.lower().endswith(".glb") and not since):
+                state["done"].setdefault(p, "present at start")
     fid, drive_into = drive_folder_id(), folders[0]
-    if fid:
+    if fid and "drive" not in state:          # first run only; after that every unseen Drive file is new
         try:
             for i, n in drive_list(fid):        # already in the Drive folder: not from this class
                 state.setdefault("drive", {}).setdefault(i, "present at start")
@@ -310,6 +314,8 @@ def watch(push=True, every=20):
                     log(f"  !! {fn}: {e}")
                     state["done"][p] = "failed: " + str(e)[:120]
                 save(STATE_PATH, state)
+        state["last_loop"] = time.time()
+        save(STATE_PATH, state)
         time.sleep(every)
 
 

@@ -30,11 +30,19 @@
   },
   {
    "slug": "class-chloe-washington-glb",
-   "title": "Washington Glb",
+   "title": "Washington",
    "by": "Chloe",
    "date": "2026-10-27T14:44",
    "source": "Chloe_Washington.glb.glb",
    "bytes": 494644
+  },
+  {
+   "slug": "class-libbie-car",
+   "title": "Car",
+   "by": "Libbie",
+   "date": "2026-10-27T14:45",
+   "source": "Libbie_car.glb.glb",
+   "bytes": 851844
   }
  ]
 }
