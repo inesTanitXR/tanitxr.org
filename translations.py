@@ -2298,6 +2298,12 @@ FR = {
     'Scanned by students in class': 'Numérisé par des élèves en classe',
     'Your class': 'Votre classe',
     'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee, automne 2026',
+
+    # ---- added 2026-10-28: pages that were still English ----
+    'Class scan, 14:09, Scanned in class': 'Scan de classe, 14:09, numérisé en classe',
+    'Sample scan, Scanned in class': 'Scan d’exemple, numérisé en classe',
+    'Washington, Scanned in class': 'Washington, numérisé en classe',
+    'Car, Scanned in class': 'Voiture, numérisée en classe',
 }
 
 
@@ -4565,4 +4571,10 @@ AR = {
     'Scanned by students in class': 'مسح أنجزه الطلاب في الصف',
     'Your class': 'صفّكم',
     'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee، خريف 2026',
+
+    # ---- added 2026-10-28: pages that were still English ----
+    'Class scan, 14:09, Scanned in class': 'مسح الدرس، 14:09، مُسح في الدرس',
+    'Sample scan, Scanned in class': 'مسح تجريبي، مُسح في الدرس',
+    'Washington, Scanned in class': 'واشنطن، مُسحت في الدرس',
+    'Car, Scanned in class': 'سيارة، مُسحت في الدرس',
 }
