@@ -935,6 +935,13 @@
    "status": "added (board as Rolling, edition 22 plan, draft block, Ines's shortlist): Metro Art in Transit open call, DC/MD/VA residents, free, rolling, verified on wmata.com. Moved to done/."
   },
   {
+   "key": "https opportunitytracker ug details php slug fully funded to oxford apply for the weidenfeld hoffmann scholarships and leadership programme 2027 2028 at the university of oxford",
+   "date": "2026-10-28",
+   "source": "note (ADD NEW, added during the Oct 28 run)",
+   "raw": "https://opportunitytracker.ug/details.php?slug=fully-funded-to-oxford-apply-for-the-weidenfeld-hoffmann-scholarships-and-leadership-programme-2027-2028-at-the-university-of-oxford",
+   "status": "skipped: Weidenfeld-Hoffmann Scholarships 2027-28 is a fully funded Oxford graduate degree (course-specific December/January deadlines on ox.ac.uk); degree scholarship, same rule as the HKS Equity Fellowship. Offered to Ines as 'just for me'."
+  },
+  {
    "key": "run 2026-10-28",
    "date": "2026-10-28",
    "source": "run",
