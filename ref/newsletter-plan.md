@@ -107,6 +107,11 @@ _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item cl
 - 🌴 FilmGate Interactive 13, Miami (VR/AR/dome/interactive; $35 regular, $50 late) — Dec 20 / Jan 18 — filmfreeway.com/FilmgateInteractive _(accepted Oct 6; verified Oct 6)_
 
 - 🥽 Immersive X 2026, global XR festival in VR (free; Nov 10-12; partner proposals Oct 31; volunteers rolling) — a short 'worth attending' line, NOT the board — immersive-x.de _(Ines approved it on the hold page Oct 8; block in next-edition-draft.md; attendee invitations showed 'Applications closed' Oct 9, re-check at assembly)_
+## Edition 22 (send Fri Nov 6) — items
+_Opened Oct 28. Dec 10 onward goes here (see the edition 21 row of the table for the proposed list)._
+- 🦊 Mozilla Foundation Fellowships 2027 (up to $125,000; any country; free; Creative Advocacy spot for an artist; Wildcard track) — LOI Dec 17, 11:59 pm Pacific — mozillafoundation.org _(Oct 28 sweep, from Ines's screenshot of a LinkedIn post; verified on the official call page in the browser Oct 28)_ 👤
+- 🚇 Metro Art in Transit Open Call (DC, Maryland, Virginia residents; free; rolling; digital screen pieces welcome) — rolling — wmata.com/initiatives/art-in-transit _(Oct 28 sweep, from Ines's Instagram share of an Arts Fairfax post; verified on wmata.com Oct 28; local, so keep it to one block)_ 👤
+
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
 - Gerda Henkel Patrimonies (Africa; documentation + conservation) ★ Tanit via Tunisian team

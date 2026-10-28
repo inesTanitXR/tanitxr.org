@@ -1748,6 +1748,37 @@
    "url": "https://filmfreeway.com/FulldomeFestivalmvd",
    "published": "2026-10-26",
    "desc": "Fulldome festival in Montevideo, Uruguay, April 8 to 11, 2027, open to artists and collectives worldwide with no age limit. Works must be in fulldome format (1:1 domemaster), up to 12 minutes, finished after 2021; AI-made content must be declared. Submission is free on FilmFreeway with the code FDFM2027; deadline December 19, 2026, results January 10, 2027."
+  },
+  {
+   "title": "Mozilla Foundation Fellowships 2027",
+   "type": "Fellowship",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Open to all",
+    "Artists",
+    "Researchers",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-12-17",
+   "deadline_type": null,
+   "url": "https://www.mozillafoundation.org/en/what-we-do/grantmaking/fellowship/2027-call-for-applications/",
+   "published": "2026-10-28",
+   "desc": "Ten 12-month fellowships for 2027-28 for people building alternatives in technology: up to $125,000 on the Independent track ($100,000 stipend plus $25,000 project budget) or $100,000 on the Embedded track with a host organization. One Independent spot is reserved for an artist-provocateur (Creative Advocacy), and work outside the focus areas can apply as a Wildcard. Letters of Intent close December 17, 2026, 11:59 pm Pacific; fellowships start June 1, 2027."
+  },
+  {
+   "title": "Metro Art in Transit Open Call for Artwork (Washington, DC area)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "North America",
+   "eligibility": [
+    "Artists"
+   ],
+   "deadline_date": null,
+   "deadline_type": "Rolling",
+   "url": "https://www.wmata.com/initiatives/art-in-transit/art-in-transit-open-call-for-artwork.html",
+   "published": "2026-10-28",
+   "desc": "Washington Metro is building a pool of artists for temporary public art across the transit system: construction-wall art, 20-second digital screen pieces, station installations and community events. Open to artists 18+ living in DC, Maryland or Virginia; free to submit, rolling. Selected artists are paid from a project budget set by Metro."
   }
  ],
  "featured": {

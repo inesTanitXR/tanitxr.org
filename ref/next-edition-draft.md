@@ -534,6 +534,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Immersive X (run by vm-people, Berlin) | no LinkedIn page found |
 | TEEEM Foundation | linkedin.com/company/teeemglobal (linked from teeem.org) |
 | MIT Museum | no LinkedIn page found (the museum site links only Facebook and Instagram, @mitmuseum) |
+| Mozilla Foundation | linkedin.com/company/mozilla-corporation (the only LinkedIn link in mozillafoundation.org's footer) |
+| Washington Metro (WMATA) | no LinkedIn page found (not linked from wmata.com; linkedin.com/company/wmata is reported by directories only, check before tagging) |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -595,3 +597,27 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Fulldome works only (1:1 domemaster), up to 12 minutes, finished after 2021; AI-made content must be declared. Several entries allowed.
 
 👉 https://tanitxr.org/go/fulldome-festival-montevideo-2027/?ref=nl22
+
+### 🦊 Mozilla Foundation Fellowships 2027
+
+📅 Deadline: Letter of Intent by December 17, 2026, 11:59 pm Pacific (full application by invitation, March 12, 2027)
+
+📍 Remote, 12 months from June 1, 2027
+
+👥 Anyone, any country. Free. One spot is reserved for an artist-provocateur (Creative Advocacy), and work outside the focus areas can apply as a Wildcard
+
+✏️ Ten fellowships. Independent track: $125,000 ($100,000 stipend + $25,000 project budget). Embedded track with a host organization: $100,000. They ask for links to something they can open: a repo, a demo, a performance.
+
+👉 https://www.mozillafoundation.org/en/what-we-do/grantmaking/fellowship/2027-call-for-applications/
+
+### 🚇 Metro Art in Transit Open Call (Washington, DC area)
+
+📅 Deadline: rolling
+
+📍 DC, Maryland and Virginia, across the Metro system
+
+👥 Artists 18+ living in DC, Maryland or Virginia, any career stage. Free to submit
+
+✏️ Metro is building a pool of artists for temporary public art: construction-wall prints, 20-second digital screen pieces, station installations and community events. Selected artists quote their fee and are paid from a project budget.
+
+👉 https://www.wmata.com/initiatives/art-in-transit/art-in-transit-open-call-for-artwork.html

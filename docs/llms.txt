@@ -7,7 +7,7 @@
 > Innovation, a US 501(c)(3). Founded and led by Ines Said.
 
 Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
-to https://tanitxr.org/. Last updated 2026-10-27.
+to https://tanitxr.org/. Last updated 2026-10-28.
 
 ## What people usually want
 
@@ -80,7 +80,7 @@ How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, 
 - [Tunisia & America, Learning Together](https://tanitxr.org/dc/): Friday 23 October 2026 at the Embassy of Tunisia in Washington, DC, with Tanit XR and TAYP: Ines Said on the story of the project, Dr. Caroline Nickerson on her time in Tunisia, and the collection in VR for the guests.
 - [Add your scan](https://tanitxr.org/drop/): Send your Scaniverse scan and see it on tanitxr.org/explore, in VR, a few minutes later.
 - [El Jem Conference](https://tanitxr.org/el-jem-conference/): Our El Jem conference paper, in English, French and Tunisian Arabic: how digital documentation, XR and citizen science support community-led heritage preservation in Tunisia and beyond.
-- [Explore in 3D](https://tanitxr.org/explore/): Tunisia's heritage in your hands: 70 objects scanned and modelled by volunteers. Turn them, meet Nura, save and share them, in your browser or a headset.
+- [Explore in 3D](https://tanitxr.org/explore/): Tunisia's heritage in your hands: 74 objects scanned and modelled by volunteers. Turn them, meet Nura, save and share them, in your browser or a headset.
 - [Galleries](https://tanitxr.org/galleries/): Five halls of Tunisian heritage scanned by Tanit XR volunteers. Turn every object in 3D, from Punic stelae at Carthage to Ottoman tilework in Kairouan.
 - [ImmerseGT 2026](https://tanitxr.org/immersegt-2026/): Tanit XR sponsored a heritage track and a prize at ImmerseGT, the XR hackathon at Georgia Tech, with a workshop on citizen science and XR by Dr. Caroline Nickerson.
 - [Impact in numbers](https://tanitxr.org/impact/): What Tanit XR has done so far, in numbers with a source and a date: 3D models published, sites documented, volunteers, reach, and what the browser Collection counts.

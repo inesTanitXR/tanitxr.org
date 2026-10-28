@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-27",
+ "built": "2026-10-28",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -2644,6 +2644,39 @@
    "deadline_type": null,
    "deadline_date": "December 19, 2026",
    "url": "https://filmfreeway.com/FulldomeFestivalmvd"
+  },
+  {
+   "slug": "mozilla-foundation-fellowships-2027",
+   "title": "Mozilla Foundation Fellowships 2027",
+   "desc": "Ten 12-month fellowships for 2027-28 for people building alternatives in technology: up to $125,000 on the Independent track ($100,000 stipend plus $25,000 project budget) or $100,000 on the Embedded track with a host organization. One Independent spot is reserved for an artist-provocateur (Creative Advocacy), and work outside the focus areas can apply as a Wildcard. Letters of Intent close December 17, 2026, 11:59 pm Pacific; fellowships start June 1, 2027.",
+   "type": "Fellowship",
+   "eligibility": [
+    "Open to all",
+    "Artists",
+    "Researchers",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "December 17, 2026",
+   "url": "https://www.mozillafoundation.org/en/what-we-do/grantmaking/fellowship/2027-call-for-applications/"
+  },
+  {
+   "slug": "metro-art-in-transit-open-call-for-artwork-washington-dc-are",
+   "title": "Metro Art in Transit Open Call for Artwork (Washington, DC area)",
+   "desc": "Washington Metro is building a pool of artists for temporary public art across the transit system: construction-wall art, 20-second digital screen pieces, station installations and community events. Open to artists 18+ living in DC, Maryland or Virginia; free to submit, rolling. Selected artists are paid from a project budget set by Metro.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": "Rolling",
+   "deadline_date": null,
+   "url": "https://www.wmata.com/initiatives/art-in-transit/art-in-transit-open-call-for-artwork.html"
   }
  ]
 }
