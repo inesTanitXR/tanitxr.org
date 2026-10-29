@@ -16,7 +16,7 @@ https://tanitxr.goatcounter.com/user/api with "Read statistics" ticked. Nothing 
 GoatCounter or anywhere else except the optional report file. --grant also reads public model
 statistics from the Sketchfab API (no token needed).
 """
-import argparse, datetime as dt, json, os, re, sys, urllib.parse, urllib.request
+import argparse, datetime as dt, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from collections import Counter, defaultdict
 
 ap = argparse.ArgumentParser()
@@ -43,8 +43,16 @@ base = f"https://{a.code}.goatcounter.com/api/v0/"
 def get(path, **q):
     url = base + path + ("?" + urllib.parse.urlencode(q, doseq=True) if q else "")
     req = urllib.request.Request(url, headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    # GoatCounter now and then answers a valid request with 404, 429 or a 5xx; the same call works
+    # seconds later (seen 2026-10-29 on stats/total), so retry a few times before giving up.
+    for wait in (2, 5, 15, 30, None):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if wait is None or e.code not in (404, 429, 500, 502, 503, 504):
+                raise
+            time.sleep(int(e.headers.get("Retry-After") or wait) if e.code == 429 else wait)
 
 
 TRUNCATED = [False]
@@ -306,7 +314,9 @@ elif a.months:
     P(f"# tanitxr.org, month by month\n")
     P("| Month | Page views | Actions | Opportunities page | Explore in 3D | Objects viewed | Saved | Shared | VR or AR | Sign-ups | Donate clicks |")
     P("|---|---|---|---|---|---|---|---|---|---|---|")
-    m = (today.replace(day=1) - dt.timedelta(days=31 * (a.months - 1))).replace(day=1)
+    m = today.replace(day=1)
+    for _ in range(a.months - 1):
+        m = (m - dt.timedelta(days=1)).replace(day=1)
     while m <= today:
         nxt = (m.replace(day=28) + dt.timedelta(days=4)).replace(day=1)
         end = min(nxt - dt.timedelta(days=1), today)
