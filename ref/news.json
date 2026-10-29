@@ -1,5 +1,17 @@
 [
  {
+  "slug": "tanit-xr-in-a-washington-and-lee-classroom",
+  "title": "Tanit XR in a Washington and Lee classroom",
+  "date": "2026-10-27",
+  "cats": [
+   "News"
+  ],
+  "sketchfab": null,
+  "text": "On 27 October 2026 Ines Said was the guest speaker in BUS 3835, Technology and Transformation of the Arts, at Washington and Lee University. The students learned how phone scanning works, scanned objects in class and on campus, and saw their own scans in VR a few minutes later.",
+  "content": "<p>On Tuesday 27 October 2026, Tanit XR spent a class period at Washington and Lee University in Lexington, Virginia. Ines Said was the guest speaker in BUS 3835, Technology and Transformation of the Arts, at the Williams School, at the invitation of Professor Soo Yon Ryu.</p>\n<img src=\"wl-class-talk.jpg\" alt=\"Ines Said speaking in front of two screens showing a slide titled VR, AR and XR, students taking notes at their desks\">\n<p>The class started with the basics: what VR, AR and XR are, and how photogrammetry turns a set of phone photos into a 3D object. Then the story of Tanit XR, from scanning Carthage with a phone to Storm Harry, when the sea exposed new parts of Neapolis and volunteers went out within days to record them before they were lost.</p>\n<img src=\"wl-class-scanning.jpg\" alt=\"Students around the classroom scanning objects on their desks with their phones\">\n<p>Then it was the students' turn. Everyone opened Scaniverse and scanned something: a tumbler, a water bottle, a sign outside the building. A few took their phones out onto the campus.</p>\n<img src=\"wl-class-campus-scan.jpg\" alt=\"A student on the Washington and Lee campus holding up a phone to scan a brick building\">\n<p>They sent their files through <a href=\"https://tanitxr.org/drop\">tanitxr.org/drop</a>, and a few minutes later each scan was in its own room on Explore in 3D, next to the objects our volunteers scanned in Tunisia. Then the headset went round the room, so the students could walk around their own scans in VR and visit Neapolis after the storm.</p>\n<img src=\"wl-class-student-vr.jpg\" alt=\"A student wearing a VR headset with Ines Said beside her, a slide about Storm Harry and Neapolis on the screen\">\n<p>Thank you to Professor Soo Yon Ryu for having us, and to the class for their questions and their scans. The class room is still on the site: <a href=\"https://tanitxr.org/class\">tanitxr.org/class</a>. If you teach and would like a session like this, write to <a href=\"mailto:info@tanitxr.org\">info@tanitxr.org</a>.</p>\n<img src=\"wl-class-ines-vr.jpg\" alt=\"Ines Said in a VR headset in front of the Storm Harry slide\">",
+  "img": "wl-class-talk.jpg"
+ },
+ {
   "slug": "an-evening-at-the-embassy-of-tunisia",
   "title": "An evening at the Embassy of Tunisia",
   "date": "2026-10-23",

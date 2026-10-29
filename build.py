@@ -4941,6 +4941,19 @@ EVENTS = [
               "with Tanit XR and her time in Tunisia, and guests stood inside the collection in VR.",
      "past_links": [("Read about the evening", "news/an-evening-at-the-embassy-of-tunisia.html"),
                     ("The event page", "dc.html")]},
+    {"date": "2026-10-27", "when": "Tuesday, October 27",
+     "start": "2026-10-27", "end": "2026-10-27",
+     "city": "Lexington", "region": "VA", "country": "US",
+     "img": "wl-class-talk.jpg", "announced": "2026-10-27",
+     "title": "A class at Washington and Lee University",
+     "where": "Williams School, Washington and Lee University, Lexington, VA",
+     "desc": "A guest session in BUS 3835, Technology and Transformation of the Arts.",
+     "links": [("Read about the class", "news/tanit-xr-in-a-washington-and-lee-classroom.html")],
+     "recap": "A guest session in BUS 3835, Technology and Transformation of the Arts. The students "
+              "scanned objects in class and on campus with their phones, and saw their own scans in "
+              "VR a few minutes later, next to the Tanit XR collection.",
+     "past_links": [("Read about the class", "news/tanit-xr-in-a-washington-and-lee-classroom.html"),
+                    ("The class room on Explore", "class/")]},
 ]
 
 
