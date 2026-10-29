@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-10-28",
+ "built": "2026-10-29",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -2106,7 +2106,7 @@
   {
    "slug": "acm-chi-2027-digital-experience-competition",
    "title": "ACM CHI 2027 Digital Experience Competition",
-   "desc": "Build an open-source app or tool that improves the attendee experience at ACM CHI 2027, submitting a working prototype, a walkthrough video of up to five minutes and a public repository. Accepted teams demo at CHI in Pittsburgh, May 10 to 14, 2027. Free to enter; prize amounts and travel support are not stated.",
+   "desc": "Build an open-source app or tool that improves the attendee experience at ACM CHI 2027, submitting a working prototype, a walkthrough video of up to five minutes and a public repository. Accepted teams demo at CHI in Pittsburgh, May 10 to 14, 2027. Free to enter; prize amounts and travel support are not stated. On October 29 the page listed December 4 (AoE) for prototypes but also said the prototype deadline had passed; check before you start.",
    "type": "Challenge",
    "eligibility": [
     "Open to all",
@@ -2334,7 +2334,7 @@
   {
    "slug": "swarovski-foundation-creatives-for-our-future-2027",
    "title": "Swarovski Foundation, Creatives for Our Future 2027",
-   "desc": "Grant program for creatives aged 21 to 30 from any country whose projects advance the UN Sustainable Development Goals, run with the UN Office for Partnerships. Selected participants receive EUR 20,000, one-on-one mentorship, online masterclasses and a trip to an in-person event in London; the cohort is notified in April 2027 and the program runs fall 2027 to September 2028. Free to apply. Deadline November 9, 2026, 11:59 pm GMT.",
+   "desc": "Grant program for creatives aged 21 to 30 from any country whose projects advance the UN Sustainable Development Goals, run with the UN Office for Partnerships. Selected participants receive EUR 20,000, one-on-one mentorship, online masterclasses and a trip to an in-person event in London; the cohort is notified in April 2027 and the program runs fall 2027 to September 2028. Free to apply. Deadline November 9, 2026, 11:59 pm GMT. The page gives both 11:59 pm GMT and 11:59 pm BST on November 9, so submit by the earlier one.",
    "type": "Grant",
    "eligibility": [
     "Youth",
@@ -2479,7 +2479,7 @@
    "mode": "Remote",
    "deadline_type": null,
    "deadline_date": "November 1, 2026",
-   "url": "https://www.archaeological.org/grant/site-preservation/"
+   "url": "https://archaeological.org/grant/site-preservation"
   },
   {
    "slug": "mit-solve-2027-global-learning-challenge",
@@ -2550,7 +2550,7 @@
   {
    "slug": "changemakers-for-youth-2027-changemakerxchange",
    "title": "Changemakers for Youth 2027 (ChangemakerXchange)",
-   "desc": "Three-year programme for 80 young changemakers aged 18 to 35 who live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany and hold a leadership role in a youth-focused social or environmental venture. Online capacity building, a five-day summit in the region in mid-March 2027 with lodging and meals covered, seed funding for cross-border projects. Free to apply; applications close November 9, 2026.",
+   "desc": "Three-year programme for 80 young changemakers aged 18 to 35 who live and work in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Germany (German applicants with a project that has impact in Eastern Germany) and hold a leadership role in a youth-focused social or environmental venture. Online capacity building, a five-day summit in the region in mid-March 2027 with lodging and meals covered, seed funding for cross-border projects. Free to apply; applications close November 9, 2026.",
    "type": "Program",
    "eligibility": [
     "Youth",
