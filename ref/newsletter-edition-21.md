@@ -1,20 +1,20 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 21
 
-*Assembled Thu Oct 29, 2026 for Fri Oct 30. Every deadline was checked at the organiser's page on Oct 29. Changes from the plan: Immersive X left out (attendee invitations show "Applications closed"; only partner agreements stay open to Oct 31). Matsu Biennial left out (closes Oct 30, 5 am ET, before this goes out). Mozilla Fellowships pulled forward from edition 22. Sony, FilmGate, ACM DIS, Creativity & Cognition and Aion (December 10 onward) moved to edition 22. Items that already had a full block in editions 18 to 20 are one line under Still open. Bogliasco's site was down all day Oct 29, so its date and fee come from the foundation's own pages as indexed by search. CHI's page contradicts itself (December 4 prototypes, and "the prototype deadline has passed"), so it carries a caveat.*
+*Assembled Thu Oct 29, 2026, posted the same day. Trimmed Oct 29 at Ines's request to deadlines within about a month: Mozilla (Dec 17), Raindance (Dec 7), CURRENTS (Dec 8), Games for Change and XR Women Museum (no deadline) moved to edition 22, and Still open lines from Dec 2 on were dropped (they stay on the board). Every deadline was checked at the organiser's page on Oct 29. Changes from the plan: Immersive X left out (attendee invitations show "Applications closed"; only partner agreements stay open to Oct 31). Matsu Biennial left out (closes Oct 30, 5 am ET, before this goes out). Mozilla Fellowships pulled forward from edition 22. Sony, FilmGate, ACM DIS, Creativity & Cognition and Aion (December 10 onward) moved to edition 22. Items that already had a full block in editions 18 to 20 are one line under Still open. Bogliasco's site was down all day Oct 29, so its date and fee come from the foundation's own pages as indexed by search. CHI's page contradicts itself (December 4 prototypes, and "the prototype deadline has passed"), so it carries a caveat.*
 
 ---
 
 Hi everyone 👋
 
-Deadlines from Nov 1 to Dec 17, only things I'd apply to myself, and a section at the end for Tunisians and North Africans.
+This edition only has deadlines in the next few weeks, from Oct 30 to Dec 1, with a section at the end for Tunisians and North Africans.
 
-Several calls from the last edition close this weekend, so check the Still open list first.
+A lot more opportunities, including ones that close later, are on tanitxr.org/opportunities, and that page is updated every day.
 
 ## 🔥 HIGHLIGHTS
 
 - 🏛 AIA Site Preservation Grant, up to $15,000 for a threatened archaeological site. Deadline Nov 1
 - 📝 National Geographic, The Human Thread, storytelling grants on human cultures. Deadline Dec 1
-- 🦊 Mozilla Foundation Fellowships, up to $125,000, one spot for an artist. Deadline Dec 17
+- 🇹🇳 Changemakers for Youth, a three-year programme for youth-focused changemakers aged 18 to 35. Deadline Nov 9
 
 ───────────────────────────────────────
 
@@ -34,7 +34,7 @@ Several calls from the last edition close this weekend, so check the Still open 
 
 ───────────────────────────────────────
 
-## 💰 GRANTS & FELLOWSHIPS
+## 💰 GRANTS
 
 ### 📝 National Geographic Society, The Human Thread RFP
 
@@ -48,21 +48,9 @@ Several calls from the last edition close this weekend, so check the Still open 
 
 👉 https://tanitxr.org/go/national-geographic-society-the-human-thread-rfp/?ref=nl21
 
-### 🦊 Mozilla Foundation Fellowships 2027
-
-📅 Deadline: Letter of Intent by December 17, 2026, 11:59 pm Pacific (full application by invitation, March 12, 2027)
-
-📍 Remote, 12 months from June 1, 2027
-
-👥 Anyone can apply directly. Free. One spot is reserved for an artist (Creative Advocacy), and work outside the focus areas can apply as a Wildcard
-
-✏️ Ten fellowships. Independent track: $125,000 ($100,000 stipend plus a $25,000 project budget). Embedded track with a host organisation: $100,000. They ask for links to something they can open: a repo, a demo, a performance.
-
-👉 https://tanitxr.org/go/mozilla-foundation-fellowships-2027/?ref=nl21
-
 ───────────────────────────────────────
 
-## 🎨 IMMERSIVE ART & RESIDENCIES
+## 🎨 RESIDENCIES
 
 ### 🎨 Bogliasco Foundation Fellowship, Fall 2027
 
@@ -75,58 +63,6 @@ Several calls from the last edition close this weekend, so check the Still open 
 ✏️ Full room and board and a work space. Travel, materials and personal expenses are yours.
 
 👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl21
-
-### 🎬 Raindance Film Festival 2027, Immersive
-
-📅 Deadline: early December 7, 2026 (GBP 38) · regular January 18, 2027 (GBP 49) · late March 8, 2027 (GBP 66)
-
-📍 London, June 16 to 25, 2027; submissions through FilmFreeway
-
-👥 Open to all. Work finished on or after January 1, 2026. Raindance Create members get one free submission a year
-
-✏️ Immersive section for VR, MR, 360° films and social VR worlds. Results May 16, 2027.
-
-👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl21
-
-### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
-
-📅 Deadline: December 8, 2026, 11:59 pm MST
-
-📍 In person, Santa Fe, New Mexico, June 11 to 20, 2027
-
-👥 Artists worldwide; shipping and travel for international artists may not be covered
-
-✏️ New media festival with a category for VR, AR and mixed reality environments, plus installations, audio, robotics, performance and video. $30 for one entry, $25 each for more; hardship waivers on request.
-
-👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl21
-
-───────────────────────────────────────
-
-## 🚀 BUILD & CONTRIBUTE
-
-### 🎮 Games for Change Student Challenge 2026-2027
-
-📅 Sign-ups open; submission deadlines for this cycle not published yet
-
-📍 Remote, worldwide
-
-👥 Young people aged 8 to 25, and educators registering a classroom. Free
-
-✏️ International game design competition. This cycle's themes are "Bounce Back" and "Everyone Belongs Here". Prize categories by age, up to university level.
-
-👉 https://tanitxr.org/go/games-for-change-student-challenge-2026-2027/?ref=nl21
-
-### 🎨 XR Women Museum, Community Garden
-
-📅 No deadline: contributions are accepted on an ongoing basis
-
-📍 Remote, inside the virtual XR Women Museum
-
-👥 Artists and XR creators. Free
-
-✏️ Not a juried call. Send 3D and XR-ready objects, animated or interactive "pollinators", or spatial fragments, and they join a shared XR space that keeps growing. Submissions go through a short form on the museum page.
-
-👉 https://tanitxr.org/go/xr-women-museum-open-call-vibrancy-as-practice/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -154,9 +90,9 @@ Several calls from the last edition close this weekend, so check the Still open 
 
 ## ⏰ STILL OPEN FROM PAST EDITIONS
 
-- 🎨 Art Explora Paris residency, EUR 1,000 a month plus production, closes today, October 30. artexplora.org
-- 🕶 UnitedXR Europe activations, Brussels, free, closes today, October 30. unitedxr.eu/activations
-- 🏆 The Webby Awards, early entry closes today, October 30. webbyawards.com
+- 🎨 Art Explora Paris residency, EUR 1,000 a month plus production, closes October 30. artexplora.org
+- 🕶 UnitedXR Europe activations, Brussels, free, closes October 30. unitedxr.eu/activations
+- 🏆 The Webby Awards, early entry closes October 30. webbyawards.com
 - 💸 Voqal Partners Fellowship, $30,000 unrestricted, US-based, October 31, 11:59 pm ET. voqalpartners.org/fellowship
 - 🧠 MIT Museum BRAIN open calls, $2,500 to $5,000, remote, November 1, 11:59 pm EST. mitmuseum.mit.edu
 - 🥽 One World Prague VR competition, November 1. my.oneworld.cz
@@ -171,15 +107,10 @@ Several calls from the last edition close this weekend, so check the Still open 
 - 🧠 Eyebeam AGENCY NYC residency, $5,000, NYC residents, November 15. eyebeam.org
 - 🕶 Meta VR Start Developer Competition, $1M in prizes, November 18, noon PT. developers.meta.com
 - 🌍 Awesome Foundation climate micro-grants, $1,000, November 27. awesomefoundation.org
-- 🎮 Tribeca 2027 Games, Shorts and Digital Creators, official deadline December 2. tribecafilm.com/festival/submissions
-- 🎤 ACM CHI 2027 Digital Experience Competition, prototypes December 4 AoE (the page also says the prototype deadline has passed, so check first). chi2027.acm.org
-- ✍️ Africa No Filter Kekere Storytellers Fund, up to $3,000, rolling to December 31. africanofilter.org
-- 🪐 Dome Fest West 2027, final deadline January 8. domefestwest.com
-- 🎞 Thessaloniki Doc Fest 2027 Immersive Competition, free, January 8. filmfestival.gr
 
 ───────────────────────────────────────
 
-Everything from this edition and past ones is on tanitxr.org/opportunities?ref=newsletter21, with filters and countdowns. You can subscribe there to get these by email, or send me an opportunity for the next edition.
+Everything from this edition, and a lot more that doesn't fit in a newsletter, is on tanitxr.org/opportunities?ref=newsletter21. That page is updated every day, with filters and countdowns. You can subscribe there to get these by email, or send me an opportunity for the next edition.
 
 If you apply to any of these, tell me. And if you want to help preserve Tunisian heritage with XR and 3D scanning, Tanit XR is always looking for volunteers: ines@tanitxr.org 🌟
 
@@ -192,16 +123,11 @@ Paste from the 🎯 line to the hashtags. The tag table sits under the post for 
 
 🎯 Opportunities for XR creators, artists & impact makers
 
-Edition 21 is out: deadlines from Nov 1 to Dec 17.
+Edition 21 is out: only deadlines in the next few weeks. A lot more are on the website, updated every day.
 
 🔴 Nov 1: AIA Site Preservation Grant, up to $15,000, free
 🟢 Dec 1: National Geographic, The Human Thread, storytelling grants, free
 🟢 Dec 1: Bogliasco Fellowship, a semester in Italy, $30
-🟢 Dec 7: Raindance Immersive, London, early rate GBP 38
-🟢 Dec 8: CURRENTS Santa Fe, VR/AR/MR category, $30
-🟢 Dec 17: Mozilla Fellowships, up to $125,000, one artist spot, free
-🟢 Open: Games for Change Student Challenge, ages 8 to 25, free
-🟢 Open: XR Women Museum Community Garden, free
 
 🇹🇳 For Tunisians & North Africans
 
@@ -224,14 +150,10 @@ Nov 14: NASA Space Apps, local events in Tunisia
 Nov 15: AI Horizons PARMA 360, Eyebeam NYC
 Nov 18: Meta VR Start, $1M in prizes
 Nov 27: Awesome Foundation climate micro-grants
-Dec 2: Tribeca Games, Shorts and Digital Creators
-Dec 4: CHI Digital Experience Competition
-Dec 31: Kekere Storytellers Fund
-Jan 8: Dome Fest West, Thessaloniki Immersive
 
 📬 Get these in your inbox: subscribe on tanitxr.org/opportunities
 
-🔗 You can find all opportunities on the Tanit XR website. The link is in the first comment.
+🔗 Many more opportunities, updated daily, are on the Tanit XR website. The link is in the first comment.
 
 ♻️ Repost to help someone in your network find their next opportunity 🌟
 
@@ -243,12 +165,7 @@ Jan 8: Dome Fest West, Thessaloniki Immersive
 |---|---|
 | Archaeological Institute of America | linkedin.com/company/archaeological-institute-of-america |
 | National Geographic Society | linkedin.com/company/national-geographic-society (linked from nationalgeographic.org) |
-| Mozilla Foundation | linkedin.com/company/mozilla-corporation (the only LinkedIn link in mozillafoundation.org's footer) |
 | Bogliasco Foundation | no LinkedIn page found |
-| Raindance Film Festival | linkedin.com/company/raindance-film-festival (linked from raindance.org) |
-| CURRENTS New Media | linkedin.com/company/currents-new-media |
-| Games for Change | linkedin.com/company/gamesforchange |
-| XR Women | linkedin.com/company/xrwomen |
 | ChangemakerXchange | linkedin.com/company/changemakerxchange (linked from changemakerxchange.org) |
 | Wikimedia Tunisie | no LinkedIn page found |
 | Culture Moves Europe | linkedin.com/company/culture-moves-europe |
@@ -267,8 +184,3 @@ Jan 8: Dome Fest West, Thessaloniki Immersive
 | Eyebeam | linkedin.com/company/eyebeam |
 | Meta for Developers | linkedin.com/showcase/meta-for-developers |
 | Awesome Foundation | linkedin.com/company/awesomefoundation |
-| Tribeca | linkedin.com/company/tribeca-film-festival-nyc-llc |
-| ACM SIGCHI | linkedin.com/company/acm-sigchi |
-| Africa No Filter | linkedin.com/company/africanofilter |
-| Dome Fest West | linkedin.com/company/domefestwest |
-| Thessaloniki International Film Festival | linkedin.com/company/thessaloniki-international-film-festival |

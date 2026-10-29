@@ -80,7 +80,7 @@ _Assembled Oct 7 → ref/newsletter-edition-20.md. The list below is the plannin
 - 🧠 Eyebeam AGENCY Residencies (US-based only; virtual $2,000 / NYC $5,000; free) — virtual Oct 11, NYC Nov 15 — eyebeam.org/articles/agency-residency-open-call _(Ines accepted it on the report page Oct 6; verified at the source Oct 6; closes two days after the send, so put it high)_
 - 🔮 SAT Montréal Dome Production + Research-Creation residencies (CAD 10,000 x3; free) — Oct 18 — sat.qc.ca _(accepted Oct 6; verified Oct 6)_
 
-## Edition 21 (send Fri Oct 30) — items
+## Edition 21 (posted Thu Oct 29) — items
 _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item closing Nov 6 or later moved here (blocks already in next-edition-draft.md unless noted). Dec 10 onward is proposed for edition 22 (Fri Nov 6)._
 - 🎨 EMAP European Media Art Platform residencies 2027 (Tunisia explicitly eligible; verified Oct 7 on call.emare.eu, again Oct 26) — Nov 6, 2 pm CET — call.emare.eu 🇹🇳 _board entry and draft block added Oct 26 (published = Oct 16, the edition 20 reminder line)_
 - 🇹🇳 Changemakers for Youth 2027 (ChangemakerXchange; ages 18–35 living in Tunisia, Egypt, Jordan, Lebanon, Morocco, Palestine, Switzerland or Eastern Germany; free; summit mid-March 2027) — Nov 9 — changemakerxchange.org/changemakers-for-youth _(added by the Oct 17 sweep from Ines's note and LinkedIn screenshot; verified on the official page Oct 17)_
@@ -109,7 +109,12 @@ _Opened Oct 6. On Oct 7, when edition 20 was assembled, every edition-20 item cl
 - 🥽 Immersive X 2026, global XR festival in VR (free; Nov 10-12; partner proposals Oct 31; volunteers rolling) — a short 'worth attending' line, NOT the board — immersive-x.de _(Ines approved it on the hold page Oct 8; block in next-edition-draft.md; attendee invitations showed 'Applications closed' Oct 9, re-check at assembly)_
 ## Edition 22 (send Fri Nov 6) — items
 _Opened Oct 28. Dec 10 onward goes here. On Oct 29, at edition 21 assembly, Mozilla moved into 21 and these moved here from the 21 list: Sony Future Filmmaker (Dec 15), FilmGate Interactive 13 (Dec 20 / Jan 18), ACM DIS 2027 (Jan 11) + Creativity & Cognition 2027 (Jan 19) as ONE ACM SIGCHI block, Aion Digital Art Prize (Mar 1). Also: Fulldome Montevideo (Dec 19), Thessaloniki already had a still-open line, NewImages is on Ines's own list only._
-- ~~🦊 Mozilla Foundation Fellowships 2027 (up to $125,000; any country; free; Creative Advocacy spot for an artist; Wildcard track) — LOI Dec 17, 11:59 pm Pacific — mozillafoundation.org _(Oct 28 sweep, from Ines's screenshot of a LinkedIn post; verified on the official call page in the browser Oct 28)_ 👤 → **moved into edition 21 on Oct 29**
+- 🦊 Mozilla Foundation Fellowships 2027 (up to $125,000; any country; free; Creative Advocacy spot for an artist; Wildcard track) — LOI Dec 17, 11:59 pm Pacific — mozillafoundation.org _(Oct 28 sweep; verified Oct 28. Was pulled into 21 at assembly, then back here on Oct 29 when Ines asked for near deadlines only)_ 👤
+- 🎬 Raindance 2027 Immersive — early Dec 7 (GBP 38), regular Jan 18 — raindance.org _(cut from 21 on Oct 29, far deadline; block in edition-21 history and the draft)_
+- 🎨 CURRENTS 2027 (VR/AR/MR category; $30) — Dec 8 — currentsnewmedia.org _(cut from 21 on Oct 29)_
+- 🎮 Games for Change Student Challenge 2026-2027 (no deadline published) _(cut from 21 on Oct 29; put in once a deadline is announced)_
+- 🎨 XR Women Museum Community Garden (rolling) _(cut from 21 on Oct 29)_
+- Still-open lines dropped from 21 on Oct 29, carry into 22's Still open: Tribeca Dec 2, CHI Dec 4, Kekere Dec 31, Dome Fest West Jan 8, Thessaloniki Jan 8
 - 🚇 Metro Art in Transit Open Call (DC, Maryland, Virginia residents; free; rolling; digital screen pieces welcome) — rolling — wmata.com/initiatives/art-in-transit _(Oct 28 sweep, from Ines's Instagram share of an Arts Fairfax post; verified on wmata.com Oct 28; local, so keep it to one block)_ 👤
 
 ## Rolling (mention once, keep on the board)
@@ -183,3 +188,6 @@ The reader still lands on the organiser's page.
 
 Forwarding pages are never deleted, so links in sent editions keep working after a call closes.
 If an organiser changes a URL, fix it in the board data and every past edition follows.
+
+## Rule from Ines, 2026-10-29
+Only deadlines within about a month go in an edition; later ones wait for a later edition. Every edition says that many more opportunities are on tanitxr.org/opportunities, which is updated every day.
