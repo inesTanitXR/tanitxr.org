@@ -191,3 +191,6 @@ If an organiser changes a URL, fix it in the board data and every past edition f
 
 ## Rule from Ines, 2026-10-29
 Only deadlines within about a month go in an edition; later ones wait for a later edition. Every edition says that many more opportunities are on tanitxr.org/opportunities, which is updated every day.
+
+## Rule from Ines, 2026-10-29 (second)
+Most readers are XR people. An edition leads with XR, immersive and interactive art: the highlights and the body come from those. Heritage calls (site preservation, archaeology, documentation grants) are for Ines only and go on her shortlist, unless the call is for artists. The Tunisia section stays short: one-line entries, no full blocks unless it is an XR or art call. Social-impact and general fellowships are lines, not highlights.
