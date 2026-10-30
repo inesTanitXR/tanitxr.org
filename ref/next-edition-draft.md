@@ -536,6 +536,30 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | MIT Museum | no LinkedIn page found (the museum site links only Facebook and Instagram, @mitmuseum) |
 | Mozilla Foundation | linkedin.com/company/mozilla-corporation (the only LinkedIn link in mozillafoundation.org's footer) |
 | Washington Metro (WMATA) | no LinkedIn page found (not linked from wmata.com; linkedin.com/company/wmata is reported by directories only, check before tagging) |
+| Athens Digital Arts Festival | linkedin.com/company/athens-video-art-festival (page titled Athens Digital Arts Festival; slug is the old name) |
+| Game Developers Conference | linkedin.com/company/game-developers-conference |
+| Institut français | no LinkedIn page found |
+| Arab American National Museum | linkedin.com/company/arab-american-national-museum-aanm |
+| Aspen Institute | linkedin.com/company/the-aspen-institute |
+| Bernheim Arboretum and Research Forest | no LinkedIn page found |
+| CIFRA | linkedin.com/company/cifraworldwide |
+| EMMA Kreativzentrum Pforzheim | linkedin.com/company/emma-kreativzentrum-pforzheim |
+| ADHO (DH2027) | no LinkedIn page found |
+| Brandywine Workshop and Archives | no LinkedIn page found |
+| EQUALS in Tech | linkedin.com/company/equals-in-tech |
+| Snap Inc. / Devpost | no LinkedIn page found |
+| Lloyd Library and Museum | linkedin.com/company/lloyd-library |
+| MASS MoCA | linkedin.com/company/mass-moca |
+| Monte Carlo VR Movies Festival | no LinkedIn page found |
+| Moovy Tanzfilmfestival Köln | no LinkedIn page found |
+| Goethe-Institut | linkedin.com/company/goethe-institut |
+| Processing Foundation | no LinkedIn page found |
+| American Academy in Rome | linkedin.com/company/american-academy-in-rome |
+| TU Dresden | linkedin.com/company/tu-dresden |
+| Salt Road Studio | no LinkedIn page found |
+| Universcience (Cité des sciences) | linkedin.com/company/universcience |
+| Tzkrti | linkedin.com/company/tzkrti-com |
+| Whitley Fund for Nature | no LinkedIn page found |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -621,3 +645,316 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Metro is building a pool of artists for temporary public art: construction-wall prints, 20-second digital screen pieces, station installations and community events. Selected artists quote their fee and are paid from a project budget.
 
 👉 https://www.wmata.com/initiatives/art-in-transit/art-in-transit-open-call-for-artwork.html
+
+<!-- 2026-10-30 sweep: finds Ines accepted on the report page Oct 29. Those closing Oct 30 to Nov 5 close before edition 22 (Nov 6) and are board only. -->
+
+### 🌀 Athens Digital Arts Festival 2027, "It's Alive..." Open Call (AR/VR/XR category)
+
+📅 Deadline: Until November 10 (2026; no time zone stated)
+
+📍 Athens, Greece; dates to be announced
+
+👥 Artists worldwide; free to enter
+
+✏️ Greece's digital arts festival takes AR/VR/XR, games, web art and installations; unfinished VR projects can apply if the design is complete.
+
+👉 https://2027.adaf.gr/ar-vr-xr/
+
+
+### 🎮 alt.ctrl.GDC 2027, Alternative Controller Showcase
+
+📅 Deadline: October 30, 11:59 PM PT
+
+📍 GDC, San Francisco, March 1 to 5, 2027
+
+👥 Any team, free to submit; finalists cover their own travel
+
+✏️ Games played with custom or repurposed controllers. Finalists get a Festival Hall booth and four passes; no honorarium.
+
+👉 https://gdconf.com/alt-ctrl-gdc
+
+
+### 🌍 AOCA 2027, Support for Cultural Operators in Africa (Institut français)
+
+📅 Deadline: October 30, 2026, 23:59 CET
+
+📍 Projects on the African continent, March to December 2027
+
+👥 Cultural organisations based in Africa, including digital creation
+
+✏️ Grants for creation, touring and regional events led by African cultural organisations, digital creation included. A support letter from the French cultural network is required.
+
+👉 https://ifprog.emundus.fr/en/campagne-info?view=programme&cid=339
+
+
+### 🎬 Arab Film Festival 2027, Arab American National Museum
+
+📅 Deadline: December 1, 2026 (extended January 10, 2027)
+
+📍 Dearborn, Michigan and online, May 11 to 16, 2027
+
+👥 Films about the Arab world or Arab Americans. about USD 40 to 65 on FilmFreeway
+
+✏️ Screenings at the festival and in the museum's year-round series. Works in progress accepted.
+
+👉 https://filmfreeway.com/ArabFilmFestivalatAANM
+
+
+### 🏔️ Michael D. Eisner Arts & Culture Fellowship, Class 2 (Aspen Institute)
+
+📅 Deadline: nominations through November 3, 2026
+
+📍 Four week-long seminars, September 2027 to September 2029, at Aspen Meadows, Colorado and other locations
+
+👥 Arts and culture leaders from any country: artists, producers, curators, founders. Third-party nomination only, no self-nomination. Free; tuition, materials and lodging covered, fellows pay travel
+
+✏️ Two-year Aspen Global Leadership Network fellowship for 20 to 22 fellows who want to widen their impact. Nominees must confirm all four seminar dates.
+
+👉 https://www.aspeninstitute.org/programs/eisner-arts-culture-fellowship/nominations/
+
+
+### 🌳 Bernheim Forest Artist in Residence 2027 (Kentucky)
+
+📅 Deadline: Midnight EST, November 30, 2026
+
+📍 Bernheim Arboretum and Research Forest, Clermont, Kentucky, USA (in person)
+
+👥 visual and mixed media artists in any medium, US and international; international artists arrange their own visa; travel not listed as covered. No application fee listed on the official page.
+
+✏️ Four residencies of six to eight weeks in 2027 at Bernheim Arboretum and Research Forest, each with a USD 2,500 stipend, housing and a studio, in exchange for a site-inspired artwork. One of the four is reserved for an artist whose work addresses environmental issues and climate change.
+
+👉 https://bernheim.org/news/call-for-2027-artist-in-residence/
+
+
+### 🖥 CIFRA Open Call: POWER ON/OFF
+
+📅 Deadline: November 1, 23:59 (GST)
+
+📍 Online, winners shown on CIFRA
+
+👥 Media artists, any country, free
+
+✏️ Moving image and screen-native works on how power works today. Six awards of EUR 1,000: five from the jury, one by audience vote.
+
+👉 https://opencall.cifra.com/
+
+
+### 🎨 Designers in Residence Pforzheim 2027 (EMMA Creative Center)
+
+📅 Deadline: November 2, 2026, 11:59 p.m. CET
+
+📍 Pforzheim, Germany; April 1 to June 30, 2027
+
+👥 Design graduates of any nationality, 35 or under or within two years of their last degree; free to apply
+
+✏️ Three scholarships: EUR 1,000 a month, free accommodation, travel reimbursed, material allowance and workshop access, with a closing exhibition. Apply online in English with a portfolio, CV, proof of degree and project sketch.
+
+👉 https://veranstaltungen.emma-pf.de/en/events/designers-in-residence-2027
+
+
+### 🖼️ DH2027, Digital Humanities Conference: Digital Art(s) Track (Galway and online)
+
+📅 Deadline: November 20, 2026, 11:59 PM (AoE)
+
+📍 Galway, Ireland, and online (partly hybrid), June 28 to July 3, 2027
+
+👥 Artists, practitioners and researchers worldwide; free to submit
+
+✏️ The Digital Art(s) Track takes installations, interactive and generative works and critical making, and cultural heritage is one of the themes; remote presentation is planned.
+
+👉 https://dh2027.adho.org/cfp/
+
+
+### 🖨 El Anatsui Visiting Artist Fellowships 2027
+
+📅 Deadline: November 1, 2026
+
+📍 Philadelphia, January 11 to February 12, 2027
+
+👥 African-born artists living in the US. Free
+
+✏️ Printmaking residency at Brandywine Workshop and Archives: USD 20,000 for travel, lodging and food plus a USD 5,000 stipend. Apply by email with one PDF (CV, statement, 8 to 10 images, proof of country of origin).
+
+👉 https://brandywineworkshop.org/el-anatsui-fellowships
+
+
+### 👩‍💻 EQUALS in Tech Awards 2027
+
+📅 Deadline: 7 November 2026, 23:59 CET
+
+📍 Any country (apply online)
+
+👥 Ongoing tech projects for women and girls, any sector
+
+✏️ Global recognition, no cash, for a running project that uses tech to help women and girls (emerging tech, digital skills, safe online spaces). Free to apply.
+
+👉 https://www.equalsintech.org/awards
+
+
+### 👓 Learn AR with SPECS, Devpost Hackathon with Snap
+
+📅 Deadline: November 9, 2026, 5:00 pm ET
+
+📍 Online; live build session October 22 and project review November 5, both 12 pm ET and recorded
+
+👥 Open worldwide (US-sanctioned countries excluded), adults, teams and organisations; free
+
+✏️ Design a new AR Lens for SPECS glasses and let a coding agent build it in Lens Studio; no glasses needed. Submit a public repo, a short description and a YouTube demo under 3 minutes. Prizes USD 1,250, 750 and 500.
+
+👉 https://learn-specs.devpost.com/
+
+
+### 📚 Lloyd Library and Museum Artist-in-Residence 2027
+
+📅 Deadline: November 1, 2026
+
+📍 Cincinnati, Ohio; one to three months between January and December 2027
+
+👥 Professional artists with a BA in art or equivalent experience, any nationality (non-US applicants arrange their own visa); free to apply
+
+✏️ Research-based work in a botanical and medical history library, USD 3,000 a month (USD 2,000 for local artists). Submit a CV, work samples and two letters; finish with artwork, a website or a video and a public talk.
+
+👉 https://lloydlibrary.org/2021-artist-in-residence/
+
+
+### 🏭 Studios at MASS MoCA, July to December 2027
+
+📅 Deadline: November 1, 2026, 11:59 pm EST
+
+📍 North Adams, Massachusetts, 2 or 4 weeks
+
+👥 Visual artists and writers worldwide, any career stage; Tunisia and US eligible; free to apply
+
+✏️ Private studio and housing on the museum campus; digital media, AR, VR, moving image and sound art are listed disciplines USD 0 to 450 a week with financial aid, USD 650 without.
+
+👉 https://massmoca.org/studios/
+
+
+### 🎥 Monte Carlo VR Movies Festival 2027, 360° Short Films
+
+📅 Deadline: 30 November 2026
+
+📍 Monaco, screening event June 2027
+
+👥 Any country, 18+, 360° video up to 20 minutes, minimum 4K; fee not stated on the site, check FilmFreeway
+
+✏️ Best 360° Short Film receives EUR 5,000 pledged toward a new film. Submissions via FilmFreeway, Vimeo or YouTube.
+
+👉 https://www.vrmoviesfestival.com/
+
+
+### 💃 Moovy Tanzfilmfestival Köln 2027, Dance Works for VR, AR and XR
+
+📅 Deadline: 28 February 2027
+
+📍 Cologne, Germany
+
+👥 Makers of dance works created for VR, AR or XR; no country limit stated; fee not stated, check FilmFreeway
+
+✏️ 11th edition of the dance film festival; the call wants choreographies built for immersive formats, not stage recordings. Submit via filmfreeway.com/Moovy.
+
+👉 https://www.moovy-festival.com/for-artists/?lang=en
+
+
+### 🎮 Playful Obscura Arthouse Games Residency 2027 (Addis Ababa)
+
+📅 Deadline: November 1, 2026
+
+📍 Addis Ababa, Ethiopia (in person, January 25 to February 14, 2027)
+
+👥 Artists based in Africa, Tunisia included; free
+
+✏️ Three-week residency for two game and playful-media artists, with flights, housing, a EUR 300 stipend and up to EUR 1,000 production budget. Works are shown at A MAZE. / Berlin 2027.
+
+👉 https://www.goethe.de/ins/za/en/kul/mut/p27.html
+
+
+### 💻 Processing Foundation Fellowship 2027
+
+📅 Deadline: nominations close November 1, 2026, 11:59 PM PST
+
+📍 Remote (US) or hybrid in Los Angeles / New York
+
+👥 US-based artists, engineers and educators; self-nomination OK; free
+
+✏️ $10,000 over eight months to build a community project on p5.js or other Processing Foundation tools. Nominees are invited to send a full proposal by November 23.
+
+👉 https://processingfoundation.org/programs/fellowships/fellowship-2027
+
+
+### 🏛️ Rome Prize 2027-28, American Academy in Rome
+
+📅 Deadline: November 1, 2026 (early); November 2 to 15 with a late fee
+
+📍 Rome, Italy, from September 2027
+
+👥 US citizens (some fields open to 3-year US residents); USD 50 early, USD 80 late
+
+✏️ A stipend of USD 30,000 or USD 16,000 with housing, a workspace and meals in Rome, in fields including visual arts, design and historic preservation.
+
+👉 https://aarome.org/apply/rome-prize
+
+
+### ⚡ Schaufler Residency@TU Dresden 2027: Energy Cultures in Transition
+
+📅 Deadline: November 9, 2026
+
+📍 TU Dresden, Germany, six months from April 2027
+
+👥 International artists and collectives in media art, performance and related fields. Must be in Dresden for six months.
+
+✏️ 3,000 euros net per month for six months, up to 10,000 euros for production, a campus studio and a solo show in autumn 2027. Theme: energy cultures in transition.
+
+👉 https://tu-dresden.de/gsw/der-bereich/news/ausschreibung-der-schaufler-residency-tu-dresden-2027
+
+
+### 🌊 Seto Art Residency 2027, Salt Road Studio (Akō, Japan)
+
+📅 Deadline: April 30, 2027 at 11:59 p.m. Eastern Time
+
+📍 Akō, Hyōgo, Japan; June 6 to 27, 2027
+
+👥 Artists of any nationality and discipline, 18+; USD 25 application fee
+
+✏️ Three artists get round-trip airfare, shared accommodation, studio space, translation support and a USD 1,000 living-cost grant for three weeks on the Seto Inland Sea. Notification May 7, 2027.
+
+👉 https://saltroadstudio.com/apply-for-residency-2027/
+
+
+### 🪐 Sous Dôme Festival #5, Call for 360° Short Films (Cité des sciences, Paris)
+
+📅 Deadline: November 1, 2026, 11:59 pm GMT+1
+
+📍 Planetarium of the Cité des sciences et de l'industrie, Paris; festival April 2 to 4, 2027
+
+👥 Artists or producers from any country, fulldome shorts of 3 to 9 minutes released after January 1, 2023, up to three works each; VR not accepted; free
+
+✏️ Selected films screen in 35-minute dome sessions with a Jury Award and an Audience Award, get a fixed fee of up to EUR 300 and may tour partner planetariums. Submission is by Microsoft Forms with a web link to the film and three visuals.
+
+👉 https://www.cite-sciences.fr/en/planetarium/translate-to-anglais-sous-dome-festival/sous-dome-festival-5-call-for-360-short-films
+
+
+### 🎟 Tzkrti Impact Fund: Two $3,000 Grants for Arab Cultural Projects
+
+📅 Deadline: 1 November 2026
+
+📍 Online application
+
+👥 Independent artists, collectives, organisers and cultural initiatives in the Arab region and its diaspora
+
+✏️ Two $3,000 grants for independent cultural projects, from events and festivals to cultural spaces and community work. Winners announced 1 December 2026.
+
+👉 https://tzkrti.com/en/impact-fund
+
+
+### 🌿 Whitley Awards 2027
+
+📅 Deadline: 30 October 2026, 23:59 GMT
+
+📍 Your own country; ceremony in London, spring 2027
+
+👥 Mid-career conservation leaders working in their own (non-high-income) country, incl. Tunisia; free
+
+✏️ GBP 50,000 over one year for proven, community-based wildlife conservation projects, plus publicity and peer support.
+
+👉 https://whitleyaward.org/apply-for-conservation-funding/apply-for-a-whitley-award/

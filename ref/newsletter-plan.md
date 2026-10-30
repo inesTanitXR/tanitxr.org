@@ -117,6 +117,18 @@ _Opened Oct 28. Dec 10 onward goes here. On Oct 29, at edition 21 assembly, Mozi
 - Still-open lines dropped from 21 on Oct 29, carry into 22's Still open: Tribeca Dec 2, CHI Dec 4, Kekere Dec 31, Dome Fest West Jan 8, Thessaloniki Jan 8
 - 🚇 Metro Art in Transit Open Call (DC, Maryland, Virginia residents; free; rolling; digital screen pieces welcome) — rolling — wmata.com/initiatives/art-in-transit _(Oct 28 sweep, from Ines's Instagram share of an Arts Fairfax post; verified on wmata.com Oct 28; local, so keep it to one block)_ 👤
 
+- _Oct 30 sweep: finds Ines accepted on the report page Oct 29, verified at the source Oct 30, on the board and in the draft. For edition 22 (deadlines Nov 7 to Dec 1):_
+- 👩‍💻 EQUALS in Tech Awards 2027 (recognition, no cash; projects for women and girls; free) — Nov 7, 23:59 CET — equalsintech.org/awards
+- 👓 Learn AR with SPECS, Snap x Devpost hackathon (online; USD 2,500 prizes; free) — Nov 9, 5 pm EST — learn-specs.devpost.com
+- ⚡ Schaufler Residency@TU Dresden 2027 (six months; EUR 3,000/month + EUR 10,000 production; free) — Nov 9 — tu-dresden.de
+- 🌀 Athens Digital Arts Festival 2027, AR/VR/XR category (free) — Nov 10 — 2027.adaf.gr/ar-vr-xr
+- 🏛️ Rome Prize 2027-28 (mostly US citizens; USD 50 early to Nov 1, USD 80 late) — late deadline Nov 15 — aarome.org/apply/rome-prize
+- 🖼️ DH2027 Digital Art(s) Track (Galway + online; free to submit) — Nov 20 AoE — dh2027.adho.org/cfp
+- 🌳 Bernheim Forest Artist in Residence 2027 (USD 2,500 + housing; one slot for climate work) — Nov 30, midnight EST — bernheim.org
+- 🎥 Monte Carlo VR Movies Festival 2027, 360° shorts (fee on FilmFreeway) — Nov 30 — vrmoviesfestival.com
+- 🎬 Arab Film Festival 2027, AANM (USD 40 to 65) — late Dec 1, extended Jan 10 — filmfreeway.com/ArabFilmFestivalatAANM (one line in the Tunisia section)
+- _Board only, close before Nov 6 (accepted Oct 29): alt.ctrl.GDC, AOCA 2027, Whitley Awards (Oct 30); CIFRA, El Anatsui, Lloyd Library, MASS MoCA, Playful Obscura, Processing Foundation, Sous Dôme, Tzkrti, Rome Prize early rate (Nov 1); Pforzheim (Nov 2); Aspen Eisner nominations (Nov 3). Later than a month, for edition 23 or after: Moovy VR/AR/XR dance (Feb 28, 2027), Seto Art Residency (Apr 30, 2027, USD 25). Expired before publishing: BRC Honoraria LOI and IEEE AIxVR demos (both Oct 29)._
+
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
 - Gerda Henkel Patrimonies (Africa; documentation + conservation) ★ Tanit via Tunisian team

@@ -467,8 +467,8 @@
   {
    "slug": "4th-matsu-biennial-open-call-for-international-artists",
    "deadline": "October 30, 2026",
-   "status": "reminded",
-   "reason": "Up to NTD 800,000 (tax included) to make a site-specific or immersive piece on the Matsu Islands, open to artists worldwide, no fee listed. Island heritage (stone houses, Cold War outposts) and ocean ecology are the themes, a natural home for a scan-based heritage work. Deadline verified September 30 on matsubiennial.tw: October 30, 17:00 Taiwan time (5 am ET). The work must be finished by August 10, 2027.",
+   "status": "skipped",
+   "reason": "Up to NTD 800,000 (tax included) to make a site-specific or immersive piece on the Matsu Islands, open to artists worldwide, no fee listed. Island heritage (stone houses, Cold War outposts) and ocean ecology are the themes, a natural home for a scan-based heritage work. Deadline verified September 30 on matsubiennial.tw: October 30, 17:00 Taiwan time (5 am ET). The work must be finished by August 10, 2027. (deadline passed, not applied, per the deadline alarm on 2026-10-30)",
    "added": "2026-09-30",
    "source": "weekly board check (watch list)"
   },
@@ -627,10 +627,10 @@
    "title": "Digital Transitions Cultural Heritage Roundtable 2026 (free, online)",
    "url": "https://www.eventbrite.com/e/digital-transitions-roundtable-2026-day-1-tickets-1995949454548",
    "deadline": "October 29, 2026 (event Oct 29-30, 9 am-3 pm ET; register first)",
-   "status": "reminded",
+   "status": "skipped",
    "added": "2026-10-09",
    "source": "hold queue, Just for me (Oct 8)",
-   "reason": "Two days of practitioner sessions on heritage digitization (capture hardware, software, workflow automation), with teams from the Folger Shakespeare Library, Florida State University, UNC Chapel Hill and the New Jersey State Library, live Q&A. Online, free, register for one or both days on Eventbrite. Useful for Tanit XR's scanning workflow."
+   "reason": "Two days of practitioner sessions on heritage digitization (capture hardware, software, workflow automation), with teams from the Folger Shakespeare Library, Florida State University, UNC Chapel Hill and the New Jersey State Library, live Q&A. Online, free, register for one or both days on Eventbrite. Useful for Tanit XR's scanning workflow. (deadline passed, not applied, per the deadline alarm on 2026-10-30)"
   },
   {
    "slug": "teeem-community-impact-grants-2026",
@@ -711,6 +711,38 @@
    "deadline": null,
    "status": "new",
    "reason": "Rolling, free, for artists living in DC, Maryland or Virginia. Digital screen pieces (20 seconds) and station installations; a video link is required for digital work. A paid local commission route for your scans and XR stills. From your Oct 28 Instagram share (Arts Fairfax)."
+  },
+  {
+   "slug": "living-legacy-grants-2027",
+   "title": "Living Legacy Grants 2027, Traditional Building Cultures",
+   "url": "https://culturasconstructivas.org/en/living-legacy-grants-for-fostering-and-spreading-the-traditional-building-cultures/",
+   "deadline": "December 1, 2026",
+   "status": "new",
+   "reason": "You chose 'Just for me' on Oct 29. The Traditional Building Cultures Foundation gives three grants of up to €3,000 for projects that study, document, preserve or share traditional architecture and building crafts. Eligible work includes documentation, digital tools and resources, audiovisual archives, exhibitions and workshops; projects must finish by December 31, 2027. Heritage and digitisation grant, like the AIA Site Preservation and Endangered Archives items; for 3D scanning and heritage documentation people working on vernacular buildings, medinas and crafts."
+  },
+  {
+   "slug": "neh-public-humanities-projects-dec-2026",
+   "title": "NEH Public Humanities Projects, December 2026 Round",
+   "url": "https://www.neh.gov/grants/public/public-humanities-projects",
+   "deadline": "December 16, 2026",
+   "status": "new",
+   "reason": "You chose 'Just for me' on Oct 29. NEH funding for public-facing humanities projects in three formats: exhibitions, historic places interpretation, and public lectures and discussion forums. Planning awards up to $75,000, implementation awards up to $500,000; a website or app may accompany a project. Pairs with the NEH Collections Stewardship suggestion (December 15) and the AIA Site Preservation Grant on the board; for Tanit XR and other US-registered heritage nonprofits among the readers."
+  },
+  {
+   "slug": "ohchr-call-for-input-digital-heritage-2026",
+   "title": "UN Human Rights (OHCHR) Call for Input: Digital Heritage",
+   "url": "https://www.ohchr.org/en/calls-for-input/2026/call-input-digital-heritage",
+   "deadline": "20 November 2026, 18:00 Geneva time",
+   "status": "new",
+   "reason": "You chose 'Just for me' on Oct 29. OHCHR is collecting tools, good practices and challenges for a cultural-rights approach to digitising heritage, including safeguards for 3D modelling, VR, AR and AI. Submissions inform a UN workshop on 8 December 2026 and are published on the OHCHR page unless marked confidential. Closest to the UNESCO SDG 4 Good Practices open call on the board. For heritage digitisation teams, Tanit XR included, and community archivists who want their consent and access practices on the UN record."
+  },
+  {
+   "slug": "unearthodox-exploration-co-lab-2027",
+   "title": "Unearthodox Exploration Co-Lab 2027: Edges of Possibility",
+   "url": "https://unearthodox.org/2026/09/open-call-edges-of-possibility-exploration-co-lab-2027/",
+   "deadline": "November 16, 2026, 11:59 pm GMT+1",
+   "status": "new",
+   "reason": "You chose 'Just for me' on Oct 29. A 10-month online incubation (March 1 to December 31, 2027) for early-stage initiatives on people, society and nature, with a CHF 10,000 grant, coaching, peer learning and systems-mapping support; group calls are scheduled between UTC-6 and UTC+6. Resembles the Global Good Fund and Social Shifters fellowships on the board, for the readers building a climate or community project that is past the idea stage."
   }
  ]
 }
