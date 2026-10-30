@@ -1,8 +1,8 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task. last_ts = newest top-level message timestamp read per channel (next run starts after it). filed = Drive file ids / Slack file ids already handled, so nothing is copied or published twice.",
- "last_run": "2026-10-16",
+ "last_run": "2026-10-30",
  "last_ts": {
-  "C0983LHM7K8": "1792690778.000000",
+  "C0983LHM7K8": "1793292718.000000",
   "C0983L047V4": "1789781310.000000",
   "C09CZV4B0SW": "1789266670.767275",
   "C0AD71FAT7Y": "1789266670.767275",
@@ -130,6 +130,12 @@
    "doc_id": "1tlSNl9ECEB3IA34px6JoiA_SXhoQK8xp4GvdS2LpiAA",
    "url": "https://docs.google.com/document/d/1tlSNl9ECEB3IA34px6JoiA_SXhoQK8xp4GvdS2LpiAA/edit",
    "note": "Nothing to file this week. 22 public Sketchfab building-kit and museum-room models seen on the logged-out org page but not yet in ref/sketchfab-org.json; Chrome was not connected, so the org inventory waits for the next run."
+  },
+  {
+   "week": "2026-10-26",
+   "doc_id": "1sqO59bYyDlr19eJitCr_UjFbAOG97IGUjbstU4IYj2M",
+   "url": "https://docs.google.com/document/d/1sqO59bYyDlr19eJitCr_UjFbAOG97IGUjbstU4IYj2M/edit",
+   "note": "Nothing to file. Sketchfab not logged in in Chrome, so the org inventory still waits; the 22 public building-kit and museum-room models (TanitXROrg, 2026-09-18) remain outside ref/sketchfab-org.json."
   }
  ]
 }
