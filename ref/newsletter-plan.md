@@ -182,6 +182,8 @@ MIT designX (Boston accelerator; the main track has been MIT-affiliated only; co
 
 _Added Oct 29 (similar-finds research):_ Immersive Impact Review, Spring 2027 issue (Immersive Experience Alliance, funded by Agog): article ideas accepted November 15 to December 15, 2026 at immersiveimpactreview.com/submit. Check on Nov 15 and add to the board if the call is live.
 
+_Added Oct 30 (similar-finds research):_ Kinship Nature Culture Fellowship 2027 is reported open Oct 26 to Dec 31, 2026 (23:59 UTC), $1,000 to $2,000 project grants, but only on an aggregator. Verify on the official Kinship page before it goes to the report page.
+
 ## Rule from Ines, 2026-09-25
 An item is only 'too late' if it closes before the edition that would carry it goes out. Check against the NEXT send date (edition 19 went out Sept 25, so Sept 27 and Sept 30 deadlines belonged in it), not the one after. Small entry fees are fine; free items come first.
 - Fees (Ines, Sept 25, asking "where's the Webby Award?"): big-name awards go in even over $100, with the fee spelled out and listed after the free items. Everything else keeps the ~$100 guide. Same-organisation calls (e.g. several CHI 2027 tracks) go in ONE combined block.

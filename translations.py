@@ -2304,6 +2304,17 @@ FR = {
     'Sample scan, Scanned in class': 'Scan d’exemple, numérisé en classe',
     'Washington, Scanned in class': 'Washington, numérisé en classe',
     'Car, Scanned in class': 'Voiture, numérisée en classe',
+
+    # ---- added 2026-10-30: pages that were still English ----
+    'Read about the class': "Lire l'article sur le cours",
+    'Tuesday, October 27': 'Mardi 27 octobre',
+    'Washington and Lee': 'Washington &#97;nd Lee',
+    'A class at Washington and Lee University': 'Un cours à Washington &#97;nd Lee University',
+    'A guest session in BUS 3835, Technology and Transformation of the Arts.': 'Une séance invitée dans le cours BUS 3835, Technology &#97;nd Transformation of the Arts.',
+    'A guest session in BUS 3835, Technology and Transformation of the Arts. The students scanned objects in class and on campus with their phones, and saw their own scans in VR a few minutes later, next to the Tanit XR collection.': 'Une séance invitée dans le cours BUS 3835, Technology &#97;nd Transformation of the Arts. Les étudiants ont numérisé des objets en classe et sur le campus avec leur téléphone, puis ont vu leurs propres scans en VR quelques minutes plus tard, à côté de la collection Tanit XR.',
+    'The class room on Explore': 'La salle du cours sur Explorer',
+    'Tanit XR in a Washington and Lee classroom': 'Tanit XR dans un cours à Washington &#97;nd Lee',
+    'Williams School, Washington and Lee University, Lexington, VA': 'Williams School, Washington &#97;nd Lee University, Lexington, Virginie',
 }
 
 
@@ -4577,4 +4588,16 @@ AR = {
     'Sample scan, Scanned in class': 'مسح تجريبي، مُسح في الدرس',
     'Washington, Scanned in class': 'واشنطن، مُسحت في الدرس',
     'Car, Scanned in class': 'سيارة، مُسحت في الدرس',
+
+    # ---- added 2026-10-30: pages that were still English ----
+    'Read about the class': 'اقرأ عن الحصة الدراسية',
+    'Tuesday, October 27': 'الثلاثاء 27 أكتوبر',
+    'iOS (iPhone / iPad)': 'iOS (آيفون / آيباد)',
+    'Washington and Lee': 'Washington &#97;nd Lee',
+    'A class at Washington and Lee University': 'حصة دراسية في جامعة Washington &#97;nd Lee',
+    'A guest session in BUS 3835, Technology and Transformation of the Arts.': 'جلسة ضيف في مقرر BUS 3835، Technology &#97;nd Transformation of the Arts.',
+    'A guest session in BUS 3835, Technology and Transformation of the Arts. The students scanned objects in class and on campus with their phones, and saw their own scans in VR a few minutes later, next to the Tanit XR collection.': 'جلسة ضيف في مقرر BUS 3835، Technology &#97;nd Transformation of the Arts. مسح الطلبة أغراضًا في القسم وفي الحرم الجامعي بهواتفهم، ثم شاهدوا مسوحاتهم في الواقع الافتراضي بعد دقائق، إلى جانب مجموعة Tanit XR.',
+    'The class room on Explore': 'قاعة الدرس في صفحة الاستكشاف',
+    'Tanit XR in a Washington and Lee classroom': 'Tanit XR في حصة دراسية بجامعة Washington &#97;nd Lee',
+    'Williams School, Washington and Lee University, Lexington, VA': 'Williams School، جامعة Washington &#97;nd Lee، ليكسينغتون، فرجينيا',
 }
