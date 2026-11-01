@@ -4330,6 +4330,18 @@ def subscribe_form(dark=True):
             f'<input name="email_address" type="email" placeholder="you@example.com" required aria-label="Email" style="{inp}">'
             f'<button class="btn btn-gold" type="submit" style="margin-top:0">Subscribe Free</button></div>{boxes}</form>')
 
+def newsletter_section():
+    """The home page's newsletter band, also on Community and every archive object page, where
+    assistants like ChatGPT send people who had no way to stay in touch. Keep the wording as is:
+    translations.py matches these exact strings, line break included."""
+    return f"""<section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:760px">
+<div class="eyebrow">Newsletter</div>
+<h2 class="sec-title" style="font-size:30px">Opportunities and news, in your inbox</h2>
+<p class="sec-sub" style="margin:0 0 20px">Grants, residencies and open calls for artists and XR creators every one to two
+weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Free, unsubscribe any time.</p>
+{subscribe_form(dark=False)}
+</div></section>"""
+
 def recognition_strip():
     """Press/recognition logo row (grayscale, colour on hover), like the original site's partner strip."""
     items = [
@@ -4558,13 +4570,7 @@ each maker's own gallery, or put on a headset.</p>
 </div>
 </div></section>
 
-<section class="pad" style="background:var(--cloud)"><div class="wrap" style="max-width:760px">
-<div class="eyebrow">Newsletter</div>
-<h2 class="sec-title" style="font-size:30px">Opportunities and news, in your inbox</h2>
-<p class="sec-sub" style="margin:0 0 20px">Grants, residencies and open calls for artists and XR creators every one to two
-weeks, only things we’d apply to ourselves, plus occasional Tanit XR news. Free, unsubscribe any time.</p>
-{subscribe_form(dark=False)}
-</div></section>
+{newsletter_section()}
 
 <section class="pad-sm"><div class="wrap center">
 <div class="eyebrow">Partners &amp; Supporters</div>
@@ -4651,7 +4657,8 @@ appearing on a phone, and the murex shell that gave Carthage its purple.</p></di
 Nigeria. If your community’s heritage is under-documented, we want to hear from you.</p>
 <a class="btn btn-gold" href="contact.html">Contact us</a>
 &nbsp; <a class="btn btn-line-light" href="unique-mappers.html">The Nigeria pilot</a>
-</div></section>"""
+</div></section>
+{newsletter_section()}"""
     page("community.html", "Community", body, active="volunteer.html",
          desc="Tanit XR is a weekly community of volunteers in Tunisia, the US, Europe and Nigeria, scanning, learning history, mentoring and building a free 3D archive.",
          jsonld=event_jsonld())
@@ -6352,7 +6359,8 @@ target="_blank" rel="noopener">Open the game-ready model on Sketchfab</a></p>
 <a href="{prev_m['href']}" style="text-decoration:none;color:var(--gray)">← {esc(prev_m['title'][:40])}</a>
 <a href="{next_m['href']}" style="text-decoration:none;color:var(--gray);text-align:right">{esc(next_m['title'][:40])} →</a>
 </div>
-</div></section>"""
+</div></section>
+{newsletter_section()}"""
         page(m["href"], m["title"], body, active="archive.html",
              desc=_desc(m["text"]) or f'{m["title"]}: a 3D scan made by Tanit XR volunteers in Tunisia, free to view, turn and download.', read_badge="object",
              nura_next=(None, "/" + LANG_DIRS[LANG] + next_m["href"][:-5] + "/"),
