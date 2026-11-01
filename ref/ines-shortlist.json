@@ -83,8 +83,8 @@
   {
    "slug": "voqal-partners-fellowship-2027",
    "deadline": "October 31, 2026",
-   "status": "reminded",
-   "reason": "$30,000 unrestricted plus a $1,000 healthcare stipend for a six-month program, free to apply, US-based applicants, no organization or finished product required. Tanit XR's heritage-preservation work is a direct social-impact fit and the award is unrestricted."
+   "status": "skipped",
+   "reason": "$30,000 unrestricted plus a $1,000 healthcare stipend for a six-month program, free to apply, US-based applicants, no organization or finished product required. Tanit XR's heritage-preservation work is a direct social-impact fit and the award is unrestricted. (deadline passed, not applied, per the deadline alarm on 2026-11-01)"
   },
   {
    "slug": "uf-40-gators-under-40-class-of-2027",
@@ -339,8 +339,8 @@
   {
    "slug": "rossonove-2027",
    "deadline": "October 31, 2026",
-   "status": "reminded",
-   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 weeks between March and June 2027, free housing + coworking, access to abandoned/contested coastal sites (good for scanning). Housing only, no stipend or travel. Email call@rossonove.org; no fee, no CV.",
+   "status": "skipped",
+   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). 3 weeks between March and June 2027, free housing + coworking, access to abandoned/contested coastal sites (good for scanning). Housing only, no stipend or travel. Email call@rossonove.org; no fee, no CV. (deadline passed, not applied, per the deadline alarm on 2026-11-01)",
    "title": "Rossonove residency 2027 (Liguria, Italy)",
    "url": "https://rossonove.org/open-call/",
    "added": "2026-09-27",
@@ -491,9 +491,9 @@
   },
   {
    "slug": "culture-moves-europe-individual-mobility-2026-2027",
-   "deadline": "October 31, 2026",
+   "deadline": "November 30, 2026",
    "status": "reminded",
-   "reason": "EUR 85 a day plus travel for 7 to 60 days with a partner in another Creative Europe country, free, and Tunisia is an eligible country. Eligibility doubt: you must legally reside in Tunisia (or the EU), not the US, so it only works if you apply as a Tunisia resident; a heritage-scanning stay with a European museum or lab would fit. Monthly cut-offs to April 30, 2027.",
+   "reason": "EUR 85 a day plus travel for 7 to 60 days with a partner in another Creative Europe country, free, and Tunisia is an eligible country. Eligibility doubt: you must legally reside in Tunisia (or the EU), not the US, so it only works if you apply as a Tunisia resident; a heritage-scanning stay with a European museum or lab would fit. Monthly cut-offs to April 30, 2027. First cut-off (Oct 31) passed without an application; rolled to the next monthly cut-off on 2026-11-01.",
    "title": "Culture Moves Europe, Individual Mobility 2026-2027",
    "url": "https://culture.ec.europa.eu/culture-moves-europe/call-for-individual-mobility",
    "added": "2026-10-05"
