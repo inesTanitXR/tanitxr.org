@@ -2106,7 +2106,7 @@
   {
    "slug": "acm-chi-2027-digital-experience-competition",
    "title": "ACM CHI 2027 Digital Experience Competition",
-   "desc": "Build an open-source app or tool that improves the attendee experience at ACM CHI 2027, submitting a working prototype, a walkthrough video of up to five minutes and a public repository. Accepted teams demo at CHI in Pittsburgh, May 10 to 14, 2027. Free to enter; prize amounts and travel support are not stated. On October 29 the page listed December 4 (AoE) for prototypes but also said the prototype deadline had passed; check before you start.",
+   "desc": "Build an open-source app or tool that improves the attendee experience at ACM CHI 2027, submitting a working prototype, a walkthrough video of up to five minutes and a public repository. Accepted teams demo at CHI in Pittsburgh, May 10 to 14, 2027. Free to enter; prize amounts and travel support are not stated. Prototype deadline December 4, 2026, Anywhere on Earth (the page's earlier 'deadline has passed' line was removed by November 2).",
    "type": "Challenge",
    "eligibility": [
     "Open to all",
