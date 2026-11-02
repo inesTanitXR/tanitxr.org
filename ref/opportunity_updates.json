@@ -1,5 +1,5 @@
 {
- "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 20 (posted 2026-10-16, read 2026-10-26 in the built-in browser; every item in it was on the board except the EMAP 2027 reminder line, added 2026-10-26 with published = 2026-10-16): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9). Checked again 2026-10-12: the public newsletter page still lists Edition 19 (Sept 25) as the latest; edition 20 (due Oct 9) is not posted yet. Checked 2026-10-26: Edition 20 (Oct 16) is the latest; 2,153 subscribers.",
+ "_source": "Ines's LinkedIn newsletter 'Art, XR & Impact Opportunities'. Harvested through Edition 20 (posted 2026-10-16, read 2026-10-26 in the built-in browser; every item in it was on the board except the EMAP 2027 reminder line, added 2026-10-26 with published = 2026-10-16): editions 12 (2026-03-03), 13 (2026-03-30), 14 (2026-04-20), 15 (2026-06-02), 17 (2026-06-29), 18 (2026-09-18), 19 (2026-09-25). Edition 19 matched ref/newsletter-edition-19.md and every item in it was already on the board. The 'AWE Special Edition' (2026-06-12) was read and deliberately not harvested: it is a round-up of AWE USA 2026 meetups and parties, not grants or open calls. Newsletter had 2,035 subscribers on 2026-09-30. Checked again 2026-10-05: no edition after 19 posted yet (edition 20 is due Oct 9). Checked again 2026-10-12: the public newsletter page still lists Edition 19 (Sept 25) as the latest; edition 20 (due Oct 9) is not posted yet. Checked 2026-10-26: Edition 20 (Oct 16) is the latest; 2,153 subscribers. Checked 2026-11-02 in Chrome: the public newsletter page still lists Edition 20 (Oct 16) as the latest; Edition 21 (assembled Oct 29) is not on LinkedIn yet. 14 new subscribers in the past 7 days.",
  "matches": {
   "the-kyoto-retreat-2026": {
    "deadline_date": "July 15, 2026",
@@ -123,6 +123,9 @@
   },
   "xr-women-museum-community-garden": {
    "url": "https://www.xrwomen.com/community-garden-museum"
+  },
+  "acm-chi-2027-digital-experience-competition": {
+   "desc": "Build an open-source app or tool that improves the attendee experience at ACM CHI 2027, submitting a working prototype, a walkthrough video of up to five minutes and a public repository. Accepted teams demo at CHI in Pittsburgh, May 10 to 14, 2027. Free to enter; prize amounts and travel support are not stated. Prototype deadline December 4, 2026, Anywhere on Earth (the page's earlier 'deadline has passed' line was removed by November 2)."
   }
  },
  "new": [
