@@ -333,6 +333,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Archaeological Institute of America | linkedin.com/company/archaeological-institute-of-america |
 | MIT Solve | linkedin.com/company/solvemit |
 | CPH:DOX | linkedin.com/company/cph-dox |
+| Let's Talk About Water | linkedin.com/company/letstalkaboutwater |
+| Appalachian Trail Conservancy | linkedin.com/company/appalachian-trail-conservancy |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -958,3 +960,29 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ GBP 50,000 over one year for proven, community-based wildlife conservation projects, plus publicity and peer support.
 
 👉 https://whitleyaward.org/apply-for-conservation-funding/apply-for-a-whitley-award/
+
+### 💧 Green Water Africa: Hidden Lifelines, Short Film Competition
+
+📅 Deadline: January 8, 2027 (FilmFreeway; winners announced March 16, 2027)
+
+📍 Online; selected films screen at the Let's Talk About Water festival in Paris, the African Film Festival New York and the Luxor African Film Festival in 2027
+
+👥 Anyone, anywhere; Africa is the focus. Filmmakers, artists, scientists, students, communities. No entry fee listed on FilmFreeway or the organiser's page
+
+✏️ A 3 to 5 minute film on green water, the rain held in soils and plants that feeds most of Africa's farming. USD 10,000 in prizes: USD 3,000 first prize, a youth award and jury prizes. English subtitles required.
+
+👉 https://letstalkaboutwater.org/green-water-africa/
+
+
+### 🥾 Appalachian Trail Conservancy, Artist in Residence 2027
+
+📅 Deadline: January 3, 2027
+
+📍 Appalachian Trail, eastern United States; a two to four week stay at Monson Arts in Monson, Maine
+
+👥 Artists in any discipline. The country list includes Tunisia, but priority may go to artists based in the eastern United States or able to cover part of their own travel. Free to apply
+
+✏️ The 2027 title holder gets the Monson Arts stay, a stipend for travel and lodging to on-trail events, promotion through the Conservancy and a retail collaboration. You propose how to use the year: a thru-hike, a section, or a stay near the trail.
+
+👉 https://appalachiantrail.org/get-involved/artist-in-residence/
+

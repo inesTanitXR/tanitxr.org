@@ -129,6 +129,11 @@ _Opened Oct 28. Dec 10 onward goes here. On Oct 29, at edition 21 assembly, Mozi
 - 🎬 Arab Film Festival 2027, AANM (USD 40 to 65) — late Dec 1, extended Jan 10 — filmfreeway.com/ArabFilmFestivalatAANM (one line in the Tunisia section)
 - _Board only, close before Nov 6 (accepted Oct 29): alt.ctrl.GDC, AOCA 2027, Whitley Awards (Oct 30); CIFRA, El Anatsui, Lloyd Library, MASS MoCA, Playful Obscura, Processing Foundation, Sous Dôme, Tzkrti, Rome Prize early rate (Nov 1); Pforzheim (Nov 2); Aspen Eisner nominations (Nov 3). Later than a month, for edition 23 or after: Moovy VR/AR/XR dance (Feb 28, 2027), Seto Art Residency (Apr 30, 2027, USD 25). Expired before publishing: BRC Honoraria LOI and IEEE AIxVR demos (both Oct 29)._
 
+## Edition 23 (send ~Fri Nov 20) — items
+_Opened Nov 4 for January deadlines that do not fit edition 22. Send date to confirm at edition 22 assembly._
+- 💧 Green Water Africa: Hidden Lifelines short film competition, Let's Talk About Water (3 to 5 min films, Africa focus but open worldwide; USD 10,000 prizes; no fee listed) — Jan 8, 2027 — letstalkaboutwater.org/green-water-africa _(Nov 4 sweep, from Ines's LinkedIn screenshot of Najet Ben Mabrouk's post; verified on the organiser's page and FilmFreeway Nov 4; Tunisia section)_ 🇹🇳
+- 🥾 Appalachian Trail Conservancy Artist in Residence 2027 (any discipline; Monson Arts stay + travel stipend; priority eastern US; free) — Jan 3, 2027 — appalachiantrail.org/get-involved/artist-in-residence _(Nov 4 sweep, from Ines's Instagram screenshot; verified on the official page Nov 4)_ 👤
+
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
 - Gerda Henkel Patrimonies (Africa; documentation + conservation) ★ Tanit via Tunisian team

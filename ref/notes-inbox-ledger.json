@@ -1171,6 +1171,27 @@
    "source": "suggestion",
    "raw": "unearthodox-exploration-co-lab-2027",
    "status": "personal: Just for me, added to ines-shortlist.json"
+  },
+  {
+   "key": "green water africa hidden lifelines short film competition",
+   "date": "2026-11-04",
+   "source": "screenshot",
+   "raw": "shot.png (Nov 2), LinkedIn feed, Najet Ben Mabrouk's post",
+   "status": "published: board + draft + plan edition 23 (Tunisia section); Jan 8, 2027; no fee listed"
+  },
+  {
+   "key": "australian space architecture challenge 2026 asac",
+   "date": "2026-11-04",
+   "source": "screenshot",
+   "raw": "shot.png (Nov 2), LinkedIn feed, Amit Srivastava's post saying registration extended to Nov 8",
+   "status": "skipped: lunar hospital design competition for architecture, engineering and medicine teams; not XR, art or heritage; the official Adelaide page still shows the Nov 1 registration deadline"
+  },
+  {
+   "key": "appalachian trail conservancy artist in residence 2027",
+   "date": "2026-11-04",
+   "source": "screenshot",
+   "raw": "shot-6.png (Nov 3), Instagram @appalachiantrail",
+   "status": "published: board + draft + plan edition 23 + shortlist; Jan 3, 2027; free"
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -1336,6 +1357,48 @@
    "file": "shot-4.html",
    "raw": "https://www.instagram.com/p/DeMwMmfsxjy/ (@natgeomuseum)",
    "what": "National Geographic Museum Explorer talks, D.C."
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-2.png",
+   "raw": "screenshot, Instagram @opportunities_corners",
+   "what": "Japan Winter Culture Camp 2027, Osaka (AYFN), Jan 25-30, deadline Nov 10: youth travel camp, Korea/Japan travel rule"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-5.png",
+   "raw": "screenshot, Instagram @ayfnacademy",
+   "what": "Winter Japan & Korea Culture Camp 2027 (AYFN), deadline Nov 10: travel, same program as shot-2.png"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-3.png",
+   "raw": "screenshot, Instagram @urbansketchersdc",
+   "what": "Sketch Together, Dupont Circle, Sat Oct 17 (past), DC"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-4.png",
+   "raw": "screenshot, Instagram @koreaculturedc",
+   "what": "ArtWalk Dupont: Korean Art After Hours, Fri Nov 6, 6-8 pm, KCC DC"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/DfSMUZLCsnI/ (@koreaculturedc)",
+   "what": "Same ArtWalk Dupont post, Nov 6"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-7.png",
+   "raw": "screenshot, Instagram @dcinternshipsandhousing",
+   "what": "DC Smithsonian networking events in November (Nov 4, 5, ...)"
+  },
+  {
+   "date": "2026-11-04",
+   "file": "shot-2.html",
+   "raw": "https://www.instagram.com/p/DfPKE0blkyN/ (@thingstododc)",
+   "what": "thingstododc weekend events post, DC"
   }
  ]
 }

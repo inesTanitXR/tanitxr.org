@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-11-03",
+ "built": "2026-11-04",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -3053,6 +3053,38 @@
    "deadline_type": null,
    "deadline_date": "October 30, 2026",
    "url": "https://whitleyaward.org/apply-for-conservation-funding/apply-for-a-whitley-award/"
+  },
+  {
+   "slug": "green-water-africa-hidden-lifelines-short-film-competition-l",
+   "title": "Green Water Africa: Hidden Lifelines, Short Film Competition (Let's Talk About Water)",
+   "desc": "Short films of 3 to 5 minutes on green water, the rain held in soils and plants, with Africa at the centre but entries from anywhere welcome. USD 10,000 in prizes (first prize USD 3,000, plus a youth award); winners screen in Paris, New York and at the Luxor African Film Festival in 2027. Submit on FilmFreeway; no entry fee listed. Deadline January 8, 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "Students",
+    "Open to all"
+   ],
+   "region": "Africa",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "January 8, 2027",
+   "url": "https://letstalkaboutwater.org/green-water-africa/"
+  },
+  {
+   "slug": "appalachian-trail-conservancy-artist-in-residence-2027",
+   "title": "Appalachian Trail Conservancy, Artist in Residence 2027",
+   "desc": "A year-long title with a two to four week stay at Monson Arts in Maine, a travel stipend for on-trail events and work promoted through the Conservancy. Any discipline; priority may go to artists based in the eastern United States or able to cover part of their own travel. Free to apply; closes January 3, 2027.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "North America",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 3, 2027",
+   "url": "https://appalachiantrail.org/get-involved/artist-in-residence/"
   }
  ]
 }
