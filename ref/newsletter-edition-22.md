@@ -12,26 +12,14 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ## 🔥 HIGHLIGHTS
 
+- 👓 Learn AR with SPECS, an online AR hackathon with Snap, USD 2,500 in prizes, free. Deadline Nov 9
+- 🎥 Monte Carlo VR Movies Festival, EUR 5,000 for the best 360° short. Deadline Nov 30
 - 🌀 Athens Digital Arts Festival, AR/VR/XR open call, free. Deadline Nov 10
-- 👓 Learn AR with SPECS, an online AR hackathon with Snap, free. Deadline Nov 9
-- ⚡ Schaufler Residency in Dresden, six months, EUR 3,000 a month plus production. Deadline Nov 9
 - 🎨 CURRENTS 2027 in Santa Fe, VR, AR and MR category. Deadline Dec 8
 
 ───────────────────────────────────────
 
-## 🏆 AWARDS & HACKATHONS
-
-### 👩‍💻 EQUALS in Tech Awards 2027
-
-📅 Deadline: November 7, 2026, 23:59 CET
-
-📍 Any country, apply online
-
-👥 Running tech projects that help women and girls, any sector. Free
-
-✏️ Global recognition, no cash, for projects in emerging tech, digital skills and safe online spaces for women and girls.
-
-👉 https://tanitxr.org/go/equals-in-tech-awards-2027/?ref=nl22
+## 💰 GRANTS, PRIZES & PAID WORK
 
 ### 👓 Learn AR with SPECS, Devpost Hackathon with Snap
 
@@ -45,9 +33,105 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 👉 https://tanitxr.org/go/learn-ar-with-specs-devpost-hackathon-with-snap/?ref=nl22
 
+### 🚇 Metro Art in Transit Open Call (Washington, DC area)
+
+📅 Deadline: rolling
+
+📍 DC, Maryland and Virginia, across the Metro system
+
+👥 Artists 18 and over living in DC, Maryland or Virginia, any career stage. Free
+
+✏️ Metro is building a pool of artists for temporary public art: construction-wall prints, 20-second digital screen pieces, station installations and community events. Selected artists quote a fee and are paid from a project budget.
+
+👉 https://tanitxr.org/go/metro-art-in-transit-open-call-for-artwork-washington-dc-are/?ref=nl22
+
 ───────────────────────────────────────
 
-## 🎨 RESIDENCIES
+## 🏆 AWARDS
+
+### 👩‍💻 EQUALS in Tech Awards 2027
+
+📅 Deadline: November 7, 2026, 23:59 CET
+
+📍 Any country, apply online
+
+👥 Running tech projects that help women and girls, any sector. Free
+
+✏️ Global recognition, no cash, for projects in emerging tech, digital skills and safe online spaces for women and girls.
+
+👉 https://tanitxr.org/go/equals-in-tech-awards-2027/?ref=nl22
+
+───────────────────────────────────────
+
+## 🎤 SHOW YOUR WORK: FESTIVALS & EXHIBITIONS
+
+### 🌀 Athens Digital Arts Festival 2027, "It's Alive..." Open Call (AR/VR/XR category)
+
+📅 Deadline: November 10, 2026 (no time zone stated)
+
+📍 Athens, Greece; dates to be announced
+
+👥 Artists worldwide. No fee listed
+
+✏️ Greece's digital arts festival takes AR/VR/XR, games, web art and installations. Unfinished VR projects can apply if the design is complete.
+
+👉 https://tanitxr.org/go/athens-digital-arts-festival-2027-it-s-alive-open-call-ar-vr/?ref=nl22
+
+### 🎥 Monte Carlo VR Movies Festival 2027, 360° Short Films
+
+📅 Deadline: November 30, 2026
+
+📍 Monaco, screenings in June 2027
+
+👥 Any country, 18 and over; 360° video up to 20 minutes, at least 4K. The fee is not stated on the festival site
+
+✏️ Best 360° Short Film receives EUR 5,000 toward a new film. Entries by FilmFreeway, Vimeo or YouTube.
+
+👉 https://tanitxr.org/go/monte-carlo-vr-movies-festival-2027-360-short-films/?ref=nl22
+
+### 🎬 Raindance Film Festival 2027, Immersive
+
+📅 Deadline: early December 7, 2026 (GBP 38) · regular January 18, 2027 (GBP 49) · late March 8, 2027 (GBP 66)
+
+📍 London; entries through FilmFreeway
+
+👥 Open to all. Raindance Create members get one free entry a year
+
+✏️ Immersive section for VR, XR and social VR worlds. Results May 16, 2027.
+
+👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl22
+
+### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
+
+📅 Deadline: December 8, 2026, 11:59 pm MST
+
+📍 Santa Fe, New Mexico, June 11 to 20, 2027
+
+👥 Artists worldwide; international shipping may not be covered. USD 30 for one entry, USD 25 each for more; hardship waivers on request
+
+✏️ New media festival with a category for VR, AR and mixed reality, plus installation, audio, robotics, performance and video.
+
+👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl22
+
+───────────────────────────────────────
+
+## 📄 PAPERS & CONFERENCES
+
+### 🖼️ DH2027, Digital Humanities Conference: Digital Art(s) Track (Galway and online)
+
+📅 Deadline: November 20, 2026, 11:59 pm AoE
+
+📍 Galway, Ireland, and online, June 28 to July 3, 2027
+
+👥 Artists, practitioners and researchers worldwide. Free to submit
+
+✏️ The Digital Art(s) track takes installations, interactive and generative works and critical making. Cultural heritage is one of the conference themes, and remote presentation is planned.
+
+👉 https://tanitxr.org/go/dh2027-digital-humanities-conference-digital-art-s-track-gal/?ref=nl22
+
+───────────────────────────────────────
+
+## 🏠 RESIDENCIES
 
 ### ⚡ Schaufler Residency@TU Dresden 2027: Energy Cultures in Transition
 
@@ -97,82 +181,6 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl22
 
-### 🚇 Metro Art in Transit Open Call (Washington, DC area)
-
-📅 Deadline: rolling
-
-📍 DC, Maryland and Virginia, across the Metro system
-
-👥 Artists 18 and over living in DC, Maryland or Virginia, any career stage. Free
-
-✏️ Metro is building a pool of artists for temporary public art: construction-wall prints, 20-second digital screen pieces, station installations and community events. Selected artists quote a fee and are paid from a project budget.
-
-👉 https://tanitxr.org/go/metro-art-in-transit-open-call-for-artwork-washington-dc-are/?ref=nl22
-
-───────────────────────────────────────
-
-## 🎤 FESTIVALS & CONFERENCES
-
-### 🌀 Athens Digital Arts Festival 2027, "It's Alive..." Open Call (AR/VR/XR category)
-
-📅 Deadline: November 10, 2026 (no time zone stated)
-
-📍 Athens, Greece; dates to be announced
-
-👥 Artists worldwide. No fee listed
-
-✏️ Greece's digital arts festival takes AR/VR/XR, games, web art and installations. Unfinished VR projects can apply if the design is complete.
-
-👉 https://tanitxr.org/go/athens-digital-arts-festival-2027-it-s-alive-open-call-ar-vr/?ref=nl22
-
-### 🖼️ DH2027, Digital Humanities Conference: Digital Art(s) Track (Galway and online)
-
-📅 Deadline: November 20, 2026, 11:59 pm AoE
-
-📍 Galway, Ireland, and online, June 28 to July 3, 2027
-
-👥 Artists, practitioners and researchers worldwide. Free to submit
-
-✏️ The Digital Art(s) track takes installations, interactive and generative works and critical making. Cultural heritage is one of the conference themes, and remote presentation is planned.
-
-👉 https://tanitxr.org/go/dh2027-digital-humanities-conference-digital-art-s-track-gal/?ref=nl22
-
-### 🎥 Monte Carlo VR Movies Festival 2027, 360° Short Films
-
-📅 Deadline: November 30, 2026
-
-📍 Monaco, screenings in June 2027
-
-👥 Any country, 18 and over; 360° video up to 20 minutes, at least 4K. The fee is not stated on the festival site
-
-✏️ Best 360° Short Film receives EUR 5,000 toward a new film. Entries by FilmFreeway, Vimeo or YouTube.
-
-👉 https://tanitxr.org/go/monte-carlo-vr-movies-festival-2027-360-short-films/?ref=nl22
-
-### 🎬 Raindance Film Festival 2027, Immersive
-
-📅 Deadline: early December 7, 2026 (GBP 38) · regular January 18, 2027 (GBP 49) · late March 8, 2027 (GBP 66)
-
-📍 London; entries through FilmFreeway
-
-👥 Open to all. Raindance Create members get one free entry a year
-
-✏️ Immersive section for VR, XR and social VR worlds. Results May 16, 2027.
-
-👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl22
-
-### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
-
-📅 Deadline: December 8, 2026, 11:59 pm MST
-
-📍 Santa Fe, New Mexico, June 11 to 20, 2027
-
-👥 Artists worldwide; international shipping may not be covered. USD 30 for one entry, USD 25 each for more; hardship waivers on request
-
-✏️ New media festival with a category for VR, AR and mixed reality, plus installation, audio, robotics, performance and video.
-
-👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl22
-
 ───────────────────────────────────────
 
 ## 🇹🇳 FOR TUNISIANS & NORTH AFRICANS
@@ -215,18 +223,32 @@ Paste from the 🎯 line to the hashtags. The tag table sits under the post for 
 
 Edition 22 is out: deadlines from now to early December. A lot more are on the website, updated every day.
 
+💰 Grants, prizes & paid work
+
+🔴 Nov 9: Learn AR with SPECS, @Snap AR hackathon, USD 2,500 in prizes, free
+🚇 Rolling: Metro Art in Transit, DC, Maryland and Virginia artists
+
+🏆 Awards
+
 🔴 Nov 7: EQUALS in Tech Awards, projects for women and girls, free
-🔴 Nov 9: Learn AR with SPECS, @Snap AR hackathon, free
-🔴 Nov 9: Schaufler Residency, @TU Dresden, six months, EUR 3,000 a month
+
+🎤 Show your work
+
 🔴 Nov 10: @Athens Digital Arts Festival, AR/VR/XR call, free
-🟡 Nov 15: Rome Prize, American Academy in Rome, US citizens
-🟡 Nov 20: DH2027 Digital Art(s) track, Galway and online, free
-🟢 Nov 30: Bernheim Forest residency, $2,500, one slot for climate work
-🟢 Nov 30: Monte Carlo VR Movies Festival, 360° shorts
-🟢 Dec 1: Bogliasco Fellowship, a semester in Italy, $30
+🟢 Nov 30: Monte Carlo VR Movies Festival, 360° shorts, EUR 5,000 prize
 🟢 Dec 7: @Raindance Immersive, early deadline
 🟢 Dec 8: @CURRENTS New Media 2027, VR/AR/MR category, $30
-🚇 Rolling: Metro Art in Transit, DC, Maryland and Virginia artists
+
+📄 Papers & conferences
+
+🟡 Nov 20: DH2027 Digital Art(s) track, Galway and online, free
+
+🏠 Residencies
+
+🔴 Nov 9: Schaufler Residency, @TU Dresden, six months, EUR 3,000 a month
+🟡 Nov 15: Rome Prize, American Academy in Rome, US citizens
+🟢 Nov 30: Bernheim Forest residency, $2,500, one slot for climate work
+🟢 Dec 1: Bogliasco Fellowship, a semester in Italy, $30
 
 🇹🇳 For Tunisians & North Africans
 
