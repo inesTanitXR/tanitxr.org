@@ -1,6 +1,6 @@
 # 🌐 Art, XR & Impact Opportunities, Edition 22
 
-*Assembled Thu Nov 5, 2026 for sending Fri Nov 6. Deadlines from Nov 6 to Dec 8, per the one-month rule. Every deadline was checked at the organiser's page on Nov 5. Changes from the plan: Mozilla Fellowships (Dec 17) moved to edition 23 with the other December 10+ items (Sony, FilmGate, Fulldome Montevideo, ACM DIS and Creativity & Cognition, Aion). Games for Change Student Challenge left out again (still no submission deadline). XR Women Museum Community Garden left out (the page now says it is not a selection pool, so there is nothing to apply to). EMAP closes Nov 6 at 8 am ET, before this goes out, so it is not listed. Arab Film Festival AANM: the museum page now shows only the January 10, 2027 deadline; the fee is on FilmFreeway, which could not be read. Rome Prize: the official page gives the Nov 2 to 15 late window without a year; the cycle matches the 2027-28 call already on the board. CHI's page still contradicts itself, so it carries a caveat.*
+*Assembled Thu Nov 5, 2026 for sending Fri Nov 6; Ines sends it Thu Nov 5. Edition 21 was never posted, so its Bogliasco block moves here, EMAP (still open on the send day) is back as a Tunisia line, and National Geographic and CHI stay as short lines. Deadlines from Nov 6 to Dec 8, per the one-month rule. Every deadline was checked at the organiser's page on Nov 5. Changes from the plan: Mozilla Fellowships (Dec 17) moved to edition 23 with the other December 10+ items (Sony, FilmGate, Fulldome Montevideo, ACM DIS and Creativity & Cognition, Aion). Games for Change Student Challenge left out again (still no submission deadline). XR Women Museum Community Garden left out (the page now says it is not a selection pool, so there is nothing to apply to). Arab Film Festival AANM: the museum page now shows only the January 10, 2027 deadline; the fee is on FilmFreeway, which could not be read. Rome Prize: the official page gives the Nov 2 to 15 late window without a year; the cycle matches the 2027-28 call already on the board. CHI's page still contradicts itself, so it carries a caveat.*
 
 ---
 
@@ -85,6 +85,18 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 👉 https://tanitxr.org/go/bernheim-forest-artist-in-residence-2027-kentucky/?ref=nl22
 
+### 🎨 Bogliasco Foundation Fellowship, Fall 2027
+
+📅 Deadline: December 1, 2026 (Spring 2028 round: March 11, 2027)
+
+📍 In person, Bogliasco Study Center on the Ligurian coast near Genoa, Italy, one semester
+
+👥 Artists and scholars in the arts and humanities, any nationality; conversational English needed. USD 30 until a week before the deadline, then USD 45
+
+✏️ Full room and board and a work space. Travel, materials and personal expenses are yours.
+
+👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl22
+
 ### 🚇 Metro Art in Transit Open Call (Washington, DC area)
 
 📅 Deadline: rolling
@@ -165,6 +177,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ## 🇹🇳 FOR TUNISIANS & NORTH AFRICANS
 
+- 🎨 EMAP media art residencies, Tunisia eligible, EUR 4,000 fee plus EUR 4,000 production, closes tomorrow, November 6, 2 pm CET. call.emare.eu
 - 🤝 Changemakers for Youth, ages 18 to 35, free, November 9. changemakerxchange.org
 - 🚀 NASA Space Apps Challenge, local events incl. Tunisia, November 14 to 15. spaceappschallenge.org
 - 🏺 IN-SITU Medina of Tunis: art projects (Tunisia-based, up to EUR 3,000) November 30, 11:59 pm Tunis time; residencies (any nationality) December 20. animed-network.com
@@ -173,16 +186,15 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ───────────────────────────────────────
 
-## ⏰ STILL OPEN FROM PAST EDITIONS
+## ⏰ ALSO STILL OPEN
 
-- 🌍 MIT Solve Global Learning Challenge, today, November 6, noon EST. solve.mit.edu
+- 🌍 MIT Solve Global Learning Challenge, tomorrow, November 6, noon EST. solve.mit.edu
 - 💡 Swarovski Foundation Creatives for Our Future, ages 21 to 30, EUR 20,000, November 9, 11:59 pm GMT. creatives.swarovskifoundation.org
 - 🤖 AI Horizons at PARMA 360, under 35, free, November 15. parma360festival.it
 - 🧠 Eyebeam AGENCY NYC residency, $5,000, NYC residents, November 15, 11:59 pm ET. eyebeam.org
 - 🕶 Meta VR Start Developer Competition, for Start program members, November 18. developers.meta.com
 - 🌍 Awesome Foundation climate micro-grants, $1,000, November 27 (next round January 29). awesomefoundation.org
 - 📝 National Geographic, The Human Thread, December 1. nationalgeographic.org
-- 🎨 Bogliasco Fellowship, Fall 2027, December 1. bfny.org
 - 🎮 Tribeca 2027 Games, Shorts and Digital Creators, December 2, 11:59 pm ET, $40 to $70. tribecafilm.com
 - 🕹 CHI 2027 Digital Experience Competition, December 4 AoE (one CHI page says the deadline has passed; the competition site still lists December 4). chi2027.acm.org
 
@@ -211,26 +223,28 @@ Edition 22 is out: deadlines from now to early December. A lot more are on the w
 🟡 Nov 20: DH2027 Digital Art(s) track, Galway and online, free
 🟢 Nov 30: Bernheim Forest residency, $2,500, one slot for climate work
 🟢 Nov 30: Monte Carlo VR Movies Festival, 360° shorts
+🟢 Dec 1: Bogliasco Fellowship, a semester in Italy, $30
 🟢 Dec 7: @Raindance Immersive, early deadline
 🟢 Dec 8: @CURRENTS New Media 2027, VR/AR/MR category, $30
 🚇 Rolling: Metro Art in Transit, DC, Maryland and Virginia artists
 
 🇹🇳 For Tunisians & North Africans
 
+🎨 Nov 6: EMAP media art residencies, Tunisia eligible
 🤝 Nov 9: Changemakers for Youth, ages 18 to 35
 🚀 Nov 14: NASA Space Apps, local events in Tunisia
 🏺 Nov 30 and Dec 20: IN-SITU Medina of Tunis
 ✈️ Nov 30: Culture Moves Europe, Tunisia eligible
 🎬 Jan 10: Arab Film Festival, Arab American National Museum
 
-⏰ Still open from past editions
+⏰ Also still open
 
 Nov 6: MIT Solve, noon EST
 Nov 9: Swarovski Foundation, ages 21 to 30
 Nov 15: AI Horizons PARMA 360, Eyebeam NYC
 Nov 18: Meta VR Start
 Nov 27: Awesome Foundation climate micro-grants
-Dec 1: National Geographic Human Thread, Bogliasco
+Dec 1: National Geographic Human Thread
 Dec 2: Tribeca Games, Shorts and Digital Creators
 Dec 4: CHI Digital Experience Competition
 
@@ -265,4 +279,6 @@ Dec 4: CHI Digital Experience Competition
 | Eyebeam | linkedin.com/company/eyebeam |
 | Meta for Developers | linkedin.com/showcase/meta-for-developers |
 | Awesome Foundation | linkedin.com/company/awesomefoundation |
+| Bogliasco Foundation | no LinkedIn page found |
+| EMAP European Media Art Platform | linkedin.com/company/emap-european-media-art-platform (check the page exists before tagging) |
 | National Geographic Society | linkedin.com/company/national-geographic-society |
