@@ -81,3 +81,29 @@ not 3D). Charity Navigator lists only FCI, never a sponsored project.
 - Recognition: Auggie 2026 finalist, El Jem 2026 paper, AWE USA 2026, Voices of VR, Al Jazeera.
 - A Tunisian partner letter (INP or an association) for AFCP, British Council, Gerda Henkel and Anna Lindh.
 - FCI's determination letter and EIN for anything U.S.
+
+## The opportunities board and newsletter as a funded programme (checked 2026-11-05)
+
+Evidence: ref/newsletter-stats.md (21 editions since 2025-09-06, 74,774 impressions, 13,186 article views,
+2,172 subscribers; average views per edition up from about 386 in editions 1-7 to about 917 in editions 14-20)
+and tools/analytics_report.py (board visits, apply clicks, newsletter clicks per section from edition 21).
+None of these has an open call today; prepare for the 2027 rounds.
+
+1. **AFAC, Training and Regional Events.** Funds "training and workshops", "archive and documentation
+   platforms", residencies and forums. Up to USD 25,000 for individuals and teams, USD 35,000 for
+   institutions. Individuals from Arab countries apply regardless of residence, and international
+   organisations with projects related to Arab arts and culture can apply. 2026 call: 15 Apr to 19 Jun.
+   https://www.arabculturefund.org/Programs/16
+2. **Culture Resource (Al Mawred), Abbara.** EUR 22,000 core funding over up to 24 months (staff, running
+   costs, not activities), for independent initiatives in the Arab region or Arab initiatives abroad that
+   serve production in Arabic. Round 08 ran Jun to Jul 2025; ask abbara@mawred.org about round 09 and
+   whether a US-sponsored project qualifies. https://mawred.org/cultural-organizations-management/abbara/?lang=en
+3. **US Embassy Tunis, Public Diplomacy Annual Program Statement** (not AFCP). USD 10,000 to 200,000,
+   US or Tunisian organisations, audiences in Tunisia, needs an American element and SAM.gov/UEI; excludes
+   institutional development. FY2026 closed 8 Jun 2026. Pitch as application workshops in Tunisia.
+   https://simpler.grants.gov/opportunity/362086
+4. **UNESCO International Fund for Cultural Diversity.** Up to USD 100,000; applicant must be an NGO in a
+   developing country that is party to the 2005 Convention, so a Tunisian partner applies.
+   https://www.unesco.org/creativity/en/ifcd/apply
+Ruled out for this programme: DC Commission on the Arts (no fiscal-agent projects), HumanitiesDC (DC-registered
+sponsor needed), Mid Atlantic Arts, Prince Claus (individuals only), Pro Helvetia Cairo, Mozilla, Warhol.
