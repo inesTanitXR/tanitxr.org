@@ -1,6 +1,6 @@
-# 🌐 Art, XR & Impact Opportunities, Edition 22
+# 🌐 Art, XR & Impact Opportunities, Edition 21
 
-*Assembled Thu Nov 5, 2026 for sending Fri Nov 6; Ines sends it Thu Nov 5. Edition 21 was never posted, so its Bogliasco block moves here, EMAP (still open on the send day) is back as a Tunisia line, and National Geographic and CHI stay as short lines. Deadlines from Nov 6 to Dec 8, per the one-month rule. Every deadline was checked at the organiser's page on Nov 5. Changes from the plan: Mozilla Fellowships (Dec 17) moved to edition 23 with the other December 10+ items (Sony, FilmGate, Fulldome Montevideo, ACM DIS and Creativity & Cognition, Aion). Games for Change Student Challenge left out again (still no submission deadline). XR Women Museum Community Garden left out (the page now says it is not a selection pool, so there is nothing to apply to). Arab Film Festival AANM: the museum page now shows only the January 10, 2027 deadline; the fee is on FilmFreeway, which could not be read. Rome Prize: the official page gives the Nov 2 to 15 late window without a year; the cycle matches the 2027-28 call already on the board. CHI's page still contradicts itself, so it carries a caveat.*
+*Assembled Thu Nov 5, 2026 as "edition 22", renumbered 21 the same day (LinkedIn shows Edition 20 as the last one posted; the Oct 29 draft was never posted and is kept as ref/newsletter-draft-oct29-unposted.md). For sending Fri Nov 6; Ines sends it Thu Nov 5. Edition 21 was never posted, so its Bogliasco block moves here, EMAP (still open on the send day) is back as a Tunisia line, and National Geographic and CHI stay as short lines. Deadlines from Nov 6 to Dec 8, per the one-month rule. Every deadline was checked at the organiser's page on Nov 5. Changes from the plan: Mozilla Fellowships (Dec 17) moved to the next edition (22, about Nov 20) with the other December 10+ items (Sony, FilmGate, Fulldome Montevideo, ACM DIS and Creativity & Cognition, Aion). Games for Change Student Challenge left out again (still no submission deadline). XR Women Museum Community Garden left out (the page now says it is not a selection pool, so there is nothing to apply to). Arab Film Festival AANM: the museum page now shows only the January 10, 2027 deadline; the fee is on FilmFreeway, which could not be read. Rome Prize: the official page gives the Nov 2 to 15 late window without a year; the cycle matches the 2027-28 call already on the board. CHI's page still contradicts itself, so it carries a caveat.*
 
 ---
 
@@ -31,7 +31,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Design an AR Lens for SPECS glasses and build it in Lens Studio with a coding agent. Submit a public repo, a short description and a demo video under 3 minutes. Prizes USD 1,250, 750 and 500.
 
-👉 https://tanitxr.org/go/learn-ar-with-specs-devpost-hackathon-with-snap/?ref=nl22
+👉 https://tanitxr.org/go/learn-ar-with-specs-devpost-hackathon-with-snap/?ref=nl21
 
 ### 🚇 Metro Art in Transit Open Call (Washington, DC area)
 
@@ -43,7 +43,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Metro is building a pool of artists for temporary public art: construction-wall prints, 20-second digital screen pieces, station installations and community events. Selected artists quote a fee and are paid from a project budget.
 
-👉 https://tanitxr.org/go/metro-art-in-transit-open-call-for-artwork-washington-dc-are/?ref=nl22
+👉 https://tanitxr.org/go/metro-art-in-transit-open-call-for-artwork-washington-dc-are/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -59,7 +59,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Global recognition, no cash, for projects in emerging tech, digital skills and safe online spaces for women and girls.
 
-👉 https://tanitxr.org/go/equals-in-tech-awards-2027/?ref=nl22
+👉 https://tanitxr.org/go/equals-in-tech-awards-2027/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -75,7 +75,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Greece's digital arts festival takes AR/VR/XR, games, web art and installations. Unfinished VR projects can apply if the design is complete.
 
-👉 https://tanitxr.org/go/athens-digital-arts-festival-2027-it-s-alive-open-call-ar-vr/?ref=nl22
+👉 https://tanitxr.org/go/athens-digital-arts-festival-2027-it-s-alive-open-call-ar-vr/?ref=nl21
 
 ### 🎥 Monte Carlo VR Movies Festival 2027, 360° Short Films
 
@@ -87,7 +87,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Best 360° Short Film receives EUR 5,000 toward a new film. Entries by FilmFreeway, Vimeo or YouTube.
 
-👉 https://tanitxr.org/go/monte-carlo-vr-movies-festival-2027-360-short-films/?ref=nl22
+👉 https://tanitxr.org/go/monte-carlo-vr-movies-festival-2027-360-short-films/?ref=nl21
 
 ### 🎬 Raindance Film Festival 2027, Immersive
 
@@ -99,7 +99,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Immersive section for VR, XR and social VR worlds. Results May 16, 2027.
 
-👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl22
+👉 https://tanitxr.org/go/raindance-film-festival-2027-immersive/?ref=nl21
 
 ### 🎨 CURRENTS 2027 Art & Technology Festival, Open Call
 
@@ -111,7 +111,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ New media festival with a category for VR, AR and mixed reality, plus installation, audio, robotics, performance and video.
 
-👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl22
+👉 https://tanitxr.org/go/currents-2027-art-technology-festival-open-call/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -127,7 +127,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ The Digital Art(s) track takes installations, interactive and generative works and critical making. Cultural heritage is one of the conference themes, and remote presentation is planned.
 
-👉 https://tanitxr.org/go/dh2027-digital-humanities-conference-digital-art-s-track-gal/?ref=nl22
+👉 https://tanitxr.org/go/dh2027-digital-humanities-conference-digital-art-s-track-gal/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -143,7 +143,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ EUR 3,000 net a month, up to EUR 10,000 for production, a campus studio and a solo show in autumn 2027. The call depends on final funding approval.
 
-👉 https://tanitxr.org/go/schaufler-residency-tu-dresden-2027-energy-cultures-in-trans/?ref=nl22
+👉 https://tanitxr.org/go/schaufler-residency-tu-dresden-2027-energy-cultures-in-trans/?ref=nl21
 
 ### 🏛️ Rome Prize 2027-28, American Academy in Rome
 
@@ -155,7 +155,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ A stipend of USD 30,000 or USD 16,000 with housing, a workspace and meals in Rome. Fields include visual arts, design and historic preservation.
 
-👉 https://tanitxr.org/go/rome-prize-2027-28-american-academy-in-rome/?ref=nl22
+👉 https://tanitxr.org/go/rome-prize-2027-28-american-academy-in-rome/?ref=nl21
 
 ### 🌳 Bernheim Forest Artist in Residence 2027 (Kentucky)
 
@@ -167,7 +167,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Four residencies with a USD 2,500 stipend, housing and a studio, in exchange for a site-inspired work. One of the four is for an artist working on environmental issues and climate change.
 
-👉 https://tanitxr.org/go/bernheim-forest-artist-in-residence-2027-kentucky/?ref=nl22
+👉 https://tanitxr.org/go/bernheim-forest-artist-in-residence-2027-kentucky/?ref=nl21
 
 ### 🎨 Bogliasco Foundation Fellowship, Fall 2027
 
@@ -179,7 +179,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ✏️ Full room and board and a work space. Travel, materials and personal expenses are yours.
 
-👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl22
+👉 https://tanitxr.org/go/bogliasco-foundation-fellowship-fall-2027/?ref=nl21
 
 ───────────────────────────────────────
 
@@ -208,7 +208,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 
 ───────────────────────────────────────
 
-Everything from this edition, and a lot more that doesn't fit in a newsletter, is on tanitxr.org/opportunities?ref=newsletter22. That page is updated every day, with filters and countdowns. You can subscribe there to get these by email, or send me an opportunity for the next edition.
+Everything from this edition, and a lot more that doesn't fit in a newsletter, is on tanitxr.org/opportunities?ref=newsletter21. That page is updated every day, with filters and countdowns. You can subscribe there to get these by email, or send me an opportunity for the next edition.
 
 If you apply to any of these, tell me. And if you want to help preserve Tunisian heritage with XR and 3D scanning, Tanit XR is always looking for volunteers: ines@tanitxr.org 🌟
 
@@ -221,7 +221,7 @@ Paste from the 🎯 line to the hashtags. The tag table sits under the post for 
 
 🎯 Opportunities for XR creators, artists & impact makers
 
-Edition 22 is out: deadlines from now to early December. A lot more are on the website, updated every day.
+Edition 21 is out: deadlines from now to early December. A lot more are on the website, updated every day.
 
 💰 Grants, prizes & paid work
 
