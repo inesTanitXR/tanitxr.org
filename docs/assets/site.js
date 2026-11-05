@@ -26,6 +26,26 @@ document.addEventListener('click', e => {
     window.tx('out', { on: o.hostname.replace(/^www\./, '') });
 });
 const PAGE_OPENED = Date.now();
+// Minutes spent on every other page, as 1, 3 and 10 minute milestones, counted only while the tab
+// is in front. Explore and the board keep their own, finer timers (dwell, opp_dwell). Pages of one
+// kind share a name (any archive object, any profile, any post), and fr/ar count with English.
+(function(){
+  const parts = location.pathname.split('/').filter(Boolean);
+  if (parts[0] === 'fr' || parts[0] === 'ar') parts.shift();
+  const first = (parts[0] || 'home').replace(/[.]html$/, '');
+  if (first === 'explore' || first === 'walk' || first === 'opportunities') return;
+  const KIND = { archive: 'archive-object', team: 'team-profile', news: 'news-post' };
+  const page = parts.length > 1 && KIND[first] ? KIND[first] : first;
+  const marks = [1, 3, 10];
+  let active = 0, last = Date.now();
+  const tick = setInterval(() => {
+    const now = Date.now();
+    if (document.visibilityState === 'visible') active += (now - last) / 1000;
+    last = now;
+    while (marks.length && active >= marks[0] * 60) window.tx('page_time', { on: page + ' ' + marks.shift() + ' min' });
+    if (!marks.length) clearInterval(tick);
+  }, 5000);
+})();
 
 // A badge for reaching the end of something worth finishing: an article, or an object's page.
 // It marks finishing, never arriving, which is why there is none on the home page or a form.

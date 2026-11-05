@@ -103,7 +103,7 @@ LABEL = {"collection_view": "Objects looked at", "collection_rotate": "Objects t
          "opp_share": "Board: shared", "opp_landing": "Board: arrived on one call's link", "opp_filter": "Board: filters used",
          "opp_quick": "Board: quick picks used", "opp_search": "Board: searches", "opp_search_empty": "Board: searches that found nothing",
          "opp_sort": "Board: sort changed", "opp_depth": "Board: scroll milestones", "opp_dwell": "Board: time milestones",
-         "opp_closed_list": "Board: closed calls opened", "go": "Newsletter item clicks", "out": "Clicks that left the site"}
+         "opp_closed_list": "Board: closed calls opened", "page_time": "Time milestones on other pages", "go": "Newsletter item clicks", "out": "Clicks that left the site"}
 # events whose second path segment is worth a table of its own
 DIM = {"collection_view": "Object", "collection_save": "Object", "collection_share": "Network", "collection_poster": "Object",
        "share_landing": "Object", "nura_more": "Object", "room_pick": "Object", "xr_pick": "Object", "map_jump": "Object",
@@ -280,6 +280,35 @@ def event_tables(cur, prev=None, top=10):
         if rows:
             P(f"\n### {LABEL.get(k, k)}, by {DIM[k].lower()}\n"); P(f"| {DIM[k]} | Times |"); P("|---|---|")
             for key, n in rows: P(f"| {pretty(k, key)} | {n:,} |")
+    time_table(cur)
+
+
+def page_kind(path):
+    """The page name the site's page_time timer uses: fr/ar folded into English, and any archive
+    object, profile or post counted under one name."""
+    parts = [x for x in path.split("/") if x]
+    if parts and parts[0] in ("fr", "ar"): parts = parts[1:]
+    first = re.sub(r"\.html$", "", parts[0]) if parts else "home"
+    kinds = {"archive": "archive-object", "team": "team-profile", "news": "news-post"}
+    return kinds[first] if len(parts) > 1 and first in kinds else first
+
+
+def time_table(cur):
+    """Every page but Explore and the board sends page_time/<page>-<1|3|10>-min while it is in front."""
+    got = defaultdict(Counter)
+    for key, n in cur["per"].get("page_time", Counter()).items():
+        m = re.match(r"(.+)-(\d+)-min$", key)
+        if m: got[m.group(1)][int(m.group(2))] += n
+    if not got:
+        return
+    views = Counter()
+    for path, n in cur["pages"]:
+        views[page_kind(path)] += n
+    P("\n### How long people stay on each page (timed since 5 November 2026)\n")
+    P("Counted only while the tab is in front. Explore and the board are timed in their own sections.\n")
+    P("| Page | Page views | 1 min or more | 3 min or more | 10 min or more |"); P("|---|---|---|---|---|")
+    for pg in sorted(got, key=lambda k: -got[k][1]):
+        P(f"| {pg.replace('-', ' ')} | {views.get(pg, 0):,} | {got[pg][1]:,} | {got[pg][3]:,} | {got[pg][10]:,} |")
 
 
 if a.grant:
