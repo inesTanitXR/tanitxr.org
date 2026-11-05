@@ -204,6 +204,7 @@ A lot more opportunities, including ones that close later, are on tanitxr.org/op
 - 🌍 Awesome Foundation climate micro-grants, $1,000, November 27 (next round January 29). awesomefoundation.org
 - 📝 National Geographic, The Human Thread, December 1. nationalgeographic.org
 - 🎮 Tribeca 2027 Games, Shorts and Digital Creators, December 2, 11:59 pm ET, $40 to $70. tribecafilm.com
+- 🎬 Dome Fest West 2027, late deadline December 4, final January 8. domefestwest.com
 - 🕹 CHI 2027 Digital Experience Competition, December 4 AoE (one CHI page says the deadline has passed; the competition site still lists December 4). chi2027.acm.org
 
 ───────────────────────────────────────
@@ -268,7 +269,7 @@ Nov 18: Meta VR Start
 Nov 27: Awesome Foundation climate micro-grants
 Dec 1: National Geographic Human Thread
 Dec 2: Tribeca Games, Shorts and Digital Creators
-Dec 4: CHI Digital Experience Competition
+Dec 4: CHI Digital Experience Competition, Dome Fest West late deadline
 
 📬 Get these in your inbox: subscribe on tanitxr.org/opportunities
 
