@@ -139,6 +139,26 @@ def call_name(slug):
     return CALLS.get(slug, {}).get("t") or slug.replace("-", " ")
 
 
+_SECTIONS = {}
+
+
+def section_of(ed, slug):
+    """The newsletter section an item sat in ("## " heading above its link in ref/newsletter-edition-NN.md),
+    so clicks can be added up per section (money, awards, the Tunisia lines, Still open...)."""
+    if ed not in _SECTIONS:
+        m, sec = {}, ""
+        num = re.sub(r"\D", "", ed)
+        f = os.path.join(HERE, "ref", f"newsletter-edition-{num}.md")
+        if os.path.exists(f):
+            for line in open(f, encoding="utf-8").read().split("\n---\n---\n")[0].splitlines():
+                if line.startswith("## "):
+                    sec = line[3:].strip()
+                for g in re.findall(r"tanitxr\.org/go/([^/?\s]+)", line):
+                    m.setdefault(g, sec)
+        _SECTIONS[ed] = m
+    return _SECTIONS[ed].get(slug, "")
+
+
 def board_tables(cur, top=15):
     """What the newsletter needs: which calls readers open, what kinds, what they look for and don't
     find, which newsletter items get clicked, and where shared calls go."""
@@ -178,10 +198,17 @@ def board_tables(cur, top=15):
     gos = per.get("go", Counter())
     if gos:
         P("\n### Newsletter items clicked (tanitxr.org/go/ links)\n")
-        P("| Edition | Item | Clicks |"); P("|---|---|---|")
+        P("| Edition | Section | Item | Clicks |"); P("|---|---|---|---|")
+        bysec = Counter()
         for key, n in sorted(gos.items(), key=lambda x: (x[0].split("/")[0], -x[1])):
             ed, _, slug = key.partition("/")
-            P(f"| {ed} | {call_name(slug)} | {n:,} |")
+            sec = section_of(ed, slug)
+            bysec[(ed, sec or "(not in the edition file)")] += n
+            P(f"| {ed} | {sec} | {call_name(slug)} | {n:,} |")
+        P("\n### Newsletter clicks by section\n")
+        P("| Edition | Section | Clicks |"); P("|---|---|---|")
+        for (ed, sec), n in sorted(bysec.items(), key=lambda x: (x[0][0], -x[1])):
+            P(f"| {ed} | {sec} | {n:,} |")
     for k, title in (("opp_quick", "Quick picks used"), ("opp_filter", "Filters used"), ("opp_search", "What people searched for"),
                      ("opp_search_empty", "Searches that found nothing (calls to look for)"), ("opp_share", "Shared to"),
                      ("opp_landing", "Calls people arrived on from a link"), ("out", "Clicks that left the site, by destination")):

@@ -8,7 +8,9 @@ Each link that matches a call on the board becomes https://tanitxr.org/go/<call>
 who clicks it lands on the organiser's page as before, and the click is counted per edition and per
 item (tools/analytics_report.py, "Newsletter items clicked"). Links that match nothing are listed:
 add those calls to the board (ref/opportunity_updates.json), rebuild, then run this again.
-Run it after the build, because it reads the forwarding pages in docs/go/."""
+Short lines that end with a bare address (call.emare.eu) get a counted link too, matched to the board
+call on that site whose name fits the line best. Run it after the build, because it reads the
+forwarding pages in docs/go/."""
 import argparse, os, re, sys
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,6 +50,33 @@ def swap(m):
 
 
 out = re.sub(r"https?://[^\s)>\]\"']+", swap, text)
+
+# Short lines (Tunisia section, Still open) end with a bare address like "call.emare.eu" instead of a
+# full link. Count those too: pick the board call on that site whose slug shares the most words with
+# the line, and put its counted link in place of the bare address.
+bydom = {}
+for u, slug in go.items():
+    bydom.setdefault(u.split("/")[0], []).append((u, slug))
+
+
+def words(t):
+    return set(re.findall(r"[a-z0-9]{3,}", t.lower()))
+
+
+def swap_bare(m):
+    line, bare = m.group(1), m.group(2)
+    dom = norm(bare).split("/")[0]
+    near = [c for d, cs in bydom.items() if d == dom or d.endswith("." + dom) or dom.endswith("." + d) for c in cs]
+    cands = ("/" in bare and [c for c in near if c[0].startswith(norm(bare))]) or near
+    if not cands:
+        missing.append(bare); return m.group(0)
+    lw = words(line)
+    slug = max(cands, key=lambda c: len(lw & set(c[1].split("-"))))[1]
+    new = f"https://tanitxr.org/go/{slug}/?ref={tag}"
+    done.append((bare, new)); return line + new
+
+
+out = re.sub(r"(?m)^(- .*?[ .,:;(]\s?)((?!tanitxr\.org)[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}(?:/[^\s]*)?)\s*$", swap_bare, out)
 for old, new in done:
     print(f"  {new}\n      was {old}")
 print(f"\n{len(done)} links counted, {len(missing)} not on the board:")
