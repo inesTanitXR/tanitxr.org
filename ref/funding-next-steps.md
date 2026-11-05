@@ -82,28 +82,30 @@ not 3D). Charity Navigator lists only FCI, never a sponsored project.
 - A Tunisian partner letter (INP or an association) for AFCP, British Council, Gerda Henkel and Anna Lindh.
 - FCI's determination letter and EIN for anything U.S.
 
-## The opportunities board and newsletter as a funded programme (checked 2026-11-05)
+## Paying for the opportunities board and newsletter (checked 2026-11-05)
 
-Evidence: ref/newsletter-stats.md (21 editions since 2025-09-06, 74,774 impressions, 13,186 article views,
-2,172 subscribers; average views per edition up from about 386 in editions 1-7 to about 917 in editions 14-20)
-and tools/analytics_report.py (board visits, apply clicks, newsletter clicks per section from edition 21).
-None of these has an open call today; prepare for the 2027 rounds.
+Who uses it: mostly the US (board visitors since Sept 1: US 68, Tunisia 25, then a long international tail;
+newsletter subscribers led by New York, London, Los Angeles, the Bay Area), XR and art people in software,
+tech and higher education. Tanit XR itself is a global learning community built around Tunisian heritage,
+so funders for creative and digital skills, education and cultural exchange fit the wider organisation.
+Evidence: ref/newsletter-stats.md and tools/analytics_report.py.
 
-1. **AFAC, Training and Regional Events.** Funds "training and workshops", "archive and documentation
-   platforms", residencies and forums. Up to USD 25,000 for individuals and teams, USD 35,000 for
-   institutions. Individuals from Arab countries apply regardless of residence, and international
-   organisations with projects related to Arab arts and culture can apply. 2026 call: 15 Apr to 19 Jun.
-   https://www.arabculturefund.org/Programs/16
-2. **Culture Resource (Al Mawred), Abbara.** EUR 22,000 core funding over up to 24 months (staff, running
-   costs, not activities), for independent initiatives in the Arab region or Arab initiatives abroad that
-   serve production in Arabic. Round 08 ran Jun to Jul 2025; ask abbara@mawred.org about round 09 and
-   whether a US-sponsored project qualifies. https://mawred.org/cultural-organizations-management/abbara/?lang=en
-3. **US Embassy Tunis, Public Diplomacy Annual Program Statement** (not AFCP). USD 10,000 to 200,000,
-   US or Tunisian organisations, audiences in Tunisia, needs an American element and SAM.gov/UEI; excludes
-   institutional development. FY2026 closed 8 Jun 2026. Pitch as application workshops in Tunisia.
-   https://simpler.grants.gov/opportunity/362086
-4. **UNESCO International Fund for Cultural Diversity.** Up to USD 100,000; applicant must be an NGO in a
-   developing country that is party to the 2005 Convention, so a Tunisian partner applies.
-   https://www.unesco.org/creativity/en/ifcd/apply
-Ruled out for this programme: DC Commission on the Arts (no fiscal-agent projects), HumanitiesDC (DC-registered
-sponsor needed), Mid Atlantic Arts, Prince Claus (individuals only), Pro Helvetia Cairo, Mozilla, Warhol.
+**Finding: grants for the board alone are thin. Sponsorship is the realistic money.**
+
+1. **Sell featured calls and newsletter slots.** What comparable services charge: The Art List $50 / $150 /
+   $225 (free, featured with newsletter mention, featured plus dedicated emails; theartlist.com/submit);
+   CaFÉ email blast $175 to $700 by list size (callforentry.org/cafe-promotional-ad-e-blast/); NYFA listings
+   $100 to $330 for 2 to 8 weeks (from search, nyfa.org would not load); AR Insider XR newsletter bundles
+   $799 to $1,999 (engage-media.co/visibility/). The per-call click counts are the proof for buyers.
+2. **XR companies for co-marketing or sponsorship:** HTC VIVERSE Creator Grants mention "financial support
+   or co-marketing" (create.viverse.com/partner); amounts not stated. Others (Snap, Meta, Qualcomm, AWE)
+   showed no open community programme; approach as sponsors, not grant applicants.
+3. **Grants for the wider community work** (museum, skills, classes): Unity for Humanity reopens 2027
+   (unity.com/humanity, needs a Unity-built demo); Awesome Foundation NYC, $1,000 monthly
+   (awesomefoundation.org/en/chapters/nyc); Doris Duke letter of inquiry through FCI, weak fit
+   (dorisduke.org/grants/letter-of-inquiry); AFAC Training and Regional Events, up to $25,000, Ines can apply
+   as an Arab individual, 2026 call ran 15 Apr to 19 Jun (arabculturefund.org/Programs/16); Al Mawred Abbara
+   core funding EUR 22,000, ask abbara@mawred.org whether a US-sponsored project qualifies.
+Ruled out: NEA Grants for Arts Projects (closed to fiscally sponsored entities), Knight Art + Tech (three
+cities), Creative Capital (individual artists), Rauschenberg and Mellon (invitation only), Ford (no open
+calls), DC Commission on the Arts and HumanitiesDC (no fiscal-agent projects), Prince Claus, Mozilla, Warhol.
