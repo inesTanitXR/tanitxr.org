@@ -2164,6 +2164,51 @@
    "url": "https://appalachiantrail.org/get-involved/artist-in-residence/",
    "published": "2026-11-04",
    "desc": "A year-long title with a two to four week stay at Monson Arts in Maine, a travel stipend for on-trail events and work promoted through the Conservancy. Any discipline; priority may go to artists based in the eastern United States or able to cover part of their own travel. Free to apply; closes January 3, 2027."
+  },
+  {
+   "title": "Dalai Lama Fellowship 2027",
+   "type": "Fellowship",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Youth",
+    "Open to all"
+   ],
+   "deadline_date": "2026-11-11",
+   "deadline_type": null,
+   "url": "https://dalailamafellows.com/apply/",
+   "published": "2026-11-06",
+   "desc": "A one-year virtual fellowship for changemakers aged 20 to 36 with a current or planned social change project, any country. Coaching and group learning, about 12 hours a month from April 2027; no project funding. Free; closes November 11, 2026, 22:00 UTC."
+  },
+  {
+   "title": "IEEE VR 2027, 3DUI Contest: Beyond Shared Reality",
+   "type": "Challenge",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "XR Creators",
+    "Researchers",
+    "Students"
+   ],
+   "deadline_date": "2026-12-11",
+   "deadline_type": null,
+   "url": "https://ieeevr.org/2027/contribute/3dui-contest/",
+   "published": "2026-11-06",
+   "desc": "A contest for new 3D interface techniques for shared spatial interaction across different immersive setups, for teams of up to ten. Register title and team by December 11, 2026; two-page abstract and video by December 16 (AoE). No contest fee, but one team member must register for IEEE VR 2027 and present on site."
+  },
+  {
+   "title": "Spectacles Community Challenge (Snap x Lenslist), monthly AR Lens prizes",
+   "type": "Challenge",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "XR Creators"
+   ],
+   "deadline_date": null,
+   "deadline_type": "Rolling",
+   "url": "https://developers.snap.com/spectacles/spectacles-community/community-challenge",
+   "published": "2026-11-06",
+   "desc": "Snap's monthly competition for Spectacles Lenses built in Lens Studio, in three categories (New Lens, Lens Update, Open Source). Lenslist lists a USD 66,000 pool across 11 prizes, up to USD 14,000 for first place New Lens. Free, no headset needed; check lenslist.co for the current round's dates."
   }
  ],
  "featured": {

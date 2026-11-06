@@ -562,6 +562,9 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Universcience (Cité des sciences) | linkedin.com/company/universcience |
 | Tzkrti | linkedin.com/company/tzkrti-com |
 | Whitley Fund for Nature | no LinkedIn page found |
+| Dalai Lama Fellows | no LinkedIn page found |
+| IEEE VR | no LinkedIn page found |
+| Snap AR (Spectacles) | linkedin.com/showcase/snap-ar |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -986,3 +989,38 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 👉 https://appalachiantrail.org/get-involved/artist-in-residence/
 
+### 🌱 Dalai Lama Fellowship 2027
+
+📅 Deadline: November 11, 2026, 22:00 UTC
+
+📍 Online
+
+👥 Changemakers aged 20 to 36, any country, with a social change project; free
+
+✏️ A one-year virtual fellowship with coaching and group learning, about 12 hours a month from April 2027. No project funding.
+
+👉 https://dalailamafellows.com/apply/
+
+### 🥽 IEEE VR 2027, 3DUI Contest: Beyond Shared Reality
+
+📅 Deadline: register by December 11, 2026; abstract and video by December 16, 2026 (AoE)
+
+📍 Submit online; finalists present on site at IEEE VR 2027
+
+👥 Anyone, teams of up to ten; no contest fee, but one member must register for the conference
+
+✏️ A contest for new 3D interface techniques for shared spatial interaction across different immersive setups. Judges and audience votes pick the winner.
+
+👉 https://ieeevr.org/2027/contribute/3dui-contest/
+
+### 👓 Spectacles Community Challenge (Snap x Lenslist)
+
+📅 Deadline: Rolling, monthly rounds (check lenslist.co for the current one)
+
+📍 Online
+
+👥 AR developers worldwide (sanctioned countries excluded); free, no headset needed
+
+✏️ Monthly prizes for Spectacles Lenses in three categories. USD 66,000 across 11 prizes, up to USD 14,000 for first place New Lens.
+
+👉 https://developers.snap.com/spectacles/spectacles-community/community-challenge

@@ -1192,6 +1192,41 @@
    "source": "screenshot",
    "raw": "shot-6.png (Nov 3), Instagram @appalachiantrail",
    "status": "published: board + draft + plan edition 23 + shortlist; Jan 3, 2027; free"
+  },
+  {
+   "key": "dalai lama fellowship 2027",
+   "date": "2026-11-06",
+   "source": "suggestion",
+   "raw": "dalai-lama-fellowship-2027",
+   "status": "published: board + draft; Nov 11, 22:00 UTC; free"
+  },
+  {
+   "key": "ieee vr 2027 3dui contest beyond shared reality",
+   "date": "2026-11-06",
+   "source": "suggestion",
+   "raw": "ieee-vr-2027-3dui-contest",
+   "status": "published: board + draft + plan edition 22; Dec 11 / Dec 16 AoE"
+  },
+  {
+   "key": "spectacles community challenge snap x lenslist monthly ar lens prizes",
+   "date": "2026-11-06",
+   "source": "suggestion",
+   "raw": "snap-spectacles-community-challenge-2026",
+   "status": "published: board (rolling) + draft + plan edition 22"
+  },
+  {
+   "key": "maryland film festival 2027 xr installation and interactive",
+   "date": "2026-11-06",
+   "source": "suggestion",
+   "raw": "maryland-film-festival-2027-xr",
+   "status": "personal: Just for me, added to ines-shortlist.json"
+  },
+  {
+   "key": "artwalk dupont korean art after hours kcc nov 6",
+   "date": "2026-11-06",
+   "source": "screenshot",
+   "raw": "Tanit Inbox/shot.png (Nov 5, 17:20), Instagram @koreaculturedc",
+   "status": "personal: same ArtWalk Dupont post as Nov 4; left in place for the Thursday DC digest"
   }
  ],
  "slack_last_ts": "1789764970.037819",
@@ -1405,6 +1440,12 @@
    "file": "shot.png",
    "raw": "screenshot (Nov 4, 12:11), Instagram @dcbikeparty",
    "what": "DC Bike Party Fuzzy Disco Ride, Dupont Circle fountain, Wed Nov 11, meet 7:30 pm"
+  },
+  {
+   "date": "2026-11-06",
+   "file": "shot.png",
+   "raw": "screenshot (Nov 5, 17:20), Instagram @koreaculturedc",
+   "what": "ArtWalk Dupont: Korean Art After Hours, Fri Nov 6, 6-8 pm, KCC DC (re-share)"
   }
  ]
 }
