@@ -2815,7 +2815,7 @@ NAV = [
 
 def lang_switcher(fname):
     """EN / FR / ع links pointing at this page's siblings in the other languages."""
-    if fname == "404.html":  # no localized 404 pages, send to the homepages
+    if fname in ("404.html", "drop.html"):  # English-only pages, send to the homepages
         fname = "index.html"
     out = []
     for code, d in LANG_DIRS.items():
