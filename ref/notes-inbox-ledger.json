@@ -1227,9 +1227,16 @@
    "source": "screenshot",
    "raw": "Tanit Inbox/shot.png (Nov 5, 17:20), Instagram @koreaculturedc",
    "status": "personal: same ArtWalk Dupont post as Nov 4; left in place for the Thursday DC digest"
+  },
+  {
+   "key": "youtube the flow of memory digital archives across time utokyo 150th anniversary session",
+   "date": "2026-11-07",
+   "source": "slack",
+   "raw": "Slack #miscellaneous-articles-and-opportunities, shared by Nick Kaufmann, 2026-11-06",
+   "status": "skipped: a video preview of a UTokyo session on digital archives, not an opportunity"
   }
  ],
- "slack_last_ts": "1789764970.037819",
+ "slack_last_ts": "1794007492.000000",
  "personal_left_in_place": [
   {
    "date": "2026-09-23",
