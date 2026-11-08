@@ -1234,6 +1234,13 @@
    "source": "slack",
    "raw": "Slack #miscellaneous-articles-and-opportunities, shared by Nick Kaufmann, 2026-11-06",
    "status": "skipped: a video preview of a UTokyo session on digital archives, not an opportunity"
+  },
+  {
+   "key": "phillips collection dupont circle google search",
+   "date": "2026-11-08",
+   "source": "screenshot",
+   "raw": "Tanit Inbox/shot-2.png (Nov 7, 10:41)",
+   "status": "personal: museum search card, left in place for the Thursday digest"
   }
  ],
  "slack_last_ts": "1794007492.000000",
@@ -1453,6 +1460,12 @@
    "file": "shot.png",
    "raw": "screenshot (Nov 5, 17:20), Instagram @koreaculturedc",
    "what": "ArtWalk Dupont: Korean Art After Hours, Fri Nov 6, 6-8 pm, KCC DC (re-share)"
+  },
+  {
+   "date": "2026-11-08",
+   "file": "shot-2.png",
+   "raw": "Tanit Inbox/shot-2.png (Nov 7, 10:41), Google search screenshot",
+   "what": "The Phillips Collection, Dupont Circle art museum (Google card); a DC outing, no event or application"
   }
  ]
 }
