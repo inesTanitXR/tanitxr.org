@@ -8,7 +8,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ### 🇹🇳 Changemakers for Youth 2027 (ChangemakerXchange)
 
-📅 Deadline: November 9, 2026 (no time given)
+📅 Deadline: November 15, 2026 (extended from November 9; no time given)
 
 📍 Online sessions, then a five-day summit somewhere in the region in mid-March 2027 (location to be confirmed; lodging, meals and local transport covered, travel stipend case by case)
 
@@ -974,7 +974,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ✏️ A 3 to 5 minute film on green water, the rain held in soils and plants that feeds most of Africa's farming. USD 10,000 in prizes: USD 3,000 first prize, a youth award and jury prizes. English subtitles required.
 
-👉 https://letstalkaboutwater.org/green-water-africa/
+👉 https://letstalkaboutwater.org/green-water-africa-short-film-competition/
 
 
 ### 🥾 Appalachian Trail Conservancy, Artist in Residence 2027
@@ -1024,3 +1024,15 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Monthly prizes for Spectacles Lenses in three categories. USD 66,000 across 11 prizes, up to USD 14,000 for first place New Lens.
 
 👉 https://developers.snap.com/spectacles/spectacles-community/community-challenge
+
+### 🎨 Hopper Prize Fall 2026
+
+📅 Deadline: November 17, 2026, 11:59 pm Pacific (closes before the edition 22 send, so board only)
+
+📍 Online
+
+👥 Artists 18 and over, any medium, any country. Entry fee USD 40
+
+✏️ Two USD 4,500 grants and four USD 1,000 grants, unrestricted.
+
+👉 https://hopperprize.org/

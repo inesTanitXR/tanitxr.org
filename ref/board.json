@@ -2560,7 +2560,7 @@
    "country": "",
    "mode": "Hybrid",
    "deadline_type": null,
-   "deadline_date": "November 9, 2026",
+   "deadline_date": "November 15, 2026",
    "url": "https://changemakerxchange.org/changemakers-for-youth/"
   },
   {
@@ -3069,7 +3069,7 @@
    "mode": "Remote",
    "deadline_type": null,
    "deadline_date": "January 8, 2027",
-   "url": "https://letstalkaboutwater.org/green-water-africa/"
+   "url": "https://letstalkaboutwater.org/green-water-africa-short-film-competition/"
   },
   {
    "slug": "appalachian-trail-conservancy-artist-in-residence-2027",
@@ -3133,6 +3133,21 @@
    "deadline_type": "Rolling",
    "deadline_date": null,
    "url": "https://developers.snap.com/spectacles/spectacles-community/community-challenge"
+  },
+  {
+   "slug": "hopper-prize-fall-2026-unrestricted-grants-for-artists",
+   "title": "Hopper Prize Fall 2026, unrestricted grants for artists",
+   "desc": "Two USD 4,500 grants and four USD 1,000 grants, unrestricted, for artists aged 18 and over working in any medium, anywhere in the world. Entry fee USD 40. Deadline November 17, 2026, 11:59 pm Pacific.",
+   "type": "Grant",
+   "eligibility": [
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "November 17, 2026",
+   "url": "https://hopperprize.org/"
   }
  ]
 }
