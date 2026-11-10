@@ -5568,6 +5568,10 @@ def build_walk():
         first = next(iter(shops), "")
         per = {}
         for c in cls.get("items", []):
+            # fails closed: a scan someone sent in is shown only once approved is explicitly
+            # true, so a file dropped into the queue cannot put itself on the site
+            if not c.get("approved", False):
+                continue
             if c["slug"] not in on_disk or os.path.getsize(os.path.join(models_dir, c["slug"] + ".glb")) > WALK_MAX_BYTES:
                 continue
             w = c.get("workshop") or first

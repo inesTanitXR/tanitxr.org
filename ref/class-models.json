@@ -1,5 +1,5 @@
 {
- "_what": "Scans made by people learning with us at a workshop or a class. They are not Tunisian heritage, so they sit in their own group on Explore rather than among the scans from Tunisia. One entry in \"workshops\" per group, and every item names the workshop it belongs to; an item with no workshop joins the first one. The .glb files themselves live in media/models and are left alone when an item is taken off the site.",
+ "_what": "Scans made by people learning with us at a workshop or a class. They are not Tunisian heritage, so they sit in their own group on Explore rather than among the scans from Tunisia. One entry in \"workshops\" per group, and every item names the workshop it belongs to; an item with no workshop joins the first one. Nothing is shown until \"approved\" is true, which tools/class_drop.py approve sets. The .glb files themselves live in media/models and are left alone when an item is taken off the site.",
  "workshops": {
   "wl-fall-2026": {
    "label": "Washington and Lee, Fall 2026",
@@ -16,7 +16,8 @@
    "date": "2026-10-27T14:22",
    "source": "Scaniverse 2026-10-27 140928.glb",
    "bytes": 716516,
-   "workshop": "wl-fall-2026"
+   "workshop": "wl-fall-2026",
+   "approved": true
   },
   {
    "slug": "class-chloe-washington-glb",
@@ -25,7 +26,8 @@
    "date": "2026-10-27T14:44",
    "source": "Chloe_Washington.glb.glb",
    "bytes": 494644,
-   "workshop": "wl-fall-2026"
+   "workshop": "wl-fall-2026",
+   "approved": true
   },
   {
    "slug": "class-libbie-car",
@@ -34,7 +36,12 @@
    "date": "2026-10-27T14:45",
    "source": "Libbie_car.glb.glb",
    "bytes": 851844,
-   "workshop": "wl-fall-2026"
+   "workshop": "wl-fall-2026",
+   "approved": true
   }
- ]
+ ],
+ "label": "Washington and Lee, Fall 2026",
+ "sub": "Scanned by students in class",
+ "where": "Washington and Lee University",
+ "place": "Scanned in class"
 }

@@ -1,22 +1,26 @@
 #!/usr/bin/env python3
-"""Class scans onto Explore, minutes after a student exports them from Scaniverse.
+"""Scans from a workshop, into the queue that waits for Ines.
 
-  python3 tools/class_drop.py watch              # during class: watch the drop folders, publish each new .glb
+  python3 tools/class_drop.py watch              # during a workshop: watch the drop folders, take in each new .glb
   python3 tools/class_drop.py add FILE.glb [--by Maya] [--title "Coffee mug"]   # one file by hand
-  python3 tools/class_drop.py list               # what is on the site from the class
-  python3 tools/class_drop.py remove-all         # after the day: take every class scan down
-  python3 tools/class_drop.py remove SLUG        # one scan
+  python3 tools/class_drop.py list               # what is waiting, and what is on the site
+  python3 tools/class_drop.py approve SLUG       # put one on the site (--all for every waiting one)
+  python3 tools/class_drop.py remove SLUG        # take one off again (--all for the whole workshop)
 
-Settings live in ref/class-drop.json: the upload link, the room's name on Explore, and which
-folders on this laptop to watch (the Drive folder if Drive for desktop syncs it, ~/Downloads for
-AirDrop and email attachments, ~/ClassDrop for anything dragged in by hand).
+Nothing reaches tanitxr.org until approve is run. A file that arrives is shrunk and recorded as
+waiting, and that is all; the site is not rebuilt and nothing is pushed. This is deliberate: the
+same folder is open to a room full of people and the site is public.
+
+Settings live in ref/class-drop.json: the workshop these scans belong to and which folders on
+this laptop to watch (the Drive folder if Drive for desktop syncs it, ~/Downloads for AirDrop and
+email attachments, ~/ClassDrop for anything dragged in by hand).
 
 What happens to each file: a copy is shrunk with gltf-transform (textures to 2048 px, meshopt),
-the copy goes to media/models/class-<name>.glb, the scan is added to ref/class-models.json, the
-Explore pages are rebuilt alone (python3 build.py --only walk, seconds), and the result is
-committed and pushed. GitHub Pages then shows it on tanitxr.org/explore within a minute or two.
-The original file is never touched. A file that fails is logged and skipped, the next one still
-goes through. With --no-push nothing leaves the laptop, which is right for the local preview.
+the copy goes to media/models/class-<name>.glb, and the scan is added to ref/class-models.json
+with approved false. On approve, the Explore pages are rebuilt alone (python3 build.py --only
+walk, seconds), committed and pushed, and GitHub Pages shows it within a minute or two. The
+original file is never touched. A file that fails is logged and skipped, the next one still goes
+through.
 
 The file name carries the credit: Maya_CoffeeMug.glb becomes "Coffee Mug", scanned by Maya.
 """
@@ -199,7 +203,7 @@ def publish(push=True, what="class scans"):
     log("  pushed. On tanitxr.org/explore in a minute or two")
 
 
-def add(path, by=None, title=None, push=True, publish_now=True):
+def add(path, by=None, title=None):
     path = os.path.expanduser(path)
     if not os.path.exists(path):
         raise RuntimeError("no such file: " + path)
@@ -216,29 +220,37 @@ def add(path, by=None, title=None, push=True, publish_now=True):
     log(f"+ {os.path.basename(path)} -> {title}" + (f", scanned by {by}" if by else "") + f" ({os.path.getsize(path)/1e6:.1f} MB)")
     size = shrink(path, dst)
     m["items"].append({"slug": slug, "title": title, "by": by, "date": dt.datetime.now().isoformat(timespec="minutes"),
-                       "source": os.path.basename(path), "bytes": size})
+                       "source": os.path.basename(path), "bytes": size,
+                       "workshop": CFG.get("workshop") or next(iter(models().get("workshops", {"": {}})), ""),
+                       "approved": False})
     save(MODELS_PATH, m)
-    if publish_now:
-        publish(push, f"class: add {title}")
+    log(f"    waiting for approval. Put it on the site with: class_drop.py approve {slug}")
     return slug
 
 
-def remove(slugs, push=True):
+def setstate(slugs, on, push=True):
+    """Put scans on the site, or take them off again. The record and the file are kept either
+    way: taking something off is not the same as throwing away the only copy of someone's scan."""
     m = models()
-    keep = [i for i in m["items"] if i["slug"] not in slugs]
+    hit = [i for i in m["items"] if i["slug"] in slugs]
+    if not hit:
+        log("no scan with that name"); return
+    for i in hit:
+        i["approved"] = bool(on)
+        log(("+ " if on else "- ") + i["title"] + (f" ({i['by']})" if i.get("by") else ""))
+    save(MODELS_PATH, m)
+    what = ", ".join(i["title"] for i in hit) if len(hit) < 4 else f"{len(hit)} scans"
+    publish(push, ("workshop scans: " + what) if on else ("workshop scans off the site: " + what))
+
+
+def forget(slugs):
+    """Drop the record entirely. The .glb stays in media/models; that folder is the only copy."""
+    m = models()
     gone = [i for i in m["items"] if i["slug"] in slugs]
-    if not gone:
-        log("nothing to remove"); return
-    m["items"] = keep
+    m["items"] = [i for i in m["items"] if i["slug"] not in slugs]
     save(MODELS_PATH, m)
     for i in gone:
-        f = os.path.join(MODELS_DIR, i["slug"] + ".glb")
-        if os.path.exists(f):
-            os.remove(f)
-        log(f"- {i['title']}" + (f" ({i['by']})" if i.get("by") else ""))
-    if not keep and os.path.exists(MODELS_PATH):
-        os.remove(MODELS_PATH)
-    publish(push, "class: remove " + (", ".join(i["title"] for i in gone) if len(gone) < 4 else f"{len(gone)} scans"))
+        log(f"forgotten: {i['title']} (media/models/{i['slug']}.glb kept)")
 
 
 def wait_until_still(path, seconds=4):
@@ -253,7 +265,7 @@ def wait_until_still(path, seconds=4):
     return False
 
 
-def watch(push=True, every=20):
+def watch(every=20):
     folders = [os.path.expanduser(f) for f in CFG.get("folders", ["~/ClassDrop"])]
     for f in folders:
         os.makedirs(f, exist_ok=True)
@@ -261,7 +273,7 @@ def watch(push=True, every=20):
     ip = local_ip()
     log("watching " + ", ".join(folders))
     log(f"preview on this network: http://{ip}:8737/explore/   (python3 -m http.server 8737 --directory docs --bind 0.0.0.0)")
-    log("Ctrl-C to stop. Files already here are left alone; only new ones go up.")
+    log("Ctrl-C to stop. Files already here are left alone. Nothing goes on the site until you approve it.")
     # anything already in the folders at start is not from this class, except what arrived while a
     # previous run was stopped (a restart mid-class must not swallow a scan)
     since = state.get("last_loop", 0)
@@ -307,7 +319,7 @@ def watch(push=True, every=20):
                     state["done"][p] = "duplicate of " + state["hashes"][h]
                     save(STATE_PATH, state); continue
                 try:
-                    slug = add(p, push=push)
+                    slug = add(p)
                     state["done"][p] = slug
                     state["hashes"][h] = slug
                 except Exception as e:
@@ -341,32 +353,60 @@ def local_ip():
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    w = sub.add_parser("watch"); w.add_argument("--no-push", action="store_true"); w.add_argument("--every", type=int, default=20)
-    a = sub.add_parser("add"); a.add_argument("file"); a.add_argument("--by"); a.add_argument("--title"); a.add_argument("--no-push", action="store_true")
+    w = sub.add_parser("watch"); w.add_argument("--every", type=int, default=20)
+    a = sub.add_parser("add"); a.add_argument("file"); a.add_argument("--by"); a.add_argument("--title")
     sub.add_parser("list")
-    r = sub.add_parser("remove"); r.add_argument("slug"); r.add_argument("--no-push", action="store_true")
-    ra = sub.add_parser("remove-all"); ra.add_argument("--no-push", action="store_true")
+    ap_ = sub.add_parser("approve"); ap_.add_argument("slug", nargs="?"); ap_.add_argument("--all", action="store_true")
+    ap_.add_argument("--no-push", action="store_true")
+    r = sub.add_parser("remove"); r.add_argument("slug", nargs="?"); r.add_argument("--all", action="store_true")
+    r.add_argument("--no-push", action="store_true")
+    f = sub.add_parser("forget"); f.add_argument("slug")
     x = ap.parse_args()
+
     if x.cmd == "watch":
-        watch(push=not x.no_push, every=x.every)
+        watch(every=x.every)
     elif x.cmd == "add":
-        add(x.file, x.by, x.title, push=not x.no_push)
+        add(x.file, x.by, x.title)
     elif x.cmd == "list":
         m = models()
         if not m["items"]:
-            print("no class scans on the site"); return
-        for i in m["items"]:
-            print(f"{i['date'][:16]}  {i['title']:<32} {i.get('by') or '':<12} {i['slug']}  ({i.get('bytes', 0)/1e6:.1f} MB)")
-    elif x.cmd == "remove":
-        remove([x.slug], push=not x.no_push)
-    elif x.cmd == "remove-all":
+            print("nothing here yet"); return
+        waiting = [i for i in m["items"] if not i.get("approved")]
+        live = [i for i in m["items"] if i.get("approved")]
+        def row(i):
+            return (f"  {i['date'][:16]}  {i['title']:<32} {i.get('by') or '':<12} "
+                    f"{i['slug']}  ({i.get('bytes', 0)/1e6:.1f} MB)")
+        if waiting:
+            print(f"\nWaiting for you ({len(waiting)}):")
+            for i in waiting:
+                print(row(i))
+            print("\n  Put one on the site with: python3 tools/class_drop.py approve <slug>")
+            print("  Or all of them with:       python3 tools/class_drop.py approve --all")
+        if live:
+            print(f"\nOn the site ({len(live)}):")
+            for i in live:
+                print(row(i))
+        if not waiting:
+            print("\nNothing waiting.")
+    elif x.cmd in ("approve", "remove"):
+        on = x.cmd == "approve"
         m = models()
-        if not m["items"]:
-            print("nothing to remove"); return
-        print(f"This takes {len(m['items'])} class scan(s) off the site and pushes. Type yes to go on: ", end="", flush=True)
-        if sys.stdin.readline().strip().lower() != "yes":
-            print("left as they are"); return
-        remove([i["slug"] for i in m["items"]], push=not x.no_push)
+        if x.all:
+            slugs = [i["slug"] for i in m["items"] if bool(i.get("approved")) != on]
+            if not slugs:
+                print("nothing to do"); return
+            if not on:
+                print(f"This takes {len(slugs)} scan(s) off the site and pushes. Type yes to go on: ",
+                      end="", flush=True)
+                if sys.stdin.readline().strip().lower() != "yes":
+                    print("left as they are"); return
+        elif x.slug:
+            slugs = [x.slug]
+        else:
+            sys.exit(f"which one? give a slug, or --all. See: python3 tools/class_drop.py list")
+        setstate(slugs, on, push=not x.no_push)
+    elif x.cmd == "forget":
+        forget([x.slug])
 
 
 if __name__ == "__main__":
