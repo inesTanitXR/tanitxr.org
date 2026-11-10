@@ -2,9 +2,12 @@
  * Tanit XR: receive a volunteer's scan file straight into Drive, from the drop zone on
  * tanitxr.org/scanning-guide/.
  *
- * PASTE THIS AT THE BOTTOM OF THE SAME SCRIPT that already has submissions.gs in it, then
- * Deploy > Manage deployments > pencil > Version: New version > Deploy. Google will ask for
- * permission to use your Drive the first time, because the files land there.
+ * This goes in the SAME Apps Script project as submissions.gs, as its own file. Then run
+ * authorizeUploads once from the editor to grant Drive access, because a web app cannot
+ * stop and ask, and only then Deploy > Manage deployments > pencil > Version: New version >
+ * Deploy. Without the new version the old code keeps running.
+ *
+ * Deployed on 2026-11-10 as version 2 of the 'site forms' web app.
  *
  * Scans are big: the ones already in the Drive run from under a megabyte to 130 MB, and a
  * web app can only take about 50 MB in one request. So the file arrives in pieces. The
@@ -181,4 +184,18 @@ function handleViews(data) {
   if (act === 'view-bump') return pageViews_(data, true);
   if (act === 'view-read') return pageViews_(data, false);
   return null;
+}
+
+/**
+ * Run this once, by hand, from the Apps Script editor, after pasting this file in.
+ *
+ * Everything else here is only ever reached through doPost, and a web app cannot stop to ask
+ * for permission: it just fails. This touches Drive directly, so running it brings up Google's
+ * permission screen, and once that is granted the uploads work. It makes nothing but the
+ * folder the scans land in, and running it again is harmless.
+ */
+function authorizeUploads() {
+  var f = uploadFolder_();
+  Logger.log('Uploads can reach Drive. Scans will land in: ' + f.getName());
+  return f.getName();
 }
