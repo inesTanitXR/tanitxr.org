@@ -494,7 +494,7 @@ form.nice label{display:block;font-weight:700;font-size:14.5px;margin:20px 0 7px
 form.nice input,form.nice textarea,form.nice select{width:100%;padding:12px 14px;border:1px solid #d5dade;
   border-radius:6px;font-family:var(--sans);font-size:15.5px;background:#fff;color:var(--ink)}
 form.nice input:focus,form.nice textarea:focus{outline:2px solid var(--gold)}
-form.nice input[type=checkbox]{width:auto;padding:0;margin:0;accent-color:var(--gold-dark);transform:scale(1.15)}
+form.nice input[type=checkbox],form.nice input[type=radio]{width:auto;padding:0;margin:0;accent-color:var(--gold-dark);transform:scale(1.15)}
 form.nice textarea{min-height:130px;resize:vertical}
 form.nice .req::after{content:" *";color:#c0392b}
 form.nice button{margin-top:26px}
@@ -1561,6 +1561,17 @@ table.impact td.n{font-family:var(--serif);font-size:24px;white-space:nowrap;fon
 .way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
 .wayp{display:none}
 .wayp.on{display:block}
+/* the one question that decides which part of Explore a submission joins */
+.kinds{margin-top:4px}
+form.nice label.kpick{display:flex;gap:11px;align-items:flex-start;font-weight:400;
+  border:1px solid var(--line,#e6e0d6);border-radius:12px;padding:13px 15px;margin:0 0 9px;
+  cursor:pointer;background:#fff;transition:border-color .15s,background .15s}
+.kpick:hover{border-color:var(--gold-dark)}
+.kpick:has(input:checked){border-color:var(--gold-dark);background:#fdf6e6}
+.kpick input{margin-top:4px;flex:0 0 auto;accent-color:var(--gold-dark)}
+.kpick b{display:block;font-size:15.5px;font-weight:600}
+.kpick small{display:block;color:var(--gray);font-size:13.5px;margin-top:2px;line-height:1.45}
+#sm-wsrow{margin-top:12px}
 #drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
   padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
 #drop:hover,#drop.over{border-color:var(--gold-dark);background:#fdf6e6}

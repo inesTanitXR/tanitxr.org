@@ -140,6 +140,33 @@ const PAGE_OPENED = Date.now();
     tell(out, '', '');
   }));
 
+  // Which part of Explore this belongs in decides which of the questions below matter: a piece
+  // somebody modelled has no "where is it", and only a workshop scan needs naming a workshop.
+  const wsrow = document.getElementById('sm-wsrow');
+  const placerow = document.getElementById('sm-placerow');
+  const placein = document.getElementById('sm-place');
+  function kindChanged() {
+    const picked = form.querySelector('input[name=kind]:checked');
+    const k = picked ? picked.value : '';
+    if (wsrow) wsrow.hidden = k !== 'workshop';
+    const needPlace = k !== 'made';
+    if (placerow) placerow.hidden = !needPlace;
+    // a hidden field that is still required stops the form submitting with nothing to show why
+    if (placein) placein.required = needPlace;
+  }
+  form.querySelectorAll('input[name=kind]').forEach((r) => r.addEventListener('change', kindChanged));
+  // the link a workshop hands out carries its name: /drop?w=Washington and Lee
+  try {
+    const qw = new URLSearchParams(location.search).get('w');
+    if (qw) {
+      const r = form.querySelector('input[name=kind][value=workshop]');
+      if (r) r.checked = true;
+      const w = document.getElementById('sm-ws');
+      if (w) w.value = qw;
+    }
+  } catch (e) { /* an old browser without URLSearchParams still gets the form */ }
+  kindChanged();
+
   function tell(el, text, kind) {
     el.textContent = text;
     el.className = 'df-say' + (kind ? ' ' + kind : '');

@@ -778,7 +778,7 @@ form.nice label{display:block;font-weight:700;font-size:14.5px;margin:20px 0 7px
 form.nice input,form.nice textarea,form.nice select{width:100%;padding:12px 14px;border:1px solid #d5dade;
   border-radius:6px;font-family:var(--sans);font-size:15.5px;background:#fff;color:var(--ink)}
 form.nice input:focus,form.nice textarea:focus{outline:2px solid var(--gold)}
-form.nice input[type=checkbox]{width:auto;padding:0;margin:0;accent-color:var(--gold-dark);transform:scale(1.15)}
+form.nice input[type=checkbox],form.nice input[type=radio]{width:auto;padding:0;margin:0;accent-color:var(--gold-dark);transform:scale(1.15)}
 form.nice textarea{min-height:130px;resize:vertical}
 form.nice .req::after{content:" *";color:#c0392b}
 form.nice button{margin-top:26px}
@@ -1845,6 +1845,17 @@ table.impact td.n{font-family:var(--serif);font-size:24px;white-space:nowrap;fon
 .way:focus-visible{outline:2px solid var(--gold-dark);outline-offset:2px}
 .wayp{display:none}
 .wayp.on{display:block}
+/* the one question that decides which part of Explore a submission joins */
+.kinds{margin-top:4px}
+form.nice label.kpick{display:flex;gap:11px;align-items:flex-start;font-weight:400;
+  border:1px solid var(--line,#e6e0d6);border-radius:12px;padding:13px 15px;margin:0 0 9px;
+  cursor:pointer;background:#fff;transition:border-color .15s,background .15s}
+.kpick:hover{border-color:var(--gold-dark)}
+.kpick:has(input:checked){border-color:var(--gold-dark);background:#fdf6e6}
+.kpick input{margin-top:4px;flex:0 0 auto;accent-color:var(--gold-dark)}
+.kpick b{display:block;font-size:15.5px;font-weight:600}
+.kpick small{display:block;color:var(--gray);font-size:13.5px;margin-top:2px;line-height:1.45}
+#sm-wsrow{margin-top:12px}
 #drop{border:2px dashed rgba(74,53,43,.3);border-radius:16px;background:#fdf9f2;cursor:pointer;
   padding:38px 20px;text-align:center;transition:border-color .15s,background .15s}
 #drop:hover,#drop.over{border-color:var(--gold-dark);background:#fdf6e6}
@@ -2121,6 +2132,33 @@ const PAGE_OPENED = Date.now();
     form.querySelectorAll('.wayp').forEach((p) => p.classList.toggle('on', p.dataset.way === b.dataset.way));
     tell(out, '', '');
   }));
+
+  // Which part of Explore this belongs in decides which of the questions below matter: a piece
+  // somebody modelled has no "where is it", and only a workshop scan needs naming a workshop.
+  const wsrow = document.getElementById('sm-wsrow');
+  const placerow = document.getElementById('sm-placerow');
+  const placein = document.getElementById('sm-place');
+  function kindChanged() {
+    const picked = form.querySelector('input[name=kind]:checked');
+    const k = picked ? picked.value : '';
+    if (wsrow) wsrow.hidden = k !== 'workshop';
+    const needPlace = k !== 'made';
+    if (placerow) placerow.hidden = !needPlace;
+    // a hidden field that is still required stops the form submitting with nothing to show why
+    if (placein) placein.required = needPlace;
+  }
+  form.querySelectorAll('input[name=kind]').forEach((r) => r.addEventListener('change', kindChanged));
+  // the link a workshop hands out carries its name: /drop?w=Washington and Lee
+  try {
+    const qw = new URLSearchParams(location.search).get('w');
+    if (qw) {
+      const r = form.querySelector('input[name=kind][value=workshop]');
+      if (r) r.checked = true;
+      const w = document.getElementById('sm-ws');
+      if (w) w.value = qw;
+    }
+  } catch (e) { /* an old browser without URLSearchParams still gets the form */ }
+  kindChanged();
 
   function tell(el, text, kind) {
     el.textContent = text;
@@ -2815,7 +2853,7 @@ NAV = [
 
 def lang_switcher(fname):
     """EN / FR / ع links pointing at this page's siblings in the other languages."""
-    if fname in ("404.html", "drop.html"):  # English-only pages, send to the homepages
+    if fname in ("404.html",):  # English-only pages, send to the homepages
         fname = "index.html"
     out = []
     for code, d in LANG_DIRS.items():
@@ -7575,7 +7613,7 @@ takes a few minutes per scan; older devices may take longer.</li>
 <li><h3>Share Your Model</h3>
 <p>Upload your file, below, and then email description and other details to
 <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-<p><a class="btn" href="submit-a-model.html">{term("Send us your model")}</a></p>
+<p><a class="btn" href="drop.html">{term("Send us your model")}</a></p>
 </li>
 </ol>"""
 
@@ -7684,22 +7722,15 @@ Guide incorporates these standards into field practice.</p>
          read_badge=None)
 
 
-def build_submit_model():
-    """One page for sending us a model, however the volunteer has it.
+def submission_form():
+    """The one form behind tanitxr.org/drop, for anything anyone sends us.
 
-    Until now the guide said to email the file, which meant a 130 MB attachment nobody can
-    send, and the description arriving in a different message from the file. Here the three
-    real cases are the same form: the file itself, a link to it somewhere, or a model already
-    on Sketchfab, with the information about the object filled in beside it."""
-    body = f"""
-{page_hero(term("Submit your model"), term("Submit your model"), bg="sv-IMG_4213.jpg")}
-<section class="pad"><div class="wrap" style="max-width:820px">
-<div class="prose">
-<p>{term("Send us a scan. You can upload the file here, paste a link to it, or point us at it on Sketchfab. Tell us what it is while you are at it, so it does not arrive as an object with no story.")}</p>
-<p style="color:var(--gray);font-size:14.5px">{term("Not scanned anything yet?")}
-<a href="scanning-guide.html">{term("Read the scanning guide first")}</a>.</p>
-</div>
-
+    Three real cases are the same form: the file itself, a link to it somewhere, or a model
+    already on Sketchfab, with what the object is filled in beside it. One question at the top
+    says which part of Explore it belongs in, because only the person who made it really knows:
+    a thing they scanned in Tunisia, a piece they modelled, or a scan from a workshop with us.
+    Nothing anyone sends appears anywhere until it has been approved."""
+    return f"""
 <form class="nice send" id="send-model" action="{FORM_ENDPOINT}" method="POST">
 <input type="hidden" name="_subject" value="New model submitted, tanitxr.org">
 <input type="hidden" name="_form" value="model">
@@ -7710,6 +7741,23 @@ def build_submit_model():
 <input type="text" name="url" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 <input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
 
+<fieldset class="ways kinds">
+<legend>{term("What are you sending?")}</legend>
+<label class="kpick"><input type="radio" name="kind" value="scan" required>
+<span><b>{term("Something real, that I scanned")}</b>
+<small>{term("An object, a doorway, a site. It joins Scanned in Tunisia.")}</small></span></label>
+<label class="kpick"><input type="radio" name="kind" value="made">
+<span><b>{term("Something I made, inspired by Tunisia")}</b>
+<small>{term("Modelled by hand rather than scanned. It joins Made by volunteers.")}</small></span></label>
+<label class="kpick"><input type="radio" name="kind" value="workshop">
+<span><b>{term("A scan from a workshop or class with us")}</b>
+<small>{term("Anything you scanned while learning with us, wherever you are. It joins From our workshops.")}</small></span></label>
+<div id="sm-wsrow" hidden>
+<label for="sm-ws">{term("Which workshop or class?")}</label>
+<input id="sm-ws" type="text" name="workshop" placeholder="{term("The school, or the date")}">
+</div>
+</fieldset>
+
 <label class="req" for="sm-name">{term("Your name")}</label>
 <input id="sm-name" type="text" name="name" required autocomplete="name">
 <label class="req" for="sm-email">{term("Email")}</label>
@@ -7717,8 +7765,10 @@ def build_submit_model():
 
 <label class="req" for="sm-title">{term("What is it")}</label>
 <input id="sm-title" type="text" name="title" required placeholder="{term("Carved door, Sidi Bou Said")}">
+<div id="sm-placerow">
 <label class="req" for="sm-place">{term("Where is it")}</label>
 <input id="sm-place" type="text" name="place" required placeholder="{term("The site, town or address")}">
+</div>
 <label for="sm-about">{term("Anything you know about it")}</label>
 <textarea id="sm-about" name="about" rows="4" placeholder="{term("What it is, how old, who looks after it, what is happening to it, who told you about it.")}"></textarea>
 <label for="sm-when">{term("When you captured it")}</label>
@@ -7766,11 +7816,23 @@ def build_submit_model():
 
 <button class="btn" type="submit" id="sm-go">{term("Send it")}</button>
 <p id="sm-say" class="df-say" role="status"></p>
-</form>
-</div></section>"""
-    page("submit-a-model.html", term("Submit your model"), body, active="volunteer.html",
-         desc="Send Tanit XR a 3D scan: upload the file, paste a link to it, or give us a "
-              "Sketchfab address, with what the object is and where it came from.")
+</form>"""
+
+
+def build_submit_model():
+    """tanitxr.org/submit-a-model is the address the scanning guide and older links use. It is
+    the same page as /drop, so there is one form to keep in step rather than two."""
+    dest = f"/{LANG_DIRS[LANG]}drop/"
+    d = os.path.join(DOCS, LANG_DIRS[LANG], "submit-a-model")
+    os.makedirs(d, exist_ok=True)
+    with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+        f.write(f'<!DOCTYPE html><html lang="{LANG}"><head><meta charset="utf-8">'
+                f'<title>{esc(term("Send us your model"))} \u2013 TANIT XR</title>'
+                f'<link rel="canonical" href="{SITE_URL}{LANG_DIRS[LANG]}drop/">'
+                f'<meta name="robots" content="noindex">'
+                f'<meta http-equiv="refresh" content="0;url={dest}">'
+                f'<script>location.replace("{dest}" + location.search + location.hash)</script>'
+                f'</head><body><p><a href="{dest}">{esc(term("Send us your model"))}</a></p></body></html>')
 
 
 TESTIMONIALS = json.load(open(os.path.join(HERE, "ref", "testimonials.json")))
@@ -8430,45 +8492,59 @@ For a PDF of this page for a grant annex, print it from your browser, or write t
 
 
 def build_drop():
-    """tanitxr.org/drop : where a class sends its Scaniverse scans. The file goes to a Drive
-    folder (ref/class-drop.json), by email, or to Ines by AirDrop; tools/class_drop.py on her laptop does
-    the rest. English only: it is read off a classroom screen."""
+    """tanitxr.org/drop : the one address for anything anyone wants to send us.
+
+    It was the Washington and Lee class page, where students put a Scaniverse export in a Drive
+    folder and tools/class_drop.py pushed it straight onto Explore. Scans from a class we are
+    running are not the only thing people want to send, and nothing should reach the site
+    without being looked at first, so this is now the general form, and the workshop steps sit
+    below it for the days when a room full of people is scanning at once."""
     cfg_path = os.path.join(HERE, "ref", "class-drop.json")
-    if not os.path.exists(cfg_path):
-        return
-    with open(cfg_path) as f:
-        cfg = json.load(f)
+    cfg = json.load(open(cfg_path)) if os.path.exists(cfg_path) else {}
     link = cfg.get("link", "")
     qr = ""
-    try:
+    try:                       # a code to put on a slide, so nobody has to type the address
         sys.path.insert(0, os.path.join(HERE, "tools", "vendor"))
         import segno
-        qr = segno.make(link, error="m").svg_inline(scale=7, dark="#111518", border=2)
-        qr = qr.replace("<svg ", '<svg class="dropqr" role="img" aria-label="QR code for the upload folder" ', 1)
+        qr = segno.make(f"{SITE_URL}{LANG_DIRS[LANG]}drop/", error="m").svg_inline(
+            scale=7, dark="#111518", border=2)
+        qr = qr.replace("<svg ", '<svg class="dropqr" role="img" aria-label="QR code for this page" ', 1)
     except Exception as e:
         print(f"  ! drop page: no QR ({e})")
-    body = f"""
-{page_hero("Add your scan", "Add your scan", bg="sv-IMG_8547.jpg", pos="center 30%")}
-<section class="pad"><div class="wrap" style="max-width:980px">
+
+    workshop = f"""
+<section class="pad alt"><div class="wrap" style="max-width:980px">
 <div class="dropgrid">
 <div>
-<div class="eyebrow">{esc(cfg.get("label", "Class scans"))}</div>
-<h2 class="sec-title" style="margin-bottom:18px">Three steps, then look for it on Explore</h2>
+<div class="eyebrow">{term("Scanning with us today?")}</div>
+<h2 class="sec-title" style="margin-bottom:18px">{term("Three steps, from your phone")}</h2>
 <ol class="dropsteps">
-<li><b>Export from Scaniverse.</b> Open your scan, tap <b>Share</b>, then <b>Export Model</b>, then <b>GLB</b>.</li>
-<li><b>Name the file.</b> <code>YourFirstName_ObjectName.glb</code>, for example <code>Maya_CoffeeMug.glb</code>. That is how your name and the object's name appear on the site.</li>
-<li><b>Upload it.</b> Tap the button, or scan the code, and add the file to the folder. Signed in to any Google account is enough. You can also email it to <a href="mailto:ines@tanitxr.org?subject=My%20class%20scan">ines@tanitxr.org</a> (under 25 MB), or AirDrop it to Ines from an iPhone.</li>
+<li><b>{term("Export from Scaniverse.")}</b> {term("Open your scan, tap Share, then Export Model, then GLB.")}</li>
+<li><b>{term("Name the file.")}</b> <code>YourFirstName_ObjectName.glb</code>, {term("for example")} <code>Maya_CoffeeMug.glb</code>. {term("That is how your name and the object's name reach us.")}</li>
+<li><b>{term("Send it with the form above")}</b>, {term("choosing the workshop answer, or email it to")}
+<a href="mailto:ines@tanitxr.org?subject=My%20workshop%20scan">ines@tanitxr.org</a>{term(" if the file is under 25 MB.")}</li>
 </ol>
-<p><a class="btn btn-gold" href="{esc(link)}" target="_blank" rel="noopener" style="font-size:16px;padding:14px 30px">Upload my scan</a>
-&nbsp; <a class="btn btn-line" href="mailto:ines@tanitxr.org?subject=My%20class%20scan" style="font-size:16px;padding:14px 30px">Email it instead</a>
-&nbsp; <a class="btn btn-line" href="/class/" style="font-size:16px;padding:14px 30px">See the class scans</a></p>
-<p class="fhint">A few minutes later your scan is on <a href="/class/">tanitxr.org/class</a>, ready for the headset. Reload the page to see new ones. Files up to about 150 MB are fine, the site shrinks them.</p>
+<p class="fhint">{term("Files up to about 150 MB are fine, we shrink them. Your scan goes on Explore once we have looked at it, under")}
+<a href="/class/">{term("From our workshops")}</a>.</p>
 </div>
-<div class="dropqr-box">{qr}<p class="fhint center" style="margin-top:10px">Scan to open the upload folder</p></div>
+<div class="dropqr-box">{qr}<p class="fhint center" style="margin-top:10px">{term("Scan to open this page")}</p></div>
 </div>
-</div></section>"""
-    page("drop.html", "Add your scan", body, active="explore.html",
-         desc="Send your Scaniverse scan and see it on tanitxr.org/explore, in VR, a few minutes later.")
+</div></section>""" if qr or link else ""
+
+    body = f"""
+{page_hero(term("Send us your scan"), term("Send us your scan"), bg="sv-IMG_8547.jpg", pos="center 30%")}
+<section class="pad"><div class="wrap" style="max-width:820px">
+<div class="prose">
+<p>{term("Scanned something, or made something? Send it here and it can join the collection on Explore. Upload the file, paste a link to it, or point us at it on Sketchfab, and tell us what it is so it does not arrive as an object with no story.")}</p>
+<p style="color:var(--gray);font-size:14.5px">{term("Everything is looked at by a person before it appears, so nothing you send goes on the site straight away.")}
+{term("Not scanned anything yet?")} <a href="scanning-guide.html">{term("Read the scanning guide first")}</a>.</p>
+</div>
+{submission_form()}
+</div></section>
+{workshop}"""
+    page("drop.html", term("Send us your scan"), body, active="explore.html",
+         desc="Send Tanit XR a 3D scan or a model you made: upload the file, paste a link, or "
+              "give us a Sketchfab address. Everything is reviewed before it reaches Explore.")
 
 
 def build_misc():
@@ -9102,8 +9178,7 @@ def main():
         build_dc_evening()
         build_about()
         build_contact()
-        if LANG == "en":
-            build_drop()
+        build_drop()
         build_support()
         build_partners()
         build_misc()
