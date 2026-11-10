@@ -8,8 +8,8 @@ This file is the single source of truth. The Thursday DC digest reads it, texts 
 
 - Stage: 1
 - Next action: Nudge Shana Marshall (no reply seen since she wrote Oct 6). Draft for Ines to send: "hi Shana, hope the semester's treating you well. still keen to meet Suse and the Museum Studies folks about a spring session, happy to come by with a headset any time in November." Once she answers, Stage 1 item 1 (the coffee with Suse Anderson and Herman Marigny IV).
-- Last nudged: 2026-11-02 (Monday digest). Before that 2026-10-29, 2026-10-22, 2026-10-21, 2026-10-19, 2026-10-16 and 2026-10-15.
-- Waiting on: Shana Marshall's Museum Studies follow-up (she wrote Oct 6; no reply found in Gmail as of Nov 2, and no sent nudge to her found in Gmail since Oct 28). Stage 0's dated items (Oct 23 embassy, Oct 27 lecture, Oct 28 Corcoran) have passed; whether the thank-yous went out is unverified. Stage 0 item 5 (guest-lecture line on the speaker one-pager) is still open, to raise after this nudge.
+- Last nudged: 2026-11-05 (Thursday digest). Before that 2026-11-02, 2026-10-29, 2026-10-22, 2026-10-21, 2026-10-19, 2026-10-16 and 2026-10-15.
+- Waiting on: Shana Marshall's Museum Studies follow-up (she wrote Oct 6; no reply found in Gmail as of Nov 2, and no sent nudge to her found in Gmail since Oct 28; Gmail connector could not be checked on Nov 5). Stage 0's dated items (Oct 23 embassy, Oct 27 lecture, Oct 28 Corcoran) have passed; whether the thank-yous went out is unverified. Stage 0 item 5 (guest-lecture line on the speaker one-pager) is still open, to raise after this nudge.
 
 ## What she brings (so drafts stay accurate)
 

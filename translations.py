@@ -2297,6 +2297,7 @@ FR = {
         'Numérisation d’exemple : base de colonne romaine, numérisée en classe',
     'Scanned by students in class': 'Numérisé par des élèves en classe',
     'Your class': 'Votre classe',
+    'From our workshops': 'De nos ateliers',
     'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee, automne 2026',
 
     # ---- added 2026-10-28: pages that were still English ----
@@ -4581,6 +4582,7 @@ AR = {
         'مسح تجريبي: قاعدة عمود روماني، مُسحت في الصف',
     'Scanned by students in class': 'مسح أنجزه الطلاب في الصف',
     'Your class': 'صفّكم',
+    'From our workshops': 'من ورشاتنا',
     'Washington and Lee, Fall 2026': 'Washington &#97;nd Lee، خريف 2026',
 
     # ---- added 2026-10-28: pages that were still English ----

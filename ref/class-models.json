@@ -1,32 +1,22 @@
 {
- "label": "Washington and Lee, Fall 2026",
- "sub": "Scanned by students in class",
- "where": "Washington and Lee University",
- "place": "Scanned in class",
+ "_what": "Scans made by people learning with us at a workshop or a class. They are not Tunisian heritage, so they sit in their own group on Explore rather than among the scans from Tunisia. One entry in \"workshops\" per group, and every item names the workshop it belongs to; an item with no workshop joins the first one. The .glb files themselves live in media/models and are left alone when an item is taken off the site.",
+ "workshops": {
+  "wl-fall-2026": {
+   "label": "Washington and Lee, Fall 2026",
+   "sub": "Scanned by students in class",
+   "where": "Washington and Lee University",
+   "place": "Scanned in class"
+  }
+ },
  "items": [
-  {
-   "slug": "class-sample-scan-roman-column-base",
-   "title": "Sample scan: Roman column base",
-   "by": "",
-   "date": "2026-10-26T23:14",
-   "source": "SampleColumn.glb",
-   "bytes": 427936
-  },
-  {
-   "slug": "class-ines-sample-scan",
-   "title": "Sample scan",
-   "by": "Ines",
-   "date": "2026-10-27T09:16",
-   "source": "Scaniverse 2026-08-24 162816.glb",
-   "bytes": 768728
-  },
   {
    "slug": "class-class-scan-14-09",
    "title": "Class scan, 14:09",
    "by": "",
    "date": "2026-10-27T14:22",
    "source": "Scaniverse 2026-10-27 140928.glb",
-   "bytes": 716516
+   "bytes": 716516,
+   "workshop": "wl-fall-2026"
   },
   {
    "slug": "class-chloe-washington-glb",
@@ -34,7 +24,8 @@
    "by": "Chloe",
    "date": "2026-10-27T14:44",
    "source": "Chloe_Washington.glb.glb",
-   "bytes": 494644
+   "bytes": 494644,
+   "workshop": "wl-fall-2026"
   },
   {
    "slug": "class-libbie-car",
@@ -42,7 +33,8 @@
    "by": "Libbie",
    "date": "2026-10-27T14:45",
    "source": "Libbie_car.glb.glb",
-   "bytes": 851844
+   "bytes": 851844,
+   "workshop": "wl-fall-2026"
   }
  ]
 }

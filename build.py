@@ -5518,22 +5518,35 @@ def build_walk():
     shipped, items, blocks = set(), [], ""
     rooms = [(l, sb, None, None) for l, sb, _ in WALK_ROOMS] + [("Other objects", "", None, None)]
     rooms += made_rooms
-    # scans made in a class, dropped in during the session by tools/class_drop.py. They sit in
-    # their own room at the end and leave together (class_drop.py remove-all).
+    # Scans made by people learning with us at a workshop or a class. They are not Tunisian
+    # heritage, so each workshop gets a room of its own at the end and they share the "From our
+    # workshops" track instead of sitting among the scans from Tunisia.
     cls_path = os.path.join(HERE, "ref", "class-models.json")
     if os.path.exists(cls_path):
         with open(cls_path) as f:
             cls = json.load(f)
-        cg = [{"title": c["title"], "file_slug": c["slug"], "place": cls.get("place", "Scanned in class"),
-               "site": cls.get("label", "Class scans"), "href": "explore.html", "by": c.get("by"),
-               "cls": True, "thumb": None, "date": c.get("date", ""),
-               "hi": (c.get("by") + " scanned this in class" if c.get("by") else "Scanned in class")
-                     + (" at " + cls["where"] if cls.get("where") else "") + ". Walk round it and see how it came out."}
-              for c in cls.get("items", [])
-              if c["slug"] in on_disk and os.path.getsize(os.path.join(models_dir, c["slug"] + ".glb")) <= WALK_MAX_BYTES]
-        if cg:
+        # one entry per workshop; a file from before this change carried a single label at the top
+        shops = cls.get("workshops") or {"": {k: cls.get(k, "") for k in ("label", "sub", "where", "place")}}
+        first = next(iter(shops), "")
+        per = {}
+        for c in cls.get("items", []):
+            if c["slug"] not in on_disk or os.path.getsize(os.path.join(models_dir, c["slug"] + ".glb")) > WALK_MAX_BYTES:
+                continue
+            w = c.get("workshop") or first
+            sh = shops.get(w) or shops.get(first) or {}
+            per.setdefault(w, []).append(
+                {"title": c["title"], "file_slug": c["slug"], "place": sh.get("place") or "Scanned at a workshop",
+                 "site": sh.get("label") or "Workshop scans", "href": "explore.html", "by": c.get("by"),
+                 "cls": True, "thumb": None, "date": c.get("date", ""),
+                 "hi": (c.get("by") + " scanned this while learning with us" if c.get("by")
+                        else "Scanned by someone learning with us")
+                       + (" at " + sh["where"] if sh.get("where") else "")
+                       + ". Walk round it and see how it came out."})
+        for w, cg in per.items():
+            sh = shops.get(w) or shops.get(first) or {}
             cg.sort(key=lambda g: g.get("date", ""))
-            rooms.append((cls.get("label", "Class scans"), cls.get("sub", "Scanned by students"), cg, None))
+            rooms.append((sh.get("label") or "Workshop scans",
+                          sh.get("sub") or "Scanned by the people in the room", cg, None))
     for label, sub, preset, artist in rooms:
         group = preset if preset is not None else by_room.get(label)
         if not group:
@@ -5573,7 +5586,7 @@ def build_walk():
                                 + (f' {human_size(d)}.' if measured and human_size(d) else ""),
                           "note": nura_note(m["file_slug"], nura_line(m) if measured else
                                   (m.get("text") or
-                                   (f'{short_title(m["title"])}, scanned in class'
+                                   (f'{short_title(m["title"])}, scanned at one of our workshops'
                                     f'{" by " + m["by"] if m.get("by") else ""} with a phone.' if m.get("cls") else
                                     f'{short_title(m["title"])}, modelled by hand for our virtual '
                                     f'museum{", by " + m["by"] if m.get("by") else ""}.'))),
@@ -5619,7 +5632,7 @@ def build_walk():
         print("  ! walk: no models, run tools/pull_sketchfab_models.py")
 
     rooms = blocks.count('class="warea"')
-    n_cls = sum(1 for i in items if i.get("cls"))      # scans sent in during a class, for the "Your class" switch
+    n_cls = sum(1 for i in items if i.get("cls"))      # workshop scans, for the "From our workshops" switch
     # nuraYaw turns the character to face the viewer; adjust here if she ends up backwards
     music = None
     if os.path.exists(os.path.join(HERE, "media", "audio", MUSIC["file"])):
@@ -5699,7 +5712,7 @@ def build_walk():
 <div id="track-switch">
 <button class="tsw on" data-track="scans" aria-pressed="true">Scanned in Tunisia <b>{sum(1 for i in items if i.get("real"))}</b></button>
 <button class="tsw" data-track="made" aria-pressed="false">Made by volunteers <b>{sum(1 for i in items if not i.get("real") and not i.get("cls"))}</b></button>
-{f'<button class="tsw" data-track="class" aria-pressed="false">Your class <b>{n_cls}</b></button>' if n_cls else ""}
+{f'<button class="tsw" data-track="class" aria-pressed="false">{term("From our workshops")} <b>{n_cls}</b></button>' if n_cls else ""}
 </div>
 
 <button id="map-toggle" title="See the whole collection at a glance">
@@ -5715,7 +5728,7 @@ Sound</button>
 <div id="more-sheet" hidden>
 <button class="ms-track" data-track="scans">Scanned in Tunisia</button>
 <button class="ms-track" data-track="made">Made by volunteers</button>
-{'<button class="ms-track" data-track="class">Your class</button>' if n_cls else ""}
+{'<button class="ms-track" data-track="class">{term("From our workshops")}</button>' if n_cls else ""}
 <button class="ms-act" data-for="scan-entry">How to scan</button>
 <button class="ms-act" data-for="map-toggle">Map of everything</button>
 <button class="ms-act ms-sound" data-for="sound-toggle">Sound</button>
@@ -5884,10 +5897,10 @@ built separately by Patrick, Cam and the team, and every object here will hang i
     os.makedirs(_d, exist_ok=True)
     with open(os.path.join(_d, "index.html"), "w", encoding="utf-8") as _f:
         _f.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
-                 '<title>Your class scans \u2013 TANIT XR</title><meta name="robots" content="noindex">'
+                 '<title>Workshop scans \u2013 TANIT XR</title><meta name="robots" content="noindex">'
                  '<meta http-equiv="refresh" content="0;url=/explore/?class=1#class">'
                  '<script>location.replace("/explore/?class=1#class")</script>'
-                 '</head><body><p><a href="/explore/?class=1#class">Your class scans on Explore</a></p></body></html>')
+                 '</head><body><p><a href="/explore/?class=1#class">Workshop scans on Explore</a></p></body></html>')
 
 
 # ---------------------------------------------------------------- galleries

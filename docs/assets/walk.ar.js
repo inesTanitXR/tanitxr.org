@@ -2305,7 +2305,7 @@ function start() {
     }
     const firstReal = slots.findIndex(s => s.it.real), firstMade = slots.findIndex(s => trackOf(s.it) === 'made');
     const firstClass = slots.findIndex(s => s.it.cls);
-    if (firstClass >= 0) items.push({ label: 'Your class', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstClass; } });
+    if (firstClass >= 0) items.push({ label: 'From our workshops', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstClass; } });
     if (firstReal >= 0) items.push({ label: 'مُسحت في تونس', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstReal; } });
     if (firstMade >= 0) items.push({ label: 'من إنجاز المتطوّعين', act: () => { if (roomMode) closeRoom(); xrTarget = xrCursor = firstMade; } });
     Array.from(new Set(CFG.items.map(i => i.artist).filter(Boolean))).forEach(m =>
