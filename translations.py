@@ -2390,6 +2390,37 @@ FR = {
         "Vous avez numérisé ou créé quelque chose ? Envoyez-le ici et il pourra rejoindre la collection sur Explorer. Téléversez le fichier, collez un lien, ou indiquez-le-nous sur Sketchfab, et dites-nous ce que c’est pour qu’il n’arrive pas comme un objet sans histoire.",
     'Tunisia&#x27;s heritage, scanned in 3D':
         'Le patrimoine tunisien, numérisé en 3D',
+
+    # ---- added 2026-11-11: the Oudhna workshop story ----
+    'Melek Said, our Regional Manager, and Youssef Lakdhar, the volunteer who scanned the ruins of Neapolis after Storm Harry, led a scanning workshop on site. With nothing more than a phone and the free app Scaniverse, they showed how a carved stone or a stretch of ancient wall becomes a 3D model in a few minutes. Then the participants tried it themselves.':
+        'Melek Said, notre responsable régionale, et Youssef Lakdhar, le bénévole qui a numérisé les ruines de Neapolis après la tempête Harry, ont animé sur place un atelier de numérisation. Avec un simple téléphone et l’application gratuite Scaniverse, ils ont montré comment une pierre sculptée ou un pan de mur antique devient un modèle 3D en quelques minutes. Puis les participants ont essayé à leur tour.',
+    'The people in the group run information systems for a living. At Oudhna they saw that the phone in their pocket can record Roman stonework well enough to study, share and stand next to in VR. That is the whole idea of Tanit XR: anyone can learn this, and each person who does is one more person able to record the heritage around them.':
+        'Les membres du groupe dirigent des systèmes d’information. À Oudhna, ils ont vu que le téléphone qu’ils ont dans la poche peut enregistrer la pierre romaine assez finement pour l’étudier, la partager et se tenir à côté d’elle en réalité virtuelle. C’est toute l’idée de Tanit XR : chacun peut apprendre, et chaque personne qui apprend est une personne de plus capable de documenter le patrimoine qui l’entoure.',
+    'In early November 2026 the Forum International des DSI, the yearly meeting of technology leaders from across Africa and Europe, held its 12th edition in Hammamet. One of its outings took participants to Oudhna, the Roman city of Uthina, south of Tunis. Tanit XR went with them.':
+        'Début novembre 2026, le Forum International des DSI, le rendez-vous annuel des responsables du numérique d’Afrique et d’Europe, a tenu sa 12e édition à Hammamet. L’une de ses sorties a conduit les participants à Oudhna, l’antique cité romaine d’Uthina, au sud de Tunis. Tanit XR était du voyage.',
+    'During the 12th Forum International des DSI in Hammamet, Melek Said and Youssef Lakdhar led a phone scanning workshop for forum participants among the Roman ruins of Oudhna, then spoke with the Tunisian press about Tanit XR.':
+        'Pendant le 12e Forum International des DSI à Hammamet, Melek Said et Youssef Lakdhar ont animé un atelier de numérisation au téléphone pour les participants, au milieu des ruines romaines d’Oudhna, puis ont parlé de Tanit XR à la presse tunisienne.',
+    'During the 12th Forum International des DSI in Hammamet, Melek Said and Youssef Lakdhar led a phone scanning workshop for forum participants among the Roman ruins of Oudhna, then spoke with the Tunisian press about Tanit':
+        'Pendant le 12e Forum International des DSI à Hammamet, Melek Said et Youssef Lakdhar ont animé un atelier de numérisation au téléphone pour les participants, au milieu des ruines romaines d’Oudhna, puis ont parlé de Tanit XR à la presse tunisienne.',
+    'During the forum&#x27;s outing to the Roman city of Uthina, Melek Said and Youssef Lakdhar showed participants how to scan the ruins in 3D with a phone, then spoke with the Tunisian press.':
+        'Lors de la sortie du forum dans la cité romaine d’Uthina, Melek Said et Youssef Lakdhar ont montré aux participants comment numériser les ruines en 3D avec un téléphone, puis ont parlé à la presse tunisienne.',
+    'Our warm thanks to Ahmed Gara, and to the Forum International des DSI for welcoming Tanit XR. If you would like a workshop like this for your team, your school or your event, write to':
+        'Un grand merci à Ahmed Gara, et au Forum International des DSI pour son accueil. Si vous souhaitez un atelier de ce genre pour votre équipe, votre école ou votre événement, écrivez à',
+    "After the workshop, Melek and Youssef spoke with Tunisian newspapers about Tanit XR and about why a volunteer community is scanning the country's heritage, one object at a time.":
+        'Après l’atelier, Melek et Youssef ont répondu aux questions de journaux tunisiens sur Tanit XR et sur les raisons pour lesquelles une communauté de bénévoles numérise le patrimoine du pays, un objet à la fois.',
+    'Forum participants seated on the stone tiers of the Roman amphitheatre of Oudhna, listening to a guide':
+        'Des participants du forum assis sur les gradins de pierre de l’amphithéâtre romain d’Oudhna, à l’écoute d’un guide',
+    'A forum participant holding a phone up to an ancient wall at Oudhna to scan it':
+        'Un participant du forum tend son téléphone vers un mur antique à Oudhna pour le numériser',
+    'A phone scanning workshop at Oudhna, with the Forum International des DSI':
+        'Un atelier de numérisation au téléphone à Oudhna, avec le Forum International des DSI',
+    'The Tanit XR team in front of a fluted column of the Capitol at Oudhna':
+        'L’équipe de Tanit XR devant une colonne cannelée du Capitole d’Oudhna',
+    'A phone scanning workshop in the ruins of Oudhna':
+        'Un atelier de numérisation au téléphone dans les ruines d’Oudhna',
+    'Oudhna (ancient Uthina), Tunisia': 'Oudhna (l’antique Uthina), Tunisie',
+    'Read about the workshop': 'Lire l’article sur l’atelier',
+    '>November 2026</div>': '>Novembre 2026</div>',
 }
 
 
@@ -4748,4 +4779,35 @@ AR = {
         "مسحتم شيئًا أو صنعتم شيئًا؟ أرسلوه هنا ليُضاف إلى المجموعة في «استكشف». ارفعوا الملف أو الصقوا رابطه أو دلّونا عليه في Sketchfab، وأخبرونا ما هو حتى لا يصلنا قطعةً بلا حكاية.",
     'Tunisia&#x27;s heritage, scanned in 3D':
         'التراث التونسي، ممسوح ضوئيًا بتقنية ثلاثية الأبعاد',
+
+    # ---- added 2026-11-11: the Oudhna workshop story ----
+    'Melek Said, our Regional Manager, and Youssef Lakdhar, the volunteer who scanned the ruins of Neapolis after Storm Harry, led a scanning workshop on site. With nothing more than a phone and the free app Scaniverse, they showed how a carved stone or a stretch of ancient wall becomes a 3D model in a few minutes. Then the participants tried it themselves.':
+        'قدّمت Melek Said، مسؤولتنا الإقليمية، مع Youssef Lakdhar، المتطوع الذي مسح آثار نيابوليس بعد العاصفة هاري، ورشة مسح في الموقع. بهاتف فقط وتطبيق Scaniverse المجاني، بيّنا كيف يتحول حجر منحوت أو جزء من جدار قديم إلى نموذج ثلاثي الأبعاد في دقائق قليلة. ثم جرّب المشاركون ذلك بأنفسهم.',
+    'The people in the group run information systems for a living. At Oudhna they saw that the phone in their pocket can record Roman stonework well enough to study, share and stand next to in VR. That is the whole idea of Tanit XR: anyone can learn this, and each person who does is one more person able to record the heritage around them.':
+        'أعضاء المجموعة يديرون أنظمة المعلومات في عملهم اليومي. وفي أوذنة رأوا أن الهاتف الذي في جيوبهم قادر على تسجيل الحجر الروماني بدقة تكفي لدراسته ومشاركته والوقوف بجانبه في الواقع الافتراضي. تلك هي فكرة Tanit XR كلها: يستطيع أي شخص أن يتعلم ذلك، وكل من يتعلمه شخص إضافي قادر على توثيق التراث من حوله.',
+    'In early November 2026 the Forum International des DSI, the yearly meeting of technology leaders from across Africa and Europe, held its 12th edition in Hammamet. One of its outings took participants to Oudhna, the Roman city of Uthina, south of Tunis. Tanit XR went with them.':
+        'في مطلع نوفمبر 2026 عقد Forum International des DSI، الملتقى السنوي لقادة التكنولوجيا من إفريقيا وأوروبا، دورته الثانية عشرة في الحمامات. وقادت إحدى جولاته المشاركين إلى أوذنة، مدينة أوثينا الرومانية جنوب تونس العاصمة، وكانت Tanit XR معهم.',
+    'During the 12th Forum International des DSI in Hammamet, Melek Said and Youssef Lakdhar led a phone scanning workshop for forum participants among the Roman ruins of Oudhna, then spoke with the Tunisian press about Tanit XR.':
+        'خلال الدورة الثانية عشرة من Forum International des DSI في الحمامات، قدّم Melek Said و Youssef Lakdhar ورشة للمسح بالهاتف للمشاركين بين الآثار الرومانية في أوذنة، ثم تحدثا إلى الصحافة التونسية عن Tanit XR.',
+    'During the 12th Forum International des DSI in Hammamet, Melek Said and Youssef Lakdhar led a phone scanning workshop for forum participants among the Roman ruins of Oudhna, then spoke with the Tunisian press about Tanit':
+        'خلال الدورة الثانية عشرة من Forum International des DSI في الحمامات، قدّم Melek Said و Youssef Lakdhar ورشة للمسح بالهاتف للمشاركين بين الآثار الرومانية في أوذنة، ثم تحدثا إلى الصحافة التونسية عن Tanit XR.',
+    'During the forum&#x27;s outing to the Roman city of Uthina, Melek Said and Youssef Lakdhar showed participants how to scan the ruins in 3D with a phone, then spoke with the Tunisian press.':
+        'خلال جولة الملتقى في مدينة أوثينا الرومانية، بيّن Melek Said و Youssef Lakdhar للمشاركين كيف تُمسح الآثار بالأبعاد الثلاثة بالهاتف، ثم تحدثا إلى الصحافة التونسية.',
+    'Our warm thanks to Ahmed Gara, and to the Forum International des DSI for welcoming Tanit XR. If you would like a workshop like this for your team, your school or your event, write to':
+        'جزيل الشكر لـ Ahmed Gara، ولـ Forum International des DSI على حسن الاستقبال. إذا رغبتم في ورشة مماثلة لفريقكم أو مدرستكم أو فعاليتكم، راسلونا على',
+    "After the workshop, Melek and Youssef spoke with Tunisian newspapers about Tanit XR and about why a volunteer community is scanning the country's heritage, one object at a time.":
+        'بعد الورشة تحدث Melek و Youssef إلى صحف تونسية عن Tanit XR وعن السبب الذي يجعل مجموعة من المتطوعين تمسح تراث البلاد، قطعة بعد قطعة.',
+    'Forum participants seated on the stone tiers of the Roman amphitheatre of Oudhna, listening to a guide':
+        'مشاركون في الملتقى جالسون على المدرجات الحجرية للمسرح الدائري الروماني في أوذنة يستمعون إلى مرشد',
+    'A forum participant holding a phone up to an ancient wall at Oudhna to scan it':
+        'أحد المشاركين في الملتقى يرفع هاتفه نحو جدار قديم في أوذنة لمسحه',
+    'A phone scanning workshop at Oudhna, with the Forum International des DSI':
+        'ورشة للمسح بالهاتف في أوذنة، مع Forum International des DSI',
+    'The Tanit XR team in front of a fluted column of the Capitol at Oudhna':
+        'فريق Tanit XR أمام عمود مخدّد من الكابيتول في أوذنة',
+    'A phone scanning workshop in the ruins of Oudhna':
+        'ورشة للمسح ثلاثي الأبعاد بالهاتف بين آثار أوذنة',
+    'Oudhna (ancient Uthina), Tunisia': 'أوذنة (أوثينا القديمة)، تونس',
+    'Read about the workshop': 'اقرأ عن الورشة',
+    '>November 2026</div>': '>نوفمبر 2026</div>',
 }

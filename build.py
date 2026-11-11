@@ -5024,6 +5024,17 @@ EVENTS = [
               "VR a few minutes later, next to the Tanit XR collection.",
      "past_links": [("Read about the class", "news/tanit-xr-in-a-washington-and-lee-classroom.html"),
                     ("The class room on Explore", "class/")]},
+    # the day of the outing is not on record, so the reader sees the month; "date" is the
+    # forum's last day and only sorts the row
+    {"date": "2026-11-07", "when": "November 2026",
+     "city": "Oudhna", "region": "Ben Arous", "country": "TN",
+     "img": "oudhna-dsi-amphitheatre.jpg",
+     "title": "A phone scanning workshop at Oudhna, with the Forum International des DSI",
+     "where": "Oudhna (ancient Uthina), Tunisia",
+     "desc": "During the forum's outing to the Roman city of Uthina, Melek Said and Youssef Lakdhar "
+             "showed participants how to scan the ruins in 3D with a phone, then spoke with the "
+             "Tunisian press.",
+     "links": [("Read about the workshop", "news/a-phone-scanning-workshop-in-the-ruins-of-oudhna.html")]},
 ]
 
 
