@@ -2388,6 +2388,8 @@ FR = {
         "Les fichiers jusqu’à environ 150 Mo passent, nous les réduisons. Votre scan apparaît sur Explorer une fois vérifié, sous",
     "Scanned something, or made something? Send it here and it can join the collection on Explore. Upload the file, paste a link to it, or point us at it on Sketchfab, and tell us what it is so it does not arrive as an object with no story.":
         "Vous avez numérisé ou créé quelque chose ? Envoyez-le ici et il pourra rejoindre la collection sur Explorer. Téléversez le fichier, collez un lien, ou indiquez-le-nous sur Sketchfab, et dites-nous ce que c’est pour qu’il n’arrive pas comme un objet sans histoire.",
+    'Tunisia&#x27;s heritage, scanned in 3D':
+        'Le patrimoine tunisien, numérisé en 3D',
 }
 
 
@@ -4744,4 +4746,6 @@ AR = {
         "الملفات حتى نحو 150 ميغابايت مقبولة، فنحن نصغّرها. يظهر مسحكم في «استكشف» بعد مراجعته، ضمن",
     "Scanned something, or made something? Send it here and it can join the collection on Explore. Upload the file, paste a link to it, or point us at it on Sketchfab, and tell us what it is so it does not arrive as an object with no story.":
         "مسحتم شيئًا أو صنعتم شيئًا؟ أرسلوه هنا ليُضاف إلى المجموعة في «استكشف». ارفعوا الملف أو الصقوا رابطه أو دلّونا عليه في Sketchfab، وأخبرونا ما هو حتى لا يصلنا قطعةً بلا حكاية.",
+    'Tunisia&#x27;s heritage, scanned in 3D':
+        'التراث التونسي، ممسوح ضوئيًا بتقنية ثلاثية الأبعاد',
 }

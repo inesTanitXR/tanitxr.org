@@ -3529,7 +3529,8 @@ def read_badge_html(kind):
 
 
 def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trending=True,
-         share_img="aug-20260813_124249.jpg", jsonld=None, read_badge=None, nura_next=None):
+         share_img="aug-20260813_124249.jpg", jsonld=None, read_badge=None, nura_next=None,
+         share_title=None):
     # like the original site, the menu floats over the page hero photo wherever there is one
     transparent = transparent or 'class="page-hero"' in body
     if LANG == "ar":
@@ -3568,6 +3569,9 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
     _slug = "" if fname == "index.html" else fname[:-5] + "/"
     page_url = SITE_URL + _dir + _slug
     share_url = SITE_URL + social_img(share_img)
+    # the headline a link preview shows. iMessage and WhatsApp print this under the picture,
+    # and "Home" says nothing to someone who has never heard of us, so a page can give its own.
+    og_title = esc(share_title) if share_title else esc(title) + " \u2013 Tanit XR"
     # the same page in the other languages, so search engines show the right one
     hreflang = "".join(f'<link rel="alternate" hreflang="{c}" href="{SITE_URL}{d}{_slug}">'
                        for c, d in LANG_DIRS.items()) + f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{_slug}">'
@@ -3592,15 +3596,15 @@ def page(fname, title, body, active=None, transparent=False, desc=TAGLINE, trend
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tanit XR">
 <meta property="og:locale" content="{LANG}">
-<meta property="og:title" content="{esc(title)} – Tanit XR">
+<meta property="og:title" content="{og_title}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{share_url}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{esc(title)} – Tanit XR">
+<meta property="og:image:alt" content="{og_title}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{esc(title)} – Tanit XR">
+<meta name="twitter:title" content="{og_title}">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{share_url}">
 {ldjson}
@@ -4636,6 +4640,7 @@ each maker's own gallery, or put on a headset.</p>
 </div></section>
 """
     page("index.html", "Home", body, transparent=True,
+         share_title="Tunisia's heritage, scanned in 3D", share_img="share-card-2026-11.jpg",
          desc="Tanit XR is a volunteer nonprofit preserving Tunisia's endangered heritage in 3D. Explore Carthage, Kairouan, Zaghouan and the medina of Tunis as free 3D models you can turn in your browser, in AR and in VR.",
          jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tanit XR", "url": SITE_URL,
                   "inLanguage": ["en", "fr", "ar"], "publisher": {"@type": "NGO", "name": "Tanit XR"}}]
