@@ -2316,6 +2316,78 @@ FR = {
     'The class room on Explore': 'La salle du cours sur Explorer',
     'Tanit XR in a Washington and Lee classroom': 'Tanit XR dans un cours à Washington &#97;nd Lee',
     'Williams School, Washington and Lee University, Lexington, VA': 'Williams School, Washington &#97;nd Lee University, Lexington, Virginie',
+
+    # ---- added 2026-11-11: pages that were still English ----
+    'I captured this myself, or I have permission to share it, and it is not sacred, private or restricted material.':
+        'Je l’ai numérisé moi-même, ou j’ai l’autorisation de le partager, et il ne s’agit pas d’un objet sacré, privé ou à accès restreint.',
+    'Google Drive, Dropbox, WeTransfer, anything we can download from. Check that we are allowed to open it.':
+        'Google Drive, Dropbox, WeTransfer, tout service d’où nous pouvons télécharger. Vérifiez que nous avons le droit de l’ouvrir.',
+    'Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.':
+        'L’envoi direct n’est pas encore activé. Collez plutôt un lien et nous irons chercher le fichier.',
+    'What it is, how old, who looks after it, what is happening to it, who told you about it.':
+        'Ce que c’est, son âge, qui en prend soin, ce qui lui arrive, qui vous en a parlé.',
+    'or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.':
+        'ou appuyez pour en choisir un. FBX, GLB, OBJ, PLY, USDZ ou un zip, jusqu’à 2 Go.',
+    'If it is already published, this is all we need.':
+        'S’il est déjà publié, c’est tout ce qu’il nous faut.',
+    ', choosing the workshop answer, or email it to':
+        ', en choisissant la réponse atelier, ou par e-mail à',
+    'A scan from a workshop or class with us':
+        'Un scan fait lors d’un atelier ou d’un cours avec nous',
+    'Something I made, inspired by Tunisia': 'Quelque chose que j’ai créé, inspiré par la Tunisie',
+    'Choose a file, or drag one here': 'Choisissez un fichier, ou glissez-le ici',
+    'Something real, that I scanned': 'Quelque chose de réel, que j’ai numérisé',
+    'Read the scanning guide first': 'Lisez d’abord le guide de numérisation',
+    'Send us your scan – TANIT XR': 'Envoyez-nous votre scan – TANIT XR',
+    'Send it with the form above': 'Envoyez-le avec le formulaire ci-dessus',
+    'if the file is under 25 MB.': 'si le fichier fait moins de 25 Mo.',
+    'Anything you know about it': 'Tout ce que vous savez à son sujet',
+    'Carved door, Sidi Bou Said': 'Porte sculptée, Sidi Bou Saïd',
+    'The site, town or address': 'Le site, la ville ou l’adresse',
+    'Which workshop or class?': 'Quel atelier ou quel cours ?',
+    'Export from Scaniverse.': 'Exportez depuis Scaniverse.',
+    'How are you sending it?': 'Comment l’envoyez-vous ?',
+    'Scanning with us today?': 'Vous numérisez avec nous aujourd’hui ?',
+    'The school, or the date': 'L’école, ou la date',
+    'Scan to open this page': 'Scannez pour ouvrir cette page',
+    'QR code for this page': 'Code QR de cette page',
+    'What are you sending?': 'Qu’envoyez-vous ?',
+    'When you captured it': 'Quand vous l’avez numérisé',
+    'Drag your file here': 'Glissez votre fichier ici',
+    'It is on Sketchfab': 'Il est sur Sketchfab',
+    'Send us your scan': 'Envoyez-nous votre scan',
+    'Link to the file': 'Lien vers le fichier',
+    'Upload the file': 'Téléverser le fichier',
+    'Name the file.': 'Nommez le fichier.',
+    'Sketchfab link': 'Lien Sketchfab',
+    '</code>, for example <code>': '</code>, par exemple <code>',
+    'Paste a link': 'Coller un lien',
+    'Where is it': 'Où se trouve-t-il',
+    'What is it': 'Qu’est-ce que c’est',
+    'Your name': 'Votre nom',
+    'Send it': 'Envoyer',
+    'Remove': 'Retirer',
+    # /drop/ page, long rows added by hand 2026-11-11 (short rows mangle them before merge can see them)
+    "Everything is looked at by a person before it appears, so nothing you send goes on the site straight away.":
+        "Une personne regarde chaque envoi avant sa publication, donc rien de ce que vous envoyez n’apparaît tout de suite sur le site.",
+    "Everything is looked at by a person before it appears, so nothing you send goes on the site straight away.\nNot scanned anything yet?":
+        "Une personne regarde chaque envoi avant sa publication, donc rien de ce que vous envoyez n’apparaît tout de suite sur le site.\nVous n’avez encore rien numérisé ?",
+    "An object, a doorway, a site. It joins Scanned in Tunisia.":
+        "Un objet, une porte, un site. Il rejoint Numérisé en Tunisie.",
+    "Modelled by hand rather than scanned. It joins Made by volunteers.":
+        "Modélisé à la main plutôt que numérisé. Il rejoint Réalisé par des bénévoles.",
+    "Anything you scanned while learning with us, wherever you are. It joins From our workshops.":
+        "Tout ce que vous avez numérisé en apprenant avec nous, où que vous soyez. Il rejoint De nos ateliers.",
+    "Three steps, from your phone":
+        "Trois étapes, depuis votre téléphone",
+    "Open your scan, tap Share, then Export Model, then GLB.":
+        "Ouvrez votre scan, appuyez sur Share, puis Export Model, puis GLB.",
+    ". That is how your name and the object's name reach us.":
+        ". C’est ainsi que votre nom et celui de l’objet nous parviennent.",
+    "Files up to about 150 MB are fine, we shrink them. Your scan goes on Explore once we have looked at it, under":
+        "Les fichiers jusqu’à environ 150 Mo passent, nous les réduisons. Votre scan apparaît sur Explorer une fois vérifié, sous",
+    "Scanned something, or made something? Send it here and it can join the collection on Explore. Upload the file, paste a link to it, or point us at it on Sketchfab, and tell us what it is so it does not arrive as an object with no story.":
+        "Vous avez numérisé ou créé quelque chose ? Envoyez-le ici et il pourra rejoindre la collection sur Explorer. Téléversez le fichier, collez un lien, ou indiquez-le-nous sur Sketchfab, et dites-nous ce que c’est pour qu’il n’arrive pas comme un objet sans histoire.",
 }
 
 
@@ -4602,4 +4674,74 @@ AR = {
     'The class room on Explore': 'قاعة الدرس في صفحة الاستكشاف',
     'Tanit XR in a Washington and Lee classroom': 'Tanit XR في حصة دراسية بجامعة Washington &#97;nd Lee',
     'Williams School, Washington and Lee University, Lexington, VA': 'Williams School، جامعة Washington &#97;nd Lee، ليكسينغتون، فرجينيا',
+
+    # ---- added 2026-11-11: pages that were still English ----
+    'I captured this myself, or I have permission to share it, and it is not sacred, private or restricted material.':
+        'مسحتُه بنفسي أو لديّ إذن بمشاركته، وهو ليس مادة مقدسة أو خاصة أو محظورة.',
+    'Google Drive, Dropbox, WeTransfer, anything we can download from. Check that we are allowed to open it.':
+        'Google Drive أو Dropbox أو WeTransfer، أي خدمة يمكننا التنزيل منها. تأكدوا أن لدينا إذنًا بفتحه.',
+    'Uploading straight to us is not switched on yet. Paste a link instead and we will fetch it.':
+        'الرفع المباشر إلينا غير مفعّل بعد. الصقوا رابطًا بدلًا من ذلك وسنجلب الملف.',
+    'What it is, how old, who looks after it, what is happening to it, who told you about it.':
+        'ما هو، وكم عمره، ومن يعتني به، وما الذي يحدث له، ومن أخبركم عنه.',
+    'or press to choose one. FBX, GLB, OBJ, PLY, USDZ or a zip, up to 2 GB.':
+        'أو اضغطوا لاختيار ملف. FBX أو GLB أو OBJ أو PLY أو USDZ أو ملف zip، حتى 2 غيغابايت.',
+    'If it is already published, this is all we need.': 'إن كان منشورًا بالفعل فهذا كل ما نحتاجه.',
+    ', choosing the workshop answer, or email it to':
+        '، مع اختيار إجابة الورشة، أو أرسلوه بالبريد إلى',
+    'A scan from a workshop or class with us': 'مسح من ورشة أو درس معنا',
+    'Something I made, inspired by Tunisia': 'شيء صنعتُه مستوحى من تونس',
+    'Choose a file, or drag one here': 'اختاروا ملفًا أو اسحبوه إلى هنا',
+    'Something real, that I scanned': 'شيء حقيقي مسحتُه بنفسي',
+    'Read the scanning guide first': 'اقرؤوا دليل المسح أولًا',
+    'Send us your scan – TANIT XR': 'أرسلوا لنا مسحكم – TANIT XR',
+    'Send it with the form above': 'أرسلوه عبر النموذج أعلاه',
+    'if the file is under 25 MB.': 'إذا كان حجم الملف أقل من 25 ميغابايت.',
+    'Anything you know about it': 'كل ما تعرفونه عنه',
+    'Carved door, Sidi Bou Said': 'باب منقوش، سيدي بو سعيد',
+    'The site, town or address': 'الموقع أو المدينة أو العنوان',
+    'Which workshop or class?': 'أي ورشة أو درس؟',
+    'Export from Scaniverse.': 'صدّروا من Scaniverse.',
+    'How are you sending it?': 'كيف سترسلونه؟',
+    'Scanning with us today?': 'هل تمسحون معنا اليوم؟',
+    'The school, or the date': 'المدرسة أو التاريخ',
+    'Scan to open this page': 'امسحوا الرمز لفتح هذه الصفحة',
+    'QR code for this page': 'رمز QR لهذه الصفحة',
+    'What are you sending?': 'ماذا ترسلون؟',
+    'When you captured it': 'متى مسحتموه',
+    'Drag your file here': 'اسحبوا ملفكم إلى هنا',
+    'It is on Sketchfab': 'موجود على Sketchfab',
+    'Send us your scan': 'أرسلوا لنا مسحكم',
+    'Link to the file': 'رابط الملف',
+    'Upload the file': 'رفع الملف',
+    'Name the file.': 'سمّوا الملف.',
+    'Sketchfab link': 'رابط Sketchfab',
+    '</code>, for example <code>': '</code>، مثلًا <code>',
+    'Paste a link': 'لصق رابط',
+    'Where is it': 'أين يوجد',
+    'What is it': 'ما هو',
+    'Your name': 'اسمكم',
+    'Send it': 'أرسلوه',
+    'Remove': 'إزالة',
+    # /drop/ page, long rows added by hand 2026-11-11
+    "Everything is looked at by a person before it appears, so nothing you send goes on the site straight away.":
+        "يراجع شخصٌ كل ما يصلنا قبل نشره، لذلك لا يظهر أي شيء ترسلونه على الموقع مباشرة.",
+    "Everything is looked at by a person before it appears, so nothing you send goes on the site straight away.\nNot scanned anything yet?":
+        "يراجع شخصٌ كل ما يصلنا قبل نشره، لذلك لا يظهر أي شيء ترسلونه على الموقع مباشرة.\nلم تمسحوا شيئًا بعد؟",
+    "An object, a doorway, a site. It joins Scanned in Tunisia.":
+        "قطعة أو باب أو موقع. يُضاف إلى «مسح في تونس».",
+    "Modelled by hand rather than scanned. It joins Made by volunteers.":
+        "نُمذج يدويًا بدل مسحه. يُضاف إلى «من إنجاز المتطوّعين».",
+    "Anything you scanned while learning with us, wherever you are. It joins From our workshops.":
+        "كل ما مسحتموه أثناء التعلّم معنا، أينما كنتم. يُضاف إلى «من ورشاتنا».",
+    "Three steps, from your phone":
+        "ثلاث خطوات من هاتفكم",
+    "Open your scan, tap Share, then Export Model, then GLB.":
+        "افتحوا مسحكم واضغطوا Share ثم Export Model ثم GLB.",
+    ". That is how your name and the object's name reach us.":
+        ". هكذا يصلنا اسمكم واسم القطعة.",
+    "Files up to about 150 MB are fine, we shrink them. Your scan goes on Explore once we have looked at it, under":
+        "الملفات حتى نحو 150 ميغابايت مقبولة، فنحن نصغّرها. يظهر مسحكم في «استكشف» بعد مراجعته، ضمن",
+    "Scanned something, or made something? Send it here and it can join the collection on Explore. Upload the file, paste a link to it, or point us at it on Sketchfab, and tell us what it is so it does not arrive as an object with no story.":
+        "مسحتم شيئًا أو صنعتم شيئًا؟ أرسلوه هنا ليُضاف إلى المجموعة في «استكشف». ارفعوا الملف أو الصقوا رابطه أو دلّونا عليه في Sketchfab، وأخبرونا ما هو حتى لا يصلنا قطعةً بلا حكاية.",
 }
