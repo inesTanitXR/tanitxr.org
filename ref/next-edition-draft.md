@@ -798,9 +798,9 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 ### 👓 Learn AR with SPECS, Devpost Hackathon with Snap
 
-📅 Deadline: November 9, 2026, 5:00 pm ET
+📅 Deadline: December 7, 2026, 5:00 pm ET (new round, opened November 10)
 
-📍 Online; live build session October 22 and project review November 5, both 12 pm ET and recorded
+📍 Online
 
 👥 Open worldwide (US-sanctioned countries excluded), adults, teams and organisations; free
 
