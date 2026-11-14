@@ -2838,7 +2838,7 @@ NAV = [
     ("Our Team", "team.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
-        ("23 Oct: an evening in Washington, DC", "dc.html"),
+        ("19 Nov online: Was Queen Elissa real?", "elissa.html"),
         ("Volunteer", "volunteer.html"),
         ("Scanning Guide", "scanning-guide.html"),
         ("Splats With Phones course", "splats-with-phones.html"),
@@ -5011,6 +5011,16 @@ EVENTS = [
               "with Tanit XR and her time in Tunisia, and guests stood inside the collection in VR.",
      "past_links": [("Read about the evening", "news/an-evening-at-the-embassy-of-tunisia.html"),
                     ("The event page", "dc.html")]},
+    {"date": "2026-11-19", "when": "Thursday, November 19, 6pm to 7pm ET",
+     "start": "2026-11-19T18:00:00-05:00", "end": "2026-11-19T19:00:00-05:00",
+     "online": True, "img": "dc-tanit-sign-mosaic.jpg", "announced": "2026-11-14",
+     "title": "Was Queen Elissa Real? An online session with Julia Moreno-Molen",
+     "where": "Online, the link comes by email",
+     "desc": "Elissa of Tyre founded Carthage in legend, with the people who came with her and the hide "
+             "of an ox. Julia separates the threads: how the myth changed with each teller, what "
+             "archaeology suggests about how Carthage began, and why her story has lasted nearly "
+             "3,000 years. Free, hosted with Florida Community Innovation.",
+     "links": [("Save my spot", "elissa.html")]},
     {"date": "2026-10-27", "when": "Tuesday, October 27",
      "start": "2026-10-27", "end": "2026-10-27",
      "city": "Lexington", "region": "VA", "country": "US",
@@ -5073,18 +5083,24 @@ def event_jsonld():
             continue
         where = e["where"]
         offer_url = e["links"][0][1] if e.get("links") else SITE_URL + "community/#events"
+        if e.get("online"):
+            page_url = offer_url if offer_url.startswith("http") else SITE_URL + offer_url.replace(".html", "/")
+            location = {"@type": "VirtualLocation", "url": page_url}
+        else:
+            location = {"@type": "Place", "name": where,
+                        "address": {"@type": "PostalAddress",
+                                    "addressLocality": e.get("city", ""),
+                                    "addressRegion": e.get("region", ""),
+                                    "addressCountry": e.get("country", "US")}}
         out.append({
             "@context": "https://schema.org", "@type": "Event", "name": e["title"],
             "startDate": e.get("start", e["date"]), "endDate": e.get("end", e["date"]),
-            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventAttendanceMode": ("https://schema.org/OnlineEventAttendanceMode" if e.get("online")
+                                    else "https://schema.org/OfflineEventAttendanceMode"),
             "eventStatus": "https://schema.org/EventScheduled",
             "description": e["desc"],
             "image": [SITE_URL + social_img(e.get("img") or "aug-20260813_124249.jpg")],
-            "location": {"@type": "Place", "name": where,
-                         "address": {"@type": "PostalAddress",
-                                     "addressLocality": e.get("city", ""),
-                                     "addressRegion": e.get("region", ""),
-                                     "addressCountry": e.get("country", "US")}},
+            "location": location,
             "organizer": {"@type": "NGO", "name": "Tanit XR", "url": SITE_URL},
             "performer": {"@type": "Organization", "name": "Tanit XR", "url": SITE_URL},
             "isAccessibleForFree": True,
@@ -8236,6 +8252,133 @@ community that now does it. She opens the evening and shows the collection live.
               "collection in VR for the guests.")
 
 
+def build_elissa_talk():
+    """Julia's online talk, Thursday 19 November 2026, 6pm ET: Was Queen Elissa real?
+
+    Built like the DC page: the sign-up posts straight to the submissions Apps Script, which
+    files every row in its own "elissa" tab of the "Tanit XR site submissions" sheet in Ines's
+    Drive (the script makes the tab on the first sign-up). No meeting link on the page: Ines
+    emails it to the list before the session.
+
+    The words are Julia's, from her Slack draft of 14 Nov; Ines asked for the ox hide in the
+    opening (it is in Julia's second version), a speaker introduction, and Elissa and Tanit as
+    symbols of women's strength in Tunisia, which Julia said she will lean into.
+    """
+    sheet = FORM_SHEET
+    form = f"""
+<form id="el-rsvp" class="nice" novalidate>
+<input type="hidden" name="_form" value="elissa">
+<input type="hidden" name="_t" value=""><input type="hidden" name="_js" value="">
+<p class="hp" aria-hidden="true"><label>Leave this empty<input name="url" tabindex="-1" autocomplete="off"></label></p>
+<label for="el-name">Your name <span>*</span></label>
+<input id="el-name" name="name" required autocomplete="name">
+<label for="el-email">Email address, where we send the link <span>*</span></label>
+<input id="el-email" name="email" type="email" required autocomplete="email">
+<label for="el-heard">How did you hear about this session?</label>
+<input id="el-heard" name="heard_via" placeholder="Optional">
+<label for="el-q">Do you have any questions?</label>
+<textarea id="el-q" name="question" rows="2" placeholder="Optional"></textarea>
+<label class="fcheck"><input type="checkbox" name="updates" value="yes"> I would like to receive updates from Tanit XR</label>
+<button type="submit" class="btn btn-gold">Save my spot</button>
+<p id="el-said" class="fm-err" hidden role="status"></p>
+<noscript><p class="fhint">This form needs JavaScript. Please email
+<a href="mailto:info@tanitxr.org?subject=Elissa%20talk%2019%20November">info@tanitxr.org</a> to save your spot.</p></noscript>
+</form>
+<script>
+(function(){{
+  var f = document.getElementById('el-rsvp'), said = document.getElementById('el-said');
+  if (!f) return;
+  var SHEET = {sheet!r};
+  var opened = Date.now();
+  f.addEventListener('submit', function(e){{
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    // the sheet drops anything that looks automated; these two say a person sat on the page
+    f.querySelector('[name=_t]').value = String(Date.now() - opened);
+    f.querySelector('[name=_js]').value = String(Date.now()).split('').reverse().join('').slice(0, 8);
+    var btn = f.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var body = new URLSearchParams(new FormData(f));
+    var sent = false;
+    try {{ sent = navigator.sendBeacon(SHEET, body); }} catch (err) {{ sent = false; }}
+    if (!sent) {{ try {{ fetch(SHEET, {{method:'POST', body: body, mode:'no-cors', keepalive:true}}); }} catch (err) {{}} }}
+    f.querySelectorAll('input,textarea').forEach(function(el){{ el.disabled = true; }});
+    btn.textContent = 'Spot saved';
+    said.hidden = false;
+    said.textContent = 'Thank you, you are on the list! We will email you the link to join before the session.';
+    if (window.tx) tx('elissa_rsvp');
+  }});
+}})();
+</script>
+<p class="fhint">The session is online and free. The link to join comes by email before it starts.
+Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>"""
+    body = f"""
+{page_hero("Was Queen Elissa Real?", "An online session with Julia Moreno-Molen, Thursday 19 November 2026", bg="dc-tanit-sign-mosaic.jpg", pos="center 60%")}
+<section class="pad" style="padding-top:34px"><div class="wrap">
+<div class="dcv-facts">
+<div class="dcv-fact"><small>When</small><b>Thursday 19 November</b><span>2026, 6pm to 7pm ET</span></div>
+<div class="dcv-fact"><small>Where</small><b>Online</b><span>The link comes by email<br>before the session</span></div>
+<div class="dcv-fact"><small>With</small><b>Julia Moreno-Molen</b><span>Project manager and volunteer<br>coordinator, Tanit XR</span></div>
+<div class="dcv-fact"><small>Cost</small><b>Free</b><span>Hosted by Tanit XR and<br>Florida Community Innovation</span></div>
+</div>
+<div class="dcv-grid">
+<div>
+<div class="eyebrow">Save your spot</div>
+<h2 class="sec-title" style="margin-bottom:10px">Was Queen Elissa real?</h2>
+<p class="sec-sub" style="margin:0 0 14px">She’s the founder of Carthage in legend: a Phoenician princess from Tyre who escaped a murderous brother, crossed the sea, and built one of the great cities of the ancient world with only the people who accompanied her and the hide of an ox. Rome remembered her as Dido. Virgil turned her into a heartbroken queen. Others remembered her as a ruler who chose death over a forced marriage.</p>
+<p class="sec-sub" style="margin:0 0 18px">But how much of that is history, and how much is story?</p>
+{form}
+</div>
+<div class="dcv-two">
+<figure class="dcv-fig"><img src="{img('alyssa-murex-shell.png', 600)}" alt="A purple murex shell" loading="lazy" style="max-width:260px;margin:0 auto;display:block">
+<figcaption>The murex shell, source of the purple dye that made Tyre, Elissa’s city, famous. Illustration: <a href="team/alyssa-george.html">Alyssa George</a></figcaption></figure>
+</div>
+</div>
+</div></section>
+
+<section class="pad dcv-band"><div class="wrap">
+<div class="center"><div class="eyebrow">The session</div><h2 class="sec-title">One hour, three threads</h2></div>
+<div class="dcv-cards">
+<div class="dcv-card"><div class="dcv-n">1</div><h3>The founding myth and how it changed depending on who was telling it</h3>
+<p>Elissa of Tyre, Dido of Rome, Virgil’s heartbroken queen, the ruler who chose death over a forced
+marriage. And the version most loved in Tunisia: the ox hide, cut into thin strips to circle the hill
+of Byrsa.</p></div>
+<div class="dcv-card"><div class="dcv-n">2</div><h3>What archaeology suggests about when and how Carthage actually began</h3>
+<p>What the excavations have uncovered, and how it sits beside the stories. Telling what we know apart
+from what we wish we knew.</p></div>
+<div class="dcv-card"><div class="dcv-n">3</div><h3>Why the story of a woman founding a city has lasted nearly 3,000 years</h3>
+<p>In Tunisia, Elissa and Tanit are still symbols of women’s strength. The hour ends on what Elissa
+means to us today, with time for your questions along the way.</p></div>
+</div>
+</div></section>
+
+<section class="pad"><div class="wrap">
+<div class="center"><div class="eyebrow">The speaker</div><h2 class="sec-title">Who you will hear</h2></div>
+<div class="dcv-speakers">
+<div class="dcv-sp"><h3><a href="team/julia-moreno-molen.html">Julia Moreno-Molen</a></h3><div class="dcv-role">Project manager and volunteer coordinator, Tanit XR</div>
+<p>“Hi! I’m Julia Moreno-Molen. I’ll be honest: I’m not an archaeologist. I came to TanitXR as a project
+manager who cares deeply about preserving and sharing cultural heritage and leaning into learning. As a
+newbie to the field, I’ve enjoyed reading translations of ancient sources, learning what the excavations
+have uncovered, and asking a lot of questions about who tells our histories. That’s the spirit of this
+session. You don’t need credentials to engage seriously with the past. You just need curiosity and a
+willingness to tell what we know apart from what we wish we knew.”</p></div>
+</div>
+</div></section>
+
+<section class="pad dcv-band"><div class="wrap center" style="max-width:760px">
+<p class="sec-sub" style="margin:0 auto 18px">This session is hosted by Tanit XR, a volunteer-driven organization working to digitally
+preserve Tunisia’s heritage, together with its fiscal sponsor, Florida Community Innovation (FCI). Tanit XR is
+built on the idea that anyone with curiosity and care can help keep history alive.</p>
+<p class="sec-sub" style="margin:0 auto 24px"><b>“I can’t wait to see you there!”</b> Julia</p>
+<p><a class="btn btn-gold" href="#el-rsvp">Save my spot</a> &nbsp; <a class="btn btn-line" href="explore.html">Explore Carthage in 3D</a></p>
+</div></section>"""
+    page("elissa.html", "Was Queen Elissa Real?", body,
+         active="community.html", share_img="dc-tanit-sign-mosaic.jpg",
+         desc="A free online session on Thursday 19 November 2026, 6pm ET, with Julia Moreno-Molen of Tanit XR: "
+              "the founding myth of Carthage, what archaeology suggests, and why Elissa, Dido to Rome, "
+              "still matters 3,000 years on.")
+
+
 def build_about():
     """Laura, Oct 2026: impact, purpose, the goddess and the founder's story, in that order,
     with the words from the partnership deck."""
@@ -8542,7 +8685,7 @@ def build_drop():
 <li><b>{term("Export from Scaniverse.")}</b> {term("Open your scan, tap Share, then Export Model, then GLB.")}</li>
 <li><b>{term("Name the file.")}</b> <code>YourFirstName_ObjectName.glb</code>, {term("for example")} <code>Maya_CoffeeMug.glb</code>. {term("That is how your name and the object's name reach us.")}</li>
 <li><b>{term("Send it with the form above")}</b>, {term("choosing the workshop answer, or email it to")}
-<a href="mailto:ines@tanitxr.org?subject=My%20workshop%20scan">ines@tanitxr.org</a>{term(" if the file is under 25 MB.")}</li>
+<a href="mailto:{EMAIL}?subject=My%20workshop%20scan">{EMAIL}</a>{term(" if the file is under 25 MB.")}</li>
 </ol>
 <p class="fhint">{term("Files up to about 150 MB are fine, we shrink them. Your scan goes on Explore once we have looked at it, under")}
 <a href="/class/">{term("From our workshops")}</a>.</p>
@@ -9196,6 +9339,7 @@ def main():
         build_unique_mappers()
         build_immersegt()
         build_dc_evening()
+        build_elissa_talk()
         build_about()
         build_contact()
         build_drop()
