@@ -1,17 +1,22 @@
 {
  "_what": "State for the tanitxr-site-freshness scheduled task, Part B. last_checked = date of the last LinkedIn pass; last_post = the newest post seen on Ines's activity feed and on the Tanit XR company page, so the next run only looks at newer ones.",
- "last_checked": "2026-11-06",
+ "last_checked": "2026-11-13",
  "ines_activity": {
-  "newest_post": "2026-11-05, Edition 21 of the opportunities newsletter; before it 2026-10-29, repost of Soo Yon Ryu on the Washington and Lee class",
-  "followers": 7437
+  "newest_post": "~2026-11-11, recap of the Embassy of Tunisia evening (packed room, with Caroline Nickerson, TAYP and the Embassy); before it 2026-11-05, Edition 21",
+  "followers": 7459
  },
  "company_page": {
   "url": "https://www.linkedin.com/company/tanit-xr/",
   "id": "108342542",
-  "newest_post": "2026-11-05, repost of Edition 21; before it 2026-10-23, Ines on the embassy evening",
-  "followers": 513
+  "newest_post": "no new post since 2026-11-05 (repost of Edition 21)",
+  "followers": 514
  },
  "seen_not_published": [
+  {
+   "post": "Ines: recap of the first in-person event at the Embassy of Tunisia, with photos",
+   "date": "~2026-11-11",
+   "why": "already on the site as the embassy evening story; the photos show attendees' faces, so not added without Ines"
+  },
   {
    "post": "Ines: repost of Soo Yon Ryu, Washington and Lee Arts Management class and phone scanning workshop",
    "date": "2026-10-29",
