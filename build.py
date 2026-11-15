@@ -8281,6 +8281,12 @@ def build_elissa_talk():
 <label class="fcheck"><input type="checkbox" name="updates" value="yes"> I would like to receive updates from Tanit XR</label>
 <button type="submit" class="btn btn-gold">Save my spot</button>
 <p id="el-said" class="fm-err" hidden role="status"></p>
+<div id="el-give" hidden style="margin-top:16px;padding:18px 20px;border-radius:14px;background:var(--cloud)">
+<p style="margin:0 0 12px">While you are here: this session is free, like everything Tanit XR makes. Everyone on the
+team is a volunteer, so a gift goes straight to preserving Tunisia’s heritage. Donations go through our fiscal sponsor,
+Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
+<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_after_signup')">Make a tax-deductible gift</a>
+</div>
 <noscript><p class="fhint">This form needs JavaScript. Please email
 <a href="mailto:info@tanitxr.org?subject=Elissa%20talk%2019%20November">info@tanitxr.org</a> to save your spot.</p></noscript>
 </form>
@@ -8306,6 +8312,8 @@ def build_elissa_talk():
     btn.textContent = 'Spot saved';
     said.hidden = false;
     said.textContent = 'Thank you, you are on the list! We will email you the link to join before the session.';
+    var give = document.getElementById('el-give');
+    if (give) give.hidden = false;
     if (window.tx) tx('elissa_rsvp');
   }});
 }})();
@@ -8330,6 +8338,8 @@ Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>"""
 {form}
 </div>
 <div class="dcv-two">
+<figure class="dcv-fig"><img src="{img('elissa-portrait-painting.png', 600, as_jpeg=True)}" alt="A painted portrait of Elissa, Queen of Carthage, wearing a jewelled diadem and a grey veil" loading="lazy">
+<figcaption>Elissa, as a later painter imagined her. No portrait from her own time survives.</figcaption></figure>
 <figure class="dcv-fig"><img src="{img('alyssa-murex-shell.png', 600)}" alt="A purple murex shell" loading="lazy" style="max-width:260px;margin:0 auto;display:block">
 <figcaption>The murex shell, source of the purple dye that made Tyre, Elissa’s city, famous. Illustration: <a href="team/alyssa-george.html">Alyssa George</a></figcaption></figure>
 </div>
@@ -8354,8 +8364,9 @@ means to us today, with time for your questions along the way.</p></div>
 
 <section class="pad"><div class="wrap">
 <div class="center"><div class="eyebrow">The speaker</div><h2 class="sec-title">Who you will hear</h2></div>
-<div class="dcv-speakers">
-<div class="dcv-sp"><h3><a href="team/julia-moreno-molen.html">Julia Moreno-Molen</a></h3><div class="dcv-role">Project manager and volunteer coordinator, Tanit XR</div>
+<div class="dcv-speakers" style="grid-template-columns:minmax(0,680px);justify-content:center">
+<div class="dcv-sp"><img src="{img('yoot.jpeg', 400)}" alt="Julia Moreno-Molen" loading="lazy" style="width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;margin:0 0 16px">
+<h3><a href="team/julia-moreno-molen.html">Julia Moreno-Molen</a></h3><div class="dcv-role">Project manager and volunteer coordinator, Tanit XR</div>
 <p>“Hi! I’m Julia Moreno-Molen. I’ll be honest: I’m not an archaeologist. I came to TanitXR as a project
 manager who cares deeply about preserving and sharing cultural heritage and leaning into learning. As a
 newbie to the field, I’ve enjoyed reading translations of ancient sources, learning what the excavations
@@ -8371,6 +8382,15 @@ preserve Tunisia’s heritage, together with its fiscal sponsor, Florida Communi
 built on the idea that anyone with curiosity and care can help keep history alive.</p>
 <p class="sec-sub" style="margin:0 auto 24px"><b>“I can’t wait to see you there!”</b> Julia</p>
 <p><a class="btn btn-gold" href="#el-rsvp">Save my spot</a> &nbsp; <a class="btn btn-line" href="explore.html">Explore Carthage in 3D</a></p>
+</div></section>
+
+<section class="pad"><div class="wrap center" style="max-width:760px">
+<div class="eyebrow">Keep history alive</div>
+<h2 class="sec-title">This session is free. Help keep it that way.</h2>
+<p class="sec-sub" style="margin:0 auto 22px">Tanit XR is run entirely by volunteers, and everything we make, from talks like this one
+to the 3D scans of Carthage, is free for anyone. A gift of any size keeps the work going. Donations go through our fiscal
+sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
+<p><a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_footer')">Make a tax-deductible gift</a></p>
 </div></section>"""
     page("elissa.html", "Was Queen Elissa Real?", body,
          active="community.html", share_img="dc-tanit-sign-mosaic.jpg",
