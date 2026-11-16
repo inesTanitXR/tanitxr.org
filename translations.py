@@ -2425,8 +2425,8 @@ FR = {
     # ---- added 2026-11-16: pages that were still English ----
     'Was Queen Elissa Real? An online session with Julia Moreno-Molen':
         'La reine Élissa a-t-elle existé ? Une séance en ligne avec Julia Moreno-Molen',
-    '19 Nov online: Was Queen Elissa real?': '19 nov. en ligne : la reine Élissa a-t-elle existé ?',
-    'Thursday, November 19, 6pm to 7pm ET': 'Jeudi 19 novembre, de 18 h à 19 h (heure de New York)',
+    '2 Dec online: Was Queen Elissa real?': '2 déc. en ligne : la reine Élissa a-t-elle existé ?',
+    'Wednesday, December 2, 6pm to 7pm ET': 'Mercredi 2 décembre, de 18 h à 19 h (heure de New York)',
     'Online, the link comes by email': 'En ligne, le lien arrive par e-mail',
     '"Skip for now"': '« Passer pour l’instant »',
     'Save my spot': 'Réserver ma place',
@@ -4826,8 +4826,8 @@ AR = {
     # ---- added 2026-11-16: pages that were still English ----
     'Was Queen Elissa Real? An online session with Julia Moreno-Molen':
         'هل كانت الملكة عليسة حقيقية؟ جلسة عبر الإنترنت مع Julia Moreno-Molen',
-    '19 Nov online: Was Queen Elissa real?': '19 نوفمبر عبر الإنترنت: هل كانت الملكة عليسة حقيقية؟',
-    'Thursday, November 19, 6pm to 7pm ET': 'الخميس 19 نوفمبر، من 6 إلى 7 مساءً بتوقيت نيويورك',
+    '2 Dec online: Was Queen Elissa real?': '2 ديسمبر عبر الإنترنت: هل كانت الملكة عليسة حقيقية؟',
+    'Wednesday, December 2, 6pm to 7pm ET': 'الأربعاء 2 ديسمبر، من 6 إلى 7 مساءً بتوقيت نيويورك',
     'Online, the link comes by email': 'عبر الإنترنت، يصلك الرابط بالبريد الإلكتروني',
     '"Skip for now"': '"تخطَّ الآن"',
     'Save my spot': 'احجز مكاني',

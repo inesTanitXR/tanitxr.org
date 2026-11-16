@@ -2838,7 +2838,7 @@ NAV = [
     ("Our Team", "team.html"),
     ("News", "news.html"),
     ("Get Involved", "volunteer.html", [
-        ("19 Nov online: Was Queen Elissa real?", "elissa.html"),
+        ("2 Dec online: Was Queen Elissa real?", "elissa.html"),
         ("Volunteer", "volunteer.html"),
         ("Scanning Guide", "scanning-guide.html"),
         ("Splats With Phones course", "splats-with-phones.html"),
@@ -5011,8 +5011,8 @@ EVENTS = [
               "with Tanit XR and her time in Tunisia, and guests stood inside the collection in VR.",
      "past_links": [("Read about the evening", "news/an-evening-at-the-embassy-of-tunisia.html"),
                     ("The event page", "dc.html")]},
-    {"date": "2026-11-19", "when": "Thursday, November 19, 6pm to 7pm ET",
-     "start": "2026-11-19T18:00:00-05:00", "end": "2026-11-19T19:00:00-05:00",
+    {"date": "2026-12-02", "when": "Wednesday, December 2, 6pm to 7pm ET",
+     "start": "2026-12-02T18:00:00-05:00", "end": "2026-12-02T19:00:00-05:00",
      "online": True, "img": "dc-tanit-sign-mosaic.jpg", "announced": "2026-11-14",
      "title": "Was Queen Elissa Real? An online session with Julia Moreno-Molen",
      "where": "Online, the link comes by email",
@@ -8253,7 +8253,7 @@ community that now does it. She opens the evening and shows the collection live.
 
 
 def build_elissa_talk():
-    """Julia's online talk, Thursday 19 November 2026, 6pm ET: Was Queen Elissa real?
+    """Julia's online talk, Wednesday 2 December 2026, 6pm ET: Was Queen Elissa real?
 
     Built like the DC page: the sign-up posts straight to the submissions Apps Script, which
     files every row in its own "elissa" tab of the "Tanit XR site submissions" sheet in Ines's
@@ -8321,10 +8321,10 @@ Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
 <p class="fhint">The session is online and free. The link to join comes by email before it starts.
 Questions: <a href="mailto:info@tanitxr.org">info@tanitxr.org</a>.</p>"""
     body = f"""
-{page_hero("Was Queen Elissa Real?", "An online session with Julia Moreno-Molen, Thursday 19 November 2026", bg="dc-tanit-sign-mosaic.jpg", pos="center 60%")}
+{page_hero("Was Queen Elissa Real?", "An online session with Julia Moreno-Molen, Wednesday 2 December 2026", bg="dc-tanit-sign-mosaic.jpg", pos="center 60%")}
 <section class="pad" style="padding-top:34px"><div class="wrap">
 <div class="dcv-facts">
-<div class="dcv-fact"><small>When</small><b>Thursday 19 November</b><span>2026, 6pm to 7pm ET</span></div>
+<div class="dcv-fact"><small>When</small><b>Wednesday 2 December</b><span>2026, 6pm to 7pm ET</span></div>
 <div class="dcv-fact"><small>Where</small><b>Online</b><span>The link comes by email<br>before the session</span></div>
 <div class="dcv-fact"><small>With</small><b>Julia Moreno-Molen</b><span>Project manager and volunteer<br>coordinator, Tanit XR</span></div>
 <div class="dcv-fact"><small>Cost</small><b>Free</b><span>Hosted by Tanit XR and<br>Florida Community Innovation</span></div>
@@ -8394,7 +8394,7 @@ sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deducti
 </div></section>"""
     page("elissa.html", "Was Queen Elissa Real?", body,
          active="community.html", share_img="dc-tanit-sign-mosaic.jpg",
-         desc="A free online session on Thursday 19 November 2026, 6pm ET, with Julia Moreno-Molen of Tanit XR: "
+         desc="A free online session on Wednesday 2 December 2026, 6pm ET, with Julia Moreno-Molen of Tanit XR: "
               "the founding myth of Carthage, what archaeology suggests, and why Elissa, Dido to Rome, "
               "still matters 3,000 years on.")
 
