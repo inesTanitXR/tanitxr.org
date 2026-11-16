@@ -3165,6 +3165,21 @@
    "deadline_type": null,
    "deadline_date": "January 31, 2027",
    "url": "https://unstable.design/work/ewresidency/"
+  },
+  {
+   "slug": "obama-foundation-leaders-program-2027-2028",
+   "title": "Obama Foundation Leaders Program 2027-2028",
+   "desc": "An eight-month virtual leadership program for changemakers aged 24 to 45 in Africa, the Asia-Pacific, Europe and the United States: group sessions, peer-led spaces and individual coaching, 8 to 12 hours a month. Free to participants. Apply by the priority deadline, November 23, 2026.",
+   "type": "Program",
+   "eligibility": [
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "November 23, 2026",
+   "url": "https://www.obama.org/programs/leaders/"
   }
  ]
 }

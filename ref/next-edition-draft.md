@@ -1048,3 +1048,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Six funded residencies at a textile and computing lab: USD 16,000 stipend (lower for international residents because of US tax), airfare and USD 500 for materials. Housing is not covered.
 
 👉 https://unstable.design/work/ewresidency/
+
+### 🌍 Obama Foundation Leaders Program 2027-2028
+📅 Priority deadline: November 23, 2026 (put it near the top of edition 22)
+
+📍 Online, eight months, 8 to 12 hours a month
+
+👥 Changemakers aged 24 to 45 in Africa, the Asia-Pacific, Europe and the United States. Free
+
+✏️ Virtual group sessions, peer-led spaces and one-to-one coaching for a global cohort of leaders working on change in their communities.
+
+👉 https://www.obama.org/programs/leaders/
