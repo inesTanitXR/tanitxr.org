@@ -83,11 +83,11 @@
 <div id="el-give" hidden style="margin-top:16px;padding:18px 20px;border-radius:14px;background:var(--cloud)">
 <p style="margin:0 0 12px">While you are here: this session is free, like everything Tanit XR makes. Everyone on the
 team is a volunteer, so a gift goes straight to preserving Tunisia’s heritage. Donations go through our fiscal sponsor,
-Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
-<a class="btn btn-gold" href="https://donors.tuesday.app/campaign/CMLPDTO" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_after_signup')">Make a tax-deductible gift</a>
+Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.</p>
+<a class="btn btn-gold" href="https://donors.tuesday.app/donate/TUESNPJXJA6?campaign=CMLPDTO" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_after_signup')">Make a tax-deductible gift</a>
 </div>
 <noscript><p class="fhint">This form needs JavaScript. Please email
-<a href="mailto:info@tanitxr.org?subject=Elissa%20talk%2019%20November">info@tanitxr.org</a> to save your spot.</p></noscript>
+<a href="mailto:info@tanitxr.org?subject=Elissa%20talk%202%20December">info@tanitxr.org</a> to save your spot.</p></noscript>
 </form>
 <script>
 (function(){
@@ -113,6 +113,10 @@ Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
     said.textContent = 'Thank you, you are on the list! We will email you the link to join before the session.';
     var give = document.getElementById('el-give');
     if (give) give.hidden = false;
+    // bring the thank-you and the gift box into view, gently, without jumping past them
+    var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var top = said.getBoundingClientRect().top + window.scrollY - 96;  // clear the sticky header
+    try { window.scrollTo({top: top, behavior: still ? 'instant' : 'smooth'}); } catch (err) { window.scrollTo(0, top); }
     if (window.tx) tx('elissa_rsvp');
   });
 })();
@@ -172,8 +176,8 @@ built on the idea that anyone with curiosity and care can help keep history aliv
 <h2 class="sec-title">This session is free. Help keep it that way.</h2>
 <p class="sec-sub" style="margin:0 auto 22px">Tanit XR is run entirely by volunteers, and everything we make, from talks like this one
 to the 3D scans of Carthage, is free for anyone. A gift of any size keeps the work going. Donations go through our fiscal
-sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
-<p><a class="btn btn-gold" href="https://donors.tuesday.app/campaign/CMLPDTO" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_footer')">Make a tax-deductible gift</a></p>
+sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.</p>
+<p><a class="btn btn-gold" href="https://donors.tuesday.app/donate/TUESNPJXJA6?campaign=CMLPDTO" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_footer')">Make a tax-deductible gift</a></p>
 </div></section>
 
 

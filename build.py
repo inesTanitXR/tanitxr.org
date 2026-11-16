@@ -34,6 +34,8 @@ EMAIL = "info@tanitxr.org"
 PHONE = "+1 407-562-7793"
 DONATE_URL = "https://donors.tuesday.app/campaign/CMLPDTO"
 DONATE_URL_SUPPORT = "https://donors.tuesday.app/campaign/CMLPDTO"
+# the Tuesday donation form itself, one click past the campaign page (it ignores any amount in the link)
+DONATE_FORM_URL = "https://donors.tuesday.app/donate/TUESNPJXJA6?campaign=CMLPDTO"
 VOLUNTEER_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSegO7smO5VyQSpSSaamKni4RPD4q_yDytd5TCK3jOH6LTML6w/viewform"
 INSTAGRAM = "https://www.instagram.com/tanitxr/"
 LINKEDIN = "https://www.linkedin.com/company/tanit-xr/"
@@ -8264,6 +8266,7 @@ def build_elissa_talk():
     opening (it is in Julia's second version), a speaker introduction, and Elissa and Tanit as
     symbols of women's strength in Tunisia, which Julia said she will lean into.
     """
+    give_form = DONATE_FORM_URL
     sheet = FORM_SHEET
     form = f"""
 <form id="el-rsvp" class="nice" novalidate>
@@ -8284,11 +8287,11 @@ def build_elissa_talk():
 <div id="el-give" hidden style="margin-top:16px;padding:18px 20px;border-radius:14px;background:var(--cloud)">
 <p style="margin:0 0 12px">While you are here: this session is free, like everything Tanit XR makes. Everyone on the
 team is a volunteer, so a gift goes straight to preserving Tunisia’s heritage. Donations go through our fiscal sponsor,
-Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
-<a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_after_signup')">Make a tax-deductible gift</a>
+Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.</p>
+<a class="btn btn-gold" href="{give_form}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_after_signup')">Make a tax-deductible gift</a>
 </div>
 <noscript><p class="fhint">This form needs JavaScript. Please email
-<a href="mailto:info@tanitxr.org?subject=Elissa%20talk%2019%20November">info@tanitxr.org</a> to save your spot.</p></noscript>
+<a href="mailto:info@tanitxr.org?subject=Elissa%20talk%202%20December">info@tanitxr.org</a> to save your spot.</p></noscript>
 </form>
 <script>
 (function(){{
@@ -8314,6 +8317,10 @@ Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
     said.textContent = 'Thank you, you are on the list! We will email you the link to join before the session.';
     var give = document.getElementById('el-give');
     if (give) give.hidden = false;
+    // bring the thank-you and the gift box into view, gently, without jumping past them
+    var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var top = said.getBoundingClientRect().top + window.scrollY - 96;  // clear the sticky header
+    try {{ window.scrollTo({{top: top, behavior: still ? 'instant' : 'smooth'}}); }} catch (err) {{ window.scrollTo(0, top); }}
     if (window.tx) tx('elissa_rsvp');
   }});
 }})();
@@ -8389,8 +8396,8 @@ built on the idea that anyone with curiosity and care can help keep history aliv
 <h2 class="sec-title">This session is free. Help keep it that way.</h2>
 <p class="sec-sub" style="margin:0 auto 22px">Tanit XR is run entirely by volunteers, and everything we make, from talks like this one
 to the 3D scans of Carthage, is free for anyone. A gift of any size keeps the work going. Donations go through our fiscal
-sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible.</p>
-<p><a class="btn btn-gold" href="{DONATE_URL}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_footer')">Make a tax-deductible gift</a></p>
+sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.</p>
+<p><a class="btn btn-gold" href="{give_form}" target="_blank" rel="noopener" onclick="window.tx&&tx('elissa_donate_footer')">Make a tax-deductible gift</a></p>
 </div></section>"""
     page("elissa.html", "Was Queen Elissa Real?", body,
          active="community.html", share_img="dc-tanit-sign-mosaic.jpg",
