@@ -359,8 +359,8 @@
   {
    "slug": "sixi-air-spring-2027",
    "deadline": "November 15, 2026",
-   "status": "reminded",
-   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). TOP FIT. 3 months March to May 2027: round-trip flights, visa fees, insurance, private apartment/loft, materials, translation and tech support. Theme 1 'Flux and Imprints: migration history, colonial legacy, archives, memory' fits Tanit XR. Donate some works; talk + workshop + open studio. 2 places per season. Deadline Beijing time.",
+   "status": "skipped",
+   "reason": "Spring 2027 funded-residency search (Ines asked Sept 27: April/May, rent paid, fits her profile). TOP FIT. 3 months March to May 2027: round-trip flights, visa fees, insurance, private apartment/loft, materials, translation and tech support. Theme 1 'Flux and Imprints: migration history, colonial legacy, archives, memory' fits Tanit XR. Donate some works; talk + workshop + open studio. 2 places per season. Deadline Beijing time. (deadline passed, not applied, per the deadline alarm on 2026-11-16)",
    "title": "Sixi AiR 2027 Spring (Sixi Museum, Nanjing, China)",
    "url": "https://siximuseum.com/en/residency/",
    "added": "2026-09-27",
@@ -799,6 +799,22 @@
    "deadline": "November 17, 2026",
    "status": "reminded",
    "reason": "Unrestricted money for an artist in any medium, worldwide: two USD 4,500 and four USD 1,000 grants, USD 40 to enter; your XR heritage work or the Tanit XR museum pieces could go in as images and video. Deadline 11:59 pm Pacific, checked on hopperprize.org Nov 9."
+  },
+  {
+   "slug": "league-of-stars-iceland-2027",
+   "title": "The League of Stars, Iceland 2027 (sky-gazing residency, paid retreat)",
+   "url": "https://www.theleagueofstars.com/iceland",
+   "deadline": "December 21, 2026",
+   "status": "new",
+   "reason": "You chose 'Just for me' on the hold page (Nov 13). One-week sky-gazing residency and retreat, April 2 to 8, 2027, about two hours from Keflavik. You pay EUR 1,790 shared room or EUR 2,290 single, flights not included; early bird 10% off until November 23, 2026. Apply with a 300-word bio, a 300-word motivation letter and a link to your work. No hour given; assume 11:59 pm Iceland time (6:59 pm ET)."
+  },
+  {
+   "slug": "east-atelier-seoul-residency-feb-2027",
+   "title": "East Atelier Gallery Seoul, Artist Residency (February 2027)",
+   "url": "https://www.instagram.com/eastatelier_gallery/",
+   "deadline": null,
+   "status": "new",
+   "reason": "You chose 'Just for me' on the hold page (Nov 13), from your Instagram screenshots of Nov 7. Seoul artist residency in February 2027; no official page, deadline or fee found, so check the Instagram post or DM the gallery. Fits the March Korea plan only if dates move."
   }
  ]
 }

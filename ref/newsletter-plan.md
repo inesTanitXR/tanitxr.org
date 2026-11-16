@@ -143,6 +143,9 @@ _Opened Nov 4 for January deadlines that do not fit edition 22. Send date to con
 
 - _Nov 11 sweep:_ 👓 Learn AR with SPECS, new round (Snap x Devpost; online; USD 2,500 prizes; free) — Dec 7, 5 pm EST — learn-specs.devpost.com _(same page reopened Nov 10; verified on Devpost Nov 11; board entry updated)_
 
+## Edition 23 (send ~early December; candidates)
+- 🧶 Experimental Weaving Residency 2027-28, "Alongside", Unstable Design Lab, CU Boulder (USD 16,000 stipend + airfare, 12 weeks in Boulder, international welcome, free) — Jan 31, 2027 — unstable.design/work/ewresidency _(Nov 16 sweep, from the stray Inbox note line the DC digest added from Ines's LinkedIn save; verified on the official call page Nov 16)_
+
 ## Rolling (mention once, keep on the board)
 - Pollination Project seed grants (≤$500, monthly) ★ Tanit
 - Gerda Henkel Patrimonies (Africa; documentation + conservation) ★ Tanit via Tunisian team

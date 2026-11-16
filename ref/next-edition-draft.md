@@ -298,6 +298,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Mention | LinkedIn page |
 |---|---|
 | Voqal | linkedin.com/company/voqal |
+| Unstable Design Lab (CU Boulder ATLAS) | no LinkedIn page found |
 | Women Who Code | linkedin.com/company/women-who-code |
 | Games for Change | linkedin.com/company/gamesforchange |
 | ACM SIGCHI | linkedin.com/company/acm-sigchi |
@@ -1036,3 +1037,14 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Two USD 4,500 grants and four USD 1,000 grants, unrestricted.
 
 👉 https://hopperprize.org/
+
+### 🧶 Experimental Weaving Residency 2027-28, "Alongside" (Unstable Design Lab, CU Boulder)
+📅 Deadline: January 31, 2027 (info session December 2, 8 am MT)
+
+📍 Boulder, Colorado, in person, 12 weeks (Fall 2027, Spring 2028 or Fall 2028)
+
+👥 Artists, designers, engineers and computer scientists who weave experimentally, alone or in pairs. International applications welcome. Free
+
+✏️ Six funded residencies at a textile and computing lab: USD 16,000 stipend (lower for international residents because of US tax), airfare and USD 500 for materials. Housing is not covered.
+
+👉 https://unstable.design/work/ewresidency/
