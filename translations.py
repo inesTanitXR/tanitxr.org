@@ -2421,6 +2421,18 @@ FR = {
     'Oudhna (ancient Uthina), Tunisia': 'Oudhna (l’antique Uthina), Tunisie',
     'Read about the workshop': 'Lire l’article sur l’atelier',
     '>November 2026</div>': '>Novembre 2026</div>',
+
+    # ---- added 2026-11-16: pages that were still English ----
+    'Was Queen Elissa Real? An online session with Julia Moreno-Molen':
+        'La reine Élissa a-t-elle existé ? Une séance en ligne avec Julia Moreno-Molen',
+    '19 Nov online: Was Queen Elissa real?': '19 nov. en ligne : la reine Élissa a-t-elle existé ?',
+    'Thursday, November 19, 6pm to 7pm ET': 'Jeudi 19 novembre, de 18 h à 19 h (heure de New York)',
+    'Online, the link comes by email': 'En ligne, le lien arrive par e-mail',
+    '"Skip for now"': '« Passer pour l’instant »',
+    'Save my spot': 'Réserver ma place',
+    '"Process"': '« Traiter »',
+    '"Mesh"': '« Maillage »',
+    'Nov': 'nov.',
 }
 
 
@@ -4810,4 +4822,16 @@ AR = {
     'Oudhna (ancient Uthina), Tunisia': 'أوذنة (أوثينا القديمة)، تونس',
     'Read about the workshop': 'اقرأ عن الورشة',
     '>November 2026</div>': '>نوفمبر 2026</div>',
+
+    # ---- added 2026-11-16: pages that were still English ----
+    'Was Queen Elissa Real? An online session with Julia Moreno-Molen':
+        'هل كانت الملكة عليسة حقيقية؟ جلسة عبر الإنترنت مع Julia Moreno-Molen',
+    '19 Nov online: Was Queen Elissa real?': '19 نوفمبر عبر الإنترنت: هل كانت الملكة عليسة حقيقية؟',
+    'Thursday, November 19, 6pm to 7pm ET': 'الخميس 19 نوفمبر، من 6 إلى 7 مساءً بتوقيت نيويورك',
+    'Online, the link comes by email': 'عبر الإنترنت، يصلك الرابط بالبريد الإلكتروني',
+    '"Skip for now"': '"تخطَّ الآن"',
+    'Save my spot': 'احجز مكاني',
+    '"Process"': '"معالجة"',
+    '"Mesh"': '"شبكة"',
+    'Nov': 'نوفمبر',
 }
