@@ -1269,6 +1269,13 @@
    "source": "note",
    "raw": "Inbox note stray line (added by the DC digest Nov 14 from Ines's LinkedIn save): Experimental Weaving Residency 2027-28 Alongside, unstable.design",
    "status": "published: board + draft + plan (later edition, Jan 31, 2027)"
+  },
+  {
+   "key": "linkedin post four funding opportunities horowitz foundation awesome foundation conservation climate erase indifference challenge ihs ai and the workforce",
+   "date": "2026-11-17",
+   "source": "screenshot",
+   "raw": "Tanit Inbox/shot.png (Nov 15, 19:33), LinkedIn feed post listing four grants",
+   "status": "nothing new: Awesome Foundation Conservation & Climate (Nov 27) already on the board; Erase Indifference Challenge already a pending find on the report page; skipped: Horowitz Foundation research grants (policy social-science research for PhD-level scholars, academic-only); skipped: IHS AI and the Workforce (title cut off in the screenshot, academic research funding, off-topic)"
   }
  ],
  "slack_last_ts": "1794007492.000000",
@@ -1500,6 +1507,12 @@
    "file": "shot.html",
    "raw": "https://www.instagram.com/p/DfmVKd7uo3m/ (@world_inside)",
    "what": "Volunteering in Iceland (SEEDS, Worldwide Friends, Environment Agency volunteers); travel, no deadline"
+  },
+  {
+   "date": "2026-11-17",
+   "file": "shot.html",
+   "raw": "https://www.instagram.com/p/Dfya8p3FvbL/ (@thingstododc)",
+   "what": "Thingstodo DC post of November 15, 2026; DC things to do, no application"
   }
  ]
 }
