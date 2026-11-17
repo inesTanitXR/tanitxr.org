@@ -1059,3 +1059,15 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Virtual group sessions, peer-led spaces and one-to-one coaching for a global cohort of leaders working on change in their communities.
 
 👉 https://www.obama.org/programs/leaders/
+
+### 🎓 UNESCO Digital Learning Week 2027: Call for Proposals
+
+📅 Deadline: December 9, 2026
+
+📍 UNESCO Headquarters, Paris, March 23 to 25, 2027. In person only; no fees, but you cover your own travel and lodging
+
+👥 Educators, researchers, organisations and makers of learning tools that are already in use. Early-stage pilots and purely conceptual ideas will not be accepted
+
+✏️ UNESCO picks 32 panels, strategy labs, trainings and futures workshops, 24 live demos and 15 "Classroom" interactive teaching sessions, plus a "Surprise us" track for anything else. A strong fit for immersive and XR learning with real classroom results. Decisions January 11 to February 1, 2027.
+
+👉 https://tanitxr.org/go/unesco-digital-learning-week-2027-call-for-proposals/?ref=nl22
