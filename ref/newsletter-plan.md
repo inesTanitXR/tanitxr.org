@@ -143,6 +143,7 @@ _Opened Nov 4 for January deadlines that do not fit edition 22. Send date to con
 
 - _Nov 11 sweep:_ 👓 Learn AR with SPECS, new round (Snap x Devpost; online; USD 2,500 prizes; free) — Dec 7, 5 pm EST — learn-specs.devpost.com _(same page reopened Nov 10; verified on Devpost Nov 11; board entry updated)_
 - _Nov 16 board check:_ 🌍 Obama Foundation Leaders Program 2027-2028 (eight months, virtual, free; ages 24 to 45 in Africa, Asia-Pacific, Europe, US) — priority deadline Nov 23 — obama.org/programs/leaders _(was on the watch list; open on the official page Nov 16; three days after the send, so put it high)_
+- _Nov 18 sweep:_ 🎓 UNESCO Digital Learning Week 2027, Call for Proposals (Paris, March 23 to 25, 2027; in person, no fee, own travel; tools and practices already in use) — Dec 9 — unesco.org/en/weeks/digital-learning _(from Ines's note link; she put it on the board and the draft herself on Nov 17)_
 
 ## Edition 23 (send ~early December; candidates)
 - 🧶 Experimental Weaving Residency 2027-28, "Alongside", Unstable Design Lab, CU Boulder (USD 16,000 stipend + airfare, 12 weeks in Boulder, international welcome, free) — Jan 31, 2027 — unstable.design/work/ewresidency _(Nov 16 sweep, from the stray Inbox note line the DC digest added from Ines's LinkedIn save; verified on the official call page Nov 16)_
