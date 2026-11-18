@@ -11,40 +11,41 @@
   @page { size: 8.5in 11in; margin: 0 }
   :root { --gold:#ffcd05; --gold-text:#8a6200; --ink:#111518; --cream:#f7f1e6; --gray:#5b646b; }
   * { margin:0; padding:0; box-sizing:border-box }
-  html, body { width:816px; height:1056px; }
+  html, body { width:816px; height:1050px; overflow:hidden; }
   body { font-family:'Roboto', Arial, sans-serif; color:var(--ink); background:var(--cream);
          -webkit-print-color-adjust:exact; print-color-adjust:exact; overflow:hidden; }
-  .sheet { width:816px; height:1056px; display:flex; flex-direction:column; }
+  .sheet { width:816px; height:1050px; display:flex; flex-direction:column; }
 
-  .brand { display:flex; align-items:center; justify-content:space-between; padding:18px 64px 16px; }
+  .brand { display:flex; align-items:center; justify-content:space-between; padding:16px 64px 14px; }
   .brand img { height:68px; display:block; }
   .brand p { text-align:right; font-size:15px; line-height:1.45; color:var(--gray); }
   .brand p b { color:var(--ink); font-weight:700; }
-  .top { background:var(--ink); color:#fff; padding:30px 64px 72px; }
+  .top { background:var(--ink); color:#fff; padding:26px 64px 64px; }
   .eyebrow { font-size:15px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
-  h1 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:62px; line-height:1.04; margin:10px 0 12px; }
+  h1 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:60px; line-height:1.04; margin:8px 0 10px; }
   .sub { font-size:19px; color:#d6d9dc; }
 
   .mid { display:flex; gap:44px; padding:0 64px; margin-top:-56px; }
-  .portrait { flex:0 0 232px; }
-  .portrait img { width:232px; height:238px; object-fit:cover; display:block; border:8px solid #fff;
+  .portrait { flex:0 0 212px; }
+  .portrait img { width:212px; height:218px; object-fit:cover; display:block; border:8px solid #fff;
                   box-shadow:0 6px 18px rgba(17,21,24,.18); }
   .portrait p { font-size:12px; color:var(--gray); font-style:italic; margin-top:8px; }
-  .when { padding-top:62px; }
+  .when { padding-top:66px; }
   .when .day { font-size:15px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-text); }
-  .when .date { font-family:'Yeseva One', Georgia, serif; font-size:50px; line-height:1.1; margin:6px 0 4px; }
+  .when .date { font-family:'Yeseva One', Georgia, serif; font-size:46px; line-height:1.1; margin:4px 0 2px; }
   .when .time { font-size:27px; font-weight:500; }
-  .when hr { border:0; border-top:2px solid var(--gold); width:64px; margin:16px 0 12px; }
+  .when hr { border:0; border-top:2px solid var(--gold); width:64px; margin:12px 0 10px; }
   .when .how { font-size:18px; line-height:1.5; }
 
-  .about { padding:18px 64px 0; font-size:17px; line-height:1.5; }
-  .threads { display:flex; gap:14px; margin-top:14px; }
-  .threads div { flex:1; border-top:2px solid var(--ink); padding-top:9px; font-size:15px; line-height:1.4; font-weight:500; }
+  .about { padding:12px 64px 0; font-size:17px; line-height:1.5; }
 
-  .speaker { display:flex; align-items:center; gap:16px; padding:16px 64px 0; }
-  .speaker img { width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:50% 22%; }
-  .speaker b { display:block; font-size:19px; }
-  .speaker span { font-size:15.5px; color:var(--gray); }
+  .speaker { display:flex; align-items:center; gap:30px; margin:16px 64px 18px; padding:18px 24px;
+             background:#fff; border-left:6px solid var(--gold); }
+  .speaker img { flex:0 0 140px; width:140px; height:140px; border-radius:50%; object-fit:cover; object-position:50% 20%; }
+  .speaker .lab { font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-text); }
+  .speaker h3 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:34px; line-height:1.1; margin:4px 0 4px; }
+  .speaker .role { font-size:16px; color:var(--gray); }
+  .speaker q { display:block; font-size:16.5px; line-height:1.45; font-style:italic; margin-top:10px; quotes:"\201C" "\201D"; }
 
   .cta { margin-top:auto; background:var(--gold); display:flex; align-items:center; justify-content:space-between; padding:16px 64px; }
   .cta h2 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:34px; line-height:1.1; }
@@ -53,7 +54,7 @@
   .qr { background:#fff; padding:9px; width:124px; height:124px; }
   .qr img { width:106px; height:106px; display:block; }
 
-  .foot { padding:12px 64px 14px; }
+  .foot { padding:10px 64px 12px; }
   .foot p { font-size:13px; color:var(--gray); text-align:center; }
 </style>
 </head>
@@ -89,16 +90,16 @@
     <p>A Phoenician princess from Tyre escaped a murderous brother, crossed the sea, and founded
     Carthage with the people who came with her and the hide of an ox. How much of her story is
     history, and how much is legend?</p>
-    <div class="threads">
-      <div>The founding myth, and how it changed with each teller</div>
-      <div>What archaeology says about how Carthage began</div>
-      <div>Why her story has lasted nearly 3,000 years</div>
-    </div>
   </div>
 
   <div class="speaker">
-    <img src="julia.jpg" alt="">
-    <div><b>With Julia Moreno-Molen</b><span>Project manager and volunteer coordinator, Tanit XR</span></div>
+    <img src="julia.jpg" alt="Julia Moreno-Molen">
+    <div>
+      <div class="lab">Your speaker</div>
+      <h3>Julia Moreno-Molen</h3>
+      <div class="role">Project manager and volunteer coordinator, Tanit XR</div>
+      <q>You don’t need credentials to engage seriously with the past. You just need curiosity.</q>
+    </div>
   </div>
 
   <div class="cta">
