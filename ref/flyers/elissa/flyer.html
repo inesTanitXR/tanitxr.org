@@ -16,49 +16,57 @@
          -webkit-print-color-adjust:exact; print-color-adjust:exact; overflow:hidden; }
   .sheet { width:816px; height:1056px; display:flex; flex-direction:column; }
 
-  .top { background:var(--ink); color:#fff; padding:46px 64px 84px; }
+  .brand { display:flex; align-items:center; justify-content:space-between; padding:18px 64px 16px; }
+  .brand img { height:68px; display:block; }
+  .brand p { text-align:right; font-size:15px; line-height:1.45; color:var(--gray); }
+  .brand p b { color:var(--ink); font-weight:700; }
+  .top { background:var(--ink); color:#fff; padding:30px 64px 72px; }
   .eyebrow { font-size:15px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
-  h1 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:66px; line-height:1.04; margin:12px 0 14px; }
+  h1 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:62px; line-height:1.04; margin:10px 0 12px; }
   .sub { font-size:19px; color:#d6d9dc; }
 
   .mid { display:flex; gap:44px; padding:0 64px; margin-top:-56px; }
-  .portrait { flex:0 0 252px; }
-  .portrait img { width:252px; height:259px; object-fit:cover; display:block; border:8px solid #fff;
+  .portrait { flex:0 0 232px; }
+  .portrait img { width:232px; height:238px; object-fit:cover; display:block; border:8px solid #fff;
                   box-shadow:0 6px 18px rgba(17,21,24,.18); }
   .portrait p { font-size:12px; color:var(--gray); font-style:italic; margin-top:8px; }
-  .when { padding-top:72px; }
+  .when { padding-top:62px; }
   .when .day { font-size:15px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-text); }
   .when .date { font-family:'Yeseva One', Georgia, serif; font-size:50px; line-height:1.1; margin:6px 0 4px; }
   .when .time { font-size:27px; font-weight:500; }
   .when hr { border:0; border-top:2px solid var(--gold); width:64px; margin:16px 0 12px; }
   .when .how { font-size:18px; line-height:1.5; }
 
-  .about { padding:22px 64px 0; font-size:17.5px; line-height:1.55; }
+  .about { padding:18px 64px 0; font-size:17px; line-height:1.5; }
   .threads { display:flex; gap:14px; margin-top:14px; }
   .threads div { flex:1; border-top:2px solid var(--ink); padding-top:9px; font-size:15px; line-height:1.4; font-weight:500; }
 
-  .speaker { display:flex; align-items:center; gap:16px; padding:20px 64px 0; }
-  .speaker img { width:72px; height:72px; border-radius:50%; object-fit:cover; object-position:50% 22%; }
+  .speaker { display:flex; align-items:center; gap:16px; padding:16px 64px 0; }
+  .speaker img { width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:50% 22%; }
   .speaker b { display:block; font-size:19px; }
   .speaker span { font-size:15.5px; color:var(--gray); }
 
-  .cta { margin-top:auto; background:var(--gold); display:flex; align-items:center; justify-content:space-between; padding:20px 64px; }
+  .cta { margin-top:auto; background:var(--gold); display:flex; align-items:center; justify-content:space-between; padding:16px 64px; }
   .cta h2 { font-family:'Yeseva One', Georgia, serif; font-weight:400; font-size:34px; line-height:1.1; }
   .cta .url { font-size:26px; font-weight:700; margin-top:6px; }
   .cta .note { font-size:15px; margin-top:4px; }
   .qr { background:#fff; padding:9px; width:124px; height:124px; }
   .qr img { width:106px; height:106px; display:block; }
 
-  .foot { display:flex; align-items:center; justify-content:space-between; padding:12px 64px 16px; }
-  .foot img { height:36px; }
-  .foot p { font-size:13px; color:var(--gray); text-align:right; line-height:1.4; }
+  .foot { padding:12px 64px 14px; }
+  .foot p { font-size:13px; color:var(--gray); text-align:center; }
 </style>
 </head>
 <body>
 <div class="sheet">
 
+  <div class="brand">
+    <img src="logo.png" alt="Tanit XR">
+    <p><b>Preserving Tunisia’s heritage in 3D</b><br>A volunteer nonprofit · tanitxr.org</p>
+  </div>
+
   <div class="top">
-    <div class="eyebrow">Free online talk</div>
+    <div class="eyebrow">Tanit XR presents a free online talk</div>
     <h1>Was Queen Elissa<br>Real?</h1>
     <p class="sub">The founder of Carthage, between legend and archaeology</p>
   </div>
@@ -103,8 +111,7 @@
   </div>
 
   <div class="foot">
-    <img src="logo.png" alt="Tanit XR">
-    <p>Hosted by Tanit XR with our fiscal sponsor,<br>Florida Community Innovation</p>
+    <p>Hosted by Tanit XR with our fiscal sponsor, Florida Community Innovation</p>
   </div>
 
 </div>
