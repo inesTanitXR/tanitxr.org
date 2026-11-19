@@ -4113,9 +4113,12 @@ PEOPLE_FILE = os.path.join(HERE, "ref", "people.json")
 if os.path.exists(PEOPLE_FILE):
     _people = json.load(open(PEOPLE_FILE))["people"]
     _live = [p for p in _people if p.get("approved", False)]
-    TEAM = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")} | {"href": f"team/{p['slug']}.html"}
+    # "quote" is optional: a line in the person's own words, from their own public post
+    TEAM = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")}
+            | {"quote": p.get("quote", ""), "href": f"team/{p['slug']}.html"}
             for p in _live if p.get("group") == "core"]
-    COMMUNITY = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")} | {"href": f"team/{p['slug']}.html"}
+    COMMUNITY = [{k: p[k] for k in ("name", "role", "slug", "bio", "photo", "links")}
+                 | {"quote": p.get("quote", ""), "href": f"team/{p['slug']}.html"}
                  for p in _live if p.get("group") != "core"]
 else:                                    # first run, before the file exists
     TEAM = [person_record(n, r) for n, r in CORE_TEAM]
@@ -6704,7 +6707,7 @@ fetch('profiles-live.json').then(r=>r.ok?r.json():[]).then(list=>{{
 <div>{photo}</div>
 <div>
 <div class="eyebrow">{esc(p["role"])}</div>
-<p style="font-size:17px;color:#2c343b">{bio}</p>
+<p style="font-size:17px;color:#2c343b">{bio}</p>{f'<div class="quote" style="margin-top:22px;padding:22px 24px"><p>“{esc(p["quote"])}”</p></div>' if p.get("quote") else ""}
 <div style="margin-top:26px">{links}</div>
 </div></div>
 </div></section>
@@ -7352,6 +7355,7 @@ alt="Tanit XR, Volunteer to help protect global heritage. Cultural memory powere
 objects by hand, like these.</p></div>
 <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">{volunteer_made_cards(3)}</div>
 <p class="center" style="margin-top:26px"><a class="btn btn-line" href="archive.html#volunteer-made">See all {len(MADE_ALL)} volunteer-made models</a></p>
+<div class="quote" style="max-width:680px;margin:70px auto 0"><p>“TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.”</p><b><a href="team/julia-moreno-molen.html">Julia Moreno-Molen</a></b><span class="qrole">Project manager and volunteer coordinator</span></div>
 <h2 class="sec-title" style="margin-top:70px">Frequently Asked Questions</h2>
 <div class="faq" style="margin-top:28px">{faq_html}</div>
 </div></section>
@@ -8383,7 +8387,19 @@ willingness to tell what we know apart from what we wish we knew.”</p></div>
 </div>
 </div></section>
 
-<section class="pad dcv-band"><div class="wrap center" style="max-width:760px">
+<section class="pad dcv-band" id="julia-post"><div class="wrap" style="max-width:760px">
+<div class="center"><div class="eyebrow">In her own words</div><h2 class="sec-title">Why Julia joined Tanit XR</h2></div>
+<div class="dcv-sp" style="margin-top:26px">
+<p style="margin:0 0 14px">In the summer of 2025, a friend of mine – Ines Said – posted that she was going to make her dreams come true and dive into beginning her non-profit, Tanit XR. She had been rejected from a couple of fellowships and programs that promise a jumpstart on your dreams, set with funding and all. Rather than give up, she came onto Linkedin with a full heart and asked if anyone might be interested in volunteering. She said “I’m just going to do it myself” and there’s truly nothing more impressive to me than someone planting their flag and believing in themselves.</p>
+<p style="margin:0 0 14px">At the time, I was at my own crossroads, deciding whether to keep playing the application game or take a leap of faith on my own work. Given the state of the market and the sheer volume of rejection I had been facing, I didn’t have my confidence back to fully step into my own journey just yet. All I knew is that I wanted to get to work. I was tired of banging on doors.</p>
+<p style="margin:0 0 14px">Inspired by Ines’ determination and sheer will, I threw my hat in the ring to support project management and special projects. Since that day, I’ve been surrounded with encouragement, tenacity, and brilliance that radiates from the TanitXR leadership team (+ Laura K. Harrison, Ph.D., RPA and Caroline Nickerson, PhD). It is no small part that they played in encouraging me to take my own leap into beginning my consulting practice.</p>
+<p style="margin:0 0 14px">Beyond the work in my zone of genius, I’ve been able to lean into the work that I deeply enjoy but maybe don’t have all that much practice in. TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.</p>
+<p style="margin:0 0 18px">Today, I support volunteer engagement and lead our history spotlights weekly on Thursdays. As someone who is always hungry for a history fun fact, documentary, or historical fiction, I was delighted to lean into shedding light on the ancient history of Tunisia. Now, we’re bringing that history beyond our doors to the public.</p>
+<p style="margin:0;font-size:14px;color:var(--gray)"><b><a href="team/julia-moreno-molen.html">Julia Moreno-Molen</a></b>, on LinkedIn, November 2026</p>
+</div>
+</div></section>
+
+<section class="pad"><div class="wrap center" style="max-width:760px">
 <p class="sec-sub" style="margin:0 auto 18px">This session is hosted by Tanit XR, a volunteer-driven organization working to digitally
 preserve Tunisia’s heritage, together with its fiscal sponsor, Florida Community Innovation (FCI). Tanit XR is
 built on the idea that anyone with curiosity and care can help keep history alive.</p>
@@ -8391,7 +8407,7 @@ built on the idea that anyone with curiosity and care can help keep history aliv
 <p><a class="btn btn-gold" href="#el-rsvp">Save my spot</a> &nbsp; <a class="btn btn-line" href="explore.html">Explore Carthage in 3D</a></p>
 </div></section>
 
-<section class="pad"><div class="wrap center" style="max-width:760px">
+<section class="pad dcv-band"><div class="wrap center" style="max-width:760px">
 <div class="eyebrow">Keep history alive</div>
 <h2 class="sec-title">This session is free. Help keep it that way.</h2>
 <p class="sec-sub" style="margin:0 auto 22px">Tanit XR is run entirely by volunteers, and everything we make, from talks like this one

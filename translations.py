@@ -2433,6 +2433,27 @@ FR = {
     '"Process"': '« Traiter »',
     '"Mesh"': '« Maillage »',
     'Nov': 'nov.',
+    # ---- added 2026-11-19: Julia's LinkedIn post on /elissa/, her line on /volunteer/ and her team page ----
+    'In the summer of 2025, a friend of mine – Ines Said – posted that she was going to make her dreams come true and dive into beginning her non-profit, Tanit XR. She had been rejected from a couple of fellowships and programs that promise a jumpstart on your dreams, set with funding and all. Rather than give up, she came onto Linkedin with a full heart and asked if anyone might be interested in volunteering. She said “I’m just going to do it myself” and there’s truly nothing more impressive to me than someone planting their flag and believing in themselves.':
+        'À l’été 2025, une amie à moi, Ines Said, a annoncé qu’elle allait réaliser ses rêves et se lancer dans la création de son association, Tanit XR. Elle avait été refusée à plusieurs bourses et programmes qui promettent de donner un coup d’accélérateur à vos rêves, financement compris. Plutôt que d’abandonner, elle est venue sur LinkedIn, le cœur grand ouvert, demander si quelqu’un voulait s’engager comme bénévole. Elle a dit « Je vais simplement le faire moi-même », et rien ne m’impressionne davantage que quelqu’un qui plante son drapeau et croit en soi.',
+    'At the time, I was at my own crossroads, deciding whether to keep playing the application game or take a leap of faith on my own work. Given the state of the market and the sheer volume of rejection I had been facing, I didn’t have my confidence back to fully step into my own journey just yet. All I knew is that I wanted to get to work. I was tired of banging on doors.':
+        'À ce moment-là, j’étais moi-même à la croisée des chemins : continuer à jouer le jeu des candidatures, ou faire le grand saut et me lancer dans mon propre travail. Vu l’état du marché et le nombre de refus que j’avais essuyés, je n’avais pas encore retrouvé assez de confiance pour me lancer pleinement. Tout ce que je savais, c’est que je voulais me mettre au travail. J’en avais assez de frapper aux portes.',
+    'Inspired by Ines’ determination and sheer will, I threw my hat in the ring to support project management and special projects. Since that day, I’ve been surrounded with encouragement, tenacity, and brilliance that radiates from the TanitXR leadership team (+ Laura K. Harrison, Ph.D., RPA and Caroline Nickerson, PhD). It is no small part that they played in encouraging me to take my own leap into beginning my consulting practice.':
+        'Inspirée par la détermination et la volonté d’Ines, je me suis proposée pour soutenir la gestion de projet et les projets spéciaux. Depuis ce jour, je suis entourée de l’encouragement, de la ténacité et de l’intelligence qui rayonnent de l’équipe dirigeante de TanitXR (avec Laura K. Harrison, Ph.D., RPA et Caroline Nickerson, PhD). Leur rôle n’a pas été mince quand il s’est agi de m’encourager à faire à mon tour le grand saut et à lancer mon activité de conseil.',
+    'Beyond the work in my zone of genius, I’ve been able to lean into the work that I deeply enjoy but maybe don’t have all that much practice in. TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
+        'Au-delà du travail où j’excelle, j’ai pu me consacrer à un travail que j’aime profondément mais que je n’ai peut-être pas tant pratiqué. TanitXR est un refuge pour les bénévoles qui veulent exercer les compétences que leur emploi ne leur laisse pas le temps d’utiliser, ou en apprendre de nouvelles.',
+    'Today, I support volunteer engagement and lead our history spotlights weekly on Thursdays. As someone who is always hungry for a history fun fact, documentary, or historical fiction, I was delighted to lean into shedding light on the ancient history of Tunisia. Now, we’re bringing that history beyond our doors to the public.':
+        'Aujourd’hui, je m’occupe de l’engagement des bénévoles et j’anime chaque jeudi nos rendez-vous d’histoire. Toujours avide d’anecdotes historiques, de documentaires ou de romans historiques, j’ai été ravie de mettre en lumière l’histoire antique de la Tunisie. Désormais, nous faisons sortir cette histoire de nos murs pour la partager avec le public.',
+    'In her own words':
+        'Avec ses propres mots',
+    'Why Julia joined Tanit XR':
+        'Pourquoi Julia a rejoint Tanit XR',
+    'on LinkedIn, November 2026':
+        'sur LinkedIn, novembre 2026 (traduit de l’anglais)',
+    'Project manager and volunteer coordinator':
+        'Cheffe de projet et coordinatrice des bénévoles',
+    'TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
+        'TanitXR est un refuge pour les bénévoles qui veulent exercer les compétences que leur emploi ne leur laisse pas le temps d’utiliser, ou en apprendre de nouvelles.',
 }
 
 
@@ -4834,4 +4855,25 @@ AR = {
     '"Process"': '"معالجة"',
     '"Mesh"': '"شبكة"',
     'Nov': 'نوفمبر',
+    # ---- added 2026-11-19: Julia's LinkedIn post on /elissa/, her line on /volunteer/ and her team page ----
+    'In the summer of 2025, a friend of mine – Ines Said – posted that she was going to make her dreams come true and dive into beginning her non-profit, Tanit XR. She had been rejected from a couple of fellowships and programs that promise a jumpstart on your dreams, set with funding and all. Rather than give up, she came onto Linkedin with a full heart and asked if anyone might be interested in volunteering. She said “I’m just going to do it myself” and there’s truly nothing more impressive to me than someone planting their flag and believing in themselves.':
+        'في صيف 2025، نشرت صديقتي إيناس سعيد أنها ستحقق أحلامها وتبدأ جمعيتها غير الربحية، تانيت XR. كانت قد رُفضت في بضع منح وبرامج تَعِد بانطلاقة سريعة لأحلامك، بالتمويل وكل شيء. وبدل أن تستسلم، جاءت إلى LinkedIn بقلب مفتوح وسألت إن كان أحد يرغب في التطوع. قالت: «سأفعلها بنفسي فقط»، ولا شيء يبهرني حقًا أكثر من شخص يغرس رايته ويؤمن بنفسه.',
+    'At the time, I was at my own crossroads, deciding whether to keep playing the application game or take a leap of faith on my own work. Given the state of the market and the sheer volume of rejection I had been facing, I didn’t have my confidence back to fully step into my own journey just yet. All I knew is that I wanted to get to work. I was tired of banging on doors.':
+        'في ذلك الوقت كنت أنا أيضًا عند مفترق طرق، أفكر هل أستمر في لعبة التقديم على الوظائف أم أقفز قفزة إيمان نحو عملي الخاص. ومع حال سوق العمل وكثرة الرفض الذي واجهته، لم تكن ثقتي قد عادت بعد بما يكفي لأخطو في طريقي الخاص بالكامل. كل ما كنت أعرفه أنني أريد أن أبدأ العمل. كنت قد تعبت من طرق الأبواب.',
+    'Inspired by Ines’ determination and sheer will, I threw my hat in the ring to support project management and special projects. Since that day, I’ve been surrounded with encouragement, tenacity, and brilliance that radiates from the TanitXR leadership team (+ Laura K. Harrison, Ph.D., RPA and Caroline Nickerson, PhD). It is no small part that they played in encouraging me to take my own leap into beginning my consulting practice.':
+        'بإلهام من عزيمة إيناس وإرادتها، تقدّمت لدعم إدارة المشاريع والمشاريع الخاصة. ومنذ ذلك اليوم وأنا محاطة بالتشجيع والمثابرة والتألق الذي يشعّ من فريق قيادة تانيت XR (ومعه د. لورا ك. هاريسون ود. كارولين نيكرسون). ولم يكن دورهم صغيرًا في تشجيعي على أن أقفز قفزتي أنا أيضًا وأبدأ عملي في الاستشارات.',
+    'Beyond the work in my zone of genius, I’ve been able to lean into the work that I deeply enjoy but maybe don’t have all that much practice in. TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
+        'وإلى جانب العمل الذي أتقنه، استطعت أن أنغمس في عمل أحبه كثيرًا لكن ربما لم أمارسه كثيرًا. كانت تانيت XR ملاذًا للمتطوعين الذين يريدون أن يمارسوا مهارات لا تتيح لهم وظائفهم وقتًا لها، أو أن يتعلموا مهارات جديدة.',
+    'Today, I support volunteer engagement and lead our history spotlights weekly on Thursdays. As someone who is always hungry for a history fun fact, documentary, or historical fiction, I was delighted to lean into shedding light on the ancient history of Tunisia. Now, we’re bringing that history beyond our doors to the public.':
+        'اليوم أدعم تفاعل المتطوعين وأقود جلساتنا الأسبوعية عن التاريخ كل خميس. وبما أنني دائمًا متعطشة لمعلومة تاريخية طريفة أو فيلم وثائقي أو رواية تاريخية، سعدت كثيرًا بتسليط الضوء على تاريخ تونس القديم. والآن نخرج بهذا التاريخ من بين جدراننا إلى عامة الناس.',
+    'In her own words':
+        'بكلماتها',
+    'Why Julia joined Tanit XR':
+        'لماذا انضمّت جوليا إلى تانيت XR',
+    'on LinkedIn, November 2026':
+        'على LinkedIn، نوفمبر 2026 (مترجم من الإنجليزية)',
+    'Project manager and volunteer coordinator':
+        'مديرة مشاريع ومنسّقة المتطوعين',
+    'TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
+        'كانت تانيت XR ملاذًا للمتطوعين الذين يريدون أن يمارسوا مهارات لا تتيح لهم وظائفهم وقتًا لها، أو أن يتعلموا مهارات جديدة.',
 }
