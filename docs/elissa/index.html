@@ -95,6 +95,14 @@ Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even
   if (!f) return;
   var SHEET = 'https://script.google.com/macros/s/AKfycbwS1EdGOzYjIOJ7DlM0JhKBfZ3IWpD_4cWp8e5x56ckd7WR3tK03bqgiw6nOfmgIVNI0w/exec';
   var opened = Date.now();
+  // these three messages live in the script, which the page translation never touches
+  var W = ({
+    fr: {sending: 'Envoi…', saved: 'Place réservée',
+          thanks: 'Merci, votre place est réservée ! Nous vous enverrons par e-mail le lien pour rejoindre la séance avant qu’elle commence.'},
+    ar: {sending: 'جارٍ الإرسال…', saved: 'تم حجز مكانك',
+          thanks: 'شكرًا لك، أنت على القائمة! سنرسل إليك رابط الانضمام عبر البريد الإلكتروني قبل الجلسة.'}
+  })[(document.documentElement.lang || 'en').slice(0, 2)] || {sending: 'Sending...', saved: 'Spot saved',
+    thanks: 'Thank you, you are on the list! We will email you the link to join before the session.'};
   f.addEventListener('submit', function(e){
     e.preventDefault();
     if (!f.reportValidity()) return;
@@ -102,15 +110,15 @@ Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even
     f.querySelector('[name=_t]').value = String(Date.now() - opened);
     f.querySelector('[name=_js]').value = String(Date.now()).split('').reverse().join('').slice(0, 8);
     var btn = f.querySelector('button[type=submit]');
-    btn.disabled = true; btn.textContent = 'Sending...';
+    btn.disabled = true; btn.textContent = W.sending;
     var body = new URLSearchParams(new FormData(f));
     var sent = false;
     try { sent = navigator.sendBeacon(SHEET, body); } catch (err) { sent = false; }
     if (!sent) { try { fetch(SHEET, {method:'POST', body: body, mode:'no-cors', keepalive:true}); } catch (err) {} }
     f.querySelectorAll('input,textarea').forEach(function(el){ el.disabled = true; });
-    btn.textContent = 'Spot saved';
+    btn.textContent = W.saved;
     said.hidden = false;
-    said.textContent = 'Thank you, you are on the list! We will email you the link to join before the session.';
+    said.textContent = W.thanks;
     var give = document.getElementById('el-give');
     if (give) give.hidden = false;
     // bring the thank-you and the gift box into view, gently, without jumping past them

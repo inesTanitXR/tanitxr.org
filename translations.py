@@ -2426,7 +2426,7 @@ FR = {
     'Was Queen Elissa Real? An online session with Julia Moreno-Molen':
         'La reine Élissa a-t-elle existé ? Une séance en ligne avec Julia Moreno-Molen',
     '2 Dec online: Was Queen Elissa real?': '2 déc. en ligne : la reine Élissa a-t-elle existé ?',
-    'Wednesday, December 2, 6pm to 7pm ET': 'Mercredi 2 décembre, de 18 h à 19 h (heure de New York)',
+    'Wednesday, December 2, 6pm to 7pm ET': 'Mercredi 2 décembre, de 18 h à 19 h (heure de &#78;ew York)',
     'Online, the link comes by email': 'En ligne, le lien arrive par e-mail',
     '"Skip for now"': '« Passer pour l’instant »',
     'Save my spot': 'Réserver ma place',
@@ -2454,6 +2454,89 @@ FR = {
         'Cheffe de projet et coordinatrice des bénévoles',
     'TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
         'TanitXR est un refuge pour les bénévoles qui veulent exercer les compétences que leur emploi ne leur laisse pas le temps d’utiliser, ou en apprendre de nouvelles.',
+    # ---- added 2026-11-19: the rest of /elissa/ ----
+    'She’s the founder of Carthage in legend: a Phoenician princess from Tyre who escaped a murderous brother, crossed the sea, and built one of the great cities of the ancient world with only the people who accompanied her and the hide of an ox. Rome remembered her as Dido. Virgil turned her into a heartbroken queen. Others remembered her as a ruler who chose death over a forced marriage.':
+        'Dans la légende, c’est elle qui a fondé Carthage : une princesse phénicienne de Tyr qui a fui un frère meurtrier, traversé la mer et bâti l’une des grandes villes du monde antique avec seulement ceux qui l’avaient suivie et la peau d’un bœuf. Rome se souvenait d’elle sous le nom de Didon. Virgile en a fait une reine au cœur brisé. D’autres se souvenaient d’une souveraine qui a choisi la mort plutôt qu’un mariage forcé.',
+    'While you are here: this session is free, like everything Tanit XR makes. Everyone on the team is a volunteer, so a gift goes straight to preserving Tunisia’s heritage. Donations go through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.':
+        'Pendant que vous êtes là : cette séance est gratuite, comme tout ce que fait Tanit XR. Toute l’équipe est bénévole, alors chaque don va directement à la préservation du patrimoine tunisien. Les dons passent par notre parrain fiscal, Florida Community Innovation, une organisation américaine 501(c)(3), et sont donc déductibles des impôts aux États-Unis. Même 10 $ aident.',
+    'The session is online and free. The link to join comes by email before it starts. Questions:':
+        'La séance est en ligne et gratuite. Le lien pour la rejoindre arrive par e-mail avant le début. Questions :',
+    'Elissa, as a later painter imagined her. No portrait from her own time survives.':
+        'Élissa, telle qu’un peintre bien plus tardif l’a imaginée. Aucun portrait de son époque ne nous est parvenu.',
+    'The murex shell, source of the purple dye that made Tyre, Elissa’s city, famous. Illustration:':
+        'Le murex, coquillage d’où vient la pourpre qui a fait la renommée de Tyr, la ville d’Élissa. Illustration :',
+    'The founding myth and how it changed depending on who was telling it':
+        'Le mythe fondateur, et comment il a changé selon qui le racontait',
+    'Elissa of Tyre, Dido of Rome, Virgil’s heartbroken queen, the ruler who chose death over a forced marriage. And the version most loved in Tunisia: the ox hide, cut into thin strips to circle the hill of Byrsa.':
+        'Élissa de Tyr, Didon de Rome, la reine au cœur brisé de Virgile, la souveraine qui a choisi la mort plutôt qu’un mariage forcé. Et la version la plus aimée en Tunisie : la peau de bœuf, découpée en fines lanières pour entourer la colline de Byrsa.',
+    'What archaeology suggests about when and how Carthage actually began':
+        'Ce que l’archéologie laisse penser du moment et de la manière dont Carthage est vraiment née',
+    'What the excavations have uncovered, and how it sits beside the stories. Telling what we know apart from what we wish we knew.':
+        'Ce que les fouilles ont mis au jour, et comment cela se place à côté des récits. Faire la différence entre ce que nous savons et ce que nous aimerions savoir.',
+    'Why the story of a woman founding a city has lasted nearly 3,000 years':
+        'Pourquoi l’histoire d’une femme fondant une ville a traversé près de 3 000 ans',
+    'In Tunisia, Elissa and Tanit are still symbols of women’s strength. The hour ends on what Elissa means to us today, with time for your questions along the way.':
+        'En Tunisie, Élissa et Tanit restent des symboles de la force des femmes. L’heure se termine sur ce qu’Élissa représente pour nous aujourd’hui, avec du temps pour vos questions tout au long de la séance.',
+    '“Hi! I’m Julia Moreno-Molen. I’ll be honest: I’m not an archaeologist. I came to TanitXR as a project manager who cares deeply about preserving and sharing cultural heritage and leaning into learning. As a newbie to the field, I’ve enjoyed reading translations of ancient sources, learning what the excavations have uncovered, and asking a lot of questions about who tells our histories. That’s the spirit of this session. You don’t need credentials to engage seriously with the past. You just need curiosity and a willingness to tell what we know apart from what we wish we knew.”':
+        '« Bonjour ! Je suis Julia Moreno-Molen. Je vais être honnête : je ne suis pas archéologue. Je suis arrivée chez TanitXR comme cheffe de projet profondément attachée à la préservation et au partage du patrimoine culturel, et à l’envie d’apprendre. Novice dans ce domaine, j’ai pris plaisir à lire des traductions de sources antiques, à découvrir ce que les fouilles ont mis au jour et à poser beaucoup de questions sur qui raconte nos histoires. C’est l’esprit de cette séance. Pas besoin de diplômes pour s’intéresser sérieusement au passé. Il suffit d’être curieux et d’accepter de distinguer ce que nous savons de ce que nous aimerions savoir. »',
+    'This session is hosted by Tanit XR, a volunteer-driven organization working to digitally preserve Tunisia’s heritage, together with its fiscal sponsor, Florida Community Innovation (FCI). Tanit XR is built on the idea that anyone with curiosity and care can help keep history alive.':
+        'Cette séance est organisée par Tanit XR, une organisation portée par des bénévoles qui travaille à préserver numériquement le patrimoine tunisien, avec son parrain fiscal, Florida Community Innovation (FCI). Tanit XR repose sur l’idée que toute personne curieuse et attentive peut aider à faire vivre l’histoire.',
+    'Tanit XR is run entirely by volunteers, and everything we make, from talks like this one to the 3D scans of Carthage, is free for anyone. A gift of any size keeps the work going. Donations go through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.':
+        'Tanit XR fonctionne entièrement grâce à des bénévoles, et tout ce que nous faisons, des conférences comme celle-ci aux scans 3D de Carthage, est gratuit pour tous. Un don, quel que soit son montant, permet de continuer. Les dons passent par notre parrain fiscal, Florida Community Innovation, une organisation américaine 501(c)(3), et sont donc déductibles des impôts aux États-Unis. Même 10 $ aident.',
+    'A free online session on Wednesday 2 December 2026, 6pm ET, with Julia Moreno-Molen of Tanit XR: the founding myth of Carthage, what archaeology suggests, and why Elissa, Dido to Rome, still matters 3,000 years on.':
+        'Une séance en ligne gratuite le mercredi 2 décembre 2026 à 18 h (heure de &#78;ew York), avec Julia Moreno-Molen de Tanit XR : le mythe fondateur de Carthage, ce que suggère l’archéologie, et pourquoi Élissa, Didon pour Rome, compte encore 3 000 ans plus tard.',
+    'A painted portrait of Elissa, Queen of Carthage, wearing a jewelled diadem and a grey veil':
+        'Portrait peint d’Élissa, reine de Carthage, portant un diadème orné de joyaux et un voile gris',
+    'Was Queen Elissa Real?':
+        'La reine Élissa a-t-elle existé ?',
+    'Was Queen Elissa real?':
+        'La reine Élissa a-t-elle existé ?',
+    'An online session with Julia Moreno-Molen, Wednesday 2 December 2026':
+        'Une séance en ligne avec Julia Moreno-Molen, mercredi 2 décembre 2026',
+    '<small>Where</small>':
+        '<small>Où</small>',
+    '<small>With</small>':
+        '<small>Avec</small>',
+    '<b>Online</b>':
+        '<b>En ligne</b>',
+    '<b>Wednesday 2 December</b>':
+        '<b>Mercredi 2 décembre</b>',
+    '<span>2026, 6pm to 7pm ET</span>':
+        '<span>2026, de 18 h à 19 h, heure de &#78;ew York (minuit à Tunis)</span>',
+    'The link comes by email<br>before the session':
+        'Le lien arrive par e-mail<br>avant la séance',
+    'Project manager and volunteer<br>coordinator, Tanit XR':
+        'Cheffe de projet et coordinatrice<br>des bénévoles, Tanit XR',
+    'Hosted by Tanit XR and<br>Florida Community Innovation':
+        'Organisée par Tanit XR et<br>Florida Community Innovation',
+    'Save your spot</div>':
+        'Réservez votre place</div>',
+    'Email address, where we send the link':
+        'Adresse e-mail, où nous enverrons le lien',
+    'How did you hear about this session?':
+        'Comment avez-vous entendu parler de cette séance ?',
+    'Do you have any questions?':
+        'Avez-vous des questions ?',
+    'Make a tax-deductible gift':
+        'Faire un don déductible des impôts',
+    'to save your spot.':
+        'pour réserver votre place.',
+    'But how much of that is history, and how much is story?':
+        'Mais quelle part de tout cela relève de l’histoire, et quelle part du récit ?',
+    'The session</div>':
+        'La séance</div>',
+    'One hour, three threads':
+        'Une heure, trois fils',
+    'The speaker</div>':
+        'L’intervenante</div>',
+    '“I can’t wait to see you there!”':
+        '« J’ai hâte de vous y retrouver ! »',
+    'Explore Carthage in 3D':
+        'Explorer Carthage en 3D',
+    'Keep history alive</div>':
+        'Faire vivre l’histoire</div>',
+    'This session is free. Help keep it that way.':
+        'Cette séance est gratuite. Aidez-nous à ce qu’elle le reste.',
 }
 
 
@@ -4876,4 +4959,87 @@ AR = {
         'مديرة مشاريع ومنسّقة المتطوعين',
     'TanitXR has been a haven for volunteers looking to flex the skills they don’t get time for in their day jobs or learn new ones.':
         'كانت تانيت XR ملاذًا للمتطوعين الذين يريدون أن يمارسوا مهارات لا تتيح لهم وظائفهم وقتًا لها، أو أن يتعلموا مهارات جديدة.',
+    # ---- added 2026-11-19: the rest of /elissa/ ----
+    'She’s the founder of Carthage in legend: a Phoenician princess from Tyre who escaped a murderous brother, crossed the sea, and built one of the great cities of the ancient world with only the people who accompanied her and the hide of an ox. Rome remembered her as Dido. Virgil turned her into a heartbroken queen. Others remembered her as a ruler who chose death over a forced marriage.':
+        'في الأسطورة هي مؤسِّسة قرطاج: أميرة فينيقية من صور هربت من أخ قاتل، وعبرت البحر، وبنت واحدة من أعظم مدن العالم القديم بمن رافقها من الناس وبجلد ثور فقط. عرفتها روما باسم ديدو. وجعل منها فيرجيل ملكة مكسورة القلب. وتذكّرها آخرون حاكمةً اختارت الموت على زواج قسري.',
+    'While you are here: this session is free, like everything Tanit XR makes. Everyone on the team is a volunteer, so a gift goes straight to preserving Tunisia’s heritage. Donations go through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.':
+        'وما دمت هنا: هذه الجلسة مجانية، مثل كل ما تصنعه تانيت XR. كل أعضاء الفريق متطوعون، لذا يذهب كل تبرع مباشرة إلى حفظ تراث تونس. تمر التبرعات عبر راعينا المالي Florida Community Innovation، وهي منظمة أمريكية 501(c)(3)، لذا فهي معفاة من الضرائب في الولايات المتحدة. حتى 10 دولارات تساعد.',
+    'The session is online and free. The link to join comes by email before it starts. Questions:':
+        'الجلسة عبر الإنترنت ومجانية. يصلك رابط الانضمام عبر البريد الإلكتروني قبل أن تبدأ. للأسئلة:',
+    'Elissa, as a later painter imagined her. No portrait from her own time survives.':
+        'عليسة كما تخيّلها رسام في عصر لاحق. لم تصلنا أي صورة لها من زمنها.',
+    'The murex shell, source of the purple dye that made Tyre, Elissa’s city, famous. Illustration:':
+        'صدفة الموركس، مصدر الصبغة الأرجوانية التي صنعت شهرة صور، مدينة عليسة. الرسم:',
+    'The founding myth and how it changed depending on who was telling it':
+        'أسطورة التأسيس وكيف تغيّرت بحسب من يرويها',
+    'Elissa of Tyre, Dido of Rome, Virgil’s heartbroken queen, the ruler who chose death over a forced marriage. And the version most loved in Tunisia: the ox hide, cut into thin strips to circle the hill of Byrsa.':
+        'عليسة صور، وديدو روما، وملكة فيرجيل مكسورة القلب، والحاكمة التي اختارت الموت على زواج قسري. والرواية الأحب إلى التونسيين: جلد الثور الذي قُطّع إلى سيور رفيعة ليحيط بتلّة بيرصا.',
+    'What archaeology suggests about when and how Carthage actually began':
+        'ما تقوله الآثار عن متى وكيف بدأت قرطاج فعلًا',
+    'What the excavations have uncovered, and how it sits beside the stories. Telling what we know apart from what we wish we knew.':
+        'ما كشفته الحفريات، وكيف يقف إلى جانب الحكايات. والتمييز بين ما نعرفه وما نتمنى لو عرفناه.',
+    'Why the story of a woman founding a city has lasted nearly 3,000 years':
+        'لماذا عاشت حكاية امرأة أسّست مدينة قرابة 3000 عام',
+    'In Tunisia, Elissa and Tanit are still symbols of women’s strength. The hour ends on what Elissa means to us today, with time for your questions along the way.':
+        'في تونس، ما تزال عليسة وتانيت رمزين لقوة المرأة. وتنتهي الساعة بما تعنيه عليسة لنا اليوم، مع وقت لأسئلتكم على طول الجلسة.',
+    '“Hi! I’m Julia Moreno-Molen. I’ll be honest: I’m not an archaeologist. I came to TanitXR as a project manager who cares deeply about preserving and sharing cultural heritage and leaning into learning. As a newbie to the field, I’ve enjoyed reading translations of ancient sources, learning what the excavations have uncovered, and asking a lot of questions about who tells our histories. That’s the spirit of this session. You don’t need credentials to engage seriously with the past. You just need curiosity and a willingness to tell what we know apart from what we wish we knew.”':
+        '«مرحبًا! أنا جوليا مورينو-مولن. سأكون صريحة: لست عالمة آثار. جئت إلى تانيت XR مديرةَ مشاريع يهمها كثيرًا حفظ التراث الثقافي ومشاركته، وتحب التعلّم. وبصفتي جديدة على هذا المجال، استمتعت بقراءة ترجمات المصادر القديمة، وبمعرفة ما كشفته الحفريات، وبطرح الكثير من الأسئلة عمّن يروي تواريخنا. هذه هي روح الجلسة. لا تحتاج إلى شهادات لتهتم بالماضي بجدية. يكفيك الفضول والاستعداد للتمييز بين ما نعرفه وما نتمنى لو عرفناه.»',
+    'This session is hosted by Tanit XR, a volunteer-driven organization working to digitally preserve Tunisia’s heritage, together with its fiscal sponsor, Florida Community Innovation (FCI). Tanit XR is built on the idea that anyone with curiosity and care can help keep history alive.':
+        'تنظّم هذه الجلسةَ تانيت XR، وهي منظمة يقودها متطوعون وتعمل على الحفظ الرقمي لتراث تونس، مع راعيها المالي Florida Community Innovation (FCI). تقوم تانيت XR على فكرة أن كل من لديه فضول واهتمام يستطيع أن يساعد في إبقاء التاريخ حيًّا.',
+    'Tanit XR is run entirely by volunteers, and everything we make, from talks like this one to the 3D scans of Carthage, is free for anyone. A gift of any size keeps the work going. Donations go through our fiscal sponsor, Florida Community Innovation, a U.S. 501(c)(3), so they are tax-deductible. Even $10 helps.':
+        'تعمل تانيت XR بالكامل بفضل المتطوعين، وكل ما نصنعه، من محاضرات كهذه إلى المسوحات ثلاثية الأبعاد لقرطاج، مجاني للجميع. أي تبرع مهما كان حجمه يُبقي العمل مستمرًا. تمر التبرعات عبر راعينا المالي Florida Community Innovation، وهي منظمة أمريكية 501(c)(3)، لذا فهي معفاة من الضرائب في الولايات المتحدة. حتى 10 دولارات تساعد.',
+    'A free online session on Wednesday 2 December 2026, 6pm ET, with Julia Moreno-Molen of Tanit XR: the founding myth of Carthage, what archaeology suggests, and why Elissa, Dido to Rome, still matters 3,000 years on.':
+        'جلسة مجانية عبر الإنترنت يوم الأربعاء 2 ديسمبر 2026 على السادسة مساءً بتوقيت نيويورك، مع جوليا مورينو-مولن من تانيت XR: أسطورة تأسيس قرطاج، وما تقوله الآثار، ولماذا ما تزال عليسة، ديدو عند الرومان، مهمة بعد 3000 عام.',
+    'A painted portrait of Elissa, Queen of Carthage, wearing a jewelled diadem and a grey veil':
+        'لوحة لعليسة، ملكة قرطاج، تلبس تاجًا مرصعًا بالجواهر وخمارًا رماديًا',
+    'Was Queen Elissa Real?':
+        'هل كانت الملكة عليسة حقيقية؟',
+    'Was Queen Elissa real?':
+        'هل كانت الملكة عليسة حقيقية؟',
+    'An online session with Julia Moreno-Molen, Wednesday 2 December 2026':
+        'جلسة عبر الإنترنت مع جوليا مورينو-مولن، الأربعاء 2 ديسمبر 2026',
+    '<small>Where</small>':
+        '<small>أين</small>',
+    '<small>With</small>':
+        '<small>مع</small>',
+    '<b>Online</b>':
+        '<b>عبر الإنترنت</b>',
+    '<b>Wednesday 2 December</b>':
+        '<b>الأربعاء 2 ديسمبر</b>',
+    '<span>2026, 6pm to 7pm ET</span>':
+        '<span>2026، من السادسة إلى السابعة مساءً بتوقيت نيويورك (منتصف الليل بتوقيت تونس)</span>',
+    'The link comes by email<br>before the session':
+        'يصلك الرابط عبر البريد<br>الإلكتروني قبل الجلسة',
+    'Project manager and volunteer<br>coordinator, Tanit XR':
+        'مديرة مشاريع ومنسّقة<br>المتطوعين، تانيت XR',
+    'Hosted by Tanit XR and<br>Florida Community Innovation':
+        'تنظّمها تانيت XR مع<br>Florida Community Innovation',
+    'Save your spot</div>':
+        'احجز مكانك</div>',
+    'Email address, where we send the link':
+        'البريد الإلكتروني الذي نرسل إليه الرابط',
+    'How did you hear about this session?':
+        'كيف سمعت عن هذه الجلسة؟',
+    'Do you have any questions?':
+        'هل لديك أسئلة؟',
+    'Make a tax-deductible gift':
+        'قدّم تبرعًا معفى من الضرائب',
+    'to save your spot.':
+        'لحجز مكانك.',
+    'But how much of that is history, and how much is story?':
+        'لكن كم من ذلك تاريخ، وكم منه حكاية؟',
+    'The session</div>':
+        'الجلسة</div>',
+    'One hour, three threads':
+        'ساعة واحدة وثلاثة خيوط',
+    'The speaker</div>':
+        'المتحدثة</div>',
+    '“I can’t wait to see you there!”':
+        '«لا أطيق الانتظار لأراكم هناك!»',
+    'Explore Carthage in 3D':
+        'استكشف قرطاج ثلاثية الأبعاد',
+    'Keep history alive</div>':
+        'لنُبقِ التاريخ حيًّا</div>',
+    'This session is free. Help keep it that way.':
+        'هذه الجلسة مجانية. ساعدونا لتبقى كذلك.',
 }
