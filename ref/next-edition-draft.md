@@ -481,7 +481,7 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 
 👥 Open worldwide, any nationality; under-18s need consent. Film must be 3D, 180° or 360° video, 5 to 20 minutes, released January 1, 2025 to December 15, 2026. AR, MR and XR pieces are not eligible. Free
 
-✏️ New Immersive category presented by Meta: the winner gets $5,000 and a Meta VR device. Fiction, Non-Fiction, Animation, Student and Future Format categories run alongside.
+✏️ New Immersive category presented by Meta, up to three films shortlisted; the prize amount is not stated on the site (checked Nov 20). Fiction, Non-Fiction, Animation, Student and Future Format categories run alongside.
 
 👉 https://tanitxr.org/go/sony-future-filmmaker-awards-2027-immersive-category/?ref=nl21
 

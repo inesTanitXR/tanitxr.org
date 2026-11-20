@@ -249,8 +249,8 @@
   {
    "slug": "meta-vr-start-competition-2026",
    "deadline": "November 18, 2026",
-   "status": "reminded",
-   "reason": "$1M in prizes, free. A hands-only museum tour app built from Tanit XR scans could compete for Entertainment plus the Accessibility-Forward special award. Join the VR Start program during the competition. Devpost shows the deadline as Nov 18, 2026, 12:00 pm PST = 3:00 pm ET (checked Nov 18).",
+   "status": "skipped",
+   "reason": "$1M in prizes, free. A hands-only museum tour app built from Tanit XR scans could compete for Entertainment plus the Accessibility-Forward special award. Join the VR Start program during the competition. Devpost shows the deadline as Nov 18, 2026, 12:00 pm PST = 3:00 pm ET (checked Nov 18). (deadline passed, not applied, per the deadline alarm on 2026-11-20)",
    "title": "Meta VR Start Developer Competition 2026",
    "url": "https://start-developer-competition-26.devpost.com/",
    "added": "2026-09-27",
@@ -259,7 +259,7 @@
   {
    "slug": "l-air-himeji-2027-season-2",
    "deadline": "November 30, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "The best funded spring 2027 Japan residency: April 1 to June 27, 2027 in a traditional leather-craft district; travel reimbursed, free private room, free materials, up to JPY 150,000 a month for production (not living costs). Pitch: document the craft in 3D/XR with the craftspeople. Rolling, so apply early.",
    "title": "L-AIR Himeji 2027 Season 2 (Japan, spring)",
    "url": "https://l-air.or.jp/journal/2026/08/916/",
@@ -572,7 +572,7 @@
    "slug": "vital-impacts-2027",
    "title": "Vital Impacts Environmental Photography Fellowships 2027",
    "deadline": "November 30, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "You chose 'Just for me' on Oct 5. One USD 20,000 fellowship, six USD 5,000 fellowships and ten mentorships for photographers documenting environmental issues in the community where they live. $25 fee, waived for applicants from developing countries (Tunisia counts). A Tunisian coastline or Sejnane series could qualify if you apply as Tunisia-based.",
    "url": "https://vitalimpacts.org/pages/the-vital-impacts-environmental-photography-grant",
    "added": "2026-10-06",
