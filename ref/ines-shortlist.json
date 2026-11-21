@@ -269,7 +269,7 @@
   {
    "slug": "natgeo-human-thread-rfp",
    "deadline": "December 1, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "Opens Oct 1. Level I up to $20,000 (Level II up to $100,000) for storytelling on global cultures and religions; Tunisia's Punic, Roman, Jewish (Djerba) and Islamic layers fit. Needs a media portfolio.",
    "title": "National Geographic 'The Human Thread' RFP",
    "url": "https://funding.nationalgeographic.org/s/fundingopportunity/119Hr000000CohcIAC/rfp-the-human-thread",
@@ -279,7 +279,7 @@
   {
    "slug": "british-museum-emkp-2026-27",
    "deadline": "December 1, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "Up to about £20,000 (small) to document endangered crafts in photo, video and 3D, e.g. Sejnane pottery, Nabeul ceramics, mosaic-making. Needs a host institution for oversight (ask the fiscal sponsor). Outputs CC BY-NC-SA; equipment eligible.",
    "title": "British Museum EMKP documentation grant (for Tanit XR)",
    "url": "https://www.emkp.org/grants/",
@@ -562,7 +562,7 @@
    "slug": "make-a-thek-2026",
    "title": "make-a-thek Mobility Scheme and Knowledge Exchange 2026-2027 (incl. Digitising Traditional Crafts)",
    "deadline": "December 1, 2026 (late applicants)",
-   "status": "new",
+   "status": "reminded",
    "reason": "You chose 'Just for me' on Oct 5. EU-funded network of makerspaces and libraries: EUR 1,000 stipend for experienced practitioners to run workshops at European pilot sites, or EUR 850 for learners to attend a 2-day meet-up in Barcelona (Nov/Dec 2026) or Berlin (May 2027). One of three themes is Digitising Traditional Crafts, e.g. 3D scanning old tools. Open to residents of EU and Horizon Europe associated countries; check that Tunisia is on the associated list and whether a US resident qualifies before applying. Free.",
    "url": "https://www.makeathek.eu/opencall",
    "added": "2026-10-06",
@@ -717,7 +717,7 @@
    "title": "Living Legacy Grants 2027, Traditional Building Cultures",
    "url": "https://culturasconstructivas.org/en/living-legacy-grants-for-fostering-and-spreading-the-traditional-building-cultures/",
    "deadline": "December 1, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "You chose 'Just for me' on Oct 29. The Traditional Building Cultures Foundation gives three grants of up to €3,000 for projects that study, document, preserve or share traditional architecture and building crafts. Eligible work includes documentation, digital tools and resources, audiovisual archives, exhibitions and workshops; projects must finish by December 31, 2027. Heritage and digitisation grant, like the AIA Site Preservation and Endangered Archives items; for 3D scanning and heritage documentation people working on vernacular buildings, medinas and crafts."
   },
   {
@@ -733,8 +733,8 @@
    "title": "UN Human Rights (OHCHR) Call for Input: Digital Heritage",
    "url": "https://www.ohchr.org/en/calls-for-input/2026/call-input-digital-heritage",
    "deadline": "20 November 2026, 18:00 Geneva time",
-   "status": "reminded",
-   "reason": "You chose 'Just for me' on Oct 29. OHCHR is collecting tools, good practices and challenges for a cultural-rights approach to digitising heritage, including safeguards for 3D modelling, VR, AR and AI. Submissions inform a UN workshop on 8 December 2026 and are published on the OHCHR page unless marked confidential. Closest to the UNESCO SDG 4 Good Practices open call on the board. For heritage digitisation teams, Tanit XR included, and community archivists who want their consent and access practices on the UN record."
+   "status": "skipped",
+   "reason": "You chose 'Just for me' on Oct 29. OHCHR is collecting tools, good practices and challenges for a cultural-rights approach to digitising heritage, including safeguards for 3D modelling, VR, AR and AI. Submissions inform a UN workshop on 8 December 2026 and are published on the OHCHR page unless marked confidential. Closest to the UNESCO SDG 4 Good Practices open call on the board. For heritage digitisation teams, Tanit XR included, and community archivists who want their consent and access practices on the UN record. (deadline passed, not applied, per the deadline alarm on 2026-11-21)"
   },
   {
    "slug": "unearthodox-exploration-co-lab-2027",
@@ -757,7 +757,7 @@
    "title": "Bogliasco Foundation Fellowship, Fall 2027",
    "url": "https://bfny.org/en/apply/requirements",
    "deadline": "December 1, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "One semester of room, board and a studio on the Ligurian coast for artists and scholars of any nationality; USD 30 fee until a week before the deadline, then USD 45. Travel is yours. On the board and in edition 21; the site blocks automated checks, so confirm the date on bfny.org before applying."
   },
   {
@@ -788,8 +788,8 @@
    "slug": "maryland-film-festival-2027-xr",
    "title": "Maryland Film Festival 2027: XR, Installation and Interactive",
    "url": "https://filmfreeway.com/TheMarylandFilmFestival",
-   "deadline": "November 20, 2026",
-   "status": "reminded",
+   "deadline": "January 8, 2027 (late deadline, USD 35; regular deadline of November 20 has passed)",
+   "status": "new",
    "reason": "Just for me (your tap, Nov 5). Baltimore's main film festival, April 7 to 11, 2027, with an XR / Installation / Interactive Film category; no competition. Regular deadline Nov 20 (USD 25), late Jan 8 (USD 35), extended Feb 5, 2027 (USD 40). Work must not have shown in Maryland before April 7. An hour from DC. Dates checked on FilmFreeway Nov 6; time not stated, assume 11:59 pm Eastern."
   },
   {
