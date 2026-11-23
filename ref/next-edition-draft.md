@@ -1071,3 +1071,36 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ UNESCO picks 32 panels, strategy labs, trainings and futures workshops, 24 live demos and 15 "Classroom" interactive teaching sessions, plus a "Surprise us" track for anything else. A strong fit for immersive and XR learning with real classroom results. Decisions January 11 to February 1, 2027.
 
 👉 https://tanitxr.org/go/unesco-digital-learning-week-2027-call-for-proposals/?ref=nl22
+
+### ✍️ Immersive Impact Review, Issue 3: "A Great Story"
+📅 Deadline: December 20, 2026, midnight Pacific
+
+📍 Online publication
+
+👥 Anyone working in XR or social impact, any country. Free
+
+✏️ Pitch or submit writing for the third issue of the Immersive Impact Review on the theme "A Great Story". Accepted pieces receive a small honorarium.
+
+👉 https://immersiveimpactreview.com/submit
+
+### 🏆 Cisco Youth Leadership Award 2027 (Global Citizen)
+📅 Deadline: December 18, 2026, 5 pm ET
+
+📍 Online application
+
+👥 Leaders aged 18 to 35 on December 31, 2026 who run or work for an existing organization. Any country except those under US sanctions. Free
+
+✏️ Three awards of USD 250,000 each (USD 225,000 in cash plus USD 25,000 in Cisco products), paid to the winner's organization, for work on poverty and inequality.
+
+👉 https://www.globalcitizen.org/en/terms/cyla-27/
+
+### 🇹🇳 Villa Albertine Recanati-Kaplan Prize, 2027 and 2028 Seasons
+📅 Deadline: January 21, 2027, 11:59 pm Paris time
+
+📍 Two-month residency in the United States
+
+👥 Creators who are citizens of an Arab-world country, Tunisia included. Individuals only, fluent English. Free
+
+✏️ USD 15,000 plus a two-month US residency. One call covers both the 2027 and 2028 seasons.
+
+👉 https://villa-albertine.org/va/professionals/appel-a-candidatures-prix-recanati-kaplan-double-appel-a-candidatures-prix-recanati-kaplan-saisons-2027-et-2028/

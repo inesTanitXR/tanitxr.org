@@ -3198,6 +3198,58 @@
    "deadline_type": null,
    "deadline_date": "December 9, 2026",
    "url": "https://www.unesco.org/en/weeks/digital-learning"
+  },
+  {
+   "slug": "immersive-impact-review-issue-3-a-great-story-call-for-submi",
+   "title": "Immersive Impact Review, Issue 3: \"A Great Story\", Call for Submissions",
+   "desc": "Pitch or submit writing for the third issue of the Immersive Impact Review, a publication about XR and social impact, on the theme \"A Great Story\". Open to anyone working in XR or impact, from any country, with no fee. Accepted pieces receive a small honorarium. Closes December 20, 2026 at midnight Pacific.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Artists",
+    "Researchers",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "December 20, 2026",
+   "url": "https://immersiveimpactreview.com/submit"
+  },
+  {
+   "slug": "cisco-youth-leadership-award-2027-global-citizen",
+   "title": "Cisco Youth Leadership Award 2027 (Global Citizen)",
+   "desc": "Three awards of USD 250,000 each (USD 225,000 in cash plus USD 25,000 in Cisco products), paid to the winner's organization, for young leaders aged 18 to 35 on December 31, 2026 who run or work for an existing organization tackling poverty and inequality. Open worldwide except countries under US sanctions; free to apply. Closes December 18, 2026, 5 pm ET.",
+   "type": "Award",
+   "eligibility": [
+    "Non-profits",
+    "Youth",
+    "Open to all"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Remote",
+   "deadline_type": null,
+   "deadline_date": "December 18, 2026",
+   "url": "https://www.globalcitizen.org/en/terms/cyla-27/"
+  },
+  {
+   "slug": "villa-albertine-recanati-kaplan-prize-2027-and-2028-seasons",
+   "title": "Villa Albertine Recanati-Kaplan Prize, 2027 and 2028 Seasons",
+   "desc": "USD 15,000 and a two-month residency in the United States for creators who are citizens of countries in the Arab world, Tunisia included. One call covers both the 2027 and 2028 seasons; individuals only, fluent English required, free to apply. Closes January 21, 2027, 11:59 pm Paris time.",
+   "type": "Residency",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Researchers"
+   ],
+   "region": "MENA",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 21, 2027",
+   "url": "https://villa-albertine.org/va/professionals/appel-a-candidatures-prix-recanati-kaplan-double-appel-a-candidatures-prix-recanati-kaplan-saisons-2027-et-2028/"
   }
  ]
 }
