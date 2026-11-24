@@ -3837,7 +3837,8 @@ def _drop_byline(txt):
 for n in NEWS:
     n["title"] = fix_mojibake(n["title"]).strip().rstrip(".")
     n["text"] = _drop_byline(fix_mojibake(n["text"]))
-    n["clean_slug"] = slugify(n["title"])
+    # "url" pins the address when a story's title changes after people have shared its link
+    n["clean_slug"] = n.get("url") or slugify(n["title"])
     n["href"] = f"news/{n['clean_slug']}.html"
 
 # ---- the archive: built from the Sketchfab ORG inventory (ref/archive-data.json,
@@ -6494,6 +6495,7 @@ NEWS_AUTHOR = {
     "material-and-meaning-marble-identity-and-cultural-exchange-in-ancient-carthage": "Margarita Johnson",
     "a-beginning-why-tanit-xr-exists": "Ines Said",
     "a-2-000-year-old-ghost-town-on-cape-bon": "Laura Harrison",
+    "an-evening-at-the-embassy-of-tunisia": "Caroline Nickerson",
     # an announcement from the organisation, deliberately unsigned
     "tanit-xr-at-citycamp-gainesville-hack-day": None,
 }
