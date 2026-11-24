@@ -1297,9 +1297,17 @@
    "source": "screenshot",
    "raw": "Tanit Inbox shot.png + shot.txt (Nov 20, 17:10): CITES LinkedIn post, lnkd.in/p/eE9eJ-pN",
    "status": "held: raised on the hold page (wwd2027-poster-contest). Deadline 30 December 2026, 23:59 CET per the CITES post; the guidelines PDF on cites.org is behind a bot check, so eligibility, fee and how to submit are not verified. Not published."
+  },
+  {
+   "key": "beyond policy the people projects processes behind international development webinar",
+   "date": "2026-11-24",
+   "source": "slack",
+   "shared_by": "Shivam",
+   "raw": "Slack #miscellaneous-articles-and-opportunities, 2026-11-24 05:32 EST: lnkd.in/g37iVEvu -> forms.gle/vjf9Mw2xGmSXyuPo9",
+   "status": "held: online talk with registration, no application (Dec 6, Google Meet); raised on the hold page as editorial (beyond-policy-webinar-dec6). Not published."
   }
  ],
- "slack_last_ts": "1794007492.000000",
+ "slack_last_ts": "1795516367.000000",
  "personal_left_in_place": [
   {
    "date": "2026-09-23",
