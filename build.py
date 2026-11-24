@@ -3754,11 +3754,14 @@ def _clean_wp_content(c):
             print(f"  !! post image {u.split('/')[-1][:50]}: {e}")
             return ""
         alt = re.search(r'alt="([^"]*)"', tag)
-        return f'<img src="{local}" alt="{alt.group(1) if alt else ""}" loading="lazy">'
+        # data-size="small" keeps a low-resolution photo from being stretched across the column
+        small = " SMALLIMG" if 'data-size="small"' in tag else ""
+        return f'<img{small} src="{local}" alt="{alt.group(1) if alt else ""}" loading="lazy">'
     c = re.sub(r"<img[^>]*>", fix_img, c)
     # strip srcset/sizes remnants and wp class soup on common tags
     c = re.sub(r'\s(?:class|style|id|data-[a-z-]+|srcset|sizes|width|height|decoding|fetchpriority|loading)="[^"]*"',
                "", c)
+    c = c.replace("<img SMALLIMG ", '<img style="max-width:240px;display:block;margin-inline:auto" ')
     c = re.sub(r"<(/?)figure[^>]*>", r"", c)
     c = re.sub(r"<figcaption[^>]*>(.*?)</figcaption>",
                r'<p style="font-size:13.5px;color:var(--gray);margin-top:-12px">\1</p>', c, flags=re.S)
