@@ -566,6 +566,13 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Dalai Lama Fellows | no LinkedIn page found |
 | IEEE VR | no LinkedIn page found |
 | Snap AR (Spectacles) | linkedin.com/showcase/snap-ar |
+| SXSW London | linkedin.com/company/sxswlondon |
+| Reality Design Lab | no LinkedIn page found |
+| archAIve (MEET, Sound & Vision, Public Art Lab) | no LinkedIn page found |
+| Academia Film Olomouc | no LinkedIn page found |
+| Anifilm | no LinkedIn page found |
+| International Ocean Film Festival | no LinkedIn page found |
+| Ru-mòre | no LinkedIn page found |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -1104,3 +1111,99 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ USD 15,000 plus a two-month US residency. One call covers both the 2027 and 2028 seasons.
 
 👉 https://villa-albertine.org/va/professionals/appel-a-candidatures-prix-recanati-kaplan-double-appel-a-candidatures-prix-recanati-kaplan-saisons-2027-et-2028/
+
+### 🎡 SXSW London 2027, XR Submissions
+
+📅 Deadline: December 31, 2026 (late deadline January 31, 2027)
+
+📍 Shoreditch, London, May 24 to 29, 2027
+
+👥 XR makers in any country. GBP 20 regular, GBP 30 late
+
+✏️ VR, AR, MR and 360 projects finished in 2026 or by May 2027. Submit a streamable 360 or 2D playthrough link on FilmFreeway; notification March 31, 2027.
+
+👉 https://filmfreeway.com/SXSWLondon
+
+### 🥽 Reality Design Research Fellowship 2027
+
+📅 Deadline: January 30, 2027
+
+📍 Online, remote mentoring
+
+👥 Early-career artists, designers and students, any country. Free
+
+✏️ Up to USD 5,000 per fellow over a year: USD 1,500 on acceptance plus travel support for accepted conference or exhibition trips, with mentoring to publish XR, AR and AI work at CHI, SIGGRAPH or IEEE VR.
+
+👉 https://reality.design/fellowships
+
+### 🥽 AGORA XR Lab 2027 (Thessaloniki Documentary Festival)
+
+📅 Deadline: November 25, 2026
+
+📍 Online in mid January, then Thessaloniki, March 6 to 11, 2027
+
+👥 XR teams of two or more from the Balkans, Mediterranean and Middle East, Tunisia included. Free
+
+✏️ Development lab for XR projects at any stage. 5 nights of lodging and part of the travel covered.
+
+👉 https://filmfestival.gr/en/tidf/tidf-agora/agora-xr-lab/
+
+### 🗃️ ARCHAIVE Residencies 2027, AI and Cultural Heritage Archives
+
+📅 Deadline: December 7, 2026, 23:55 CET
+
+📍 Italy, Netherlands, Germany, Spain, Portugal; hybrid and remote options
+
+👥 Artists 18+ from or living in a Creative Europe country, Tunisia included. Free
+
+✏️ 18 residencies on AI and heritage archives, each with a EUR 5,000 artist fee and technical mentoring, from spring 2027.
+
+👉 https://archaive.eu/news/international-open-call-for-artists/
+
+### 🔬 Academia Film Olomouc 2027, Immersive Media Competition
+
+📅 Deadline: December 13, 2026 (extended January 10, 2027)
+
+📍 Olomouc, Czech Republic, April 27 to May 2, 2027
+
+👥 Makers anywhere. Fee waived with the code on AFO's page
+
+✏️ XR, 360, fulldome and installation works that can be read as science documentaries. USD 1,000 for the winner.
+
+👉 https://afo.cz/en/submit-your-film-to-afo-62/
+
+### 🎞️ Anifilm 2027, VR Film and Videogame Competition
+
+📅 Deadline: December 31, 2026
+
+📍 Liberec, Czech Republic, May 4 to 9, 2027
+
+👥 Animators, VR makers and game developers anywhere. Free
+
+✏️ VR Film and Videogame categories in the International Competition; winners get cash prizes.
+
+👉 https://www.anifilm.cz/en/blog/anifilm-is-now-calling-for-entries-251
+
+### 🌊 International Ocean Film Festival 2027, Virtual Reality
+
+📅 Deadline: December 31, 2026
+
+📍 San Francisco and online, April 16 to 18, 2027
+
+👥 Filmmakers anywhere. USD 20
+
+✏️ Ocean-inspired VR films; limited slots, shorter works preferred.
+
+👉 https://filmfreeway.com/IOFF2027
+
+### 🥽 Ru-mòre 2027, VR Competition (Rome)
+
+📅 Deadline: January 4, 2027
+
+📍 Rome, April 14 to 18, 2027
+
+👥 Any nationality. EUR 21.90 to December 11, then EUR 23.90
+
+✏️ Five linear VR works of up to 30 minutes compete for Best Virtual Reality Project.
+
+👉 https://filmfreeway.com/RumoreFestival

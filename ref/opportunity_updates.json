@@ -2319,6 +2319,128 @@
    "url": "https://villa-albertine.org/va/professionals/appel-a-candidatures-prix-recanati-kaplan-double-appel-a-candidatures-prix-recanati-kaplan-saisons-2027-et-2028/",
    "published": "2026-11-23",
    "desc": "USD 15,000 and a two-month residency in the United States for creators who are citizens of countries in the Arab world, Tunisia included. One call covers both the 2027 and 2028 seasons; individuals only, fluent English required, free to apply. Closes January 21, 2027, 11:59 pm Paris time."
+  },
+  {
+   "title": "SXSW London 2027, XR Submissions",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-12-31",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/SXSWLondon",
+   "published": "2026-11-24",
+   "desc": "VR, AR, MR, 360 and other XR projects for the SXSW London Screen Festival in Shoreditch, May 24 to 29, 2027. Projects completed in 2026 or finishing by May 2027; submit a streamable 360 or 2D playthrough link on FilmFreeway. GBP 20 regular (Dec 31), GBP 30 late (Jan 31, 2027)."
+  },
+  {
+   "title": "Reality Design Research Fellowship 2027",
+   "type": "Fellowship",
+   "mode": "Remote",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators",
+    "Students",
+    "Researchers"
+   ],
+   "deadline_date": "2027-01-30",
+   "deadline_type": null,
+   "url": "https://reality.design/fellowships",
+   "published": "2026-11-24",
+   "desc": "Reality Design Lab gives up to USD 5,000 per fellow over one year: USD 1,500 on acceptance plus support for accepted conference or exhibition trips, with mentoring to publish XR, AR and AI work at venues like CHI, SIGGRAPH and IEEE VR. Open to early-career artists, designers and students in any country. Free."
+  },
+  {
+   "title": "AGORA XR Lab 2027, Thessaloniki International Documentary Festival",
+   "type": "Program",
+   "mode": "Hybrid",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-11-25",
+   "deadline_type": null,
+   "url": "https://filmfestival.gr/en/tidf/tidf-agora/agora-xr-lab/",
+   "published": "2026-11-24",
+   "desc": "A development lab for XR projects at any stage: online workshop in mid January, then a week in Thessaloniki, March 6 to 11, 2027, with 5 nights of lodging and part of the travel covered. Teams of two or more from the Balkans, Mediterranean and Middle East, Tunisia included. Free."
+  },
+  {
+   "title": "ARCHAIVE Residencies 2027, AI and Cultural Heritage Archives",
+   "type": "Residency",
+   "mode": "Hybrid",
+   "region": "Europe",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2026-12-07",
+   "deadline_type": null,
+   "url": "https://archaive.eu/news/international-open-call-for-artists/",
+   "published": "2026-11-24",
+   "desc": "18 residencies for artists who reuse heritage archives to question AI, each with a EUR 5,000 artist fee and technical mentoring, hosted by MEET, Sound & Vision, Public Art Lab, NewArt and Museu Zer0 from spring 2027; hybrid and remote options. Artists 18+ who are nationals of or living in a Creative Europe country (Tunisia included). Free; closes December 7, 2026, 23:55 CET."
+  },
+  {
+   "title": "Academia Film Olomouc 2027 (AFO 62), Immersive Media Competition",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-12-13",
+   "deadline_type": null,
+   "url": "https://afo.cz/en/submit-your-film-to-afo-62/",
+   "published": "2026-11-24",
+   "desc": "The science documentary festival in Olomouc, Czech Republic (April 27 to May 2, 2027) takes XR, VR, AR, 360, fulldome and installation works that can be read as science projects. USD 1,000 for the best immersive work. Makers anywhere; fee waived with the code on AFO's own page. Official deadline December 13, 2026, extended January 10, 2027."
+  },
+  {
+   "title": "Anifilm 2027, VR Film and Videogame Competition (Liberec)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-12-31",
+   "deadline_type": null,
+   "url": "https://www.anifilm.cz/en/blog/anifilm-is-now-calling-for-entries-251",
+   "published": "2026-11-24",
+   "desc": "The international animation festival in Liberec, Czech Republic (May 4 to 9, 2027) has VR Film and Videogame categories in its International Competition, with cash prizes for winners. Works from 2026 on; makers anywhere. Free to enter until December 31, 2026."
+  },
+  {
+   "title": "International Ocean Film Festival 2027, Virtual Reality",
+   "type": "Open Call",
+   "mode": "Hybrid",
+   "region": "North America",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2026-12-31",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/IOFF2027",
+   "published": "2026-11-24",
+   "desc": "Ocean-inspired VR films for the 24th International Ocean Film Festival, Fort Mason, San Francisco, April 16 to 18, 2027, with an online component. Limited slots, shorter works preferred. USD 20 entry; makers anywhere. Deadline December 31, 2026."
+  },
+  {
+   "title": "Ru-mòre 2027, VR Competition (Rome)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Europe",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "deadline_date": "2027-01-04",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/RumoreFestival",
+   "published": "2026-11-24",
+   "desc": "Five linear VR works of up to 30 minutes, made after January 1, 2025, compete for Best Virtual Reality Project at Ru-mòre in Rome's San Lorenzo district, April 14 to 18, 2027. Any nationality, English or English subtitles. EUR 21.90 to December 11, then EUR 23.90 to January 4, 2027."
   }
  ],
  "featured": {
