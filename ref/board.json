@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-11-24",
+ "built": "2026-11-25",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -3380,6 +3380,54 @@
    "deadline_type": null,
    "deadline_date": "January 4, 2027",
    "url": "https://filmfreeway.com/RumoreFestival"
+  },
+  {
+   "slug": "sprouts-film-festival-2027-eco-immersive-vr-amsterdam",
+   "title": "Sprouts Film Festival 2027, Eco Immersive (VR) (Amsterdam)",
+   "desc": "The Amsterdam ecocinema festival (May 31 to June 6, 2027) takes VR360 and interactive Meta Quest 3 works with an ecological focus and pays selected works a screening fee. Any country; fiction, experimental, animation or hybrid only, no traditional documentaries. EUR 9 to January 31, EUR 11.50 to February 28, half price on request for productions from Africa.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 31, 2027",
+   "url": "https://filmfreeway.com/SproutsFilmFestival"
+  },
+  {
+   "slug": "shapeshift-festival-2027-vr-and-interactive-film-sofia",
+   "title": "SHAPESHIFT Festival 2027, VR and Interactive Film (Sofia)",
+   "desc": "A festival in Sofia about technology and society, in April 2027, with categories for VR and AR films, installations and games, and interactive films. Any country; works made after January 1, 2025; VR needs a Bulgarian premiere. USD 15 to December 10, USD 25 to January 10, USD 35 to February 10; students USD 10.",
+   "type": "Open Call",
+   "eligibility": [
+    "XR Creators",
+    "Artists"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 10, 2027",
+   "url": "https://filmfreeway.com/SHAPESHIFTFESTIVAL"
+  },
+  {
+   "slug": "ibrida-festival-2027-xr-vr-ar-mixed-reality-forli-italy",
+   "title": "Ibrida Festival 2027, XR / VR / AR / Mixed Reality (Forlì, Italy)",
+   "desc": "The intermedia arts festival curated by Vertov Project (Forlì, September 8 to 12, 2027) has its own XR, VR, AR and mixed reality category next to video art, live audiovisual performance and installation. Artists of all countries; works from 2025 on. EUR 6 to March 15, EUR 8 to April 30, EUR 10 to June 1.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "March 15, 2027",
+   "url": "https://filmfreeway.com/IbridaFestival"
   }
  ]
 }

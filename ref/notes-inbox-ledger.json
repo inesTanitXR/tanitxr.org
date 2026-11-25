@@ -1361,6 +1361,62 @@
    "source": "auto",
    "raw": "Report page backlog, auto-publish rule 5a",
    "status": "published without Ines (auto); deadline, fee and eligibility checked at the official page Nov 24"
+  },
+  {
+   "key": "sprouts film festival 2027 eco immersive vr",
+   "date": "2026-11-25",
+   "source": "auto",
+   "raw": "Report page backlog, auto-publish rule 5a",
+   "status": "published without Ines (auto); deadline, fee and eligibility read on the FilmFreeway page Nov 25"
+  },
+  {
+   "key": "shapeshift festival 2027 vr and interactive film sofia",
+   "date": "2026-11-25",
+   "source": "auto",
+   "raw": "Similar-finds research, auto-publish rule 5a",
+   "status": "published without Ines (auto); deadline, fee and eligibility read on the FilmFreeway page Nov 25"
+  },
+  {
+   "key": "ibrida festival 2027 xr vr ar mixed reality",
+   "date": "2026-11-25",
+   "source": "auto",
+   "raw": "Similar-finds research, auto-publish rule 5a",
+   "status": "published without Ines (auto); deadline, fee and eligibility read on the FilmFreeway page Nov 25"
+  },
+  {
+   "key": "aegean film festival 2027 immersive vr competition",
+   "date": "2026-11-25",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (USD 40, over the auto cap)"
+  },
+  {
+   "key": "margate film festival 2027 xr vr work",
+   "date": "2026-11-25",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "marvels of media festival 2027 museum of the moving image",
+   "date": "2026-11-25",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (autistic media-makers only)"
+  },
+  {
+   "key": "utopos biennale 2027 viewpoint",
+   "date": "2026-11-25",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "philadelphia independent film festival 2027 vr ar",
+   "date": "2026-11-25",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "skipped: rules and country limit could not be read"
   }
  ],
  "slack_last_ts": "1795516367.000000",

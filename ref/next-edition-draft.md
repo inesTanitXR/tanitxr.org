@@ -573,6 +573,9 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Anifilm | no LinkedIn page found |
 | International Ocean Film Festival | no LinkedIn page found |
 | Ru-mòre | no LinkedIn page found |
+| Sprouts Film Festival | no LinkedIn page found |
+| SHAPESHIFT Festival | no LinkedIn page found |
+| Ibrida Festival (Vertov Project) | no LinkedIn page found |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -1207,3 +1210,39 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Five linear VR works of up to 30 minutes compete for Best Virtual Reality Project.
 
 👉 https://filmfreeway.com/RumoreFestival
+
+### 🌱 Sprouts Film Festival 2027, Eco Immersive (VR) (Amsterdam)
+
+📅 Deadline: January 31, 2027 (late February 28)
+
+📍 Amsterdam, May 31 to June 6, 2027
+
+👥 Any country. EUR 9, half price on request for productions from Africa
+
+✏️ VR360 and interactive Quest 3 works with an ecological focus; selected works get a screening fee. No traditional documentaries.
+
+👉 https://filmfreeway.com/SproutsFilmFestival
+
+### 🧬 SHAPESHIFT Festival 2027, VR and Interactive Film (Sofia)
+
+📅 Deadline: January 10, 2027 (USD 15 if entered by December 10; late February 10)
+
+📍 Sofia, April 2027
+
+👥 Any country. USD 15 to 35, students USD 10
+
+✏️ Categories for VR and AR films, installations and games, and interactive films. VR needs a Bulgarian premiere.
+
+👉 https://filmfreeway.com/SHAPESHIFTFESTIVAL
+
+### 🌀 Ibrida Festival 2027, XR / VR / AR / Mixed Reality (Forlì, Italy)
+
+📅 Deadline: March 15, 2027 (EUR 6; then April 30 and June 1)
+
+📍 Forlì, Italy, September 8 to 12, 2027
+
+👥 Artists of all countries. EUR 6 to 10
+
+✏️ An intermedia arts festival with its own XR, VR, AR and mixed reality category. Works from 2025 on, up to three entries.
+
+👉 https://filmfreeway.com/IbridaFestival
