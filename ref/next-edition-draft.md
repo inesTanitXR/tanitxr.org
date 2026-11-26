@@ -576,6 +576,8 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | Sprouts Film Festival | no LinkedIn page found |
 | SHAPESHIFT Festival | no LinkedIn page found |
 | Ibrida Festival (Vertov Project) | no LinkedIn page found |
+| Animaphix (Associazione Culturale QB) | no LinkedIn page found |
+| ShorTS International Film Festival (Associazione Maremetraggio) | no LinkedIn page found |
 
 ### 🎨 EMAP European Media Art Platform Residencies 2027
 
@@ -1246,3 +1248,27 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ An intermedia arts festival with its own XR, VR, AR and mixed reality category. Works from 2025 on, up to three entries.
 
 👉 https://filmfreeway.com/IbridaFestival
+
+### 🎞️ Animaphix 2027, Expanded Cinema: VR Zone (Bagheria, Sicily)
+
+📅 Deadline: January 28, 2027
+
+📍 Bagheria, Sicily, June 27 to July 3, 2027
+
+👥 VR creators of any country. Free
+
+✏️ A VR Zone category for virtual reality works at the Contemporary New Languages Film Festival, with a Best VR Zone award. Works from 2026 or 2027, 30 minutes or less.
+
+👉 https://filmfreeway.com/NewContemporaryLanguagesFilmFestival
+
+### 🌊 ShorTS International Film Festival 2027, Immersive Section (Trieste)
+
+📅 Deadline: February 14, 2027
+
+📍 Trieste, Italy, June 26 to July 3, 2027
+
+👥 VR and mixed reality creators of any country. EUR 7
+
+✏️ Two competitions: 360 VR short films up to 20 minutes, and 6DoF VR or mixed reality experiences that run on a standalone Meta Quest 3. EUR 1,000 prize for each.
+
+👉 https://filmfreeway.com/ShorTSInternationalFilmFestival

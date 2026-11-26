@@ -1417,6 +1417,62 @@
    "source": "suggestion",
    "raw": "Similar-finds research",
    "status": "skipped: rules and country limit could not be read"
+  },
+  {
+   "key": "animaphix 2027 expanded cinema vr zone",
+   "date": "2026-11-26",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): free, VR category, any country, Jan 28 2027"
+  },
+  {
+   "key": "shorts international film festival 2027 immersive section",
+   "date": "2026-11-26",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): EUR 7, VR and MR, any country, Feb 14 2027"
+  },
+  {
+   "key": "siggraph 2027 immersive pavilion",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "siggraph 2027 art gallery craftware",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "a maze awards 2027",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "villa albertine 2028 residencies general call",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "manchester animation festival 2027 immersive film",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "cannes immersive competition 2027",
+   "date": "2026-11-26",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "skipped: EUR 275 per project, no waivers"
   }
  ],
  "slack_last_ts": "1795516367.000000",

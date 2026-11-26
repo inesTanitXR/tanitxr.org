@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-11-25",
+ "built": "2026-11-26",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -3428,6 +3428,38 @@
    "deadline_type": null,
    "deadline_date": "March 15, 2027",
    "url": "https://filmfreeway.com/IbridaFestival"
+  },
+  {
+   "slug": "animaphix-2027-expanded-cinema-vr-zone-bagheria-sicily",
+   "title": "Animaphix 2027, Expanded Cinema: VR Zone (Bagheria, Sicily)",
+   "desc": "The 13th Animaphix, Contemporary New Languages Film Festival (Bagheria, June 27 to July 3, 2027) has a VR Zone category for virtual reality works, with a Best VR Zone award. Works from 2026 or 2027, 30 minutes or less, any country. Free to enter.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 28, 2027",
+   "url": "https://filmfreeway.com/NewContemporaryLanguagesFilmFestival"
+  },
+  {
+   "slug": "shorts-international-film-festival-2027-immersive-section-tr",
+   "title": "ShorTS International Film Festival 2027, Immersive Section (Trieste)",
+   "desc": "Two competitions at the festival in Trieste (June 26 to July 3, 2027): VR short films up to 20 minutes (360 video) and 6DoF VR or mixed reality experiences that run on a standalone Meta Quest 3. EUR 1,000 prize for each. Works from any country. EUR 7 entry fee.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "February 14, 2027",
+   "url": "https://filmfreeway.com/ShorTSInternationalFilmFestival"
   }
  ]
 }

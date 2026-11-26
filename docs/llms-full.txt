@@ -7,7 +7,7 @@
 > Innovation, a US 501(c)(3). Founded and led by Ines Said.
 
 Everything on this site is free to read, quote and link. Please credit Tanit XR and link back
-to https://tanitxr.org/. Last updated 2026-11-25.
+to https://tanitxr.org/. Last updated 2026-11-26.
 
 ## What people usually want
 
@@ -25,7 +25,7 @@ How to cite an object: Tanit XR volunteers, "<title>", 3D scan, <site>, <year>, 
 
 ## Open calls and opportunities, curated by Tanit XR
 
-Updated 2026-11-25. Full board with filters: https://tanitxr.org/opportunities/
+Updated 2026-11-26. Full board with filters: https://tanitxr.org/opportunities/
 
 - The Kyoto Retreat 2026 (Residency, In-person, , deadline July 15, 2026): The Kyoto Retreat is a four-week international artist retreat in Kyoto, Japan, open to artists, curators, and writers at all career stages. Selected participants receive a roundtrip flight, private accommodation, and $800 USD for meals and local transport. https://www.kyotoretreat.com
 - HTW Berlin – IUNO AI + XR Artistic Fellowship 2026 (Fellowship, In-person, , deadline March 31, 2026): HTW Berlin’s IUNO project is an EU-funded research initiative supporting artists at the intersection of AI and XR. The selected artist or team will co-develop a project at HTW Berlin from May 2026 to January 2027, with access to equipment, mentorship, a scientific paper publication, and public networking events. https://www.berlinartlink.com/2026/02/17/open-call-htw-berlin-artistic-fellowship-ai-xr/
@@ -205,6 +205,8 @@ Updated 2026-11-25. Full board with filters: https://tanitxr.org/opportunities/
 - Sprouts Film Festival 2027, Eco Immersive (VR) (Amsterdam) (Open Call, In-person, Global, deadline January 31, 2027): The Amsterdam ecocinema festival (May 31 to June 6, 2027) takes VR360 and interactive Meta Quest 3 works with an ecological focus and pays selected works a screening fee. Any country; fiction, experimental, animation or hybrid only, no traditional documentaries. EUR 9 to January 31, EUR 11.50 to February 28, half price on request for productions from Africa. https://filmfreeway.com/SproutsFilmFestival
 - SHAPESHIFT Festival 2027, VR and Interactive Film (Sofia) (Open Call, In-person, Global, deadline January 10, 2027): A festival in Sofia about technology and society, in April 2027, with categories for VR and AR films, installations and games, and interactive films. Any country; works made after January 1, 2025; VR needs a Bulgarian premiere. USD 15 to December 10, USD 25 to January 10, USD 35 to February 10; students USD 10. https://filmfreeway.com/SHAPESHIFTFESTIVAL
 - Ibrida Festival 2027, XR / VR / AR / Mixed Reality (Forlì, Italy) (Open Call, In-person, Global, deadline March 15, 2027): The intermedia arts festival curated by Vertov Project (Forlì, September 8 to 12, 2027) has its own XR, VR, AR and mixed reality category next to video art, live audiovisual performance and installation. Artists of all countries; works from 2025 on. EUR 6 to March 15, EUR 8 to April 30, EUR 10 to June 1. https://filmfreeway.com/IbridaFestival
+- Animaphix 2027, Expanded Cinema: VR Zone (Bagheria, Sicily) (Open Call, In-person, Global, deadline January 28, 2027): The 13th Animaphix, Contemporary New Languages Film Festival (Bagheria, June 27 to July 3, 2027) has a VR Zone category for virtual reality works, with a Best VR Zone award. Works from 2026 or 2027, 30 minutes or less, any country. Free to enter. https://filmfreeway.com/NewContemporaryLanguagesFilmFestival
+- ShorTS International Film Festival 2027, Immersive Section (Trieste) (Open Call, In-person, Global, deadline February 14, 2027): Two competitions at the festival in Trieste (June 26 to July 3, 2027): VR short films up to 20 minutes (360 video) and 6DoF VR or mixed reality experiences that run on a standalone Meta Quest 3. EUR 1,000 prize for each. Works from any country. EUR 7 entry fee. https://filmfreeway.com/ShorTSInternationalFilmFestival
 
 ## The 3D collection
 
