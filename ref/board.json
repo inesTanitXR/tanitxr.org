@@ -1,6 +1,6 @@
 {
  "_what": "Every opportunity on the board, written on each build.",
- "built": "2026-11-26",
+ "built": "2026-11-27",
  "items": [
   {
    "slug": "the-kyoto-retreat-2026",
@@ -3460,6 +3460,86 @@
    "deadline_type": null,
    "deadline_date": "February 14, 2027",
    "url": "https://filmfreeway.com/ShorTSInternationalFilmFestival"
+  },
+  {
+   "slug": "margate-film-festival-2027-xr-vr-work-category-uk",
+   "title": "Margate Film Festival 2027, XR/VR Work category (UK)",
+   "desc": "A volunteer-led charity festival in Margate, England (November 25 to 30, 2027) with an XR/VR Work category. International entries welcome; work finished after January 1, 2024, English subtitles required. GBP 6.50 until January 1, 2027, rising in steps to GBP 12 by the last deadline, September 15, 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 1, 2027",
+   "url": "https://filmfreeway.com/MargateFilmFestival"
+  },
+  {
+   "slug": "byron-bay-international-film-festival-2027-virtual-reality-e",
+   "title": "Byron Bay International Film Festival 2027, Virtual Reality Experience category",
+   "desc": "Byron Bay International Film Festival (October 22 to 31, 2027, New South Wales, Australia) takes entries in a Virtual Reality Experience category. Open to Australian and international makers; work must not have screened before January 2025. USD 30 until February 5, 2027, then USD 40 (April 30), USD 50 (June 25) and USD 60 (July 16).",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "February 5, 2027",
+   "url": "https://filmfreeway.com/ByronBayInternationalFilmFestival"
+  },
+  {
+   "slug": "mifa-pitches-2027-immersive-experiences-annecy-festival",
+   "title": "Mifa Pitches 2027, Immersive Experiences (Annecy Festival)",
+   "desc": "Annecy's film market picks AR, VR and MR projects in development to pitch live for 10 minutes during Mifa, June 15 to 18, 2027. Any age and nationality; animation must make up at least half of the project and a prototype or demo is required. EUR 20 plus VAT, EUR 10 for projects from Animation du Monde countries, a list that includes Tunisia.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "January 21, 2027",
+   "url": "https://www.annecyfestival.com/take-part/submit-a-project"
+  },
+  {
+   "slug": "bolton-international-film-festival-2027-vr-ar-360",
+   "title": "Bolton International Film Festival 2027, VR/AR/360",
+   "desc": "A VR/AR/360 entry category with a Best Immersive Experience award at the festival in Bolton, England (September 29 to October 3, 2027, plus an online version). Any country; works up to 40 minutes finished between June 8, 2025 and June 8, 2027 that run on Quest 2 or 3 or linked PC VR. USD 27.50 through March 9, 2027, then USD 30 to 35 up to the final deadline, June 8, 2027.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "Hybrid",
+   "deadline_type": null,
+   "deadline_date": "June 8, 2027",
+   "url": "https://filmfreeway.com/BoltonFilmFestival"
+  },
+  {
+   "slug": "anibar-international-animation-festival-2027-virtual-reality",
+   "title": "Anibar International Animation Festival 2027, Virtual Reality Category (Peja, Kosovo)",
+   "desc": "The 18th Anibar festival in Peja, Kosovo (July 2027) takes animated VR works under 30 minutes for a curated, non-competitive Virtual Reality program: narrative shorts, installations, interactive and non-linear pieces. Any country, no completion-date limit for this category. The FilmFreeway listing shows USD 5, while the festival rules say no fee applies to non-competitive categories.",
+   "type": "Open Call",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "region": "Global",
+   "country": "",
+   "mode": "In-person",
+   "deadline_type": null,
+   "deadline_date": "March 31, 2027",
+   "url": "https://filmfreeway.com/AnibarAnimationFestival"
   }
  ]
 }

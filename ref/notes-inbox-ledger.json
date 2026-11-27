@@ -1473,6 +1473,69 @@
    "source": "suggestion",
    "raw": "Similar-finds research",
    "status": "skipped: EUR 275 per project, no waivers"
+  },
+  {
+   "key": "margate film festival 2027 xr vr work category uk",
+   "date": "2026-11-27",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): GBP 6.50, XR/VR category, international entries welcome, Jan 1 2027 (last Sep 15 2027)"
+  },
+  {
+   "key": "byron bay international film festival 2027 virtual reality experience category",
+   "date": "2026-11-27",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): USD 30 earlybird, VR category, international, Feb 5 2027"
+  },
+  {
+   "key": "2027 28 mozilla fellowships linkedin post screenshot nov 26",
+   "date": "2026-11-27",
+   "source": "screenshot",
+   "raw": "shot-3.png, LinkedIn post on the 2027-28 Mozilla Fellowships, LOI Dec 17",
+   "status": "already on the board, in edition 22 and on her shortlist; moved to done/"
+  },
+  {
+   "key": "mifa pitches 2027 immersive experiences annecy festival",
+   "date": "2026-11-27",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): immersive pitch category, EUR 20 (EUR 10 for Tunisia), any nationality, Jan 21 2027"
+  },
+  {
+   "key": "bolton international film festival 2027 vr ar 360",
+   "date": "2026-11-27",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): VR/AR/360 category, USD 27.50 to 35, any country, final deadline Jun 8 2027"
+  },
+  {
+   "key": "anibar international animation festival 2027 virtual reality category peja kosovo",
+   "date": "2026-11-27",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): VR category, USD 5 or free, any country, Mar 31 2027"
+  },
+  {
+   "key": "sunrise film festival 2027 vr immersive",
+   "date": "2026-11-27",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (international entry not written for the VR category)"
+  },
+  {
+   "key": "bogota experimental film festival cineautopsia 2027 fulldome",
+   "date": "2026-11-27",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (wildcard)"
+  },
+  {
+   "key": "ideatexr 2027 ieee vr workshop",
+   "date": "2026-11-27",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
   }
  ],
  "slack_last_ts": "1795516367.000000",
@@ -1710,6 +1773,18 @@
    "file": "shot.html",
    "raw": "https://www.instagram.com/p/Dfya8p3FvbL/ (@thingstododc)",
    "what": "Thingstodo DC post of November 15, 2026; DC things to do, no application"
+  },
+  {
+   "date": "2026-11-27",
+   "file": "shot.png",
+   "raw": "screenshot, Instagram ad @natgeomuseum",
+   "what": "Nat Geo Museum free film screening, Expedition: Saving Our Seas, Dec 8, 7 pm"
+  },
+  {
+   "date": "2026-11-27",
+   "file": "shot-2.png",
+   "raw": "screenshot, Sultan Qaboos Cultural Center page",
+   "what": "World Arabic Language Day, The Arabic Language Through Music, SQCC, 1100 16th St NW, Dec 10, 6 to 8 pm"
   }
  ]
 }

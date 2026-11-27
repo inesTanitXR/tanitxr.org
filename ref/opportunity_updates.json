@@ -2516,6 +2516,81 @@
    "url": "https://filmfreeway.com/ShorTSInternationalFilmFestival",
    "published": "2026-11-26",
    "desc": "Two competitions at the festival in Trieste (June 26 to July 3, 2027): VR short films up to 20 minutes (360 video) and 6DoF VR or mixed reality experiences that run on a standalone Meta Quest 3. EUR 1,000 prize for each. Works from any country. EUR 7 entry fee."
+  },
+  {
+   "title": "Margate Film Festival 2027, XR/VR Work category (UK)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-01-01",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/MargateFilmFestival",
+   "published": "2026-11-27",
+   "desc": "A volunteer-led charity festival in Margate, England (November 25 to 30, 2027) with an XR/VR Work category. International entries welcome; work finished after January 1, 2024, English subtitles required. GBP 6.50 until January 1, 2027, rising in steps to GBP 12 by the last deadline, September 15, 2027."
+  },
+  {
+   "title": "Byron Bay International Film Festival 2027, Virtual Reality Experience category",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-02-05",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/ByronBayInternationalFilmFestival",
+   "published": "2026-11-27",
+   "desc": "Byron Bay International Film Festival (October 22 to 31, 2027, New South Wales, Australia) takes entries in a Virtual Reality Experience category. Open to Australian and international makers; work must not have screened before January 2025. USD 30 until February 5, 2027, then USD 40 (April 30), USD 50 (June 25) and USD 60 (July 16)."
+  },
+  {
+   "title": "Mifa Pitches 2027, Immersive Experiences (Annecy Festival)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-01-21",
+   "deadline_type": null,
+   "url": "https://www.annecyfestival.com/take-part/submit-a-project",
+   "published": "2026-11-27",
+   "desc": "Annecy's film market picks AR, VR and MR projects in development to pitch live for 10 minutes during Mifa, June 15 to 18, 2027. Any age and nationality; animation must make up at least half of the project and a prototype or demo is required. EUR 20 plus VAT, EUR 10 for projects from Animation du Monde countries, a list that includes Tunisia."
+  },
+  {
+   "title": "Bolton International Film Festival 2027, VR/AR/360",
+   "type": "Open Call",
+   "mode": "Hybrid",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-06-08",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/BoltonFilmFestival",
+   "published": "2026-11-27",
+   "desc": "A VR/AR/360 entry category with a Best Immersive Experience award at the festival in Bolton, England (September 29 to October 3, 2027, plus an online version). Any country; works up to 40 minutes finished between June 8, 2025 and June 8, 2027 that run on Quest 2 or 3 or linked PC VR. USD 27.50 through March 9, 2027, then USD 30 to 35 up to the final deadline, June 8, 2027."
+  },
+  {
+   "title": "Anibar International Animation Festival 2027, Virtual Reality Category (Peja, Kosovo)",
+   "type": "Open Call",
+   "mode": "In-person",
+   "region": "Global",
+   "eligibility": [
+    "Artists",
+    "XR Creators"
+   ],
+   "deadline_date": "2027-03-31",
+   "deadline_type": null,
+   "url": "https://filmfreeway.com/AnibarAnimationFestival",
+   "published": "2026-11-27",
+   "desc": "The 18th Anibar festival in Peja, Kosovo (July 2027) takes animated VR works under 30 minutes for a curated, non-competitive Virtual Reality program: narrative shorts, installations, interactive and non-linear pieces. Any country, no completion-date limit for this category. The FilmFreeway listing shows USD 5, while the festival rules say no fee applies to non-competitive categories."
   }
  ],
  "featured": {

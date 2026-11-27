@@ -336,6 +336,11 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | CPH:DOX | linkedin.com/company/cph-dox |
 | Let's Talk About Water | linkedin.com/company/letstalkaboutwater |
 | Appalachian Trail Conservancy | linkedin.com/company/appalachian-trail-conservancy |
+| Margate Film Festival | no LinkedIn page found |
+| Byron Bay International Film Festival | no LinkedIn page found |
+| CITIA (Annecy Festival and Mifa) | linkedin.com/company/citia---cit-de-l'image-en-mouvement (organiser CITIA; the festival's own page not confirmed) |
+| Bolton Film Festival | linkedin.com/company/bolton-film-festival |
+| Anibar | linkedin.com/company/anibar-international-animation-festival |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -1272,3 +1277,63 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ Two competitions: 360 VR short films up to 20 minutes, and 6DoF VR or mixed reality experiences that run on a standalone Meta Quest 3. EUR 1,000 prize for each.
 
 👉 https://filmfreeway.com/ShorTSInternationalFilmFestival
+
+### 🌊 Margate Film Festival 2027, XR/VR Work category (UK)
+
+📅 Deadline: January 1, 2027 for the lowest fee; last deadline September 15, 2027
+
+📍 Margate, England, November 25 to 30, 2027
+
+👥 XR and VR creators of any country. GBP 6.50 to January 1, then GBP 7.20 to 12
+
+✏️ A charity-run film festival with its own XR/VR Work category. Work finished after January 1, 2024, English subtitles required, no premiere rule. No cash prize stated.
+
+👉 https://filmfreeway.com/MargateFilmFestival
+
+### 🏄 Byron Bay International Film Festival 2027, Virtual Reality Experience category
+
+📅 Deadline: February 5, 2027 (earlybird); later deadlines to July 16, 2027
+
+📍 Byron Bay, Australia, October 22 to 31, 2027
+
+👥 VR creators of any country. USD 30 to February 5, then USD 40 to 60
+
+✏️ A film festival with VR and XR award categories since 2016. Work must not have screened before January 2025. No cash prize stated for VR.
+
+👉 https://filmfreeway.com/ByronBayInternationalFilmFestival
+
+### 🎤 Mifa Pitches 2027, Immersive Experiences (Annecy Festival)
+
+📅 Deadline: January 21, 2027, 11:59 pm CET
+
+📍 Annecy, France, June 15 to 18, 2027
+
+👥 Authors or producers of any nationality with an AR, VR or MR project in development that is at least half animation and has a prototype. EUR 20 plus VAT; EUR 10 for projects from Tunisia and other Animation du Monde countries
+
+✏️ Selected projects pitch live for 10 minutes to industry professionals at Mifa, get up to two free accreditations and compete for partner prizes. Travel is at your own cost.
+
+👉 https://www.annecyfestival.com/take-part/submit-a-project
+
+### 🥽 Bolton International Film Festival 2027, VR/AR/360
+
+📅 Deadline: June 8, 2027 (final); USD 27.50 through March 9, 2027
+
+📍 Bolton, England, and online, September 29 to October 3, 2027
+
+👥 VR, AR and 360 creators of any country. USD 27.50, rising to USD 35 for the last two deadlines
+
+✏️ A short film festival with a VR/AR/360 category and a Best Immersive Experience award. Works up to 40 minutes that run on Quest 2 or 3 or linked PC VR. No cash prize stated.
+
+👉 https://filmfreeway.com/BoltonFilmFestival
+
+### 🎞️ Anibar International Animation Festival 2027, Virtual Reality Category (Peja, Kosovo)
+
+📅 Deadline: March 31, 2027
+
+📍 Peja, Kosovo, July 2027
+
+👥 Makers of animated VR works from any country. USD 5 on the listing; the rules say this category is free
+
+✏️ A curated, non-competitive VR program for animated immersive works under 30 minutes, including installations and interactive pieces. Older works can enter.
+
+👉 https://filmfreeway.com/AnibarAnimationFestival
