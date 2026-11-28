@@ -1536,6 +1536,62 @@
    "source": "suggestion",
    "raw": "Similar-finds research",
    "status": "raised on the report page"
+  },
+  {
+   "key": "little big fellowship 2027 little big fund",
+   "date": "2026-11-28",
+   "source": "screenshot",
+   "raw": "shot-3.png, LinkedIn post by Little Big Fund",
+   "status": "published: fellowship, Jan 17 2027; also on the shortlist"
+  },
+  {
+   "key": "manchester animation festival 2027 immersive film",
+   "date": "2026-11-28",
+   "source": "auto",
+   "raw": "Review pile, re-read on FilmFreeway",
+   "status": "published (auto): VR/AR/360 category, GBP 15 to 25, international, Jul 30 2027"
+  },
+  {
+   "key": "ar ti f cio a i r 2027 artificial intelligence residence cagliari",
+   "date": "2026-11-28",
+   "source": "auto",
+   "raw": "Similar-finds research",
+   "status": "published (auto): art+tech residency, free, any nationality, Jan 30 2027"
+  },
+  {
+   "key": "nime 2027 call for art installations paris",
+   "date": "2026-11-28",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "planetary transitions 2027 potsdam artist residency rifs daad city of potsdam",
+   "date": "2026-11-28",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "gjon mili residency program 2027 dh rmi albania",
+   "date": "2026-11-28",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page"
+  },
+  {
+   "key": "re publica 27 call for participation berlin",
+   "date": "2026-11-28",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (wildcard)"
+  },
+  {
+   "key": "newberry library artists in residence 2027 28 chicago",
+   "date": "2026-11-28",
+   "source": "suggestion",
+   "raw": "Similar-finds research",
+   "status": "raised on the report page (wildcard)"
   }
  ],
  "slack_last_ts": "1795516367.000000",

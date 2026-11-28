@@ -662,7 +662,7 @@
   {
    "slug": "currents-2027-art-technology-festival-open-call",
    "deadline": "December 8, 2026",
-   "status": "new",
+   "status": "reminded",
    "reason": "A VR, AR and mixed reality category at a Santa Fe new media festival, $30 to enter with hardship waivers; a low-cost way to exhibit an existing XR piece in the US."
   },
   {
@@ -841,6 +841,16 @@
    "deadline": "December 20, 2026",
    "status": "new",
    "reason": "Free, low effort, small honorarium: a written piece on Tanit XR's story for an XR and social impact publication."
+  },
+  {
+   "slug": "little-big-fellowship-2027",
+   "title": "Little Big Fellowship 2027 (Little Big Fund)",
+   "deadline": "January 17, 2027",
+   "status": "new",
+   "url": "https://www.littlebig.fund/fellowship",
+   "reason": "Your LinkedIn screenshot of Nov 28. Eight months of fundraising training for nonprofit leaders (bootcamps, mentors, a pool of micro-grants, a five-day retreat), which fits getting Tanit XR funder-ready. No fee or country limit stated; past fellows were all from Africa, Asia and Latin America, so apply as a Tunisia-rooted organisation. Form: tally.so/r/yXY6Md. Time of day for the deadline not stated.",
+   "added": "2026-11-28",
+   "source": "screenshot"
   }
  ]
 }

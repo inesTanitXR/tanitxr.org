@@ -341,6 +341,9 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 | CITIA (Annecy Festival and Mifa) | linkedin.com/company/citia---cit-de-l'image-en-mouvement (organiser CITIA; the festival's own page not confirmed) |
 | Bolton Film Festival | linkedin.com/company/bolton-film-festival |
 | Anibar | linkedin.com/company/anibar-international-animation-festival |
+| Little Big Fund | linkedin.com/company/little-big-fund |
+| Manchester Animation Festival | no LinkedIn page found |
+| Opificio Innova (ar·ti·fì·cio) | linkedin.com/company/opificio-innova |
 
 ### 🇹🇳 Culture Moves Europe, Individual Mobility 2026-2027
 
@@ -1337,3 +1340,39 @@ edition is always ready to assemble. (Edition 18's full draft: newsletter-editio
 ✏️ A curated, non-competitive VR program for animated immersive works under 30 minutes, including installations and interactive pieces. Older works can enter.
 
 👉 https://filmfreeway.com/AnibarAnimationFestival
+
+### 🌱 Little Big Fellowship 2027 (Little Big Fund)
+
+📅 Deadline: January 17, 2027
+
+📍 Mostly online, February to September 2027, plus a five-day in-person retreat (place not announced)
+
+👥 People leading a nonprofit or social enterprise. No country limit or fee stated on the form
+
+✏️ Eight months of fundraising training: five-week bootcamps, mentors, monthly expert sessions and access to a pool of micro-grants. The 2027 application form is linked from Little Big Fund's LinkedIn page.
+
+👉 https://www.littlebig.fund/fellowship
+
+### 🐝 Manchester Animation Festival 2027, Immersive Film
+
+📅 Deadline: July 30, 2027 (final, GBP 25); GBP 15 through March 3, GBP 20 through June 23
+
+📍 Manchester, England, November 14 to 18, 2027
+
+👥 Animators working in VR, AR or 360, international entries invited. GBP 15 to 25, students about half
+
+✏️ A category for animated VR, AR or 360 narrative films under 30 minutes, finished after July 17, 2026. No generative-AI imagery, audio or video.
+
+👉 https://filmfreeway.com/ManchesterAnimationFestival
+
+### 🤖 ar·ti·fì·cio A.I.R. 2027, Artificial Intelligence Residence (Cagliari)
+
+📅 Deadline: 30 January 2027, 23:59 Italian time (rolling selection, may close early)
+
+📍 Cagliari, Sardinia, Italy. 2 to 4 weeks between December 2026 and April 2027.
+
+👥 Artists and digital creatives 18+ of any nationality who work with AI, US and Tunisia included. Free to apply.
+
+✏️ Five residencies with EUR 600 a week, up to EUR 2,000 for production, return travel, accommodation and a final exhibition. Residents also give a masterclass.
+
+👉 https://artificio.opificioinnova.it/air/en.html
